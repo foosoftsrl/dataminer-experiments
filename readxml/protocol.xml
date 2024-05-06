@@ -26,8 +26,8 @@
 		</Param>
 		
 		<Param id="3" trending="false">
-			<Name>name</Name>
-			<Description>description</Description>
+			<Name>anumber</Name>
+			<Description>A simple number we will update in the scripts</Description>
 			<Type>read</Type>
 			<Information>
 			</Information>
@@ -48,6 +48,32 @@
 			</Display>
 			<Measurement>
 				<Type>number</Type>
+			</Measurement>
+		</Param>
+		
+		<Param id="4" trending="false">
+			<Name>debug</Name>
+			<Description>Debug data</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>General</Page>
+						<Column>0</Column>
+						<Row>2</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
 			</Measurement>
 		</Param>
 		
