@@ -83,17 +83,24 @@ public static class QAction
                   <item id=""3""/>
                   <item id=""4""/>
                   <item id=""5""/>
+                  <item id=""6""/>
                 </items>
             ";
             // Convert C# Generated Classes into Qaction Rows.
-            List<object[]> instances = new List<object[]>();
             items items_ = XmlDeserializeFromString<items>(textData);
 
+            List<object[]> instances = new List<object[]>();
+            // Convert Generated class into Connector Row data.
             foreach (itemsItem instance in items_.item)
             {
+                instances.Add(new TablenameQActionRow
+                {
+                    Tablenameinstance_2001 = instance.id,
+                    Tablenameinstance2_2002 = instance.id,
+                }.ToObjectArray());
             }
             protocol.Debug = items_.item.Length;
-            //protocol.FillArray(Parameter.Instancesxml.tablePid, instances, NotifyProtocol.SaveOption.Full);
+            protocol.FillArray(Parameter.Tablename.tablePid, instances, NotifyProtocol.SaveOption.Full);
         }
         catch (Exception ex)
         {

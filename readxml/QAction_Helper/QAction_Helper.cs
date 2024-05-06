@@ -18,11 +18,6 @@ public static class Parameter
 	public const int debug_4 = 4;
 	/// <summary>PID: 4 | Type: read</summary>
 	public const int debug = 4;
-	/// <summary>PID: 1000 | Type: read</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public const int rootitemid_1000 = 1000;
-	/// <summary>PID: 1000 | Type: read</summary>
-	public const int rootitemid = 1000;
 	public class Write
 	{
 		/// <summary>PID: 111 | Type: write</summary>
@@ -30,6 +25,44 @@ public static class Parameter
 		public const int filecheck_111 = 111;
 		/// <summary>PID: 111 | Type: write</summary>
 		public const int filecheck = 111;
+	}
+	public class Tablename
+	{
+		/// <summary>PID: 2000</summary>
+		public const int tablePid = 2000;
+		/// <summary>IDX: 0</summary>
+		public const int indexColumn = 0;
+		/// <summary>PID: 2001</summary>
+		public const int indexColumnPid = 2001;
+		public class Pid
+		{
+			/// <summary>PID: 2001 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int tablenameinstance_2001 = 2001;
+			/// <summary>PID: 2001 | Type: read</summary>
+			public const int tablenameinstance = 2001;
+			/// <summary>PID: 2002 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int tablenameinstance2_2002 = 2002;
+			/// <summary>PID: 2002 | Type: read</summary>
+			public const int tablenameinstance2 = 2002;
+			public class Write
+			{
+			}
+		}
+		public class Idx
+		{
+			/// <summary>IDX: 0 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int tablenameinstance_2001 = 0;
+			/// <summary>IDX: 0 | Type: read</summary>
+			public const int tablenameinstance = 0;
+			/// <summary>IDX: 1 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int tablenameinstance2_2002 = 1;
+			/// <summary>IDX: 1 | Type: read</summary>
+			public const int tablenameinstance2 = 1;
+		}
 	}
 }
 public class WriteParameters
@@ -44,6 +77,8 @@ public class WriteParameters
 }
 public interface SLProtocolExt : SLProtocol
 {
+	/// <summary>PID: 2000</summary>
+	TablenameQActionTable tablename { get; set; }
 	object Afterstartup_dummy { get; set; }
 	object Anumber_3 { get; set; }
 	object Anumber { get; set; }
@@ -51,12 +86,16 @@ public interface SLProtocolExt : SLProtocol
 	object Debug { get; set; }
 	object Filecheck_111 { get; set; }
 	object Filecheck { get; set; }
-	object Rootitemid_1000 { get; set; }
-	object Rootitemid { get; set; }
+	object Tablenameinstance_2001 { get; set; }
+	object Tablenameinstance { get; set; }
+	object Tablenameinstance2_2002 { get; set; }
+	object Tablenameinstance2 { get; set; }
 	WriteParameters Write { get; set; }
 }
 public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 {
+	/// <summary>PID: 2000</summary>
+	public TablenameQActionTable tablename { get; set; }
 	/// <summary>PID: 2  | Type: dummy</summary>
 	public System.Object Afterstartup_dummy {get { return GetParameter(2); }set { SetParameter(2, value); }}
 	/// <summary>PID: 3  | Type: read</summary>
@@ -73,15 +112,46 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public System.Object Filecheck_111 {get { return GetParameter(111); }set { SetParameter(111, value); }}
 	/// <summary>PID: 111  | Type: write | DISCREETS: Check = check</summary>
 	public System.Object Filecheck {get { return Write.Filecheck; }set { Write.Filecheck = value; }}
-	/// <summary>PID: 1000  | Type: read</summary>
+	/// <summary>PID: 2001  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Rootitemid_1000 {get { return GetParameter(1000); }set { SetParameter(1000, value); }}
-	/// <summary>PID: 1000  | Type: read</summary>
-	public System.Object Rootitemid {get { return GetParameter(1000); }set { SetParameter(1000, value); }}
+	public System.Object Tablenameinstance_2001 {get { return GetParameter(2001); }set { SetParameter(2001, value); }}
+	/// <summary>PID: 2001  | Type: read</summary>
+	public System.Object Tablenameinstance {get { return GetParameter(2001); }set { SetParameter(2001, value); }}
+	/// <summary>PID: 2002  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Tablenameinstance2_2002 {get { return GetParameter(2002); }set { SetParameter(2002, value); }}
+	/// <summary>PID: 2002  | Type: read</summary>
+	public System.Object Tablenameinstance2 {get { return GetParameter(2002); }set { SetParameter(2002, value); }}
 	public WriteParameters Write { get; set; }
 	public ConcreteSLProtocolExt()
 	{
+		tablename = new TablenameQActionTable(this, 2000, "tablename");
 		Write = new WriteParameters(this);
 	}
+}
+/// <summary>IDX: 0</summary>
+public class TablenameQActionTable : QActionTable, IEnumerable<TablenameQActionRow>
+{
+	public TablenameQActionTable(SLProtocol protocol, int tableId, string tableName) : base(protocol, tableId, tableName) { }
+	IEnumerator IEnumerable.GetEnumerator() { return (IEnumerator) GetEnumerator(); }
+	public IEnumerator<TablenameQActionRow> GetEnumerator() { return new QActionTableEnumerator<TablenameQActionRow>(this); }
+}
+/// <summary>IDX: 0</summary>
+public class TablenameQActionRow : QActionTableRow
+{
+	/// <summary>PID: 2001 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Tablenameinstance_2001 { get { if (base.Columns.ContainsKey(0)) { return base.Columns[0]; } else { return null; } } set { if (base.Columns.ContainsKey(0)) { base.Columns[0] = value; } else { base.Columns.Add(0, value); } } }
+	/// <summary>PID: 2001 | Type: read</summary>
+	public System.Object Tablenameinstance { get { if (base.Columns.ContainsKey(0)) { return base.Columns[0]; } else { return null; } } set { if (base.Columns.ContainsKey(0)) { base.Columns[0] = value; } else { base.Columns.Add(0, value); } } }
+	/// <summary>PID: 2002 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Tablenameinstance2_2002 { get { if (base.Columns.ContainsKey(1)) { return base.Columns[1]; } else { return null; } } set { if (base.Columns.ContainsKey(1)) { base.Columns[1] = value; } else { base.Columns.Add(1, value); } } }
+	/// <summary>PID: 2002 | Type: read</summary>
+	public System.Object Tablenameinstance2 { get { if (base.Columns.ContainsKey(1)) { return base.Columns[1]; } else { return null; } } set { if (base.Columns.ContainsKey(1)) { base.Columns[1] = value; } else { base.Columns.Add(1, value); } } }
+	public TablenameQActionRow() : base(0, 2) { }
+	public TablenameQActionRow(System.Object[] oRow) : base(0, 2, oRow) { }
+	public static implicit operator TablenameQActionRow(System.Object[] source) { return new TablenameQActionRow(source); }
+	public static implicit operator System.Object[](TablenameQActionRow source) { return source.ToObjectArray(); }
 }
 }
