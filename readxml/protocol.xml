@@ -10,7 +10,7 @@
 	<DeviceOID></DeviceOID>
 	<ElementType></ElementType>
 	<Type relativeTimers="true">virtual</Type>
-	<Display defaultPage="General" pageOrder="General"/>
+	<Display defaultPage="General" pageOrder="General" wideColumnPages=""/>
 	<SNMP includepages="true">auto</SNMP>
 
 	<Compliancies>
@@ -24,7 +24,33 @@
 			<Description>After Startup</Description>
 			<Type>dummy</Type>
 		</Param>
-
+		
+		<Param id="3" trending="false">
+			<Name>name</Name>
+			<Description>description</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>General</Page>
+						<Column>0</Column>
+						<Row>1</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>number</Type>
+			</Measurement>
+		</Param>
+		
 		<Param id="111">
 			<Name>fileCheck</Name>
 			<Description />
@@ -58,7 +84,7 @@
 				</Discreets>
 			</Measurement>
 		</Param>
-
+		
 		<Param id="1000" trending="false">
 			<Name>RootItemId</Name>
 			<Description>Root Item Id</Description>
@@ -80,6 +106,8 @@
 	<QActions>
 		<QAction id="1" name="Precompiled Code" encoding="csharp" options="precompile" />
 		<QAction id="2" name="After Startup" encoding="csharp" triggers="2" />
+		<QAction id="3" name="QActionName" encoding="csharp" triggers="111">
+		</QAction>
 	</QActions>
 
 	<Groups>

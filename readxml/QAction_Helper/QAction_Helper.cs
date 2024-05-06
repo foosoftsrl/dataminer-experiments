@@ -8,6 +8,11 @@ namespace Skyline.DataMiner.Scripting
 {
 public static class Parameter
 {
+	/// <summary>PID: 3 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public const int name_3 = 3;
+	/// <summary>PID: 3 | Type: read</summary>
+	public const int name = 3;
 	/// <summary>PID: 1000 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public const int rootitemid_1000 = 1000;
@@ -35,6 +40,8 @@ public class WriteParameters
 public interface SLProtocolExt : SLProtocol
 {
 	object Afterstartup_dummy { get; set; }
+	object Name_3 { get; set; }
+	object Name { get; set; }
 	object Filecheck_111 { get; set; }
 	object Filecheck { get; set; }
 	object Rootitemid_1000 { get; set; }
@@ -45,6 +52,11 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 {
 	/// <summary>PID: 2  | Type: dummy</summary>
 	public System.Object Afterstartup_dummy {get { return GetParameter(2); }set { SetParameter(2, value); }}
+	/// <summary>PID: 3  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Name_3 {get { return GetParameter(3); }set { SetParameter(3, value); }}
+	/// <summary>PID: 3  | Type: read</summary>
+	public System.Object Name {get { return GetParameter(3); }set { SetParameter(3, value); }}
 	/// <summary>PID: 111  | Type: write | DISCREETS: Check = check</summary>
 	public System.Object Filecheck_111 {get { return GetParameter(111); }set { SetParameter(111, value); }}
 	/// <summary>PID: 111  | Type: write | DISCREETS: Check = check</summary>
