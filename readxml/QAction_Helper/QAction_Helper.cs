@@ -8,6 +8,11 @@ namespace Skyline.DataMiner.Scripting
 {
 public static class Parameter
 {
+	/// <summary>PID: 1000 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public const int rootitemid_1000 = 1000;
+	/// <summary>PID: 1000 | Type: read</summary>
+	public const int rootitemid = 1000;
 	public class Write
 	{
 	}
@@ -23,12 +28,19 @@ public class WriteParameters
 public interface SLProtocolExt : SLProtocol
 {
 	object Afterstartup_dummy { get; set; }
+	object Rootitemid_1000 { get; set; }
+	object Rootitemid { get; set; }
 	WriteParameters Write { get; set; }
 }
 public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 {
 	/// <summary>PID: 2  | Type: dummy</summary>
 	public System.Object Afterstartup_dummy {get { return GetParameter(2); }set { SetParameter(2, value); }}
+	/// <summary>PID: 1000  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Rootitemid_1000 {get { return GetParameter(1000); }set { SetParameter(1000, value); }}
+	/// <summary>PID: 1000  | Type: read</summary>
+	public System.Object Rootitemid {get { return GetParameter(1000); }set { SetParameter(1000, value); }}
 	public WriteParameters Write { get; set; }
 	public ConcreteSLProtocolExt()
 	{

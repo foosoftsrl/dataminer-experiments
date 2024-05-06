@@ -24,6 +24,23 @@
 			<Description>After Startup</Description>
 			<Type>dummy</Type>
 		</Param>
+		<Param id="1000" trending="false">
+			<Name>RootItemId</Name>
+			<Description>Root Item Id</Description>
+			<Information>
+				<Subtext>Root Item Id</Subtext>
+			</Information>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Measurement>
+				<Type>number</Type>
+			</Measurement>
+		</Param>
+		
 	</Params>
 
 	<QActions>
