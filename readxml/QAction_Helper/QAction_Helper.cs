@@ -15,10 +15,17 @@ public static class Parameter
 	public const int rootitemid = 1000;
 	public class Write
 	{
+		/// <summary>PID: 111 | Type: write</summary>
+		[EditorBrowsable(EditorBrowsableState.Never)]
+		public const int filecheck_111 = 111;
+		/// <summary>PID: 111 | Type: write</summary>
+		public const int filecheck = 111;
 	}
 }
 public class WriteParameters
 {
+	/// <summary>PID: 111  | Type: write | DISCREETS: Check = check</summary>
+	public System.Object Filecheck {get { return Protocol.GetParameter(111); }set { Protocol.SetParameter(111, value); }}
 	public SLProtocolExt Protocol;
 	public WriteParameters(SLProtocolExt protocol)
 	{
@@ -28,6 +35,8 @@ public class WriteParameters
 public interface SLProtocolExt : SLProtocol
 {
 	object Afterstartup_dummy { get; set; }
+	object Filecheck_111 { get; set; }
+	object Filecheck { get; set; }
 	object Rootitemid_1000 { get; set; }
 	object Rootitemid { get; set; }
 	WriteParameters Write { get; set; }
@@ -36,6 +45,10 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 {
 	/// <summary>PID: 2  | Type: dummy</summary>
 	public System.Object Afterstartup_dummy {get { return GetParameter(2); }set { SetParameter(2, value); }}
+	/// <summary>PID: 111  | Type: write | DISCREETS: Check = check</summary>
+	public System.Object Filecheck_111 {get { return GetParameter(111); }set { SetParameter(111, value); }}
+	/// <summary>PID: 111  | Type: write | DISCREETS: Check = check</summary>
+	public System.Object Filecheck {get { return Write.Filecheck; }set { Write.Filecheck = value; }}
 	/// <summary>PID: 1000  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Rootitemid_1000 {get { return GetParameter(1000); }set { SetParameter(1000, value); }}
