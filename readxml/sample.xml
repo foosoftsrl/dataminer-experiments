@@ -1,6 +1,6 @@
 <items>
-  <item id="1"/>
-  <item id="2"/>
-  <item id="3"/>
-  <item id="4"/>
+  <item id="1" value="just"/>
+  <item id="2" value="some"/>
+  <item id="3" value="random"/>
+  <item id="4" value="text"/>
 </items>
