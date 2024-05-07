@@ -24,14 +24,14 @@ public static class QAction
         string fullPath = Path.Combine(dir, fileName);
         try
         {
-            protocol.Iterationcounter = (double)protocol.Iterationcounter + 3;
+            protocol.Iterationcounter = (double)protocol.Iterationcounter + 1;
             string fileContent = ReadFile(fullPath);
             var data = XmlDeserializeFromString<items>(fileContent);
 
             // Convert Generated class into Connector Row data.
             var rows = ConvertToTableRows(data);
-            protocol.Debug = data.item.Length;
             protocol.FillArray(Parameter.Datatable.tablePid, rows, NotifyProtocol.SaveOption.Full);
+            protocol.Debug = $"Parsed {data.item.Length} rows";
         }
         catch (Exception ex)
         {
@@ -55,8 +55,8 @@ public static class QAction
         {
             rows.Add(new DatatableQActionRow
             {
-                Tablenameinstance_2001 = instance.id,
-                Tablenameinstance2_2002 = instance.value,
+                Idcolumn = instance.id,
+                Datacolumn = instance.value,
             }.ToObjectArray());
         }
         return rows;

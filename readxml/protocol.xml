@@ -82,7 +82,7 @@
 			<Description />
 			<Information>
 				<Text>Process XML file from disk</Text>
-				<Subtext>File Check</Subtext>
+				<Subtext>Process XML File from disk</Subtext>
 			</Information>
 			<Type>write</Type>
 			<Interprete>
@@ -104,7 +104,7 @@
 				<Type width="110">button</Type>
 				<Discreets>
 					<Discreet>
-						<Display>Check</Display>
+						<Display>Process XML file</Display>
 						<Value>check</Value>
 					</Discreet>
 				</Discreets>
@@ -137,8 +137,8 @@
 			</Measurement>
 		</Param>
 		<Param id="2001" trending="false">
-			<Name>tableNameInstance</Name>
-			<Description>Instance (tableDescription)</Description>
+			<Name>idColumn</Name>
+			<Description>Column containing id</Description>
 			<Type>read</Type>
 			<Information>
 				<Subtext>This is the key used internally by DataMiner to identify the table entries.</Subtext>
@@ -163,8 +163,8 @@
 			</Measurement>
 		</Param>
 		<Param id="2002" trending="false">
-			<Name>tableNameInstance2</Name>
-			<Description>Instance2 (tableDescription)</Description>
+			<Name>dataColumn</Name>
+			<Description>Column containing data</Description>
 			<Type>read</Type>
 			<Information>
 				<Subtext>This is the key used internally by DataMiner to identify the table entries.</Subtext>
