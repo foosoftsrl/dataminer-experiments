@@ -26,8 +26,8 @@
 		</Param>
 		
 		<Param id="3" trending="false">
-			<Name>anumber</Name>
-			<Description>A simple number we will update in the scripts</Description>
+			<Name>iterationCounter</Name>
+			<Description>How many times XML file has been processed</Description>
 			<Type>read</Type>
 			<Information>
 			</Information>
@@ -78,10 +78,10 @@
 		</Param>
 		
 		<Param id="111">
-			<Name>fileCheck</Name>
+			<Name>processFile</Name>
 			<Description />
 			<Information>
-				<Text>Check</Text>
+				<Text>Process XML file from disk</Text>
 				<Subtext>File Check</Subtext>
 			</Information>
 			<Type>write</Type>
@@ -112,15 +112,15 @@
 		</Param>
 		
 		<Param id="2000">
-			<Name>tableName</Name>
-			<Description>tableDescription</Description>
+			<Name>dataTable</Name>
+			<Description>data</Description>
 			<Type>array</Type>
 			<ArrayOptions index="0">
 				<ColumnOption idx="0" pid="2001" type="retrieved" options=""/>
 				<ColumnOption idx="1" pid="2002" type="retrieved" options=""/>
 			</ArrayOptions>
 			<Information>
-				<Subtext>tableInformation</Subtext>
+				<Subtext>Table which shows data read from XML file</Subtext>
 			</Information>
 			<Display>
 				<RTDisplay>true</RTDisplay>

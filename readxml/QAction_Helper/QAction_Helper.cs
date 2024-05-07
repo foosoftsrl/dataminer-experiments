@@ -10,9 +10,9 @@ public static class Parameter
 {
 	/// <summary>PID: 3 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public const int anumber_3 = 3;
+	public const int iterationcounter_3 = 3;
 	/// <summary>PID: 3 | Type: read</summary>
-	public const int anumber = 3;
+	public const int iterationcounter = 3;
 	/// <summary>PID: 4 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public const int debug_4 = 4;
@@ -22,11 +22,11 @@ public static class Parameter
 	{
 		/// <summary>PID: 111 | Type: write</summary>
 		[EditorBrowsable(EditorBrowsableState.Never)]
-		public const int filecheck_111 = 111;
+		public const int processfile_111 = 111;
 		/// <summary>PID: 111 | Type: write</summary>
-		public const int filecheck = 111;
+		public const int processfile = 111;
 	}
-	public class Tablename
+	public class Datatable
 	{
 		/// <summary>PID: 2000</summary>
 		public const int tablePid = 2000;
@@ -68,7 +68,7 @@ public static class Parameter
 public class WriteParameters
 {
 	/// <summary>PID: 111  | Type: write | DISCREETS: Check = check</summary>
-	public System.Object Filecheck {get { return Protocol.GetParameter(111); }set { Protocol.SetParameter(111, value); }}
+	public System.Object Processfile {get { return Protocol.GetParameter(111); }set { Protocol.SetParameter(111, value); }}
 	public SLProtocolExt Protocol;
 	public WriteParameters(SLProtocolExt protocol)
 	{
@@ -78,14 +78,14 @@ public class WriteParameters
 public interface SLProtocolExt : SLProtocol
 {
 	/// <summary>PID: 2000</summary>
-	TablenameQActionTable tablename { get; set; }
+	DatatableQActionTable datatable { get; set; }
 	object Afterstartup_dummy { get; set; }
-	object Anumber_3 { get; set; }
-	object Anumber { get; set; }
+	object Iterationcounter_3 { get; set; }
+	object Iterationcounter { get; set; }
 	object Debug_4 { get; set; }
 	object Debug { get; set; }
-	object Filecheck_111 { get; set; }
-	object Filecheck { get; set; }
+	object Processfile_111 { get; set; }
+	object Processfile { get; set; }
 	object Tablenameinstance_2001 { get; set; }
 	object Tablenameinstance { get; set; }
 	object Tablenameinstance2_2002 { get; set; }
@@ -95,23 +95,23 @@ public interface SLProtocolExt : SLProtocol
 public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 {
 	/// <summary>PID: 2000</summary>
-	public TablenameQActionTable tablename { get; set; }
+	public DatatableQActionTable datatable { get; set; }
 	/// <summary>PID: 2  | Type: dummy</summary>
 	public System.Object Afterstartup_dummy {get { return GetParameter(2); }set { SetParameter(2, value); }}
 	/// <summary>PID: 3  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Anumber_3 {get { return GetParameter(3); }set { SetParameter(3, value); }}
+	public System.Object Iterationcounter_3 {get { return GetParameter(3); }set { SetParameter(3, value); }}
 	/// <summary>PID: 3  | Type: read</summary>
-	public System.Object Anumber {get { return GetParameter(3); }set { SetParameter(3, value); }}
+	public System.Object Iterationcounter {get { return GetParameter(3); }set { SetParameter(3, value); }}
 	/// <summary>PID: 4  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Debug_4 {get { return GetParameter(4); }set { SetParameter(4, value); }}
 	/// <summary>PID: 4  | Type: read</summary>
 	public System.Object Debug {get { return GetParameter(4); }set { SetParameter(4, value); }}
 	/// <summary>PID: 111  | Type: write | DISCREETS: Check = check</summary>
-	public System.Object Filecheck_111 {get { return GetParameter(111); }set { SetParameter(111, value); }}
+	public System.Object Processfile_111 {get { return GetParameter(111); }set { SetParameter(111, value); }}
 	/// <summary>PID: 111  | Type: write | DISCREETS: Check = check</summary>
-	public System.Object Filecheck {get { return Write.Filecheck; }set { Write.Filecheck = value; }}
+	public System.Object Processfile {get { return Write.Processfile; }set { Write.Processfile = value; }}
 	/// <summary>PID: 2001  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Tablenameinstance_2001 {get { return GetParameter(2001); }set { SetParameter(2001, value); }}
@@ -125,19 +125,19 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public WriteParameters Write { get; set; }
 	public ConcreteSLProtocolExt()
 	{
-		tablename = new TablenameQActionTable(this, 2000, "tablename");
+		datatable = new DatatableQActionTable(this, 2000, "datatable");
 		Write = new WriteParameters(this);
 	}
 }
 /// <summary>IDX: 0</summary>
-public class TablenameQActionTable : QActionTable, IEnumerable<TablenameQActionRow>
+public class DatatableQActionTable : QActionTable, IEnumerable<DatatableQActionRow>
 {
-	public TablenameQActionTable(SLProtocol protocol, int tableId, string tableName) : base(protocol, tableId, tableName) { }
+	public DatatableQActionTable(SLProtocol protocol, int tableId, string tableName) : base(protocol, tableId, tableName) { }
 	IEnumerator IEnumerable.GetEnumerator() { return (IEnumerator) GetEnumerator(); }
-	public IEnumerator<TablenameQActionRow> GetEnumerator() { return new QActionTableEnumerator<TablenameQActionRow>(this); }
+	public IEnumerator<DatatableQActionRow> GetEnumerator() { return new QActionTableEnumerator<DatatableQActionRow>(this); }
 }
 /// <summary>IDX: 0</summary>
-public class TablenameQActionRow : QActionTableRow
+public class DatatableQActionRow : QActionTableRow
 {
 	/// <summary>PID: 2001 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
@@ -149,9 +149,9 @@ public class TablenameQActionRow : QActionTableRow
 	public System.Object Tablenameinstance2_2002 { get { if (base.Columns.ContainsKey(1)) { return base.Columns[1]; } else { return null; } } set { if (base.Columns.ContainsKey(1)) { base.Columns[1] = value; } else { base.Columns.Add(1, value); } } }
 	/// <summary>PID: 2002 | Type: read</summary>
 	public System.Object Tablenameinstance2 { get { if (base.Columns.ContainsKey(1)) { return base.Columns[1]; } else { return null; } } set { if (base.Columns.ContainsKey(1)) { base.Columns[1] = value; } else { base.Columns.Add(1, value); } } }
-	public TablenameQActionRow() : base(0, 2) { }
-	public TablenameQActionRow(System.Object[] oRow) : base(0, 2, oRow) { }
-	public static implicit operator TablenameQActionRow(System.Object[] source) { return new TablenameQActionRow(source); }
-	public static implicit operator System.Object[](TablenameQActionRow source) { return source.ToObjectArray(); }
+	public DatatableQActionRow() : base(0, 2) { }
+	public DatatableQActionRow(System.Object[] oRow) : base(0, 2, oRow) { }
+	public static implicit operator DatatableQActionRow(System.Object[] source) { return new DatatableQActionRow(source); }
+	public static implicit operator System.Object[](DatatableQActionRow source) { return source.ToObjectArray(); }
 }
 }
