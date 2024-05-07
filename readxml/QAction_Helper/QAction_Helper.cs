@@ -97,8 +97,8 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 {
 	/// <summary>PID: 2000</summary>
 	public DatatableQActionTable datatable { get; set; }
-	/// <summary>PID: 2  | Type: dummy</summary>
-	public System.Object Afterstartup_dummy {get { return GetParameter(2); }set { SetParameter(2, value); }}
+	/// <summary>PID: 1  | Type: dummy</summary>
+	public System.Object Afterstartup_dummy {get { return GetParameter(1); }set { SetParameter(1, value); }}
 	/// <summary>PID: 3  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Iterationcounter_3 {get { return GetParameter(3); }set { SetParameter(3, value); }}

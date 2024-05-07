@@ -19,7 +19,7 @@
 	</Compliancies>
 
 	<Params>
-		<Param id="2">
+		<Param id="1">
 			<Name>AfterStartup</Name>
 			<Description>After Startup</Description>
 			<Type>dummy</Type>
@@ -198,20 +198,12 @@
 
 	<QActions>
 		<QAction id="1" name="Precompiled Code" encoding="csharp" options="precompile" />
-		<QAction id="2" name="After Startup" encoding="csharp" triggers="2" />
-		<QAction id="3" name="QActionName" encoding="csharp" triggers="111;5">
+		<QAction id="2" name="After Startup" encoding="csharp" triggers="1" />
+		<QAction id="3" name="QActionName" encoding="csharp" triggers="111;5;1">
 		</QAction>
 	</QActions>
 
 	<Groups>
-		<Group id="2">
-			<Name>After Startup</Name>
-			<Description>After Startup</Description>
-			<Type>poll action</Type>
-			<Content>
-				<Action>2</Action>
-			</Content>
-		</Group>
 		<Group id="5">
 			<Name>TriggerQAction</Name>
 			<Description>TriggerQAction</Description>
@@ -237,8 +229,8 @@
 	<Actions>
 		<Action id="1">
 			<Name>After Startup Group</Name>
-			<On id="2">group</On>
-			<Type>execute next</Type>
+			<On id="1">parameter</On>
+			<Type>run actions</Type>
 		</Action>
 		<Action id="5">
 			<Name>TriggerQAction</Name>
