@@ -84,6 +84,7 @@ public interface SLProtocolExt : SLProtocol
 	object Iterationcounter { get; set; }
 	object Debug_4 { get; set; }
 	object Debug { get; set; }
+	object Triggerqaction_dummy { get; set; }
 	object Processfile_111 { get; set; }
 	object Processfile { get; set; }
 	object Idcolumn_2001 { get; set; }
@@ -108,6 +109,8 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public System.Object Debug_4 {get { return GetParameter(4); }set { SetParameter(4, value); }}
 	/// <summary>PID: 4  | Type: read</summary>
 	public System.Object Debug {get { return GetParameter(4); }set { SetParameter(4, value); }}
+	/// <summary>PID: 5  | Type: dummy</summary>
+	public System.Object Triggerqaction_dummy {get { return GetParameter(5); }set { SetParameter(5, value); }}
 	/// <summary>PID: 111  | Type: write | DISCREETS: Process XML file = check</summary>
 	public System.Object Processfile_111 {get { return GetParameter(111); }set { SetParameter(111, value); }}
 	/// <summary>PID: 111  | Type: write | DISCREETS: Process XML file = check</summary>

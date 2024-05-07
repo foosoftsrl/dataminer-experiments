@@ -76,7 +76,13 @@
 				<Type>string</Type>
 			</Measurement>
 		</Param>
-		
+
+		<Param id="5">
+			<Name>TriggerQAction</Name>
+			<Description>TriggerQAction</Description>
+			<Type>dummy</Type>
+		</Param>
+
 		<Param id="111">
 			<Name>processFile</Name>
 			<Description />
@@ -193,7 +199,7 @@
 	<QActions>
 		<QAction id="1" name="Precompiled Code" encoding="csharp" options="precompile" />
 		<QAction id="2" name="After Startup" encoding="csharp" triggers="2" />
-		<QAction id="3" name="QActionName" encoding="csharp" triggers="111">
+		<QAction id="3" name="QActionName" encoding="csharp" triggers="111;5">
 		</QAction>
 	</QActions>
 
@@ -204,6 +210,14 @@
 			<Type>poll action</Type>
 			<Content>
 				<Action>2</Action>
+			</Content>
+		</Group>
+		<Group id="5">
+			<Name>TriggerQAction</Name>
+			<Description>TriggerQAction</Description>
+			<Type>poll action</Type>
+			<Content>
+				<Action>5</Action>
 			</Content>
 		</Group>
 	</Groups>
@@ -226,9 +240,9 @@
 			<On id="2">group</On>
 			<Type>execute next</Type>
 		</Action>
-		<Action id="2">
-			<Name>After Startup QAction</Name>
-			<On id="2">parameter</On>
+		<Action id="5">
+			<Name>TriggerQAction</Name>
+			<On id="5">parameter</On>
 			<Type>run actions</Type>
 		</Action>
 	</Actions>
@@ -236,9 +250,10 @@
 	<Timers>
 		<Timer id="1">
 			<Name>Fast Timer (10s)</Name>
-			<Time initial="true">10000</Time>
+			<Time initial="true">1000</Time>
 			<Interval>75</Interval>
 			<Content>
+				<Group>5</Group>
 			</Content>
 		</Timer>
 		<Timer id="2">
