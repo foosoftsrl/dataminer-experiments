@@ -25,7 +25,91 @@
 			<Type>dummy</Type>
 		</Param>
 		
-		<Param id="3" trending="false">
+		<Param id="5">
+			<Name>TriggerQAction</Name>
+			<Description>TriggerQAction</Description>
+			<Type>dummy</Type>
+		</Param>
+
+		<Param id="2000">
+			<Name>dataTable</Name>
+			<Description>data</Description>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="2001" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="2002" type="retrieved" options=""/>
+			</ArrayOptions>
+			<Information>
+				<Subtext>Table which shows data read from XML file</Subtext>
+			</Information>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>General</Page>
+						<Column>0</Column>
+						<Row>3</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type options="tab=columns:2001|0-2002|1,width:100-100,sort:STRING-STRING,lines:25,filter:true">table</Type>
+			</Measurement>
+		</Param>
+		<Param id="2001" trending="false">
+			<Name>idColumn</Name>
+			<Description>Id</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>Key used internally by DataMiner to identify the table entries.</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>General</Page>
+						<Column>0</Column>
+						<Row>4</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="2002" trending="false">
+			<Name>dataColumn</Name>
+			<Description>Data</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>Some data...</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>General</Page>
+						<Column>0</Column>
+						<Row>4</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<!-- Debug stuff -->
+		<Param id="10000" trending="false" save="true">
 			<Name>iterationCounter</Name>
 			<Description>How many times XML file has been processed</Description>
 			<Type>read</Type>
@@ -50,8 +134,7 @@
 				<Type>number</Type>
 			</Measurement>
 		</Param>
-		
-		<Param id="4" trending="false">
+		<Param id="10001" trending="false">
 			<Name>debug</Name>
 			<Description>Debug data</Description>
 			<Type>read</Type>
@@ -76,14 +159,7 @@
 				<Type>string</Type>
 			</Measurement>
 		</Param>
-
-		<Param id="5">
-			<Name>TriggerQAction</Name>
-			<Description>TriggerQAction</Description>
-			<Type>dummy</Type>
-		</Param>
-
-		<Param id="111">
+		<Param id="10002">
 			<Name>processFile</Name>
 			<Description />
 			<Information>
@@ -116,90 +192,12 @@
 				</Discreets>
 			</Measurement>
 		</Param>
-		
-		<Param id="2000">
-			<Name>dataTable</Name>
-			<Description>data</Description>
-			<Type>array</Type>
-			<ArrayOptions index="0">
-				<ColumnOption idx="0" pid="2001" type="retrieved" options=""/>
-				<ColumnOption idx="1" pid="2002" type="retrieved" options=""/>
-			</ArrayOptions>
-			<Information>
-				<Subtext>Table which shows data read from XML file</Subtext>
-			</Information>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-				<Positions>
-					<Position>
-						<Page>General</Page>
-						<Column>0</Column>
-						<Row>3</Row>
-					</Position>
-				</Positions>
-			</Display>
-			<Measurement>
-				<Type options="tab=columns:2001|0-2002|1,width:100-100,sort:STRING-STRING,lines:25,filter:true">table</Type>
-			</Measurement>
-		</Param>
-		<Param id="2001" trending="false">
-			<Name>idColumn</Name>
-			<Description>Column containing id</Description>
-			<Type>read</Type>
-			<Information>
-				<Subtext>This is the key used internally by DataMiner to identify the table entries.</Subtext>
-			</Information>
-			<Interprete>
-				<RawType>other</RawType>
-				<Type>string</Type>
-				<LengthType>next param</LengthType>
-			</Interprete>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-				<Positions>
-					<Position>
-						<Page>General</Page>
-						<Column>0</Column>
-						<Row>4</Row>
-					</Position>
-				</Positions>
-			</Display>
-			<Measurement>
-				<Type>string</Type>
-			</Measurement>
-		</Param>
-		<Param id="2002" trending="false">
-			<Name>dataColumn</Name>
-			<Description>Column containing data</Description>
-			<Type>read</Type>
-			<Information>
-				<Subtext>This is the key used internally by DataMiner to identify the table entries.</Subtext>
-			</Information>
-			<Interprete>
-				<RawType>other</RawType>
-				<Type>string</Type>
-				<LengthType>next param</LengthType>
-			</Interprete>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-				<Positions>
-					<Position>
-						<Page>General</Page>
-						<Column>0</Column>
-						<Row>4</Row>
-					</Position>
-				</Positions>
-			</Display>
-			<Measurement>
-				<Type>string</Type>
-			</Measurement>
-		</Param>
 	</Params>
 
 	<QActions>
 		<QAction id="1" name="Precompiled Code" encoding="csharp" options="precompile" />
 		<QAction id="2" name="After Startup" encoding="csharp" triggers="1" />
-		<QAction id="3" name="QActionName" encoding="csharp" triggers="111;5;1">
+		<QAction id="3" name="QActionName" encoding="csharp" triggers="10002;5;1">
 		</QAction>
 	</QActions>
 

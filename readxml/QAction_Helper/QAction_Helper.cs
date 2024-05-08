@@ -8,23 +8,23 @@ namespace Skyline.DataMiner.Scripting
 {
 public static class Parameter
 {
-	/// <summary>PID: 3 | Type: read</summary>
+	/// <summary>PID: 10000 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public const int iterationcounter_3 = 3;
-	/// <summary>PID: 3 | Type: read</summary>
-	public const int iterationcounter = 3;
-	/// <summary>PID: 4 | Type: read</summary>
+	public const int iterationcounter_10000 = 10000;
+	/// <summary>PID: 10000 | Type: read</summary>
+	public const int iterationcounter = 10000;
+	/// <summary>PID: 10001 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public const int debug_4 = 4;
-	/// <summary>PID: 4 | Type: read</summary>
-	public const int debug = 4;
+	public const int debug_10001 = 10001;
+	/// <summary>PID: 10001 | Type: read</summary>
+	public const int debug = 10001;
 	public class Write
 	{
-		/// <summary>PID: 111 | Type: write</summary>
+		/// <summary>PID: 10002 | Type: write</summary>
 		[EditorBrowsable(EditorBrowsableState.Never)]
-		public const int processfile_111 = 111;
-		/// <summary>PID: 111 | Type: write</summary>
-		public const int processfile = 111;
+		public const int processfile_10002 = 10002;
+		/// <summary>PID: 10002 | Type: write</summary>
+		public const int processfile = 10002;
 	}
 	public class Datatable
 	{
@@ -67,8 +67,8 @@ public static class Parameter
 }
 public class WriteParameters
 {
-	/// <summary>PID: 111  | Type: write | DISCREETS: Process XML file = check</summary>
-	public System.Object Processfile {get { return Protocol.GetParameter(111); }set { Protocol.SetParameter(111, value); }}
+	/// <summary>PID: 10002  | Type: write | DISCREETS: Process XML file = check</summary>
+	public System.Object Processfile {get { return Protocol.GetParameter(10002); }set { Protocol.SetParameter(10002, value); }}
 	public SLProtocolExt Protocol;
 	public WriteParameters(SLProtocolExt protocol)
 	{
@@ -80,17 +80,17 @@ public interface SLProtocolExt : SLProtocol
 	/// <summary>PID: 2000</summary>
 	DatatableQActionTable datatable { get; set; }
 	object Afterstartup_dummy { get; set; }
-	object Iterationcounter_3 { get; set; }
-	object Iterationcounter { get; set; }
-	object Debug_4 { get; set; }
-	object Debug { get; set; }
 	object Triggerqaction_dummy { get; set; }
-	object Processfile_111 { get; set; }
-	object Processfile { get; set; }
 	object Idcolumn_2001 { get; set; }
 	object Idcolumn { get; set; }
 	object Datacolumn_2002 { get; set; }
 	object Datacolumn { get; set; }
+	object Iterationcounter_10000 { get; set; }
+	object Iterationcounter { get; set; }
+	object Debug_10001 { get; set; }
+	object Debug { get; set; }
+	object Processfile_10002 { get; set; }
+	object Processfile { get; set; }
 	WriteParameters Write { get; set; }
 }
 public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
@@ -99,22 +99,8 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public DatatableQActionTable datatable { get; set; }
 	/// <summary>PID: 1  | Type: dummy</summary>
 	public System.Object Afterstartup_dummy {get { return GetParameter(1); }set { SetParameter(1, value); }}
-	/// <summary>PID: 3  | Type: read</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Iterationcounter_3 {get { return GetParameter(3); }set { SetParameter(3, value); }}
-	/// <summary>PID: 3  | Type: read</summary>
-	public System.Object Iterationcounter {get { return GetParameter(3); }set { SetParameter(3, value); }}
-	/// <summary>PID: 4  | Type: read</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Debug_4 {get { return GetParameter(4); }set { SetParameter(4, value); }}
-	/// <summary>PID: 4  | Type: read</summary>
-	public System.Object Debug {get { return GetParameter(4); }set { SetParameter(4, value); }}
 	/// <summary>PID: 5  | Type: dummy</summary>
 	public System.Object Triggerqaction_dummy {get { return GetParameter(5); }set { SetParameter(5, value); }}
-	/// <summary>PID: 111  | Type: write | DISCREETS: Process XML file = check</summary>
-	public System.Object Processfile_111 {get { return GetParameter(111); }set { SetParameter(111, value); }}
-	/// <summary>PID: 111  | Type: write | DISCREETS: Process XML file = check</summary>
-	public System.Object Processfile {get { return Write.Processfile; }set { Write.Processfile = value; }}
 	/// <summary>PID: 2001  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Idcolumn_2001 {get { return GetParameter(2001); }set { SetParameter(2001, value); }}
@@ -125,6 +111,20 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public System.Object Datacolumn_2002 {get { return GetParameter(2002); }set { SetParameter(2002, value); }}
 	/// <summary>PID: 2002  | Type: read</summary>
 	public System.Object Datacolumn {get { return GetParameter(2002); }set { SetParameter(2002, value); }}
+	/// <summary>PID: 10000  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Iterationcounter_10000 {get { return GetParameter(10000); }set { SetParameter(10000, value); }}
+	/// <summary>PID: 10000  | Type: read</summary>
+	public System.Object Iterationcounter {get { return GetParameter(10000); }set { SetParameter(10000, value); }}
+	/// <summary>PID: 10001  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Debug_10001 {get { return GetParameter(10001); }set { SetParameter(10001, value); }}
+	/// <summary>PID: 10001  | Type: read</summary>
+	public System.Object Debug {get { return GetParameter(10001); }set { SetParameter(10001, value); }}
+	/// <summary>PID: 10002  | Type: write | DISCREETS: Process XML file = check</summary>
+	public System.Object Processfile_10002 {get { return GetParameter(10002); }set { SetParameter(10002, value); }}
+	/// <summary>PID: 10002  | Type: write | DISCREETS: Process XML file = check</summary>
+	public System.Object Processfile {get { return Write.Processfile; }set { Write.Processfile = value; }}
 	public WriteParameters Write { get; set; }
 	public ConcreteSLProtocolExt()
 	{
