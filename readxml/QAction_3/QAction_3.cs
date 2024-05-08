@@ -31,11 +31,11 @@ public static class QAction
             // Convert Generated class into Connector Row data.
             var rows = ConvertToTableRows(data);
             protocol.FillArray(Parameter.Datatable.tablePid, rows, NotifyProtocol.SaveOption.Full);
-            protocol.Debug = $"Parsed {data.item.Length} rows";
+            protocol.Debugmsg = $"Parsed {data.item.Length} rows";
         }
         catch (Exception ex)
         {
-            protocol.Debug = "Failed parsing xml file";
+            protocol.Debugmsg = "Failed parsing xml file";
             protocol.Log($"QA{protocol.QActionID}|{protocol.GetTriggerParameter()}|Run|Exception thrown:{Environment.NewLine}{ex}", LogType.Error, LogLevel.NoLogging);
         }
     }

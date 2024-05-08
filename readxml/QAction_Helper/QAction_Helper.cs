@@ -15,9 +15,9 @@ public static class Parameter
 	public const int iterationcounter = 10000;
 	/// <summary>PID: 10001 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public const int debug_10001 = 10001;
+	public const int debugmsg_10001 = 10001;
 	/// <summary>PID: 10001 | Type: read</summary>
-	public const int debug = 10001;
+	public const int debugmsg = 10001;
 	public class Write
 	{
 		/// <summary>PID: 10002 | Type: write</summary>
@@ -87,8 +87,8 @@ public interface SLProtocolExt : SLProtocol
 	object Datacolumn { get; set; }
 	object Iterationcounter_10000 { get; set; }
 	object Iterationcounter { get; set; }
-	object Debug_10001 { get; set; }
-	object Debug { get; set; }
+	object Debugmsg_10001 { get; set; }
+	object Debugmsg { get; set; }
 	object Processfile_10002 { get; set; }
 	object Processfile { get; set; }
 	WriteParameters Write { get; set; }
@@ -118,9 +118,9 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public System.Object Iterationcounter {get { return GetParameter(10000); }set { SetParameter(10000, value); }}
 	/// <summary>PID: 10001  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Debug_10001 {get { return GetParameter(10001); }set { SetParameter(10001, value); }}
+	public System.Object Debugmsg_10001 {get { return GetParameter(10001); }set { SetParameter(10001, value); }}
 	/// <summary>PID: 10001  | Type: read</summary>
-	public System.Object Debug {get { return GetParameter(10001); }set { SetParameter(10001, value); }}
+	public System.Object Debugmsg {get { return GetParameter(10001); }set { SetParameter(10001, value); }}
 	/// <summary>PID: 10002  | Type: write | DISCREETS: Process XML file = check</summary>
 	public System.Object Processfile_10002 {get { return GetParameter(10002); }set { SetParameter(10002, value); }}
 	/// <summary>PID: 10002  | Type: write | DISCREETS: Process XML file = check</summary>

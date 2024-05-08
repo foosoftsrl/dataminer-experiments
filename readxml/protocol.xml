@@ -135,7 +135,7 @@
 			</Measurement>
 		</Param>
 		<Param id="10001" trending="false">
-			<Name>debug</Name>
+			<Name>debugMsg</Name>
 			<Description>Debug data</Description>
 			<Type>read</Type>
 			<Information>
