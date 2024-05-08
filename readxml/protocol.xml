@@ -8,9 +8,9 @@
 	<Vendor>Foosoft</Vendor>
 	<VendorOID>1.3.6.1.4.1.8813.2.</VendorOID>
 	<DeviceOID></DeviceOID>
-	<ElementType></ElementType>
+	<ElementType>parsing file</ElementType>
 	<Type relativeTimers="true">virtual</Type>
-	<Display defaultPage="General" pageOrder="General" wideColumnPages=""/>
+	<Display defaultPage="General" pageOrder="General;-----;JSON" wideColumnPages=""/>
 	<SNMP includepages="true">auto</SNMP>
 
 	<Compliancies>
@@ -76,13 +76,65 @@
 				<Type>string</Type>
 			</Measurement>
 		</Param>
-
+		
+		<Param id="6" trending="false">
+			<Name>iterationCounter2</Name>
+			<Description>How Many Times Json File Has Been Processed</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>JSON</Page>
+						<Column>0</Column>
+						<Row>1</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>number</Type>
+			</Measurement>
+		</Param>
+		
+		<Param id="7" trending="false">
+			<Name>debug2</Name>
+			<Description>Debug Data Json</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>JSON</Page>
+						<Column>0</Column>
+						<Row>2</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		
 		<Param id="5">
 			<Name>TriggerQAction</Name>
 			<Description>TriggerQAction</Description>
 			<Type>dummy</Type>
 		</Param>
-
+		
 		<Param id="111">
 			<Name>processFile</Name>
 			<Description />
@@ -117,6 +169,40 @@
 			</Measurement>
 		</Param>
 		
+		<Param id="112">
+			<Name>processFileJson</Name>
+			<Description />
+			<Information>
+				<Text>Process JSON file from disk</Text>
+				<Subtext>Process JSON File from disk</Subtext>
+			</Information>
+			<Type>write</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>JSON</Page>
+						<Column>0</Column>
+						<Row>0</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type width="110">button</Type>
+				<Discreets>
+					<Discreet>
+						<Display>Process JSON File</Display>
+						<Value>check</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		
 		<Param id="2000">
 			<Name>dataTable</Name>
 			<Description>data</Description>
@@ -139,7 +225,7 @@
 				</Positions>
 			</Display>
 			<Measurement>
-				<Type options="tab=columns:2001|0-2002|1,width:100-100,sort:STRING-STRING,lines:25,filter:true">table</Type>
+				<Type options="tab=columns:2001|0-2002|1,width:155-154,sort:STRING-STRING,lines:25,filter:true">table</Type>
 			</Measurement>
 		</Param>
 		<Param id="2001" trending="false">
@@ -194,12 +280,94 @@
 				<Type>string</Type>
 			</Measurement>
 		</Param>
+		
+		<Param id="2003">
+			<Name>dataTableJson</Name>
+			<Description>Data Json</Description>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="2004" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="2005" type="retrieved" options=""/>
+			</ArrayOptions>
+			<Information>
+				<Subtext>Table which shows data read from Json file</Subtext>
+			</Information>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>JSON</Page>
+						<Column>0</Column>
+						<Row>3</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type options="tab=columns:2004|0-2005|1,width:157-157,sort:STRING-STRING,lines:25,filter:true">table</Type>
+			</Measurement>
+		</Param>
+		
+		<Param id="2004" trending="false">
+			<Name>dataTableJsondataidColumn</Name>
+			<Description>Column Id</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>This is the key used internally by DataMiner to identify the table entries.</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>JSON</Page>
+						<Column>0</Column>
+						<Row>4</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		
+		<Param id="2005" trending="false">
+			<Name>dataTableJsondataColumnJson</Name>
+			<Description>Column Data</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>This is the key used internally by DataMiner to identify the table entries.</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>JSON</Page>
+						<Column>0</Column>
+						<Row>4</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		
 	</Params>
 
 	<QActions>
 		<QAction id="1" name="Precompiled Code" encoding="csharp" options="precompile" />
 		<QAction id="2" name="After Startup" encoding="csharp" triggers="1" />
-		<QAction id="3" name="QActionName" encoding="csharp" triggers="111;5;1">
+		<QAction id="3" name="ReadXml" encoding="csharp" triggers="111;5;1" />
+		<QAction id="4" name="ReadJson" encoding="csharp" triggers="112;5;1">
 		</QAction>
 	</QActions>
 
