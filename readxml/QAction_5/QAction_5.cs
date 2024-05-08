@@ -1,0 +1,45 @@
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Text;
+
+using Skyline.DataMiner.Scripting;
+
+/// <summary>
+/// DataMiner QAction Class.
+/// </summary>
+public static class QAction
+{
+    /// <summary>
+    /// The QAction entry point.
+    /// </summary>
+    /// <param name="protocol">Link with SLProtocol process.</param>
+    public static void Run(SLProtocolExt protocol)
+    {
+        try
+        {
+            var data1 = protocol.datatable.GetRow(0);
+            var data2 = protocol.datatablejson.GetRow(0);
+            var data1_0 = data1[0];
+            var data1_1 = data1[1];
+            var data2_0 = data2[0];
+            var data2_1 = data2[1];
+            List<object[]> instances = new List<object[]>();
+            instances.Add(new MergedtableQActionRow
+            {
+                Mergedtablecolumn1 = data1_0,
+                Mergedtablecolumn2 = data1_1,
+            }.ToObjectArray());
+            instances.Add(new MergedtableQActionRow
+            {
+                Mergedtablecolumn1 = data2_0,
+                Mergedtablecolumn2 = data2_1,
+            }.ToObjectArray());
+            protocol.FillArray(Parameter.Datatablejson.tablePid, instances, NotifyProtocol.SaveOption.Full);
+        }
+        catch (Exception ex)
+        {
+            protocol.Log($"QA{protocol.QActionID}|{protocol.GetTriggerParameter()}|Run|Exception thrown:{Environment.NewLine}{ex}", LogType.Error, LogLevel.NoLogging);
+        }
+    }
+}

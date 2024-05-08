@@ -8,6 +8,11 @@ namespace Skyline.DataMiner.Scripting
 {
 public static class Parameter
 {
+	/// <summary>PID: 3006 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public const int datatablecolumn6_3006 = 3006;
+	/// <summary>PID: 3006 | Type: read</summary>
+	public const int datatablecolumn6 = 3006;
 	/// <summary>PID: 10000 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public const int xmliterationcounter_10000 = 10000;
@@ -66,6 +71,11 @@ public static class Parameter
 			public const int xmltimecolumn_2003 = 2003;
 			/// <summary>PID: 2003 | Type: read</summary>
 			public const int xmltimecolumn = 2003;
+			/// <summary>PID: 2004 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int foreignkey_2004 = 2004;
+			/// <summary>PID: 2004 | Type: read</summary>
+			public const int foreignkey = 2004;
 			public class Write
 			{
 			}
@@ -87,6 +97,11 @@ public static class Parameter
 			public const int xmltimecolumn_2003 = 2;
 			/// <summary>IDX: 2 | Type: read</summary>
 			public const int xmltimecolumn = 2;
+			/// <summary>IDX: 3 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int foreignkey_2004 = 3;
+			/// <summary>IDX: 3 | Type: read</summary>
+			public const int foreignkey = 3;
 		}
 	}
 	public class Datatablejson
@@ -127,10 +142,78 @@ public static class Parameter
 			public const int datatablejsondatacolumnjson = 1;
 		}
 	}
+	public class Mergedtable
+	{
+		/// <summary>PID: 3000</summary>
+		public const int tablePid = 3000;
+		/// <summary>IDX: 0</summary>
+		public const int indexColumn = 0;
+		/// <summary>PID: 3001</summary>
+		public const int indexColumnPid = 3001;
+		public class Pid
+		{
+			/// <summary>PID: 3001 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int mergedtablecolumn1_3001 = 3001;
+			/// <summary>PID: 3001 | Type: read</summary>
+			public const int mergedtablecolumn1 = 3001;
+			/// <summary>PID: 3002 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int mergedtablecolumn2_3002 = 3002;
+			/// <summary>PID: 3002 | Type: read</summary>
+			public const int mergedtablecolumn2 = 3002;
+			/// <summary>PID: 3003 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int datatablecolumn3_3003 = 3003;
+			/// <summary>PID: 3003 | Type: read</summary>
+			public const int datatablecolumn3 = 3003;
+			/// <summary>PID: 3004 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int datatablecolumn4_3004 = 3004;
+			/// <summary>PID: 3004 | Type: read</summary>
+			public const int datatablecolumn4 = 3004;
+			/// <summary>PID: 3005 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int datatablecolumn5_3005 = 3005;
+			/// <summary>PID: 3005 | Type: read</summary>
+			public const int datatablecolumn5 = 3005;
+			public class Write
+			{
+			}
+		}
+		public class Idx
+		{
+			/// <summary>IDX: 0 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int mergedtablecolumn1_3001 = 0;
+			/// <summary>IDX: 0 | Type: read</summary>
+			public const int mergedtablecolumn1 = 0;
+			/// <summary>IDX: 1 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int mergedtablecolumn2_3002 = 1;
+			/// <summary>IDX: 1 | Type: read</summary>
+			public const int mergedtablecolumn2 = 1;
+			/// <summary>IDX: 2 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int datatablecolumn3_3003 = 2;
+			/// <summary>IDX: 2 | Type: read</summary>
+			public const int datatablecolumn3 = 2;
+			/// <summary>IDX: 3 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int datatablecolumn4_3004 = 3;
+			/// <summary>IDX: 3 | Type: read</summary>
+			public const int datatablecolumn4 = 3;
+			/// <summary>IDX: 4 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int datatablecolumn5_3005 = 4;
+			/// <summary>IDX: 4 | Type: read</summary>
+			public const int datatablecolumn5 = 4;
+		}
+	}
 }
 public class WriteParameters
 {
-	/// <summary>PID: 10002  | Type: write | DISCREETS: Process XML file = check</summary>
+	/// <summary>PID: 10002  | Type: write | DISCREETS: Process ADSales file = check</summary>
 	public System.Object Xmlprocessfile {get { return Protocol.GetParameter(10002); }set { Protocol.SetParameter(10002, value); }}
 	/// <summary>PID: 10102  | Type: write | DISCREETS: Process JSON file = check</summary>
 	public System.Object Jsonprocessfile {get { return Protocol.GetParameter(10102); }set { Protocol.SetParameter(10102, value); }}
@@ -146,6 +229,8 @@ public interface SLProtocolExt : SLProtocol
 	DatatableQActionTable datatable { get; set; }
 	/// <summary>PID: 2100</summary>
 	DatatablejsonQActionTable datatablejson { get; set; }
+	/// <summary>PID: 3000</summary>
+	MergedtableQActionTable mergedtable { get; set; }
 	object Afterstartup_dummy { get; set; }
 	object Triggerqaction_dummy { get; set; }
 	object Idcolumn_2001 { get; set; }
@@ -154,10 +239,24 @@ public interface SLProtocolExt : SLProtocol
 	object Xmltitlecolumn { get; set; }
 	object Xmltimecolumn_2003 { get; set; }
 	object Xmltimecolumn { get; set; }
+	object Foreignkey_2004 { get; set; }
+	object Foreignkey { get; set; }
 	object Datatablejsondataidcolumn_2101 { get; set; }
 	object Datatablejsondataidcolumn { get; set; }
 	object Datatablejsondatacolumnjson_2102 { get; set; }
 	object Datatablejsondatacolumnjson { get; set; }
+	object Mergedtablecolumn1_3001 { get; set; }
+	object Mergedtablecolumn1 { get; set; }
+	object Mergedtablecolumn2_3002 { get; set; }
+	object Mergedtablecolumn2 { get; set; }
+	object Datatablecolumn3_3003 { get; set; }
+	object Datatablecolumn3 { get; set; }
+	object Datatablecolumn4_3004 { get; set; }
+	object Datatablecolumn4 { get; set; }
+	object Datatablecolumn5_3005 { get; set; }
+	object Datatablecolumn5 { get; set; }
+	object Datatablecolumn6_3006 { get; set; }
+	object Datatablecolumn6 { get; set; }
 	object Xmliterationcounter_10000 { get; set; }
 	object Xmliterationcounter { get; set; }
 	object Xmldebugmsg_10001 { get; set; }
@@ -178,6 +277,8 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public DatatableQActionTable datatable { get; set; }
 	/// <summary>PID: 2100</summary>
 	public DatatablejsonQActionTable datatablejson { get; set; }
+	/// <summary>PID: 3000</summary>
+	public MergedtableQActionTable mergedtable { get; set; }
 	/// <summary>PID: 1  | Type: dummy</summary>
 	public System.Object Afterstartup_dummy {get { return GetParameter(1); }set { SetParameter(1, value); }}
 	/// <summary>PID: 5  | Type: dummy</summary>
@@ -197,6 +298,11 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public System.Object Xmltimecolumn_2003 {get { return GetParameter(2003); }set { SetParameter(2003, value); }}
 	/// <summary>PID: 2003  | Type: read</summary>
 	public System.Object Xmltimecolumn {get { return GetParameter(2003); }set { SetParameter(2003, value); }}
+	/// <summary>PID: 2004  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Foreignkey_2004 {get { return GetParameter(2004); }set { SetParameter(2004, value); }}
+	/// <summary>PID: 2004  | Type: read</summary>
+	public System.Object Foreignkey {get { return GetParameter(2004); }set { SetParameter(2004, value); }}
 	/// <summary>PID: 2101  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Datatablejsondataidcolumn_2101 {get { return GetParameter(2101); }set { SetParameter(2101, value); }}
@@ -207,6 +313,36 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public System.Object Datatablejsondatacolumnjson_2102 {get { return GetParameter(2102); }set { SetParameter(2102, value); }}
 	/// <summary>PID: 2102  | Type: read</summary>
 	public System.Object Datatablejsondatacolumnjson {get { return GetParameter(2102); }set { SetParameter(2102, value); }}
+	/// <summary>PID: 3001  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Mergedtablecolumn1_3001 {get { return GetParameter(3001); }set { SetParameter(3001, value); }}
+	/// <summary>PID: 3001  | Type: read</summary>
+	public System.Object Mergedtablecolumn1 {get { return GetParameter(3001); }set { SetParameter(3001, value); }}
+	/// <summary>PID: 3002  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Mergedtablecolumn2_3002 {get { return GetParameter(3002); }set { SetParameter(3002, value); }}
+	/// <summary>PID: 3002  | Type: read</summary>
+	public System.Object Mergedtablecolumn2 {get { return GetParameter(3002); }set { SetParameter(3002, value); }}
+	/// <summary>PID: 3003  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Datatablecolumn3_3003 {get { return GetParameter(3003); }set { SetParameter(3003, value); }}
+	/// <summary>PID: 3003  | Type: read</summary>
+	public System.Object Datatablecolumn3 {get { return GetParameter(3003); }set { SetParameter(3003, value); }}
+	/// <summary>PID: 3004  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Datatablecolumn4_3004 {get { return GetParameter(3004); }set { SetParameter(3004, value); }}
+	/// <summary>PID: 3004  | Type: read</summary>
+	public System.Object Datatablecolumn4 {get { return GetParameter(3004); }set { SetParameter(3004, value); }}
+	/// <summary>PID: 3005  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Datatablecolumn5_3005 {get { return GetParameter(3005); }set { SetParameter(3005, value); }}
+	/// <summary>PID: 3005  | Type: read</summary>
+	public System.Object Datatablecolumn5 {get { return GetParameter(3005); }set { SetParameter(3005, value); }}
+	/// <summary>PID: 3006  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Datatablecolumn6_3006 {get { return GetParameter(3006); }set { SetParameter(3006, value); }}
+	/// <summary>PID: 3006  | Type: read</summary>
+	public System.Object Datatablecolumn6 {get { return GetParameter(3006); }set { SetParameter(3006, value); }}
 	/// <summary>PID: 10000  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Xmliterationcounter_10000 {get { return GetParameter(10000); }set { SetParameter(10000, value); }}
@@ -217,9 +353,9 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public System.Object Xmldebugmsg_10001 {get { return GetParameter(10001); }set { SetParameter(10001, value); }}
 	/// <summary>PID: 10001  | Type: read</summary>
 	public System.Object Xmldebugmsg {get { return GetParameter(10001); }set { SetParameter(10001, value); }}
-	/// <summary>PID: 10002  | Type: write | DISCREETS: Process XML file = check</summary>
+	/// <summary>PID: 10002  | Type: write | DISCREETS: Process ADSales file = check</summary>
 	public System.Object Xmlprocessfile_10002 {get { return GetParameter(10002); }set { SetParameter(10002, value); }}
-	/// <summary>PID: 10002  | Type: write | DISCREETS: Process XML file = check</summary>
+	/// <summary>PID: 10002  | Type: write | DISCREETS: Process ADSales file = check</summary>
 	public System.Object Xmlprocessfile {get { return Write.Xmlprocessfile; }set { Write.Xmlprocessfile = value; }}
 	/// <summary>PID: 10100  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
@@ -240,6 +376,7 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	{
 		datatable = new DatatableQActionTable(this, 2000, "datatable");
 		datatablejson = new DatatablejsonQActionTable(this, 2100, "datatablejson");
+		mergedtable = new MergedtableQActionTable(this, 3000, "mergedtable");
 		Write = new WriteParameters(this);
 	}
 }
@@ -256,6 +393,13 @@ public class DatatablejsonQActionTable : QActionTable, IEnumerable<Datatablejson
 	public DatatablejsonQActionTable(SLProtocol protocol, int tableId, string tableName) : base(protocol, tableId, tableName) { }
 	IEnumerator IEnumerable.GetEnumerator() { return (IEnumerator) GetEnumerator(); }
 	public IEnumerator<DatatablejsonQActionRow> GetEnumerator() { return new QActionTableEnumerator<DatatablejsonQActionRow>(this); }
+}
+/// <summary>IDX: 0</summary>
+public class MergedtableQActionTable : QActionTable, IEnumerable<MergedtableQActionRow>
+{
+	public MergedtableQActionTable(SLProtocol protocol, int tableId, string tableName) : base(protocol, tableId, tableName) { }
+	IEnumerator IEnumerable.GetEnumerator() { return (IEnumerator) GetEnumerator(); }
+	public IEnumerator<MergedtableQActionRow> GetEnumerator() { return new QActionTableEnumerator<MergedtableQActionRow>(this); }
 }
 /// <summary>IDX: 0</summary>
 public class DatatableQActionRow : QActionTableRow
@@ -275,8 +419,13 @@ public class DatatableQActionRow : QActionTableRow
 	public System.Object Xmltimecolumn_2003 { get { if (base.Columns.ContainsKey(2)) { return base.Columns[2]; } else { return null; } } set { if (base.Columns.ContainsKey(2)) { base.Columns[2] = value; } else { base.Columns.Add(2, value); } } }
 	/// <summary>PID: 2003 | Type: read</summary>
 	public System.Object Xmltimecolumn { get { if (base.Columns.ContainsKey(2)) { return base.Columns[2]; } else { return null; } } set { if (base.Columns.ContainsKey(2)) { base.Columns[2] = value; } else { base.Columns.Add(2, value); } } }
-	public DatatableQActionRow() : base(0, 3) { }
-	public DatatableQActionRow(System.Object[] oRow) : base(0, 3, oRow) { }
+	/// <summary>PID: 2004 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Foreignkey_2004 { get { if (base.Columns.ContainsKey(3)) { return base.Columns[3]; } else { return null; } } set { if (base.Columns.ContainsKey(3)) { base.Columns[3] = value; } else { base.Columns.Add(3, value); } } }
+	/// <summary>PID: 2004 | Type: read</summary>
+	public System.Object Foreignkey { get { if (base.Columns.ContainsKey(3)) { return base.Columns[3]; } else { return null; } } set { if (base.Columns.ContainsKey(3)) { base.Columns[3] = value; } else { base.Columns.Add(3, value); } } }
+	public DatatableQActionRow() : base(0, 4) { }
+	public DatatableQActionRow(System.Object[] oRow) : base(0, 4, oRow) { }
 	public static implicit operator DatatableQActionRow(System.Object[] source) { return new DatatableQActionRow(source); }
 	public static implicit operator System.Object[](DatatableQActionRow source) { return source.ToObjectArray(); }
 }
@@ -297,5 +446,38 @@ public class DatatablejsonQActionRow : QActionTableRow
 	public DatatablejsonQActionRow(System.Object[] oRow) : base(0, 2, oRow) { }
 	public static implicit operator DatatablejsonQActionRow(System.Object[] source) { return new DatatablejsonQActionRow(source); }
 	public static implicit operator System.Object[](DatatablejsonQActionRow source) { return source.ToObjectArray(); }
+}
+/// <summary>IDX: 0</summary>
+public class MergedtableQActionRow : QActionTableRow
+{
+	/// <summary>PID: 3001 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Mergedtablecolumn1_3001 { get { if (base.Columns.ContainsKey(0)) { return base.Columns[0]; } else { return null; } } set { if (base.Columns.ContainsKey(0)) { base.Columns[0] = value; } else { base.Columns.Add(0, value); } } }
+	/// <summary>PID: 3001 | Type: read</summary>
+	public System.Object Mergedtablecolumn1 { get { if (base.Columns.ContainsKey(0)) { return base.Columns[0]; } else { return null; } } set { if (base.Columns.ContainsKey(0)) { base.Columns[0] = value; } else { base.Columns.Add(0, value); } } }
+	/// <summary>PID: 3002 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Mergedtablecolumn2_3002 { get { if (base.Columns.ContainsKey(1)) { return base.Columns[1]; } else { return null; } } set { if (base.Columns.ContainsKey(1)) { base.Columns[1] = value; } else { base.Columns.Add(1, value); } } }
+	/// <summary>PID: 3002 | Type: read</summary>
+	public System.Object Mergedtablecolumn2 { get { if (base.Columns.ContainsKey(1)) { return base.Columns[1]; } else { return null; } } set { if (base.Columns.ContainsKey(1)) { base.Columns[1] = value; } else { base.Columns.Add(1, value); } } }
+	/// <summary>PID: 3003 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Datatablecolumn3_3003 { get { if (base.Columns.ContainsKey(2)) { return base.Columns[2]; } else { return null; } } set { if (base.Columns.ContainsKey(2)) { base.Columns[2] = value; } else { base.Columns.Add(2, value); } } }
+	/// <summary>PID: 3003 | Type: read</summary>
+	public System.Object Datatablecolumn3 { get { if (base.Columns.ContainsKey(2)) { return base.Columns[2]; } else { return null; } } set { if (base.Columns.ContainsKey(2)) { base.Columns[2] = value; } else { base.Columns.Add(2, value); } } }
+	/// <summary>PID: 3004 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Datatablecolumn4_3004 { get { if (base.Columns.ContainsKey(3)) { return base.Columns[3]; } else { return null; } } set { if (base.Columns.ContainsKey(3)) { base.Columns[3] = value; } else { base.Columns.Add(3, value); } } }
+	/// <summary>PID: 3004 | Type: read</summary>
+	public System.Object Datatablecolumn4 { get { if (base.Columns.ContainsKey(3)) { return base.Columns[3]; } else { return null; } } set { if (base.Columns.ContainsKey(3)) { base.Columns[3] = value; } else { base.Columns.Add(3, value); } } }
+	/// <summary>PID: 3005 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Datatablecolumn5_3005 { get { if (base.Columns.ContainsKey(4)) { return base.Columns[4]; } else { return null; } } set { if (base.Columns.ContainsKey(4)) { base.Columns[4] = value; } else { base.Columns.Add(4, value); } } }
+	/// <summary>PID: 3005 | Type: read</summary>
+	public System.Object Datatablecolumn5 { get { if (base.Columns.ContainsKey(4)) { return base.Columns[4]; } else { return null; } } set { if (base.Columns.ContainsKey(4)) { base.Columns[4] = value; } else { base.Columns.Add(4, value); } } }
+	public MergedtableQActionRow() : base(0, 5) { }
+	public MergedtableQActionRow(System.Object[] oRow) : base(0, 5, oRow) { }
+	public static implicit operator MergedtableQActionRow(System.Object[] source) { return new MergedtableQActionRow(source); }
+	public static implicit operator System.Object[](MergedtableQActionRow source) { return source.ToObjectArray(); }
 }
 }

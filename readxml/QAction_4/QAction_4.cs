@@ -43,7 +43,7 @@ public static class QAction
             }
 
             protocol.FillArray(Parameter.Datatablejson.tablePid, instances, NotifyProtocol.SaveOption.Full);
-            protocol.Jsondebugmsg = $"Processed JSON file {instances.Count}";
+            protocol.Jsondebugmsg = $"Processed {instances.Count} TrimMaterialId";
         }
         catch (Exception ex)
         {
