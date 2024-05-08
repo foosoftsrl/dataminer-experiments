@@ -58,9 +58,14 @@ public static class Parameter
 			public const int idcolumn = 2001;
 			/// <summary>PID: 2002 | Type: read</summary>
 			[EditorBrowsable(EditorBrowsableState.Never)]
-			public const int datacolumn_2002 = 2002;
+			public const int xmltitlecolumn_2002 = 2002;
 			/// <summary>PID: 2002 | Type: read</summary>
-			public const int datacolumn = 2002;
+			public const int xmltitlecolumn = 2002;
+			/// <summary>PID: 2003 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int xmltimecolumn_2003 = 2003;
+			/// <summary>PID: 2003 | Type: read</summary>
+			public const int xmltimecolumn = 2003;
 			public class Write
 			{
 			}
@@ -74,31 +79,36 @@ public static class Parameter
 			public const int idcolumn = 0;
 			/// <summary>IDX: 1 | Type: read</summary>
 			[EditorBrowsable(EditorBrowsableState.Never)]
-			public const int datacolumn_2002 = 1;
+			public const int xmltitlecolumn_2002 = 1;
 			/// <summary>IDX: 1 | Type: read</summary>
-			public const int datacolumn = 1;
+			public const int xmltitlecolumn = 1;
+			/// <summary>IDX: 2 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int xmltimecolumn_2003 = 2;
+			/// <summary>IDX: 2 | Type: read</summary>
+			public const int xmltimecolumn = 2;
 		}
 	}
 	public class Datatablejson
 	{
-		/// <summary>PID: 2003</summary>
-		public const int tablePid = 2003;
+		/// <summary>PID: 2100</summary>
+		public const int tablePid = 2100;
 		/// <summary>IDX: 0</summary>
 		public const int indexColumn = 0;
-		/// <summary>PID: 2004</summary>
-		public const int indexColumnPid = 2004;
+		/// <summary>PID: 2101</summary>
+		public const int indexColumnPid = 2101;
 		public class Pid
 		{
-			/// <summary>PID: 2004 | Type: read</summary>
+			/// <summary>PID: 2101 | Type: read</summary>
 			[EditorBrowsable(EditorBrowsableState.Never)]
-			public const int datatablejsondataidcolumn_2004 = 2004;
-			/// <summary>PID: 2004 | Type: read</summary>
-			public const int datatablejsondataidcolumn = 2004;
-			/// <summary>PID: 2005 | Type: read</summary>
+			public const int datatablejsondataidcolumn_2101 = 2101;
+			/// <summary>PID: 2101 | Type: read</summary>
+			public const int datatablejsondataidcolumn = 2101;
+			/// <summary>PID: 2102 | Type: read</summary>
 			[EditorBrowsable(EditorBrowsableState.Never)]
-			public const int datatablejsondatacolumnjson_2005 = 2005;
-			/// <summary>PID: 2005 | Type: read</summary>
-			public const int datatablejsondatacolumnjson = 2005;
+			public const int datatablejsondatacolumnjson_2102 = 2102;
+			/// <summary>PID: 2102 | Type: read</summary>
+			public const int datatablejsondatacolumnjson = 2102;
 			public class Write
 			{
 			}
@@ -107,12 +117,12 @@ public static class Parameter
 		{
 			/// <summary>IDX: 0 | Type: read</summary>
 			[EditorBrowsable(EditorBrowsableState.Never)]
-			public const int datatablejsondataidcolumn_2004 = 0;
+			public const int datatablejsondataidcolumn_2101 = 0;
 			/// <summary>IDX: 0 | Type: read</summary>
 			public const int datatablejsondataidcolumn = 0;
 			/// <summary>IDX: 1 | Type: read</summary>
 			[EditorBrowsable(EditorBrowsableState.Never)]
-			public const int datatablejsondatacolumnjson_2005 = 1;
+			public const int datatablejsondatacolumnjson_2102 = 1;
 			/// <summary>IDX: 1 | Type: read</summary>
 			public const int datatablejsondatacolumnjson = 1;
 		}
@@ -134,17 +144,19 @@ public interface SLProtocolExt : SLProtocol
 {
 	/// <summary>PID: 2000</summary>
 	DatatableQActionTable datatable { get; set; }
-	/// <summary>PID: 2003</summary>
+	/// <summary>PID: 2100</summary>
 	DatatablejsonQActionTable datatablejson { get; set; }
 	object Afterstartup_dummy { get; set; }
 	object Triggerqaction_dummy { get; set; }
 	object Idcolumn_2001 { get; set; }
 	object Idcolumn { get; set; }
-	object Datacolumn_2002 { get; set; }
-	object Datacolumn { get; set; }
-	object Datatablejsondataidcolumn_2004 { get; set; }
+	object Xmltitlecolumn_2002 { get; set; }
+	object Xmltitlecolumn { get; set; }
+	object Xmltimecolumn_2003 { get; set; }
+	object Xmltimecolumn { get; set; }
+	object Datatablejsondataidcolumn_2101 { get; set; }
 	object Datatablejsondataidcolumn { get; set; }
-	object Datatablejsondatacolumnjson_2005 { get; set; }
+	object Datatablejsondatacolumnjson_2102 { get; set; }
 	object Datatablejsondatacolumnjson { get; set; }
 	object Xmliterationcounter_10000 { get; set; }
 	object Xmliterationcounter { get; set; }
@@ -164,7 +176,7 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 {
 	/// <summary>PID: 2000</summary>
 	public DatatableQActionTable datatable { get; set; }
-	/// <summary>PID: 2003</summary>
+	/// <summary>PID: 2100</summary>
 	public DatatablejsonQActionTable datatablejson { get; set; }
 	/// <summary>PID: 1  | Type: dummy</summary>
 	public System.Object Afterstartup_dummy {get { return GetParameter(1); }set { SetParameter(1, value); }}
@@ -177,19 +189,24 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public System.Object Idcolumn {get { return GetParameter(2001); }set { SetParameter(2001, value); }}
 	/// <summary>PID: 2002  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Datacolumn_2002 {get { return GetParameter(2002); }set { SetParameter(2002, value); }}
+	public System.Object Xmltitlecolumn_2002 {get { return GetParameter(2002); }set { SetParameter(2002, value); }}
 	/// <summary>PID: 2002  | Type: read</summary>
-	public System.Object Datacolumn {get { return GetParameter(2002); }set { SetParameter(2002, value); }}
-	/// <summary>PID: 2004  | Type: read</summary>
+	public System.Object Xmltitlecolumn {get { return GetParameter(2002); }set { SetParameter(2002, value); }}
+	/// <summary>PID: 2003  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Datatablejsondataidcolumn_2004 {get { return GetParameter(2004); }set { SetParameter(2004, value); }}
-	/// <summary>PID: 2004  | Type: read</summary>
-	public System.Object Datatablejsondataidcolumn {get { return GetParameter(2004); }set { SetParameter(2004, value); }}
-	/// <summary>PID: 2005  | Type: read</summary>
+	public System.Object Xmltimecolumn_2003 {get { return GetParameter(2003); }set { SetParameter(2003, value); }}
+	/// <summary>PID: 2003  | Type: read</summary>
+	public System.Object Xmltimecolumn {get { return GetParameter(2003); }set { SetParameter(2003, value); }}
+	/// <summary>PID: 2101  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Datatablejsondatacolumnjson_2005 {get { return GetParameter(2005); }set { SetParameter(2005, value); }}
-	/// <summary>PID: 2005  | Type: read</summary>
-	public System.Object Datatablejsondatacolumnjson {get { return GetParameter(2005); }set { SetParameter(2005, value); }}
+	public System.Object Datatablejsondataidcolumn_2101 {get { return GetParameter(2101); }set { SetParameter(2101, value); }}
+	/// <summary>PID: 2101  | Type: read</summary>
+	public System.Object Datatablejsondataidcolumn {get { return GetParameter(2101); }set { SetParameter(2101, value); }}
+	/// <summary>PID: 2102  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Datatablejsondatacolumnjson_2102 {get { return GetParameter(2102); }set { SetParameter(2102, value); }}
+	/// <summary>PID: 2102  | Type: read</summary>
+	public System.Object Datatablejsondatacolumnjson {get { return GetParameter(2102); }set { SetParameter(2102, value); }}
 	/// <summary>PID: 10000  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Xmliterationcounter_10000 {get { return GetParameter(10000); }set { SetParameter(10000, value); }}
@@ -222,7 +239,7 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public ConcreteSLProtocolExt()
 	{
 		datatable = new DatatableQActionTable(this, 2000, "datatable");
-		datatablejson = new DatatablejsonQActionTable(this, 2003, "datatablejson");
+		datatablejson = new DatatablejsonQActionTable(this, 2100, "datatablejson");
 		Write = new WriteParameters(this);
 	}
 }
@@ -250,26 +267,31 @@ public class DatatableQActionRow : QActionTableRow
 	public System.Object Idcolumn { get { if (base.Columns.ContainsKey(0)) { return base.Columns[0]; } else { return null; } } set { if (base.Columns.ContainsKey(0)) { base.Columns[0] = value; } else { base.Columns.Add(0, value); } } }
 	/// <summary>PID: 2002 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Datacolumn_2002 { get { if (base.Columns.ContainsKey(1)) { return base.Columns[1]; } else { return null; } } set { if (base.Columns.ContainsKey(1)) { base.Columns[1] = value; } else { base.Columns.Add(1, value); } } }
+	public System.Object Xmltitlecolumn_2002 { get { if (base.Columns.ContainsKey(1)) { return base.Columns[1]; } else { return null; } } set { if (base.Columns.ContainsKey(1)) { base.Columns[1] = value; } else { base.Columns.Add(1, value); } } }
 	/// <summary>PID: 2002 | Type: read</summary>
-	public System.Object Datacolumn { get { if (base.Columns.ContainsKey(1)) { return base.Columns[1]; } else { return null; } } set { if (base.Columns.ContainsKey(1)) { base.Columns[1] = value; } else { base.Columns.Add(1, value); } } }
-	public DatatableQActionRow() : base(0, 2) { }
-	public DatatableQActionRow(System.Object[] oRow) : base(0, 2, oRow) { }
+	public System.Object Xmltitlecolumn { get { if (base.Columns.ContainsKey(1)) { return base.Columns[1]; } else { return null; } } set { if (base.Columns.ContainsKey(1)) { base.Columns[1] = value; } else { base.Columns.Add(1, value); } } }
+	/// <summary>PID: 2003 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Xmltimecolumn_2003 { get { if (base.Columns.ContainsKey(2)) { return base.Columns[2]; } else { return null; } } set { if (base.Columns.ContainsKey(2)) { base.Columns[2] = value; } else { base.Columns.Add(2, value); } } }
+	/// <summary>PID: 2003 | Type: read</summary>
+	public System.Object Xmltimecolumn { get { if (base.Columns.ContainsKey(2)) { return base.Columns[2]; } else { return null; } } set { if (base.Columns.ContainsKey(2)) { base.Columns[2] = value; } else { base.Columns.Add(2, value); } } }
+	public DatatableQActionRow() : base(0, 3) { }
+	public DatatableQActionRow(System.Object[] oRow) : base(0, 3, oRow) { }
 	public static implicit operator DatatableQActionRow(System.Object[] source) { return new DatatableQActionRow(source); }
 	public static implicit operator System.Object[](DatatableQActionRow source) { return source.ToObjectArray(); }
 }
 /// <summary>IDX: 0</summary>
 public class DatatablejsonQActionRow : QActionTableRow
 {
-	/// <summary>PID: 2004 | Type: read</summary>
+	/// <summary>PID: 2101 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Datatablejsondataidcolumn_2004 { get { if (base.Columns.ContainsKey(0)) { return base.Columns[0]; } else { return null; } } set { if (base.Columns.ContainsKey(0)) { base.Columns[0] = value; } else { base.Columns.Add(0, value); } } }
-	/// <summary>PID: 2004 | Type: read</summary>
+	public System.Object Datatablejsondataidcolumn_2101 { get { if (base.Columns.ContainsKey(0)) { return base.Columns[0]; } else { return null; } } set { if (base.Columns.ContainsKey(0)) { base.Columns[0] = value; } else { base.Columns.Add(0, value); } } }
+	/// <summary>PID: 2101 | Type: read</summary>
 	public System.Object Datatablejsondataidcolumn { get { if (base.Columns.ContainsKey(0)) { return base.Columns[0]; } else { return null; } } set { if (base.Columns.ContainsKey(0)) { base.Columns[0] = value; } else { base.Columns.Add(0, value); } } }
-	/// <summary>PID: 2005 | Type: read</summary>
+	/// <summary>PID: 2102 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Datatablejsondatacolumnjson_2005 { get { if (base.Columns.ContainsKey(1)) { return base.Columns[1]; } else { return null; } } set { if (base.Columns.ContainsKey(1)) { base.Columns[1] = value; } else { base.Columns.Add(1, value); } } }
-	/// <summary>PID: 2005 | Type: read</summary>
+	public System.Object Datatablejsondatacolumnjson_2102 { get { if (base.Columns.ContainsKey(1)) { return base.Columns[1]; } else { return null; } } set { if (base.Columns.ContainsKey(1)) { base.Columns[1] = value; } else { base.Columns.Add(1, value); } } }
+	/// <summary>PID: 2102 | Type: read</summary>
 	public System.Object Datatablejsondatacolumnjson { get { if (base.Columns.ContainsKey(1)) { return base.Columns[1]; } else { return null; } } set { if (base.Columns.ContainsKey(1)) { base.Columns[1] = value; } else { base.Columns.Add(1, value); } } }
 	public DatatablejsonQActionRow() : base(0, 2) { }
 	public DatatablejsonQActionRow(System.Object[] oRow) : base(0, 2, oRow) { }

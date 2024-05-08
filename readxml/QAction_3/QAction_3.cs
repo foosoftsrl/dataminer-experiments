@@ -20,18 +20,18 @@ public static class QAction
     public static void Run(SLProtocolExt protocol)
     {
         string dir = "C:\\Skyline DataMiner\\ProtocolScripts";
-        string fileName = "sample.xml";
+        string fileName = "AdSales.xml";
         string fullPath = Path.Combine(dir, fileName);
         try
         {
             protocol.Xmliterationcounter = (double)protocol.Xmliterationcounter + 1;
             string fileContent = ReadFile(fullPath);
-            var data = XmlDeserializeFromString<items>(fileContent);
+            var data = XmlDeserializeFromString<Data>(fileContent);
 
             // Convert Generated class into Connector Row data.
             var rows = ConvertToTableRows(data);
             protocol.FillArray(Parameter.Datatable.tablePid, rows, NotifyProtocol.SaveOption.Full);
-            protocol.Xmldebugmsg = $"Parsed {data.item.Length} rows";
+            protocol.Xmldebugmsg = $"Parsed {data.Breaks.Length} breaks";
         }
         catch (Exception ex)
         {
@@ -48,16 +48,23 @@ public static class QAction
         }
     }
 
-    public static List<object[]> ConvertToTableRows(items items_)
+    public static List<object[]> ConvertToTableRows(Data data)
     {
         List<object[]> rows = new List<object[]>();
-        foreach (itemsItem instance in items_.item)
+        foreach (var break_ in data.Breaks)
         {
-            rows.Add(new DatatableQActionRow
-            {
-                Idcolumn = instance.id,
-                Datacolumn = instance.value,
-            }.ToObjectArray());
+
+            foreach (var timeAllocation in break_.TimeAllocations) {
+                foreach (var content in timeAllocation.Contents)
+                {
+                    rows.Add(new DatatableQActionRow
+                    {
+                        Idcolumn = content.ContentReconcileKey,
+                        Xmltitlecolumn = content.ContentBrand,
+                        Xmltimecolumn = break_.BreakNominalTime,
+                    }.ToObjectArray());;
+                }
+            }
         }
         return rows;
     }

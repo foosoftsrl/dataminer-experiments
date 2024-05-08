@@ -38,6 +38,7 @@
 			<ArrayOptions index="0">
 				<ColumnOption idx="0" pid="2001" type="retrieved" options=""/>
 				<ColumnOption idx="1" pid="2002" type="retrieved" options=""/>
+				<ColumnOption idx="2" pid="2003" type="retrieved" options=""/>
 			</ArrayOptions>
 			<Information>
 				<Subtext>Table which shows data read from XML file</Subtext>
@@ -53,7 +54,7 @@
 				</Positions>
 			</Display>
 			<Measurement>
-				<Type options="tab=columns:2001|0-2002|1,width:100-100,sort:STRING-STRING,lines:25,filter:true">table</Type>
+				<Type options="tab=columns:2001|0-2002|1-2003|2,width:100-100-100,sort:STRING-STRING-STRING,lines:25,filter:true">table</Type>
 			</Measurement>
 		</Param>
 		<Param id="2001" trending="false">
@@ -76,8 +77,8 @@
 			</Measurement>
 		</Param>
 		<Param id="2002" trending="false">
-			<Name>dataColumn</Name>
-			<Description>Data</Description>
+			<Name>xmlTitleColumn</Name>
+			<Description>Title</Description>
 			<Type>read</Type>
 			<Information>
 				<Subtext>Some data...</Subtext>
@@ -94,13 +95,32 @@
 				<Type>string</Type>
 			</Measurement>
 		</Param>
-		<Param id="2003">
+		<Param id="2003" trending="false">
+			<Name>xmlTimeColumn</Name>
+			<Description>Time</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>Some data...</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="2100">
 			<Name>dataTableJson</Name>
 			<Description>Data Json</Description>
 			<Type>array</Type>
 			<ArrayOptions index="0">
-				<ColumnOption idx="0" pid="2004" type="retrieved" options=""/>
-				<ColumnOption idx="1" pid="2005" type="retrieved" options=""/>
+				<ColumnOption idx="0" pid="2101" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="2102" type="retrieved" options=""/>
 			</ArrayOptions>
 			<Information>
 				<Subtext>Table which shows data read from Json file</Subtext>
@@ -116,11 +136,11 @@
 				</Positions>
 			</Display>
 			<Measurement>
-				<Type options="tab=columns:2004|0-2005|1,width:157-157,sort:STRING-STRING,lines:25,filter:true">table</Type>
+				<Type options="tab=columns:2101|0-2102|1,width:157-157,sort:STRING-STRING,lines:25,filter:true">table</Type>
 			</Measurement>
 		</Param>
 		
-		<Param id="2004" trending="false">
+		<Param id="2101" trending="false">
 			<Name>dataTableJsondataidColumn</Name>
 			<Description>Column Id</Description>
 			<Type>read</Type>
@@ -140,7 +160,7 @@
 			</Measurement>
 		</Param>
 		
-		<Param id="2005" trending="false">
+		<Param id="2102" trending="false">
 			<Name>dataTableJsondataColumnJson</Name>
 			<Description>Column Data</Description>
 			<Type>read</Type>
