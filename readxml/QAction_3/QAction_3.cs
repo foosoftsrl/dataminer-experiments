@@ -24,18 +24,18 @@ public static class QAction
         string fullPath = Path.Combine(dir, fileName);
         try
         {
-            protocol.Iterationcounter = (double)protocol.Iterationcounter + 1;
+            protocol.Xmliterationcounter = (double)protocol.Xmliterationcounter + 1;
             string fileContent = ReadFile(fullPath);
             var data = XmlDeserializeFromString<items>(fileContent);
 
             // Convert Generated class into Connector Row data.
             var rows = ConvertToTableRows(data);
             protocol.FillArray(Parameter.Datatable.tablePid, rows, NotifyProtocol.SaveOption.Full);
-            protocol.Debugmsg = $"Parsed {data.item.Length} rows";
+            protocol.Xmldebugmsg = $"Parsed {data.item.Length} rows";
         }
         catch (Exception ex)
         {
-            protocol.Debugmsg = "Failed parsing xml file";
+            protocol.Xmldebugmsg = "Failed parsing xml file";
             protocol.Log($"QA{protocol.QActionID}|{protocol.GetTriggerParameter()}|Run|Exception thrown:{Environment.NewLine}{ex}", LogType.Error, LogLevel.NoLogging);
         }
     }

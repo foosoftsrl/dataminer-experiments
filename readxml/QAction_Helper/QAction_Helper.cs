@@ -10,36 +10,36 @@ public static class Parameter
 {
 	/// <summary>PID: 10000 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public const int iterationcounter_10000 = 10000;
+	public const int xmliterationcounter_10000 = 10000;
 	/// <summary>PID: 10000 | Type: read</summary>
-	public const int iterationcounter = 10000;
+	public const int xmliterationcounter = 10000;
 	/// <summary>PID: 10001 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public const int debug_4 = 4;
-	/// <summary>PID: 4 | Type: read</summary>
-	public const int debug = 4;
-	/// <summary>PID: 6 | Type: read</summary>
+	public const int xmldebugmsg_10001 = 10001;
+	/// <summary>PID: 10001 | Type: read</summary>
+	public const int xmldebugmsg = 10001;
+	/// <summary>PID: 10100 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public const int iterationcounter2_6 = 6;
-	/// <summary>PID: 6 | Type: read</summary>
-	public const int iterationcounter2 = 6;
-	/// <summary>PID: 7 | Type: read</summary>
+	public const int jsoniterationcounter_10100 = 10100;
+	/// <summary>PID: 10100 | Type: read</summary>
+	public const int jsoniterationcounter = 10100;
+	/// <summary>PID: 10101 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public const int debug2_7 = 7;
-	/// <summary>PID: 7 | Type: read</summary>
-	public const int debug2 = 7;
+	public const int jsondebugmsg_10101 = 10101;
+	/// <summary>PID: 10101 | Type: read</summary>
+	public const int jsondebugmsg = 10101;
 	public class Write
 	{
 		/// <summary>PID: 10002 | Type: write</summary>
 		[EditorBrowsable(EditorBrowsableState.Never)]
-		public const int processfile_111 = 111;
-		/// <summary>PID: 111 | Type: write</summary>
-		public const int processfile = 111;
-		/// <summary>PID: 112 | Type: write</summary>
+		public const int xmlprocessfile_10002 = 10002;
+		/// <summary>PID: 10002 | Type: write</summary>
+		public const int xmlprocessfile = 10002;
+		/// <summary>PID: 10102 | Type: write</summary>
 		[EditorBrowsable(EditorBrowsableState.Never)]
-		public const int processfilejson_112 = 112;
-		/// <summary>PID: 112 | Type: write</summary>
-		public const int processfilejson = 112;
+		public const int jsonprocessfile_10102 = 10102;
+		/// <summary>PID: 10102 | Type: write</summary>
+		public const int jsonprocessfile = 10102;
 	}
 	public class Datatable
 	{
@@ -120,10 +120,10 @@ public static class Parameter
 }
 public class WriteParameters
 {
-	/// <summary>PID: 111  | Type: write | DISCREETS: Process XML file = check</summary>
-	public System.Object Processfile {get { return Protocol.GetParameter(111); }set { Protocol.SetParameter(111, value); }}
-	/// <summary>PID: 112  | Type: write | DISCREETS: Process JSON File = check</summary>
-	public System.Object Processfilejson {get { return Protocol.GetParameter(112); }set { Protocol.SetParameter(112, value); }}
+	/// <summary>PID: 10002  | Type: write | DISCREETS: Process XML file = check</summary>
+	public System.Object Xmlprocessfile {get { return Protocol.GetParameter(10002); }set { Protocol.SetParameter(10002, value); }}
+	/// <summary>PID: 10102  | Type: write | DISCREETS: Process JSON file = check</summary>
+	public System.Object Jsonprocessfile {get { return Protocol.GetParameter(10102); }set { Protocol.SetParameter(10102, value); }}
 	public SLProtocolExt Protocol;
 	public WriteParameters(SLProtocolExt protocol)
 	{
@@ -138,14 +138,6 @@ public interface SLProtocolExt : SLProtocol
 	DatatablejsonQActionTable datatablejson { get; set; }
 	object Afterstartup_dummy { get; set; }
 	object Triggerqaction_dummy { get; set; }
-	object Iterationcounter2_6 { get; set; }
-	object Iterationcounter2 { get; set; }
-	object Debug2_7 { get; set; }
-	object Debug2 { get; set; }
-	object Processfile_111 { get; set; }
-	object Processfile { get; set; }
-	object Processfilejson_112 { get; set; }
-	object Processfilejson { get; set; }
 	object Idcolumn_2001 { get; set; }
 	object Idcolumn { get; set; }
 	object Datacolumn_2002 { get; set; }
@@ -154,6 +146,18 @@ public interface SLProtocolExt : SLProtocol
 	object Datatablejsondataidcolumn { get; set; }
 	object Datatablejsondatacolumnjson_2005 { get; set; }
 	object Datatablejsondatacolumnjson { get; set; }
+	object Xmliterationcounter_10000 { get; set; }
+	object Xmliterationcounter { get; set; }
+	object Xmldebugmsg_10001 { get; set; }
+	object Xmldebugmsg { get; set; }
+	object Xmlprocessfile_10002 { get; set; }
+	object Xmlprocessfile { get; set; }
+	object Jsoniterationcounter_10100 { get; set; }
+	object Jsoniterationcounter { get; set; }
+	object Jsondebugmsg_10101 { get; set; }
+	object Jsondebugmsg { get; set; }
+	object Jsonprocessfile_10102 { get; set; }
+	object Jsonprocessfile { get; set; }
 	WriteParameters Write { get; set; }
 }
 public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
@@ -166,24 +170,6 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public System.Object Afterstartup_dummy {get { return GetParameter(1); }set { SetParameter(1, value); }}
 	/// <summary>PID: 5  | Type: dummy</summary>
 	public System.Object Triggerqaction_dummy {get { return GetParameter(5); }set { SetParameter(5, value); }}
-	/// <summary>PID: 6  | Type: read</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Iterationcounter2_6 {get { return GetParameter(6); }set { SetParameter(6, value); }}
-	/// <summary>PID: 6  | Type: read</summary>
-	public System.Object Iterationcounter2 {get { return GetParameter(6); }set { SetParameter(6, value); }}
-	/// <summary>PID: 7  | Type: read</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Debug2_7 {get { return GetParameter(7); }set { SetParameter(7, value); }}
-	/// <summary>PID: 7  | Type: read</summary>
-	public System.Object Debug2 {get { return GetParameter(7); }set { SetParameter(7, value); }}
-	/// <summary>PID: 111  | Type: write | DISCREETS: Process XML file = check</summary>
-	public System.Object Processfile_111 {get { return GetParameter(111); }set { SetParameter(111, value); }}
-	/// <summary>PID: 111  | Type: write | DISCREETS: Process XML file = check</summary>
-	public System.Object Processfile {get { return Write.Processfile; }set { Write.Processfile = value; }}
-	/// <summary>PID: 112  | Type: write | DISCREETS: Process JSON File = check</summary>
-	public System.Object Processfilejson_112 {get { return GetParameter(112); }set { SetParameter(112, value); }}
-	/// <summary>PID: 112  | Type: write | DISCREETS: Process JSON File = check</summary>
-	public System.Object Processfilejson {get { return Write.Processfilejson; }set { Write.Processfilejson = value; }}
 	/// <summary>PID: 2001  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Idcolumn_2001 {get { return GetParameter(2001); }set { SetParameter(2001, value); }}
@@ -204,6 +190,34 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public System.Object Datatablejsondatacolumnjson_2005 {get { return GetParameter(2005); }set { SetParameter(2005, value); }}
 	/// <summary>PID: 2005  | Type: read</summary>
 	public System.Object Datatablejsondatacolumnjson {get { return GetParameter(2005); }set { SetParameter(2005, value); }}
+	/// <summary>PID: 10000  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Xmliterationcounter_10000 {get { return GetParameter(10000); }set { SetParameter(10000, value); }}
+	/// <summary>PID: 10000  | Type: read</summary>
+	public System.Object Xmliterationcounter {get { return GetParameter(10000); }set { SetParameter(10000, value); }}
+	/// <summary>PID: 10001  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Xmldebugmsg_10001 {get { return GetParameter(10001); }set { SetParameter(10001, value); }}
+	/// <summary>PID: 10001  | Type: read</summary>
+	public System.Object Xmldebugmsg {get { return GetParameter(10001); }set { SetParameter(10001, value); }}
+	/// <summary>PID: 10002  | Type: write | DISCREETS: Process XML file = check</summary>
+	public System.Object Xmlprocessfile_10002 {get { return GetParameter(10002); }set { SetParameter(10002, value); }}
+	/// <summary>PID: 10002  | Type: write | DISCREETS: Process XML file = check</summary>
+	public System.Object Xmlprocessfile {get { return Write.Xmlprocessfile; }set { Write.Xmlprocessfile = value; }}
+	/// <summary>PID: 10100  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Jsoniterationcounter_10100 {get { return GetParameter(10100); }set { SetParameter(10100, value); }}
+	/// <summary>PID: 10100  | Type: read</summary>
+	public System.Object Jsoniterationcounter {get { return GetParameter(10100); }set { SetParameter(10100, value); }}
+	/// <summary>PID: 10101  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Jsondebugmsg_10101 {get { return GetParameter(10101); }set { SetParameter(10101, value); }}
+	/// <summary>PID: 10101  | Type: read</summary>
+	public System.Object Jsondebugmsg {get { return GetParameter(10101); }set { SetParameter(10101, value); }}
+	/// <summary>PID: 10102  | Type: write | DISCREETS: Process JSON file = check</summary>
+	public System.Object Jsonprocessfile_10102 {get { return GetParameter(10102); }set { SetParameter(10102, value); }}
+	/// <summary>PID: 10102  | Type: write | DISCREETS: Process JSON file = check</summary>
+	public System.Object Jsonprocessfile {get { return Write.Jsonprocessfile; }set { Write.Jsonprocessfile = value; }}
 	public WriteParameters Write { get; set; }
 	public ConcreteSLProtocolExt()
 	{

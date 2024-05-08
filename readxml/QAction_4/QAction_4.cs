@@ -21,6 +21,7 @@ public static class QAction
         string fullPath = Path.Combine(dir, fileName);
         try
         {
+            protocol.Jsoniterationcounter = (double)protocol.Jsoniterationcounter + 1;
             // Get Text based json data as a string.
             string source = ReadFile(fullPath);
 
@@ -39,11 +40,11 @@ public static class QAction
             }
 
             protocol.FillArray(Parameter.Datatablejson.tablePid, instances, NotifyProtocol.SaveOption.Full);
-            protocol.Debug = $"Processed JSON file {rootObjects.Instances.Length}";
+            protocol.Jsondebugmsg = $"Processed JSON file {rootObjects.Instances.Length}";
         }
         catch (Exception ex)
         {
-            protocol.Debug = $"Failed parsing JSON file {ex.Message}";
+            protocol.Jsondebugmsg = $"Failed parsing JSON file {ex.Message}";
             protocol.Log("QA" + protocol.QActionID + "|" + protocol.GetTriggerParameter() + "|Run|Deserializing JSON text failed due to:" + Environment.NewLine + ex, LogType.Error, LogLevel.NoLogging);
         }
     }
