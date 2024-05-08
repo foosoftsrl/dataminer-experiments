@@ -17,11 +17,12 @@ public static class QAction
     public static void Run(SLProtocolExt protocol)
     {
         string dir = "C:\\Skyline DataMiner\\ProtocolScripts";
-        string fileName = "sample.json";
+        string fileName = "mediator.json";
         string fullPath = Path.Combine(dir, fileName);
         try
         {
             protocol.Jsoniterationcounter = (double)protocol.Jsoniterationcounter + 1;
+
             // Get Text based json data as a string.
             string source = ReadFile(fullPath);
 
@@ -30,17 +31,19 @@ public static class QAction
             List<object[]> instances = new List<object[]>();
 
             // Convert Generated class into Connector Row data.
-            foreach (Instance instance in rootObjects.Instances)
+            foreach (var command in rootObjects.PharosCs.CommandList.Command)
             {
-                instances.Add(new DatatablejsonQActionRow
-                {
-                    Datatablejsondataidcolumn = instance.Item,
-                    Datatablejsondatacolumnjson = instance.Value,
-                }.ToObjectArray());
+                foreach (var row in command.Output.ResultSet.Rows) {
+                    instances.Add(new DatatablejsonQActionRow
+                    {
+                        Datatablejsondataidcolumn = row.TrimMaterialId.GenericList.Object[0],
+                        Datatablejsondatacolumnjson = row.StartDateTime.GenericList.Object[0].ISO8601,
+                    }.ToObjectArray());
+                }
             }
 
             protocol.FillArray(Parameter.Datatablejson.tablePid, instances, NotifyProtocol.SaveOption.Full);
-            protocol.Jsondebugmsg = $"Processed JSON file {rootObjects.Instances.Length}";
+            protocol.Jsondebugmsg = $"Processed JSON file {instances.Count}";
         }
         catch (Exception ex)
         {

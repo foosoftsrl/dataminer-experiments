@@ -33,7 +33,7 @@
 		
 		<Param id="2000">
 			<Name>dataTable</Name>
-			<Description>data</Description>
+			<Description>Data</Description>
 			<Type>array</Type>
 			<ArrayOptions index="0">
 				<ColumnOption idx="0" pid="2001" type="retrieved" options=""/>
@@ -183,7 +183,7 @@
 		<!-- Debug stuff -->
 		<Param id="10000" trending="false" save="true">
 			<Name>xmlIterationCounter</Name>
-			<Description>How many times XML file has been processed</Description>
+			<Description>How Many Times XML File Has Been Processed</Description>
 			<Type>read</Type>
 			<Information>
 			</Information>
@@ -208,7 +208,7 @@
 		</Param>
 		<Param id="10001" trending="false">
 			<Name>xmlDebugMsg</Name>
-			<Description>Debug data</Description>
+			<Description>Debug Data Xml</Description>
 			<Type>read</Type>
 			<Information>
 			</Information>
@@ -266,7 +266,7 @@
 		</Param>
 		<Param id="10100" trending="false" save="true">
 			<Name>jsonIterationCounter</Name>
-			<Description>How many times JSON file has been processed</Description>
+			<Description>How Many Times JSON File Has Been Processed</Description>
 			<Type>read</Type>
 			<Information>
 			</Information>
@@ -291,7 +291,7 @@
 		</Param>
 		<Param id="10101" trending="false">
 			<Name>jsonDebugMsg</Name>
-			<Description>Debug data</Description>
+			<Description>Debug Data Json</Description>
 			<Type>read</Type>
 			<Information>
 			</Information>
