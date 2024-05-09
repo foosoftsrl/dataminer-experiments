@@ -38,8 +38,8 @@
 		</Param>
 
 		<Param id="2000">
-			<Name>dataTable</Name>
-			<Description>Data From ADSales</Description>
+			<Name>adSales</Name>
+			<Description>ADSales</Description>
 			<Type>array</Type>
 			<ArrayOptions index="0">
 				<ColumnOption idx="0" pid="2001" type="retrieved" options=""/>
@@ -47,7 +47,7 @@
 				<ColumnOption idx="2" pid="2003" type="retrieved" options=""/>
 			</ArrayOptions>
 			<Information>
-				<Subtext>Table which shows data read from XML file</Subtext>
+				<Subtext>ADSales Table</Subtext>
 			</Information>
 			<Display>
 				<RTDisplay>true</RTDisplay>
@@ -64,11 +64,11 @@
 			</Measurement>
 		</Param>
 		<Param id="2001" trending="false">
-			<Name>idColumn</Name>
-			<Description>Id</Description>
+			<Name>adSalesId</Name>
+			<Description>Id (ADSales)</Description>
 			<Type>read</Type>
 			<Information>
-				<Subtext>Key used internally by DataMiner to identify the table entries.</Subtext>
+				<Subtext>![CDATA[Process Id]].</Subtext>
 			</Information>
 			<Interprete>
 				<RawType>other</RawType>
@@ -83,11 +83,11 @@
 			</Measurement>
 		</Param>
 		<Param id="2002" trending="false">
-			<Name>xmlTitleColumn</Name>
-			<Description>Title</Description>
+			<Name>adSalesTitle</Name>
+			<Description>Title (ADSales)</Description>
 			<Type>read</Type>
 			<Information>
-				<Subtext>Some data...</Subtext>
+				<Subtext>![CDATA[Title Name]]</Subtext>
 			</Information>
 			<Interprete>
 				<RawType>other</RawType>
@@ -102,11 +102,11 @@
 			</Measurement>
 		</Param>
 		<Param id="2003" trending="false">
-			<Name>xmlTimeColumn</Name>
-			<Description>Time</Description>
+			<Name>adSalesTime</Name>
+			<Description>Time (ADSales)</Description>
 			<Type>read</Type>
 			<Information>
-				<Subtext>Some data...</Subtext>
+				<Subtext>![CDATA[Date]]</Subtext>
 			</Information>
 			<Interprete>
 				<RawType>other</RawType>
@@ -122,15 +122,15 @@
 		</Param>
 		
 		<Param id="2100">
-			<Name>dataTableJson</Name>
-			<Description>Data From Mediator</Description>
+			<Name>mediator</Name>
+			<Description>Mediator</Description>
 			<Type>array</Type>
 			<ArrayOptions index="0">
 				<ColumnOption idx="0" pid="2101" type="retrieved" options=""/>
 				<ColumnOption idx="1" pid="2102" type="retrieved" options=""/>
 			</ArrayOptions>
 			<Information>
-				<Subtext>Table which shows data read from Json file</Subtext>
+				<Subtext>Mediator Table</Subtext>
 			</Information>
 			<Display>
 				<RTDisplay>true</RTDisplay>
@@ -148,11 +148,11 @@
 		</Param>
 		
 		<Param id="2101" trending="false">
-			<Name>dataTableJsondataidColumn</Name>
-			<Description>Column Id</Description>
+			<Name>mediatorId</Name>
+			<Description>Id (Mediator)</Description>
 			<Type>read</Type>
 			<Information>
-				<Subtext>This is the key used internally by DataMiner to identify the table entries.</Subtext>
+				<Subtext>![CDATA[Process Id]].</Subtext>
 			</Information>
 			<Interprete>
 				<RawType>other</RawType>
@@ -168,11 +168,11 @@
 		</Param>
 		
 		<Param id="2102" trending="false">
-			<Name>dataTableJsondataColumnJson</Name>
-			<Description>Column Data</Description>
+			<Name>mediatorDate</Name>
+			<Description>Date (Mediator)</Description>
 			<Type>read</Type>
 			<Information>
-				<Subtext>This is the key used internally by DataMiner to identify the table entries.</Subtext>
+				<Subtext>![CDATA[Date]].</Subtext>
 			</Information>
 			<Interprete>
 				<RawType>other</RawType>
@@ -189,7 +189,7 @@
 		
 		<Param id="3000">
 			<Name>mergedTable</Name>
-			<Description>mergedTable</Description>
+			<Description>Merged Table</Description>
 			<Type>array</Type>
 			<ArrayOptions index="0">
 				<ColumnOption idx="0" pid="3001" type="retrieved" options=""/>
@@ -199,7 +199,7 @@
 				<ColumnOption idx="4" pid="3005" type="retrieved" options=""/>
 			</ArrayOptions>
 			<Information>
-				<Subtext>Table which shows data from other tables</Subtext>
+				<Subtext>Table Which Shows Data From Other Tables</Subtext>
 			</Information>
 			<Display>
 				<RTDisplay>true</RTDisplay>
@@ -277,7 +277,7 @@
 		</Param>
 		
 		<Param id="3004" trending="false">
-			<Name>dataTableColumn4</Name>
+			<Name>mergeddataTableColumn4</Name>
 			<Description>Column4</Description>
 			<Type>read</Type>
 			<Information>
@@ -297,28 +297,8 @@
 		</Param>
 		
 		<Param id="3005" trending="false">
-			<Name>dataTableColumn5</Name>
+			<Name>mergeddataTableColumn5</Name>
 			<Description>Column5</Description>
-			<Type>read</Type>
-			<Information>
-				<Subtext>This is the key used internally by DataMiner to identify the table entries.</Subtext>
-			</Information>
-			<Interprete>
-				<RawType>other</RawType>
-				<Type>string</Type>
-				<LengthType>next param</LengthType>
-			</Interprete>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-			</Display>
-			<Measurement>
-				<Type>string</Type>
-			</Measurement>
-		</Param>
-		
-		<Param id="3006" trending="false">
-			<Name>dataTableColumn6</Name>
-			<Description>Column6</Description>
 			<Type>read</Type>
 			<Information>
 				<Subtext>This is the key used internally by DataMiner to identify the table entries.</Subtext>
@@ -338,8 +318,8 @@
 		
 		<!-- Debug stuff -->
 		<Param id="10000" trending="false" save="true">
-			<Name>xmlIterationCounter</Name>
-			<Description>How Many Times ADSales File Has Been Processed</Description>
+			<Name>adSalesIterationCounter</Name>
+			<Description>How Many Times XML File From ADSales Has Been Processed</Description>
 			<Type>read</Type>
 			<Information>
 			</Information>
@@ -363,8 +343,8 @@
 			</Measurement>
 		</Param>
 		<Param id="10001" trending="false">
-			<Name>xmlDebugMsg</Name>
-			<Description>Debug Data ADSales</Description>
+			<Name>adSalesDebugMsg</Name>
+			<Description>Debug ADSales Data</Description>
 			<Type>read</Type>
 			<Information>
 			</Information>
@@ -388,11 +368,11 @@
 			</Measurement>
 		</Param>
 		<Param id="10002">
-			<Name>xmlProcessFile</Name>
+			<Name>adSalesProcessFile</Name>
 			<Description />
 			<Information>
-				<Text>Process XML file from disk</Text>
-				<Subtext>Process XML File from disk</Subtext>
+				<Text>Process ADSales XML File From Disk</Text>
+				<Subtext>Process ADSales XML File From Disk</Subtext>
 			</Information>
 			<Type>write</Type>
 			<Interprete>
@@ -414,15 +394,15 @@
 				<Type width="110">button</Type>
 				<Discreets>
 					<Discreet>
-						<Display>Process ADSales file</Display>
+						<Display>Process ADSales XML File</Display>
 						<Value>check</Value>
 					</Discreet>
 				</Discreets>
 			</Measurement>
 		</Param>
 		<Param id="10100" trending="false" save="true">
-			<Name>jsonIterationCounter</Name>
-			<Description>How Many Times Mediator File Has Been Processed</Description>
+			<Name>mediatorIterationCounter</Name>
+			<Description>How Many Times JSON File From Mediator Has Been Processed</Description>
 			<Type>read</Type>
 			<Information>
 			</Information>
@@ -446,8 +426,8 @@
 			</Measurement>
 		</Param>
 		<Param id="10101" trending="false">
-			<Name>jsonDebugMsg</Name>
-			<Description>Debug Data Mediator</Description>
+			<Name>mediatorDebugMsg</Name>
+			<Description>Debug Mediator Data</Description>
 			<Type>read</Type>
 			<Information>
 			</Information>
@@ -471,7 +451,7 @@
 			</Measurement>
 		</Param>
 		<Param id="10102">
-			<Name>jsonProcessFile</Name>
+			<Name>mediatorProcessFile</Name>
 			<Description />
 			<Information>
 				<Text>Process JSON file from disk</Text>
@@ -679,7 +659,7 @@
 									<MinorVersion id="1">
 										<Date>2024-05-06</Date>
 										<Provider>
-											<Author></Author>
+											<Author>Foosoft</Author>
 											<Company>Foosoft</Company>
 										</Provider>
 										<Changes>

@@ -19,8 +19,8 @@ public static class QAction
         try
         {
             protocol.Mergediterationcounter = (double)protocol.Mergediterationcounter + 1;
-            var data1 = protocol.datatable.GetRow(0);
-            var data2 = protocol.datatablejson.GetRow(0);
+            var data1 = protocol.adsales.GetRow(0);
+            var data2 = protocol.mediator.GetRow(0);
             var data1_0 = data1[0];
             var data1_1 = data1[1];
             var data2_0 = data2[0];
