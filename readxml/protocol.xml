@@ -30,13 +30,13 @@
 			<Description>TriggerQAction</Description>
 			<Type>dummy</Type>
 		</Param>
-
+		
 		<Param id="6">
 			<Name>TriggerMergedQAction</Name>
 			<Description>TriggerMergedQAction</Description>
 			<Type>dummy</Type>
 		</Param>
-
+		
 		<Param id="2000">
 			<Name>adSales</Name>
 			<Description>ADSales</Description>
@@ -328,6 +328,9 @@
 				<Type>double</Type>
 				<LengthType>next param</LengthType>
 			</Interprete>
+			<Alarm>
+				<Monitored>true</Monitored>
+			</Alarm>
 			<Display>
 				<RTDisplay>true</RTDisplay>
 				<Positions>
@@ -411,6 +414,9 @@
 				<Type>double</Type>
 				<LengthType>next param</LengthType>
 			</Interprete>
+			<Alarm>
+				<Monitored>true</Monitored>
+			</Alarm>
 			<Display>
 				<RTDisplay>true</RTDisplay>
 				<Positions>
@@ -495,6 +501,9 @@
 				<Type>double</Type>
 				<LengthType>next param</LengthType>
 			</Interprete>
+			<Alarm>
+				<Monitored>true</Monitored>
+			</Alarm>
 			<Display>
 				<RTDisplay>true</RTDisplay>
 				<Positions>
