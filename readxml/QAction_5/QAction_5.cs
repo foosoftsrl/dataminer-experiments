@@ -18,6 +18,7 @@ public static class QAction
     {
         try
         {
+            protocol.Mergediterationcounter = (double)protocol.Mergediterationcounter + 1;
             var data1 = protocol.datatable.GetRow(0);
             var data2 = protocol.datatablejson.GetRow(0);
             var data1_0 = data1[0];
@@ -35,7 +36,9 @@ public static class QAction
                 Mergedtablecolumn1 = data2_0,
                 Mergedtablecolumn2 = data2_1,
             }.ToObjectArray());
-            protocol.FillArray(Parameter.Datatablejson.tablePid, instances, NotifyProtocol.SaveOption.Full);
+
+            protocol.FillArray(Parameter.Mergedtable.tablePid, instances, NotifyProtocol.SaveOption.Full);
+            protocol.Mergeddebugmsg = $"Processed {instances.Count} rows";
         }
         catch (Exception ex)
         {

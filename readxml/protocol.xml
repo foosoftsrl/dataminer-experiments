@@ -30,7 +30,13 @@
 			<Description>TriggerQAction</Description>
 			<Type>dummy</Type>
 		</Param>
-		
+
+		<Param id="6">
+			<Name>TriggerMergedQAction</Name>
+			<Description>TriggerMergedQAction</Description>
+			<Type>dummy</Type>
+		</Param>
+
 		<Param id="2000">
 			<Name>dataTable</Name>
 			<Description>Data From ADSales</Description>
@@ -39,7 +45,6 @@
 				<ColumnOption idx="0" pid="2001" type="retrieved" options=""/>
 				<ColumnOption idx="1" pid="2002" type="retrieved" options=""/>
 				<ColumnOption idx="2" pid="2003" type="retrieved" options=""/>
-				<ColumnOption idx="3" pid="2004" type="retrieved" options=""/>
 			</ArrayOptions>
 			<Information>
 				<Subtext>Table which shows data read from XML file</Subtext>
@@ -115,25 +120,7 @@
 				<Type>string</Type>
 			</Measurement>
 		</Param>
-		<Param id="2004" trending="false">
-			<Name>ForeignKey</Name>
-			<Description>ForeignKey</Description>
-			<Type>read</Type>
-			<Information>
-				<Subtext>Some data...</Subtext>
-			</Information>
-			<Interprete>
-				<RawType>other</RawType>
-				<Type>string</Type>
-				<LengthType>next param</LengthType>
-			</Interprete>
-			<Display>
-				<RTDisplay>false</RTDisplay>
-			</Display>
-			<Measurement>
-				<Type>string</Type>
-			</Measurement>
-		</Param>
+		
 		<Param id="2100">
 			<Name>dataTableJson</Name>
 			<Description>Data From Mediator</Description>
@@ -220,12 +207,12 @@
 					<Position>
 						<Page>General</Page>
 						<Column>0</Column>
-						<Row>0</Row>
+						<Row>3</Row>
 					</Position>
 				</Positions>
 			</Display>
 			<Measurement>
-				<Type options=";tab=columns:3001|0-3002|1-3003|2-3004|3-3005|4,width:100-100-100-100,sort:STRING-STRING-STRING-STRING,lines:25,filter:true">table</Type>
+				<Type options=";tab=columns:3001|0-3002|1-3003|2-3004|3-3005|4,width:100-100-100-100-100,sort:STRING-STRING-STRING-STRING-STRING,lines:25,filter:true">table</Type>
 			</Measurement>
 		</Param>
 		
@@ -270,7 +257,7 @@
 		</Param>
 		
 		<Param id="3003" trending="false">
-			<Name>dataTableColumn3</Name>
+			<Name>mergedTableColumn3</Name>
 			<Description>Column3</Description>
 			<Type>read</Type>
 			<Information>
@@ -516,6 +503,90 @@
 				</Discreets>
 			</Measurement>
 		</Param>
+		
+		<Param id="10200" trending="false" save="true">
+			<Name>mergedIterationCounter</Name>
+			<Description>How Many Times Tables Has Been Processed</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>General</Page>
+						<Column>0</Column>
+						<Row>1</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>number</Type>
+			</Measurement>
+		</Param>
+		<Param id="10201" trending="false">
+			<Name>mergedDebugMsg</Name>
+			<Description>Debug Merged Data</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>General</Page>
+						<Column>0</Column>
+						<Row>2</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="10202">
+			<Name>mergedProcessTable</Name>
+			<Description />
+			<Information>
+				<Text>Process Mediator And ADSales Tables</Text>
+				<Subtext>Process Mediator And ADSales Tables</Subtext>
+			</Information>
+			<Type>write</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>General</Page>
+						<Column>0</Column>
+						<Row>0</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type width="110">button</Type>
+				<Discreets>
+					<Discreet>
+						<Display>Merge Tables</Display>
+						<Value>check</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
 	</Params>
 
 	<QActions>
@@ -523,7 +594,7 @@
 		<QAction id="2" name="After Startup" encoding="csharp" triggers="1" />
 		<QAction id="3" name="QActionXml" encoding="csharp" triggers="10002;5;1" />
 		<QAction id="4" name="QActionJson" encoding="csharp" triggers="10102;5;1" />
-		<QAction id="5" name="QActionName" encoding="csharp" triggers="2000;2100"/>
+		<QAction id="5" name="QActionComputeMerged" encoding="csharp" triggers="10202;6" />
 	</QActions>
 
 	<Groups>
@@ -533,6 +604,7 @@
 			<Type>poll action</Type>
 			<Content>
 				<Action>5</Action>
+				<Action>6</Action>
 			</Content>
 		</Group>
 	</Groups>
@@ -556,8 +628,13 @@
 			<Type>run actions</Type>
 		</Action>
 		<Action id="5">
-			<Name>TriggerQAction</Name>
+			<Name>TriggerQActionJsonXml</Name>
 			<On id="5">parameter</On>
+			<Type>run actions</Type>
+		</Action>
+		<Action id="6">
+			<Name>TriggerQActionMerge</Name>
+			<On id="6">parameter</On>
 			<Type>run actions</Type>
 		</Action>
 	</Actions>
