@@ -9,11 +9,14 @@ using Skyline.DataMiner.Scripting;
 // using QAction_3.Json;
 
 /// <summary>
-/// The QAction entry point.
+/// The QAction class.
 /// </summary>
-/// <param name="protocol">Link with SLProtocol process.</param>
 public static class QAction
 {
+    /// <summary>
+    /// The QAction entry point.
+    /// </summary>
+    /// <param name="protocol">Link with SLProtocol process.</param>
     public static void Run(SLProtocolExt protocol)
     {
         string dir = "C:\\Skyline DataMiner\\ProtocolScripts";
@@ -21,7 +24,7 @@ public static class QAction
         string fullPath = Path.Combine(dir, fileName);
         try
         {
-            protocol.Jsoniterationcounter = (double)protocol.Jsoniterationcounter + 1;
+            protocol.Mediatoriterationcounter = (double)protocol.Mediatoriterationcounter + 1;
 
             // Get Text based json data as a string.
             string source = ReadFile(fullPath);
@@ -34,20 +37,20 @@ public static class QAction
             foreach (var command in rootObjects.PharosCs.CommandList.Command)
             {
                 foreach (var row in command.Output.ResultSet.Rows) {
-                    instances.Add(new DatatablejsonQActionRow
+                    instances.Add(new MediatorQActionRow
                     {
-                        Datatablejsondataidcolumn = row.TrimMaterialId.GenericList.Object[0],
-                        Datatablejsondatacolumnjson = row.StartDateTime.GenericList.Object[0].ISO8601,
+                        Mediatorid = row.TrimMaterialId.GenericList.Object[0],
+                        Mediatordate = row.StartDateTime.GenericList.Object[0].ISO8601,
                     }.ToObjectArray());
                 }
             }
 
-            protocol.FillArray(Parameter.Datatablejson.tablePid, instances, NotifyProtocol.SaveOption.Full);
-            protocol.Jsondebugmsg = $"Processed JSON file {instances.Count}";
+            protocol.FillArray(Parameter.Mediator.tablePid, instances, NotifyProtocol.SaveOption.Full);
+            protocol.Mediatordebugmsg = $"Processed {instances.Count} TrimMaterialId";
         }
         catch (Exception ex)
         {
-            protocol.Jsondebugmsg = $"Failed parsing JSON file {ex.Message}";
+            protocol.Mediatordebugmsg = $"Failed parsing JSON file {ex.Message}";
             protocol.Log("QA" + protocol.QActionID + "|" + protocol.GetTriggerParameter() + "|Run|Deserializing JSON text failed due to:" + Environment.NewLine + ex, LogType.Error, LogLevel.NoLogging);
         }
     }

@@ -24,18 +24,18 @@ public static class QAction
         string fullPath = Path.Combine(dir, fileName);
         try
         {
-            protocol.Xmliterationcounter = (double)protocol.Xmliterationcounter + 1;
+            protocol.Adsalesiterationcounter = (double)protocol.Adsalesiterationcounter + 1;
             string fileContent = ReadFile(fullPath);
             var data = XmlDeserializeFromString<Data>(fileContent);
 
             // Convert Generated class into Connector Row data.
             var rows = ConvertToTableRows(data);
-            protocol.FillArray(Parameter.Datatable.tablePid, rows, NotifyProtocol.SaveOption.Full);
-            protocol.Xmldebugmsg = $"Parsed {data.Breaks.Length} breaks";
+            protocol.FillArray(Parameter.Adsales.tablePid, rows, NotifyProtocol.SaveOption.Full);
+            protocol.Adsalesdebugmsg = $"Parsed {data.Breaks.Length} breaks";
         }
         catch (Exception ex)
         {
-            protocol.Xmldebugmsg = "Failed parsing xml file";
+            protocol.Adsalesdebugmsg = "Failed parsing xml file";
             protocol.Log($"QA{protocol.QActionID}|{protocol.GetTriggerParameter()}|Run|Exception thrown:{Environment.NewLine}{ex}", LogType.Error, LogLevel.NoLogging);
         }
     }
@@ -53,19 +53,19 @@ public static class QAction
         List<object[]> rows = new List<object[]>();
         foreach (var break_ in data.Breaks)
         {
-
             foreach (var timeAllocation in break_.TimeAllocations) {
                 foreach (var content in timeAllocation.Contents)
                 {
-                    rows.Add(new DatatableQActionRow
+                    rows.Add(new AdsalesQActionRow
                     {
-                        Idcolumn = content.ContentReconcileKey,
-                        Xmltitlecolumn = content.ContentBrand,
-                        Xmltimecolumn = break_.BreakNominalTime,
+                        Adsalesid = content.ContentReconcileKey,
+                        Adsalestitle = content.ContentBrand,
+                        Adsalestime = break_.BreakNominalTime,
                     }.ToObjectArray());;
                 }
             }
         }
+
         return rows;
     }
 
