@@ -483,7 +483,7 @@
 				<Type width="110">button</Type>
 				<Discreets>
 					<Discreet>
-						<Display>Process Mediator JSON file</Display>
+						<Display>Process Mediator JSON File</Display>
 						<Value>check</Value>
 					</Discreet>
 				</Discreets>
