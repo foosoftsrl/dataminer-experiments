@@ -10,7 +10,7 @@
 	<DeviceOID></DeviceOID>
 	<ElementType>Connect to http</ElementType>
 	<Type relativeTimers="true">virtual</Type>
-	<Display defaultPage="General" pageOrder="General" wideColumnPages=""/>
+	<Display defaultPage="General" pageOrder="General;----;ADSales;Mediator" wideColumnPages=""/>
 	<SNMP includepages="true">auto</SNMP>
 
 	<Compliancies>
@@ -31,8 +31,8 @@
 		</Param>
 		
 		<Param id="1000">
-			<Name>tableXMLFromUrl</Name>
-			<Description>Table XML From URL</Description>
+			<Name>adSales</Name>
+			<Description>ADSales Table</Description>
 			<Type>array</Type>
 			<ArrayOptions index="0">
 				<ColumnOption idx="0" pid="1001" type="retrieved" options=""/>
@@ -40,13 +40,13 @@
 				<ColumnOption idx="2" pid="1003" type="retrieved" options="" />
 			</ArrayOptions>
 			<Information>
-				<Subtext>tableInformation</Subtext>
+				<Subtext>ADSales Table</Subtext>
 			</Information>
 			<Display>
 				<RTDisplay>true</RTDisplay>
 				<Positions>
 					<Position>
-						<Page>General</Page>
+						<Page>ADSales</Page>
 						<Column>0</Column>
 						<Row>3</Row>
 					</Position>
@@ -57,8 +57,8 @@
 			</Measurement>
 		</Param>
 		<Param id="1001" trending="false">
-			<Name>tableXMLFromUrlId</Name>
-			<Description>Id</Description>
+			<Name>adSalesId</Name>
+			<Description>Id (ADSales)</Description>
 			<Type>read</Type>
 			<Information>
 				<Subtext>This is the key used internally by DataMiner to identify the table entries.</Subtext>
@@ -76,8 +76,8 @@
 			</Measurement>
 		</Param>
 		<Param id="1002" trending="false">
-			<Name>tableXMLFromUrlTitle</Name>
-			<Description>Title</Description>
+			<Name>adSalesTitle</Name>
+			<Description>Title (ADSales)</Description>
 			<Type>read</Type>
 			<Information>
 				<Subtext>This is the key used internally by DataMiner to identify the table entries.</Subtext>
@@ -95,8 +95,138 @@
 			</Measurement>
 		</Param>
 		<Param id="1003" trending="false">
-			<Name>tableXMLFromUrlTime</Name>
-			<Description>Time</Description>
+			<Name>adSalesTime</Name>
+			<Description>Time (ADSales)</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>This is the key used internally by DataMiner to identify the table entries.</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		
+		<Param id="2000">
+			<Name>mediator</Name>
+			<Description>Mediator Table</Description>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="2001" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="2002" type="retrieved" options=""/>
+			</ArrayOptions>
+			<Information>
+				<Subtext>tableInformation</Subtext>
+			</Information>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Mediator</Page>
+						<Column>0</Column>
+						<Row>3</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type options="tab=columns:2001|0-2002|1,width:100-100,sort:STRING-STRING,lines:25,filter:true">table</Type>
+			</Measurement>
+		</Param>
+		<Param id="2001" trending="false">
+			<Name>mediatorId</Name>
+			<Description>Id (Mediator)</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>This is the key used internally by DataMiner to identify the table entries.</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="2002" trending="false">
+			<Name>mediatorDate</Name>
+			<Description>Date (Mediator)</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>This is the key used internally by DataMiner to identify the table entries.</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		
+		<Param id="3000">
+			<Name>mergedTable</Name>
+			<Description>Merged Table</Description>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="3001" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="3002" type="retrieved" options=""/>
+			</ArrayOptions>
+			<Information>
+				<Subtext>Table Which Shows Data From Other Tables</Subtext>
+			</Information>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>General</Page>
+						<Column>0</Column>
+						<Row>3</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type options=";tab=columns:3001|0-3002|1,width:100-100,sort:STRING-STRING,lines:25,filter:true">table</Type>
+			</Measurement>
+		</Param>
+		
+		<Param id="3001" trending="false">
+			<Name>mergedTableColumn1</Name>
+			<Description>Column1</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>This is the key used internally by DataMiner to identify the table entries.</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		
+		<Param id="3002" trending="false">
+			<Name>mergedTableColumn2</Name>
+			<Description>Column2</Description>
 			<Type>read</Type>
 			<Information>
 				<Subtext>This is the key used internally by DataMiner to identify the table entries.</Subtext>
@@ -116,8 +246,182 @@
 		
 		<!-- Debug stuff -->
 		<Param id="10000" trending="false" save="true">
-			<Name>iterationCounter</Name>
+			<Name>adSalesIterationCounter</Name>
 			<Description>How Many Times XML File Has Been Processed</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Alarm>
+				<Monitored>false</Monitored>
+			</Alarm>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>ADSales</Page>
+						<Column>0</Column>
+						<Row>0</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>number</Type>
+			</Measurement>
+		</Param>
+		<Param id="10001" trending="false">
+			<Name>adSalesDebugMsg</Name>
+			<Description>Debug ADSales Data</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>ADSales</Page>
+						<Column>0</Column>
+						<Row>1</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="10002">
+			<Name>adSalesProcessFile</Name>
+			<Description />
+			<Information>
+				<Text>Process XML</Text>
+				<Subtext>Process XML</Subtext>
+			</Information>
+			<Type>write</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>ADSales</Page>
+						<Column>0</Column>
+						<Row>2</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type width="110">button</Type>
+				<Discreets>
+					<Discreet>
+						<Display>Process XML</Display>
+						<Value>check</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		
+		<Param id="10100" trending="false" save="true">
+			<Name>mediatorIterationCounter</Name>
+			<Description>How Many Times JSON File Has Been Processed</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Alarm>
+				<Monitored>false</Monitored>
+			</Alarm>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Mediator</Page>
+						<Column>0</Column>
+						<Row>0</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>number</Type>
+			</Measurement>
+		</Param>
+		<Param id="10101" trending="false">
+			<Name>mediatorDebugMsg</Name>
+			<Description>Debug Mediator Data</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Mediator</Page>
+						<Column>0</Column>
+						<Row>1</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="10102">
+			<Name>mediatorProcessFile</Name>
+			<Description />
+			<Information>
+				<Text>Process JSON</Text>
+				<Subtext>Process JSON</Subtext>
+			</Information>
+			<Type>write</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Mediator</Page>
+						<Column>0</Column>
+						<Row>2</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type width="110">button</Type>
+				<Discreets>
+					<Discreet>
+						<Display>Process JSON</Display>
+						<Value>check</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		
+		<Param id="10200" trending="false" save="true">
+			<Name>mergedIterationCounter</Name>
+			<Description>How Many Times Tables Has Been Processed</Description>
 			<Type>read</Type>
 			<Information>
 			</Information>
@@ -143,9 +447,9 @@
 				<Type>number</Type>
 			</Measurement>
 		</Param>
-		<Param id="10001" trending="false">
-			<Name>debugMsg</Name>
-			<Description>Debug Data</Description>
+		<Param id="10201" trending="false">
+			<Name>mergedDebugMsg</Name>
+			<Description>Debug Merged Data</Description>
 			<Type>read</Type>
 			<Information>
 			</Information>
@@ -168,12 +472,12 @@
 				<Type>string</Type>
 			</Measurement>
 		</Param>
-		<Param id="10002">
-			<Name>processXML</Name>
+		<Param id="10202">
+			<Name>mergedProcessTable</Name>
 			<Description />
 			<Information>
-				<Text>Process XML</Text>
-				<Subtext>Process XML</Subtext>
+				<Text>Process Mediator And ADSales Tables</Text>
+				<Subtext>Process Mediator And ADSales Tables</Subtext>
 			</Information>
 			<Type>write</Type>
 			<Interprete>
@@ -195,18 +499,21 @@
 				<Type width="110">button</Type>
 				<Discreets>
 					<Discreet>
-						<Display>Process XML</Display>
+						<Display>Merge Tables</Display>
 						<Value>check</Value>
 					</Discreet>
 				</Discreets>
 			</Measurement>
 		</Param>
+		
 	</Params>
 
 	<QActions>
 		<QAction id="1" name="Precompiled Code" encoding="csharp" options="precompile" />
 		<QAction id="2" name="After Startup" encoding="csharp" triggers="2" />
-		<QAction id="3" name="QActionName" encoding="csharp" triggers="10002;3;2" />		
+		<QAction id="3" name="QActionXML" encoding="csharp" triggers="10002;3;2" />
+		<QAction id="4" name="QActionJSON" encoding="csharp" triggers="10102;3;2" />
+		<QAction id="5" name="QActionComputeMerged" encoding="csharp" triggers="10202;3;2" />
 	</QActions>
 
 	<Groups>

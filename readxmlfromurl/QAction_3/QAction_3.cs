@@ -23,17 +23,17 @@ public static class QAction
         string url = "https://test.foosoft.it/testDataminer.xml";
         try
         {
-            protocol.Iterationcounter = (double)protocol.Iterationcounter + 1;
+            protocol.Adsalesiterationcounter = (double)protocol.Adsalesiterationcounter + 1;
             string xmlData = ReadXmlFromUrl(url);
             var data = XmlDeserializeFromUrl<Data>(xmlData);
 
             var rows = ConvertToTableRows(data);
-            protocol.FillArray(Parameter.Tablexmlfromurl.tablePid, rows, NotifyProtocol.SaveOption.Full);
-            protocol.Debugmsg = $"Parsed {data.Breaks.Length} breaks";
+            protocol.FillArray(Parameter.Adsales.tablePid, rows, NotifyProtocol.SaveOption.Full);
+            protocol.Adsalesdebugmsg = $"Parsed {data.Breaks.Length} breaks";
         }
         catch (Exception ex)
         {
-            protocol.Debugmsg = "Failed";
+            protocol.Adsalesdebugmsg = "Failed";
             protocol.Log($"QA{protocol.QActionID}|{protocol.GetTriggerParameter()}|Run|Exception thrown:{Environment.NewLine}{ex}", LogType.Error, LogLevel.NoLogging);
         }
     }
@@ -55,11 +55,11 @@ public static class QAction
             {
                 foreach (var content in timeAllocation.Contents)
                 {
-                    rows.Add(new TablexmlfromurlQActionRow
+                    rows.Add(new AdsalesQActionRow
                     {
-                        Tablexmlfromurlid = content.ContentReconcileKey,
-                        Tablexmlfromurltitle = content.ContentBrand,
-                        Tablexmlfromurltime = break_.BreakNominalTime,
+                        Adsalesid = content.ContentReconcileKey,
+                        Adsalestitle = content.ContentBrand,
+                        Adsalestime = break_.BreakNominalTime,
                     }.ToObjectArray());
                 }
             }
