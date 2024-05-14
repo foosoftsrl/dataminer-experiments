@@ -10,7 +10,7 @@
 	<DeviceOID></DeviceOID>
 	<ElementType>Connect to http</ElementType>
 	<Type relativeTimers="true">virtual</Type>
-	<Display defaultPage="General" pageOrder="General;----;ADSales;Mediator" wideColumnPages=""/>
+	<Display defaultPage="General" pageOrder="General;----;AdSales;Mediator" wideColumnPages=""/>
 	<SNMP includepages="true">auto</SNMP>
 
 	<Compliancies>
@@ -32,7 +32,7 @@
 		
 		<Param id="1000">
 			<Name>adSales</Name>
-			<Description>ADSales Table</Description>
+			<Description>AdSales Table</Description>
 			<Type>array</Type>
 			<ArrayOptions index="0">
 				<ColumnOption idx="0" pid="1001" type="retrieved" options=""/>
@@ -40,13 +40,13 @@
 				<ColumnOption idx="2" pid="1003" type="retrieved" options="" />
 			</ArrayOptions>
 			<Information>
-				<Subtext>ADSales Table</Subtext>
+				<Subtext>AdSales Table</Subtext>
 			</Information>
 			<Display>
 				<RTDisplay>true</RTDisplay>
 				<Positions>
 					<Position>
-						<Page>ADSales</Page>
+						<Page>AdSales</Page>
 						<Column>0</Column>
 						<Row>3</Row>
 					</Position>
@@ -58,7 +58,7 @@
 		</Param>
 		<Param id="1001" trending="false">
 			<Name>adSalesId</Name>
-			<Description>Id (ADSales)</Description>
+			<Description>Id (AdSales)</Description>
 			<Type>read</Type>
 			<Information>
 				<Subtext>This is the key used internally by DataMiner to identify the table entries.</Subtext>
@@ -77,7 +77,7 @@
 		</Param>
 		<Param id="1002" trending="false">
 			<Name>adSalesTitle</Name>
-			<Description>Title (ADSales)</Description>
+			<Description>Title (AdSales)</Description>
 			<Type>read</Type>
 			<Information>
 				<Subtext>This is the key used internally by DataMiner to identify the table entries.</Subtext>
@@ -96,7 +96,7 @@
 		</Param>
 		<Param id="1003" trending="false">
 			<Name>adSalesTime</Name>
-			<Description>Time (ADSales)</Description>
+			<Description>Time (AdSales)</Description>
 			<Type>read</Type>
 			<Information>
 				<Subtext>This is the key used internally by DataMiner to identify the table entries.</Subtext>
@@ -263,7 +263,7 @@
 				<RTDisplay>true</RTDisplay>
 				<Positions>
 					<Position>
-						<Page>ADSales</Page>
+						<Page>AdSales</Page>
 						<Column>0</Column>
 						<Row>0</Row>
 					</Position>
@@ -275,7 +275,7 @@
 		</Param>
 		<Param id="10001" trending="false">
 			<Name>adSalesDebugMsg</Name>
-			<Description>Debug ADSales Data</Description>
+			<Description>Debug AdSales Data</Description>
 			<Type>read</Type>
 			<Information>
 			</Information>
@@ -288,7 +288,7 @@
 				<RTDisplay>true</RTDisplay>
 				<Positions>
 					<Position>
-						<Page>ADSales</Page>
+						<Page>AdSales</Page>
 						<Column>0</Column>
 						<Row>1</Row>
 					</Position>
@@ -315,7 +315,7 @@
 				<RTDisplay>true</RTDisplay>
 				<Positions>
 					<Position>
-						<Page>ADSales</Page>
+						<Page>AdSales</Page>
 						<Column>0</Column>
 						<Row>2</Row>
 					</Position>

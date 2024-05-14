@@ -7,7 +7,6 @@ using System.Text;
 using System.Xml;
 using System.Xml.Serialization;
 using Skyline.DataMiner.Scripting;
-using Parameter = Skyline.DataMiner.Scripting.Parameter;
 
 /// <summary>
 /// DataMiner QAction Class.
