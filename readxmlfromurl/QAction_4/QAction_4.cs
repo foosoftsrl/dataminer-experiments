@@ -18,14 +18,22 @@ public static class QAction
     /// <param name="protocol">Link with SLProtocol process.</param>
     public static void Run(SLProtocolExt protocol)
     {
-        string url = "https://test.foosoft.it/testDataminer.json";
+        // string url = "https://test.foosoft.it/testDataminer.json";
         try
         {
+            string url = (string)protocol.GetParameter(Parameter.urlmediator_9);
+            List<object[]> instances = new List<object[]>();
+            if (!IsValidUrl(url))
+            {
+                protocol.FillArray(Parameter.Mediator.tablePid, instances, NotifyProtocol.SaveOption.Full);
+                protocol.Log("Invalid URL", LogType.Error, LogLevel.Level3);
+                return;
+            }
+
             protocol.Mediatoriterationcounter = (double)protocol.Mediatoriterationcounter + 1;
             string jsonData = ReadJsonFromUrl(url);
 
             Rootobject rootObjects = JsonConvert.DeserializeObject<Rootobject>(jsonData);
-            List<object[]> instances = new List<object[]>();
 
             // Convert Generated class into Connector Row data.
             foreach (var command in rootObjects.PharosCs.CommandList.Command)
@@ -55,6 +63,22 @@ public static class QAction
         using (var client = new WebClient())
         {
             return client.DownloadString(url);
+        }
+    }
+
+    public static bool IsValidUrl(string url)
+    {
+        try
+        {
+            using (var client = new WebClient())
+            using (var stream = client.OpenRead(url))
+            {
+                return true;
+            }
+        }
+        catch
+        {
+            return false;
         }
     }
 }

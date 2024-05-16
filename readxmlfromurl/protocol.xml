@@ -10,7 +10,7 @@
 	<DeviceOID></DeviceOID>
 	<ElementType>Connect to http</ElementType>
 	<Type relativeTimers="true">virtual</Type>
-	<Display defaultPage="General" pageOrder="General;----;AdSales;Mediator" wideColumnPages=""/>
+	<Display defaultPage="General" pageOrder="General;-------;Adsales;Mediator" wideColumnPages=""/>
 	<SNMP includepages="true">auto</SNMP>
 
 	<Compliancies>
@@ -30,9 +30,176 @@
 			<Type>dummy</Type>
 		</Param>
 		
+		<Param id="4">
+			<Name>pgbConfiguration</Name>
+			<Type>write</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<Positions>
+					<Position>
+						<Page>General</Page>
+						<Column>0</Column>
+						<Row>4</Row>
+					</Position>
+				</Positions>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type width="110">pagebutton</Type>
+				<Discreets>
+					<Discreet>
+						<Display>Configuration...</Display>
+						<Value>Configuration</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		<Param id="5">
+			<Name>title_Begin_UrlConfig</Name>
+			<Description>URL Configuration</Description>
+			<Type>fixed</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Configuration</Page>
+						<Column>0</Column>
+						<Row>2</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type options="begin;connect">title</Type>
+			</Measurement>
+		</Param>
+		<Param id="6">
+			<Name>title_End_UrlConfig</Name>
+			<Type>fixed</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Configuration</Page>
+						<Column>0</Column>
+						<Row>5</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type options="end;connect">title</Type>
+			</Measurement>
+		</Param>
+		
+		<Param id="7" trending="false" save="true">
+			<Name>urlAdSales</Name>
+			<Description>URL Adsales</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Configuration</Page>
+						<Column>0</Column>
+						<Row>3</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="8" trending="false" setter="true">
+			<Name>urlAdSales</Name>
+			<Description>URL Adsales</Description>
+			<Type>write</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Configuration</Page>
+						<Column>0</Column>
+						<Row>3</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		
+		
+		<Param id="9" trending="false" save="true">
+			<Name>urlMediator</Name>
+			<Description>URL Mediator</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Configuration</Page>
+						<Column>0</Column>
+						<Row>4</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="10" trending="false" setter="true">
+			<Name>urlMediator</Name>
+			<Description>URL Mediator</Description>
+			<Type>write</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Configuration</Page>
+						<Column>0</Column>
+						<Row>4</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		
 		<Param id="1000">
 			<Name>adSales</Name>
-			<Description>AdSales Table</Description>
+			<Description>Adsales Table</Description>
 			<Type>array</Type>
 			<ArrayOptions index="0">
 				<ColumnOption idx="0" pid="1001" type="retrieved" options=""/>
@@ -46,7 +213,7 @@
 				<RTDisplay>true</RTDisplay>
 				<Positions>
 					<Position>
-						<Page>AdSales</Page>
+						<Page>Adsales</Page>
 						<Column>0</Column>
 						<Row>3</Row>
 					</Position>
@@ -58,7 +225,7 @@
 		</Param>
 		<Param id="1001" trending="false">
 			<Name>adSalesId</Name>
-			<Description>Id (AdSales)</Description>
+			<Description>Id (Adsales)</Description>
 			<Type>read</Type>
 			<Information>
 				<Subtext>This is the key used internally by DataMiner to identify the table entries.</Subtext>
@@ -77,7 +244,7 @@
 		</Param>
 		<Param id="1002" trending="false">
 			<Name>adSalesTitle</Name>
-			<Description>Title (AdSales)</Description>
+			<Description>Title (Adsales)</Description>
 			<Type>read</Type>
 			<Information>
 				<Subtext>This is the key used internally by DataMiner to identify the table entries.</Subtext>
@@ -96,7 +263,7 @@
 		</Param>
 		<Param id="1003" trending="false">
 			<Name>adSalesTime</Name>
-			<Description>Time (AdSales)</Description>
+			<Description>Time (Adsales)</Description>
 			<Type>read</Type>
 			<Information>
 				<Subtext>This is the key used internally by DataMiner to identify the table entries.</Subtext>
@@ -263,7 +430,7 @@
 				<RTDisplay>true</RTDisplay>
 				<Positions>
 					<Position>
-						<Page>AdSales</Page>
+						<Page>Adsales</Page>
 						<Column>0</Column>
 						<Row>0</Row>
 					</Position>
@@ -275,7 +442,7 @@
 		</Param>
 		<Param id="10001" trending="false">
 			<Name>adSalesDebugMsg</Name>
-			<Description>Debug AdSales Data</Description>
+			<Description>Debug Adsales Data</Description>
 			<Type>read</Type>
 			<Information>
 			</Information>
@@ -288,7 +455,7 @@
 				<RTDisplay>true</RTDisplay>
 				<Positions>
 					<Position>
-						<Page>AdSales</Page>
+						<Page>Adsales</Page>
 						<Column>0</Column>
 						<Row>1</Row>
 					</Position>
@@ -315,7 +482,7 @@
 				<RTDisplay>true</RTDisplay>
 				<Positions>
 					<Position>
-						<Page>AdSales</Page>
+						<Page>Adsales</Page>
 						<Column>0</Column>
 						<Row>2</Row>
 					</Position>
@@ -476,8 +643,8 @@
 			<Name>mergedProcessTable</Name>
 			<Description />
 			<Information>
-				<Text>Process Mediator And ADSales Tables</Text>
-				<Subtext>Process Mediator And ADSales Tables</Subtext>
+				<Text>Process Mediator And AdSales Tables</Text>
+				<Subtext>Process Mediator And AdSales Tables</Subtext>
 			</Information>
 			<Type>write</Type>
 			<Interprete>
@@ -567,8 +734,8 @@
 
 	<Timers>
 		<Timer id="1">
-			<Name>Fast Timer (10s)</Name>
-			<Time initial="true">10000</Time>
+			<Name>Fast Timer (1s)</Name>
+			<Time initial="true">1000</Time>
 			<Interval>75</Interval>
 			<Content>
 				<Group>3</Group>

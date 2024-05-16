@@ -19,9 +19,17 @@ public static class QAction
     /// <param name="protocol">Link with SLProtocol process.</param>
     public static void Run(SLProtocolExt protocol)
     {
-        string url = "https://test.foosoft.it/testDataminer.xml";
+        // string url = "https://test.foosoft.it/testDataminer.xml";
         try
         {
+            string url = (string)protocol.GetParameter(Parameter.urladsales_7);
+            if (!IsValidUrl(url))
+            {
+                protocol.FillArray(Parameter.Adsales.tablePid, new List<object[]>(), NotifyProtocol.SaveOption.Full);
+                protocol.Log("Invalid URL", LogType.Error, LogLevel.Level3);
+                return;
+            }
+
             protocol.Adsalesiterationcounter = (double)protocol.Adsalesiterationcounter + 1;
             string xmlData = ReadXmlFromUrl(url);
             var data = XmlDeserializeFromUrl<Data>(xmlData);
@@ -65,6 +73,22 @@ public static class QAction
         }
 
         return rows;
+    }
+
+    public static bool IsValidUrl(string url)
+    {
+        try
+        {
+            using (var client = new WebClient())
+            using (var stream = client.OpenRead(url))
+            {
+                return true;
+            }
+        }
+        catch
+        {
+            return false;
+        }
     }
 
     private static T XmlDeserializeFromUrl<T>(string xmlData)
