@@ -19,13 +19,13 @@ public static class QAction
         try
         {
             protocol.Mergediterationcounter = (double)protocol.Mergediterationcounter + 1;
-            var data1 = protocol.adsales.GetRow(0);
+            List<object[]> instances = new List<object[]>();
+            /*var data1 = protocol.adsales.GetRow(0);
             var data2 = protocol.mediator.GetRow(0);
             var data1_0 = data1[0];
             var data1_1 = data1[1];
             var data2_0 = data2[0];
             var data2_1 = data2[1];
-            List<object[]> instances = new List<object[]>();
             instances.Add(new MergedtableQActionRow
             {
                 Mergedtablecolumn1 = data1_0,
@@ -35,7 +35,28 @@ public static class QAction
             {
                 Mergedtablecolumn1 = data2_0,
                 Mergedtablecolumn2 = data2_1,
-            }.ToObjectArray());
+            }.ToObjectArray());*/
+
+            for (int i = 0; i < protocol.adsales.RowCount; i++)
+            {
+                var data1 = protocol.adsales.GetRow(i);
+                instances.Add(new MergedtableQActionRow
+                {
+                    Mergedtablecolumn1 = data1[0],
+                    Mergedtablecolumn2 = data1[1],
+                }.ToObjectArray());
+            }
+
+            // Ottieni tutte le righe dalla tabella mediator
+            for (int i = 0; i < protocol.mediator.RowCount; i++)
+            {
+                var data2 = protocol.mediator.GetRow(i);
+                instances.Add(new MergedtableQActionRow
+                {
+                    Mergedtablecolumn1 = data2[0],
+                    Mergedtablecolumn2 = data2[1],
+                }.ToObjectArray());
+            }
 
             protocol.FillArray(Parameter.Mergedtable.tablePid, instances, NotifyProtocol.SaveOption.Full);
             protocol.Mergeddebugmsg = $"Processed {instances.Count} rows";
