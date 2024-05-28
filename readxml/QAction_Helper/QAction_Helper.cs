@@ -213,7 +213,7 @@ public static class Parameter
 }
 public class WriteParameters
 {
-	/// <summary>PID: 10002  | Type: write | DISCREETS: Process ADSales XML File = check</summary>
+	/// <summary>PID: 10002  | Type: write | DISCREETS: Process Adsales XML File = check</summary>
 	public System.Object Adsalesprocessfile {get { return Protocol.GetParameter(10002); }set { Protocol.SetParameter(10002, value); }}
 	/// <summary>PID: 10102  | Type: write | DISCREETS: Process Mediator JSON File = check</summary>
 	public System.Object Mediatorprocessfile {get { return Protocol.GetParameter(10102); }set { Protocol.SetParameter(10102, value); }}
@@ -350,9 +350,9 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public System.Object Adsalesdebugmsg_10001 {get { return GetParameter(10001); }set { SetParameter(10001, value); }}
 	/// <summary>PID: 10001  | Type: read</summary>
 	public System.Object Adsalesdebugmsg {get { return GetParameter(10001); }set { SetParameter(10001, value); }}
-	/// <summary>PID: 10002  | Type: write | DISCREETS: Process ADSales XML File = check</summary>
+	/// <summary>PID: 10002  | Type: write | DISCREETS: Process Adsales XML File = check</summary>
 	public System.Object Adsalesprocessfile_10002 {get { return GetParameter(10002); }set { SetParameter(10002, value); }}
-	/// <summary>PID: 10002  | Type: write | DISCREETS: Process ADSales XML File = check</summary>
+	/// <summary>PID: 10002  | Type: write | DISCREETS: Process Adsales XML File = check</summary>
 	public System.Object Adsalesprocessfile {get { return Write.Adsalesprocessfile; }set { Write.Adsalesprocessfile = value; }}
 	/// <summary>PID: 10100  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]

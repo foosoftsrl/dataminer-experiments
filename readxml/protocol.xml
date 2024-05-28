@@ -39,7 +39,7 @@
 		
 		<Param id="2000">
 			<Name>adSales</Name>
-			<Description>ADSales</Description>
+			<Description>Adsales</Description>
 			<Type>array</Type>
 			<ArrayOptions index="0">
 				<ColumnOption idx="0" pid="2001" type="retrieved" options=""/>
@@ -53,7 +53,7 @@
 				<RTDisplay>true</RTDisplay>
 				<Positions>
 					<Position>
-						<Page>ADSales</Page>
+						<Page>Adsales</Page>
 						<Column>0</Column>
 						<Row>3</Row>
 					</Position>
@@ -65,7 +65,7 @@
 		</Param>
 		<Param id="2001" trending="false">
 			<Name>adSalesId</Name>
-			<Description>Id (ADSales)</Description>
+			<Description>Id (Adsales)</Description>
 			<Type>read</Type>
 			<Information>
 				<Subtext>![CDATA[Process Id]].</Subtext>
@@ -84,7 +84,7 @@
 		</Param>
 		<Param id="2002" trending="false">
 			<Name>adSalesTitle</Name>
-			<Description>Title (ADSales)</Description>
+			<Description>Title (Adsales)</Description>
 			<Type>read</Type>
 			<Information>
 				<Subtext>![CDATA[Title Name]]</Subtext>
@@ -103,7 +103,7 @@
 		</Param>
 		<Param id="2003" trending="false">
 			<Name>adSalesTime</Name>
-			<Description>Time (ADSales)</Description>
+			<Description>Time (Adsales)</Description>
 			<Type>read</Type>
 			<Information>
 				<Subtext>![CDATA[Date]]</Subtext>
@@ -319,7 +319,7 @@
 		<!-- Debug stuff -->
 		<Param id="10000" trending="false" save="true">
 			<Name>adSalesIterationCounter</Name>
-			<Description>How Many Times XML File From ADSales Has Been Processed</Description>
+			<Description>How Many Times XML File From Adsales Has Been Processed</Description>
 			<Type>read</Type>
 			<Information>
 			</Information>
@@ -335,7 +335,7 @@
 				<RTDisplay>true</RTDisplay>
 				<Positions>
 					<Position>
-						<Page>ADSales</Page>
+						<Page>Adsales</Page>
 						<Column>0</Column>
 						<Row>1</Row>
 					</Position>
@@ -347,7 +347,7 @@
 		</Param>
 		<Param id="10001" trending="false">
 			<Name>adSalesDebugMsg</Name>
-			<Description>Debug ADSales Data</Description>
+			<Description>Debug Adsales Data</Description>
 			<Type>read</Type>
 			<Information>
 			</Information>
@@ -360,7 +360,7 @@
 				<RTDisplay>true</RTDisplay>
 				<Positions>
 					<Position>
-						<Page>ADSales</Page>
+						<Page>Adsales</Page>
 						<Column>0</Column>
 						<Row>2</Row>
 					</Position>
@@ -387,7 +387,7 @@
 				<RTDisplay>true</RTDisplay>
 				<Positions>
 					<Position>
-						<Page>ADSales</Page>
+						<Page>Adsales</Page>
 						<Column>0</Column>
 						<Row>0</Row>
 					</Position>
@@ -397,7 +397,7 @@
 				<Type width="110">button</Type>
 				<Discreets>
 					<Discreet>
-						<Display>Process ADSales XML File</Display>
+						<Display>Process Adsales XML File</Display>
 						<Value>check</Value>
 					</Discreet>
 				</Discreets>
