@@ -99,6 +99,7 @@ public static class QAction
         using (var clientWebSocket = new ClientWebSocket())
         {
             // Ignora gli errori di certificato SSL
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
             ServicePointManager.ServerCertificateValidationCallback = (sender, certificate, chain, sslPolicyErrors) => true;
 
             try
