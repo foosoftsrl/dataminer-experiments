@@ -2,10 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Xml;
 using System.Xml.Serialization;
-
 using Skyline.DataMiner.Scripting;
 
 /// <summary>
@@ -19,19 +19,34 @@ public static class QAction
     /// <param name="protocol">Link with SLProtocol process.</param>
     public static void Run(SLProtocolExt protocol)
     {
-        string dir = "C:\\Skyline DataMiner\\ProtocolScripts";
-        string fileName = "AdSales.xml";
-        string fullPath = Path.Combine(dir, fileName);
+        string channelName = "LB";
+        string currentDate = DateTime.Now.ToString("yyyyMMdd");
+        string dir = @"\\winfs01.mediaset.it\DM_Watchfolder\Adsales";
+        string fileNamePrefix = $"{channelName}_{currentDate}_";
+        string[] files = Directory.GetFiles(dir, $"{fileNamePrefix}*.xml");
+
+        //string fileName = "KI_20240605_20240528092222.xml";
+        //string fullPath = Path.Combine(dir, fileName);
+
         try
         {
-            protocol.Adsalesiterationcounter = (double)protocol.Adsalesiterationcounter + 1;
-            string fileContent = ReadFile(fullPath);
-            var data = XmlDeserializeFromString<Data>(fileContent);
+            if (files.Length > 0)
+            {
+                protocol.Adsalesiterationcounter = (double)protocol.Adsalesiterationcounter + 1;
+                string latestFile = files.OrderByDescending(f => File.GetLastWriteTime(f)).First();
 
-            // Convert Generated class into Connector Row data.
-            var rows = ConvertToTableRows(data);
-            protocol.FillArray(Parameter.Adsales.tablePid, rows, NotifyProtocol.SaveOption.Full);
-            protocol.Adsalesdebugmsg = $"Parsed {data.Breaks.Length} breaks";
+                string fileContent = ReadFile(latestFile);
+                var data = XmlDeserializeFromString<Data>(fileContent);
+
+                // Convert Generated class into Connector Row data.
+                var rows = ConvertToTableRows(data);
+                protocol.FillArray(Parameter.Adsales.tablePid, rows, NotifyProtocol.SaveOption.Full);
+                protocol.Adsalesdebugmsg = $"Parsed {data.Breaks.Length} breaks";
+            }
+            else
+            {
+                protocol.Adsalesdebugmsg = "File not found for the selected channel";
+            }
         }
         catch (Exception ex)
         {
@@ -61,7 +76,7 @@ public static class QAction
                         Adsalesid = content.ContentReconcileKey,
                         Adsalestitle = content.ContentBrand,
                         Adsalestime = break_.BreakNominalTime,
-                    }.ToObjectArray());;
+                    }.ToObjectArray());
                 }
             }
         }
@@ -76,5 +91,12 @@ public static class QAction
             var serializer = new XmlSerializer(typeof(T));
             return (T)serializer.Deserialize(reader);
         }
+    }
+
+    public static string GenerateFileName(string channelName)
+    {
+        string currentDate = DateTime.Now.ToString("yyyyMMdd");
+        string timestamp = DateTime.Now.ToString("yyyyMMddHHmmss");
+        return $"{channelName}_{currentDate}_{timestamp}.xml";
     }
 }
