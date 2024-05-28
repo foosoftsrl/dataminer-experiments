@@ -141,19 +141,24 @@ public static class Parameter
 		{
 			/// <summary>PID: 2001 | Type: read</summary>
 			[EditorBrowsable(EditorBrowsableState.Never)]
-			public const int mediatorid_2001 = 2001;
+			public const int mediatorreconcilekey_2001 = 2001;
 			/// <summary>PID: 2001 | Type: read</summary>
-			public const int mediatorid = 2001;
+			public const int mediatorreconcilekey = 2001;
 			/// <summary>PID: 2002 | Type: read</summary>
 			[EditorBrowsable(EditorBrowsableState.Never)]
-			public const int mediatorcodicef_2002 = 2002;
+			public const int mediatorid_2002 = 2002;
 			/// <summary>PID: 2002 | Type: read</summary>
-			public const int mediatorcodicef = 2002;
+			public const int mediatorid = 2002;
 			/// <summary>PID: 2003 | Type: read</summary>
 			[EditorBrowsable(EditorBrowsableState.Never)]
-			public const int mediatordate_2003 = 2003;
+			public const int mediatortitle_2003 = 2003;
 			/// <summary>PID: 2003 | Type: read</summary>
-			public const int mediatordate = 2003;
+			public const int mediatortitle = 2003;
+			/// <summary>PID: 2004 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int mediatordate_2004 = 2004;
+			/// <summary>PID: 2004 | Type: read</summary>
+			public const int mediatordate = 2004;
 			public class Write
 			{
 			}
@@ -162,19 +167,24 @@ public static class Parameter
 		{
 			/// <summary>IDX: 0 | Type: read</summary>
 			[EditorBrowsable(EditorBrowsableState.Never)]
-			public const int mediatorid_2001 = 0;
+			public const int mediatorreconcilekey_2001 = 0;
 			/// <summary>IDX: 0 | Type: read</summary>
-			public const int mediatorid = 0;
+			public const int mediatorreconcilekey = 0;
 			/// <summary>IDX: 1 | Type: read</summary>
 			[EditorBrowsable(EditorBrowsableState.Never)]
-			public const int mediatorcodicef_2002 = 1;
+			public const int mediatorid_2002 = 1;
 			/// <summary>IDX: 1 | Type: read</summary>
-			public const int mediatorcodicef = 1;
+			public const int mediatorid = 1;
 			/// <summary>IDX: 2 | Type: read</summary>
 			[EditorBrowsable(EditorBrowsableState.Never)]
-			public const int mediatordate_2003 = 2;
+			public const int mediatortitle_2003 = 2;
 			/// <summary>IDX: 2 | Type: read</summary>
-			public const int mediatordate = 2;
+			public const int mediatortitle = 2;
+			/// <summary>IDX: 3 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int mediatordate_2004 = 3;
+			/// <summary>IDX: 3 | Type: read</summary>
+			public const int mediatordate = 3;
 		}
 	}
 	public class Mergedtable
@@ -262,11 +272,13 @@ public interface SLProtocolExt : SLProtocol
 	object Adsalestitle { get; set; }
 	object Adsalestime_1003 { get; set; }
 	object Adsalestime { get; set; }
-	object Mediatorid_2001 { get; set; }
+	object Mediatorreconcilekey_2001 { get; set; }
+	object Mediatorreconcilekey { get; set; }
+	object Mediatorid_2002 { get; set; }
 	object Mediatorid { get; set; }
-	object Mediatorcodicef_2002 { get; set; }
-	object Mediatorcodicef { get; set; }
-	object Mediatordate_2003 { get; set; }
+	object Mediatortitle_2003 { get; set; }
+	object Mediatortitle { get; set; }
+	object Mediatordate_2004 { get; set; }
 	object Mediatordate { get; set; }
 	object Mergedtablecolumn1_3001 { get; set; }
 	object Mergedtablecolumn1 { get; set; }
@@ -345,19 +357,24 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public System.Object Adsalestime {get { return GetParameter(1003); }set { SetParameter(1003, value); }}
 	/// <summary>PID: 2001  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Mediatorid_2001 {get { return GetParameter(2001); }set { SetParameter(2001, value); }}
+	public System.Object Mediatorreconcilekey_2001 {get { return GetParameter(2001); }set { SetParameter(2001, value); }}
 	/// <summary>PID: 2001  | Type: read</summary>
-	public System.Object Mediatorid {get { return GetParameter(2001); }set { SetParameter(2001, value); }}
+	public System.Object Mediatorreconcilekey {get { return GetParameter(2001); }set { SetParameter(2001, value); }}
 	/// <summary>PID: 2002  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Mediatorcodicef_2002 {get { return GetParameter(2002); }set { SetParameter(2002, value); }}
+	public System.Object Mediatorid_2002 {get { return GetParameter(2002); }set { SetParameter(2002, value); }}
 	/// <summary>PID: 2002  | Type: read</summary>
-	public System.Object Mediatorcodicef {get { return GetParameter(2002); }set { SetParameter(2002, value); }}
+	public System.Object Mediatorid {get { return GetParameter(2002); }set { SetParameter(2002, value); }}
 	/// <summary>PID: 2003  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Mediatordate_2003 {get { return GetParameter(2003); }set { SetParameter(2003, value); }}
+	public System.Object Mediatortitle_2003 {get { return GetParameter(2003); }set { SetParameter(2003, value); }}
 	/// <summary>PID: 2003  | Type: read</summary>
-	public System.Object Mediatordate {get { return GetParameter(2003); }set { SetParameter(2003, value); }}
+	public System.Object Mediatortitle {get { return GetParameter(2003); }set { SetParameter(2003, value); }}
+	/// <summary>PID: 2004  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Mediatordate_2004 {get { return GetParameter(2004); }set { SetParameter(2004, value); }}
+	/// <summary>PID: 2004  | Type: read</summary>
+	public System.Object Mediatordate {get { return GetParameter(2004); }set { SetParameter(2004, value); }}
 	/// <summary>PID: 3001  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Mergedtablecolumn1_3001 {get { return GetParameter(3001); }set { SetParameter(3001, value); }}
@@ -468,21 +485,26 @@ public class MediatorQActionRow : QActionTableRow
 {
 	/// <summary>PID: 2001 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Mediatorid_2001 { get { if (base.Columns.ContainsKey(0)) { return base.Columns[0]; } else { return null; } } set { if (base.Columns.ContainsKey(0)) { base.Columns[0] = value; } else { base.Columns.Add(0, value); } } }
+	public System.Object Mediatorreconcilekey_2001 { get { if (base.Columns.ContainsKey(0)) { return base.Columns[0]; } else { return null; } } set { if (base.Columns.ContainsKey(0)) { base.Columns[0] = value; } else { base.Columns.Add(0, value); } } }
 	/// <summary>PID: 2001 | Type: read</summary>
-	public System.Object Mediatorid { get { if (base.Columns.ContainsKey(0)) { return base.Columns[0]; } else { return null; } } set { if (base.Columns.ContainsKey(0)) { base.Columns[0] = value; } else { base.Columns.Add(0, value); } } }
+	public System.Object Mediatorreconcilekey { get { if (base.Columns.ContainsKey(0)) { return base.Columns[0]; } else { return null; } } set { if (base.Columns.ContainsKey(0)) { base.Columns[0] = value; } else { base.Columns.Add(0, value); } } }
 	/// <summary>PID: 2002 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Mediatorcodicef_2002 { get { if (base.Columns.ContainsKey(1)) { return base.Columns[1]; } else { return null; } } set { if (base.Columns.ContainsKey(1)) { base.Columns[1] = value; } else { base.Columns.Add(1, value); } } }
+	public System.Object Mediatorid_2002 { get { if (base.Columns.ContainsKey(1)) { return base.Columns[1]; } else { return null; } } set { if (base.Columns.ContainsKey(1)) { base.Columns[1] = value; } else { base.Columns.Add(1, value); } } }
 	/// <summary>PID: 2002 | Type: read</summary>
-	public System.Object Mediatorcodicef { get { if (base.Columns.ContainsKey(1)) { return base.Columns[1]; } else { return null; } } set { if (base.Columns.ContainsKey(1)) { base.Columns[1] = value; } else { base.Columns.Add(1, value); } } }
+	public System.Object Mediatorid { get { if (base.Columns.ContainsKey(1)) { return base.Columns[1]; } else { return null; } } set { if (base.Columns.ContainsKey(1)) { base.Columns[1] = value; } else { base.Columns.Add(1, value); } } }
 	/// <summary>PID: 2003 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Mediatordate_2003 { get { if (base.Columns.ContainsKey(2)) { return base.Columns[2]; } else { return null; } } set { if (base.Columns.ContainsKey(2)) { base.Columns[2] = value; } else { base.Columns.Add(2, value); } } }
+	public System.Object Mediatortitle_2003 { get { if (base.Columns.ContainsKey(2)) { return base.Columns[2]; } else { return null; } } set { if (base.Columns.ContainsKey(2)) { base.Columns[2] = value; } else { base.Columns.Add(2, value); } } }
 	/// <summary>PID: 2003 | Type: read</summary>
-	public System.Object Mediatordate { get { if (base.Columns.ContainsKey(2)) { return base.Columns[2]; } else { return null; } } set { if (base.Columns.ContainsKey(2)) { base.Columns[2] = value; } else { base.Columns.Add(2, value); } } }
-	public MediatorQActionRow() : base(0, 3) { }
-	public MediatorQActionRow(System.Object[] oRow) : base(0, 3, oRow) { }
+	public System.Object Mediatortitle { get { if (base.Columns.ContainsKey(2)) { return base.Columns[2]; } else { return null; } } set { if (base.Columns.ContainsKey(2)) { base.Columns[2] = value; } else { base.Columns.Add(2, value); } } }
+	/// <summary>PID: 2004 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Mediatordate_2004 { get { if (base.Columns.ContainsKey(3)) { return base.Columns[3]; } else { return null; } } set { if (base.Columns.ContainsKey(3)) { base.Columns[3] = value; } else { base.Columns.Add(3, value); } } }
+	/// <summary>PID: 2004 | Type: read</summary>
+	public System.Object Mediatordate { get { if (base.Columns.ContainsKey(3)) { return base.Columns[3]; } else { return null; } } set { if (base.Columns.ContainsKey(3)) { base.Columns[3] = value; } else { base.Columns.Add(3, value); } } }
+	public MediatorQActionRow() : base(0, 4) { }
+	public MediatorQActionRow(System.Object[] oRow) : base(0, 4, oRow) { }
 	public static implicit operator MediatorQActionRow(System.Object[] source) { return new MediatorQActionRow(source); }
 	public static implicit operator System.Object[](MediatorQActionRow source) { return source.ToObjectArray(); }
 }

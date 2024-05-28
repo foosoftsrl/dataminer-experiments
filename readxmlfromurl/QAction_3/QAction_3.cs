@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
-using System.Net;
+using System.Linq;
 using System.Text;
 using System.Xml;
 using System.Xml.Serialization;
@@ -19,37 +19,47 @@ public static class QAction
     /// <param name="protocol">Link with SLProtocol process.</param>
     public static void Run(SLProtocolExt protocol)
     {
-        // string url = "https://test.foosoft.it/testDataminer.xml";
+        string channelName = "LB";
+        string currentDate = DateTime.Now.ToString("yyyyMMdd");
+        string dir = @"\\winfs01.mediaset.it\DM_Watchfolder\Adsales";
+        string fileNamePrefix = $"{channelName}_{currentDate}_";
+        string[] files = Directory.GetFiles(dir, $"{fileNamePrefix}*.xml");
+
+        //string fileName = "KI_20240605_20240528092222.xml";
+        //string fullPath = Path.Combine(dir, fileName);
+
         try
         {
-            string url = (string)protocol.GetParameter(Parameter.urladsales_7);
-            if (!IsValidUrl(url))
+            if (files.Length > 0)
             {
-                protocol.FillArray(Parameter.Adsales.tablePid, new List<object[]>(), NotifyProtocol.SaveOption.Full);
-                protocol.Log("Invalid URL", LogType.Error, LogLevel.Level3);
-                return;
+                protocol.Adsalesiterationcounter = (double)protocol.Adsalesiterationcounter + 1;
+                string latestFile = files.OrderByDescending(f => File.GetLastWriteTime(f)).First();
+
+                string fileContent = ReadFile(latestFile);
+                var data = XmlDeserializeFromString<Data>(fileContent);
+
+                // Convert Generated class into Connector Row data.
+                var rows = ConvertToTableRows(data);
+                protocol.FillArray(Parameter.Adsales.tablePid, rows, NotifyProtocol.SaveOption.Full);
+                protocol.Adsalesdebugmsg = $"Parsed {data.Breaks.Length} breaks";
             }
-
-            protocol.Adsalesiterationcounter = (double)protocol.Adsalesiterationcounter + 1;
-            string xmlData = ReadXmlFromUrl(url);
-            var data = XmlDeserializeFromUrl<Data>(xmlData);
-
-            var rows = ConvertToTableRows(data);
-            protocol.FillArray(Parameter.Adsales.tablePid, rows, NotifyProtocol.SaveOption.Full);
-            protocol.Adsalesdebugmsg = $"Parsed {data.Breaks.Length} breaks";
+            else
+            {
+                protocol.Adsalesdebugmsg = "File not found for the selected channel";
+            }
         }
         catch (Exception ex)
         {
-            protocol.Adsalesdebugmsg = "Failed";
+            protocol.Adsalesdebugmsg = "Failed parsing xml file";
             protocol.Log($"QA{protocol.QActionID}|{protocol.GetTriggerParameter()}|Run|Exception thrown:{Environment.NewLine}{ex}", LogType.Error, LogLevel.NoLogging);
         }
     }
 
-    public static string ReadXmlFromUrl(string url)
+    public static string ReadFile(string path)
     {
-        using (var client = new WebClient())
+        using (StreamReader streamReader = new StreamReader(path, Encoding.UTF8))
         {
-            return client.DownloadString(url);
+            return streamReader.ReadToEnd();
         }
     }
 
@@ -75,28 +85,19 @@ public static class QAction
         return rows;
     }
 
-    public static bool IsValidUrl(string url)
+    public static T XmlDeserializeFromString<T>(this string xmlTextData)
     {
-        try
-        {
-            using (var client = new WebClient())
-            using (var stream = client.OpenRead(url))
-            {
-                return true;
-            }
-        }
-        catch
-        {
-            return false;
-        }
-    }
-
-    private static T XmlDeserializeFromUrl<T>(string xmlData)
-    {
-        using (TextReader reader = new StringReader(xmlData))
+        using (TextReader reader = new StringReader(xmlTextData))
         {
             var serializer = new XmlSerializer(typeof(T));
             return (T)serializer.Deserialize(reader);
         }
+    }
+
+    public static string GenerateFileName(string channelName)
+    {
+        string currentDate = DateTime.Now.ToString("yyyyMMdd");
+        string timestamp = DateTime.Now.ToString("yyyyMMddHHmmss");
+        return $"{channelName}_{currentDate}_{timestamp}.xml";
     }
 }

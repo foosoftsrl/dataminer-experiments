@@ -220,7 +220,7 @@
 				</Positions>
 			</Display>
 			<Measurement>
-				<Type options="tab=columns:1001|0-1002|1-1003|2,width:100-100-100,sort:STRING-STRING-STRING,lines:25,filter:true">table</Type>
+				<Type options="tab=columns:1001|0-1002|1-1003|2,width:120-120-120,sort:STRING-STRING-STRING,lines:25,filter:true">table</Type>
 			</Measurement>
 		</Param>
 		<Param id="1001" trending="false">
@@ -289,6 +289,7 @@
 				<ColumnOption idx="0" pid="2001" type="retrieved" options=""/>
 				<ColumnOption idx="1" pid="2002" type="retrieved" options=""/>
 				<ColumnOption idx="2" pid="2003" type="retrieved" options=""/>
+				<ColumnOption idx="3" pid="2004" type="retrieved" options=""/>
 			</ArrayOptions>
 			<Information>
 				<Subtext>Mediator Table</Subtext>
@@ -304,10 +305,29 @@
 				</Positions>
 			</Display>
 			<Measurement>
-				<Type options="tab=columns:2001|0-2002|1-2003|2,width:100-100-100,sort:STRING-STRING-STRING,lines:25,filter:true">table</Type>
+				<Type options="tab=columns:2001|0-2002|1-2003|2-2004|3,width:120-120-120-120,sort:STRING-STRING-STRING-STRING,lines:25,filter:true">table</Type>
 			</Measurement>
 		</Param>
 		<Param id="2001" trending="false">
+			<Name>mediatorReconcileKey</Name>
+			<Description>Reconcile Key</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>adSalesContentReconcileKey</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="2002" trending="false">
 			<Name>mediatorId</Name>
 			<Description>Id (Mediator)</Description>
 			<Type>read</Type>
@@ -326,12 +346,12 @@
 				<Type>string</Type>
 			</Measurement>
 		</Param>
-		<Param id="2002" trending="false">
-			<Name>mediatorCodicef</Name>
-			<Description>Codice F</Description>
+		<Param id="2003" trending="false">
+			<Name>mediatorTitle</Name>
+			<Description>Title (Mediator)</Description>
 			<Type>read</Type>
 			<Information>
-				<Subtext>Mediaset Codice f</Subtext>
+				<Subtext>This is the key used internally by DataMiner to identify the table entries.</Subtext>
 			</Information>
 			<Interprete>
 				<RawType>other</RawType>
@@ -345,7 +365,7 @@
 				<Type>string</Type>
 			</Measurement>
 		</Param>
-		<Param id="2003" trending="false">
+		<Param id="2004" trending="false">
 			<Name>mediatorDate</Name>
 			<Description>Date (Mediator)</Description>
 			<Type>read</Type>
@@ -387,7 +407,7 @@
 				</Positions>
 			</Display>
 			<Measurement>
-				<Type options=";tab=columns:3001|0-3002|1,width:100-100,sort:STRING-STRING,lines:25,filter:true">table</Type>
+				<Type options=";tab=columns:3001|0-3002|1,width:120-120,sort:STRING-STRING,lines:25,filter:true">table</Type>
 			</Measurement>
 		</Param>
 		

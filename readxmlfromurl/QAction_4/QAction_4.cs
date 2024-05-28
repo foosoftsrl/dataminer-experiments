@@ -25,23 +25,12 @@ public static class QAction
     {
         List<object[]> instances = new List<object[]>();
 
-        // string url = "https://test.foosoft.it/testDataminer.json";
         try
         {
-            /*string url = (string)protocol.GetParameter(Parameter.urlmediator_9);
-            List<object[]> instances = new List<object[]>();
-            if (!IsValidUrl(url))
-            {
-                protocol.FillArray(Parameter.Mediator.tablePid, instances, NotifyProtocol.SaveOption.Full);
-                protocol.Log("Invalid URL", LogType.Error, LogLevel.Level3);
-                return;
-            }*/
-
             protocol.Mediatoriterationcounter = (double)protocol.Mediatoriterationcounter + 1;
 
-            // string jsonData = ReadJsonFromUrl(url);
             string uri = "wss://mediator.broadcast.int/mediator/wsws";
-            string message = "{ \"PharosCs\": { \"CommandList\": { \"SessionKey\": \"A-VDRFtKctjLhGR3wMmoITydeAeNjhME\", \"Command\": [ { \"Subsystem\": \"playtime\", \"Method\": \"executeCQL\", \"ParameterList\": { \"cql\": { \"String\": \"select sequence.startdatetime sequence.id sequence.duration sequence.schedulereference parcel.title event.trimmaterialid event.infaderate event.intransitionname sequence.state status from 'LB' where maxresults = 25 and event.stream in ('Main Video')\" } } } ] } } }";
+            string message = "{ \"PharosCs\": { \"CommandList\": { \"SessionKey\": \"A-VDRFtKctjLhGR3wMmoITydeAeNjhME\", \"Command\": [ { \"Subsystem\": \"playtime\", \"Method\": \"executeCQL\", \"ParameterList\": { \"cql\": { \"String\": \"select parcel.templateparameterlist sequence.startdatetime sequence.id sequence.duration sequence.schedulereference parcel.title event.trimmaterialid event.infaderate event.intransitionname sequence.state status from 'LB' where maxresults = 250 and event.stream in ('Main Video')\" } } } ] } } }";
 
             string jsonData = await SendMessageAndWaitForResponseAsync(uri, message);
 
@@ -52,45 +41,25 @@ public static class QAction
             {
                 foreach (var row in command.Output.ResultSet.Rows)
                 {
-                    instances.Add(new MediatorQActionRow
-                    {
-                        Mediatorid = row.Id.GenericList.Object[0],
-                        Mediatorcodicef = row.TrimMaterialId.GenericList.Object[0],
-                        Mediatordate = row.StartDateTime.GenericList.Object[0].ISO8601,
-                    }.ToObjectArray());
+                    if (row.TemplateParameterList.GenericList.Object[0].TemplateParameter[0].Name == "adSalesContentReconcileKey-text")
+                        {
+                        instances.Add(new MediatorQActionRow
+                        {
+                            Mediatorid = row.Id.GenericList.Object[0],
+                            Mediatorreconcilekey = row.TemplateParameterList.GenericList.Object[0].TemplateParameter[0].Value,
+                            Mediatortitle = row.Title.GenericList.Object[0],
+                            Mediatordate = row.StartDateTime.GenericList.Object[0].ISO8601,
+                        }.ToObjectArray());
+                    }
                 }
             }
 
             protocol.FillArray(Parameter.Mediator.tablePid, instances, NotifyProtocol.SaveOption.Full);
-            protocol.Mediatordebugmsg = $"Processed {instances.Count} TrimMaterialId";
+            protocol.Mediatordebugmsg = $"Processed {instances.Count} Adsales Reconcile Key";
         }
         catch (Exception ex)
         {
             protocol.Log($"QA{protocol.QActionID}|{protocol.GetTriggerParameter()}|Run|Exception thrown:{Environment.NewLine}{ex}", LogType.Error, LogLevel.NoLogging);
-        }
-    }
-
-    public static string ReadJsonFromUrl(string url)
-    {
-        using (var client = new WebClient())
-        {
-            return client.DownloadString(url);
-        }
-    }
-
-    public static bool IsValidUrl(string url)
-    {
-        try
-        {
-            using (var client = new WebClient())
-            using (var stream = client.OpenRead(url))
-            {
-                return true;
-            }
-        }
-        catch
-        {
-            return false;
         }
     }
 
