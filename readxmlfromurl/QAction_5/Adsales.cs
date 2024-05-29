@@ -411,6 +411,7 @@ public partial class DataBreakTimeAllocation
         {
             return this.contentsField;
         }
+
         set
         {
             this.contentsField = value;
@@ -424,7 +425,6 @@ public partial class DataBreakTimeAllocation
 [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
 public partial class DataBreakTimeAllocationContent
 {
-
     private uint contentReconcileKeyField;
 
     private byte contentOrderField;
@@ -464,6 +464,7 @@ public partial class DataBreakTimeAllocationContent
         {
             return this.contentReconcileKeyField;
         }
+
         set
         {
             this.contentReconcileKeyField = value;

@@ -90,11 +90,4 @@ public static class QAction
             return (T)serializer.Deserialize(reader);
         }
     }
-
-    public static string GenerateFileName(string channelName)
-    {
-        string currentDate = DateTime.Now.ToString("yyyyMMdd");
-        string timestamp = DateTime.Now.ToString("yyyyMMddHHmmss");
-        return $"{channelName}_{currentDate}_{timestamp}.xml";
-    }
 }

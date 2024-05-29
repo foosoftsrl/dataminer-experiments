@@ -508,8 +508,8 @@
 		</Param>
 		
 		<Param id="3001" trending="false">
-			<Name>mergedTableColumn1</Name>
-			<Description>Column1</Description>
+			<Name>mergedReconcileKey</Name>
+			<Description>ReconcileKey</Description>
 			<Type>read</Type>
 			<Information>
 				<Subtext>This is the key used internally by DataMiner to identify the table entries.</Subtext>
@@ -528,8 +528,8 @@
 		</Param>
 		
 		<Param id="3002" trending="false">
-			<Name>mergedTableColumn2</Name>
-			<Description>Column2</Description>
+			<Name>mergedContent</Name>
+			<Description>Content</Description>
 			<Type>read</Type>
 			<Information>
 				<Subtext>This is the key used internally by DataMiner to identify the table entries.</Subtext>
@@ -814,8 +814,8 @@
 	<QActions>
 		<QAction id="1" name="Precompiled Code" encoding="csharp" options="precompile" />
 		<QAction id="2" name="After Startup" encoding="csharp" triggers="2" />
-		<QAction id="3" name="QActionXML" encoding="csharp" triggers="10002;3;2" />
-		<QAction id="4" name="QActionJSON" encoding="csharp" triggers="10102;3;2" />
+		<QAction id="3" name="QActionAdsales" encoding="csharp" triggers="10002;3;2" />
+		<QAction id="4" name="QActionMediator" encoding="csharp" triggers="10102;3;2" />
 		<QAction id="5" name="QActionComputeMerged" encoding="csharp" triggers="10202;3;2" />
 	</QActions>
 

@@ -219,14 +219,14 @@ public static class Parameter
 		{
 			/// <summary>PID: 3001 | Type: read</summary>
 			[EditorBrowsable(EditorBrowsableState.Never)]
-			public const int mergedtablecolumn1_3001 = 3001;
+			public const int mergedreconcilekey_3001 = 3001;
 			/// <summary>PID: 3001 | Type: read</summary>
-			public const int mergedtablecolumn1 = 3001;
+			public const int mergedreconcilekey = 3001;
 			/// <summary>PID: 3002 | Type: read</summary>
 			[EditorBrowsable(EditorBrowsableState.Never)]
-			public const int mergedtablecolumn2_3002 = 3002;
+			public const int mergedcontent_3002 = 3002;
 			/// <summary>PID: 3002 | Type: read</summary>
-			public const int mergedtablecolumn2 = 3002;
+			public const int mergedcontent = 3002;
 			public class Write
 			{
 			}
@@ -235,14 +235,14 @@ public static class Parameter
 		{
 			/// <summary>IDX: 0 | Type: read</summary>
 			[EditorBrowsable(EditorBrowsableState.Never)]
-			public const int mergedtablecolumn1_3001 = 0;
+			public const int mergedreconcilekey_3001 = 0;
 			/// <summary>IDX: 0 | Type: read</summary>
-			public const int mergedtablecolumn1 = 0;
+			public const int mergedreconcilekey = 0;
 			/// <summary>IDX: 1 | Type: read</summary>
 			[EditorBrowsable(EditorBrowsableState.Never)]
-			public const int mergedtablecolumn2_3002 = 1;
+			public const int mergedcontent_3002 = 1;
 			/// <summary>IDX: 1 | Type: read</summary>
-			public const int mergedtablecolumn2 = 1;
+			public const int mergedcontent = 1;
 		}
 	}
 }
@@ -310,10 +310,10 @@ public interface SLProtocolExt : SLProtocol
 	object Mediatortitle { get; set; }
 	object Mediatordate_2004 { get; set; }
 	object Mediatordate { get; set; }
-	object Mergedtablecolumn1_3001 { get; set; }
-	object Mergedtablecolumn1 { get; set; }
-	object Mergedtablecolumn2_3002 { get; set; }
-	object Mergedtablecolumn2 { get; set; }
+	object Mergedreconcilekey_3001 { get; set; }
+	object Mergedreconcilekey { get; set; }
+	object Mergedcontent_3002 { get; set; }
+	object Mergedcontent { get; set; }
 	object Adsalesiterationcounter_10000 { get; set; }
 	object Adsalesiterationcounter { get; set; }
 	object Adsalesdebugmsg_10001 { get; set; }
@@ -423,14 +423,14 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public System.Object Mediatordate {get { return GetParameter(2004); }set { SetParameter(2004, value); }}
 	/// <summary>PID: 3001  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Mergedtablecolumn1_3001 {get { return GetParameter(3001); }set { SetParameter(3001, value); }}
+	public System.Object Mergedreconcilekey_3001 {get { return GetParameter(3001); }set { SetParameter(3001, value); }}
 	/// <summary>PID: 3001  | Type: read</summary>
-	public System.Object Mergedtablecolumn1 {get { return GetParameter(3001); }set { SetParameter(3001, value); }}
+	public System.Object Mergedreconcilekey {get { return GetParameter(3001); }set { SetParameter(3001, value); }}
 	/// <summary>PID: 3002  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Mergedtablecolumn2_3002 {get { return GetParameter(3002); }set { SetParameter(3002, value); }}
+	public System.Object Mergedcontent_3002 {get { return GetParameter(3002); }set { SetParameter(3002, value); }}
 	/// <summary>PID: 3002  | Type: read</summary>
-	public System.Object Mergedtablecolumn2 {get { return GetParameter(3002); }set { SetParameter(3002, value); }}
+	public System.Object Mergedcontent {get { return GetParameter(3002); }set { SetParameter(3002, value); }}
 	/// <summary>PID: 10000  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Adsalesiterationcounter_10000 {get { return GetParameter(10000); }set { SetParameter(10000, value); }}
@@ -559,14 +559,14 @@ public class MergedtableQActionRow : QActionTableRow
 {
 	/// <summary>PID: 3001 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Mergedtablecolumn1_3001 { get { if (base.Columns.ContainsKey(0)) { return base.Columns[0]; } else { return null; } } set { if (base.Columns.ContainsKey(0)) { base.Columns[0] = value; } else { base.Columns.Add(0, value); } } }
+	public System.Object Mergedreconcilekey_3001 { get { if (base.Columns.ContainsKey(0)) { return base.Columns[0]; } else { return null; } } set { if (base.Columns.ContainsKey(0)) { base.Columns[0] = value; } else { base.Columns.Add(0, value); } } }
 	/// <summary>PID: 3001 | Type: read</summary>
-	public System.Object Mergedtablecolumn1 { get { if (base.Columns.ContainsKey(0)) { return base.Columns[0]; } else { return null; } } set { if (base.Columns.ContainsKey(0)) { base.Columns[0] = value; } else { base.Columns.Add(0, value); } } }
+	public System.Object Mergedreconcilekey { get { if (base.Columns.ContainsKey(0)) { return base.Columns[0]; } else { return null; } } set { if (base.Columns.ContainsKey(0)) { base.Columns[0] = value; } else { base.Columns.Add(0, value); } } }
 	/// <summary>PID: 3002 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Mergedtablecolumn2_3002 { get { if (base.Columns.ContainsKey(1)) { return base.Columns[1]; } else { return null; } } set { if (base.Columns.ContainsKey(1)) { base.Columns[1] = value; } else { base.Columns.Add(1, value); } } }
+	public System.Object Mergedcontent_3002 { get { if (base.Columns.ContainsKey(1)) { return base.Columns[1]; } else { return null; } } set { if (base.Columns.ContainsKey(1)) { base.Columns[1] = value; } else { base.Columns.Add(1, value); } } }
 	/// <summary>PID: 3002 | Type: read</summary>
-	public System.Object Mergedtablecolumn2 { get { if (base.Columns.ContainsKey(1)) { return base.Columns[1]; } else { return null; } } set { if (base.Columns.ContainsKey(1)) { base.Columns[1] = value; } else { base.Columns.Add(1, value); } } }
+	public System.Object Mergedcontent { get { if (base.Columns.ContainsKey(1)) { return base.Columns[1]; } else { return null; } } set { if (base.Columns.ContainsKey(1)) { base.Columns[1] = value; } else { base.Columns.Add(1, value); } } }
 	public MergedtableQActionRow() : base(0, 2) { }
 	public MergedtableQActionRow(System.Object[] oRow) : base(0, 2, oRow) { }
 	public static implicit operator MergedtableQActionRow(System.Object[] source) { return new MergedtableQActionRow(source); }
