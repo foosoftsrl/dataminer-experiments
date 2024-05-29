@@ -28,9 +28,38 @@ public static class QAction
         try
         {
             protocol.Mediatoriterationcounter = (double)protocol.Mediatoriterationcounter + 1;
+            string uri = (string)protocol.GetParameter(Parameter.urimediator_9);
+            string sessionKey = "A-VDRFtKctjLhGR3wMmoITydeAeNjhME";
+            string channelName = (string)protocol.GetParameter(Parameter.channenamemediator_11);
+            int maxResults = Convert.ToInt32(protocol.GetParameter(Parameter.maxresultsmediator_13));
 
-            string uri = "wss://mediator.broadcast.int/mediator/wsws";
-            string message = "{ \"PharosCs\": { \"CommandList\": { \"SessionKey\": \"A-VDRFtKctjLhGR3wMmoITydeAeNjhME\", \"Command\": [ { \"Subsystem\": \"playtime\", \"Method\": \"executeCQL\", \"ParameterList\": { \"cql\": { \"String\": \"select parcel.templateparameterlist sequence.startdatetime sequence.id sequence.duration sequence.schedulereference parcel.title event.trimmaterialid event.infaderate event.intransitionname sequence.state status from 'LB' where maxresults = 250 and event.stream in ('Main Video')\" } } } ] } } }";
+            string cqlQuery = $"select parcel.templateparameterlist sequence.startdatetime sequence.id sequence.duration sequence.schedulereference parcel.title event.trimmaterialid event.infaderate event.intransitionname sequence.state status from '{channelName}' where maxresults = {maxResults} and event.stream in ('Main Video')";
+            var payload = new
+            {
+                PharosCs = new
+                {
+                    CommandList = new
+                    {
+                        SessionKey = sessionKey,
+                        Command = new[]
+                        {
+                            new
+                            {
+                                Subsystem = "playtime",
+                                Method = "executeCQL",
+                                ParameterList = new
+                                {
+                                    cql = new
+                                    {
+                                        String = cqlQuery,
+                                    },
+                                },
+                            },
+                        },
+                    },
+                },
+            };
+            string message = JsonConvert.SerializeObject(payload);
 
             string jsonData = await SendMessageAndWaitForResponseAsync(uri, message);
 
@@ -65,6 +94,11 @@ public static class QAction
 
     public static async Task<string> SendMessageAndWaitForResponseAsync(string uri, string message)
     {
+        if (!uri.StartsWith("ws://") && !uri.StartsWith("wss://"))
+        {
+            throw new ArgumentException("The URI must be a WebSocket URI starting with ws:// or wss://");
+        }
+
         using (var clientWebSocket = new ClientWebSocket())
         {
             // Ignora gli errori di certificato SSL

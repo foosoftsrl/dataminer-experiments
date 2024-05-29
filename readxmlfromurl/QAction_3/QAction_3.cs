@@ -19,14 +19,11 @@ public static class QAction
     /// <param name="protocol">Link with SLProtocol process.</param>
     public static void Run(SLProtocolExt protocol)
     {
-        string channelName = "LB";
+        string channelName = (string)protocol.GetParameter(Parameter.channelnameadsales_7);
         string currentDate = DateTime.Now.ToString("yyyyMMdd");
         string dir = @"\\winfs01.mediaset.it\DM_Watchfolder\Adsales";
         string fileNamePrefix = $"{channelName}_{currentDate}_";
         string[] files = Directory.GetFiles(dir, $"{fileNamePrefix}*.xml");
-
-        //string fileName = "KI_20240605_20240528092222.xml";
-        //string fullPath = Path.Combine(dir, fileName);
 
         try
         {

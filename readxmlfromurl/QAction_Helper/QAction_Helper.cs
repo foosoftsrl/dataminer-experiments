@@ -10,14 +10,24 @@ public static class Parameter
 {
 	/// <summary>PID: 7 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public const int urladsales_7 = 7;
+	public const int channelnameadsales_7 = 7;
 	/// <summary>PID: 7 | Type: read</summary>
-	public const int urladsales = 7;
+	public const int channelnameadsales = 7;
 	/// <summary>PID: 9 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public const int urlmediator_9 = 9;
+	public const int urimediator_9 = 9;
 	/// <summary>PID: 9 | Type: read</summary>
-	public const int urlmediator = 9;
+	public const int urimediator = 9;
+	/// <summary>PID: 11 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public const int channenamemediator_11 = 11;
+	/// <summary>PID: 11 | Type: read</summary>
+	public const int channenamemediator = 11;
+	/// <summary>PID: 13 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public const int maxresultsmediator_13 = 13;
+	/// <summary>PID: 13 | Type: read</summary>
+	public const int maxresultsmediator = 13;
 	/// <summary>PID: 10000 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public const int adsalesiterationcounter_10000 = 10000;
@@ -57,14 +67,24 @@ public static class Parameter
 		public const int pgbconfiguration = 4;
 		/// <summary>PID: 8 | Type: write</summary>
 		[EditorBrowsable(EditorBrowsableState.Never)]
-		public const int urladsales_8 = 8;
+		public const int channelnameadsales_8 = 8;
 		/// <summary>PID: 8 | Type: write</summary>
-		public const int urladsales = 8;
+		public const int channelnameadsales = 8;
 		/// <summary>PID: 10 | Type: write</summary>
 		[EditorBrowsable(EditorBrowsableState.Never)]
-		public const int urlmediator_10 = 10;
+		public const int urimediator_10 = 10;
 		/// <summary>PID: 10 | Type: write</summary>
-		public const int urlmediator = 10;
+		public const int urimediator = 10;
+		/// <summary>PID: 12 | Type: write</summary>
+		[EditorBrowsable(EditorBrowsableState.Never)]
+		public const int channenamemediator_12 = 12;
+		/// <summary>PID: 12 | Type: write</summary>
+		public const int channenamemediator = 12;
+		/// <summary>PID: 14 | Type: write</summary>
+		[EditorBrowsable(EditorBrowsableState.Never)]
+		public const int maxresultsmediator_14 = 14;
+		/// <summary>PID: 14 | Type: write</summary>
+		public const int maxresultsmediator = 14;
 		/// <summary>PID: 10002 | Type: write</summary>
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		public const int adsalesprocessfile_10002 = 10002;
@@ -231,9 +251,13 @@ public class WriteParameters
 	/// <summary>PID: 4  | Type: write | DISCREETS: Configuration... = Configuration</summary>
 	public System.Object Pgbconfiguration {get { return Protocol.GetParameter(4); }set { Protocol.SetParameter(4, value); }}
 	/// <summary>PID: 8  | Type: write</summary>
-	public System.Object Urladsales {get { return Protocol.GetParameter(8); }set { Protocol.SetParameter(8, value); }}
+	public System.Object Channelnameadsales {get { return Protocol.GetParameter(8); }set { Protocol.SetParameter(8, value); }}
 	/// <summary>PID: 10  | Type: write</summary>
-	public System.Object Urlmediator {get { return Protocol.GetParameter(10); }set { Protocol.SetParameter(10, value); }}
+	public System.Object Urimediator {get { return Protocol.GetParameter(10); }set { Protocol.SetParameter(10, value); }}
+	/// <summary>PID: 12  | Type: write</summary>
+	public System.Object Channenamemediator {get { return Protocol.GetParameter(12); }set { Protocol.SetParameter(12, value); }}
+	/// <summary>PID: 14  | Type: write</summary>
+	public System.Object Maxresultsmediator {get { return Protocol.GetParameter(14); }set { Protocol.SetParameter(14, value); }}
 	/// <summary>PID: 10002  | Type: write | DISCREETS: Process XML = check</summary>
 	public System.Object Adsalesprocessfile {get { return Protocol.GetParameter(10002); }set { Protocol.SetParameter(10002, value); }}
 	/// <summary>PID: 10102  | Type: write | DISCREETS: Process JSON = check</summary>
@@ -260,12 +284,18 @@ public interface SLProtocolExt : SLProtocol
 	object Pgbconfiguration { get; set; }
 	object Title_begin_urlconfig__fixed { get; set; }
 	object Title_end_urlconfig__fixed { get; set; }
-	object Urladsales_7 { get; set; }
-	object Urladsales { get; set; }
-	object Urladsales_8 { get; set; }
-	object Urlmediator_9 { get; set; }
-	object Urlmediator { get; set; }
-	object Urlmediator_10 { get; set; }
+	object Channelnameadsales_7 { get; set; }
+	object Channelnameadsales { get; set; }
+	object Channelnameadsales_8 { get; set; }
+	object Urimediator_9 { get; set; }
+	object Urimediator { get; set; }
+	object Urimediator_10 { get; set; }
+	object Channenamemediator_11 { get; set; }
+	object Channenamemediator { get; set; }
+	object Channenamemediator_12 { get; set; }
+	object Maxresultsmediator_13 { get; set; }
+	object Maxresultsmediator { get; set; }
+	object Maxresultsmediator_14 { get; set; }
 	object Adsalesid_1001 { get; set; }
 	object Adsalesid { get; set; }
 	object Adsalestitle_1002 { get; set; }
@@ -326,20 +356,36 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public System.Object Title_end_urlconfig__fixed {get { return GetParameter(6); }set { SetParameter(6, value); }}
 	/// <summary>PID: 7  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Urladsales_7 {get { return GetParameter(7); }set { SetParameter(7, value); }}
+	public System.Object Channelnameadsales_7 {get { return GetParameter(7); }set { SetParameter(7, value); }}
 	/// <summary>PID: 7  | Type: read</summary>
-	public System.Object Urladsales {get { return GetParameter(7); }set { SetParameter(7, value); }}
+	public System.Object Channelnameadsales {get { return GetParameter(7); }set { SetParameter(7, value); }}
 	/// <summary>PID: 8  | Type: write</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Urladsales_8 {get { return GetParameter(8); }set { SetParameter(8, value); }}
+	public System.Object Channelnameadsales_8 {get { return GetParameter(8); }set { SetParameter(8, value); }}
 	/// <summary>PID: 9  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Urlmediator_9 {get { return GetParameter(9); }set { SetParameter(9, value); }}
+	public System.Object Urimediator_9 {get { return GetParameter(9); }set { SetParameter(9, value); }}
 	/// <summary>PID: 9  | Type: read</summary>
-	public System.Object Urlmediator {get { return GetParameter(9); }set { SetParameter(9, value); }}
+	public System.Object Urimediator {get { return GetParameter(9); }set { SetParameter(9, value); }}
 	/// <summary>PID: 10  | Type: write</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Urlmediator_10 {get { return GetParameter(10); }set { SetParameter(10, value); }}
+	public System.Object Urimediator_10 {get { return GetParameter(10); }set { SetParameter(10, value); }}
+	/// <summary>PID: 11  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Channenamemediator_11 {get { return GetParameter(11); }set { SetParameter(11, value); }}
+	/// <summary>PID: 11  | Type: read</summary>
+	public System.Object Channenamemediator {get { return GetParameter(11); }set { SetParameter(11, value); }}
+	/// <summary>PID: 12  | Type: write</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Channenamemediator_12 {get { return GetParameter(12); }set { SetParameter(12, value); }}
+	/// <summary>PID: 13  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Maxresultsmediator_13 {get { return GetParameter(13); }set { SetParameter(13, value); }}
+	/// <summary>PID: 13  | Type: read</summary>
+	public System.Object Maxresultsmediator {get { return GetParameter(13); }set { SetParameter(13, value); }}
+	/// <summary>PID: 14  | Type: write</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Maxresultsmediator_14 {get { return GetParameter(14); }set { SetParameter(14, value); }}
 	/// <summary>PID: 1001  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Adsalesid_1001 {get { return GetParameter(1001); }set { SetParameter(1001, value); }}

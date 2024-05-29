@@ -12,6 +12,8 @@ public class Pharoscs
 
 public class Commandlist
 {
+    public string SessionKey { get; set; }
+
     public Command[] Command { get; set; }
 }
 
@@ -32,6 +34,18 @@ public class Command
     public float ExecutionTime { get; set; }
 
     public Output Output { get; set; }
+
+    public Parameterlist ParameterList { get; set; }
+}
+
+public class Parameterlist
+{
+    public Cql Cql { get; set; }
+}
+
+public class Cql
+{
+    public string String { get; set; }
 }
 
 public class Output
