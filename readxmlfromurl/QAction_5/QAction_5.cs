@@ -21,11 +21,19 @@ public static class QAction
     /// The QAction entry point.
     /// </summary>
     /// <param name="protocol">Link with SLProtocol process.</param>
-    public static async Task Run(SLProtocolExt protocol)
+
+
+    public static void Run(SLProtocolExt protocol)
+    {
+        return;
+    }
+
+    public static async Task Run_(SLProtocolExt protocol)
     {
         var adSalesData = ReadAdSales(protocol);
         var mediatorData = await ReadMediator(protocol);
         var table = GenerateTable(adSalesData, mediatorData);
+        protocol.FillArray(Parameter.Mergedtable.tablePid, table, NotifyProtocol.SaveOption.Full);
     }
 
     public static Data ReadAdSales(SLProtocolExt protocol)
@@ -68,7 +76,7 @@ public static class QAction
         }
     }
 
-    public static List<object[]> GenerateTable(Data adSalesData, Dictionary<int, Row> mediatorData)
+    public static List<object[]> GenerateTable(Data adSalesData, Dictionary<String, Row> mediatorData)
     {
         List<object[]> rows = new List<object[]>();
         foreach (var break_ in adSalesData.Breaks)
@@ -77,12 +85,16 @@ public static class QAction
             {
                 foreach (var content in timeAllocation.Contents)
                 {
-                    var contentReconcileKey = content.ContentReconcileKey;
-                    var mediatorRow = mediatorData[(int)contentReconcileKey];
+                    var contentReconcileKey = content.ContentReconcileKey.ToString();
+                    Row mediatorRow = null;
+                    if (mediatorData.ContainsKey(contentReconcileKey))
+                    {
+                        mediatorRow = mediatorData[contentReconcileKey.ToString()];
+                    }
                     rows.Add(new MergedtableQActionRow
                     {
                         Mergedreconcilekey = content.ContentReconcileKey,
-                        Mergedcontent = mediatorRow,
+                        Mergedcontent = mediatorRow?.TrimMaterialId,
                         //Adsalestime = break_.BreakNominalTime,
                     }.ToObjectArray());
                 }
@@ -101,7 +113,7 @@ public static class QAction
         }
     }
 
-    public static async Task<Dictionary<int, Row>> ReadMediator(SLProtocolExt protocol)
+    public static async Task<Dictionary<String, Row>> ReadMediator(SLProtocolExt protocol)
     {
         List<object[]> instances = new List<object[]>();
 
@@ -145,7 +157,7 @@ public static class QAction
 
             var rootObjects = JsonConvert.DeserializeObject<Rootobject>(jsonData);
 
-            Dictionary<int, Row> reconcileToRow = new Dictionary<int, Row>();
+            Dictionary<String, Row> reconcileToRow = new Dictionary<String, Row>();
 
             // Convert Generated class into Connector Row data.
             foreach (var command in rootObjects.PharosCs.CommandList.Command)
@@ -155,7 +167,7 @@ public static class QAction
                     if (row.TemplateParameterList.GenericList.Object[0].TemplateParameter[0].Name == "adSalesContentReconcileKey-text")
                     {
                         var reconcileKey = row.TemplateParameterList.GenericList.Object[0].TemplateParameter[0].Value;
-                        reconcileToRow.Add((int)reconcileKey, row);
+                        reconcileToRow.Add((String)reconcileKey, row);
                     }
                 }
             }
