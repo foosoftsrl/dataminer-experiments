@@ -33,11 +33,12 @@ public static class QAction
 
                 string fileContent = ReadFile(latestFile);
                 var data = XmlDeserializeFromString<Pharos>(fileContent);
+                protocol.Wonfilename = latestFile;
 
                 // Convert Generated class into Connector Row data.
                 var rows = ConvertToTableRows(data);
                 protocol.FillArray(Parameter.Won.tablePid, rows, NotifyProtocol.SaveOption.Full);
-                protocol.Wondebugmsg= $"Parsed {data.Playlist.BlockList} blocks";
+                protocol.Wondebugmsg= $"Parsed {data.Playlist.BlockList.Length} blocks";
             }
             else
             {

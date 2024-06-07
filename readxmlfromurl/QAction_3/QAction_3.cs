@@ -34,6 +34,7 @@ public static class QAction
 
                 string fileContent = ReadFile(latestFile);
                 var data = XmlDeserializeFromString<Data>(fileContent);
+                protocol.Adsalesfilename = latestFile;
 
                 // Convert Generated class into Connector Row data.
                 var rows = ConvertToTableRows(data);
