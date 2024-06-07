@@ -70,15 +70,18 @@ public static class QAction
             {
                 foreach (var row in command.Output.ResultSet.Rows)
                 {
-                    if (row.TemplateParameterList.GenericList.Object[0].TemplateParameter[0].Name == "adSalesContentReconcileKey-text")
+                    foreach (var parameter in row.TemplateParameterList.GenericList.Object[0].TemplateParameter)
+                    {
+                        if (parameter.Name == "adSalesContentReconcileKey-text")
                         {
-                        instances.Add(new MediatorQActionRow
-                        {
-                            Mediatorid = row.Id.GenericList.Object[0],
-                            Mediatorreconcilekey = row.TemplateParameterList.GenericList.Object[0].TemplateParameter[0].Value,
-                            Mediatortitle = row.Title.GenericList.Object[0],
-                            Mediatordate = row.StartDateTime.GenericList.Object[0].ISO8601,
-                        }.ToObjectArray());
+                            instances.Add(new MediatorQActionRow
+                            {
+                                Mediatorid = row.Id.GenericList.Object[0],
+                                Mediatorreconcilekey = row.TemplateParameterList.GenericList.Object[0].TemplateParameter[0].Value,
+                                Mediatortitle = row.Title.GenericList.Object[0],
+                                Mediatordate = row.StartDateTime.GenericList.Object[0].ISO8601,
+                            }.ToObjectArray());
+                        }
                     }
                 }
             }

@@ -4,7 +4,6 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Xml;
 using System.Xml.Serialization;
 using Skyline.DataMiner.Scripting;
 
@@ -19,35 +18,35 @@ public static class QAction
     /// <param name="protocol">Link with SLProtocol process.</param>
     public static void Run(SLProtocolExt protocol)
     {
-        string channelName = (string)protocol.GetParameter(Parameter.channelnameadsales_7);
-        string currentDate = DateTime.Now.ToString("yyyyMMdd");
-        string dir = @"\\winfs01.mediaset.it\DM_Watchfolder\Adsales";
-        string fileNamePrefix = $"{channelName}_{currentDate}_";
+        string channelName = (string)protocol.GetParameter(Parameter.channelnamewon_15);
+        string currentDate = DateTime.Now.ToString("yyyy-MM-dd");
+        string dir = @"\\winfs01.mediaset.it\DM_Watchfolder\WON";
+        string fileNamePrefix = $"{channelName}_Schedule_{currentDate}_";
         string[] files = Directory.GetFiles(dir, $"{fileNamePrefix}*.xml");
 
         try
         {
             if (files.Length > 0)
             {
-                protocol.Adsalesiterationcounter = (double)protocol.Adsalesiterationcounter + 1;
+                protocol.Woniterationcounter= (double)protocol.Woniterationcounter + 1;
                 string latestFile = files.OrderByDescending(f => File.GetLastWriteTime(f)).First();
 
                 string fileContent = ReadFile(latestFile);
-                var data = XmlDeserializeFromString<Data>(fileContent);
+                var data = XmlDeserializeFromString<Pharos>(fileContent);
 
                 // Convert Generated class into Connector Row data.
                 var rows = ConvertToTableRows(data);
-                protocol.FillArray(Parameter.Adsales.tablePid, rows, NotifyProtocol.SaveOption.Full);
-                protocol.Adsalesdebugmsg = $"Parsed {data.Breaks.Length} breaks";
+                protocol.FillArray(Parameter.Won.tablePid, rows, NotifyProtocol.SaveOption.Full);
+                protocol.Wondebugmsg= $"Parsed {data.Playlist.BlockList} blocks";
             }
             else
             {
-                protocol.Adsalesdebugmsg = "File not found for the selected channel";
+                protocol.Wondebugmsg = "File not found for the selected channel";
             }
         }
         catch (Exception ex)
         {
-            protocol.Adsalesdebugmsg = "Failed parsing xml file";
+            protocol.Wondebugmsg = "Failed parsing xml file";
             protocol.Log($"QA{protocol.QActionID}|{protocol.GetTriggerParameter()}|Run|Exception thrown:{Environment.NewLine}{ex}", LogType.Error, LogLevel.NoLogging);
         }
     }
@@ -67,22 +66,18 @@ public static class QAction
         }
     }
 
-    public static List<object[]> ConvertToTableRows(Data data)
+    public static List<object[]> ConvertToTableRows(Pharos data)
     {
         List<object[]> rows = new List<object[]>();
-        foreach (var break_ in data.Breaks)
+        foreach (var block_ in data.Playlist.BlockList)
         {
-            foreach (var timeAllocation in break_.TimeAllocations)
+            foreach (var items in block_.PlaylistItem)
             {
-                foreach (var content in timeAllocation.Contents)
-                {
-                    rows.Add(new AdsalesQActionRow
+                    rows.Add(new WonQActionRow
                     {
-                        Adsalesid = content.ContentReconcileKey,
-                        Adsalestitle = content.ContentBrand,
-                        Adsalestime = break_.BreakNominalTime,
+                        Wonschedulereference = items.ScheduleReference,
+                        Wonstartdate= items.StartDate,
                     }.ToObjectArray());
-                }
             }
         }
 

@@ -10,7 +10,7 @@
 	<DeviceOID></DeviceOID>
 	<ElementType>Connect to http</ElementType>
 	<Type relativeTimers="true">virtual</Type>
-	<Display defaultPage="General" pageOrder="General;-------;Adsales;Mediator" wideColumnPages=""/>
+	<Display defaultPage="General" pageOrder="General;-------;Adsales;Mediator;Won" wideColumnPages=""/>
 	<SNMP includepages="true">auto</SNMP>
 
 	<Compliancies>
@@ -85,7 +85,7 @@
 					<Position>
 						<Page>Configuration</Page>
 						<Column>0</Column>
-						<Row>7</Row>
+						<Row>8</Row>
 					</Position>
 				</Positions>
 			</Display>
@@ -292,6 +292,54 @@
 				<Type>string</Type>
 			</Measurement>
 		</Param>
+		<Param id="15" trending="false" save="true">
+			<Name>channelNameWon</Name>
+			<Description>Channel Name Won</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Configuration</Page>
+						<Column>0</Column>
+						<Row>7</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="16" trending="false" setter="true">
+			<Name>channelNameWon</Name>
+			<Description>Channel Name Won</Description>
+			<Type>write</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Configuration</Page>
+						<Column>0</Column>
+						<Row>7</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
 		
 		<Param id="1000">
 			<Name>adSales</Name>
@@ -405,11 +453,11 @@
 			</Measurement>
 		</Param>
 		<Param id="2001" trending="false">
-			<Name>mediatorReconcileKey</Name>
-			<Description>Reconcile Key</Description>
+			<Name>mediatorId</Name>
+			<Description>ID (Mediator)</Description>
 			<Type>read</Type>
 			<Information>
-				<Subtext>adSalesContentReconcileKey</Subtext>
+				<Subtext>adSalesId</Subtext>
 			</Information>
 			<Interprete>
 				<RawType>other</RawType>
@@ -424,11 +472,11 @@
 			</Measurement>
 		</Param>
 		<Param id="2002" trending="false">
-			<Name>mediatorId</Name>
-			<Description>Id (Mediator)</Description>
+			<Name>mediatorReconcileKey</Name>
+			<Description>Reconcile Key</Description>
 			<Type>read</Type>
 			<Information>
-				<Subtext>This is the key used internally by DataMiner to identify the table entries.</Subtext>
+				<Subtext>adSalesContentReconcileKey</Subtext>
 			</Information>
 			<Interprete>
 				<RawType>other</RawType>
@@ -482,34 +530,52 @@
 		</Param>
 		
 		<Param id="3000">
-			<Name>mergedTable</Name>
-			<Description>Merged Table</Description>
+			<Name>won</Name>
+			<Description>WON Table</Description>
 			<Type>array</Type>
 			<ArrayOptions index="0">
 				<ColumnOption idx="0" pid="3001" type="retrieved" options=""/>
-				<ColumnOption idx="1" pid="3002" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="3002" type="retrieved" options="" />
 			</ArrayOptions>
 			<Information>
-				<Subtext>Table Which Shows Data From Other Tables</Subtext>
+				<Subtext>tableInformation</Subtext>
 			</Information>
 			<Display>
 				<RTDisplay>true</RTDisplay>
 				<Positions>
 					<Position>
-						<Page>General</Page>
+						<Page>Won</Page>
 						<Column>0</Column>
 						<Row>3</Row>
 					</Position>
 				</Positions>
 			</Display>
 			<Measurement>
-				<Type options=";tab=columns:3001|0-3002|1,width:120-120,sort:STRING-STRING,lines:25,filter:true">table</Type>
+				<Type options="tab=columns:3001|0-3002|1,width:100-100,sort:STRING-STRING,lines:25,filter:true">table</Type>
 			</Measurement>
 		</Param>
-		
 		<Param id="3001" trending="false">
-			<Name>mergedReconcileKey</Name>
-			<Description>ReconcileKey</Description>
+			<Name>wonScheduleReference</Name>
+			<Description>Schedule Reference (WON Table)</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>This is the key used internally by DataMiner to identify the table entries.</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="3002" trending="false">
+			<Name>wonStartDate</Name>
+			<Description>Start Date (WON Table)</Description>
 			<Type>read</Type>
 			<Information>
 				<Subtext>This is the key used internally by DataMiner to identify the table entries.</Subtext>
@@ -527,9 +593,55 @@
 			</Measurement>
 		</Param>
 		
-		<Param id="3002" trending="false">
+		<Param id="4000">
+			<Name>mergedTable</Name>
+			<Description>Merged Table</Description>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="4001" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="4002" type="retrieved" options=""/>
+			</ArrayOptions>
+			<Information>
+				<Subtext>Table Which Shows Data From Other Tables</Subtext>
+			</Information>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>General</Page>
+						<Column>0</Column>
+						<Row>3</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type options=";tab=columns:4001|0-4002|1,width:100-100,sort:STRING-STRING,lines:25,filter:true">table</Type>
+			</Measurement>
+		</Param>
+		
+		<Param id="4001" trending="false">
 			<Name>mergedContent</Name>
 			<Description>Content</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>This is the key used internally by DataMiner to identify the table entries.</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		
+		<Param id="4002" trending="false">
+			<Name>mergedReconcileKey</Name>
+			<Description>ReconcileKey</Description>
 			<Type>read</Type>
 			<Information>
 				<Subtext>This is the key used internally by DataMiner to identify the table entries.</Subtext>
@@ -809,6 +921,93 @@
 			</Measurement>
 		</Param>
 		
+		<Param id="10300" trending="false" save="true">
+			<Name>wonIterationCounter</Name>
+			<Description>How Many Times WON File Has Been Processed</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Alarm>
+				<Monitored>false</Monitored>
+			</Alarm>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Won</Page>
+						<Column>0</Column>
+						<Row>0</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>number</Type>
+			</Measurement>
+		</Param>
+		<Param id="10301" trending="false">
+			<Name>wonDebugMsg</Name>
+			<Description>Debug WON Data</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Won</Page>
+						<Column>0</Column>
+						<Row>1</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="10302">
+			<Name>wonProcessFile</Name>
+			<Description />
+			<Information>
+				<Text>Process XML</Text>
+				<Subtext>Process XML</Subtext>
+			</Information>
+			<Type>write</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Won</Page>
+						<Column>0</Column>
+						<Row>2</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type width="110">button</Type>
+				<Discreets>
+					<Discreet>
+						<Display>Process XML</Display>
+						<Value>check</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		
 	</Params>
 
 	<QActions>
@@ -817,6 +1016,7 @@
 		<QAction id="3" name="QActionAdsales" encoding="csharp" triggers="10002;3;2" />
 		<QAction id="4" name="QActionMediator" encoding="csharp" triggers="10102;3;2" />
 		<QAction id="5" name="QActionComputeMerged" encoding="csharp" triggers="10202;3;2" />
+		<QAction id="6" name="QActionWon" encoding="csharp" triggers="10302;3;2" />
 	</QActions>
 
 	<Groups>

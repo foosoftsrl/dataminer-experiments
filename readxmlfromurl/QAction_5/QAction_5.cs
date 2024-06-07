@@ -21,14 +21,7 @@ public static class QAction
     /// The QAction entry point.
     /// </summary>
     /// <param name="protocol">Link with SLProtocol process.</param>
-
-
-    public static void Run(SLProtocolExt protocol)
-    {
-        return;
-    }
-
-    public static async Task Run_(SLProtocolExt protocol)
+    public static async Task Run(SLProtocolExt protocol)
     {
         var adSalesData = ReadAdSales(protocol);
         var mediatorData = await ReadMediator(protocol);
@@ -59,6 +52,12 @@ public static class QAction
                 protocol.Adsalesdebugmsg = "File not found for the selected channel";
                 throw new Exception("Could not find any Adsales file");
             }
+        }
+        catch (FormatException fe)
+        {
+            protocol.Adsalesdebugmsg = "Date format error";
+            protocol.Log($"QA{protocol.QActionID}|{protocol.GetTriggerParameter()}|Run|Date format exception thrown:{Environment.NewLine}{fe}", LogType.Error, LogLevel.NoLogging);
+            throw fe;
         }
         catch (Exception ex)
         {
@@ -91,11 +90,11 @@ public static class QAction
                     {
                         mediatorRow = mediatorData[contentReconcileKey.ToString()];
                     }
+
                     rows.Add(new MergedtableQActionRow
                     {
                         Mergedreconcilekey = content.ContentReconcileKey,
                         Mergedcontent = mediatorRow?.TrimMaterialId,
-                        //Adsalestime = break_.BreakNominalTime,
                     }.ToObjectArray());
                 }
             }

@@ -4,8 +4,7 @@
     <Company>Skyline Communications</Company>
     <Copyright>© Skyline Communications</Copyright>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
-    <AssemblyVersion>2024.0606.1013.34535</AssemblyVersion>
-    <LangVersion>7.3</LangVersion>
+    <AssemblyVersion>2024.0606.1536.54033</AssemblyVersion>
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\QAction_Helper\QAction_Helper.csproj" />
@@ -15,7 +14,7 @@
   </ItemGroup>
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties DisLinkedXmlFile="..\protocol.xml" DisProjectType="qactionProject" DisLinkId="3" />
+      <UserProperties DisLinkedXmlFile="..\protocol.xml" DisProjectType="qactionProject" DisLinkId="6" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

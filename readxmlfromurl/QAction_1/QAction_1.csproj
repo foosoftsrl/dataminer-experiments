@@ -2,12 +2,13 @@
   <PropertyGroup>
     <TargetFramework>net48</TargetFramework>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <UserSecretsId>6b8958b3-a40c-4c8d-ae08-24cb176db2fe</UserSecretsId>
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\QAction_Helper\QAction_Helper.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Skyline.DataMiner.Dev.Protocol" Version="10.2.0.25" />
+    <PackageReference Include="Skyline.DataMiner.Dev.Protocol" Version="10.4.6.2" />
   </ItemGroup>
   <ProjectExtensions>
     <VisualStudio>
