@@ -58,11 +58,6 @@ public static class Parameter
 	public const int mediatordebugmsg_10101 = 10101;
 	/// <summary>PID: 10101 | Type: read</summary>
 	public const int mediatordebugmsg = 10101;
-	/// <summary>PID: 10103 | Type: read</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public const int mediatorfilename_10103 = 10103;
-	/// <summary>PID: 10103 | Type: read</summary>
-	public const int mediatorfilename = 10103;
 	/// <summary>PID: 10200 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public const int mergediterationcounter_10200 = 10200;
@@ -419,8 +414,6 @@ public interface SLProtocolExt : SLProtocol
 	object Mediatordebugmsg { get; set; }
 	object Mediatorprocessfile_10102 { get; set; }
 	object Mediatorprocessfile { get; set; }
-	object Mediatorfilename_10103 { get; set; }
-	object Mediatorfilename { get; set; }
 	object Mergediterationcounter_10200 { get; set; }
 	object Mergediterationcounter { get; set; }
 	object Mergeddebugmsg_10201 { get; set; }
@@ -587,11 +580,6 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public System.Object Mediatorprocessfile_10102 {get { return GetParameter(10102); }set { SetParameter(10102, value); }}
 	/// <summary>PID: 10102  | Type: write | DISCREETS: Process JSON = check</summary>
 	public System.Object Mediatorprocessfile {get { return Write.Mediatorprocessfile; }set { Write.Mediatorprocessfile = value; }}
-	/// <summary>PID: 10103  | Type: read</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Mediatorfilename_10103 {get { return GetParameter(10103); }set { SetParameter(10103, value); }}
-	/// <summary>PID: 10103  | Type: read</summary>
-	public System.Object Mediatorfilename {get { return GetParameter(10103); }set { SetParameter(10103, value); }}
 	/// <summary>PID: 10200  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Mergediterationcounter_10200 {get { return GetParameter(10200); }set { SetParameter(10200, value); }}
