@@ -19,14 +19,11 @@ public static class QAction
     /// <param name="protocol">Link with SLProtocol process.</param>
     public static void Run(SLProtocolExt protocol)
     {
-        string channelName = "LB";
+        string channelName = (string)protocol.GetParameter(Parameter.channelnameadsales_7);
         string currentDate = DateTime.Now.ToString("yyyyMMdd");
         string dir = @"\\winfs01.mediaset.it\DM_Watchfolder\Adsales";
         string fileNamePrefix = $"{channelName}_{currentDate}_";
         string[] files = Directory.GetFiles(dir, $"{fileNamePrefix}*.xml");
-
-        //string fileName = "KI_20240605_20240528092222.xml";
-        //string fullPath = Path.Combine(dir, fileName);
 
         try
         {
@@ -37,6 +34,7 @@ public static class QAction
 
                 string fileContent = ReadFile(latestFile);
                 var data = XmlDeserializeFromString<Data>(fileContent);
+                protocol.Adsalesfilename = latestFile;
 
                 // Convert Generated class into Connector Row data.
                 var rows = ConvertToTableRows(data);
@@ -57,9 +55,16 @@ public static class QAction
 
     public static string ReadFile(string path)
     {
-        using (StreamReader streamReader = new StreamReader(path, Encoding.UTF8))
+        try
         {
-            return streamReader.ReadToEnd();
+            using (StreamReader streamReader = new StreamReader(path, Encoding.UTF8))
+            {
+                return streamReader.ReadToEnd();
+            }
+        }
+        catch (IOException ex)
+        {
+            throw new ApplicationException($"Error reading file {path}: {ex.Message}", ex);
         }
     }
 
@@ -68,12 +73,13 @@ public static class QAction
         List<object[]> rows = new List<object[]>();
         foreach (var break_ in data.Breaks)
         {
-            foreach (var timeAllocation in break_.TimeAllocations) {
+            foreach (var timeAllocation in break_.TimeAllocations)
+            {
                 foreach (var content in timeAllocation.Contents)
                 {
                     rows.Add(new AdsalesQActionRow
                     {
-                        Adsalesid = content.ContentReconcileKey,
+                        Adsalesreconcilekey = content.ContentReconcileKey,
                         Adsalestitle = content.ContentBrand,
                         Adsalestime = break_.BreakNominalTime,
                     }.ToObjectArray());
@@ -86,17 +92,17 @@ public static class QAction
 
     public static T XmlDeserializeFromString<T>(this string xmlTextData)
     {
-        using (TextReader reader = new StringReader(xmlTextData))
+        try
         {
-            var serializer = new XmlSerializer(typeof(T));
-            return (T)serializer.Deserialize(reader);
+            using (TextReader reader = new StringReader(xmlTextData))
+            {
+                var serializer = new XmlSerializer(typeof(T));
+                return (T)serializer.Deserialize(reader);
+            }
         }
-    }
-
-    public static string GenerateFileName(string channelName)
-    {
-        string currentDate = DateTime.Now.ToString("yyyyMMdd");
-        string timestamp = DateTime.Now.ToString("yyyyMMddHHmmss");
-        return $"{channelName}_{currentDate}_{timestamp}.xml";
+        catch (InvalidOperationException ex)
+        {
+            throw new ApplicationException($"Error deserializing XML to {typeof(T).Name}: {ex.Message}", ex);
+        }
     }
 }

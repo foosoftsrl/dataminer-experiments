@@ -1,9 +1,4 @@
-﻿// C# Artifacts computed from sample.xml with "Paste special" option
-
-// NOTE: Generated code may require at least .NET Framework 4.5 or .NET Core/Standard 2.0.
-
-/// <remarks/>
-
+﻿
 // NOTE: Generated code may require at least .NET Framework 4.5 or .NET Core/Standard 2.0.
 /// <remarks/>
 [System.SerializableAttribute()]
@@ -25,7 +20,6 @@ public partial class Data
         {
             return this.channelCodeField;
         }
-
         set
         {
             this.channelCodeField = value;
@@ -40,7 +34,6 @@ public partial class Data
         {
             return this.scheduleDateField;
         }
-
         set
         {
             this.scheduleDateField = value;
@@ -55,7 +48,6 @@ public partial class Data
         {
             return this.breaksField;
         }
-
         set
         {
             this.breaksField = value;
@@ -69,6 +61,7 @@ public partial class Data
 [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
 public partial class DataBreak
 {
+
     private string breakIDField;
 
     private byte breakVersionForTAField;
@@ -100,7 +93,6 @@ public partial class DataBreak
         {
             return this.breakIDField;
         }
-
         set
         {
             this.breakIDField = value;
@@ -114,7 +106,6 @@ public partial class DataBreak
         {
             return this.breakVersionForTAField;
         }
-
         set
         {
             this.breakVersionForTAField = value;
@@ -128,7 +119,6 @@ public partial class DataBreak
         {
             return this.breakNominalTimeField;
         }
-
         set
         {
             this.breakNominalTimeField = value;
@@ -142,7 +132,6 @@ public partial class DataBreak
         {
             return this.breakLockedTimeField;
         }
-
         set
         {
             this.breakLockedTimeField = value;
@@ -156,7 +145,6 @@ public partial class DataBreak
         {
             return this.breakPositionField;
         }
-
         set
         {
             this.breakPositionField = value;
@@ -170,7 +158,6 @@ public partial class DataBreak
         {
             return this.breakSimulcastField;
         }
-
         set
         {
             this.breakSimulcastField = value;
@@ -184,7 +171,6 @@ public partial class DataBreak
         {
             return this.breakCommercialProductSalesField;
         }
-
         set
         {
             this.breakCommercialProductSalesField = value;
@@ -198,7 +184,6 @@ public partial class DataBreak
         {
             return this.breakQualityTypeField;
         }
-
         set
         {
             this.breakQualityTypeField = value;
@@ -212,7 +197,6 @@ public partial class DataBreak
         {
             return this.breakCountDownField;
         }
-
         set
         {
             this.breakCountDownField = value;
@@ -226,7 +210,6 @@ public partial class DataBreak
         {
             return this.breakScreenLayoutField;
         }
-
         set
         {
             this.breakScreenLayoutField = value;
@@ -240,7 +223,6 @@ public partial class DataBreak
         {
             return this.breakNoteField;
         }
-
         set
         {
             this.breakNoteField = value;
@@ -255,7 +237,6 @@ public partial class DataBreak
         {
             return this.timeAllocationsField;
         }
-
         set
         {
             this.timeAllocationsField = value;
@@ -269,6 +250,7 @@ public partial class DataBreak
 [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
 public partial class DataBreakTimeAllocation
 {
+
     private string timeAllocationTypeField;
 
     private byte timeAllocationPositionField;
@@ -298,7 +280,6 @@ public partial class DataBreakTimeAllocation
         {
             return this.timeAllocationTypeField;
         }
-
         set
         {
             this.timeAllocationTypeField = value;
@@ -312,7 +293,6 @@ public partial class DataBreakTimeAllocation
         {
             return this.timeAllocationPositionField;
         }
-
         set
         {
             this.timeAllocationPositionField = value;
@@ -326,7 +306,6 @@ public partial class DataBreakTimeAllocation
         {
             return this.timeAllocationNominalDurationField;
         }
-
         set
         {
             this.timeAllocationNominalDurationField = value;
@@ -340,7 +319,6 @@ public partial class DataBreakTimeAllocation
         {
             return this.timeAllocationOTTSubstitutionField;
         }
-
         set
         {
             this.timeAllocationOTTSubstitutionField = value;
@@ -354,7 +332,6 @@ public partial class DataBreakTimeAllocation
         {
             return this.timeAllocationDenyTrailerBeforeField;
         }
-
         set
         {
             this.timeAllocationDenyTrailerBeforeField = value;
@@ -368,7 +345,6 @@ public partial class DataBreakTimeAllocation
         {
             return this.timeAllocationSecondaryTypeField;
         }
-
         set
         {
             this.timeAllocationSecondaryTypeField = value;
@@ -382,7 +358,6 @@ public partial class DataBreakTimeAllocation
         {
             return this.timeAllocationSecondaryReconcileKeyField;
         }
-
         set
         {
             this.timeAllocationSecondaryReconcileKeyField = value;
@@ -396,7 +371,6 @@ public partial class DataBreakTimeAllocation
         {
             return this.timeAllocationSecondaryProductCodeField;
         }
-
         set
         {
             this.timeAllocationSecondaryProductCodeField = value;
@@ -410,7 +384,6 @@ public partial class DataBreakTimeAllocation
         {
             return this.timeAllocationSecondaryBrandField;
         }
-
         set
         {
             this.timeAllocationSecondaryBrandField = value;
@@ -424,7 +397,6 @@ public partial class DataBreakTimeAllocation
         {
             return this.timeAllocationPictureFrameLayoutField;
         }
-
         set
         {
             this.timeAllocationPictureFrameLayoutField = value;
@@ -506,7 +478,6 @@ public partial class DataBreakTimeAllocationContent
         {
             return this.contentOrderField;
         }
-
         set
         {
             this.contentOrderField = value;
@@ -520,7 +491,6 @@ public partial class DataBreakTimeAllocationContent
         {
             return this.contentProductCodeField;
         }
-
         set
         {
             this.contentProductCodeField = value;
@@ -534,7 +504,6 @@ public partial class DataBreakTimeAllocationContent
         {
             return this.contentAdvertiserNameField;
         }
-
         set
         {
             this.contentAdvertiserNameField = value;
@@ -548,7 +517,6 @@ public partial class DataBreakTimeAllocationContent
         {
             return this.contentBrandField;
         }
-
         set
         {
             this.contentBrandField = value;
@@ -562,7 +530,6 @@ public partial class DataBreakTimeAllocationContent
         {
             return this.contentTypeField;
         }
-
         set
         {
             this.contentTypeField = value;
@@ -576,7 +543,6 @@ public partial class DataBreakTimeAllocationContent
         {
             return this.contentTotalDurationField;
         }
-
         set
         {
             this.contentTotalDurationField = value;
@@ -590,7 +556,6 @@ public partial class DataBreakTimeAllocationContent
         {
             return this.contentUnsponsoredDurationField;
         }
-
         set
         {
             this.contentUnsponsoredDurationField = value;
@@ -604,7 +569,6 @@ public partial class DataBreakTimeAllocationContent
         {
             return this.contentAdvertisementLimitCheckField;
         }
-
         set
         {
             this.contentAdvertisementLimitCheckField = value;
@@ -619,7 +583,6 @@ public partial class DataBreakTimeAllocationContent
         {
             return this.contentRiskTypesField;
         }
-
         set
         {
             this.contentRiskTypesField = value;
@@ -633,7 +596,6 @@ public partial class DataBreakTimeAllocationContent
         {
             return this.contentDestinationField;
         }
-
         set
         {
             this.contentDestinationField = value;
@@ -647,7 +609,6 @@ public partial class DataBreakTimeAllocationContent
         {
             return this.contentPictureFrameLayoutField;
         }
-
         set
         {
             this.contentPictureFrameLayoutField = value;
@@ -661,7 +622,6 @@ public partial class DataBreakTimeAllocationContent
         {
             return this.contentSubtitledField;
         }
-
         set
         {
             this.contentSubtitledField = value;
@@ -675,7 +635,6 @@ public partial class DataBreakTimeAllocationContent
         {
             return this.contentSubtitlesField;
         }
-
         set
         {
             this.contentSubtitlesField = value;
@@ -689,7 +648,6 @@ public partial class DataBreakTimeAllocationContent
         {
             return this.contentAudiodescriptedField;
         }
-
         set
         {
             this.contentAudiodescriptedField = value;
@@ -703,7 +661,6 @@ public partial class DataBreakTimeAllocationContent
         {
             return this.contentEnablerField;
         }
-
         set
         {
             this.contentEnablerField = value;
@@ -727,7 +684,6 @@ public partial class DataBreakTimeAllocationContentContentSubtitles
         {
             return this.contentSubtitleField;
         }
-
         set
         {
             this.contentSubtitleField = value;
@@ -753,7 +709,6 @@ public partial class DataBreakTimeAllocationContentContentSubtitlesContentSubtit
         {
             return this.contentSubtitleLanguageField;
         }
-
         set
         {
             this.contentSubtitleLanguageField = value;
@@ -767,10 +722,10 @@ public partial class DataBreakTimeAllocationContentContentSubtitlesContentSubtit
         {
             return this.contentSubtitleTypeField;
         }
-
         set
         {
             this.contentSubtitleTypeField = value;
         }
     }
 }
+

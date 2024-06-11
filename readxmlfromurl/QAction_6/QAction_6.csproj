@@ -4,17 +4,17 @@
     <Company>Skyline Communications</Company>
     <Copyright>© Skyline Communications</Copyright>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
-    <AssemblyVersion>2024.0528.1131.07249</AssemblyVersion>
+    <AssemblyVersion>2024.0611.0803.57801</AssemblyVersion>
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\QAction_Helper\QAction_Helper.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Skyline.DataMiner.Dev.Protocol" Version="10.2.0.25" />
+    <PackageReference Include="Skyline.DataMiner.Dev.Protocol" Version="10.4.6.2" />
   </ItemGroup>
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties DisLinkedXmlFile="..\protocol.xml" DisProjectType="qactionProject" DisLinkId="3" />
+      <UserProperties DisLinkedXmlFile="..\protocol.xml" DisProjectType="qactionProject" DisLinkId="6" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>
