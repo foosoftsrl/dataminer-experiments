@@ -79,7 +79,7 @@ public static class QAction
                 {
                     rows.Add(new AdsalesQActionRow
                     {
-                        Adsalesid = content.ContentReconcileKey,
+                        Adsalesreconcilekey = content.ContentReconcileKey,
                         Adsalestitle = content.ContentBrand,
                         Adsalestime = break_.BreakNominalTime,
                     }.ToObjectArray());

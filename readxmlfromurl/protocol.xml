@@ -387,8 +387,8 @@
 			</Measurement>
 		</Param>
 		<Param id="1002" trending="false">
-			<Name>adSalesId</Name>
-			<Description>Id (Adsales)</Description>
+			<Name>adSalesReconcileKey</Name>
+			<Description>Reconcile Key (Adsales)</Description>
 			<Type>read</Type>
 			<Information>
 				<Subtext>This is the key used internally by DataMiner to identify the table entries.</Subtext>
