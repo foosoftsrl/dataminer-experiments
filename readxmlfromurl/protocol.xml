@@ -368,8 +368,8 @@
 			</Measurement>
 		</Param>
 		<Param id="1001" trending="false">
-			<Name>adSalesId</Name>
-			<Description>Id (Adsales)</Description>
+			<Name>adSalesTitle</Name>
+			<Description>Title (Adsales)</Description>
 			<Type>read</Type>
 			<Information>
 				<Subtext>This is the key used internally by DataMiner to identify the table entries.</Subtext>
@@ -387,8 +387,8 @@
 			</Measurement>
 		</Param>
 		<Param id="1002" trending="false">
-			<Name>adSalesTitle</Name>
-			<Description>Title (Adsales)</Description>
+			<Name>adSalesId</Name>
+			<Description>Id (Adsales)</Description>
 			<Type>read</Type>
 			<Information>
 				<Subtext>This is the key used internally by DataMiner to identify the table entries.</Subtext>
@@ -473,7 +473,7 @@
 		</Param>
 		<Param id="2002" trending="false">
 			<Name>mediatorReconcileKey</Name>
-			<Description>Reconcile Key</Description>
+			<Description>Reconcile Key (Mediator)</Description>
 			<Type>read</Type>
 			<Information>
 				<Subtext>adSalesContentReconcileKey</Subtext>
@@ -641,7 +641,7 @@
 		
 		<Param id="4002" trending="false">
 			<Name>mergedReconcileKey</Name>
-			<Description>ReconcileKey</Description>
+			<Description>Reconcile Key</Description>
 			<Type>read</Type>
 			<Information>
 				<Subtext>This is the key used internally by DataMiner to identify the table entries.</Subtext>
@@ -748,7 +748,7 @@
 		</Param>
 		<Param id="10003" trending="false">
 			<Name>adSalesFileName</Name>
-			<Description>Processing File Name</Description>
+			<Description>Processing Adsales File Name</Description>
 			<Type>read</Type>
 			<Information>
 			</Information>
@@ -1034,7 +1034,7 @@
 		</Param>
 		<Param id="10303" trending="false">
 			<Name>wonFileName</Name>
-			<Description>Processing File Name</Description>
+			<Description>Processing WON File Name</Description>
 			<Type>read</Type>
 			<Information>
 			</Information>
