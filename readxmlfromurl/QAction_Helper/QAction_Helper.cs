@@ -90,26 +90,11 @@ public static class Parameter
 		public const int maxresultsmediator_14 = 14;
 		/// <summary>PID: 14 | Type: write</summary>
 		public const int maxresultsmediator = 14;
-		/// <summary>PID: 10002 | Type: write</summary>
-		[EditorBrowsable(EditorBrowsableState.Never)]
-		public const int adsalesprocessfile_10002 = 10002;
-		/// <summary>PID: 10002 | Type: write</summary>
-		public const int adsalesprocessfile = 10002;
-		/// <summary>PID: 10102 | Type: write</summary>
-		[EditorBrowsable(EditorBrowsableState.Never)]
-		public const int mediatorprocessfile_10102 = 10102;
-		/// <summary>PID: 10102 | Type: write</summary>
-		public const int mediatorprocessfile = 10102;
 		/// <summary>PID: 10202 | Type: write</summary>
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		public const int mergedprocesstable_10202 = 10202;
 		/// <summary>PID: 10202 | Type: write</summary>
 		public const int mergedprocesstable = 10202;
-		/// <summary>PID: 10302 | Type: write</summary>
-		[EditorBrowsable(EditorBrowsableState.Never)]
-		public const int wonprocessfile_10302 = 10302;
-		/// <summary>PID: 10302 | Type: write</summary>
-		public const int wonprocessfile = 10302;
 	}
 	public class Adsales
 	{
@@ -267,14 +252,24 @@ public static class Parameter
 		{
 			/// <summary>PID: 4001 | Type: read</summary>
 			[EditorBrowsable(EditorBrowsableState.Never)]
-			public const int mergedcontent_4001 = 4001;
+			public const int mergedreconcilekey_4001 = 4001;
 			/// <summary>PID: 4001 | Type: read</summary>
-			public const int mergedcontent = 4001;
+			public const int mergedreconcilekey = 4001;
 			/// <summary>PID: 4002 | Type: read</summary>
 			[EditorBrowsable(EditorBrowsableState.Never)]
-			public const int mergedreconcilekey_4002 = 4002;
+			public const int mergedproductcode_4002 = 4002;
 			/// <summary>PID: 4002 | Type: read</summary>
-			public const int mergedreconcilekey = 4002;
+			public const int mergedproductcode = 4002;
+			/// <summary>PID: 4003 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int breaktime_4003 = 4003;
+			/// <summary>PID: 4003 | Type: read</summary>
+			public const int breaktime = 4003;
+			/// <summary>PID: 4004 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int mergedduration_4004 = 4004;
+			/// <summary>PID: 4004 | Type: read</summary>
+			public const int mergedduration = 4004;
 			public class Write
 			{
 			}
@@ -283,14 +278,24 @@ public static class Parameter
 		{
 			/// <summary>IDX: 0 | Type: read</summary>
 			[EditorBrowsable(EditorBrowsableState.Never)]
-			public const int mergedcontent_4001 = 0;
+			public const int mergedreconcilekey_4001 = 0;
 			/// <summary>IDX: 0 | Type: read</summary>
-			public const int mergedcontent = 0;
+			public const int mergedreconcilekey = 0;
 			/// <summary>IDX: 1 | Type: read</summary>
 			[EditorBrowsable(EditorBrowsableState.Never)]
-			public const int mergedreconcilekey_4002 = 1;
+			public const int mergedproductcode_4002 = 1;
 			/// <summary>IDX: 1 | Type: read</summary>
-			public const int mergedreconcilekey = 1;
+			public const int mergedproductcode = 1;
+			/// <summary>IDX: 2 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int breaktime_4003 = 2;
+			/// <summary>IDX: 2 | Type: read</summary>
+			public const int breaktime = 2;
+			/// <summary>IDX: 3 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int mergedduration_4004 = 3;
+			/// <summary>IDX: 3 | Type: read</summary>
+			public const int mergedduration = 3;
 		}
 	}
 }
@@ -306,14 +311,8 @@ public class WriteParameters
 	public System.Object Channenamemediator {get { return Protocol.GetParameter(12); }set { Protocol.SetParameter(12, value); }}
 	/// <summary>PID: 14  | Type: write</summary>
 	public System.Object Maxresultsmediator {get { return Protocol.GetParameter(14); }set { Protocol.SetParameter(14, value); }}
-	/// <summary>PID: 10002  | Type: write | DISCREETS: Process XML = check</summary>
-	public System.Object Adsalesprocessfile {get { return Protocol.GetParameter(10002); }set { Protocol.SetParameter(10002, value); }}
-	/// <summary>PID: 10102  | Type: write | DISCREETS: Process JSON = check</summary>
-	public System.Object Mediatorprocessfile {get { return Protocol.GetParameter(10102); }set { Protocol.SetParameter(10102, value); }}
 	/// <summary>PID: 10202  | Type: write | DISCREETS: Merge Tables = check</summary>
 	public System.Object Mergedprocesstable {get { return Protocol.GetParameter(10202); }set { Protocol.SetParameter(10202, value); }}
-	/// <summary>PID: 10302  | Type: write | DISCREETS: Process XML = check</summary>
-	public System.Object Wonprocessfile {get { return Protocol.GetParameter(10302); }set { Protocol.SetParameter(10302, value); }}
 	public SLProtocolExt Protocol;
 	public WriteParameters(SLProtocolExt protocol)
 	{
@@ -366,20 +365,20 @@ public interface SLProtocolExt : SLProtocol
 	object Wonschedulereference { get; set; }
 	object Wonstartdate_3002 { get; set; }
 	object Wonstartdate { get; set; }
-	object Mergedcontent_4001 { get; set; }
-	object Mergedcontent { get; set; }
-	object Mergedreconcilekey_4002 { get; set; }
+	object Mergedreconcilekey_4001 { get; set; }
 	object Mergedreconcilekey { get; set; }
+	object Mergedproductcode_4002 { get; set; }
+	object Mergedproductcode { get; set; }
+	object Breaktime_4003 { get; set; }
+	object Breaktime { get; set; }
+	object Mergedduration_4004 { get; set; }
+	object Mergedduration { get; set; }
 	object Adsalesdebugmsg_10001 { get; set; }
 	object Adsalesdebugmsg { get; set; }
-	object Adsalesprocessfile_10002 { get; set; }
-	object Adsalesprocessfile { get; set; }
 	object Adsalesfilename_10003 { get; set; }
 	object Adsalesfilename { get; set; }
 	object Mediatordebugmsg_10101 { get; set; }
 	object Mediatordebugmsg { get; set; }
-	object Mediatorprocessfile_10102 { get; set; }
-	object Mediatorprocessfile { get; set; }
 	object Mergediterationcounter_10200 { get; set; }
 	object Mergediterationcounter { get; set; }
 	object Mergeddebugmsg_10201 { get; set; }
@@ -388,8 +387,6 @@ public interface SLProtocolExt : SLProtocol
 	object Mergedprocesstable { get; set; }
 	object Wondebugmsg_10301 { get; set; }
 	object Wondebugmsg { get; set; }
-	object Wonprocessfile_10302 { get; set; }
-	object Wonprocessfile { get; set; }
 	object Wonfilename_10303 { get; set; }
 	object Wonfilename { get; set; }
 	WriteParameters Write { get; set; }
@@ -495,23 +492,29 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public System.Object Wonstartdate {get { return GetParameter(3002); }set { SetParameter(3002, value); }}
 	/// <summary>PID: 4001  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Mergedcontent_4001 {get { return GetParameter(4001); }set { SetParameter(4001, value); }}
+	public System.Object Mergedreconcilekey_4001 {get { return GetParameter(4001); }set { SetParameter(4001, value); }}
 	/// <summary>PID: 4001  | Type: read</summary>
-	public System.Object Mergedcontent {get { return GetParameter(4001); }set { SetParameter(4001, value); }}
+	public System.Object Mergedreconcilekey {get { return GetParameter(4001); }set { SetParameter(4001, value); }}
 	/// <summary>PID: 4002  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Mergedreconcilekey_4002 {get { return GetParameter(4002); }set { SetParameter(4002, value); }}
+	public System.Object Mergedproductcode_4002 {get { return GetParameter(4002); }set { SetParameter(4002, value); }}
 	/// <summary>PID: 4002  | Type: read</summary>
-	public System.Object Mergedreconcilekey {get { return GetParameter(4002); }set { SetParameter(4002, value); }}
+	public System.Object Mergedproductcode {get { return GetParameter(4002); }set { SetParameter(4002, value); }}
+	/// <summary>PID: 4003  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Breaktime_4003 {get { return GetParameter(4003); }set { SetParameter(4003, value); }}
+	/// <summary>PID: 4003  | Type: read</summary>
+	public System.Object Breaktime {get { return GetParameter(4003); }set { SetParameter(4003, value); }}
+	/// <summary>PID: 4004  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Mergedduration_4004 {get { return GetParameter(4004); }set { SetParameter(4004, value); }}
+	/// <summary>PID: 4004  | Type: read</summary>
+	public System.Object Mergedduration {get { return GetParameter(4004); }set { SetParameter(4004, value); }}
 	/// <summary>PID: 10001  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Adsalesdebugmsg_10001 {get { return GetParameter(10001); }set { SetParameter(10001, value); }}
 	/// <summary>PID: 10001  | Type: read</summary>
 	public System.Object Adsalesdebugmsg {get { return GetParameter(10001); }set { SetParameter(10001, value); }}
-	/// <summary>PID: 10002  | Type: write | DISCREETS: Process XML = check</summary>
-	public System.Object Adsalesprocessfile_10002 {get { return GetParameter(10002); }set { SetParameter(10002, value); }}
-	/// <summary>PID: 10002  | Type: write | DISCREETS: Process XML = check</summary>
-	public System.Object Adsalesprocessfile {get { return Write.Adsalesprocessfile; }set { Write.Adsalesprocessfile = value; }}
 	/// <summary>PID: 10003  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Adsalesfilename_10003 {get { return GetParameter(10003); }set { SetParameter(10003, value); }}
@@ -522,10 +525,6 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public System.Object Mediatordebugmsg_10101 {get { return GetParameter(10101); }set { SetParameter(10101, value); }}
 	/// <summary>PID: 10101  | Type: read</summary>
 	public System.Object Mediatordebugmsg {get { return GetParameter(10101); }set { SetParameter(10101, value); }}
-	/// <summary>PID: 10102  | Type: write | DISCREETS: Process JSON = check</summary>
-	public System.Object Mediatorprocessfile_10102 {get { return GetParameter(10102); }set { SetParameter(10102, value); }}
-	/// <summary>PID: 10102  | Type: write | DISCREETS: Process JSON = check</summary>
-	public System.Object Mediatorprocessfile {get { return Write.Mediatorprocessfile; }set { Write.Mediatorprocessfile = value; }}
 	/// <summary>PID: 10200  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Mergediterationcounter_10200 {get { return GetParameter(10200); }set { SetParameter(10200, value); }}
@@ -545,10 +544,6 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public System.Object Wondebugmsg_10301 {get { return GetParameter(10301); }set { SetParameter(10301, value); }}
 	/// <summary>PID: 10301  | Type: read</summary>
 	public System.Object Wondebugmsg {get { return GetParameter(10301); }set { SetParameter(10301, value); }}
-	/// <summary>PID: 10302  | Type: write | DISCREETS: Process XML = check</summary>
-	public System.Object Wonprocessfile_10302 {get { return GetParameter(10302); }set { SetParameter(10302, value); }}
-	/// <summary>PID: 10302  | Type: write | DISCREETS: Process XML = check</summary>
-	public System.Object Wonprocessfile {get { return Write.Wonprocessfile; }set { Write.Wonprocessfile = value; }}
 	/// <summary>PID: 10303  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Wonfilename_10303 {get { return GetParameter(10303); }set { SetParameter(10303, value); }}
@@ -666,16 +661,26 @@ public class MergedtableQActionRow : QActionTableRow
 {
 	/// <summary>PID: 4001 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Mergedcontent_4001 { get { if (base.Columns.ContainsKey(0)) { return base.Columns[0]; } else { return null; } } set { if (base.Columns.ContainsKey(0)) { base.Columns[0] = value; } else { base.Columns.Add(0, value); } } }
+	public System.Object Mergedreconcilekey_4001 { get { if (base.Columns.ContainsKey(0)) { return base.Columns[0]; } else { return null; } } set { if (base.Columns.ContainsKey(0)) { base.Columns[0] = value; } else { base.Columns.Add(0, value); } } }
 	/// <summary>PID: 4001 | Type: read</summary>
-	public System.Object Mergedcontent { get { if (base.Columns.ContainsKey(0)) { return base.Columns[0]; } else { return null; } } set { if (base.Columns.ContainsKey(0)) { base.Columns[0] = value; } else { base.Columns.Add(0, value); } } }
+	public System.Object Mergedreconcilekey { get { if (base.Columns.ContainsKey(0)) { return base.Columns[0]; } else { return null; } } set { if (base.Columns.ContainsKey(0)) { base.Columns[0] = value; } else { base.Columns.Add(0, value); } } }
 	/// <summary>PID: 4002 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Mergedreconcilekey_4002 { get { if (base.Columns.ContainsKey(1)) { return base.Columns[1]; } else { return null; } } set { if (base.Columns.ContainsKey(1)) { base.Columns[1] = value; } else { base.Columns.Add(1, value); } } }
+	public System.Object Mergedproductcode_4002 { get { if (base.Columns.ContainsKey(1)) { return base.Columns[1]; } else { return null; } } set { if (base.Columns.ContainsKey(1)) { base.Columns[1] = value; } else { base.Columns.Add(1, value); } } }
 	/// <summary>PID: 4002 | Type: read</summary>
-	public System.Object Mergedreconcilekey { get { if (base.Columns.ContainsKey(1)) { return base.Columns[1]; } else { return null; } } set { if (base.Columns.ContainsKey(1)) { base.Columns[1] = value; } else { base.Columns.Add(1, value); } } }
-	public MergedtableQActionRow() : base(0, 2) { }
-	public MergedtableQActionRow(System.Object[] oRow) : base(0, 2, oRow) { }
+	public System.Object Mergedproductcode { get { if (base.Columns.ContainsKey(1)) { return base.Columns[1]; } else { return null; } } set { if (base.Columns.ContainsKey(1)) { base.Columns[1] = value; } else { base.Columns.Add(1, value); } } }
+	/// <summary>PID: 4003 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Breaktime_4003 { get { if (base.Columns.ContainsKey(2)) { return base.Columns[2]; } else { return null; } } set { if (base.Columns.ContainsKey(2)) { base.Columns[2] = value; } else { base.Columns.Add(2, value); } } }
+	/// <summary>PID: 4003 | Type: read</summary>
+	public System.Object Breaktime { get { if (base.Columns.ContainsKey(2)) { return base.Columns[2]; } else { return null; } } set { if (base.Columns.ContainsKey(2)) { base.Columns[2] = value; } else { base.Columns.Add(2, value); } } }
+	/// <summary>PID: 4004 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Mergedduration_4004 { get { if (base.Columns.ContainsKey(3)) { return base.Columns[3]; } else { return null; } } set { if (base.Columns.ContainsKey(3)) { base.Columns[3] = value; } else { base.Columns.Add(3, value); } } }
+	/// <summary>PID: 4004 | Type: read</summary>
+	public System.Object Mergedduration { get { if (base.Columns.ContainsKey(3)) { return base.Columns[3]; } else { return null; } } set { if (base.Columns.ContainsKey(3)) { base.Columns[3] = value; } else { base.Columns.Add(3, value); } } }
+	public MergedtableQActionRow() : base(0, 4) { }
+	public MergedtableQActionRow(System.Object[] oRow) : base(0, 4, oRow) { }
 	public static implicit operator MergedtableQActionRow(System.Object[] source) { return new MergedtableQActionRow(source); }
 	public static implicit operator System.Object[](MergedtableQActionRow source) { return source.ToObjectArray(); }
 }

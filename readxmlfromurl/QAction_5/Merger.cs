@@ -25,6 +25,7 @@ namespace QAction_5
                         var contentReconcileKey = content.ContentReconcileKey;
                         rowList.Add(new MergedEntry
                         {
+                            adSalesBreakData = break_,
                             adSalesData = content,
                             whatsonData = whatsonMap.GetValueOrDefault(contentReconcileKey, null),
                             mediatorData = mediatorMap.GetValueOrDefault(contentReconcileKey, null),

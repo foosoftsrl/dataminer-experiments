@@ -8,6 +8,7 @@ namespace QAction_5
 {
     public class MergedEntry
     {
+        public AdSales.BreakType adSalesBreakData;
         public AdSales.ContentType adSalesData;
         public PharosPlaylistBlockPlaylistItem whatsonData;
         public Mediator.Row mediatorData;

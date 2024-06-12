@@ -551,6 +551,8 @@
 			<ArrayOptions index="0">
 				<ColumnOption idx="0" pid="4001" type="retrieved" options=""/>
 				<ColumnOption idx="1" pid="4002" type="retrieved" options=""/>
+				<ColumnOption idx="2" pid="4003" type="retrieved" options=""/>
+				<ColumnOption idx="3" pid="4004" type="retrieved" options=""/>
 			</ArrayOptions>
 			<Information>
 				<Subtext>Table Which Shows Data From Other Tables</Subtext>
@@ -566,31 +568,11 @@
 				</Positions>
 			</Display>
 			<Measurement>
-				<Type options=";tab=columns:4001|0-4002|1,width:100-100,sort:STRING-STRING,lines:25,filter:true">table</Type>
+				<Type options=";tab=columns:4001|0-4002|1-4003|2-4004|3,width:100-100-100-100,sort:STRING-STRING-STRING-STRING,lines:25,filter:true">table</Type>
 			</Measurement>
 		</Param>
 		
 		<Param id="4001" trending="false">
-			<Name>mergedContent</Name>
-			<Description>Content</Description>
-			<Type>read</Type>
-			<Information>
-				<Subtext>This is the key used internally by DataMiner to identify the table entries.</Subtext>
-			</Information>
-			<Interprete>
-				<RawType>other</RawType>
-				<Type>string</Type>
-				<LengthType>next param</LengthType>
-			</Interprete>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-			</Display>
-			<Measurement>
-				<Type>string</Type>
-			</Measurement>
-		</Param>
-		
-		<Param id="4002" trending="false">
 			<Name>mergedReconcileKey</Name>
 			<Description>Reconcile Key</Description>
 			<Type>read</Type>
@@ -610,6 +592,66 @@
 			</Measurement>
 		</Param>
 		
+		<Param id="4002" trending="false">
+			<Name>mergedProductCode</Name>
+			<Description>ProductCode</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>CodiceF</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+
+		<Param id="4003" trending="false">
+			<Name>BreakTime</Name>
+			<Description>Break Time</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>Break Time</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+
+		<Param id="4004" trending="false">
+			<Name>mergedDuration</Name>
+			<Description>Duration</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>Duration</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+
 		<!-- Debug stuff -->
 		<Param id="10001" trending="false">
 			<Name>adSalesDebugMsg</Name>
@@ -634,39 +676,6 @@
 			</Display>
 			<Measurement>
 				<Type>string</Type>
-			</Measurement>
-		</Param>
-		<Param id="10002">
-			<Name>adSalesProcessFile</Name>
-			<Description />
-			<Information>
-				<Text>Process XML</Text>
-				<Subtext>Process XML</Subtext>
-			</Information>
-			<Type>write</Type>
-			<Interprete>
-				<RawType>other</RawType>
-				<Type>string</Type>
-				<LengthType>next param</LengthType>
-			</Interprete>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-				<Positions>
-					<Position>
-						<Page>Adsales</Page>
-						<Column>0</Column>
-						<Row>2</Row>
-					</Position>
-				</Positions>
-			</Display>
-			<Measurement>
-				<Type width="110">button</Type>
-				<Discreets>
-					<Discreet>
-						<Display>Process XML</Display>
-						<Value>check</Value>
-					</Discreet>
-				</Discreets>
 			</Measurement>
 		</Param>
 		<Param id="10003" trending="false">
@@ -720,40 +729,6 @@
 				<Type>string</Type>
 			</Measurement>
 		</Param>
-		<Param id="10102">
-			<Name>mediatorProcessFile</Name>
-			<Description />
-			<Information>
-				<Text>Process JSON</Text>
-				<Subtext>Process JSON</Subtext>
-			</Information>
-			<Type>write</Type>
-			<Interprete>
-				<RawType>other</RawType>
-				<Type>string</Type>
-				<LengthType>next param</LengthType>
-			</Interprete>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-				<Positions>
-					<Position>
-						<Page>Mediator</Page>
-						<Column>0</Column>
-						<Row>2</Row>
-					</Position>
-				</Positions>
-			</Display>
-			<Measurement>
-				<Type width="110">button</Type>
-				<Discreets>
-					<Discreet>
-						<Display>Process JSON</Display>
-						<Value>check</Value>
-					</Discreet>
-				</Discreets>
-			</Measurement>
-		</Param>
-
 		<Param id="10200" trending="false" save="true">
 			<Name>mergedIterationCounter</Name>
 			<Description>How Many Times Tables Has Been Processed</Description>
@@ -864,39 +839,6 @@
 			</Display>
 			<Measurement>
 				<Type>string</Type>
-			</Measurement>
-		</Param>
-		<Param id="10302">
-			<Name>wonProcessFile</Name>
-			<Description />
-			<Information>
-				<Text>Process XML</Text>
-				<Subtext>Process XML</Subtext>
-			</Information>
-			<Type>write</Type>
-			<Interprete>
-				<RawType>other</RawType>
-				<Type>string</Type>
-				<LengthType>next param</LengthType>
-			</Interprete>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-				<Positions>
-					<Position>
-						<Page>Won</Page>
-						<Column>0</Column>
-						<Row>2</Row>
-					</Position>
-				</Positions>
-			</Display>
-			<Measurement>
-				<Type width="110">button</Type>
-				<Discreets>
-					<Discreet>
-						<Display>Process XML</Display>
-						<Value>check</Value>
-					</Discreet>
-				</Discreets>
 			</Measurement>
 		</Param>
 		<Param id="10303" trending="false">

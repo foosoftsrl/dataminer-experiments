@@ -16,7 +16,7 @@ using Skyline.DataMiner.Scripting;
 /// <summary>
 /// DataMiner QAction Class.
 /// </summary>
-public static class QAction
+public class QAction
 {
     private static IAdSalesSource adSalesSource = new AdSalesSource();
     private static IMediatorSource mediatorSource = new MediatorSource();
@@ -25,9 +25,9 @@ public static class QAction
     /// The QAction entry point.
     /// </summary>
     /// <param name="protocol">Link with SLProtocol process.</param>
-    public static async Task Run(SLProtocolExt protocol)
+    public async Task Run(SLProtocolExt protocol)
     {
-        protocol.Mergediterationcounter = (double)protocol.Mergediterationcounter + 1;
+        protocol.Mergediterationcounter = (double)protocol.Mergediterationcounter + 2;
         try
         {
             var adSalesData = ReadAdSalesData(protocol);
@@ -52,8 +52,10 @@ public static class QAction
         {
             rows.Add(new MergedtableQActionRow
             {
-                Mergedcontent = row.adSalesData.ContentReconcileKey,
                 Mergedreconcilekey = row.adSalesData.ContentReconcileKey,
+                Mergedproductcode = row.adSalesData.ContentProductCode,
+                Breaktime = row.adSalesBreakData.BreakNominalTime,
+                Mergedduration = row.adSalesData.ContentTotalDuration,
             }.ToObjectArray());
         }
         return rows;
