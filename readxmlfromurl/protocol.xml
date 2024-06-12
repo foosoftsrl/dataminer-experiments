@@ -1063,10 +1063,7 @@
 	<QActions>
 		<QAction id="1" name="Precompiled Code" encoding="csharp" options="precompile" />
 		<QAction id="2" name="After Startup" encoding="csharp" triggers="2" />
-		<QAction id="3" name="QActionAdsales" encoding="csharp" triggers="10002;3;2" />
-		<QAction id="4" name="QActionMediator" encoding="csharp" triggers="10102;3;2" />
 		<QAction id="5" name="QActionComputeMerged" encoding="csharp" triggers="10202;3;2" />
-		<QAction id="6" name="QActionWon" encoding="csharp" triggers="10302;3;2" />
 	</QActions>
 
 	<Groups>

@@ -25,9 +25,6 @@ public static class QAction
         string fileNamePattern = $"{channelName}_Schedule_{currentDate}_\\d{{4}}_*.xml";
         string[] files = Directory.GetFiles(dir, $"{channelName}_Schedule_{currentDate}_*.xml");
 
-        //string fileNamePrefix = $"{channelName}_Schedule_{currentDate}_";
-        // string[] files = Directory.GetFiles(dir, $"{fileNamePrefix}*.xml");
-
         try
         {
             if (files.Length > 0)
