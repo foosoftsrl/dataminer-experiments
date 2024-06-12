@@ -280,6 +280,11 @@ public static class Parameter
 			public const int mergedhavemediator_4006 = 4006;
 			/// <summary>PID: 4006 | Type: read</summary>
 			public const int mergedhavemediator = 4006;
+			/// <summary>PID: 4007 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int mergedwontime_4007 = 4007;
+			/// <summary>PID: 4007 | Type: read</summary>
+			public const int mergedwontime = 4007;
 			public class Write
 			{
 			}
@@ -316,6 +321,11 @@ public static class Parameter
 			public const int mergedhavemediator_4006 = 5;
 			/// <summary>IDX: 5 | Type: read</summary>
 			public const int mergedhavemediator = 5;
+			/// <summary>IDX: 6 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int mergedwontime_4007 = 6;
+			/// <summary>IDX: 6 | Type: read</summary>
+			public const int mergedwontime = 6;
 		}
 	}
 }
@@ -397,6 +407,8 @@ public interface SLProtocolExt : SLProtocol
 	object Mergedhavewon { get; set; }
 	object Mergedhavemediator_4006 { get; set; }
 	object Mergedhavemediator { get; set; }
+	object Mergedwontime_4007 { get; set; }
+	object Mergedwontime { get; set; }
 	object Adsalesdebugmsg_10001 { get; set; }
 	object Adsalesdebugmsg { get; set; }
 	object Adsalesfilename_10003 { get; set; }
@@ -544,6 +556,11 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public System.Object Mergedhavemediator_4006 {get { return GetParameter(4006); }set { SetParameter(4006, value); }}
 	/// <summary>PID: 4006  | Type: read</summary>
 	public System.Object Mergedhavemediator {get { return GetParameter(4006); }set { SetParameter(4006, value); }}
+	/// <summary>PID: 4007  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Mergedwontime_4007 {get { return GetParameter(4007); }set { SetParameter(4007, value); }}
+	/// <summary>PID: 4007  | Type: read</summary>
+	public System.Object Mergedwontime {get { return GetParameter(4007); }set { SetParameter(4007, value); }}
 	/// <summary>PID: 10001  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Adsalesdebugmsg_10001 {get { return GetParameter(10001); }set { SetParameter(10001, value); }}
@@ -723,8 +740,13 @@ public class MergedtableQActionRow : QActionTableRow
 	public System.Object Mergedhavemediator_4006 { get { if (base.Columns.ContainsKey(5)) { return base.Columns[5]; } else { return null; } } set { if (base.Columns.ContainsKey(5)) { base.Columns[5] = value; } else { base.Columns.Add(5, value); } } }
 	/// <summary>PID: 4006 | Type: read</summary>
 	public System.Object Mergedhavemediator { get { if (base.Columns.ContainsKey(5)) { return base.Columns[5]; } else { return null; } } set { if (base.Columns.ContainsKey(5)) { base.Columns[5] = value; } else { base.Columns.Add(5, value); } } }
-	public MergedtableQActionRow() : base(0, 6) { }
-	public MergedtableQActionRow(System.Object[] oRow) : base(0, 6, oRow) { }
+	/// <summary>PID: 4007 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Mergedwontime_4007 { get { if (base.Columns.ContainsKey(6)) { return base.Columns[6]; } else { return null; } } set { if (base.Columns.ContainsKey(6)) { base.Columns[6] = value; } else { base.Columns.Add(6, value); } } }
+	/// <summary>PID: 4007 | Type: read</summary>
+	public System.Object Mergedwontime { get { if (base.Columns.ContainsKey(6)) { return base.Columns[6]; } else { return null; } } set { if (base.Columns.ContainsKey(6)) { base.Columns[6] = value; } else { base.Columns.Add(6, value); } } }
+	public MergedtableQActionRow() : base(0, 7) { }
+	public MergedtableQActionRow(System.Object[] oRow) : base(0, 7, oRow) { }
 	public static implicit operator MergedtableQActionRow(System.Object[] source) { return new MergedtableQActionRow(source); }
 	public static implicit operator System.Object[](MergedtableQActionRow source) { return source.ToObjectArray(); }
 }
