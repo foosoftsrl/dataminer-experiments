@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -56,6 +56,8 @@ public class QAction
                 Mergedproductcode = row.adSalesData.ContentProductCode,
                 Breaktime = row.adSalesBreakData.BreakNominalTime,
                 Mergedduration = row.adSalesData.ContentTotalDuration,
+                Mergedhavewon = (row.whatsonData != null)? "OK" : string.Empty,
+                Mergedhavemediator = (row.mediatorData != null) ? "OK" : string.Empty,
             }.ToObjectArray());
         }
         return rows;

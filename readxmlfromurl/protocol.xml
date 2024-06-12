@@ -553,6 +553,8 @@
 				<ColumnOption idx="1" pid="4002" type="retrieved" options=""/>
 				<ColumnOption idx="2" pid="4003" type="retrieved" options=""/>
 				<ColumnOption idx="3" pid="4004" type="retrieved" options=""/>
+				<ColumnOption idx="4" pid="4005" type="retrieved" options=""/>
+				<ColumnOption idx="5" pid="4006" type="retrieved" options=""/>
 			</ArrayOptions>
 			<Information>
 				<Subtext>Table Which Shows Data From Other Tables</Subtext>
@@ -568,7 +570,7 @@
 				</Positions>
 			</Display>
 			<Measurement>
-				<Type options=";tab=columns:4001|0-4002|1-4003|2-4004|3,width:100-100-100-100,sort:STRING-STRING-STRING-STRING,lines:25,filter:true">table</Type>
+				<Type options=";tab=columns:4001|0-4002|1-4003|2-4004|3-4005|4-4006|5,width:100-100-100-100-100-100,sort:STRING-STRING-STRING-STRING-STRING-STRING,lines:25,filter:true">table</Type>
 			</Measurement>
 		</Param>
 		
@@ -638,6 +640,46 @@
 			<Type>read</Type>
 			<Information>
 				<Subtext>Duration</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+
+		<Param id="4005" trending="false">
+			<Name>mergedHaveWon</Name>
+			<Description>HaveWon</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>HaveWon</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+
+		<Param id="4006" trending="false">
+			<Name>mergedHaveMediator</Name>
+			<Description>HaveMediator</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>HaveMediator</Subtext>
 			</Information>
 			<Interprete>
 				<RawType>other</RawType>
