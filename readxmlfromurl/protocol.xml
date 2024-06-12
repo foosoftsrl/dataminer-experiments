@@ -292,55 +292,6 @@
 				<Type>string</Type>
 			</Measurement>
 		</Param>
-		<Param id="15" trending="false" save="true">
-			<Name>channelNameWon</Name>
-			<Description>Channel Name Won</Description>
-			<Type>read</Type>
-			<Information>
-			</Information>
-			<Interprete>
-				<RawType>other</RawType>
-				<Type>string</Type>
-				<LengthType>next param</LengthType>
-			</Interprete>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-				<Positions>
-					<Position>
-						<Page>Configuration</Page>
-						<Column>0</Column>
-						<Row>7</Row>
-					</Position>
-				</Positions>
-			</Display>
-			<Measurement>
-				<Type>string</Type>
-			</Measurement>
-		</Param>
-		<Param id="16" trending="false" setter="true">
-			<Name>channelNameWon</Name>
-			<Description>Channel Name Won</Description>
-			<Type>write</Type>
-			<Interprete>
-				<RawType>other</RawType>
-				<Type>string</Type>
-				<LengthType>next param</LengthType>
-			</Interprete>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-				<Positions>
-					<Position>
-						<Page>Configuration</Page>
-						<Column>0</Column>
-						<Row>7</Row>
-					</Position>
-				</Positions>
-			</Display>
-			<Measurement>
-				<Type>string</Type>
-			</Measurement>
-		</Param>
-		
 		<Param id="1000">
 			<Name>adSales</Name>
 			<Description>Adsales Table</Description>
@@ -660,34 +611,6 @@
 		</Param>
 		
 		<!-- Debug stuff -->
-		<Param id="10000" trending="false" save="true">
-			<Name>adSalesIterationCounter</Name>
-			<Description>How Many Times XML File Has Been Processed</Description>
-			<Type>read</Type>
-			<Information>
-			</Information>
-			<Interprete>
-				<RawType>numeric text</RawType>
-				<Type>double</Type>
-				<LengthType>next param</LengthType>
-			</Interprete>
-			<Alarm>
-				<Monitored>false</Monitored>
-			</Alarm>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-				<Positions>
-					<Position>
-						<Page>Adsales</Page>
-						<Column>0</Column>
-						<Row>0</Row>
-					</Position>
-				</Positions>
-			</Display>
-			<Measurement>
-				<Type>number</Type>
-			</Measurement>
-		</Param>
 		<Param id="10001" trending="false">
 			<Name>adSalesDebugMsg</Name>
 			<Description>Debug Adsales Data</Description>
@@ -772,34 +695,6 @@
 			</Measurement>
 		</Param>
 		
-		<Param id="10100" trending="false" save="true">
-			<Name>mediatorIterationCounter</Name>
-			<Description>How Many Times JSON File Has Been Processed</Description>
-			<Type>read</Type>
-			<Information>
-			</Information>
-			<Interprete>
-				<RawType>numeric text</RawType>
-				<Type>double</Type>
-				<LengthType>next param</LengthType>
-			</Interprete>
-			<Alarm>
-				<Monitored>false</Monitored>
-			</Alarm>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-				<Positions>
-					<Position>
-						<Page>Mediator</Page>
-						<Column>0</Column>
-						<Row>0</Row>
-					</Position>
-				</Positions>
-			</Display>
-			<Measurement>
-				<Type>number</Type>
-			</Measurement>
-		</Param>
 		<Param id="10101" trending="false">
 			<Name>mediatorDebugMsg</Name>
 			<Description>Debug Mediator Data</Description>
@@ -946,34 +841,6 @@
 			</Measurement>
 		</Param>
 		
-		<Param id="10300" trending="false" save="true">
-			<Name>wonIterationCounter</Name>
-			<Description>How Many Times WON File Has Been Processed</Description>
-			<Type>read</Type>
-			<Information>
-			</Information>
-			<Interprete>
-				<RawType>numeric text</RawType>
-				<Type>double</Type>
-				<LengthType>next param</LengthType>
-			</Interprete>
-			<Alarm>
-				<Monitored>false</Monitored>
-			</Alarm>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-				<Positions>
-					<Position>
-						<Page>Won</Page>
-						<Column>0</Column>
-						<Row>0</Row>
-					</Position>
-				</Positions>
-			</Display>
-			<Measurement>
-				<Type>number</Type>
-			</Measurement>
-		</Param>
 		<Param id="10301" trending="false">
 			<Name>wonDebugMsg</Name>
 			<Description>Debug WON Data</Description>

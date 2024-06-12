@@ -61,7 +61,7 @@ public static class QAction
 
     public static Pharos ReadWhatsonData(SLProtocolExt protocol)
     {
-        string channelName = (string)protocol.GetParameter(Parameter.channelnamewon);
+        string channelName = (string)protocol.GetParameter(Parameter.channelnameadsales);
         string dir = @"\\winfs01.mediaset.it\DM_Watchfolder\WON";
         try
         {
@@ -95,9 +95,8 @@ public static class QAction
     {
         try
         {
-            protocol.Mediatoriterationcounter = (double)protocol.Mediatoriterationcounter + 1;
             string uri = (string)protocol.GetParameter(Parameter.urimediator);
-            string channelName = (string)protocol.GetParameter(Parameter.channenamemediator);
+            string channelName = (string)protocol.GetParameter(Parameter.channelnameadsales);
             int maxResults = Convert.ToInt32(protocol.GetParameter(Parameter.maxresultsmediator));
             return await mediatorSource.ReadMediator(uri, channelName, maxResults);
         }

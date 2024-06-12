@@ -28,16 +28,6 @@ public static class Parameter
 	public const int maxresultsmediator_13 = 13;
 	/// <summary>PID: 13 | Type: read</summary>
 	public const int maxresultsmediator = 13;
-	/// <summary>PID: 15 | Type: read</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public const int channelnamewon_15 = 15;
-	/// <summary>PID: 15 | Type: read</summary>
-	public const int channelnamewon = 15;
-	/// <summary>PID: 10000 | Type: read</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public const int adsalesiterationcounter_10000 = 10000;
-	/// <summary>PID: 10000 | Type: read</summary>
-	public const int adsalesiterationcounter = 10000;
 	/// <summary>PID: 10001 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public const int adsalesdebugmsg_10001 = 10001;
@@ -48,11 +38,6 @@ public static class Parameter
 	public const int adsalesfilename_10003 = 10003;
 	/// <summary>PID: 10003 | Type: read</summary>
 	public const int adsalesfilename = 10003;
-	/// <summary>PID: 10100 | Type: read</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public const int mediatoriterationcounter_10100 = 10100;
-	/// <summary>PID: 10100 | Type: read</summary>
-	public const int mediatoriterationcounter = 10100;
 	/// <summary>PID: 10101 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public const int mediatordebugmsg_10101 = 10101;
@@ -68,11 +53,6 @@ public static class Parameter
 	public const int mergeddebugmsg_10201 = 10201;
 	/// <summary>PID: 10201 | Type: read</summary>
 	public const int mergeddebugmsg = 10201;
-	/// <summary>PID: 10300 | Type: read</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public const int woniterationcounter_10300 = 10300;
-	/// <summary>PID: 10300 | Type: read</summary>
-	public const int woniterationcounter = 10300;
 	/// <summary>PID: 10301 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public const int wondebugmsg_10301 = 10301;
@@ -110,11 +90,6 @@ public static class Parameter
 		public const int maxresultsmediator_14 = 14;
 		/// <summary>PID: 14 | Type: write</summary>
 		public const int maxresultsmediator = 14;
-		/// <summary>PID: 16 | Type: write</summary>
-		[EditorBrowsable(EditorBrowsableState.Never)]
-		public const int channelnamewon_16 = 16;
-		/// <summary>PID: 16 | Type: write</summary>
-		public const int channelnamewon = 16;
 		/// <summary>PID: 10002 | Type: write</summary>
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		public const int adsalesprocessfile_10002 = 10002;
@@ -331,8 +306,6 @@ public class WriteParameters
 	public System.Object Channenamemediator {get { return Protocol.GetParameter(12); }set { Protocol.SetParameter(12, value); }}
 	/// <summary>PID: 14  | Type: write</summary>
 	public System.Object Maxresultsmediator {get { return Protocol.GetParameter(14); }set { Protocol.SetParameter(14, value); }}
-	/// <summary>PID: 16  | Type: write</summary>
-	public System.Object Channelnamewon {get { return Protocol.GetParameter(16); }set { Protocol.SetParameter(16, value); }}
 	/// <summary>PID: 10002  | Type: write | DISCREETS: Process XML = check</summary>
 	public System.Object Adsalesprocessfile {get { return Protocol.GetParameter(10002); }set { Protocol.SetParameter(10002, value); }}
 	/// <summary>PID: 10102  | Type: write | DISCREETS: Process JSON = check</summary>
@@ -375,9 +348,6 @@ public interface SLProtocolExt : SLProtocol
 	object Maxresultsmediator_13 { get; set; }
 	object Maxresultsmediator { get; set; }
 	object Maxresultsmediator_14 { get; set; }
-	object Channelnamewon_15 { get; set; }
-	object Channelnamewon { get; set; }
-	object Channelnamewon_16 { get; set; }
 	object Adsalestitle_1001 { get; set; }
 	object Adsalestitle { get; set; }
 	object Adsalesreconcilekey_1002 { get; set; }
@@ -400,16 +370,12 @@ public interface SLProtocolExt : SLProtocol
 	object Mergedcontent { get; set; }
 	object Mergedreconcilekey_4002 { get; set; }
 	object Mergedreconcilekey { get; set; }
-	object Adsalesiterationcounter_10000 { get; set; }
-	object Adsalesiterationcounter { get; set; }
 	object Adsalesdebugmsg_10001 { get; set; }
 	object Adsalesdebugmsg { get; set; }
 	object Adsalesprocessfile_10002 { get; set; }
 	object Adsalesprocessfile { get; set; }
 	object Adsalesfilename_10003 { get; set; }
 	object Adsalesfilename { get; set; }
-	object Mediatoriterationcounter_10100 { get; set; }
-	object Mediatoriterationcounter { get; set; }
 	object Mediatordebugmsg_10101 { get; set; }
 	object Mediatordebugmsg { get; set; }
 	object Mediatorprocessfile_10102 { get; set; }
@@ -420,8 +386,6 @@ public interface SLProtocolExt : SLProtocol
 	object Mergeddebugmsg { get; set; }
 	object Mergedprocesstable_10202 { get; set; }
 	object Mergedprocesstable { get; set; }
-	object Woniterationcounter_10300 { get; set; }
-	object Woniterationcounter { get; set; }
 	object Wondebugmsg_10301 { get; set; }
 	object Wondebugmsg { get; set; }
 	object Wonprocessfile_10302 { get; set; }
@@ -484,14 +448,6 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	/// <summary>PID: 14  | Type: write</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Maxresultsmediator_14 {get { return GetParameter(14); }set { SetParameter(14, value); }}
-	/// <summary>PID: 15  | Type: read</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Channelnamewon_15 {get { return GetParameter(15); }set { SetParameter(15, value); }}
-	/// <summary>PID: 15  | Type: read</summary>
-	public System.Object Channelnamewon {get { return GetParameter(15); }set { SetParameter(15, value); }}
-	/// <summary>PID: 16  | Type: write</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Channelnamewon_16 {get { return GetParameter(16); }set { SetParameter(16, value); }}
 	/// <summary>PID: 1001  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Adsalestitle_1001 {get { return GetParameter(1001); }set { SetParameter(1001, value); }}
@@ -547,11 +503,6 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public System.Object Mergedreconcilekey_4002 {get { return GetParameter(4002); }set { SetParameter(4002, value); }}
 	/// <summary>PID: 4002  | Type: read</summary>
 	public System.Object Mergedreconcilekey {get { return GetParameter(4002); }set { SetParameter(4002, value); }}
-	/// <summary>PID: 10000  | Type: read</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Adsalesiterationcounter_10000 {get { return GetParameter(10000); }set { SetParameter(10000, value); }}
-	/// <summary>PID: 10000  | Type: read</summary>
-	public System.Object Adsalesiterationcounter {get { return GetParameter(10000); }set { SetParameter(10000, value); }}
 	/// <summary>PID: 10001  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Adsalesdebugmsg_10001 {get { return GetParameter(10001); }set { SetParameter(10001, value); }}
@@ -566,11 +517,6 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public System.Object Adsalesfilename_10003 {get { return GetParameter(10003); }set { SetParameter(10003, value); }}
 	/// <summary>PID: 10003  | Type: read</summary>
 	public System.Object Adsalesfilename {get { return GetParameter(10003); }set { SetParameter(10003, value); }}
-	/// <summary>PID: 10100  | Type: read</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Mediatoriterationcounter_10100 {get { return GetParameter(10100); }set { SetParameter(10100, value); }}
-	/// <summary>PID: 10100  | Type: read</summary>
-	public System.Object Mediatoriterationcounter {get { return GetParameter(10100); }set { SetParameter(10100, value); }}
 	/// <summary>PID: 10101  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Mediatordebugmsg_10101 {get { return GetParameter(10101); }set { SetParameter(10101, value); }}
@@ -594,11 +540,6 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public System.Object Mergedprocesstable_10202 {get { return GetParameter(10202); }set { SetParameter(10202, value); }}
 	/// <summary>PID: 10202  | Type: write | DISCREETS: Merge Tables = check</summary>
 	public System.Object Mergedprocesstable {get { return Write.Mergedprocesstable; }set { Write.Mergedprocesstable = value; }}
-	/// <summary>PID: 10300  | Type: read</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Woniterationcounter_10300 {get { return GetParameter(10300); }set { SetParameter(10300, value); }}
-	/// <summary>PID: 10300  | Type: read</summary>
-	public System.Object Woniterationcounter {get { return GetParameter(10300); }set { SetParameter(10300, value); }}
 	/// <summary>PID: 10301  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Wondebugmsg_10301 {get { return GetParameter(10301); }set { SetParameter(10301, value); }}
