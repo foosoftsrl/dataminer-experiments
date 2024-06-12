@@ -556,6 +556,7 @@
 				<ColumnOption idx="4" pid="4005" type="retrieved" options=""/>
 				<ColumnOption idx="5" pid="4006" type="retrieved" options=""/>
 				<ColumnOption idx="6" pid="4007" type="retrieved" options=""/>
+				<ColumnOption idx="7" pid="4008" type="retrieved" options=""/>
 			</ArrayOptions>
 			<Information>
 				<Subtext>Table Which Shows Data From Other Tables</Subtext>
@@ -571,7 +572,7 @@
 				</Positions>
 			</Display>
 			<Measurement>
-				<Type options=";tab=columns:4001|0-4002|1-4003|2-4004|3-4005|4-4006|5-4007|6,width:100-100-100-100-100-100-100,sort:STRING-STRING-STRING-STRING-STRING-STRING,lines:25,filter:true">table</Type>
+				<Type options=";tab=columns:4001|0-4002|1-4003|2-4004|3-4005|4-4006|5-4007|6-4008|7,width:100-100-100-100-100-100-100-100,sort:STRING-STRING-STRING-STRING-STRING-STRING-STRING,lines:25,filter:true">table</Type>
 			</Measurement>
 		</Param>
 		
@@ -701,6 +702,26 @@
 			<Type>read</Type>
 			<Information>
 				<Subtext>WonTime</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+
+		<Param id="4008" trending="false">
+			<Name>mergedMediatorTime</Name>
+			<Description>MediatorTime</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>MediatorTime</Subtext>
 			</Information>
 			<Interprete>
 				<RawType>other</RawType>

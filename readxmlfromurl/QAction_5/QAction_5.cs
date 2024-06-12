@@ -59,6 +59,7 @@ public class QAction
                 Mergedhavewon = (row.whatsonData != null) ? "OK" : string.Empty,
                 Mergedhavemediator = (row.mediatorData != null) ? "OK" : string.Empty,
                 Mergedwontime = (row.whatsonData != null) ? row.whatsonData.StartDate.ToShortTimeString() : string.Empty,
+                Mergedmediatortime = (row.mediatorData != null) ? row.mediatorData.StartDateTime.ISO8601().ToString() : string.Empty,
             }.ToObjectArray());
         }
         return rows;
