@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -64,10 +65,11 @@ public static class Utils
         {
             foreach (var playlistItem in blockList.PlaylistItem)
             {
+
                 var reconcileKey = playlistItem.findAdSalesReconcileKey();
                 result.Add(new WhatsonRow
                 {
-                    Time = playlistItem.StartDate.ToString("yyyy-MM-dd") + " " + playlistItem.StartTimecode.ToString(),
+                    Time = playlistItem.startDateTime()?.ToString("yyyy-MM-dd HH:mm:ss") ?? string.Empty,
                     Block = blockList,
                     PlaylistItem = playlistItem,
                     ReconcileKey = reconcileKey
@@ -200,13 +202,24 @@ public static class Utils
         return dictionary.TryGetValue(key, out var value) ? value : defaultValue;
     }
 
-    public static DateTime? ISO8601(this Startdatetime startDateTime)
+    public static DateTime? startDateTime(this PharosPlaylistBlockPlaylistItem playlistItem)
     {
-        if (startDateTime == null)
+        if (playlistItem.StartDate == null || playlistItem.StartTimecode == null)
             return null;
-        if (startDateTime.GenericList == null || startDateTime.GenericList.Size != 1)
+        string date = playlistItem.StartDate.Substring(0, 10);
+        string time = playlistItem.StartTimecode.Substring(0, 8);
+        var dateTime = DateTime.Parse(date + "T" + time + "Z");
+        return dateTime;
+        
+    }
+
+    public static DateTime? startDateTime(this Mediator.Row row)
+    {
+        if (row.StartDateTime == null)
             return null;
-        return startDateTime.GenericList.Object[0].ISO8601;
+        if (row.StartDateTime.GenericList == null || row.StartDateTime.GenericList.Size != 1)
+            return null;
+        return row.StartDateTime.GenericList.Object[0].ISO8601;
         
     }
     public static string AsString(this Mediator.Title title)

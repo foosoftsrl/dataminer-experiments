@@ -70,7 +70,7 @@ public class QAction
         {
             tableRows.Add(new WonQActionRow
             {
-                Wonstartdate = row.PlaylistItem.StartDate.ToString("yyyy-MM-dd") + " " + row.PlaylistItem.StartTimecode.ToString(),
+                Wonstartdate = row.PlaylistItem.startDateTime()?.ToString("yyyy-MM-dd HH:mm:ss") ?? string.Empty,
                 Wontitle = row.PlaylistItem.ScheduledTitle,
                 Wonreconcilekey = row.ReconcileKey ?? string.Empty,
             }.ToObjectArray());
@@ -88,7 +88,7 @@ public class QAction
             tableRows.Add(new MediatorQActionRow
             {
                 Mediatorid = row.row.ScheduleReference.GenericList.Object[0],
-                Mediatordate = row.row.StartDateTime.ISO8601(),
+                Mediatordate = row.row.startDateTime()?.ToString("yyyy-MM-dd HH:mm:ss"),
                 Mediatortitle = row.row.Title.AsString(),
                 Mediatorreconcilekey = row.ReconcileKey
 
@@ -113,7 +113,7 @@ public class QAction
                 Mergedhavewon = (row.whatsonData != null) ? "\u2713" : string.Empty,
                 Mergedhavemediator = (row.mediatorData != null) ? "✓" : string.Empty,
                 Mergedwontime = row.whatsonData?.Time ?? string.Empty,
-                Mergedmediatortime = (row.mediatorData != null) ? row.mediatorData.StartDateTime.ISO8601().ToString() : string.Empty,
+                Mergedmediatortime = (row.mediatorData != null) ? row.mediatorData.startDateTime()?.ToString("yyyy-MM-dd HH:mm:ss") : string.Empty,
             }.ToObjectArray());
         }
         protocol.FillArray(Parameter.Mergedtable.tablePid, tableRows, NotifyProtocol.SaveOption.Full);

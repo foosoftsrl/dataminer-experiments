@@ -407,65 +407,8 @@
 			</Measurement>
 		</Param>
 		<Param id="2001" trending="false">
-			<Name>mediatorId</Name>
-			<Description>ID (Mediator)</Description>
-			<Type>read</Type>
-			<Information>
-				<Subtext>adSalesId</Subtext>
-			</Information>
-			<Interprete>
-				<RawType>other</RawType>
-				<Type>string</Type>
-				<LengthType>next param</LengthType>
-			</Interprete>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-			</Display>
-			<Measurement>
-				<Type>string</Type>
-			</Measurement>
-		</Param>
-		<Param id="2002" trending="false">
-			<Name>mediatorReconcileKey</Name>
-			<Description>Reconcile Key (Mediator)</Description>
-			<Type>read</Type>
-			<Information>
-				<Subtext>adSalesContentReconcileKey</Subtext>
-			</Information>
-			<Interprete>
-				<RawType>other</RawType>
-				<Type>string</Type>
-				<LengthType>next param</LengthType>
-			</Interprete>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-			</Display>
-			<Measurement>
-				<Type>string</Type>
-			</Measurement>
-		</Param>
-		<Param id="2003" trending="false">
-			<Name>mediatorTitle</Name>
-			<Description>Title (Mediator)</Description>
-			<Type>read</Type>
-			<Information>
-				<Subtext>This is the key used internally by DataMiner to identify the table entries.</Subtext>
-			</Information>
-			<Interprete>
-				<RawType>other</RawType>
-				<Type>string</Type>
-				<LengthType>next param</LengthType>
-			</Interprete>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-			</Display>
-			<Measurement>
-				<Type>string</Type>
-			</Measurement>
-		</Param>
-		<Param id="2004" trending="false">
 			<Name>mediatorDate</Name>
-			<Description>Date (Mediator)</Description>
+			<Description>Date</Description>
 			<Type>read</Type>
 			<Information>
 				<Subtext>Ora trasmissione</Subtext>
@@ -482,7 +425,63 @@
 				<Type>string</Type>
 			</Measurement>
 		</Param>
-		
+		<Param id="2002" trending="false">
+			<Name>mediatorTitle</Name>
+			<Description>Title</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>This is the key used internally by DataMiner to identify the table entries.</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="2003" trending="false">
+			<Name>mediatorId</Name>
+			<Description>ScheduleReference</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>ScheduleReference</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="2004" trending="false">
+			<Name>mediatorReconcileKey</Name>
+			<Description>Reconcile Key</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>Reconcile Key</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
 		<Param id="3000">
 			<Name>won</Name>
 			<Description>WON Table</Description>
@@ -566,7 +565,7 @@
 				<Type>string</Type>
 			</Measurement>
 		</Param>
-
+		
 		<Param id="4000">
 			<Name>mergedTable</Name>
 			<Description>Merged Table</Description>
@@ -595,51 +594,11 @@
 				</Positions>
 			</Display>
 			<Measurement>
-				<Type options=";tab=columns:4001|0-4002|1-4003|2-4004|3-4005|4-4006|5-4007|6-4008|7,width:100-100-100-100-100-100-100-100,sort:STRING-STRING-STRING-STRING-STRING-STRING-STRING,lines:25,filter:true">table</Type>
+				<Type options=";tab=columns:4001|0-4002|1-4003|2-4004|3-4005|4-4006|5-4007|6-4008|7,width:102-100-100-100-100-100-160-160,sort:STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING,lines:25,filter:true">table</Type>
 			</Measurement>
 		</Param>
 		
 		<Param id="4001" trending="false">
-			<Name>mergedReconcileKey</Name>
-			<Description>Reconcile Key</Description>
-			<Type>read</Type>
-			<Information>
-				<Subtext>This is the key used internally by DataMiner to identify the table entries.</Subtext>
-			</Information>
-			<Interprete>
-				<RawType>other</RawType>
-				<Type>string</Type>
-				<LengthType>next param</LengthType>
-			</Interprete>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-			</Display>
-			<Measurement>
-				<Type>string</Type>
-			</Measurement>
-		</Param>
-		
-		<Param id="4002" trending="false">
-			<Name>mergedProductCode</Name>
-			<Description>ProductCode</Description>
-			<Type>read</Type>
-			<Information>
-				<Subtext>CodiceF</Subtext>
-			</Information>
-			<Interprete>
-				<RawType>other</RawType>
-				<Type>string</Type>
-				<LengthType>next param</LengthType>
-			</Interprete>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-			</Display>
-			<Measurement>
-				<Type>string</Type>
-			</Measurement>
-		</Param>
-
-		<Param id="4003" trending="false">
 			<Name>mergedAdSalesTime</Name>
 			<Description>Ora Prevista</Description>
 			<Type>read</Type>
@@ -658,7 +617,46 @@
 				<Type>string</Type>
 			</Measurement>
 		</Param>
-
+		<Param id="4002" trending="false">
+			<Name>mergedReconcileKey</Name>
+			<Description>ReconcileKey</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>This is the key used internally by DataMiner to identify the table entries.</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		
+		<Param id="4003" trending="false">
+			<Name>mergedProductCode</Name>
+			<Description>ProductCode</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>CodiceF</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		
 		<Param id="4004" trending="false">
 			<Name>mergedDuration</Name>
 			<Description>Duration</Description>
@@ -678,7 +676,7 @@
 				<Type>string</Type>
 			</Measurement>
 		</Param>
-
+		
 		<Param id="4005" trending="false">
 			<Name>mergedHaveWon</Name>
 			<Description>HaveWon</Description>
@@ -698,7 +696,7 @@
 				<Type>string</Type>
 			</Measurement>
 		</Param>
-
+		
 		<Param id="4006" trending="false">
 			<Name>mergedHaveMediator</Name>
 			<Description>HaveMediator</Description>
@@ -718,7 +716,7 @@
 				<Type>string</Type>
 			</Measurement>
 		</Param>
-
+		
 		<Param id="4007" trending="false">
 			<Name>mergedWonTime</Name>
 			<Description>WonTime</Description>
@@ -738,7 +736,7 @@
 				<Type>string</Type>
 			</Measurement>
 		</Param>
-
+		
 		<Param id="4008" trending="false">
 			<Name>mergedMediatorTime</Name>
 			<Description>MediatorTime</Description>
@@ -758,7 +756,7 @@
 				<Type>string</Type>
 			</Measurement>
 		</Param>
-
+		
 		<!-- Debug stuff -->
 		<Param id="10001" trending="false">
 			<Name>adSalesDebugMsg</Name>
