@@ -1,6 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Protocol xmlns="http://www.skyline.be/protocol">
 	<Name>readxmlfromurl</Name>
+	<Options>
+		<Encoding>unicode</Encoding>
+	</Options>
 	<Description>readxmlfromurl DataMiner connector</Description>
 	<Version>1.0.0.1</Version>
 	<IntegrationID>DMS-DRV-</IntegrationID>

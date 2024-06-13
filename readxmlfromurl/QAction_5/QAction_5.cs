@@ -56,8 +56,8 @@ public class QAction
                 Mergedproductcode = row.adSalesData.ContentProductCode,
                 Breaktime = row.adSalesBreakData.BreakNominalTime,
                 Mergedduration = row.adSalesData.ContentTotalDuration,
-                Mergedhavewon = (row.whatsonData != null) ? "OK" : string.Empty,
-                Mergedhavemediator = (row.mediatorData != null) ? "OK" : string.Empty,
+                Mergedhavewon = (row.whatsonData != null) ? "\u2713" : string.Empty,
+                Mergedhavemediator = (row.mediatorData != null) ? "✓" : string.Empty,
                 Mergedwontime = (row.whatsonData != null) ? row.whatsonData.StartDate.ToShortTimeString() : string.Empty,
                 Mergedmediatortime = (row.mediatorData != null) ? row.mediatorData.StartDateTime.ISO8601().ToString() : string.Empty,
             }.ToObjectArray());
