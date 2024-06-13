@@ -25,6 +25,12 @@ public static class Utils
         public string ReconcileKey;
     }
 
+    public class MediatorRow
+    {
+        public Mediator.Row row;
+        public string ReconcileKey;
+    }
+
     public static List<AdSalesRow> flatten(this AdSales.DataType adSalesData)
     {
         List<AdSalesRow> result = new List<AdSalesRow>();
@@ -115,20 +121,35 @@ public static class Utils
         return null;
     }
 
-    public static Dictionary<string, Mediator.Row> toReconcileKeyMap(this Mediator.Rootobject rootObjects)
+    public static List<MediatorRow> flatten(this Mediator.Rootobject rootObjects)
     {
-        Dictionary<String, Mediator.Row> reconcileToRow = new Dictionary<String, Mediator.Row>();
-
+        var result = new List<MediatorRow>();
         // Convert Generated class into Connector Row data.
         foreach (var command in rootObjects.PharosCs.CommandList.Command)
         {
             foreach (var row in command.Output.ResultSet.Rows)
             {
-                var reconcileKey = row.findAdSalesReconcileKey();
-                if (reconcileKey != null)
+                result.Add(new MediatorRow
                 {
-                    reconcileToRow.Add(reconcileKey, row);
-                }
+                    row = row,
+                    ReconcileKey = row.findAdSalesReconcileKey(),
+                });
+            }
+        }
+        return result;
+    }
+
+    public static Dictionary<string, Mediator.Row> toReconcileKeyMap(this List<MediatorRow> mediatorRows)
+    {
+        Dictionary<String, Mediator.Row> reconcileToRow = new Dictionary<String, Mediator.Row>();
+
+        // Convert Generated class into Connector Row data.
+        foreach (var row in mediatorRows)
+        {
+            var reconcileKey = row.ReconcileKey;
+            if (reconcileKey != null)
+            {
+                reconcileToRow.Add(reconcileKey, row.row);
             }
         }
         return reconcileToRow;
@@ -185,5 +206,14 @@ public static class Utils
             return null;
         return startDateTime.GenericList.Object[0].ISO8601;
         
+    }
+    public static string AsString(this Mediator.Title title)
+    {
+        if (title == null)
+            return null;
+        if (title.GenericList == null || title.GenericList.Size != 1)
+            return null;
+        return title.GenericList.Object[0];
+
     }
 }

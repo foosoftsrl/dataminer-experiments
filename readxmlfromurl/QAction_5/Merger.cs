@@ -11,7 +11,7 @@
 
     public static class Merger
     {
-        public static MergedEntry[] Merge(List<Utils.AdSalesRow> adSalesData, List<Utils.WhatsonRow> whatsonData, Mediator.Rootobject mediatorData)
+        public static MergedEntry[] Merge(List<Utils.AdSalesRow> adSalesData, List<Utils.WhatsonRow> whatsonData, List<Utils.MediatorRow> mediatorData)
         {
             var whatsonMap = whatsonData.toReconcileKeyMap();
             var mediatorMap = mediatorData.toReconcileKeyMap();

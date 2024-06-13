@@ -10,6 +10,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using QAction_5;
 using Skyline.DataMiner.Scripting;
 
@@ -34,7 +35,8 @@ public class QAction
             PublishAdsalesTable(protocol, adSalesData);
             var whatsonData = ReadWhatsonData(protocol).flatten();
             PublishWhatsonTable(protocol, whatsonData);
-            var mediatorData = await ReadMediatorData(protocol);
+            var mediatorData = (await ReadMediatorData(protocol)).flatten();
+            PublishMediatorTable(protocol, mediatorData);
 
             var mergedRows = Merger.Merge(adSalesData, whatsonData, mediatorData);
             PublishMergedTable(protocol, mergedRows);
@@ -45,9 +47,9 @@ public class QAction
 
     }
 
-    public List<object[]> PublishAdsalesTable(SLProtocolExt protocol, List<Utils.AdSalesRow> adSalesData) {
+    public List<object[]> PublishAdsalesTable(SLProtocolExt protocol, List<Utils.AdSalesRow> adSalesRows) {
         List<object[]> tableRows = new List<object[]>();
-        foreach (var row in adSalesData)
+        foreach (var row in adSalesRows)
         {
             tableRows.Add(new AdsalesQActionRow
             {
@@ -61,10 +63,10 @@ public class QAction
         return tableRows;
     }
 
-    public List<object[]> PublishWhatsonTable(SLProtocolExt protocol, List<Utils.WhatsonRow> adSalesData)
+    public List<object[]> PublishWhatsonTable(SLProtocolExt protocol, List<Utils.WhatsonRow> whatsonRows)
     {
         List<object[]> tableRows = new List<object[]>();
-        foreach (var row in adSalesData)
+        foreach (var row in whatsonRows)
         {
             tableRows.Add(new WonQActionRow
             {
@@ -74,7 +76,26 @@ public class QAction
             }.ToObjectArray());
         }
         protocol.FillArray(Parameter.Won.tablePid, tableRows, NotifyProtocol.SaveOption.Full);
-        protocol.Adsalesdebugmsg = "";
+        protocol.Wondebugmsg = string.Empty;
+        return tableRows;
+    }
+
+    public List<object[]> PublishMediatorTable(SLProtocolExt protocol, List<Utils.MediatorRow> mediatorRows)
+    {
+        List<object[]> tableRows = new List<object[]>();
+        foreach (var row in mediatorRows)
+        {
+            tableRows.Add(new MediatorQActionRow
+            {
+                Mediatorid = row.row.ScheduleReference.GenericList.Object[0],
+                Mediatordate = row.row.StartDateTime.ISO8601(),
+                Mediatortitle = row.row.Title.AsString(),
+                Mediatorreconcilekey = row.ReconcileKey
+
+            }.ToObjectArray());
+        }
+        protocol.FillArray(Parameter.Mediator.tablePid, tableRows, NotifyProtocol.SaveOption.Full);
+        protocol.Mediatordebugmsg = $"{tableRows.Count}";
         return tableRows;
     }
 
