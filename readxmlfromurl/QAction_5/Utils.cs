@@ -20,6 +20,7 @@ public static class Utils
 
     public class WhatsonRow
     {
+        public string Time;
         public PharosPlaylistBlock Block;
         public PharosPlaylistBlockPlaylistItem PlaylistItem;
         public string ReconcileKey;
@@ -66,6 +67,7 @@ public static class Utils
                 var reconcileKey = playlistItem.findAdSalesReconcileKey();
                 result.Add(new WhatsonRow
                 {
+                    Time = playlistItem.StartDate.ToString("yyyy-MM-dd") + " " + playlistItem.StartTimecode.ToString(),
                     Block = blockList,
                     PlaylistItem = playlistItem,
                     ReconcileKey = reconcileKey
@@ -75,15 +77,15 @@ public static class Utils
         return result;
     }
 
-    public static Dictionary<String, PharosPlaylistBlockPlaylistItem> toReconcileKeyMap(this List<WhatsonRow> whatsonRows)
+    public static Dictionary<String, WhatsonRow> toReconcileKeyMap(this List<WhatsonRow> whatsonRows)
     {
-        Dictionary<String, PharosPlaylistBlockPlaylistItem> reconcileToRow = new Dictionary<String, PharosPlaylistBlockPlaylistItem>();
+        Dictionary<String, WhatsonRow> reconcileToRow = new Dictionary<String, WhatsonRow>();
         foreach(var row in whatsonRows)
         {
             var adSalesReconcileKey = row.ReconcileKey;
             if (adSalesReconcileKey != null)
             {
-                reconcileToRow.Add(adSalesReconcileKey, row.PlaylistItem);
+                reconcileToRow.Add(adSalesReconcileKey, row);
             }
         }
         return reconcileToRow;

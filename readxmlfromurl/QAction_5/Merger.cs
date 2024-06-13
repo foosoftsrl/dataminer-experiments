@@ -21,6 +21,7 @@
                 var contentReconcileKey = row.Content.ContentReconcileKey;
                 rowList.Add(new MergedEntry
                 {
+                    adSalesTime = row.TimeOfDay,
                     adSalesBreakData = row.Break,
                     adSalesData = row.Content,
                     whatsonData = whatsonMap.GetValueOrDefault(contentReconcileKey, null),

@@ -108,11 +108,11 @@ public class QAction
             {
                 Mergedreconcilekey = row.adSalesData.ContentReconcileKey,
                 Mergedproductcode = row.adSalesData.ContentProductCode,
-                Breaktime = row.adSalesBreakData.BreakNominalTime,
+                Mergedadsalestime = row.adSalesTime,
                 Mergedduration = row.adSalesData.ContentTotalDuration,
                 Mergedhavewon = (row.whatsonData != null) ? "\u2713" : string.Empty,
                 Mergedhavemediator = (row.mediatorData != null) ? "✓" : string.Empty,
-                Mergedwontime = (row.whatsonData != null) ? row.whatsonData.StartDate.ToShortTimeString() : string.Empty,
+                Mergedwontime = row.whatsonData?.Time ?? string.Empty,
                 Mergedmediatortime = (row.mediatorData != null) ? row.mediatorData.StartDateTime.ISO8601().ToString() : string.Empty,
             }.ToObjectArray());
         }

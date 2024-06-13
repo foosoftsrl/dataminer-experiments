@@ -640,11 +640,11 @@
 		</Param>
 
 		<Param id="4003" trending="false">
-			<Name>BreakTime</Name>
-			<Description>Break Time</Description>
+			<Name>mergedAdSalesTime</Name>
+			<Description>Ora Prevista</Description>
 			<Type>read</Type>
 			<Information>
-				<Subtext>Break Time</Subtext>
+				<Subtext>Time coming from AdSales system</Subtext>
 			</Information>
 			<Interprete>
 				<RawType>other</RawType>

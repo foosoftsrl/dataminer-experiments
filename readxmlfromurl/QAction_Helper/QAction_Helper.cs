@@ -272,9 +272,9 @@ public static class Parameter
 			public const int mergedproductcode = 4002;
 			/// <summary>PID: 4003 | Type: read</summary>
 			[EditorBrowsable(EditorBrowsableState.Never)]
-			public const int breaktime_4003 = 4003;
+			public const int mergedadsalestime_4003 = 4003;
 			/// <summary>PID: 4003 | Type: read</summary>
-			public const int breaktime = 4003;
+			public const int mergedadsalestime = 4003;
 			/// <summary>PID: 4004 | Type: read</summary>
 			[EditorBrowsable(EditorBrowsableState.Never)]
 			public const int mergedduration_4004 = 4004;
@@ -318,9 +318,9 @@ public static class Parameter
 			public const int mergedproductcode = 1;
 			/// <summary>IDX: 2 | Type: read</summary>
 			[EditorBrowsable(EditorBrowsableState.Never)]
-			public const int breaktime_4003 = 2;
+			public const int mergedadsalestime_4003 = 2;
 			/// <summary>IDX: 2 | Type: read</summary>
-			public const int breaktime = 2;
+			public const int mergedadsalestime = 2;
 			/// <summary>IDX: 3 | Type: read</summary>
 			[EditorBrowsable(EditorBrowsableState.Never)]
 			public const int mergedduration_4004 = 3;
@@ -421,8 +421,8 @@ public interface SLProtocolExt : SLProtocol
 	object Mergedreconcilekey { get; set; }
 	object Mergedproductcode_4002 { get; set; }
 	object Mergedproductcode { get; set; }
-	object Breaktime_4003 { get; set; }
-	object Breaktime { get; set; }
+	object Mergedadsalestime_4003 { get; set; }
+	object Mergedadsalestime { get; set; }
 	object Mergedduration_4004 { get; set; }
 	object Mergedduration { get; set; }
 	object Mergedhavewon_4005 { get; set; }
@@ -567,9 +567,9 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public System.Object Mergedproductcode {get { return GetParameter(4002); }set { SetParameter(4002, value); }}
 	/// <summary>PID: 4003  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Breaktime_4003 {get { return GetParameter(4003); }set { SetParameter(4003, value); }}
+	public System.Object Mergedadsalestime_4003 {get { return GetParameter(4003); }set { SetParameter(4003, value); }}
 	/// <summary>PID: 4003  | Type: read</summary>
-	public System.Object Breaktime {get { return GetParameter(4003); }set { SetParameter(4003, value); }}
+	public System.Object Mergedadsalestime {get { return GetParameter(4003); }set { SetParameter(4003, value); }}
 	/// <summary>PID: 4004  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Mergedduration_4004 {get { return GetParameter(4004); }set { SetParameter(4004, value); }}
@@ -761,9 +761,9 @@ public class MergedtableQActionRow : QActionTableRow
 	public System.Object Mergedproductcode { get { if (base.Columns.ContainsKey(1)) { return base.Columns[1]; } else { return null; } } set { if (base.Columns.ContainsKey(1)) { base.Columns[1] = value; } else { base.Columns.Add(1, value); } } }
 	/// <summary>PID: 4003 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Breaktime_4003 { get { if (base.Columns.ContainsKey(2)) { return base.Columns[2]; } else { return null; } } set { if (base.Columns.ContainsKey(2)) { base.Columns[2] = value; } else { base.Columns.Add(2, value); } } }
+	public System.Object Mergedadsalestime_4003 { get { if (base.Columns.ContainsKey(2)) { return base.Columns[2]; } else { return null; } } set { if (base.Columns.ContainsKey(2)) { base.Columns[2] = value; } else { base.Columns.Add(2, value); } } }
 	/// <summary>PID: 4003 | Type: read</summary>
-	public System.Object Breaktime { get { if (base.Columns.ContainsKey(2)) { return base.Columns[2]; } else { return null; } } set { if (base.Columns.ContainsKey(2)) { base.Columns[2] = value; } else { base.Columns.Add(2, value); } } }
+	public System.Object Mergedadsalestime { get { if (base.Columns.ContainsKey(2)) { return base.Columns[2]; } else { return null; } } set { if (base.Columns.ContainsKey(2)) { base.Columns[2] = value; } else { base.Columns.Add(2, value); } } }
 	/// <summary>PID: 4004 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Mergedduration_4004 { get { if (base.Columns.ContainsKey(3)) { return base.Columns[3]; } else { return null; } } set { if (base.Columns.ContainsKey(3)) { base.Columns[3] = value; } else { base.Columns.Add(3, value); } } }
