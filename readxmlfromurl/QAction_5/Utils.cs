@@ -18,6 +18,13 @@ public static class Utils
         public string ReconcileKey;
     }
 
+    public class WhatsonRow
+    {
+        public PharosPlaylistBlock Block;
+        public PharosPlaylistBlockPlaylistItem PlaylistItem;
+        public string ReconcileKey;
+    }
+
     public static List<AdSalesRow> flatten(this AdSales.DataType adSalesData)
     {
         List<AdSalesRow> result = new List<AdSalesRow>();
@@ -43,18 +50,34 @@ public static class Utils
         return result;
     }
 
-    public static Dictionary<String, PharosPlaylistBlockPlaylistItem> toReconcileKeyMap(this Pharos pharos)
+    public static List<WhatsonRow> flatten(this Pharos whatsonData)
     {
-        Dictionary<String, PharosPlaylistBlockPlaylistItem> reconcileToRow = new Dictionary<String, PharosPlaylistBlockPlaylistItem>();
-        foreach(var blockList in pharos.Playlist.BlockList)
+        List<WhatsonRow> result = new List<WhatsonRow>();
+        foreach (var blockList in whatsonData.Playlist.BlockList)
         {
             foreach (var playlistItem in blockList.PlaylistItem)
             {
-                var adSalesReconcileKey = playlistItem.findAdSalesReconcileKey();
-                if (adSalesReconcileKey != null)
+                var reconcileKey = playlistItem.findAdSalesReconcileKey();
+                result.Add(new WhatsonRow
                 {
-                    reconcileToRow.Add(adSalesReconcileKey, playlistItem);
-                }
+                    Block = blockList,
+                    PlaylistItem = playlistItem,
+                    ReconcileKey = reconcileKey
+                });
+            }
+        }
+        return result;
+    }
+
+    public static Dictionary<String, PharosPlaylistBlockPlaylistItem> toReconcileKeyMap(this List<WhatsonRow> whatsonRows)
+    {
+        Dictionary<String, PharosPlaylistBlockPlaylistItem> reconcileToRow = new Dictionary<String, PharosPlaylistBlockPlaylistItem>();
+        foreach(var row in whatsonRows)
+        {
+            var adSalesReconcileKey = row.ReconcileKey;
+            if (adSalesReconcileKey != null)
+            {
+                reconcileToRow.Add(adSalesReconcileKey, row.PlaylistItem);
             }
         }
         return reconcileToRow;

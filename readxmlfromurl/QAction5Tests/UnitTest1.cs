@@ -11,7 +11,7 @@ namespace QAction5Tests
         public void TestMethod1()
         {
             var adSalesData = Utils.XmlDeserializeFromFile<AdSales.DataType>("adsales.xml");
-            var whatsonData = Utils.XmlDeserializeFromFile<Pharos>("whatson.xml");
+            var whatsonData = Utils.XmlDeserializeFromFile<Pharos>("whatson.xml").flatten();
             var mediatorData = Utils.JsonDeserializeFromFile<Mediator.Rootobject>("mediator.json");
             var merged = Merger.Merge(adSalesData.flatten(), whatsonData, mediatorData);
             var matchedMediator = merged.Count(s => s.mediatorData != null);

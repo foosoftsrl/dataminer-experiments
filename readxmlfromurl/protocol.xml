@@ -490,6 +490,7 @@
 			<ArrayOptions index="0">
 				<ColumnOption idx="0" pid="3001" type="retrieved" options=""/>
 				<ColumnOption idx="1" pid="3002" type="retrieved" options="" />
+				<ColumnOption idx="2" pid="3003" type="retrieved" options="" />
 			</ArrayOptions>
 			<Information>
 				<Subtext>tableInformation</Subtext>
@@ -505,15 +506,15 @@
 				</Positions>
 			</Display>
 			<Measurement>
-				<Type options="tab=columns:3001|0-3002|1,width:100-100,sort:STRING-STRING,lines:25,filter:true">table</Type>
+				<Type options="tab=columns:3001|0-3002|1-3003|2,width:120-240-120,sort:STRING-STRING-STRING,lines:25,filter:true">table</Type>
 			</Measurement>
 		</Param>
 		<Param id="3001" trending="false">
-			<Name>wonScheduleReference</Name>
-			<Description>Schedule Reference (WON Table)</Description>
+			<Name>wonStartDate</Name>
+			<Description>Start date</Description>
 			<Type>read</Type>
 			<Information>
-				<Subtext>This is the key used internally by DataMiner to identify the table entries.</Subtext>
+				<Subtext>Start dare</Subtext>
 			</Information>
 			<Interprete>
 				<RawType>other</RawType>
@@ -528,11 +529,11 @@
 			</Measurement>
 		</Param>
 		<Param id="3002" trending="false">
-			<Name>wonStartDate</Name>
-			<Description>Start Date (WON Table)</Description>
+			<Name>wonTitle</Name>
+			<Description>Title</Description>
 			<Type>read</Type>
 			<Information>
-				<Subtext>This is the key used internally by DataMiner to identify the table entries.</Subtext>
+				<Subtext>Title</Subtext>
 			</Information>
 			<Interprete>
 				<RawType>other</RawType>
@@ -546,7 +547,26 @@
 				<Type>string</Type>
 			</Measurement>
 		</Param>
-		
+		<Param id="3003" trending="false">
+			<Name>wonReconcileKey</Name>
+			<Description>Reconcile Key</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>Reconcile Key</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+
 		<Param id="4000">
 			<Name>mergedTable</Name>
 			<Description>Merged Table</Description>

@@ -32,7 +32,8 @@ public class QAction
         {
             var adSalesData = ReadAdSalesData(protocol).flatten();
             PublishAdsalesTable(protocol, adSalesData);
-            var whatsonData = ReadWhatsonData(protocol);
+            var whatsonData = ReadWhatsonData(protocol).flatten();
+            PublishWhatsonTable(protocol, whatsonData);
             var mediatorData = await ReadMediatorData(protocol);
 
             var mergedRows = Merger.Merge(adSalesData, whatsonData, mediatorData);
@@ -56,6 +57,23 @@ public class QAction
             }.ToObjectArray());
         }
         protocol.FillArray(Parameter.Adsales.tablePid, tableRows, NotifyProtocol.SaveOption.Full);
+        protocol.Adsalesdebugmsg = "";
+        return tableRows;
+    }
+
+    public List<object[]> PublishWhatsonTable(SLProtocolExt protocol, List<Utils.WhatsonRow> adSalesData)
+    {
+        List<object[]> tableRows = new List<object[]>();
+        foreach (var row in adSalesData)
+        {
+            tableRows.Add(new WonQActionRow
+            {
+                Wonstartdate = row.PlaylistItem.StartDate.ToString("yyyy-MM-dd") + " " + row.PlaylistItem.StartTimecode.ToString(),
+                Wontitle = row.PlaylistItem.ScheduledTitle,
+                Wonreconcilekey = row.ReconcileKey ?? string.Empty,
+            }.ToObjectArray());
+        }
+        protocol.FillArray(Parameter.Won.tablePid, tableRows, NotifyProtocol.SaveOption.Full);
         protocol.Adsalesdebugmsg = "";
         return tableRows;
     }
