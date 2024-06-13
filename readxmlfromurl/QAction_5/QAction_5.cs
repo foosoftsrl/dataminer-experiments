@@ -30,14 +30,13 @@ public class QAction
         protocol.Mergediterationcounter = (double)protocol.Mergediterationcounter + 2;
         try
         {
-            var adSalesData = ReadAdSalesData(protocol);
+            var adSalesData = ReadAdSalesData(protocol).flatten();
+            PublishAdsalesTable(protocol, adSalesData);
             var whatsonData = ReadWhatsonData(protocol);
             var mediatorData = await ReadMediatorData(protocol);
 
-            var rows = Merger.Merge(adSalesData, whatsonData, mediatorData);
-            var table = GenerateTable(rows);
-            protocol.FillArray(Parameter.Mergedtable.tablePid, table, NotifyProtocol.SaveOption.Full);
-            protocol.Mergeddebugmsg = $"Added {table.Count} Merged rows";
+            var mergedRows = Merger.Merge(adSalesData, whatsonData, mediatorData);
+            PublishMergedTable(protocol, mergedRows);
         } catch(Exception e)
         {
             protocol.Mergeddebugmsg = $"Exception {e.Message}";
@@ -45,12 +44,28 @@ public class QAction
 
     }
 
-    public static List<object[]> GenerateTable(MergedEntry[] mergedRows)
+    public List<object[]> PublishAdsalesTable(SLProtocolExt protocol, List<Utils.AdSalesRow> adSalesData) {
+        List<object[]> tableRows = new List<object[]>();
+        foreach (var row in adSalesData)
+        {
+            tableRows.Add(new AdsalesQActionRow
+            {
+                Adsalestime = row.TimeOfDay,
+                Adsalesreconcilekey = row.ReconcileKey,
+                Adsalestitle = row.Content.ContentBrand,
+            }.ToObjectArray());
+        }
+        protocol.FillArray(Parameter.Adsales.tablePid, tableRows, NotifyProtocol.SaveOption.Full);
+        protocol.Adsalesdebugmsg = "";
+        return tableRows;
+    }
+
+    public List<object[]> PublishMergedTable(SLProtocolExt protocol, MergedEntry[] mergedRows)
     {
-        List<object[]> rows = new List<object[]>();
+        List<object[]> tableRows = new List<object[]>();
         foreach (var row in mergedRows)
         {
-            rows.Add(new MergedtableQActionRow
+            tableRows.Add(new MergedtableQActionRow
             {
                 Mergedreconcilekey = row.adSalesData.ContentReconcileKey,
                 Mergedproductcode = row.adSalesData.ContentProductCode,
@@ -62,7 +77,8 @@ public class QAction
                 Mergedmediatortime = (row.mediatorData != null) ? row.mediatorData.StartDateTime.ISO8601().ToString() : string.Empty,
             }.ToObjectArray());
         }
-        return rows;
+        protocol.FillArray(Parameter.Mergedtable.tablePid, tableRows, NotifyProtocol.SaveOption.Full);
+        return tableRows;
     }
 
     public static Pharos ReadWhatsonData(SLProtocolExt protocol)

@@ -10,6 +10,39 @@ using Newtonsoft.Json;
 
 public static class Utils
 {
+    public class AdSalesRow
+    {
+        public string TimeOfDay;
+        public AdSales.ContentType Content;
+        public AdSales.BreakType Break;
+        public string ReconcileKey;
+    }
+
+    public static List<AdSalesRow> flatten(this AdSales.DataType adSalesData)
+    {
+        List<AdSalesRow> result = new List<AdSalesRow>();
+        foreach (var break_ in adSalesData.Breaks)
+        {
+            var timeOfDay = TimeSpan.ParseExact(break_.BreakNominalTime, @"mm\:ss", null).TotalSeconds * 60;
+            foreach (var timeAllocation in break_.TimeAllocations)
+            {
+                foreach (var content in timeAllocation.Contents)
+                {
+                    TimeSpan t = TimeSpan.FromSeconds(timeOfDay);
+                    result.Add(new AdSalesRow
+                    {
+                        TimeOfDay = t.TotalHours.ToString("00") + t.ToString(@"\:mm\:ss"),
+                        Content = content,
+                        Break = break_,
+                        ReconcileKey = content.ContentReconcileKey,
+                    });
+                    timeOfDay += (content.ContentTotalDuration != null) ? Int32.Parse(content.ContentTotalDuration) : 0;
+                }
+            }
+        }
+        return result;
+    }
+
     public static Dictionary<String, PharosPlaylistBlockPlaylistItem> toReconcileKeyMap(this Pharos pharos)
     {
         Dictionary<String, PharosPlaylistBlockPlaylistItem> reconcileToRow = new Dictionary<String, PharosPlaylistBlockPlaylistItem>();
