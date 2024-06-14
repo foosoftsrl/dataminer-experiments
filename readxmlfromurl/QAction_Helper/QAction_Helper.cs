@@ -10,19 +10,14 @@ public static class Parameter
 {
 	/// <summary>PID: 7 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public const int channelnameadsales_7 = 7;
+	public const int channelname_7 = 7;
 	/// <summary>PID: 7 | Type: read</summary>
-	public const int channelnameadsales = 7;
+	public const int channelname = 7;
 	/// <summary>PID: 9 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public const int urimediator_9 = 9;
 	/// <summary>PID: 9 | Type: read</summary>
 	public const int urimediator = 9;
-	/// <summary>PID: 11 | Type: read</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public const int channenamemediator_11 = 11;
-	/// <summary>PID: 11 | Type: read</summary>
-	public const int channenamemediator = 11;
 	/// <summary>PID: 13 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public const int maxresultsmediator_13 = 13;
@@ -72,19 +67,14 @@ public static class Parameter
 		public const int pgbconfiguration = 4;
 		/// <summary>PID: 8 | Type: write</summary>
 		[EditorBrowsable(EditorBrowsableState.Never)]
-		public const int channelnameadsales_8 = 8;
+		public const int channelname_8 = 8;
 		/// <summary>PID: 8 | Type: write</summary>
-		public const int channelnameadsales = 8;
+		public const int channelname = 8;
 		/// <summary>PID: 10 | Type: write</summary>
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		public const int urimediator_10 = 10;
 		/// <summary>PID: 10 | Type: write</summary>
 		public const int urimediator = 10;
-		/// <summary>PID: 12 | Type: write</summary>
-		[EditorBrowsable(EditorBrowsableState.Never)]
-		public const int channenamemediator_12 = 12;
-		/// <summary>PID: 12 | Type: write</summary>
-		public const int channenamemediator = 12;
 		/// <summary>PID: 14 | Type: write</summary>
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		public const int maxresultsmediator_14 = 14;
@@ -354,11 +344,9 @@ public class WriteParameters
 	/// <summary>PID: 4  | Type: write | DISCREETS: Configuration... = Configuration</summary>
 	public System.Object Pgbconfiguration {get { return Protocol.GetParameter(4); }set { Protocol.SetParameter(4, value); }}
 	/// <summary>PID: 8  | Type: write</summary>
-	public System.Object Channelnameadsales {get { return Protocol.GetParameter(8); }set { Protocol.SetParameter(8, value); }}
+	public System.Object Channelname {get { return Protocol.GetParameter(8); }set { Protocol.SetParameter(8, value); }}
 	/// <summary>PID: 10  | Type: write</summary>
 	public System.Object Urimediator {get { return Protocol.GetParameter(10); }set { Protocol.SetParameter(10, value); }}
-	/// <summary>PID: 12  | Type: write</summary>
-	public System.Object Channenamemediator {get { return Protocol.GetParameter(12); }set { Protocol.SetParameter(12, value); }}
 	/// <summary>PID: 14  | Type: write</summary>
 	public System.Object Maxresultsmediator {get { return Protocol.GetParameter(14); }set { Protocol.SetParameter(14, value); }}
 	/// <summary>PID: 10202  | Type: write | DISCREETS: Merge Tables = check</summary>
@@ -385,15 +373,12 @@ public interface SLProtocolExt : SLProtocol
 	object Pgbconfiguration { get; set; }
 	object Title_begin_urlconfig__fixed { get; set; }
 	object Title_end_urlconfig__fixed { get; set; }
-	object Channelnameadsales_7 { get; set; }
-	object Channelnameadsales { get; set; }
-	object Channelnameadsales_8 { get; set; }
+	object Channelname_7 { get; set; }
+	object Channelname { get; set; }
+	object Channelname_8 { get; set; }
 	object Urimediator_9 { get; set; }
 	object Urimediator { get; set; }
 	object Urimediator_10 { get; set; }
-	object Channenamemediator_11 { get; set; }
-	object Channenamemediator { get; set; }
-	object Channenamemediator_12 { get; set; }
 	object Maxresultsmediator_13 { get; set; }
 	object Maxresultsmediator { get; set; }
 	object Maxresultsmediator_14 { get; set; }
@@ -475,12 +460,12 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public System.Object Title_end_urlconfig__fixed {get { return GetParameter(6); }set { SetParameter(6, value); }}
 	/// <summary>PID: 7  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Channelnameadsales_7 {get { return GetParameter(7); }set { SetParameter(7, value); }}
+	public System.Object Channelname_7 {get { return GetParameter(7); }set { SetParameter(7, value); }}
 	/// <summary>PID: 7  | Type: read</summary>
-	public System.Object Channelnameadsales {get { return GetParameter(7); }set { SetParameter(7, value); }}
+	public System.Object Channelname {get { return GetParameter(7); }set { SetParameter(7, value); }}
 	/// <summary>PID: 8  | Type: write</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Channelnameadsales_8 {get { return GetParameter(8); }set { SetParameter(8, value); }}
+	public System.Object Channelname_8 {get { return GetParameter(8); }set { SetParameter(8, value); }}
 	/// <summary>PID: 9  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Urimediator_9 {get { return GetParameter(9); }set { SetParameter(9, value); }}
@@ -489,14 +474,6 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	/// <summary>PID: 10  | Type: write</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Urimediator_10 {get { return GetParameter(10); }set { SetParameter(10, value); }}
-	/// <summary>PID: 11  | Type: read</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Channenamemediator_11 {get { return GetParameter(11); }set { SetParameter(11, value); }}
-	/// <summary>PID: 11  | Type: read</summary>
-	public System.Object Channenamemediator {get { return GetParameter(11); }set { SetParameter(11, value); }}
-	/// <summary>PID: 12  | Type: write</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Channenamemediator_12 {get { return GetParameter(12); }set { SetParameter(12, value); }}
 	/// <summary>PID: 13  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Maxresultsmediator_13 {get { return GetParameter(13); }set { SetParameter(13, value); }}

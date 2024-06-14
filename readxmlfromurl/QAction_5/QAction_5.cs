@@ -40,7 +40,9 @@ public class QAction
 
             var mergedRows = Merger.Merge(adSalesData, whatsonData, mediatorData);
             PublishMergedTable(protocol, mergedRows);
-        } catch(Exception e)
+            protocol.Mergeddebugmsg = $"Everything ok!";
+        }
+        catch (Exception e)
         {
             protocol.Mergeddebugmsg = $"Exception {e.Message}";
         }
@@ -122,7 +124,7 @@ public class QAction
 
     public static Pharos ReadWhatsonData(SLProtocolExt protocol)
     {
-        string channelName = (string)protocol.GetParameter(Parameter.channelnameadsales);
+        string channelName = (string)protocol.GetParameter(Parameter.channelname);
         string dir = @"\\winfs01.mediaset.it\DM_Watchfolder\WON";
         try
         {
@@ -138,7 +140,7 @@ public class QAction
 
     public static AdSales.DataType ReadAdSalesData(SLProtocolExt protocol)
     {
-        string channelName = (string)protocol.GetParameter(Parameter.channelnameadsales);
+        string channelName = (string)protocol.GetParameter(Parameter.channelname);
         string dir = @"\\winfs01.mediaset.it\DM_Watchfolder\Adsales";
         try
         {
@@ -157,7 +159,7 @@ public class QAction
         try
         {
             string uri = (string)protocol.GetParameter(Parameter.urimediator);
-            string channelName = (string)protocol.GetParameter(Parameter.channelnameadsales);
+            string channelName = (string)protocol.GetParameter(Parameter.channelname);
             int maxResults = Convert.ToInt32(protocol.GetParameter(Parameter.maxresultsmediator));
             return await mediatorSource.ReadMediator(uri, channelName, maxResults);
         }
