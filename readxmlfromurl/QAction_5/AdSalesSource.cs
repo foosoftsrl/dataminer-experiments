@@ -8,7 +8,7 @@
     using System.Threading.Tasks;
     using System.Xml.Serialization;
     using Skyline.DataMiner.Scripting;
-    internal class AdSalesSource : IAdSalesSource
+    internal class AdSalesSource
     {
         public AdSales.DataType ReadAdSales(string channelName, string dir)
         {

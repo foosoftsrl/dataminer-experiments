@@ -1,19 +1,19 @@
-﻿using Newtonsoft.Json;
-using Skyline.DataMiner.Scripting;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Net.Sockets;
-using System.Net.WebSockets;
-using System.Net;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-
-namespace QAction_5
+﻿namespace QAction_5
 {
-    internal class MediatorSource: IMediatorSource
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Linq;
+    using System.Net;
+    using System.Net.Sockets;
+    using System.Net.WebSockets;
+    using System.Text;
+    using System.Threading;
+    using System.Threading.Tasks;
+    using Newtonsoft.Json;
+    using Skyline.DataMiner.Scripting;
+
+    internal class MediatorSource
     {
         public async Task<Mediator.Rootobject> ReadMediator(string uri, string channelName, int maxResults)
         {

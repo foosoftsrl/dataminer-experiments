@@ -1,16 +1,17 @@
-﻿using Skyline.DataMiner.Scripting;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using System.Xml.Serialization;
-
+﻿
 namespace QAction_5
 {
-    public class WhatsonSource: IWhatsonSource
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Linq;
+    using System.Text;
+    using System.Text.RegularExpressions;
+    using System.Threading.Tasks;
+    using System.Xml.Serialization;
+    using Skyline.DataMiner.Scripting;
+
+    public class WhatsonSource
     {
         public Pharos ReadWhatson(string channelName, string dir)
         {   string currentDate = DateTime.Now.ToString("yyyy-MM-dd");

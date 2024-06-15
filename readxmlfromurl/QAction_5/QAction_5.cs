@@ -21,9 +21,10 @@ using Skyline.DataMiner.Scripting;
 /// </summary>
 public class QAction
 {
-    private static IAdSalesSource adSalesSource = new AdSalesSource();
-    private static IMediatorSource mediatorSource = new MediatorSource();
-    private static IWhatsonSource whatsonSource = new WhatsonSource();
+    private static AdSalesSource adSalesSource = new AdSalesSource();
+    private static MediatorSource mediatorSource = new MediatorSource();
+    private static WhatsonSource whatsonSource = new WhatsonSource();
+
     /// <summary>
     /// The QAction entry point.
     /// </summary>
