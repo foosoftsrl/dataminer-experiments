@@ -34,7 +34,7 @@ public class QAction
         protocol.Mergediterationcounter = (double)protocol.Mergediterationcounter + 1;
         try
         {
-            var adSalesData = ReadAdSalesData(protocol).flatten();
+            var adSalesData = ReadAdSalesData(protocol).Flatten();
             PublishAdsalesTable(protocol, adSalesData);
             var whatsonData = ReadWhatsonData(protocol);
             PublishWhatsonTable(protocol, whatsonData);
@@ -138,7 +138,7 @@ public class QAction
                 return new List<WhatsonRow>();
             }
             else {
-                var rows = data.flatten();
+                var rows = data.Flatten();
                 protocol.Wondebugmsg = $"Read {rows.Count} columns";
                 return rows;
             }
@@ -196,7 +196,7 @@ public class QAction
             string channelName = protocol.channelName();
             int maxResults = Convert.ToInt32(protocol.GetParameter(Parameter.maxresultsmediator));
             var obj = await mediatorSource.ReadMediator(uri, channelName, maxResults);
-            var parsedList = (obj != null) ? obj.flatten() : new List<MediatorRow>();
+            var parsedList = (obj != null) ? obj.Flatten() : new List<MediatorRow>();
             var merged = new List<MediatorRow>();
             var lastPublishedMediator = GetLastPublishedMediator(protocol);
             if (parsedList.Count != 0)

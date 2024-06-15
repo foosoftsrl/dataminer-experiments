@@ -9,7 +9,7 @@
 
     public static class MediatorExtensions
     {
-        public static List<MediatorRow> flatten(this Mediator.Rootobject rootObjects)
+        public static List<MediatorRow> Flatten(this Mediator.Rootobject rootObjects)
         {
             var result = new List<MediatorRow>();
             // Convert Generated class into Connector Row data.
@@ -17,22 +17,22 @@
             {
                 foreach (var row in command.Output.ResultSet.Rows)
                 {
-                    var startTime = row.startDateTime();
+                    var startTime = row.StartDateTime();
                     if (startTime == null)
                         continue;
                     result.Add(new MediatorRow
                     {
                         StartTime = (DateTime)startTime,
                         Title = row.Title.AsString(),
-                        ReconcileKey = row.findAdSalesReconcileKey(),
-                        ScheduleReference = row.getScheduleReference(),
+                        ReconcileKey = row.FindAdSalesReconcileKey(),
+                        ScheduleReference = row.GetScheduleReference(),
                         Status = row.Status.GenericList.Object[0].TransferStatus,
                     });
                 }
             }
             return result;
         }
-        public static Dictionary<string, MediatorRow> toReconcileKeyMap(this List<MediatorRow> mediatorRows)
+        public static Dictionary<string, MediatorRow> ToReconcileKeyMap(this List<MediatorRow> mediatorRows)
         {
             var reconcileToRow = new Dictionary<String, MediatorRow>();
 
@@ -47,7 +47,7 @@
             }
             return reconcileToRow;
         }
-        public static string findAdSalesReconcileKey(this Mediator.Row mediatorRow)
+        public static string FindAdSalesReconcileKey(this Mediator.Row mediatorRow)
         {
             foreach (var entry in mediatorRow.TemplateParameterList.GenericList.Object)
             {
@@ -65,7 +65,7 @@
             return null;
         }
 
-        public static string getScheduleReference(this Mediator.Row row)
+        public static string GetScheduleReference(this Mediator.Row row)
         {
             if (row.ScheduleReference == null)
                 return null;
@@ -75,7 +75,7 @@
                 return null;
             return row.ScheduleReference.GenericList.Object[0];
         }
-        public static DateTime? startDateTime(this Mediator.Row row)
+        public static DateTime? StartDateTime(this Mediator.Row row)
         {
             if (row.StartDateTime == null)
                 return null;

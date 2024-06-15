@@ -9,7 +9,7 @@
 
     public static class AdSalesExtensions
     {
-        public static List<AdSalesRow> flatten(this AdSales.DataType adSalesData)
+        public static List<AdSalesRow> Flatten(this AdSales.DataType adSalesData)
         {
             List<AdSalesRow> result = new List<AdSalesRow>();
             var dayStart = DateTime.Parse(adSalesData.ScheduleDate);

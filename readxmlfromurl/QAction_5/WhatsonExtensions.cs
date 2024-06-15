@@ -9,7 +9,7 @@
 
     public static class WhatsonExtensions
     {
-        public static List<WhatsonRow> flatten(this Pharos whatsonData)
+        public static List<WhatsonRow> Flatten(this Pharos whatsonData)
         {
             List<WhatsonRow> result = new List<WhatsonRow>();
             if (whatsonData.Playlist != null && whatsonData.Playlist.BlockList != null)
@@ -20,8 +20,8 @@
                     {
                         foreach (var playlistItem in blockList.PlaylistItem)
                         {
-                            var reconcileKey = playlistItem.findAdSalesReconcileKey();
-                            var startTime = playlistItem.startDateTime();
+                            var reconcileKey = playlistItem.FindAdSalesReconcileKey();
+                            var startTime = playlistItem.StartDateTime();
                             if (startTime != null)
                             {
                                 result.Add(new WhatsonRow
@@ -39,7 +39,7 @@
             return result;
         }
 
-        public static Dictionary<String, WhatsonRow> toReconcileKeyMap(this List<WhatsonRow> whatsonRows)
+        public static Dictionary<String, WhatsonRow> ToReconcileKeyMap(this List<WhatsonRow> whatsonRows)
         {
             Dictionary<String, WhatsonRow> reconcileToRow = new Dictionary<String, WhatsonRow>();
             foreach (var row in whatsonRows)
@@ -52,7 +52,7 @@
             }
             return reconcileToRow;
         }
-        public static string findAdSalesReconcileKey(this PharosPlaylistBlockPlaylistItem playlistItem)
+        public static string FindAdSalesReconcileKey(this PharosPlaylistBlockPlaylistItem playlistItem)
         {
             foreach (var entry in playlistItem.Template.DataElementList)
             {
@@ -66,7 +66,7 @@
             }
             return null;
         }
-        public static DateTime? startDateTime(this PharosPlaylistBlockPlaylistItem playlistItem)
+        public static DateTime? StartDateTime(this PharosPlaylistBlockPlaylistItem playlistItem)
         {
             if (playlistItem.StartDate == null || playlistItem.StartTimecode == null)
                 return null;

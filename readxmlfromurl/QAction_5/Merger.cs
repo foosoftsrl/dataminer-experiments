@@ -13,8 +13,8 @@
     {
         public static MergedEntry[] Merge(List<AdSalesRow> adSalesData, List<WhatsonRow> whatsonData, List<MediatorRow> mediatorData)
         {
-            var whatsonMap = whatsonData.toReconcileKeyMap();
-            var mediatorMap = mediatorData.toReconcileKeyMap();
+            var whatsonMap = whatsonData.ToReconcileKeyMap();
+            var mediatorMap = mediatorData.ToReconcileKeyMap();
             List<MergedEntry> rowList = new List<MergedEntry>();
             foreach (var row in adSalesData)
             {
