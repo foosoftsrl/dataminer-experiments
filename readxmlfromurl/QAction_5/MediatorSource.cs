@@ -13,7 +13,7 @@
     using Newtonsoft.Json;
     using Skyline.DataMiner.Scripting;
 
-    internal class MediatorSource
+    public class MediatorSource
     {
         public async Task<Mediator.Rootobject> ReadMediator(string uri, string channelName, int maxResults)
         {

@@ -52,7 +52,7 @@ public class QAction
 
     }
 
-    public List<object[]> PublishAdsalesTable(SLProtocolExt protocol, List<Utils.AdSalesRow> adSalesRows) {
+    public List<object[]> PublishAdsalesTable(SLProtocolExt protocol, List<AdSalesRow> adSalesRows) {
         List<object[]> tableRows = new List<object[]>();
         foreach (var row in adSalesRows)
         {
@@ -68,7 +68,7 @@ public class QAction
         return tableRows;
     }
 
-    public List<object[]> PublishWhatsonTable(SLProtocolExt protocol, List<Utils.WhatsonRow> whatsonRows)
+    public List<object[]> PublishWhatsonTable(SLProtocolExt protocol, List<WhatsonRow> whatsonRows)
     {
         List<object[]> tableRows = new List<object[]>();
         foreach (var row in whatsonRows)
@@ -85,7 +85,7 @@ public class QAction
         return tableRows;
     }
 
-    public List<object[]> PublishMediatorTable(SLProtocolExt protocol, List<Utils.MediatorRow> mediatorRows)
+    public List<object[]> PublishMediatorTable(SLProtocolExt protocol, List<MediatorRow> mediatorRows)
     {
         List<object[]> tableRows = new List<object[]>();
         foreach (var row in mediatorRows)
@@ -125,7 +125,7 @@ public class QAction
         return tableRows;
     }
 
-    public static List<Utils.WhatsonRow> ReadWhatsonData(SLProtocolExt protocol)
+    public static List<WhatsonRow> ReadWhatsonData(SLProtocolExt protocol)
     {
         string channelName = (string)protocol.channelName();
         string dir = @"\\winfs01.mediaset.it\DM_Watchfolder\WON";
@@ -135,7 +135,7 @@ public class QAction
             if (data == null)
             {
                 protocol.Wondebugmsg = $"No whatson data for channel {channelName}";
-                return new List<Utils.WhatsonRow>();
+                return new List<WhatsonRow>();
             }
             else {
                 var rows = data.flatten();
@@ -167,17 +167,17 @@ public class QAction
         }
     }
 
-    public List<Utils.MediatorRow> GetLastPublishedMediator(SLProtocolExt protocol)
+    public List<MediatorRow> GetLastPublishedMediator(SLProtocolExt protocol)
     {
         var idx = 0;
-        var result = new List<Utils.MediatorRow>();
+        var result = new List<MediatorRow>();
         while(true)
         {
             var data = (object[])protocol.GetRow(Parameter.Mediator.tablePid, idx++);
             var row = new MediatorQActionRow(data);
             if (row.Mediatordate == null)
                 break;
-            result.Add(new Utils.MediatorRow
+            result.Add(new MediatorRow
             {
                 StartTime = DateTime.Parse((string)row.Mediatordate),
                 ReconcileKey = (string)row.Mediatorreconcilekey,
@@ -188,7 +188,7 @@ public class QAction
         }
         return result;
     }
-    public async Task<List<Utils.MediatorRow>> ReadMediatorData(SLProtocolExt protocol)
+    public async Task<List<MediatorRow>> ReadMediatorData(SLProtocolExt protocol)
     {
         try
         {
@@ -196,8 +196,8 @@ public class QAction
             string channelName = protocol.channelName();
             int maxResults = Convert.ToInt32(protocol.GetParameter(Parameter.maxresultsmediator));
             var obj = await mediatorSource.ReadMediator(uri, channelName, maxResults);
-            var parsedList = (obj != null) ? obj.flatten() : new List<Utils.MediatorRow>();
-            var merged = new List<Utils.MediatorRow>();
+            var parsedList = (obj != null) ? obj.flatten() : new List<MediatorRow>();
+            var merged = new List<MediatorRow>();
             var lastPublishedMediator = GetLastPublishedMediator(protocol);
             if (parsedList.Count != 0)
             {
