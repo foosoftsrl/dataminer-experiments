@@ -13,7 +13,7 @@ namespace QAction_5
     public class WhatsonSource: IWhatsonSource
     {
         public Pharos ReadWhatson(string channelName, string dir)
-        {            string currentDate = DateTime.Now.ToString("yyyy-MM-dd");
+        {   string currentDate = DateTime.Now.ToString("yyyy-MM-dd");
             string fileNamePattern = $"{channelName}_Schedule_{currentDate}_\\d{{4}}_*.xml";
             string[] files = Directory.GetFiles(dir, $"{channelName}_Schedule_{currentDate}_*.xml");
 

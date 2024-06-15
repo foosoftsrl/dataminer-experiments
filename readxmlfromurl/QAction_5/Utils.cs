@@ -24,9 +24,9 @@ public static class Utils
 
     public class WhatsonRow
     {
-        public string Time;
-        public PharosPlaylistBlock Block;
-        public PharosPlaylistBlockPlaylistItem PlaylistItem;
+        public DateTime StartTime;
+        public string Title;
+        public string ItemReference;
         public string ReconcileKey;
     }
 
@@ -75,13 +75,17 @@ public static class Utils
                     foreach (var playlistItem in blockList.PlaylistItem)
                     {
                         var reconcileKey = playlistItem.findAdSalesReconcileKey();
-                        result.Add(new WhatsonRow
+                        var startTime = playlistItem.startDateTime();
+                        if (startTime != null)
                         {
-                            Time = playlistItem.startDateTime()?.ToString("yyyy-MM-dd HH:mm:ss") ?? string.Empty,
-                            Block = blockList,
-                            PlaylistItem = playlistItem,
-                            ReconcileKey = reconcileKey
-                        });
+                            result.Add(new WhatsonRow
+                            {
+                                StartTime = (DateTime)startTime,
+                                ItemReference = playlistItem.ItemReference,
+                                ReconcileKey = reconcileKey,
+                                Title = playlistItem.ScheduledTitle,
+                            });
+                        }
                     }
                 }
             }

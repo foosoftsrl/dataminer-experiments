@@ -74,9 +74,10 @@ public class QAction
         {
             tableRows.Add(new WonQActionRow
             {
-                Wonstartdate = row.PlaylistItem.startDateTime()?.ToString("yyyy-MM-dd HH:mm:ss") ?? string.Empty,
-                Wontitle = row.PlaylistItem.ScheduledTitle,
+                Wonstartdate = row.StartTime.ToString("yyyy-MM-dd HH:mm:ss") ?? string.Empty,
+                Wontitle = row.Title,
                 Wonreconcilekey = row.ReconcileKey ?? string.Empty,
+                Wonitemreference = row.ItemReference,
             }.ToObjectArray());
         }
         protocol.FillArray(Parameter.Won.tablePid, tableRows, NotifyProtocol.SaveOption.Full);
@@ -115,7 +116,7 @@ public class QAction
                 Mergedduration = row.adSalesData.ContentTotalDuration,
                 Mergedhavewon = (row.whatsonData != null) ? "\u2713" : string.Empty,
                 Mergedhavemediator = (row.mediatorData != null) ? "✓" : string.Empty,
-                Mergedwontime = row.whatsonData?.Time ?? string.Empty,
+                Mergedwontime = row.whatsonData?.StartTime.ToString("yyyy-MM-dd HH:mm:ss") ?? string.Empty,
                 Mergedmediatortime = row.mediatorData?.StartTime.ToString("yyyy-MM-dd HH:mm:ss") ?? string.Empty,
             }.ToObjectArray());
         }

@@ -227,6 +227,11 @@ public static class Parameter
 			public const int wonreconcilekey_3003 = 3003;
 			/// <summary>PID: 3003 | Type: read</summary>
 			public const int wonreconcilekey = 3003;
+			/// <summary>PID: 3004 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int wonitemreference_3004 = 3004;
+			/// <summary>PID: 3004 | Type: read</summary>
+			public const int wonitemreference = 3004;
 			public class Write
 			{
 			}
@@ -248,6 +253,11 @@ public static class Parameter
 			public const int wonreconcilekey_3003 = 2;
 			/// <summary>IDX: 2 | Type: read</summary>
 			public const int wonreconcilekey = 2;
+			/// <summary>IDX: 3 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int wonitemreference_3004 = 3;
+			/// <summary>IDX: 3 | Type: read</summary>
+			public const int wonitemreference = 3;
 		}
 	}
 	public class Mergedtable
@@ -414,6 +424,8 @@ public interface SLProtocolExt : SLProtocol
 	object Wontitle { get; set; }
 	object Wonreconcilekey_3003 { get; set; }
 	object Wonreconcilekey { get; set; }
+	object Wonitemreference_3004 { get; set; }
+	object Wonitemreference { get; set; }
 	object Mergedadsalestime_4001 { get; set; }
 	object Mergedadsalestime { get; set; }
 	object Mergedreconcilekey_4002 { get; set; }
@@ -549,6 +561,11 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public System.Object Wonreconcilekey_3003 {get { return GetParameter(3003); }set { SetParameter(3003, value); }}
 	/// <summary>PID: 3003  | Type: read</summary>
 	public System.Object Wonreconcilekey {get { return GetParameter(3003); }set { SetParameter(3003, value); }}
+	/// <summary>PID: 3004  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Wonitemreference_3004 {get { return GetParameter(3004); }set { SetParameter(3004, value); }}
+	/// <summary>PID: 3004  | Type: read</summary>
+	public System.Object Wonitemreference {get { return GetParameter(3004); }set { SetParameter(3004, value); }}
 	/// <summary>PID: 4001  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Mergedadsalestime_4001 {get { return GetParameter(4001); }set { SetParameter(4001, value); }}
@@ -740,8 +757,13 @@ public class WonQActionRow : QActionTableRow
 	public System.Object Wonreconcilekey_3003 { get { if (base.Columns.ContainsKey(2)) { return base.Columns[2]; } else { return null; } } set { if (base.Columns.ContainsKey(2)) { base.Columns[2] = value; } else { base.Columns.Add(2, value); } } }
 	/// <summary>PID: 3003 | Type: read</summary>
 	public System.Object Wonreconcilekey { get { if (base.Columns.ContainsKey(2)) { return base.Columns[2]; } else { return null; } } set { if (base.Columns.ContainsKey(2)) { base.Columns[2] = value; } else { base.Columns.Add(2, value); } } }
-	public WonQActionRow() : base(0, 3) { }
-	public WonQActionRow(System.Object[] oRow) : base(0, 3, oRow) { }
+	/// <summary>PID: 3004 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Wonitemreference_3004 { get { if (base.Columns.ContainsKey(3)) { return base.Columns[3]; } else { return null; } } set { if (base.Columns.ContainsKey(3)) { base.Columns[3] = value; } else { base.Columns.Add(3, value); } } }
+	/// <summary>PID: 3004 | Type: read</summary>
+	public System.Object Wonitemreference { get { if (base.Columns.ContainsKey(3)) { return base.Columns[3]; } else { return null; } } set { if (base.Columns.ContainsKey(3)) { base.Columns[3] = value; } else { base.Columns.Add(3, value); } } }
+	public WonQActionRow() : base(0, 4) { }
+	public WonQActionRow(System.Object[] oRow) : base(0, 4, oRow) { }
 	public static implicit operator WonQActionRow(System.Object[] source) { return new WonQActionRow(source); }
 	public static implicit operator System.Object[](WonQActionRow source) { return source.ToObjectArray(); }
 }
