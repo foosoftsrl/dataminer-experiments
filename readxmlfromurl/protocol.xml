@@ -71,7 +71,7 @@
 					<Position>
 						<Page>Configuration</Page>
 						<Column>0</Column>
-						<Row>2</Row>
+						<Row>0</Row>
 					</Position>
 				</Positions>
 			</Display>
@@ -88,7 +88,7 @@
 					<Position>
 						<Page>Configuration</Page>
 						<Column>0</Column>
-						<Row>8</Row>
+						<Row>10</Row>
 					</Position>
 				</Positions>
 			</Display>
@@ -114,7 +114,7 @@
 					<Position>
 						<Page>Configuration</Page>
 						<Column>0</Column>
-						<Row>3</Row>
+						<Row>1</Row>
 					</Position>
 				</Positions>
 			</Display>
@@ -139,7 +139,7 @@
 					<Position>
 						<Page>Configuration</Page>
 						<Column>0</Column>
-						<Row>3</Row>
+						<Row>1</Row>
 					</Position>
 				</Positions>
 			</Display>
@@ -166,7 +166,7 @@
 					<Position>
 						<Page>Configuration</Page>
 						<Column>0</Column>
-						<Row>4</Row>
+						<Row>2</Row>
 					</Position>
 				</Positions>
 			</Display>
@@ -191,7 +191,7 @@
 					<Position>
 						<Page>Configuration</Page>
 						<Column>0</Column>
-						<Row>4</Row>
+						<Row>2</Row>
 					</Position>
 				</Positions>
 			</Display>
@@ -216,7 +216,7 @@
 					<Position>
 						<Page>Configuration</Page>
 						<Column>0</Column>
-						<Row>6</Row>
+						<Row>5</Row>
 					</Position>
 				</Positions>
 			</Display>
@@ -239,7 +239,117 @@
 					<Position>
 						<Page>Configuration</Page>
 						<Column>0</Column>
-						<Row>6</Row>
+						<Row>5</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="15" trending="false" save="true">
+			<Name>probeUrl</Name>
+			<Description>Probe URL, such as http://teamcity-agent-rh8-vm.dvp.ravfav.priv:5031/</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Configuration</Page>
+						<Column>0</Column>
+						<Row>3</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="16" trending="false" setter="true">
+			<Name>probeUrl</Name>
+			<Description>Probe URL, such as http://teamcity-agent-rh8-vm.dvp.ravfav.priv:5031/</Description>
+			<Type>write</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Configuration</Page>
+						<Column>0</Column>
+						<Row>4</Row>
+					</Position>
+					<Position>
+						<Page>Configuration</Page>
+						<Column>0</Column>
+						<Row>3</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="17" trending="false" save="true">
+			<Name>probeServiceId</Name>
+			<Description>Probe Service ID</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Configuration</Page>
+						<Column>0</Column>
+						<Row>4</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="18" trending="false" setter="true">
+			<Name>probeServiceId</Name>
+			<Description>Probe Service ID</Description>
+			<Type>write</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Configuration</Page>
+						<Column>0</Column>
+						<Row>4</Row>
+					</Position>
+					<Position>
+						<Page>Configuration</Page>
+						<Column>0</Column>
+						<Row>3</Row>
 					</Position>
 				</Positions>
 			</Display>
@@ -557,7 +667,7 @@
 				<Type>string</Type>
 			</Measurement>
 		</Param>
-
+		
 		<Param id="4000">
 			<Name>mergedTable</Name>
 			<Description>Merged Table</Description>

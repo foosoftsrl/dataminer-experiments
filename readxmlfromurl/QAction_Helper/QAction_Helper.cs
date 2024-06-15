@@ -23,6 +23,11 @@ public static class Parameter
 	public const int maxresultsmediator_13 = 13;
 	/// <summary>PID: 13 | Type: read</summary>
 	public const int maxresultsmediator = 13;
+	/// <summary>PID: 15 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public const int probeurl_15 = 15;
+	/// <summary>PID: 15 | Type: read</summary>
+	public const int probeurl = 15;
 	/// <summary>PID: 10001 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public const int adsalesdebugmsg_10001 = 10001;
@@ -80,6 +85,11 @@ public static class Parameter
 		public const int maxresultsmediator_14 = 14;
 		/// <summary>PID: 14 | Type: write</summary>
 		public const int maxresultsmediator = 14;
+		/// <summary>PID: 16 | Type: write</summary>
+		[EditorBrowsable(EditorBrowsableState.Never)]
+		public const int probeurl_16 = 16;
+		/// <summary>PID: 16 | Type: write</summary>
+		public const int probeurl = 16;
 		/// <summary>PID: 10202 | Type: write</summary>
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		public const int mergedprocesstable_10202 = 10202;
@@ -369,6 +379,8 @@ public class WriteParameters
 	public System.Object Urimediator {get { return Protocol.GetParameter(10); }set { Protocol.SetParameter(10, value); }}
 	/// <summary>PID: 14  | Type: write</summary>
 	public System.Object Maxresultsmediator {get { return Protocol.GetParameter(14); }set { Protocol.SetParameter(14, value); }}
+	/// <summary>PID: 16  | Type: write</summary>
+	public System.Object Probeurl {get { return Protocol.GetParameter(16); }set { Protocol.SetParameter(16, value); }}
 	/// <summary>PID: 10202  | Type: write | DISCREETS: Merge Tables = check</summary>
 	public System.Object Mergedprocesstable {get { return Protocol.GetParameter(10202); }set { Protocol.SetParameter(10202, value); }}
 	public SLProtocolExt Protocol;
@@ -402,6 +414,9 @@ public interface SLProtocolExt : SLProtocol
 	object Maxresultsmediator_13 { get; set; }
 	object Maxresultsmediator { get; set; }
 	object Maxresultsmediator_14 { get; set; }
+	object Probeurl_15 { get; set; }
+	object Probeurl { get; set; }
+	object Probeurl_16 { get; set; }
 	object Adsalestime_1001 { get; set; }
 	object Adsalestime { get; set; }
 	object Adsalestitle_1002 { get; set; }
@@ -506,6 +521,14 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	/// <summary>PID: 14  | Type: write</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Maxresultsmediator_14 {get { return GetParameter(14); }set { SetParameter(14, value); }}
+	/// <summary>PID: 15  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Probeurl_15 {get { return GetParameter(15); }set { SetParameter(15, value); }}
+	/// <summary>PID: 15  | Type: read</summary>
+	public System.Object Probeurl {get { return GetParameter(15); }set { SetParameter(15, value); }}
+	/// <summary>PID: 16  | Type: write</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Probeurl_16 {get { return GetParameter(16); }set { SetParameter(16, value); }}
 	/// <summary>PID: 1001  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Adsalestime_1001 {get { return GetParameter(1001); }set { SetParameter(1001, value); }}
