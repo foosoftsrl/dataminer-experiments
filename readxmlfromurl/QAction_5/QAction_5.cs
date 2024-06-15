@@ -165,8 +165,27 @@ public class QAction
         }
     }
 
-    public List<Utils.MediatorRow> lastPublishedMediator = new List<Utils.MediatorRow>();
-
+    public List<Utils.MediatorRow> GetLastPublishedMediator(SLProtocolExt protocol)
+    {
+        var idx = 0;
+        var result = new List<Utils.MediatorRow>();
+        while(true)
+        {
+            var data = (object[])protocol.GetRow(Parameter.Mediator.tablePid, idx++);
+            var row = new MediatorQActionRow(data);
+            if (row.Mediatordate == null)
+                break;
+            result.Add(new Utils.MediatorRow
+            {
+                StartTime = DateTime.Parse((string)row.Mediatordate),
+                ReconcileKey = (string)row.Mediatorreconcilekey,
+                Title = (string)row.Mediatortitle,
+                Status = (string)row.Mediatorstatus,
+                ScheduleReference=(string)row.Mediatorid,
+            });
+        }
+        return result;
+    }
     public async Task<List<Utils.MediatorRow>> ReadMediatorData(SLProtocolExt protocol)
     {
         try
@@ -178,7 +197,8 @@ public class QAction
             var parsedList = (obj != null) ? obj.flatten() : new List<Utils.MediatorRow>();
             var merged = new List<Utils.MediatorRow>();
             DateTime? firstMemoryTimeStamp = null;
-            if(lastPublishedMediator.Count != 0)
+            var lastPublishedMediator = GetLastPublishedMediator(protocol);
+            if (lastPublishedMediator.Count != 0)
                 firstMemoryTimeStamp = lastPublishedMediator.First().StartTime;
             DateTime? firstParsedTimeStamp = null;
             if(parsedList.Count != 0)
