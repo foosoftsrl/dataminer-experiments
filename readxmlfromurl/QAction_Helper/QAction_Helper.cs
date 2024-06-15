@@ -164,6 +164,11 @@ public static class Parameter
 			public const int mediatorreconcilekey_2004 = 2004;
 			/// <summary>PID: 2004 | Type: read</summary>
 			public const int mediatorreconcilekey = 2004;
+			/// <summary>PID: 2005 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int mediatorstatus_2005 = 2005;
+			/// <summary>PID: 2005 | Type: read</summary>
+			public const int mediatorstatus = 2005;
 			public class Write
 			{
 			}
@@ -190,6 +195,11 @@ public static class Parameter
 			public const int mediatorreconcilekey_2004 = 3;
 			/// <summary>IDX: 3 | Type: read</summary>
 			public const int mediatorreconcilekey = 3;
+			/// <summary>IDX: 4 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int mediatorstatus_2005 = 4;
+			/// <summary>IDX: 4 | Type: read</summary>
+			public const int mediatorstatus = 4;
 		}
 	}
 	public class Won
@@ -396,6 +406,8 @@ public interface SLProtocolExt : SLProtocol
 	object Mediatorid { get; set; }
 	object Mediatorreconcilekey_2004 { get; set; }
 	object Mediatorreconcilekey { get; set; }
+	object Mediatorstatus_2005 { get; set; }
+	object Mediatorstatus { get; set; }
 	object Wonstartdate_3001 { get; set; }
 	object Wonstartdate { get; set; }
 	object Wontitle_3002 { get; set; }
@@ -517,6 +529,11 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public System.Object Mediatorreconcilekey_2004 {get { return GetParameter(2004); }set { SetParameter(2004, value); }}
 	/// <summary>PID: 2004  | Type: read</summary>
 	public System.Object Mediatorreconcilekey {get { return GetParameter(2004); }set { SetParameter(2004, value); }}
+	/// <summary>PID: 2005  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Mediatorstatus_2005 {get { return GetParameter(2005); }set { SetParameter(2005, value); }}
+	/// <summary>PID: 2005  | Type: read</summary>
+	public System.Object Mediatorstatus {get { return GetParameter(2005); }set { SetParameter(2005, value); }}
 	/// <summary>PID: 3001  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Wonstartdate_3001 {get { return GetParameter(3001); }set { SetParameter(3001, value); }}
@@ -695,8 +712,13 @@ public class MediatorQActionRow : QActionTableRow
 	public System.Object Mediatorreconcilekey_2004 { get { if (base.Columns.ContainsKey(3)) { return base.Columns[3]; } else { return null; } } set { if (base.Columns.ContainsKey(3)) { base.Columns[3] = value; } else { base.Columns.Add(3, value); } } }
 	/// <summary>PID: 2004 | Type: read</summary>
 	public System.Object Mediatorreconcilekey { get { if (base.Columns.ContainsKey(3)) { return base.Columns[3]; } else { return null; } } set { if (base.Columns.ContainsKey(3)) { base.Columns[3] = value; } else { base.Columns.Add(3, value); } } }
-	public MediatorQActionRow() : base(0, 4) { }
-	public MediatorQActionRow(System.Object[] oRow) : base(0, 4, oRow) { }
+	/// <summary>PID: 2005 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Mediatorstatus_2005 { get { if (base.Columns.ContainsKey(4)) { return base.Columns[4]; } else { return null; } } set { if (base.Columns.ContainsKey(4)) { base.Columns[4] = value; } else { base.Columns.Add(4, value); } } }
+	/// <summary>PID: 2005 | Type: read</summary>
+	public System.Object Mediatorstatus { get { if (base.Columns.ContainsKey(4)) { return base.Columns[4]; } else { return null; } } set { if (base.Columns.ContainsKey(4)) { base.Columns[4] = value; } else { base.Columns.Add(4, value); } } }
+	public MediatorQActionRow() : base(0, 5) { }
+	public MediatorQActionRow(System.Object[] oRow) : base(0, 5, oRow) { }
 	public static implicit operator MediatorQActionRow(System.Object[] source) { return new MediatorQActionRow(source); }
 	public static implicit operator System.Object[](MediatorQActionRow source) { return source.ToObjectArray(); }
 }

@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Xml.Serialization;
 using Mediator;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using QAction_5;
 using Skyline.DataMiner.Scripting;
 
@@ -31,8 +32,11 @@ public static class Utils
 
     public class MediatorRow
     {
-        public Mediator.Row row;
+        public string ScheduleReference;
         public string ReconcileKey;
+        public string Title;
+        public string Status;
+        public DateTime StartTime;
     }
 
     public static List<AdSalesRow> flatten(this AdSales.DataType adSalesData)
@@ -70,7 +74,6 @@ public static class Utils
                 if (blockList.PlaylistItem != null) {
                     foreach (var playlistItem in blockList.PlaylistItem)
                     {
-
                         var reconcileKey = playlistItem.findAdSalesReconcileKey();
                         result.Add(new WhatsonRow
                         {
@@ -132,6 +135,17 @@ public static class Utils
         return null;
     }
 
+    public static string getScheduleReference(this Mediator.Row row)
+    {
+        if (row.ScheduleReference == null)
+            return null;
+        if (row.ScheduleReference.GenericList == null)
+            return null;
+        if (row.ScheduleReference.GenericList.Size != 1)
+            return null;
+        return row.ScheduleReference.GenericList.Object[0];
+    }
+
     public static List<MediatorRow> flatten(this Mediator.Rootobject rootObjects)
     {
         var result = new List<MediatorRow>();
@@ -140,19 +154,25 @@ public static class Utils
         {
             foreach (var row in command.Output.ResultSet.Rows)
             {
+                var startTime = row.startDateTime();
+                if (startTime == null)
+                    continue;
                 result.Add(new MediatorRow
                 {
-                    row = row,
+                    StartTime = (DateTime)startTime,
+                    Title = row.Title.AsString(),
                     ReconcileKey = row.findAdSalesReconcileKey(),
+                    ScheduleReference = row.getScheduleReference(),
+                    Status = row.Status.GenericList.Object[0].TransferStatus,
                 });
             }
         }
         return result;
     }
 
-    public static Dictionary<string, Mediator.Row> toReconcileKeyMap(this List<MediatorRow> mediatorRows)
+    public static Dictionary<string, Utils.MediatorRow> toReconcileKeyMap(this List<MediatorRow> mediatorRows)
     {
-        Dictionary<String, Mediator.Row> reconcileToRow = new Dictionary<String, Mediator.Row>();
+        var reconcileToRow = new Dictionary<String, Utils.MediatorRow>();
 
         // Convert Generated class into Connector Row data.
         foreach (var row in mediatorRows)
@@ -160,7 +180,7 @@ public static class Utils
             var reconcileKey = row.ReconcileKey;
             if (reconcileKey != null)
             {
-                reconcileToRow.Add(reconcileKey, row.row);
+                reconcileToRow.Add(reconcileKey, row);
             }
         }
         return reconcileToRow;

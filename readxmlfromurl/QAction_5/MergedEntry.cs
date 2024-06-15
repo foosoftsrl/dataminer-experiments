@@ -12,6 +12,6 @@ namespace QAction_5
         public AdSales.BreakType adSalesBreakData;
         public AdSales.ContentType adSalesData;
         public Utils.WhatsonRow whatsonData;
-        public Mediator.Row mediatorData;
+        public Utils.MediatorRow mediatorData;
     }
 }

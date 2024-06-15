@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Net.WebSockets;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -29,14 +30,14 @@ public class QAction
     /// <param name="protocol">Link with SLProtocol process.</param>
     public async Task Run(SLProtocolExt protocol)
     {
-        protocol.Mergediterationcounter = (double)protocol.Mergediterationcounter + 2;
+        protocol.Mergediterationcounter = (double)protocol.Mergediterationcounter + 1;
         try
         {
             var adSalesData = ReadAdSalesData(protocol).flatten();
             PublishAdsalesTable(protocol, adSalesData);
             var whatsonData = ReadWhatsonData(protocol);
             PublishWhatsonTable(protocol, whatsonData);
-            var mediatorData = (await ReadMediatorData(protocol)).flatten();
+            var mediatorData = await ReadMediatorData(protocol);
             PublishMediatorTable(protocol, mediatorData);
 
             var mergedRows = Merger.Merge(adSalesData, whatsonData, mediatorData);
@@ -89,15 +90,15 @@ public class QAction
         {
             tableRows.Add(new MediatorQActionRow
             {
-                Mediatorid = row.row.ScheduleReference.GenericList.Object[0],
-                Mediatordate = row.row.startDateTime()?.ToString("yyyy-MM-dd HH:mm:ss"),
-                Mediatortitle = row.row.Title.AsString(),
-                Mediatorreconcilekey = row.ReconcileKey
+                Mediatorid = row.ScheduleReference,
+                Mediatordate = row.StartTime.ToString("yyyy-MM-dd HH:mm:ss"),
+                Mediatortitle = row.Title,
+                Mediatorstatus = row.Status,
+                Mediatorreconcilekey = row.ReconcileKey,
 
             }.ToObjectArray());
         }
         protocol.FillArray(Parameter.Mediator.tablePid, tableRows, NotifyProtocol.SaveOption.Full);
-        protocol.Mediatordebugmsg = $"{tableRows.Count}";
         return tableRows;
     }
 
@@ -115,7 +116,7 @@ public class QAction
                 Mergedhavewon = (row.whatsonData != null) ? "\u2713" : string.Empty,
                 Mergedhavemediator = (row.mediatorData != null) ? "✓" : string.Empty,
                 Mergedwontime = row.whatsonData?.Time ?? string.Empty,
-                Mergedmediatortime = (row.mediatorData != null) ? row.mediatorData.startDateTime()?.ToString("yyyy-MM-dd HH:mm:ss") : string.Empty,
+                Mergedmediatortime = row.mediatorData?.StartTime.ToString("yyyy-MM-dd HH:mm:ss") ?? string.Empty,
             }.ToObjectArray());
         }
         protocol.FillArray(Parameter.Mergedtable.tablePid, tableRows, NotifyProtocol.SaveOption.Full);
@@ -164,17 +165,42 @@ public class QAction
         }
     }
 
-    public static async Task<Mediator.Rootobject> ReadMediatorData(SLProtocolExt protocol)
+    public List<Utils.MediatorRow> lastPublishedMediator = new List<Utils.MediatorRow>();
+
+    public async Task<List<Utils.MediatorRow>> ReadMediatorData(SLProtocolExt protocol)
     {
         try
         {
             string uri = (string)protocol.GetParameter(Parameter.urimediator);
             string channelName = protocol.channelName();
             int maxResults = Convert.ToInt32(protocol.GetParameter(Parameter.maxresultsmediator));
-            return await mediatorSource.ReadMediator(uri, channelName, maxResults);
+            var obj = await mediatorSource.ReadMediator(uri, channelName, maxResults);
+            var parsedList = (obj != null) ? obj.flatten() : new List<Utils.MediatorRow>();
+            var merged = new List<Utils.MediatorRow>();
+            DateTime? firstMemoryTimeStamp = null;
+            if(lastPublishedMediator.Count != 0)
+                firstMemoryTimeStamp = lastPublishedMediator.First().StartTime;
+            DateTime? firstParsedTimeStamp = null;
+            if(parsedList.Count != 0)
+                firstParsedTimeStamp = parsedList.First().StartTime;
+            if (parsedList.Count != 0)
+            {
+                var first = parsedList.First();
+                foreach(var row in lastPublishedMediator)
+                {
+                    if (row.StartTime >= first.StartTime)
+                        break;
+                    merged.Add(row);
+                }
+            }
+            merged.AddRange(parsedList);
+            lastPublishedMediator = merged;
+            protocol.Mediatordebugmsg = $"Parsed {parsedList.Count}-{firstMemoryTimeStamp?.ToString() ?? ""}, State {lastPublishedMediator.Count}-{firstParsedTimeStamp?.ToString() ?? ""} Produced {merged.Count} lines";
+            return merged;
         }
         catch (Exception ex)
         {
+            protocol.Mediatordebugmsg = $"Failed reading Mediator data: {ex.Message}";
             protocol.Log($"QA{protocol.QActionID}|{protocol.GetTriggerParameter()}|Run|Exception thrown:{Environment.NewLine}{ex}", LogType.Error, LogLevel.NoLogging);
             throw ex;
         }
