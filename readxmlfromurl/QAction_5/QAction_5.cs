@@ -198,13 +198,7 @@ public class QAction
             var obj = await mediatorSource.ReadMediator(uri, channelName, maxResults);
             var parsedList = (obj != null) ? obj.flatten() : new List<Utils.MediatorRow>();
             var merged = new List<Utils.MediatorRow>();
-            DateTime? firstMemoryTimeStamp = null;
             var lastPublishedMediator = GetLastPublishedMediator(protocol);
-            if (lastPublishedMediator.Count != 0)
-                firstMemoryTimeStamp = lastPublishedMediator.First().StartTime;
-            DateTime? firstParsedTimeStamp = null;
-            if(parsedList.Count != 0)
-                firstParsedTimeStamp = parsedList.First().StartTime;
             if (parsedList.Count != 0)
             {
                 var first = parsedList.First();
@@ -217,7 +211,7 @@ public class QAction
             }
             merged.AddRange(parsedList);
             lastPublishedMediator = merged;
-            protocol.Mediatordebugmsg = $"Parsed {parsedList.Count}-{firstMemoryTimeStamp?.ToString() ?? ""}, State {lastPublishedMediator.Count}-{firstParsedTimeStamp?.ToString() ?? ""} Produced {merged.Count} lines";
+            protocol.Mediatordebugmsg = $"Parsed {parsedList.Count}, State {lastPublishedMediator.Count}, Merged {merged.Count} lines";
             return merged;
         }
         catch (Exception ex)
