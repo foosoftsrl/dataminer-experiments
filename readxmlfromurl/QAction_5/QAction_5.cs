@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
+using Mediator;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using QAction_5;
@@ -33,7 +34,7 @@ public class QAction
         {
             var adSalesData = ReadAdSalesData(protocol).flatten();
             PublishAdsalesTable(protocol, adSalesData);
-            var whatsonData = ReadWhatsonData(protocol).flatten();
+            var whatsonData = ReadWhatsonData(protocol);
             PublishWhatsonTable(protocol, whatsonData);
             var mediatorData = (await ReadMediatorData(protocol)).flatten();
             PublishMediatorTable(protocol, mediatorData);
@@ -78,7 +79,6 @@ public class QAction
             }.ToObjectArray());
         }
         protocol.FillArray(Parameter.Won.tablePid, tableRows, NotifyProtocol.SaveOption.Full);
-        protocol.Wondebugmsg = string.Empty;
         return tableRows;
     }
 
@@ -122,25 +122,35 @@ public class QAction
         return tableRows;
     }
 
-    public static Pharos ReadWhatsonData(SLProtocolExt protocol)
+    public static List<Utils.WhatsonRow> ReadWhatsonData(SLProtocolExt protocol)
     {
-        string channelName = (string)protocol.GetParameter(Parameter.channelname);
+        string channelName = (string)protocol.channelName();
         string dir = @"\\winfs01.mediaset.it\DM_Watchfolder\WON";
         try
         {
-            return whatsonSource.ReadWhatson(channelName, dir);
+            var data = whatsonSource.ReadWhatson(channelName, dir);
+            if (data == null)
+            {
+                protocol.Wondebugmsg = $"No whatson data for channel {channelName}";
+                return new List<Utils.WhatsonRow>();
+            }
+            else {
+                var rows = data.flatten();
+                protocol.Wondebugmsg = $"Read {rows.Count} columns";
+                return rows;
+            }
         }
         catch (Exception ex)
         {
-            protocol.Wondebugmsg = "Failed reading Whatson data";
+            protocol.Wondebugmsg = $"Failed reading Whatson data: {ex.Message}";
             protocol.Log($"QA{protocol.QActionID}|{protocol.GetTriggerParameter()}|Run|Exception thrown:{Environment.NewLine}{ex}", LogType.Error, LogLevel.NoLogging);
-            throw ex;
+            throw new Exception("Failed reading Whatson data", ex);
         }
     }
 
     public static AdSales.DataType ReadAdSalesData(SLProtocolExt protocol)
     {
-        string channelName = (string)protocol.GetParameter(Parameter.channelname);
+        string channelName = protocol.channelName();
         string dir = @"\\winfs01.mediaset.it\DM_Watchfolder\Adsales";
         try
         {
@@ -159,7 +169,7 @@ public class QAction
         try
         {
             string uri = (string)protocol.GetParameter(Parameter.urimediator);
-            string channelName = (string)protocol.GetParameter(Parameter.channelname);
+            string channelName = protocol.channelName();
             int maxResults = Convert.ToInt32(protocol.GetParameter(Parameter.maxresultsmediator));
             return await mediatorSource.ReadMediator(uri, channelName, maxResults);
         }

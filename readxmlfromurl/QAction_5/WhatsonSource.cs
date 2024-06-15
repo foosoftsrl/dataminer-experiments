@@ -13,21 +13,23 @@ namespace QAction_5
     public class WhatsonSource: IWhatsonSource
     {
         public Pharos ReadWhatson(string channelName, string dir)
-        {
-            string currentDate = DateTime.Now.ToString("yyyy-MM-dd");
+        {            string currentDate = DateTime.Now.ToString("yyyy-MM-dd");
             string fileNamePattern = $"{channelName}_Schedule_{currentDate}_\\d{{4}}_*.xml";
             string[] files = Directory.GetFiles(dir, $"{channelName}_Schedule_{currentDate}_*.xml");
 
-            if (files.Length > 0)
+            if (files.Length == 0)
             {
-                string latestFile = files
-                    .OrderByDescending(f => GetFileVersion(f))
-                    .First();
-                return Utils.XmlDeserializeFromFile<Pharos>(latestFile);
+                return null;
             }
-            else
+            string latestFile = files
+                .OrderByDescending(f => GetFileVersion(f))
+                .First();
+            try
             {
-                throw new Exception("Could not find any Whatson file");
+                return Utils.XmlDeserializeFromFile<Pharos>(latestFile);
+            } catch(Exception ex)
+            {
+                throw new Exception($"Failed parsing Whatson file {latestFile}: {ex.Message}", ex);
             }
         }
 

@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 using System.Xml.Serialization;
 using Mediator;
 using Newtonsoft.Json;
+using QAction_5;
+using Skyline.DataMiner.Scripting;
 
 public static class Utils
 {
@@ -61,19 +63,24 @@ public static class Utils
     public static List<WhatsonRow> flatten(this Pharos whatsonData)
     {
         List<WhatsonRow> result = new List<WhatsonRow>();
-        foreach (var blockList in whatsonData.Playlist.BlockList)
+        if (whatsonData.Playlist != null && whatsonData.Playlist.BlockList != null)
         {
-            foreach (var playlistItem in blockList.PlaylistItem)
+            foreach (var blockList in whatsonData.Playlist.BlockList)
             {
+                if (blockList.PlaylistItem != null) {
+                    foreach (var playlistItem in blockList.PlaylistItem)
+                    {
 
-                var reconcileKey = playlistItem.findAdSalesReconcileKey();
-                result.Add(new WhatsonRow
-                {
-                    Time = playlistItem.startDateTime()?.ToString("yyyy-MM-dd HH:mm:ss") ?? string.Empty,
-                    Block = blockList,
-                    PlaylistItem = playlistItem,
-                    ReconcileKey = reconcileKey
-                });
+                        var reconcileKey = playlistItem.findAdSalesReconcileKey();
+                        result.Add(new WhatsonRow
+                        {
+                            Time = playlistItem.startDateTime()?.ToString("yyyy-MM-dd HH:mm:ss") ?? string.Empty,
+                            Block = blockList,
+                            PlaylistItem = playlistItem,
+                            ReconcileKey = reconcileKey
+                        });
+                    }
+                }
             }
         }
         return result;
@@ -179,7 +186,7 @@ public static class Utils
         return (T)JsonConvert.DeserializeObject<T>(text);
     }
 
-    private static string ReadFile(string path)
+    public static string ReadFile(string path)
     {
         try
         {
@@ -222,6 +229,18 @@ public static class Utils
         return row.StartDateTime.GenericList.Object[0].ISO8601;
         
     }
+
+    public static string channelName(this SLProtocolExt protocol)
+    {
+        var channelName = protocol.GetParameter(Parameter.channelname);
+        if (!(channelName is string))
+        {
+            throw new Exception("Channel is not defined");
+        }
+        return (string)channelName;
+
+    }
+
     public static string AsString(this Mediator.Title title)
     {
         if (title == null)
