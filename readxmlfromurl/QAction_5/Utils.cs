@@ -16,10 +16,11 @@ public static class Utils
 {
     public class AdSalesRow
     {
-        public string TimeOfDay;
-        public AdSales.ContentType Content;
-        public AdSales.BreakType Break;
+        public DateTime TimeOfDay;
+        public string Title;
+        public string ProductCode;
         public string ReconcileKey;
+        public string Duration;
     }
 
     public class WhatsonRow
@@ -42,22 +43,25 @@ public static class Utils
     public static List<AdSalesRow> flatten(this AdSales.DataType adSalesData)
     {
         List<AdSalesRow> result = new List<AdSalesRow>();
+        var dayStart = DateTime.Parse(adSalesData.ScheduleDate);
         foreach (var break_ in adSalesData.Breaks)
         {
-            var timeOfDay = TimeSpan.ParseExact(break_.BreakNominalTime, @"mm\:ss", null).TotalSeconds * 60;
+            var breakStart = TimeSpan.ParseExact(break_.BreakNominalTime, @"mm\:ss", null).TotalSeconds * 60;
             foreach (var timeAllocation in break_.TimeAllocations)
             {
+                var timeFromBreakStart = 0;
                 foreach (var content in timeAllocation.Contents)
                 {
-                    TimeSpan t = TimeSpan.FromSeconds(timeOfDay);
+                    var startTime = dayStart.AddSeconds(breakStart + timeFromBreakStart);
                     result.Add(new AdSalesRow
                     {
-                        TimeOfDay = t.TotalHours.ToString("00") + t.ToString(@"\:mm\:ss"),
-                        Content = content,
-                        Break = break_,
+                        TimeOfDay = startTime,
+                        Title = content.ContentBrand,
+                        ProductCode = content.ContentProductCode,
+                        Duration = content.ContentTotalDuration,
                         ReconcileKey = content.ContentReconcileKey,
                     });
-                    timeOfDay += (content.ContentTotalDuration != null) ? Int32.Parse(content.ContentTotalDuration) : 0;
+                    timeFromBreakStart += (content.ContentTotalDuration != null) ? Int32.Parse(content.ContentTotalDuration) : 0;
                 }
             }
         }

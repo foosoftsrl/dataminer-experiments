@@ -60,7 +60,7 @@ public class QAction
             {
                 Adsalestime = row.TimeOfDay,
                 Adsalesreconcilekey = row.ReconcileKey,
-                Adsalestitle = row.Content.ContentBrand,
+                Adsalestitle = row.Title,
             }.ToObjectArray());
         }
         protocol.FillArray(Parameter.Adsales.tablePid, tableRows, NotifyProtocol.SaveOption.Full);
@@ -111,10 +111,10 @@ public class QAction
         {
             tableRows.Add(new MergedtableQActionRow
             {
-                Mergedreconcilekey = row.adSalesData.ContentReconcileKey,
-                Mergedproductcode = row.adSalesData.ContentProductCode,
-                Mergedadsalestime = row.adSalesTime,
-                Mergedduration = row.adSalesData.ContentTotalDuration,
+                Mergedreconcilekey = row.adSalesData.ReconcileKey,
+                Mergedproductcode = row.adSalesData.ProductCode,
+                Mergedduration = row.adSalesData.Duration,
+                Mergedadsalestime = row.adSalesTime.ToString("yyyy-MM-dd HH:mm:ss"),
                 Mergedhavewon = (row.whatsonData != null) ? "\u2713" : string.Empty,
                 Mergedhavemediator = (row.mediatorData != null) ? "✓" : string.Empty,
                 Mergedwontime = row.whatsonData?.StartTime.ToString("yyyy-MM-dd HH:mm:ss") ?? string.Empty,

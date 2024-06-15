@@ -8,9 +8,8 @@ namespace QAction_5
 {
     public class MergedEntry
     {
-        public object adSalesTime;
-        public AdSales.BreakType adSalesBreakData;
-        public AdSales.ContentType adSalesData;
+        public DateTime adSalesTime;
+        public Utils.AdSalesRow adSalesData;
         public Utils.WhatsonRow whatsonData;
         public Utils.MediatorRow mediatorData;
     }

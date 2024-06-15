@@ -18,12 +18,11 @@
             List<MergedEntry> rowList = new List<MergedEntry>();
             foreach (var row in adSalesData)
             {
-                var contentReconcileKey = row.Content.ContentReconcileKey;
+                var contentReconcileKey = row.ReconcileKey;
                 rowList.Add(new MergedEntry
                 {
                     adSalesTime = row.TimeOfDay,
-                    adSalesBreakData = row.Break,
-                    adSalesData = row.Content,
+                    adSalesData = row,
                     whatsonData = whatsonMap.GetValueOrDefault(contentReconcileKey, null),
                     mediatorData = mediatorMap.GetValueOrDefault(contentReconcileKey, null),
                 });
