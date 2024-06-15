@@ -11,6 +11,7 @@
         public DateTime TimeOfDay;
         public string Title;
         public string ProductCode;
+        public string Type;
         public string ReconcileKey;
         public string Duration;
     }

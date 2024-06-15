@@ -61,6 +61,7 @@ public class QAction
                 Adsalestime = row.TimeOfDay,
                 Adsalesreconcilekey = row.ReconcileKey,
                 Adsalestitle = row.Title,
+                Adsalestype = row.Type,
             }.ToObjectArray());
         }
         protocol.FillArray(Parameter.Adsales.tablePid, tableRows, NotifyProtocol.SaveOption.Full);
@@ -119,6 +120,7 @@ public class QAction
                 Mergedhavemediator = (row.mediatorData != null) ? "✓" : string.Empty,
                 Mergedwontime = row.whatsonData?.StartTime.ToString("yyyy-MM-dd HH:mm:ss") ?? string.Empty,
                 Mergedmediatortime = row.mediatorData?.StartTime.ToString("yyyy-MM-dd HH:mm:ss") ?? string.Empty,
+                Mergedtype = row.adSalesData.Type,
             }.ToObjectArray());
         }
         protocol.FillArray(Parameter.Mergedtable.tablePid, tableRows, NotifyProtocol.SaveOption.Full);

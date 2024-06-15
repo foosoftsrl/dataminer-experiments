@@ -26,6 +26,7 @@
                         {
                             TimeOfDay = startTime,
                             Title = content.ContentBrand,
+                            Type = timeAllocation.TimeAllocationType1,
                             ProductCode = content.ContentProductCode,
                             Duration = content.ContentTotalDuration,
                             ReconcileKey = content.ContentReconcileKey,
