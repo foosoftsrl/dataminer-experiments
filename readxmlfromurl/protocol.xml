@@ -915,15 +915,15 @@
 				</Positions>
 			</Display>
 			<Measurement>
-				<Type options="tab=columns:5001|0-5002|1-5003|2-5004|3,width:138-130-130-130,sort:STRING-STRING-STRING-STRING,lines:20,filter:true">table</Type>
+				<Type options="tab=columns:5001|0-5002|1-5003|2-5004|3,width:138-130-130-360,sort:STRING-STRING-STRING-STRING,lines:20,filter:true">table</Type>
 			</Measurement>
 		</Param>
 		<Param id="5001" trending="false">
-			<Name>enablerLegacyText1</Name>
-			<Description>enablerLegacyText1</Description>
+			<Name>enablerLegacyTime</Name>
+			<Description>Time</Description>
 			<Type>read</Type>
 			<Information>
-				<Subtext>enablerLegacyText</Subtext>
+				<Subtext>Time</Subtext>
 			</Information>
 			<Interprete>
 				<RawType>other</RawType>
@@ -938,11 +938,11 @@
 			</Measurement>
 		</Param>
 		<Param id="5002" trending="false">
-			<Name>enablerLegacyText2</Name>
-			<Description>enablerLegacyText2</Description>
+			<Name>enablerLegacyEventCode</Name>
+			<Description>Event code</Description>
 			<Type>read</Type>
 			<Information>
-				<Subtext>enablerLegacyText2</Subtext>
+				<Subtext>Event code</Subtext>
 			</Information>
 			<Interprete>
 				<RawType>other</RawType>
@@ -957,11 +957,11 @@
 			</Measurement>
 		</Param>
 		<Param id="5003" trending="false">
-			<Name>enablerLegacyText3</Name>
-			<Description>enablerLegacyText3</Description>
+			<Name>enablerLegacyEventName</Name>
+			<Description>Event Name</Description>
 			<Type>read</Type>
 			<Information>
-				<Subtext>enablerLegacyText3</Subtext>
+				<Subtext>Event Name</Subtext>
 			</Information>
 			<Interprete>
 				<RawType>other</RawType>
@@ -976,11 +976,117 @@
 			</Measurement>
 		</Param>
 		<Param id="5004" trending="false">
-			<Name>enablerLegacyText4</Name>
-			<Description>enablerLegacyText4</Description>
+			<Name>enablerLegacyPayload</Name>
+			<Description>Event payload</Description>
 			<Type>read</Type>
 			<Information>
-				<Subtext>enablerLegacyText4</Subtext>
+				<Subtext>Event payload</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+
+		<Param id="6000">
+			<Name>enablerScte</Name>
+			<Description>enablerScte</Description>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="6001" type="retrieved" options="" />
+				<ColumnOption idx="1" pid="6002" type="retrieved" options="" />
+				<ColumnOption idx="2" pid="6003" type="retrieved" options="" />
+				<ColumnOption idx="3" pid="6004" type="retrieved" options="" />
+			</ArrayOptions>
+			<Information>
+				<Subtext>
+					enablerScte
+				</Subtext>
+			</Information>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Enabler Scte</Page>
+						<Column>0</Column>
+						<Row>3</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type options="tab=columns:6001|0-6002|1-6003|2-6004|3,width:138-130-130-360,sort:STRING-STRING-STRING-STRING,lines:20,filter:true">table</Type>
+			</Measurement>
+		</Param>
+		<Param id="6001" trending="false">
+			<Name>enablerScteTime</Name>
+			<Description>Time</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>Time</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="6002" trending="false">
+			<Name>enablerScteEventCode</Name>
+			<Description>Event code</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>Event code</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="6003" trending="false">
+			<Name>enablerScteEventName</Name>
+			<Description>Event name</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>Event name</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="6004" trending="false">
+			<Name>enablerSctePayload</Name>
+			<Description>Payload</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>Payload</Subtext>
 			</Information>
 			<Interprete>
 				<RawType>other</RawType>
