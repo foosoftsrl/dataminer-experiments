@@ -1,274 +1,226 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Net.WebSockets;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
+using Mediator;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using QAction_5;
 using Skyline.DataMiner.Scripting;
 
 /// <summary>
 /// DataMiner QAction Class.
 /// </summary>
-public static class QAction
+public class QAction
 {
+    private static AdSalesSource adSalesSource = new AdSalesSource();
+    private static MediatorSource mediatorSource = new MediatorSource();
+    private static WhatsonSource whatsonSource = new WhatsonSource();
+
     /// <summary>
     /// The QAction entry point.
     /// </summary>
     /// <param name="protocol">Link with SLProtocol process.</param>
-    public static async Task Run(SLProtocolExt protocol)
+    public async Task Run(SLProtocolExt protocol)
     {
-        var adSalesData = ReadAdSales(protocol);
-        var mediatorData = await ReadMediator(protocol);
-        var table = GenerateTable(adSalesData, mediatorData);
-        protocol.FillArray(Parameter.Mergedtable.tablePid, table, NotifyProtocol.SaveOption.Full);
+        protocol.Mergediterationcounter = (double)protocol.Mergediterationcounter + 1;
+        try
+        {
+            var adSalesData = ReadAdSalesData(protocol).Flatten();
+            PublishAdsalesTable(protocol, adSalesData);
+            var whatsonData = ReadWhatsonData(protocol);
+            PublishWhatsonTable(protocol, whatsonData);
+            var mediatorData = await ReadMediatorData(protocol);
+            PublishMediatorTable(protocol, mediatorData);
+
+            var mergedRows = Merger.Merge(adSalesData, whatsonData, mediatorData);
+            PublishMergedTable(protocol, mergedRows);
+            protocol.Mergeddebugmsg = $"Everything ok!";
+        }
+        catch (Exception e)
+        {
+            protocol.Mergeddebugmsg = $"Exception {e.Message}";
+        }
+
     }
 
-    public static Data ReadAdSales(SLProtocolExt protocol)
+    public List<object[]> PublishAdsalesTable(SLProtocolExt protocol, List<AdSalesRow> adSalesRows) {
+        List<object[]> tableRows = new List<object[]>();
+        foreach (var row in adSalesRows)
+        {
+            tableRows.Add(new AdsalesQActionRow
+            {
+                Adsalestime = row.TimeOfDay,
+                Adsalesreconcilekey = row.ReconcileKey,
+                Adsalestitle = row.Title,
+                Adsalestype = row.Type,
+            }.ToObjectArray());
+        }
+        protocol.FillArray(Parameter.Adsales.tablePid, tableRows, NotifyProtocol.SaveOption.Full);
+        protocol.Adsalesdebugmsg = "";
+        return tableRows;
+    }
+
+    public List<object[]> PublishWhatsonTable(SLProtocolExt protocol, List<WhatsonRow> whatsonRows)
     {
-        string channelName = (string)protocol.GetParameter(Parameter.channelnameadsales_7);
-        string currentDate = DateTime.Now.ToString("yyyyMMdd");
+        List<object[]> tableRows = new List<object[]>();
+        foreach (var row in whatsonRows)
+        {
+            tableRows.Add(new WonQActionRow
+            {
+                Wonstartdate = row.StartTime.ToString("yyyy-MM-dd HH:mm:ss") ?? string.Empty,
+                Wontitle = row.Title,
+                Wonreconcilekey = row.ReconcileKey ?? string.Empty,
+                Wonitemreference = row.ItemReference,
+            }.ToObjectArray());
+        }
+        protocol.FillArray(Parameter.Won.tablePid, tableRows, NotifyProtocol.SaveOption.Full);
+        return tableRows;
+    }
+
+    public List<object[]> PublishMediatorTable(SLProtocolExt protocol, List<MediatorRow> mediatorRows)
+    {
+        List<object[]> tableRows = new List<object[]>();
+        foreach (var row in mediatorRows)
+        {
+            tableRows.Add(new MediatorQActionRow
+            {
+                Mediatorid = row.ScheduleReference,
+                Mediatordate = row.StartTime.ToString("yyyy-MM-dd HH:mm:ss"),
+                Mediatortitle = row.Title,
+                Mediatorstatus = row.Status,
+                Mediatorreconcilekey = row.ReconcileKey,
+
+            }.ToObjectArray());
+        }
+        protocol.FillArray(Parameter.Mediator.tablePid, tableRows, NotifyProtocol.SaveOption.Full);
+        return tableRows;
+    }
+
+    public List<object[]> PublishMergedTable(SLProtocolExt protocol, MergedEntry[] mergedRows)
+    {
+        List<object[]> tableRows = new List<object[]>();
+        foreach (var row in mergedRows)
+        {
+            tableRows.Add(new MergedtableQActionRow
+            {
+                Mergedreconcilekey = row.adSalesData.ReconcileKey,
+                Mergedproductcode = row.adSalesData.ProductCode,
+                Mergedduration = row.adSalesData.Duration,
+                Mergedadsalestime = row.adSalesTime.ToString("yyyy-MM-dd HH:mm:ss"),
+                Mergedhavewon = (row.whatsonData != null) ? "\u2713" : string.Empty,
+                Mergedhavemediator = (row.mediatorData != null) ? "✓" : string.Empty,
+                Mergedwontime = row.whatsonData?.StartTime.ToString("yyyy-MM-dd HH:mm:ss") ?? string.Empty,
+                Mergedmediatortime = row.mediatorData?.StartTime.ToString("yyyy-MM-dd HH:mm:ss") ?? string.Empty,
+                Mergedtype = row.adSalesData.Type,
+            }.ToObjectArray());
+        }
+        protocol.FillArray(Parameter.Mergedtable.tablePid, tableRows, NotifyProtocol.SaveOption.Full);
+        return tableRows;
+    }
+
+    public static List<WhatsonRow> ReadWhatsonData(SLProtocolExt protocol)
+    {
+        string channelName = (string)protocol.channelName();
+        string dir = @"\\winfs01.mediaset.it\DM_Watchfolder\WON";
+        try
+        {
+            var data = whatsonSource.ReadWhatson(channelName, dir);
+            if (data == null)
+            {
+                protocol.Wondebugmsg = $"No whatson data for channel {channelName}";
+                return new List<WhatsonRow>();
+            }
+            else {
+                var rows = data.Flatten();
+                protocol.Wondebugmsg = $"Read {rows.Count} columns";
+                return rows;
+            }
+        }
+        catch (Exception ex)
+        {
+            protocol.Wondebugmsg = $"Failed reading Whatson data: {ex.Message}";
+            protocol.Log($"QA{protocol.QActionID}|{protocol.GetTriggerParameter()}|Run|Exception thrown:{Environment.NewLine}{ex}", LogType.Error, LogLevel.NoLogging);
+            throw new Exception("Failed reading Whatson data", ex);
+        }
+    }
+
+    public static AdSales.DataType ReadAdSalesData(SLProtocolExt protocol)
+    {
+        string channelName = protocol.channelName();
         string dir = @"\\winfs01.mediaset.it\DM_Watchfolder\Adsales";
-        string fileNamePrefix = $"{channelName}_{currentDate}_";
-        string[] files = Directory.GetFiles(dir, $"{fileNamePrefix}*.xml");
-
         try
         {
-            if (files.Length > 0)
-            {
-                protocol.Adsalesiterationcounter = (double)protocol.Adsalesiterationcounter + 1;
-                string latestFile = files.OrderByDescending(f => File.GetLastWriteTime(f)).First();
-
-                string fileContent = ReadFile(latestFile);
-                return XmlDeserializeFromString<Data>(fileContent);
-            }
-            else
-            {
-                protocol.Adsalesdebugmsg = "File not found for the selected channel";
-                throw new Exception("Could not find any Adsales file");
-            }
-        }
-        catch (FormatException fe)
-        {
-            protocol.Adsalesdebugmsg = "Date format error";
-            protocol.Log($"QA{protocol.QActionID}|{protocol.GetTriggerParameter()}|Run|Date format exception thrown:{Environment.NewLine}{fe}", LogType.Error, LogLevel.NoLogging);
-            throw fe;
+            return adSalesSource.ReadAdSales(channelName, dir);
         }
         catch (Exception ex)
         {
-            protocol.Adsalesdebugmsg = "Failed parsing xml file";
+            protocol.Adsalesdebugmsg = "Failed parsing AdSales data";
             protocol.Log($"QA{protocol.QActionID}|{protocol.GetTriggerParameter()}|Run|Exception thrown:{Environment.NewLine}{ex}", LogType.Error, LogLevel.NoLogging);
             throw ex;
         }
     }
 
-    public static string ReadFile(string path)
+    public List<MediatorRow> GetLastPublishedMediator(SLProtocolExt protocol)
     {
-        using (StreamReader streamReader = new StreamReader(path, Encoding.UTF8))
+        var idx = 0;
+        var result = new List<MediatorRow>();
+        while(true)
         {
-            return streamReader.ReadToEnd();
-        }
-    }
-
-    public static List<object[]> GenerateTable(Data adSalesData, Dictionary<String, Row> mediatorData)
-    {
-        List<object[]> rows = new List<object[]>();
-        foreach (var break_ in adSalesData.Breaks)
-        {
-            foreach (var timeAllocation in break_.TimeAllocations)
+            var data = (object[])protocol.GetRow(Parameter.Mediator.tablePid, idx++);
+            var row = new MediatorQActionRow(data);
+            if (row.Mediatordate == null)
+                break;
+            result.Add(new MediatorRow
             {
-                foreach (var content in timeAllocation.Contents)
-                {
-                    var contentReconcileKey = content.ContentReconcileKey.ToString();
-                    Row mediatorRow = null;
-                    if (mediatorData.ContainsKey(contentReconcileKey))
-                    {
-                        mediatorRow = mediatorData[contentReconcileKey.ToString()];
-                    }
-
-                    rows.Add(new MergedtableQActionRow
-                    {
-                        Mergedreconcilekey = content.ContentReconcileKey,
-                        Mergedcontent = mediatorRow?.TrimMaterialId,
-                    }.ToObjectArray());
-                }
-            }
+                StartTime = DateTime.Parse((string)row.Mediatordate),
+                ReconcileKey = (string)row.Mediatorreconcilekey,
+                Title = (string)row.Mediatortitle,
+                Status = (string)row.Mediatorstatus,
+                ScheduleReference=(string)row.Mediatorid,
+            });
         }
-
-        return rows;
+        return result;
     }
-
-    public static T XmlDeserializeFromString<T>(this string xmlTextData)
+    public async Task<List<MediatorRow>> ReadMediatorData(SLProtocolExt protocol)
     {
-        using (TextReader reader = new StringReader(xmlTextData))
-        {
-            var serializer = new XmlSerializer(typeof(T));
-            return (T)serializer.Deserialize(reader);
-        }
-    }
-
-    public static async Task<Dictionary<String, Row>> ReadMediator(SLProtocolExt protocol)
-    {
-        List<object[]> instances = new List<object[]>();
-
         try
         {
-            protocol.Mediatoriterationcounter = (double)protocol.Mediatoriterationcounter + 1;
-            string uri = (string)protocol.GetParameter(Parameter.urimediator_9);
-            string sessionKey = "A-VDRFtKctjLhGR3wMmoITydeAeNjhME";
-            string channelName = (string)protocol.GetParameter(Parameter.channenamemediator_11);
-            int maxResults = Convert.ToInt32(protocol.GetParameter(Parameter.maxresultsmediator_13));
-
-            string cqlQuery = $"select parcel.templateparameterlist sequence.startdatetime sequence.id sequence.duration sequence.schedulereference parcel.title event.trimmaterialid event.infaderate event.intransitionname sequence.state status from '{channelName}' where maxresults = {maxResults} and event.stream in ('Main Video')";
-            var payload = new
+            string uri = (string)protocol.GetParameter(Parameter.urimediator);
+            string channelName = protocol.channelName();
+            int maxResults = Convert.ToInt32(protocol.GetParameter(Parameter.maxresultsmediator));
+            var obj = await mediatorSource.ReadMediator(uri, channelName, maxResults);
+            var parsedList = (obj != null) ? obj.Flatten() : new List<MediatorRow>();
+            var merged = new List<MediatorRow>();
+            var lastPublishedMediator = GetLastPublishedMediator(protocol);
+            if (parsedList.Count != 0)
             {
-                PharosCs = new
+                var first = parsedList.First();
+                foreach(var row in lastPublishedMediator)
                 {
-                    CommandList = new
-                    {
-                        SessionKey = sessionKey,
-                        Command = new[]
-                        {
-                            new
-                            {
-                                Subsystem = "playtime",
-                                Method = "executeCQL",
-                                ParameterList = new
-                                {
-                                    cql = new
-                                    {
-                                        String = cqlQuery,
-                                    },
-                                },
-                            },
-                        },
-                    },
-                },
-            };
-            string message = JsonConvert.SerializeObject(payload);
-
-            string jsonData = await SendMessageAndWaitForResponseAsync(uri, message);
-
-            var rootObjects = JsonConvert.DeserializeObject<Rootobject>(jsonData);
-
-            Dictionary<String, Row> reconcileToRow = new Dictionary<String, Row>();
-
-            // Convert Generated class into Connector Row data.
-            foreach (var command in rootObjects.PharosCs.CommandList.Command)
-            {
-                foreach (var row in command.Output.ResultSet.Rows)
-                {
-                    if (row.TemplateParameterList.GenericList.Object[0].TemplateParameter[0].Name == "adSalesContentReconcileKey-text")
-                    {
-                        var reconcileKey = row.TemplateParameterList.GenericList.Object[0].TemplateParameter[0].Value;
-                        reconcileToRow.Add((String)reconcileKey, row);
-                    }
+                    if (row.StartTime >= first.StartTime)
+                        break;
+                    merged.Add(row);
                 }
             }
-
-            protocol.FillArray(Parameter.Mediator.tablePid, instances, NotifyProtocol.SaveOption.Full);
-            protocol.Mediatordebugmsg = $"Processed {instances.Count} Adsales Reconcile Key";
-            return reconcileToRow;
+            merged.AddRange(parsedList);
+            lastPublishedMediator = merged;
+            protocol.Mediatordebugmsg = $"Parsed {parsedList.Count}, State {lastPublishedMediator.Count}, Merged {merged.Count} lines";
+            return merged;
         }
         catch (Exception ex)
         {
+            protocol.Mediatordebugmsg = $"Failed reading Mediator data: {ex.Message}";
             protocol.Log($"QA{protocol.QActionID}|{protocol.GetTriggerParameter()}|Run|Exception thrown:{Environment.NewLine}{ex}", LogType.Error, LogLevel.NoLogging);
             throw ex;
         }
-    }
-
-    public static async Task<string> SendMessageAndWaitForResponseAsync(string uri, string message)
-    {
-        if (!uri.StartsWith("ws://") && !uri.StartsWith("wss://"))
-        {
-            throw new ArgumentException("The URI must be a WebSocket URI starting with ws:// or wss://");
-        }
-
-        using (var clientWebSocket = new ClientWebSocket())
-        {
-            // Ignora gli errori di certificato SSL
-            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
-            ServicePointManager.ServerCertificateValidationCallback = (sender, certificate, chain, sslPolicyErrors) => true;
-
-            try
-            {
-                Console.WriteLine($"Connecting to {uri}...");
-                await clientWebSocket.ConnectAsync(new Uri(uri), CancellationToken.None);
-                Console.WriteLine("Connected!");
-
-                var bytesToSend = Encoding.UTF8.GetBytes(message);
-                await clientWebSocket.SendAsync(new ArraySegment<byte>(bytesToSend), WebSocketMessageType.Text, true, CancellationToken.None);
-                Console.WriteLine("Message sent!");
-
-                string receivedMessage = string.Empty;
-                bool isExpectedMessage = false;
-
-                while (!isExpectedMessage)
-                {
-                    var buffer = new List<byte>();
-                    var receiveBuffer = new ArraySegment<byte>(new byte[1024 * 4]);
-
-                    WebSocketReceiveResult receiveResult;
-                    do
-                    {
-                        receiveResult = await clientWebSocket.ReceiveAsync(receiveBuffer, CancellationToken.None);
-                        buffer.AddRange(receiveBuffer.Array.Take(receiveResult.Count));
-                    }
-                    while (!receiveResult.EndOfMessage);
-
-                    receivedMessage = Encoding.UTF8.GetString(buffer.ToArray());
-                    Console.WriteLine($"Message received: {receivedMessage}");
-
-                    // Check if the received message is the expected one
-                    if (IsExpectedMessage(receivedMessage))
-                    {
-                        isExpectedMessage = true;
-                    }
-                }
-
-                await clientWebSocket.CloseOutputAsync(WebSocketCloseStatus.NormalClosure, "Closing", CancellationToken.None);
-                //await clientWebSocket.CloseAsync(WebSocketCloseStatus.NormalClosure, "Closed", CancellationToken.None);
-                Console.WriteLine("Connection closed.");
-
-                return receivedMessage;
-            }
-            catch (WebSocketException wse)
-            {
-                Console.WriteLine($"WebSocket error: {wse.Message}");
-                throw;
-            }
-            catch (WebException we)
-            {
-                Console.WriteLine($"Web error: {we.Message}");
-                throw;
-            }
-            catch (IOException ioe)
-            {
-                Console.WriteLine($"IO error: {ioe.Message}");
-                throw;
-            }
-            catch (SocketException se)
-            {
-                Console.WriteLine($"Socket error: {se.Message}");
-                throw;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"WebSocket error: {ex.Message}");
-                throw;
-            }
-        }
-    }
-
-    private static bool IsExpectedMessage(string message)
-    {
-        // Implementa la logica per verificare se il messaggio ricevuto � quello desiderato.
-        // Ad esempio, puoi verificare se il JSON contiene determinati campi o valori.
-        return message.Contains("executeCQL");
     }
 }

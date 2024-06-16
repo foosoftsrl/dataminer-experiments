@@ -230,7 +230,7 @@ public partial class PharosPlaylistBlockPlaylistItem
 
     private string startModeField;
 
-    private System.DateTime startDateField;
+    private string startDateField;
 
     private string startTimecodeField;
 
@@ -269,7 +269,7 @@ public partial class PharosPlaylistBlockPlaylistItem
     }
 
     /// <remarks/>
-    public System.DateTime StartDate
+    public string StartDate
     {
         get
         {

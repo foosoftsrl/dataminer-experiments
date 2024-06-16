@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+  <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:infatype="http://www.informatica.com/types/" elementFormDefault="unqualified" attributeFormDefault="unqualified">
+    <xsd:complexType name="TimeAllocationType">
+      <xsd:sequence>
+        <xsd:element name="TimeAllocationType" type="xsd:string">
+        </xsd:element>
+        <xsd:element name="TimeAllocationPosition" type="LimitedString20">
+        </xsd:element>
+        <xsd:element name="TimeAllocationNominalDuration" type="LimitedString20">
+        </xsd:element>
+        <xsd:element name="TimeAllocationOTTSubstitution" type="xsd:string">
+        </xsd:element>
+        <xsd:element name="TimeAllocationDenyTrailerBefore" type="xsd:string">
+        </xsd:element>
+        <xsd:element name="TimeAllocationSecondaryType" type="xsd:string">
+        </xsd:element>
+        <xsd:element name="TimeAllocationSecondaryReconcileKey" type="xsd:string">
+        </xsd:element>
+        <xsd:element name="TimeAllocationSecondaryProductCode" type="xsd:string">
+        </xsd:element>
+        <xsd:element name="TimeAllocationSecondaryBrand" type="xsd:string">
+        </xsd:element>
+        <xsd:element name="TimeAllocationPictureFrameLayout" type="xsd:string">
+        </xsd:element>
+        <xsd:element name="Contents" type="ContentsType"/>
+      </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="BreaksType">
+      <xsd:sequence>
+        <xsd:element name="Break" minOccurs="0" maxOccurs="unbounded" type="BreakType"/>
+      </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="ContentType" mixed="true">
+      <xsd:sequence>
+        <xsd:element name="ContentReconcileKey" minOccurs="0" maxOccurs="1" type="LimitedString20">
+        </xsd:element>
+        <xsd:element name="ContentOrder" minOccurs="0" maxOccurs="1" type="LimitedString20">
+        </xsd:element>
+        <xsd:element name="ContentProductCode" minOccurs="0" maxOccurs="1" type="xsd:string">
+        </xsd:element>
+        <xsd:element name="ContentAdvertiserName" minOccurs="0" maxOccurs="1" type="xsd:string">
+        </xsd:element>
+        <xsd:element name="ContentBrand" minOccurs="0" maxOccurs="1" type="xsd:string">
+        </xsd:element>
+        <xsd:element name="ContentType" minOccurs="0" maxOccurs="1" type="xsd:string">
+        </xsd:element>
+        <xsd:element name="ContentTotalDuration" minOccurs="0" maxOccurs="1" type="LimitedString20">
+        </xsd:element>
+        <xsd:element name="ContentUnsponsoredDuration" minOccurs="0" maxOccurs="1" type="LimitedString20">
+        </xsd:element>
+        <xsd:element name="ContentAdvertisementLimitCheck" minOccurs="0" maxOccurs="1" type="xsd:string">
+        </xsd:element>
+        <xsd:element name="ContentRiskTypes" minOccurs="0" maxOccurs="1" type="ContentRiskTypesType"/>
+        <xsd:element name="ContentDestination" minOccurs="0" maxOccurs="1" type="xsd:string">
+        </xsd:element>
+        <xsd:element name="ContentPictureFrameLayout" minOccurs="0" maxOccurs="1" type="xsd:string">
+        </xsd:element>
+        <xsd:element name="ContentSubtitled" minOccurs="0" maxOccurs="1" type="xsd:string">
+        </xsd:element>
+        <xsd:element name="ContentAudiodescripted" minOccurs="0" maxOccurs="1" type="xsd:string">
+        </xsd:element>
+        <xsd:element name="ContentEnabler" minOccurs="0" maxOccurs="1" type="xsd:string">
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="DataType">
+      <xsd:sequence>
+        <xsd:element name="ChannelCode" type="xsd:string">
+        </xsd:element>
+        <xsd:element name="ScheduleDate" type="xsd:string">
+        </xsd:element>
+        <xsd:element name="Breaks" type="BreaksType"/>
+      </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="BreakType">
+      <xsd:sequence>
+        <xsd:element name="BreakID" type="xsd:string">
+        </xsd:element>
+        <xsd:element name="BreakVersionForTA" type="LimitedString255">
+        </xsd:element>
+        <xsd:element name="BreakNominalTime" type="xsd:string">
+        </xsd:element>
+        <xsd:element name="BreakLockedTime" type="xsd:string">
+        </xsd:element>
+        <xsd:element name="BreakPosition" type="xsd:string">
+        </xsd:element>
+        <xsd:element name="BreakSimulcast" type="xsd:string">
+        </xsd:element>
+        <xsd:element name="BreakCommercialProductSales" type="xsd:string">
+        </xsd:element>
+        <xsd:element name="BreakQualityType" type="xsd:string">
+        </xsd:element>
+        <xsd:element name="BreakCountDown" type="xsd:string">
+        </xsd:element>
+        <xsd:element name="BreakScreenLayout" type="xsd:string">
+        </xsd:element>
+        <xsd:element name="BreakNote" type="xsd:string">
+        </xsd:element>
+        <xsd:element name="TimeAllocations" type="TimeAllocationsType"/>
+      </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="ContentsType">
+      <xsd:sequence>
+        <xsd:element name="Content" minOccurs="0" maxOccurs="unbounded" type="ContentType"/>
+      </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="ContentRiskTypesType">
+      <xsd:sequence>
+        <xsd:element name="ContentRiskType" minOccurs="0" maxOccurs="unbounded" type="LimitedString">
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="TimeAllocationsType">
+      <xsd:sequence>
+        <xsd:element name="TimeAllocation" minOccurs="0" maxOccurs="unbounded" type="TimeAllocationType"/>
+      </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="Data" type="DataType"/>
+
+    <xsd:simpleType name="LimitedString255">
+      <xsd:restriction base="xsd:string">
+        <xsd:maxLength value="255"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="LimitedString">
+      <xsd:restriction base="xsd:string">
+        <xsd:maxLength value="1"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="LimitedString20">
+      <xsd:restriction base="xsd:string">
+        <xsd:maxLength value="20"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:schema>
