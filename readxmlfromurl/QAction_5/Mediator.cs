@@ -136,7 +136,7 @@ namespace Mediator
 
         public string Rate { get; set; }
 
-        public DateTime ISO8601 { get; set; }
+        public String ISO8601 { get; set; }
     }
 
     public class Infaderate

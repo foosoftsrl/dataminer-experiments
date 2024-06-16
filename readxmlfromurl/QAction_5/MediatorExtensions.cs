@@ -42,7 +42,7 @@
                 var reconcileKey = row.ReconcileKey;
                 if (reconcileKey != null)
                 {
-                    reconcileToRow.Add(reconcileKey, row);
+                    reconcileToRow[reconcileKey] = row;
                 }
             }
             return reconcileToRow;
@@ -81,7 +81,7 @@
                 return null;
             if (row.StartDateTime.GenericList == null || row.StartDateTime.GenericList.Size != 1)
                 return null;
-            return row.StartDateTime.GenericList.Object[0].ISO8601;
+            return DateTime.Parse(row.StartDateTime.GenericList.Object[0].ISO8601 + "Z");
         }
         public static string AsString(this Mediator.Title title)
         {

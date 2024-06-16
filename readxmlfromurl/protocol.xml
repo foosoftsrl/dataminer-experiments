@@ -289,11 +289,6 @@
 					<Position>
 						<Page>Configuration</Page>
 						<Column>0</Column>
-						<Row>4</Row>
-					</Position>
-					<Position>
-						<Page>Configuration</Page>
-						<Column>0</Column>
 						<Row>3</Row>
 					</Position>
 				</Positions>
@@ -346,11 +341,6 @@
 						<Column>0</Column>
 						<Row>4</Row>
 					</Position>
-					<Position>
-						<Page>Configuration</Page>
-						<Column>0</Column>
-						<Row>3</Row>
-					</Position>
 				</Positions>
 			</Display>
 			<Measurement>
@@ -381,10 +371,29 @@
 				</Positions>
 			</Display>
 			<Measurement>
-				<Type options="tab=columns:1001|0-1002|1-1003|2-1004|3,width:120-240-120,sort:STRING-STRING-STRING,lines:25,filter:true">table</Type>
+				<Type options="tab=columns:1001|0-1002|1-1003|2-1004|3,width:120-240-120-120,sort:STRING|ASC|0-STRING-STRING-STRING,lines:25,filter:true">table</Type>
 			</Measurement>
 		</Param>
 		<Param id="1001" trending="false">
+			<Name>adSalesReconcileKey</Name>
+			<Description>ReconcileKey</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>This is the key used internally by DataMiner to identify the table entries.</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="1002" trending="false">
 			<Name>adSalesTime</Name>
 			<Description>Time</Description>
 			<Type>read</Type>
@@ -403,7 +412,7 @@
 				<Type>string</Type>
 			</Measurement>
 		</Param>
-		<Param id="1002" trending="false">
+		<Param id="1003" trending="false">
 			<Name>adSalesTitle</Name>
 			<Description>Title</Description>
 			<Type>read</Type>
@@ -422,31 +431,12 @@
 				<Type>string</Type>
 			</Measurement>
 		</Param>
-		<Param id="1003" trending="false">
+		<Param id="1004" trending="false">
 			<Name>adSalesType</Name>
 			<Description>Allocation Type</Description>
 			<Type>read</Type>
 			<Information>
 				<Subtext>Indicate what type of allocation is, such as SPOT or IS</Subtext>
-			</Information>
-			<Interprete>
-				<RawType>other</RawType>
-				<Type>string</Type>
-				<LengthType>next param</LengthType>
-			</Interprete>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-			</Display>
-			<Measurement>
-				<Type>string</Type>
-			</Measurement>
-		</Param>
-		<Param id="1004" trending="false">
-			<Name>adSalesReconcileKey</Name>
-			<Description>Reconcile Key (Adsales)</Description>
-			<Type>read</Type>
-			<Information>
-				<Subtext>This is the key used internally by DataMiner to identify the table entries.</Subtext>
 			</Information>
 			<Interprete>
 				<RawType>other</RawType>
@@ -608,10 +598,29 @@
 				</Positions>
 			</Display>
 			<Measurement>
-				<Type options="tab=columns:3001|0-3002|1-3003|2-3004|3,width:120-240-120-120,sort:STRING-STRING-STRING-STRING,lines:25,filter:true">table</Type>
+				<Type options="tab=columns:3001|0-3002|1-3003|2-3004|3,width:240-120-240-120,sort:STRING-STRING|ASC-STRING-STRING,lines:25,filter:true">table</Type>
 			</Measurement>
 		</Param>
 		<Param id="3001" trending="false">
+			<Name>wonItemReference</Name>
+			<Description>ItemReference</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>ItemReference</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="3002" trending="false">
 			<Name>wonStartDate</Name>
 			<Description>Start date</Description>
 			<Type>read</Type>
@@ -630,7 +639,7 @@
 				<Type>string</Type>
 			</Measurement>
 		</Param>
-		<Param id="3002" trending="false">
+		<Param id="3003" trending="false">
 			<Name>wonTitle</Name>
 			<Description>Title</Description>
 			<Type>read</Type>
@@ -649,31 +658,12 @@
 				<Type>string</Type>
 			</Measurement>
 		</Param>
-		<Param id="3003" trending="false">
+		<Param id="3004" trending="false">
 			<Name>wonReconcileKey</Name>
 			<Description>Reconcile Key</Description>
 			<Type>read</Type>
 			<Information>
 				<Subtext>Reconcile Key</Subtext>
-			</Information>
-			<Interprete>
-				<RawType>other</RawType>
-				<Type>string</Type>
-				<LengthType>next param</LengthType>
-			</Interprete>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-			</Display>
-			<Measurement>
-				<Type>string</Type>
-			</Measurement>
-		</Param>
-		<Param id="3004" trending="false">
-			<Name>wonItemReference</Name>
-			<Description>ItemReference</Description>
-			<Type>read</Type>
-			<Information>
-				<Subtext>ItemReference</Subtext>
 			</Information>
 			<Interprete>
 				<RawType>other</RawType>
@@ -717,30 +707,11 @@
 				</Positions>
 			</Display>
 			<Measurement>
-				<Type options=";tab=columns:4001|0-4002|1-4003|2-4004|3-4005|4-4006|5-4007|6-4008|7-4009|8,width:100-100-100-100-100-100-160-160-100,lines:25,filter:true">table</Type>
+				<Type options=";tab=columns:4001|0-4002|1-4003|2-4004|3-4005|4-4006|5-4007|6-4008|7-4009|8,width:100-120-100-100-100-100-160-160-120,sort:STRING-STRING|ASC|0-STRING-STRING-STRING-STRING-STRING-STRING-STRING,lines:25,filter:true">table</Type>
 			</Measurement>
 		</Param>
 		
 		<Param id="4001" trending="false">
-			<Name>mergedAdSalesTime</Name>
-			<Description>Ora Prevista</Description>
-			<Type>read</Type>
-			<Information>
-				<Subtext>Time coming from AdSales system</Subtext>
-			</Information>
-			<Interprete>
-				<RawType>other</RawType>
-				<Type>string</Type>
-				<LengthType>next param</LengthType>
-			</Interprete>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-			</Display>
-			<Measurement>
-				<Type>string</Type>
-			</Measurement>
-		</Param>
-		<Param id="4002" trending="false">
 			<Name>mergedReconcileKey</Name>
 			<Description>ReconcileKey</Description>
 			<Type>read</Type>
@@ -759,7 +730,25 @@
 				<Type>string</Type>
 			</Measurement>
 		</Param>
-		
+		<Param id="4002" trending="false">
+			<Name>mergedAdSalesTime</Name>
+			<Description>Ora Prevista</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>Time coming from AdSales system</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
 		<Param id="4003" trending="false">
 			<Name>mergedProductCode</Name>
 			<Description>ProductCode</Description>
@@ -879,10 +868,10 @@
 				<Type>string</Type>
 			</Measurement>
 		</Param>
-
+		
 		<Param id="4009" trending="false">
 			<Name>mergedType</Name>
-			<Description>Allocation Type</Description>
+			<Description>AllocationType</Description>
 			<Type>read</Type>
 			<Information>
 				<Subtext>Allocation Type</Subtext>
@@ -899,7 +888,7 @@
 				<Type>string</Type>
 			</Measurement>
 		</Param>
-
+		
 		<!-- Debug stuff -->
 		<Param id="10001" trending="false">
 			<Name>adSalesDebugMsg</Name>

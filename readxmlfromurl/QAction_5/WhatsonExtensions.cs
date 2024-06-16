@@ -47,7 +47,7 @@
                 var adSalesReconcileKey = row.ReconcileKey;
                 if (adSalesReconcileKey != null)
                 {
-                    reconcileToRow.Add(adSalesReconcileKey, row);
+                    reconcileToRow[adSalesReconcileKey] = row;
                 }
             }
             return reconcileToRow;
