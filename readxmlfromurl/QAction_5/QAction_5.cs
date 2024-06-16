@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
+using System.Net.Mime;
 using System.Net.Sockets;
 using System.Net.WebSockets;
 using System.Runtime.Remoting.Messaging;
@@ -40,6 +42,7 @@ public class QAction
             PublishWhatsonTable(protocol, whatsonData);
             var mediatorData = await ReadMediatorData(protocol);
             PublishMediatorTable(protocol, mediatorData);
+            var enableLegacy = ReadLegacy(protocol);
 
             var mergedRows = Merger.Merge(adSalesData, whatsonData, mediatorData);
             PublishMergedTable(protocol, mergedRows);
@@ -125,6 +128,31 @@ public class QAction
         }
         protocol.FillArray(Parameter.Mergedtable.tablePid, tableRows, NotifyProtocol.SaveOption.Full);
         return tableRows;
+    }
+    public async Task<string> ReadLegacy(SLProtocolExt protocol)
+    {
+        try
+        {
+            using (var httpClient = new HttpClient())
+            {
+                var request = new HttpRequestMessage
+                {
+                    Method = HttpMethod.Get,
+                    RequestUri = new Uri("http://teamcity-agent-rh8-vm.dvp.ravfav.priv:5031/legacy?channel=KI"),
+                };
+
+                using (var response = await httpClient.SendAsync(request))
+                {
+                    string apiResponse = await response.Content.ReadAsStringAsync();
+                    protocol.Legacydebugmsg = "Everything ok!";
+                    return apiResponse;
+                }
+            }
+        } catch(Exception ex)
+        {
+            protocol.Legacydebugmsg = $"Exception {ex.StackTrace}";
+            return "";
+        }
     }
 
     public static List<WhatsonRow> ReadWhatsonData(SLProtocolExt protocol)

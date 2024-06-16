@@ -68,6 +68,11 @@ public static class Parameter
 	public const int wonfilename_10303 = 10303;
 	/// <summary>PID: 10303 | Type: read</summary>
 	public const int wonfilename = 10303;
+	/// <summary>PID: 10401 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public const int legacydebugmsg_10401 = 10401;
+	/// <summary>PID: 10401 | Type: read</summary>
+	public const int legacydebugmsg = 10401;
 	public class Write
 	{
 		/// <summary>PID: 4 | Type: write</summary>
@@ -512,6 +517,8 @@ public interface SLProtocolExt : SLProtocol
 	object Wondebugmsg { get; set; }
 	object Wonfilename_10303 { get; set; }
 	object Wonfilename { get; set; }
+	object Legacydebugmsg_10401 { get; set; }
+	object Legacydebugmsg { get; set; }
 	WriteParameters Write { get; set; }
 }
 public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
@@ -725,6 +732,11 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public System.Object Wonfilename_10303 {get { return GetParameter(10303); }set { SetParameter(10303, value); }}
 	/// <summary>PID: 10303  | Type: read</summary>
 	public System.Object Wonfilename {get { return GetParameter(10303); }set { SetParameter(10303, value); }}
+	/// <summary>PID: 10401  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Legacydebugmsg_10401 {get { return GetParameter(10401); }set { SetParameter(10401, value); }}
+	/// <summary>PID: 10401  | Type: read</summary>
+	public System.Object Legacydebugmsg {get { return GetParameter(10401); }set { SetParameter(10401, value); }}
 	public WriteParameters Write { get; set; }
 	public ConcreteSLProtocolExt()
 	{

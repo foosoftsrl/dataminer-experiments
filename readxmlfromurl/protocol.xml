@@ -1103,7 +1103,32 @@
 				<Type>string</Type>
 			</Measurement>
 		</Param>
-		
+		<Param id="10401" trending="false">
+			<Name>legacyDebugMsg</Name>
+			<Description>Debug Legacy Data</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Enabler Legacy</Page>
+						<Column>0</Column>
+						<Row>1</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+
 	</Params>
 
 	<QActions>
