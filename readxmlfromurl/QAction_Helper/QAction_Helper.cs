@@ -403,6 +403,64 @@ public static class Parameter
 			public const int mergedtype = 8;
 		}
 	}
+	public class Enablerlegacy
+	{
+		/// <summary>PID: 5000</summary>
+		public const int tablePid = 5000;
+		/// <summary>IDX: 0</summary>
+		public const int indexColumn = 0;
+		/// <summary>PID: 5001</summary>
+		public const int indexColumnPid = 5001;
+		public class Pid
+		{
+			/// <summary>PID: 5001 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int enablerlegacytext1_5001 = 5001;
+			/// <summary>PID: 5001 | Type: read</summary>
+			public const int enablerlegacytext1 = 5001;
+			/// <summary>PID: 5002 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int enablerlegacytext2_5002 = 5002;
+			/// <summary>PID: 5002 | Type: read</summary>
+			public const int enablerlegacytext2 = 5002;
+			/// <summary>PID: 5003 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int enablerlegacytext3_5003 = 5003;
+			/// <summary>PID: 5003 | Type: read</summary>
+			public const int enablerlegacytext3 = 5003;
+			/// <summary>PID: 5004 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int enablerlegacytext4_5004 = 5004;
+			/// <summary>PID: 5004 | Type: read</summary>
+			public const int enablerlegacytext4 = 5004;
+			public class Write
+			{
+			}
+		}
+		public class Idx
+		{
+			/// <summary>IDX: 0 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int enablerlegacytext1_5001 = 0;
+			/// <summary>IDX: 0 | Type: read</summary>
+			public const int enablerlegacytext1 = 0;
+			/// <summary>IDX: 1 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int enablerlegacytext2_5002 = 1;
+			/// <summary>IDX: 1 | Type: read</summary>
+			public const int enablerlegacytext2 = 1;
+			/// <summary>IDX: 2 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int enablerlegacytext3_5003 = 2;
+			/// <summary>IDX: 2 | Type: read</summary>
+			public const int enablerlegacytext3 = 2;
+			/// <summary>IDX: 3 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int enablerlegacytext4_5004 = 3;
+			/// <summary>IDX: 3 | Type: read</summary>
+			public const int enablerlegacytext4 = 3;
+		}
+	}
 }
 public class WriteParameters
 {
@@ -436,6 +494,8 @@ public interface SLProtocolExt : SLProtocol
 	WonQActionTable won { get; set; }
 	/// <summary>PID: 4000</summary>
 	MergedtableQActionTable mergedtable { get; set; }
+	/// <summary>PID: 5000</summary>
+	EnablerlegacyQActionTable enablerlegacy { get; set; }
 	object Afterstartup_dummy { get; set; }
 	object Triggerqaction_dummy { get; set; }
 	object Pgbconfiguration_4 { get; set; }
@@ -501,6 +561,14 @@ public interface SLProtocolExt : SLProtocol
 	object Mergedmediatortime { get; set; }
 	object Mergedtype_4009 { get; set; }
 	object Mergedtype { get; set; }
+	object Enablerlegacytext1_5001 { get; set; }
+	object Enablerlegacytext1 { get; set; }
+	object Enablerlegacytext2_5002 { get; set; }
+	object Enablerlegacytext2 { get; set; }
+	object Enablerlegacytext3_5003 { get; set; }
+	object Enablerlegacytext3 { get; set; }
+	object Enablerlegacytext4_5004 { get; set; }
+	object Enablerlegacytext4 { get; set; }
 	object Adsalesdebugmsg_10001 { get; set; }
 	object Adsalesdebugmsg { get; set; }
 	object Adsalesfilename_10003 { get; set; }
@@ -531,6 +599,8 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public WonQActionTable won { get; set; }
 	/// <summary>PID: 4000</summary>
 	public MergedtableQActionTable mergedtable { get; set; }
+	/// <summary>PID: 5000</summary>
+	public EnablerlegacyQActionTable enablerlegacy { get; set; }
 	/// <summary>PID: 2  | Type: dummy</summary>
 	public System.Object Afterstartup_dummy {get { return GetParameter(2); }set { SetParameter(2, value); }}
 	/// <summary>PID: 3  | Type: dummy</summary>
@@ -693,6 +763,26 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public System.Object Mergedtype_4009 {get { return GetParameter(4009); }set { SetParameter(4009, value); }}
 	/// <summary>PID: 4009  | Type: read</summary>
 	public System.Object Mergedtype {get { return GetParameter(4009); }set { SetParameter(4009, value); }}
+	/// <summary>PID: 5001  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Enablerlegacytext1_5001 {get { return GetParameter(5001); }set { SetParameter(5001, value); }}
+	/// <summary>PID: 5001  | Type: read</summary>
+	public System.Object Enablerlegacytext1 {get { return GetParameter(5001); }set { SetParameter(5001, value); }}
+	/// <summary>PID: 5002  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Enablerlegacytext2_5002 {get { return GetParameter(5002); }set { SetParameter(5002, value); }}
+	/// <summary>PID: 5002  | Type: read</summary>
+	public System.Object Enablerlegacytext2 {get { return GetParameter(5002); }set { SetParameter(5002, value); }}
+	/// <summary>PID: 5003  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Enablerlegacytext3_5003 {get { return GetParameter(5003); }set { SetParameter(5003, value); }}
+	/// <summary>PID: 5003  | Type: read</summary>
+	public System.Object Enablerlegacytext3 {get { return GetParameter(5003); }set { SetParameter(5003, value); }}
+	/// <summary>PID: 5004  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Enablerlegacytext4_5004 {get { return GetParameter(5004); }set { SetParameter(5004, value); }}
+	/// <summary>PID: 5004  | Type: read</summary>
+	public System.Object Enablerlegacytext4 {get { return GetParameter(5004); }set { SetParameter(5004, value); }}
 	/// <summary>PID: 10001  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Adsalesdebugmsg_10001 {get { return GetParameter(10001); }set { SetParameter(10001, value); }}
@@ -744,6 +834,7 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 		mediator = new MediatorQActionTable(this, 2000, "mediator");
 		won = new WonQActionTable(this, 3000, "won");
 		mergedtable = new MergedtableQActionTable(this, 4000, "mergedtable");
+		enablerlegacy = new EnablerlegacyQActionTable(this, 5000, "enablerlegacy");
 		Write = new WriteParameters(this);
 	}
 }
@@ -774,6 +865,13 @@ public class MergedtableQActionTable : QActionTable, IEnumerable<MergedtableQAct
 	public MergedtableQActionTable(SLProtocol protocol, int tableId, string tableName) : base(protocol, tableId, tableName) { }
 	IEnumerator IEnumerable.GetEnumerator() { return (IEnumerator) GetEnumerator(); }
 	public IEnumerator<MergedtableQActionRow> GetEnumerator() { return new QActionTableEnumerator<MergedtableQActionRow>(this); }
+}
+/// <summary>IDX: 0</summary>
+public class EnablerlegacyQActionTable : QActionTable, IEnumerable<EnablerlegacyQActionRow>
+{
+	public EnablerlegacyQActionTable(SLProtocol protocol, int tableId, string tableName) : base(protocol, tableId, tableName) { }
+	IEnumerator IEnumerable.GetEnumerator() { return (IEnumerator) GetEnumerator(); }
+	public IEnumerator<EnablerlegacyQActionRow> GetEnumerator() { return new QActionTableEnumerator<EnablerlegacyQActionRow>(this); }
 }
 /// <summary>IDX: 0</summary>
 public class AdsalesQActionRow : QActionTableRow
@@ -916,5 +1014,33 @@ public class MergedtableQActionRow : QActionTableRow
 	public MergedtableQActionRow(System.Object[] oRow) : base(0, 9, oRow) { }
 	public static implicit operator MergedtableQActionRow(System.Object[] source) { return new MergedtableQActionRow(source); }
 	public static implicit operator System.Object[](MergedtableQActionRow source) { return source.ToObjectArray(); }
+}
+/// <summary>IDX: 0</summary>
+public class EnablerlegacyQActionRow : QActionTableRow
+{
+	/// <summary>PID: 5001 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Enablerlegacytext1_5001 { get { if (base.Columns.ContainsKey(0)) { return base.Columns[0]; } else { return null; } } set { if (base.Columns.ContainsKey(0)) { base.Columns[0] = value; } else { base.Columns.Add(0, value); } } }
+	/// <summary>PID: 5001 | Type: read</summary>
+	public System.Object Enablerlegacytext1 { get { if (base.Columns.ContainsKey(0)) { return base.Columns[0]; } else { return null; } } set { if (base.Columns.ContainsKey(0)) { base.Columns[0] = value; } else { base.Columns.Add(0, value); } } }
+	/// <summary>PID: 5002 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Enablerlegacytext2_5002 { get { if (base.Columns.ContainsKey(1)) { return base.Columns[1]; } else { return null; } } set { if (base.Columns.ContainsKey(1)) { base.Columns[1] = value; } else { base.Columns.Add(1, value); } } }
+	/// <summary>PID: 5002 | Type: read</summary>
+	public System.Object Enablerlegacytext2 { get { if (base.Columns.ContainsKey(1)) { return base.Columns[1]; } else { return null; } } set { if (base.Columns.ContainsKey(1)) { base.Columns[1] = value; } else { base.Columns.Add(1, value); } } }
+	/// <summary>PID: 5003 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Enablerlegacytext3_5003 { get { if (base.Columns.ContainsKey(2)) { return base.Columns[2]; } else { return null; } } set { if (base.Columns.ContainsKey(2)) { base.Columns[2] = value; } else { base.Columns.Add(2, value); } } }
+	/// <summary>PID: 5003 | Type: read</summary>
+	public System.Object Enablerlegacytext3 { get { if (base.Columns.ContainsKey(2)) { return base.Columns[2]; } else { return null; } } set { if (base.Columns.ContainsKey(2)) { base.Columns[2] = value; } else { base.Columns.Add(2, value); } } }
+	/// <summary>PID: 5004 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Enablerlegacytext4_5004 { get { if (base.Columns.ContainsKey(3)) { return base.Columns[3]; } else { return null; } } set { if (base.Columns.ContainsKey(3)) { base.Columns[3] = value; } else { base.Columns.Add(3, value); } } }
+	/// <summary>PID: 5004 | Type: read</summary>
+	public System.Object Enablerlegacytext4 { get { if (base.Columns.ContainsKey(3)) { return base.Columns[3]; } else { return null; } } set { if (base.Columns.ContainsKey(3)) { base.Columns[3] = value; } else { base.Columns.Add(3, value); } } }
+	public EnablerlegacyQActionRow() : base(0, 4) { }
+	public EnablerlegacyQActionRow(System.Object[] oRow) : base(0, 4, oRow) { }
+	public static implicit operator EnablerlegacyQActionRow(System.Object[] source) { return new EnablerlegacyQActionRow(source); }
+	public static implicit operator System.Object[](EnablerlegacyQActionRow source) { return source.ToObjectArray(); }
 }
 }

@@ -138,19 +138,33 @@ public class QAction
                 var request = new HttpRequestMessage
                 {
                     Method = HttpMethod.Get,
-                    RequestUri = new Uri("http://teamcity-agent-rh8-vm.dvp.ravfav.priv:5031/legacy?channel=KI"),
+                    RequestUri = new Uri("http://10.102.43.124:5031/legacy?channel=KI"),
                 };
 
                 using (var response = await httpClient.SendAsync(request))
                 {
                     string apiResponse = await response.Content.ReadAsStringAsync();
                     protocol.Legacydebugmsg = "Everything ok!";
+                    var rows = apiResponse.Split('\n');
+                    List<object[]> tableRows = new List<object[]>();
+                    foreach (var row in rows)
+                    {
+                        var cells = row.Split(',');
+                        tableRows.Add(new EnablerlegacyQActionRow
+                        {
+                            Enablerlegacytext1 = cells[0],
+                            Enablerlegacytext2 = cells.Length > 1 ? cells[1] : "",
+                            Enablerlegacytext3 = cells.Length > 2 ? cells[2] : "",
+                            Enablerlegacytext4 = cells.Length > 3 ? cells[3] : "",
+                        }.ToObjectArray());
+                    }
+                    protocol.FillArray(Parameter.Enablerlegacy.tablePid, tableRows, NotifyProtocol.SaveOption.Full);
                     return apiResponse;
                 }
             }
         } catch(Exception ex)
         {
-            protocol.Legacydebugmsg = $"Exception {ex.StackTrace}";
+            protocol.Legacydebugmsg = $"Exception {ex.Message}";
             return "";
         }
     }

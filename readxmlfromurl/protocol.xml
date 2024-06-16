@@ -13,14 +13,14 @@
 	<DeviceOID></DeviceOID>
 	<ElementType>Connect to http</ElementType>
 	<Type relativeTimers="true">virtual</Type>
-	<Display defaultPage="General" pageOrder="General;-------;Adsales;Mediator;Won" wideColumnPages=""/>
+	<Display defaultPage="General" pageOrder="General;-------;Adsales;Mediator;Won;Enabler Legacy" wideColumnPages=""/>
 	<SNMP includepages="true">auto</SNMP>
 
 	<Compliancies>
 		<CassandraReady>true</CassandraReady>
 		<MinimumRequiredVersion>10.2.0.0 - 12603</MinimumRequiredVersion>
 	</Compliancies>
-
+	
 	<Params>
 		<Param id="2">
 			<Name>AfterStartup</Name>
@@ -889,6 +889,112 @@
 			</Measurement>
 		</Param>
 		
+		<Param id="5000">
+			<Name>enablerLegacy</Name>
+			<Description>enablerLegacy</Description>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="5001" type="retrieved" options="" />
+				<ColumnOption idx="1" pid="5002" type="retrieved" options="" />
+				<ColumnOption idx="2" pid="5003" type="retrieved" options="" />
+				<ColumnOption idx="3" pid="5004" type="retrieved" options="" />
+			</ArrayOptions>
+			<Information>
+				<Subtext>
+					enablerLegacy
+				</Subtext>
+			</Information>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Enabler Legacy</Page>
+						<Column>0</Column>
+						<Row>3</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type options="tab=columns:5001|0-5002|1-5003|2-5004|3,width:138-130-130-130,sort:STRING-STRING-STRING-STRING,lines:20,filter:true">table</Type>
+			</Measurement>
+		</Param>
+		<Param id="5001" trending="false">
+			<Name>enablerLegacyText1</Name>
+			<Description>enablerLegacyText1</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>enablerLegacyText</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="5002" trending="false">
+			<Name>enablerLegacyText2</Name>
+			<Description>enablerLegacyText2</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>enablerLegacyText2</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="5003" trending="false">
+			<Name>enablerLegacyText3</Name>
+			<Description>enablerLegacyText3</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>enablerLegacyText3</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="5004" trending="false">
+			<Name>enablerLegacyText4</Name>
+			<Description>enablerLegacyText4</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>enablerLegacyText4</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		
 		<!-- Debug stuff -->
 		<Param id="10001" trending="false">
 			<Name>adSalesDebugMsg</Name>
@@ -1128,9 +1234,8 @@
 				<Type>string</Type>
 			</Measurement>
 		</Param>
-
 	</Params>
-
+	
 	<QActions>
 		<QAction id="1" name="Precompiled Code" encoding="csharp" options="precompile" />
 		<QAction id="2" name="After Startup" encoding="csharp" triggers="2" />
