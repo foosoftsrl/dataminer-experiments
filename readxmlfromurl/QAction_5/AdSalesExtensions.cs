@@ -30,6 +30,7 @@
                             ProductCode = content.ContentProductCode,
                             Duration = content.ContentTotalDuration,
                             ReconcileKey = content.ContentReconcileKey,
+                            Enabler = content.ContentEnabler,
                         });
                         timeFromBreakStart += (content.ContentTotalDuration != null) ? Int32.Parse(content.ContentTotalDuration) : 0;
                     }

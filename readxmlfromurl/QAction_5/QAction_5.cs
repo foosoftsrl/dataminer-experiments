@@ -66,6 +66,7 @@ public class QAction
                 Adsalesreconcilekey = row.ReconcileKey,
                 Adsalestitle = row.Title,
                 Adsalestype = row.Type,
+                Adsalesenabler = row.Enabler,
             }.ToObjectArray());
         }
         protocol.FillArray(Parameter.Adsales.tablePid, tableRows, NotifyProtocol.SaveOption.Full);

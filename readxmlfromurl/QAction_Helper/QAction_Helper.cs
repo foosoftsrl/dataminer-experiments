@@ -141,6 +141,11 @@ public static class Parameter
 			public const int adsalestype_1004 = 1004;
 			/// <summary>PID: 1004 | Type: read</summary>
 			public const int adsalestype = 1004;
+			/// <summary>PID: 1005 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int adsalesenabler_1005 = 1005;
+			/// <summary>PID: 1005 | Type: read</summary>
+			public const int adsalesenabler = 1005;
 			public class Write
 			{
 			}
@@ -167,6 +172,11 @@ public static class Parameter
 			public const int adsalestype_1004 = 3;
 			/// <summary>IDX: 3 | Type: read</summary>
 			public const int adsalestype = 3;
+			/// <summary>IDX: 4 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int adsalesenabler_1005 = 4;
+			/// <summary>IDX: 4 | Type: read</summary>
+			public const int adsalesenabler = 4;
 		}
 	}
 	public class Mediator
@@ -595,6 +605,8 @@ public interface SLProtocolExt : SLProtocol
 	object Adsalestitle { get; set; }
 	object Adsalestype_1004 { get; set; }
 	object Adsalestype { get; set; }
+	object Adsalesenabler_1005 { get; set; }
+	object Adsalesenabler { get; set; }
 	object Mediatorid_2001 { get; set; }
 	object Mediatorid { get; set; }
 	object Mediatordate_2002 { get; set; }
@@ -755,6 +767,11 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public System.Object Adsalestype_1004 {get { return GetParameter(1004); }set { SetParameter(1004, value); }}
 	/// <summary>PID: 1004  | Type: read</summary>
 	public System.Object Adsalestype {get { return GetParameter(1004); }set { SetParameter(1004, value); }}
+	/// <summary>PID: 1005  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Adsalesenabler_1005 {get { return GetParameter(1005); }set { SetParameter(1005, value); }}
+	/// <summary>PID: 1005  | Type: read</summary>
+	public System.Object Adsalesenabler {get { return GetParameter(1005); }set { SetParameter(1005, value); }}
 	/// <summary>PID: 2001  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Mediatorid_2001 {get { return GetParameter(2001); }set { SetParameter(2001, value); }}
@@ -1011,8 +1028,13 @@ public class AdsalesQActionRow : QActionTableRow
 	public System.Object Adsalestype_1004 { get { if (base.Columns.ContainsKey(3)) { return base.Columns[3]; } else { return null; } } set { if (base.Columns.ContainsKey(3)) { base.Columns[3] = value; } else { base.Columns.Add(3, value); } } }
 	/// <summary>PID: 1004 | Type: read</summary>
 	public System.Object Adsalestype { get { if (base.Columns.ContainsKey(3)) { return base.Columns[3]; } else { return null; } } set { if (base.Columns.ContainsKey(3)) { base.Columns[3] = value; } else { base.Columns.Add(3, value); } } }
-	public AdsalesQActionRow() : base(0, 4) { }
-	public AdsalesQActionRow(System.Object[] oRow) : base(0, 4, oRow) { }
+	/// <summary>PID: 1005 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Adsalesenabler_1005 { get { if (base.Columns.ContainsKey(4)) { return base.Columns[4]; } else { return null; } } set { if (base.Columns.ContainsKey(4)) { base.Columns[4] = value; } else { base.Columns.Add(4, value); } } }
+	/// <summary>PID: 1005 | Type: read</summary>
+	public System.Object Adsalesenabler { get { if (base.Columns.ContainsKey(4)) { return base.Columns[4]; } else { return null; } } set { if (base.Columns.ContainsKey(4)) { base.Columns[4] = value; } else { base.Columns.Add(4, value); } } }
+	public AdsalesQActionRow() : base(0, 5) { }
+	public AdsalesQActionRow(System.Object[] oRow) : base(0, 5, oRow) { }
 	public static implicit operator AdsalesQActionRow(System.Object[] source) { return new AdsalesQActionRow(source); }
 	public static implicit operator System.Object[](AdsalesQActionRow source) { return source.ToObjectArray(); }
 }

@@ -14,6 +14,7 @@
         public string Type;
         public string ReconcileKey;
         public string Duration;
+        public string Enabler;
     }
 
     public class WhatsonRow
