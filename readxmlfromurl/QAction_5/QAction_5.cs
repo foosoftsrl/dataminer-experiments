@@ -63,6 +63,7 @@ public class QAction
             tableRows.Add(new AdsalesQActionRow
             {
                 Adsalestime = row.TimeOfDay,
+                Adsalesbreakid = row.BreakId,
                 Adsalesreconcilekey = row.ReconcileKey,
                 Adsalestitle = row.Title,
                 Adsalestype = row.Type,

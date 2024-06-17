@@ -25,6 +25,7 @@
                         result.Add(new AdSalesRow
                         {
                             TimeOfDay = startTime,
+                            BreakId = break_.BreakID,
                             Title = content.ContentBrand,
                             Type = timeAllocation.TimeAllocationType1,
                             ProductCode = content.ContentProductCode,

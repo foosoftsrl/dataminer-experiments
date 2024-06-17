@@ -9,10 +9,11 @@
     public class AdSalesRow
     {
         public DateTime TimeOfDay;
+        public string BreakId;
+        public string ReconcileKey;
         public string Title;
         public string ProductCode;
         public string Type;
-        public string ReconcileKey;
         public string Duration;
         public string Enabler;
     }

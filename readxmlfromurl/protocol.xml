@@ -354,9 +354,10 @@
 			<ArrayOptions index="0">
 				<ColumnOption idx="0" pid="1001" type="retrieved" options=""/>
 				<ColumnOption idx="1" pid="1002" type="retrieved" options=""/>
-				<ColumnOption idx="2" pid="1003" type="retrieved" options="" />
+				<ColumnOption idx="2" pid="1003" type="retrieved" options=""/>
 				<ColumnOption idx="3" pid="1004" type="retrieved" options="" />
 				<ColumnOption idx="4" pid="1005" type="retrieved" options="" />
+				<ColumnOption idx="5" pid="1006" type="retrieved" options="" />
 			</ArrayOptions>
 			<Information>
 				<Subtext>AdSales Table</Subtext>
@@ -372,7 +373,7 @@
 				</Positions>
 			</Display>
 			<Measurement>
-				<Type options="tab=columns:1001|0-1002|1-1003|2-1004|3-1005|4,width:120-240-120-120-100,sort:STRING-STRING|ASC-STRING-STRING-STRING,lines:25,filter:true">table</Type>
+				<Type options="tab=columns:1001|0-1002|1-1003|2-1004|3-1005|4-1006|5,width:120-120-120-240-100-100,sort:STRING-STRING|ASC-STRING-STRING-STRING-STRING,lines:25,filter:true">table</Type>
 			</Measurement>
 		</Param>
 		<Param id="1001" trending="false">
@@ -414,6 +415,25 @@
 			</Measurement>
 		</Param>
 		<Param id="1003" trending="false">
+			<Name>adSalesBreakId</Name>
+			<Description>BreakId</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>Break Id</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="1004" trending="false">
 			<Name>adSalesTitle</Name>
 			<Description>Title</Description>
 			<Type>read</Type>
@@ -432,9 +452,9 @@
 				<Type>string</Type>
 			</Measurement>
 		</Param>
-		<Param id="1004" trending="false">
+		<Param id="1005" trending="false">
 			<Name>adSalesType</Name>
-			<Description>Allocation Type</Description>
+			<Description>Type</Description>
 			<Type>read</Type>
 			<Information>
 				<Subtext>Indicate what type of allocation is, such as SPOT or IS</Subtext>
@@ -451,7 +471,7 @@
 				<Type>string</Type>
 			</Measurement>
 		</Param>
-		<Param id="1005" trending="false">
+		<Param id="1006" trending="false">
 			<Name>adSalesEnabler</Name>
 			<Description>Enabler</Description>
 			<Type>read</Type>
