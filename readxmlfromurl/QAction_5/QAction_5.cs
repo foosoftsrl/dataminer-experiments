@@ -36,14 +36,14 @@ public class QAction
         protocol.Mergediterationcounter = (double)protocol.Mergediterationcounter + 1;
         try
         {
-            var adSalesData = ReadAdSalesData(protocol).Flatten();
+            var adSalesData = ReadAdSalesData(protocol);
             PublishAdsalesTable(protocol, adSalesData);
             var whatsonData = ReadWhatsonData(protocol);
             PublishWhatsonTable(protocol, whatsonData);
             var mediatorData = await ReadMediatorData(protocol);
             PublishMediatorTable(protocol, mediatorData);
-            ReadEnablerLegacy(protocol);
-            ReadEnablerScte(protocol);
+            await ReadEnablerLegacy(protocol);
+            await ReadEnablerScte(protocol);
 
             var mergedRows = Merger.Merge(adSalesData, whatsonData, mediatorData);
             PublishMergedTable(protocol, mergedRows);
@@ -237,7 +237,7 @@ public class QAction
         }
     }
 
-    public static AdSales.DataType ReadAdSalesData(SLProtocolExt protocol)
+    public static List<AdSalesRow> ReadAdSalesData(SLProtocolExt protocol)
     {
         string channelName = protocol.channelName();
         string dir = @"\\winfs01.mediaset.it\DM_Watchfolder\Adsales";

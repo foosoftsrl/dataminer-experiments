@@ -8,22 +8,34 @@
     using System.Threading.Tasks;
     using System.Xml.Serialization;
     using Skyline.DataMiner.Scripting;
-    internal class AdSalesSource
+    public class AdSalesSource
     {
-        public AdSales.DataType ReadAdSales(string channelName, string dir)
+        public List<AdSalesRow> ReadAdSales(string channelName, string dir)
         {
-            string date = DateTime.Now.ToString("yyyyMMdd");
+            return ReadAdSales(channelName, dir, DateTime.Now);
+        }
+        public List<AdSalesRow> ReadAdSales(string channelName, string dir, DateTime firstDay)
+        {
+            var date = firstDay;
+            var result = new List<AdSalesRow>();
+            for (var i = 0; i < 3; i++)
+            {
+                string day = date.ToString("yyyyMMdd");
+                result.AddRange(ReadAdSales(channelName, dir, day));
+                date = date.AddDays(1);
+            }
+            return result;
+        }
+        public List<AdSalesRow> ReadAdSales(string channelName, string dir, string date)
+        {
             string fileNamePrefix = $"{channelName}_{date}_";
             string[] files = Directory.GetFiles(dir, $"{fileNamePrefix}*.xml");
             if (files.Length > 0)
             {
                 string latestFile = files.OrderByDescending(f => File.GetLastWriteTime(f)).First();
-                return Utils.XmlDeserializeFromFile<AdSales.DataType>(latestFile);
+                return Utils.XmlDeserializeFromFile<AdSales.DataType>(latestFile).Flatten();
             }
-            else
-            {
-                throw new Exception("Could not find any Adsales file");
-            }
+            return new List<AdSalesRow>();
         }
     }
 

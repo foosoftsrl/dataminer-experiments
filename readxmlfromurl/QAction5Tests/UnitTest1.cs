@@ -19,5 +19,11 @@ namespace QAction5Tests
             Assert.AreEqual(505, matchedWhatson);
             Assert.AreEqual(175, matchedMediator);
         }
+        [TestMethod]
+        public void TestAdSalesSource()
+        {
+            var row = new AdSalesSource().ReadAdSales("KI",".", new DateTime(2024, 6, 17));
+            Assert.AreEqual(5, row.Count);
+        }
     }
 }
