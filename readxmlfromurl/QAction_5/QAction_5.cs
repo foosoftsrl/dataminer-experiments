@@ -36,14 +36,14 @@ public class QAction
         protocol.Mergediterationcounter = (double)protocol.Mergediterationcounter + 1;
         try
         {
-            var adSalesData = ReadAdSalesData(protocol).Flatten();
+            var adSalesData = ReadAdSalesData(protocol);
             PublishAdsalesTable(protocol, adSalesData);
             var whatsonData = ReadWhatsonData(protocol);
             PublishWhatsonTable(protocol, whatsonData);
             var mediatorData = await ReadMediatorData(protocol);
             PublishMediatorTable(protocol, mediatorData);
-            ReadEnablerLegacy(protocol);
-            ReadEnablerScte(protocol);
+            await ReadEnablerLegacy(protocol);
+            await ReadEnablerScte(protocol);
 
             var mergedRows = Merger.Merge(adSalesData, whatsonData, mediatorData);
             PublishMergedTable(protocol, mergedRows);
@@ -97,7 +97,8 @@ public class QAction
         {
             tableRows.Add(new MediatorQActionRow
             {
-                Mediatorid = row.ScheduleReference,
+                Mediatorid = row.Id,
+                Mediatorschedulereference = row.ScheduleReference,
                 Mediatordate = row.StartTime.ToString("yyyy-MM-dd HH:mm:ss"),
                 Mediatortitle = row.Title,
                 Mediatorstatus = row.Status,
@@ -217,17 +218,9 @@ public class QAction
         string dir = @"\\winfs01.mediaset.it\DM_Watchfolder\WON";
         try
         {
-            var data = whatsonSource.ReadWhatson(channelName, dir);
-            if (data == null)
-            {
-                protocol.Wondebugmsg = $"No whatson data for channel {channelName}";
-                return new List<WhatsonRow>();
-            }
-            else {
-                var rows = data.Flatten();
-                protocol.Wondebugmsg = $"Read {rows.Count} columns";
-                return rows;
-            }
+            var rows = whatsonSource.ReadWhatson(channelName, dir);
+            protocol.Wondebugmsg = $"Read {rows.Count} columns";
+            return rows;
         }
         catch (Exception ex)
         {
@@ -237,7 +230,7 @@ public class QAction
         }
     }
 
-    public static AdSales.DataType ReadAdSalesData(SLProtocolExt protocol)
+    public static List<AdSalesRow> ReadAdSalesData(SLProtocolExt protocol)
     {
         string channelName = protocol.channelName();
         string dir = @"\\winfs01.mediaset.it\DM_Watchfolder\Adsales";
@@ -255,22 +248,27 @@ public class QAction
 
     public List<MediatorRow> GetLastPublishedMediator(SLProtocolExt protocol)
     {
-        var idx = 0;
         var result = new List<MediatorRow>();
-        while(true)
+        try
         {
-            var data = (object[])protocol.GetRow(Parameter.Mediator.tablePid, idx++);
-            var row = new MediatorQActionRow(data);
-            if (row.Mediatordate == null)
-                break;
-            result.Add(new MediatorRow
+            var count = protocol.mediator.RowCount;
+            for(var idx = 0; idx < count; idx++) 
             {
-                StartTime = DateTime.Parse((string)row.Mediatordate),
-                ReconcileKey = (string)row.Mediatorreconcilekey,
-                Title = (string)row.Mediatortitle,
-                Status = (string)row.Mediatorstatus,
-                ScheduleReference=(string)row.Mediatorid,
-            });
+                var data = (object[])protocol.GetRow(Parameter.Mediator.tablePid, idx);
+                var row = new MediatorQActionRow(data);
+                result.Add(new MediatorRow
+                {
+                    Id = Int32.Parse((string)row.Mediatorid),
+                    StartTime = DateTime.Parse((string)row.Mediatordate),
+                    ReconcileKey = (string)row.Mediatorreconcilekey,
+                    Title = (string)row.Mediatortitle,
+                    Status = (string)row.Mediatorstatus,
+                    ScheduleReference = (string)row.Mediatorschedulereference,
+                });
+            }
+        } catch(Exception e)
+        {
+            //.... silently fail. Should LOG!
         }
         return result;
     }
@@ -281,23 +279,10 @@ public class QAction
             string uri = (string)protocol.GetParameter(Parameter.urimediator);
             string channelName = protocol.channelName();
             int maxResults = Convert.ToInt32(protocol.GetParameter(Parameter.maxresultsmediator));
-            var obj = await mediatorSource.ReadMediator(uri, channelName, maxResults);
-            var parsedList = (obj != null) ? obj.Flatten() : new List<MediatorRow>();
-            var merged = new List<MediatorRow>();
-            var lastPublishedMediator = GetLastPublishedMediator(protocol);
-            if (parsedList.Count != 0)
-            {
-                var first = parsedList.First();
-                foreach(var row in lastPublishedMediator)
-                {
-                    if (row.StartTime >= first.StartTime)
-                        break;
-                    merged.Add(row);
-                }
-            }
-            merged.AddRange(parsedList);
-            lastPublishedMediator = merged;
-            protocol.Mediatordebugmsg = $"Parsed {parsedList.Count}, State {lastPublishedMediator.Count}, Merged {merged.Count} lines";
+            var lastPublished = GetLastPublishedMediator(protocol);
+            var parsed = await mediatorSource.ReadMediator(uri, channelName, maxResults);
+            var merged = mediatorSource.Merge(lastPublished, parsed);
+            protocol.Mediatordebugmsg = $"State {lastPublished.Count}, Parsed {parsed.Count} Merged {merged.Count} lines";
             return merged;
         }
         catch (Exception ex)

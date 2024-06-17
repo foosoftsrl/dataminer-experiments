@@ -26,6 +26,7 @@
 
     public class MediatorRow
     {
+        public int Id;
         public string ScheduleReference;
         public string ReconcileKey;
         public string Title;

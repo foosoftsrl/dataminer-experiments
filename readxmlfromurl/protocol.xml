@@ -13,7 +13,7 @@
 	<DeviceOID></DeviceOID>
 	<ElementType>Connect to http</ElementType>
 	<Type relativeTimers="true">virtual</Type>
-	<Display defaultPage="General" pageOrder="General;-------;Adsales;Mediator;Won;Enabler Legacy" wideColumnPages=""/>
+	<Display defaultPage="General" pageOrder="General;-------;Adsales;Mediator;Won;Enabler Legacy;Enabler Scte" wideColumnPages=""/>
 	<SNMP includepages="true">auto</SNMP>
 
 	<Compliancies>
@@ -371,7 +371,7 @@
 				</Positions>
 			</Display>
 			<Measurement>
-				<Type options="tab=columns:1001|0-1002|1-1003|2-1004|3,width:120-240-120-120,sort:STRING|ASC|0-STRING-STRING-STRING,lines:25,filter:true">table</Type>
+				<Type options="tab=columns:1001|0-1002|1-1003|2-1004|3,width:120-240-120-120,sort:STRING-STRING|ASC-STRING-STRING,lines:25,filter:true">table</Type>
 			</Measurement>
 		</Param>
 		<Param id="1001" trending="false">
@@ -461,6 +461,7 @@
 				<ColumnOption idx="2" pid="2003" type="retrieved" options=";save"/>
 				<ColumnOption idx="3" pid="2004" type="retrieved" options=";save"/>
 				<ColumnOption idx="4" pid="2005" type="retrieved" options=";save"/>
+				<ColumnOption idx="5" pid="2006" type="retrieved" options=";save"/>
 			</ArrayOptions>
 			<Information>
 				<Subtext>Mediator Table</Subtext>
@@ -476,10 +477,29 @@
 				</Positions>
 			</Display>
 			<Measurement>
-				<Type options="tab=columns:2001|0-2002|1-2003|2-2004|3-2005|4,width:120-120-120-120-120,sort:STRING-STRING-STRING-STRING-STRING,lines:25,filter:true">table</Type>
+				<Type options="tab=columns:2001|0-2002|1-2003|2-2004|3-2005|4-2006|5,width:120-120-120-120-120-120,sort:STRING-STRING-STRING-STRING-STRING-STRING,lines:25,filter:true">table</Type>
 			</Measurement>
 		</Param>
 		<Param id="2001" trending="false">
+			<Name>mediatorId</Name>
+			<Description>Id</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>Id</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="2002" trending="false">
 			<Name>mediatorDate</Name>
 			<Description>Date</Description>
 			<Type>read</Type>
@@ -498,7 +518,7 @@
 				<Type>string</Type>
 			</Measurement>
 		</Param>
-		<Param id="2002" trending="false">
+		<Param id="2003" trending="false">
 			<Name>mediatorTitle</Name>
 			<Description>Title</Description>
 			<Type>read</Type>
@@ -517,8 +537,8 @@
 				<Type>string</Type>
 			</Measurement>
 		</Param>
-		<Param id="2003" trending="false">
-			<Name>mediatorId</Name>
+		<Param id="2004" trending="false">
+			<Name>mediatorScheduleReference</Name>
 			<Description>ScheduleReference</Description>
 			<Type>read</Type>
 			<Information>
@@ -536,7 +556,7 @@
 				<Type>string</Type>
 			</Measurement>
 		</Param>
-		<Param id="2004" trending="false">
+		<Param id="2005" trending="false">
 			<Name>mediatorReconcileKey</Name>
 			<Description>Reconcile Key</Description>
 			<Type>read</Type>
@@ -555,7 +575,7 @@
 				<Type>string</Type>
 			</Measurement>
 		</Param>
-		<Param id="2005" trending="false">
+		<Param id="2006" trending="false">
 			<Name>mediatorStatus</Name>
 			<Description>Status</Description>
 			<Type>read</Type>
@@ -994,7 +1014,7 @@
 				<Type>string</Type>
 			</Measurement>
 		</Param>
-
+		
 		<Param id="6000">
 			<Name>enablerScte</Name>
 			<Description>enablerScte</Description>
