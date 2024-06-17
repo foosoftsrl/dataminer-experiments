@@ -23,6 +23,7 @@
                     result.Add(new MediatorRow
                     {
                         StartTime = (DateTime)startTime,
+                        Id = row.Id.GenericList.Object[0],
                         Title = row.Title.AsString(),
                         ReconcileKey = row.FindAdSalesReconcileKey(),
                         ScheduleReference = row.GetScheduleReference(),

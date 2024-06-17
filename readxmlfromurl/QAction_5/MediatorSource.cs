@@ -1,6 +1,7 @@
 ﻿namespace QAction_5
 {
     using System;
+    using System.Collections;
     using System.Collections.Generic;
     using System.IO;
     using System.Linq;
@@ -15,7 +16,30 @@
 
     public class MediatorSource
     {
-        public async Task<Mediator.Rootobject> ReadMediator(string uri, string channelName, int maxResults)
+        public List<MediatorRow> Merge(List<MediatorRow> state, List<MediatorRow> delta) {
+            var minDate = DateTime.Today.AddDays(-3);
+            var merged = new List<MediatorRow>();
+            if (delta.Count != 0)
+            {
+                var first = delta.First();
+                foreach (var row in state)
+                {
+                    if (row.StartTime >= first.StartTime)
+                        break;
+                    merged.Add(row);
+                }
+                merged.AddRange(delta);
+                merged.RemoveAll(row => row.StartTime < minDate);
+            }
+            return merged;
+        }
+
+        public async Task<List<MediatorRow>> ReadMediator(string uri, string channelName, int maxResults) {
+            var obj = await ReadMediatorRaw(uri, channelName, maxResults);
+            return obj.Flatten();
+        }
+
+        public async Task<Mediator.Rootobject> ReadMediatorRaw(string uri, string channelName, int maxResults)
         {
             string sessionKey = "A-VDRFtKctjLhGR3wMmoITydeAeNjhME";
             string cqlQuery = $"select parcel.templateparameterlist sequence.startdatetime sequence.id sequence.duration sequence.schedulereference parcel.title event.trimmaterialid event.infaderate event.intransitionname sequence.state status from '{channelName}' where maxresults = {maxResults} and event.stream in ('Main Video')";
