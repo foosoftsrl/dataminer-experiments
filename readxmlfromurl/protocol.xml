@@ -13,14 +13,14 @@
 	<DeviceOID></DeviceOID>
 	<ElementType>Connect to http</ElementType>
 	<Type relativeTimers="true">virtual</Type>
-	<Display defaultPage="General" pageOrder="General;-------;Adsales;Mediator;Won" wideColumnPages=""/>
+	<Display defaultPage="General" pageOrder="General;-------;Adsales;Mediator;Won;Enabler Legacy" wideColumnPages=""/>
 	<SNMP includepages="true">auto</SNMP>
 
 	<Compliancies>
 		<CassandraReady>true</CassandraReady>
 		<MinimumRequiredVersion>10.2.0.0 - 12603</MinimumRequiredVersion>
 	</Compliancies>
-
+	
 	<Params>
 		<Param id="2">
 			<Name>AfterStartup</Name>
@@ -889,6 +889,218 @@
 			</Measurement>
 		</Param>
 		
+		<Param id="5000">
+			<Name>enablerLegacy</Name>
+			<Description>enablerLegacy</Description>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="5001" type="retrieved" options="" />
+				<ColumnOption idx="1" pid="5002" type="retrieved" options="" />
+				<ColumnOption idx="2" pid="5003" type="retrieved" options="" />
+				<ColumnOption idx="3" pid="5004" type="retrieved" options="" />
+			</ArrayOptions>
+			<Information>
+				<Subtext>
+					enablerLegacy
+				</Subtext>
+			</Information>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Enabler Legacy</Page>
+						<Column>0</Column>
+						<Row>3</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type options="tab=columns:5001|0-5002|1-5003|2-5004|3,width:138-130-130-360,sort:STRING-STRING-STRING-STRING,lines:20,filter:true">table</Type>
+			</Measurement>
+		</Param>
+		<Param id="5001" trending="false">
+			<Name>enablerLegacyTime</Name>
+			<Description>Time</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>Time</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="5002" trending="false">
+			<Name>enablerLegacyEventCode</Name>
+			<Description>Event code</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>Event code</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="5003" trending="false">
+			<Name>enablerLegacyEventName</Name>
+			<Description>Event Name</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>Event Name</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="5004" trending="false">
+			<Name>enablerLegacyPayload</Name>
+			<Description>Event payload</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>Event payload</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+
+		<Param id="6000">
+			<Name>enablerScte</Name>
+			<Description>enablerScte</Description>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="6001" type="retrieved" options="" />
+				<ColumnOption idx="1" pid="6002" type="retrieved" options="" />
+				<ColumnOption idx="2" pid="6003" type="retrieved" options="" />
+				<ColumnOption idx="3" pid="6004" type="retrieved" options="" />
+			</ArrayOptions>
+			<Information>
+				<Subtext>
+					enablerScte
+				</Subtext>
+			</Information>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Enabler Scte</Page>
+						<Column>0</Column>
+						<Row>3</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type options="tab=columns:6001|0-6002|1-6003|2-6004|3,width:138-130-130-360,sort:STRING-STRING-STRING-STRING,lines:20,filter:true">table</Type>
+			</Measurement>
+		</Param>
+		<Param id="6001" trending="false">
+			<Name>enablerScteTime</Name>
+			<Description>Time</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>Time</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="6002" trending="false">
+			<Name>enablerScteEventCode</Name>
+			<Description>Event code</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>Event code</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="6003" trending="false">
+			<Name>enablerScteEventName</Name>
+			<Description>Event name</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>Event name</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="6004" trending="false">
+			<Name>enablerSctePayload</Name>
+			<Description>Payload</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>Payload</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		
 		<!-- Debug stuff -->
 		<Param id="10001" trending="false">
 			<Name>adSalesDebugMsg</Name>
@@ -1103,9 +1315,33 @@
 				<Type>string</Type>
 			</Measurement>
 		</Param>
-		
+		<Param id="10401" trending="false">
+			<Name>legacyDebugMsg</Name>
+			<Description>Debug Legacy Data</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Enabler Legacy</Page>
+						<Column>0</Column>
+						<Row>1</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
 	</Params>
-
+	
 	<QActions>
 		<QAction id="1" name="Precompiled Code" encoding="csharp" options="precompile" />
 		<QAction id="2" name="After Startup" encoding="csharp" triggers="2" />

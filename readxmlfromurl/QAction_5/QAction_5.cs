@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
+using System.Net.Mime;
 using System.Net.Sockets;
 using System.Net.WebSockets;
 using System.Runtime.Remoting.Messaging;
@@ -40,6 +42,8 @@ public class QAction
             PublishWhatsonTable(protocol, whatsonData);
             var mediatorData = await ReadMediatorData(protocol);
             PublishMediatorTable(protocol, mediatorData);
+            ReadEnablerLegacy(protocol);
+            ReadEnablerScte(protocol);
 
             var mergedRows = Merger.Merge(adSalesData, whatsonData, mediatorData);
             PublishMergedTable(protocol, mergedRows);
@@ -125,6 +129,86 @@ public class QAction
         }
         protocol.FillArray(Parameter.Mergedtable.tablePid, tableRows, NotifyProtocol.SaveOption.Full);
         return tableRows;
+    }
+    public async Task<string> ReadEnablerLegacy(SLProtocolExt protocol)
+    {
+        try
+        {
+            using (var httpClient = new HttpClient())
+            {
+                var request = new HttpRequestMessage
+                {
+                    Method = HttpMethod.Get,
+                    RequestUri = new Uri($"{protocol.Probeurl}legacy?channel={protocol.channelName()}"),
+                };
+
+                using (var response = await httpClient.SendAsync(request))
+                {
+                    string apiResponse = await response.Content.ReadAsStringAsync();
+                    protocol.Legacydebugmsg = "Everything ok!";
+                    var rows = apiResponse.Split('\n');
+                    List<object[]> tableRows = new List<object[]>();
+                    foreach (var row in rows)
+                    {
+                        var cells = row.Split(',');
+                        tableRows.Add(new EnablerlegacyQActionRow
+                        {
+                            Enablerlegacytime = cells[0],
+                            Enablerlegacyeventcode = cells.Length > 1 ? cells[1] : string.Empty,
+                            Enablerlegacyeventname = cells.Length > 2 ? cells[2] : string.Empty,
+                            Enablerlegacypayload = cells.Length > 3 ? cells[3] : string.Empty,
+                        }.ToObjectArray());
+                    }
+                    protocol.FillArray(Parameter.Enablerlegacy.tablePid, tableRows, NotifyProtocol.SaveOption.Full);
+                    return apiResponse;
+                }
+            }
+        } catch(Exception ex)
+        {
+            protocol.Legacydebugmsg = $"Exception {ex.Message}";
+            return "";
+        }
+    }
+
+    public async Task<string> ReadEnablerScte(SLProtocolExt protocol)
+    {
+        try
+        {
+            using (var httpClient = new HttpClient())
+            {
+                var request = new HttpRequestMessage
+                {
+                    Method = HttpMethod.Get,
+                    RequestUri = new Uri($"{protocol.Probeurl}scte?channel={protocol.channelName()}"),
+                };
+
+                using (var response = await httpClient.SendAsync(request))
+                {
+                    string apiResponse = await response.Content.ReadAsStringAsync();
+                    protocol.Legacydebugmsg = "Everything ok!";
+                    var rows = apiResponse.Split('\n');
+                    List<object[]> tableRows = new List<object[]>();
+                    foreach (var row in rows)
+                    {
+                        var cells = row.Split(',');
+                        tableRows.Add(new EnablerscteQActionRow
+                        {
+                            Enablersctetime = cells[0],
+                            Enablerscteeventcode = cells.Length > 1 ? cells[1] : string.Empty,
+                            Enablerscteeventname = cells.Length > 2 ? cells[2] : string.Empty,
+                            Enablersctepayload = cells.Length > 3 ? cells[3] : string.Empty,
+                        }.ToObjectArray());
+                    }
+                    protocol.FillArray(Parameter.Enablerscte.tablePid, tableRows, NotifyProtocol.SaveOption.Full);
+                    return apiResponse;
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            protocol.Legacydebugmsg = $"Exception {ex.Message}";
+            return "";
+        }
     }
 
     public static List<WhatsonRow> ReadWhatsonData(SLProtocolExt protocol)
