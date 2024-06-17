@@ -139,7 +139,7 @@ public class QAction
                 var request = new HttpRequestMessage
                 {
                     Method = HttpMethod.Get,
-                    RequestUri = new Uri($"http://10.102.43.124:5031/legacy?channel={protocol.channelName()}"),
+                    RequestUri = new Uri($"{protocol.Probeurl}legacy?channel={protocol.channelName()}"),
                 };
 
                 using (var response = await httpClient.SendAsync(request))
@@ -179,7 +179,7 @@ public class QAction
                 var request = new HttpRequestMessage
                 {
                     Method = HttpMethod.Get,
-                    RequestUri = new Uri($"http://10.102.43.124:5031/scte?channel={protocol.channelName()}"),
+                    RequestUri = new Uri($"{protocol.Probeurl}scte?channel={protocol.channelName()}"),
                 };
 
                 using (var response = await httpClient.SendAsync(request))
