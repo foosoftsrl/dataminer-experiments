@@ -217,17 +217,9 @@ public class QAction
         string dir = @"\\winfs01.mediaset.it\DM_Watchfolder\WON";
         try
         {
-            var data = whatsonSource.ReadWhatson(channelName, dir);
-            if (data == null)
-            {
-                protocol.Wondebugmsg = $"No whatson data for channel {channelName}";
-                return new List<WhatsonRow>();
-            }
-            else {
-                var rows = data.Flatten();
-                protocol.Wondebugmsg = $"Read {rows.Count} columns";
-                return rows;
-            }
+            var rows = whatsonSource.ReadWhatson(channelName, dir);
+            protocol.Wondebugmsg = $"Read {rows.Count} columns";
+            return rows;
         }
         catch (Exception ex)
         {

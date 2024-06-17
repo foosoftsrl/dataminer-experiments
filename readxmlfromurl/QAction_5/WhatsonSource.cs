@@ -13,21 +13,37 @@ namespace QAction_5
 
     public class WhatsonSource
     {
-        public Pharos ReadWhatson(string channelName, string dir)
-        {   string currentDate = DateTime.Now.ToString("yyyy-MM-dd");
-            string fileNamePattern = $"{channelName}_Schedule_{currentDate}_\\d{{4}}_*.xml";
-            string[] files = Directory.GetFiles(dir, $"{channelName}_Schedule_{currentDate}_*.xml");
+        public List<WhatsonRow> ReadWhatson(string channelName, string dir)
+        {
+            return ReadWhatson(channelName, dir, DateTime.Now);
+        }
+        public List<WhatsonRow> ReadWhatson(string channelName, string dir, DateTime firstDay)
+        {
+            var date = firstDay;
+            var result = new List<WhatsonRow>();
+            for (var i = 0; i < 3; i++)
+            {
+                string day = date.ToString("yyyy-MM-dd");
+                result.AddRange(ReadWhatson(channelName, dir, day));
+                date = date.AddDays(1);
+            }
+            return result;
+        }
+
+        public List<WhatsonRow> ReadWhatson(string channelName, string dir, String date) 
+        {   
+            string[] files = Directory.GetFiles(dir, $"{channelName}_Schedule_{date}_*.xml");
 
             if (files.Length == 0)
             {
-                return null;
+                return new List<WhatsonRow>();
             }
             string latestFile = files
                 .OrderByDescending(f => GetFileVersion(f))
                 .First();
             try
             {
-                return Utils.XmlDeserializeFromFile<Pharos>(latestFile);
+                return Utils.XmlDeserializeFromFile<Pharos>(latestFile).Flatten();
             } catch(Exception ex)
             {
                 throw new Exception($"Failed parsing Whatson file {latestFile}: {ex.Message}", ex);
