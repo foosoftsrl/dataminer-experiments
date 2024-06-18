@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace Mediator
+﻿namespace Mediator
 {
+    using System;
+
     public class Rootobject
     {
         public Pharoscs PharosCs { get; set; }
@@ -275,5 +275,4 @@ namespace Mediator
 
         public bool Runtime { get; set; }
     }
-
-}   
+}

@@ -14,6 +14,7 @@
         {
             return ReadAdSales(channelName, dir, DateTime.Now);
         }
+
         public List<AdSalesRow> ReadAdSales(string channelName, string dir, DateTime firstDay)
         {
             var date = firstDay;
@@ -25,6 +26,7 @@
             }
             return result;
         }
+
         public List<AdSalesRow> ReadAdSales(string channelName, string dir, string date)
         {
             string fileNamePrefix = $"{channelName}_{date}_";

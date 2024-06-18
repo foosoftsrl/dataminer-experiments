@@ -72,8 +72,9 @@ public class QAction
                 Adsalesenabler = row.Enabler,
             }.ToObjectArray());
         }
+
         protocol.FillArray(Parameter.Adsales.tablePid, tableRows, NotifyProtocol.SaveOption.Full);
-        protocol.Adsalesdebugmsg = "";
+        protocol.Adsalesdebugmsg = string.Empty;
         return tableRows;
     }
 
@@ -90,6 +91,7 @@ public class QAction
                 Wonitemreference = row.ItemReference,
             }.ToObjectArray());
         }
+
         protocol.FillArray(Parameter.Won.tablePid, tableRows, NotifyProtocol.SaveOption.Full);
         return tableRows;
     }
@@ -110,6 +112,7 @@ public class QAction
 
             }.ToObjectArray());
         }
+
         protocol.FillArray(Parameter.Mediator.tablePid, tableRows, NotifyProtocol.SaveOption.Full);
         return tableRows;
     }
@@ -132,9 +135,11 @@ public class QAction
                 Mergedtype = row.adSalesData.Type,
             }.ToObjectArray());
         }
+
         protocol.FillArray(Parameter.Mergedtable.tablePid, tableRows, NotifyProtocol.SaveOption.Full);
         return tableRows;
     }
+
     public void PublishEnablerLegacyTable(SLProtocolExt protocol, List<EnablerScteRow> rows)
     {
         var tableRows = new List<object[]>();
@@ -164,6 +169,7 @@ public class QAction
                 Enablersctepayload = row.Payload.ToString(),
             }.ToObjectArray());
         }
+
         protocol.FillArray(Parameter.Enablerscte.tablePid, tableRows, NotifyProtocol.SaveOption.Full);
     }
 
@@ -315,10 +321,11 @@ public class QAction
             }
         } catch(Exception e)
         {
-            protocol.Mediatordebugmsg = $"Failed parsing mediator table";
+            protocol.Mediatordebugmsg = $"Failed parsing mediator table: ${e.Message}";
         }
         return result;
     }
+
     public async Task<List<MediatorRow>> ReadMediatorData(SLProtocolExt protocol)
     {
         try

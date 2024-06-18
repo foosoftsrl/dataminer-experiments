@@ -23,10 +23,12 @@
             {
                 mergedMap[row.Id] = row;
             }
+
             foreach (var row in delta)
             {
                 mergedMap[row.Id] = row;
             }
+
             var merged = mergedMap.Select(e => e.Value).ToList();
             merged.RemoveAll(row => row.StartTime < minDate);
             return merged;
@@ -123,7 +125,6 @@
                     }
 
                     await clientWebSocket.CloseOutputAsync(WebSocketCloseStatus.NormalClosure, "Closing", CancellationToken.None);
-                    //await clientWebSocket.CloseAsync(WebSocketCloseStatus.NormalClosure, "Closed", CancellationToken.None);
                     Console.WriteLine("Connection closed.");
 
                     return receivedMessage;
