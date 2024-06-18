@@ -24,6 +24,9 @@
         public string Title;
         public string ItemReference;
         public string ReconcileKey;
+        public bool scteBroadcastBreakStart;
+        public bool scteBroadcastProviderAdvStart;
+        public bool enablerLegacy;
     }
 
     public class MediatorRow

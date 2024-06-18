@@ -89,6 +89,9 @@ public class QAction
                 Wontitle = row.Title,
                 Wonreconcilekey = row.ReconcileKey ?? string.Empty,
                 Wonitemreference = row.ItemReference,
+                Wonenablerlegacy = row.enablerLegacy ? "Yes" : string.Empty,
+                Wonsctebreakstart = row.scteBroadcastBreakStart ? "Yes" : string.Empty,
+                Wonscteadvstart = row.scteBroadcastProviderAdvStart ? "Yes" : string.Empty,
             }.ToObjectArray());
         }
 
