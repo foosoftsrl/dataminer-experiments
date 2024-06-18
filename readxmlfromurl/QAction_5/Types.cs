@@ -35,4 +35,12 @@
         public string Status;
         public DateTime StartTime;
     }
+
+    public class EnablerScteRow
+    {
+        public DateTime TimeStamp;
+        public int EventCode;
+        public string EventName;
+        public string Payload;
+    }
 }

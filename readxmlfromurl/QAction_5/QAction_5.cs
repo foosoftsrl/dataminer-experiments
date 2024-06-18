@@ -43,7 +43,8 @@ public class QAction
             var mediatorData = await ReadMediatorData(protocol);
             PublishMediatorTable(protocol, mediatorData);
             await ReadEnablerLegacy(protocol);
-            await ReadEnablerScte(protocol);
+            var scte = await ReadEnablerScte(protocol);
+            PublishScteTable(protocol, scte);
 
             var mergedRows = Merger.Merge(adSalesData, whatsonData, mediatorData);
             PublishMergedTable(protocol, mergedRows);
@@ -133,6 +134,23 @@ public class QAction
         protocol.FillArray(Parameter.Mergedtable.tablePid, tableRows, NotifyProtocol.SaveOption.Full);
         return tableRows;
     }
+
+    public void PublishScteTable(SLProtocolExt protocol, List<EnablerScteRow> rows)
+    {
+        var tableRows = new List<object[]>();
+        foreach (var row in rows)
+        {
+            tableRows.Add(new EnablerscteQActionRow
+            {
+                Enablersctetime = row.TimeStamp.ToString("yyyy-MM-dd HH:mm:ss"),
+                Enablerscteeventcode = row.EventCode.ToString(),
+                Enablerscteeventname = row.EventName.ToString(),
+                Enablersctepayload = row.Payload.ToString(),
+            }.ToObjectArray());
+        }
+        protocol.FillArray(Parameter.Enablerscte.tablePid, tableRows, NotifyProtocol.SaveOption.Full);
+    }
+
     public async Task<string> ReadEnablerLegacy(SLProtocolExt protocol)
     {
         try
@@ -173,8 +191,9 @@ public class QAction
         }
     }
 
-    public async Task<string> ReadEnablerScte(SLProtocolExt protocol)
+    public async Task<List<EnablerScteRow>> ReadEnablerScte(SLProtocolExt protocol)
     {
+        List<EnablerScteRow> rows = new List<EnablerScteRow>();
         try
         {
             using (var httpClient = new HttpClient())
@@ -189,29 +208,34 @@ public class QAction
                 {
                     string apiResponse = await response.Content.ReadAsStringAsync();
                     protocol.Legacydebugmsg = "Everything ok!";
-                    var rows = apiResponse.Split('\n');
-                    List<object[]> tableRows = new List<object[]>();
-                    foreach (var row in rows)
+                    var lines = apiResponse.Split('\n');
+                    foreach (var line in lines)
                     {
-                        var cells = row.Split(',');
-                        tableRows.Add(new EnablerscteQActionRow
+                        if (line.Length == 0)
+                            continue;
+                        var cells = line.Split(',');
+                        if (cells.Length < 4)
                         {
-                            Enablersctetime = cells[0],
-                            Enablerscteeventcode = cells.Length > 1 ? cells[1] : string.Empty,
-                            Enablerscteeventname = cells.Length > 2 ? cells[2] : string.Empty,
-                            Enablersctepayload = cells.Length > 3 ? cells[3] : string.Empty,
-                        }.ToObjectArray());
+                            throw new Exception("Invalid SCTE row should contain at least 4 cells");
+                        }
+                        rows.Add(new EnablerScteRow
+                        {
+                            TimeStamp = DateTime.Parse(cells[0]),
+                            EventCode = int.Parse(cells[1]),
+                            EventName = cells[2],
+                            Payload = cells[3],
+                        });
+
                     }
-                    protocol.FillArray(Parameter.Enablerscte.tablePid, tableRows, NotifyProtocol.SaveOption.Full);
-                    return apiResponse;
                 }
             }
+            protocol.Sctedebugmsg = "Everything ok";
         }
         catch (Exception ex)
         {
-            protocol.Legacydebugmsg = $"Exception {ex.Message}";
-            return "";
+            protocol.Sctedebugmsg = $"Exception {ex.Message}";
         }
+        return rows;
     }
 
     public static List<WhatsonRow> ReadWhatsonData(SLProtocolExt protocol)

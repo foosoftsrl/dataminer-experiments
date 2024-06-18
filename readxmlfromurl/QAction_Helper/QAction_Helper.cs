@@ -33,6 +33,11 @@ public static class Parameter
 	public const int probeserviceid_17 = 17;
 	/// <summary>PID: 17 | Type: read</summary>
 	public const int probeserviceid = 17;
+	/// <summary>PID: 6100 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public const int sctedebugmsg_6100 = 6100;
+	/// <summary>PID: 6100 | Type: read</summary>
+	public const int sctedebugmsg = 6100;
 	/// <summary>PID: 10001 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public const int adsalesdebugmsg_10001 = 10001;
@@ -673,6 +678,8 @@ public interface SLProtocolExt : SLProtocol
 	object Enablerscteeventname { get; set; }
 	object Enablersctepayload_6004 { get; set; }
 	object Enablersctepayload { get; set; }
+	object Sctedebugmsg_6100 { get; set; }
+	object Sctedebugmsg { get; set; }
 	object Adsalesdebugmsg_10001 { get; set; }
 	object Adsalesdebugmsg { get; set; }
 	object Adsalesfilename_10003 { get; set; }
@@ -924,6 +931,11 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public System.Object Enablersctepayload_6004 {get { return GetParameter(6004); }set { SetParameter(6004, value); }}
 	/// <summary>PID: 6004  | Type: read</summary>
 	public System.Object Enablersctepayload {get { return GetParameter(6004); }set { SetParameter(6004, value); }}
+	/// <summary>PID: 6100  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Sctedebugmsg_6100 {get { return GetParameter(6100); }set { SetParameter(6100, value); }}
+	/// <summary>PID: 6100  | Type: read</summary>
+	public System.Object Sctedebugmsg {get { return GetParameter(6100); }set { SetParameter(6100, value); }}
 	/// <summary>PID: 10001  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Adsalesdebugmsg_10001 {get { return GetParameter(10001); }set { SetParameter(10001, value); }}

@@ -1076,7 +1076,7 @@
 					<Position>
 						<Page>Enabler Scte</Page>
 						<Column>0</Column>
-						<Row>3</Row>
+						<Row>1</Row>
 					</Position>
 				</Positions>
 			</Display>
@@ -1155,6 +1155,31 @@
 			</Interprete>
 			<Display>
 				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="6100" trending="false">
+			<Name>scteDebugMsg</Name>
+			<Description>Debug SCTE Data</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Enabler Scte</Page>
+						<Column>0</Column>
+						<Row>0</Row>
+					</Position>
+				</Positions>
 			</Display>
 			<Measurement>
 				<Type>string</Type>
