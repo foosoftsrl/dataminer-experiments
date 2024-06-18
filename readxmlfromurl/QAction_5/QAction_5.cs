@@ -42,7 +42,8 @@ public class QAction
             PublishWhatsonTable(protocol, whatsonData);
             var mediatorData = await ReadMediatorData(protocol);
             PublishMediatorTable(protocol, mediatorData);
-            await ReadEnablerLegacy(protocol);
+            var legacy = await ReadEnablerLegacy(protocol);
+            PublishEnablerLegacyTable(protocol, legacy);
             var scte = await ReadEnablerScte(protocol);
             PublishScteTable(protocol, scte);
 
@@ -134,6 +135,21 @@ public class QAction
         protocol.FillArray(Parameter.Mergedtable.tablePid, tableRows, NotifyProtocol.SaveOption.Full);
         return tableRows;
     }
+    public void PublishEnablerLegacyTable(SLProtocolExt protocol, List<EnablerScteRow> rows)
+    {
+        var tableRows = new List<object[]>();
+        foreach (var row in rows)
+        {
+            tableRows.Add(new EnablerlegacyQActionRow
+            {
+                Enablerlegacytime = row.TimeStamp.ToString("yyyy-MM-dd HH:mm:ss"),
+                Enablerlegacyeventcode = row.EventCode.ToString(),
+                Enablerlegacyeventname = row.EventName.ToString(),
+                Enablerlegacypayload = row.Payload.ToString(),
+            }.ToObjectArray());
+        }
+        protocol.FillArray(Parameter.Enablerlegacy.tablePid, tableRows, NotifyProtocol.SaveOption.Full);
+    }
 
     public void PublishScteTable(SLProtocolExt protocol, List<EnablerScteRow> rows)
     {
@@ -151,8 +167,9 @@ public class QAction
         protocol.FillArray(Parameter.Enablerscte.tablePid, tableRows, NotifyProtocol.SaveOption.Full);
     }
 
-    public async Task<string> ReadEnablerLegacy(SLProtocolExt protocol)
+    public async Task<List<EnablerScteRow>> ReadEnablerLegacy(SLProtocolExt protocol)
     {
+        List<EnablerScteRow> rows = new List<EnablerScteRow>();
         try
         {
             using (var httpClient = new HttpClient())
@@ -166,29 +183,34 @@ public class QAction
                 using (var response = await httpClient.SendAsync(request))
                 {
                     string apiResponse = await response.Content.ReadAsStringAsync();
-                    protocol.Legacydebugmsg = "Everything ok!";
-                    var rows = apiResponse.Split('\n');
-                    List<object[]> tableRows = new List<object[]>();
-                    foreach (var row in rows)
+                    var lines = apiResponse.Split('\n');
+                    foreach (var line in lines)
                     {
-                        var cells = row.Split(',');
-                        tableRows.Add(new EnablerlegacyQActionRow
+                        if (line.Length == 0)
+                            continue;
+                        var cells = line.Split(',');
+                        if (cells.Length < 4)
                         {
-                            Enablerlegacytime = cells[0],
-                            Enablerlegacyeventcode = cells.Length > 1 ? cells[1] : string.Empty,
-                            Enablerlegacyeventname = cells.Length > 2 ? cells[2] : string.Empty,
-                            Enablerlegacypayload = cells.Length > 3 ? cells[3] : string.Empty,
-                        }.ToObjectArray());
+                            throw new Exception("Invalid legacy row should contain at least 4 cells");
+                        }
+                        rows.Add(new EnablerScteRow
+                        {
+                            TimeStamp = DateTime.Parse(cells[0]),
+                            EventCode = int.Parse(cells[1]),
+                            EventName = cells[2],
+                            Payload = cells[3],
+                        });
+
                     }
-                    protocol.FillArray(Parameter.Enablerlegacy.tablePid, tableRows, NotifyProtocol.SaveOption.Full);
-                    return apiResponse;
                 }
             }
-        } catch(Exception ex)
+            protocol.Legacydebugmsg = "Everything ok...";
+        }
+        catch (Exception ex)
         {
             protocol.Legacydebugmsg = $"Exception {ex.Message}";
-            return "";
         }
+        return rows;
     }
 
     public async Task<List<EnablerScteRow>> ReadEnablerScte(SLProtocolExt protocol)
@@ -207,7 +229,6 @@ public class QAction
                 using (var response = await httpClient.SendAsync(request))
                 {
                     string apiResponse = await response.Content.ReadAsStringAsync();
-                    protocol.Legacydebugmsg = "Everything ok!";
                     var lines = apiResponse.Split('\n');
                     foreach (var line in lines)
                     {
