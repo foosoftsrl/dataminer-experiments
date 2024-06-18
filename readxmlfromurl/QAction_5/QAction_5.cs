@@ -341,7 +341,7 @@ public class QAction
             var parsed = await mediatorSource.ReadMediator(uri, channelName, maxResults);
             var merged = mediatorSource.Merge(lastPublished, parsed);
             protocol.Mediatordebugmsg = $"State {lastPublished.Count}, Parsed {parsed.Count} Merged {merged.Count} lines";
-            return lastPublished;
+            return merged;
         }
         catch (Exception ex)
         {
