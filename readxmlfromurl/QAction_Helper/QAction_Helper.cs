@@ -229,6 +229,21 @@ public static class Parameter
 			public const int mediatorstatus_2006 = 2006;
 			/// <summary>PID: 2006 | Type: read</summary>
 			public const int mediatorstatus = 2006;
+			/// <summary>PID: 2007 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int mediatorenablerlegacy_2007 = 2007;
+			/// <summary>PID: 2007 | Type: read</summary>
+			public const int mediatorenablerlegacy = 2007;
+			/// <summary>PID: 2008 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int mediatorsctebreakstart_2008 = 2008;
+			/// <summary>PID: 2008 | Type: read</summary>
+			public const int mediatorsctebreakstart = 2008;
+			/// <summary>PID: 2009 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int mediatorscteadvstart_2009 = 2009;
+			/// <summary>PID: 2009 | Type: read</summary>
+			public const int mediatorscteadvstart = 2009;
 			public class Write
 			{
 			}
@@ -265,6 +280,21 @@ public static class Parameter
 			public const int mediatorstatus_2006 = 5;
 			/// <summary>IDX: 5 | Type: read</summary>
 			public const int mediatorstatus = 5;
+			/// <summary>IDX: 6 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int mediatorenablerlegacy_2007 = 6;
+			/// <summary>IDX: 6 | Type: read</summary>
+			public const int mediatorenablerlegacy = 6;
+			/// <summary>IDX: 7 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int mediatorsctebreakstart_2008 = 7;
+			/// <summary>IDX: 7 | Type: read</summary>
+			public const int mediatorsctebreakstart = 7;
+			/// <summary>IDX: 8 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int mediatorscteadvstart_2009 = 8;
+			/// <summary>IDX: 8 | Type: read</summary>
+			public const int mediatorscteadvstart = 8;
 		}
 	}
 	public class Won
@@ -661,6 +691,12 @@ public interface SLProtocolExt : SLProtocol
 	object Mediatorreconcilekey { get; set; }
 	object Mediatorstatus_2006 { get; set; }
 	object Mediatorstatus { get; set; }
+	object Mediatorenablerlegacy_2007 { get; set; }
+	object Mediatorenablerlegacy { get; set; }
+	object Mediatorsctebreakstart_2008 { get; set; }
+	object Mediatorsctebreakstart { get; set; }
+	object Mediatorscteadvstart_2009 { get; set; }
+	object Mediatorscteadvstart { get; set; }
 	object Wonitemreference_3001 { get; set; }
 	object Wonitemreference { get; set; }
 	object Wonstartdate_3002 { get; set; }
@@ -855,6 +891,21 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public System.Object Mediatorstatus_2006 {get { return GetParameter(2006); }set { SetParameter(2006, value); }}
 	/// <summary>PID: 2006  | Type: read</summary>
 	public System.Object Mediatorstatus {get { return GetParameter(2006); }set { SetParameter(2006, value); }}
+	/// <summary>PID: 2007  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Mediatorenablerlegacy_2007 {get { return GetParameter(2007); }set { SetParameter(2007, value); }}
+	/// <summary>PID: 2007  | Type: read</summary>
+	public System.Object Mediatorenablerlegacy {get { return GetParameter(2007); }set { SetParameter(2007, value); }}
+	/// <summary>PID: 2008  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Mediatorsctebreakstart_2008 {get { return GetParameter(2008); }set { SetParameter(2008, value); }}
+	/// <summary>PID: 2008  | Type: read</summary>
+	public System.Object Mediatorsctebreakstart {get { return GetParameter(2008); }set { SetParameter(2008, value); }}
+	/// <summary>PID: 2009  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Mediatorscteadvstart_2009 {get { return GetParameter(2009); }set { SetParameter(2009, value); }}
+	/// <summary>PID: 2009  | Type: read</summary>
+	public System.Object Mediatorscteadvstart {get { return GetParameter(2009); }set { SetParameter(2009, value); }}
 	/// <summary>PID: 3001  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Wonitemreference_3001 {get { return GetParameter(3001); }set { SetParameter(3001, value); }}
@@ -1144,8 +1195,23 @@ public class MediatorQActionRow : QActionTableRow
 	public System.Object Mediatorstatus_2006 { get { if (base.Columns.ContainsKey(5)) { return base.Columns[5]; } else { return null; } } set { if (base.Columns.ContainsKey(5)) { base.Columns[5] = value; } else { base.Columns.Add(5, value); } } }
 	/// <summary>PID: 2006 | Type: read</summary>
 	public System.Object Mediatorstatus { get { if (base.Columns.ContainsKey(5)) { return base.Columns[5]; } else { return null; } } set { if (base.Columns.ContainsKey(5)) { base.Columns[5] = value; } else { base.Columns.Add(5, value); } } }
-	public MediatorQActionRow() : base(0, 6) { }
-	public MediatorQActionRow(System.Object[] oRow) : base(0, 6, oRow) { }
+	/// <summary>PID: 2007 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Mediatorenablerlegacy_2007 { get { if (base.Columns.ContainsKey(6)) { return base.Columns[6]; } else { return null; } } set { if (base.Columns.ContainsKey(6)) { base.Columns[6] = value; } else { base.Columns.Add(6, value); } } }
+	/// <summary>PID: 2007 | Type: read</summary>
+	public System.Object Mediatorenablerlegacy { get { if (base.Columns.ContainsKey(6)) { return base.Columns[6]; } else { return null; } } set { if (base.Columns.ContainsKey(6)) { base.Columns[6] = value; } else { base.Columns.Add(6, value); } } }
+	/// <summary>PID: 2008 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Mediatorsctebreakstart_2008 { get { if (base.Columns.ContainsKey(7)) { return base.Columns[7]; } else { return null; } } set { if (base.Columns.ContainsKey(7)) { base.Columns[7] = value; } else { base.Columns.Add(7, value); } } }
+	/// <summary>PID: 2008 | Type: read</summary>
+	public System.Object Mediatorsctebreakstart { get { if (base.Columns.ContainsKey(7)) { return base.Columns[7]; } else { return null; } } set { if (base.Columns.ContainsKey(7)) { base.Columns[7] = value; } else { base.Columns.Add(7, value); } } }
+	/// <summary>PID: 2009 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Mediatorscteadvstart_2009 { get { if (base.Columns.ContainsKey(8)) { return base.Columns[8]; } else { return null; } } set { if (base.Columns.ContainsKey(8)) { base.Columns[8] = value; } else { base.Columns.Add(8, value); } } }
+	/// <summary>PID: 2009 | Type: read</summary>
+	public System.Object Mediatorscteadvstart { get { if (base.Columns.ContainsKey(8)) { return base.Columns[8]; } else { return null; } } set { if (base.Columns.ContainsKey(8)) { base.Columns[8] = value; } else { base.Columns.Add(8, value); } } }
+	public MediatorQActionRow() : base(0, 9) { }
+	public MediatorQActionRow(System.Object[] oRow) : base(0, 9, oRow) { }
 	public static implicit operator MediatorQActionRow(System.Object[] source) { return new MediatorQActionRow(source); }
 	public static implicit operator System.Object[](MediatorQActionRow source) { return source.ToObjectArray(); }
 }

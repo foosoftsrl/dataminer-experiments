@@ -112,10 +112,11 @@ public class QAction
                 Mediatortitle = row.Title,
                 Mediatorstatus = row.Status,
                 Mediatorreconcilekey = row.ReconcileKey,
-
+                Mediatorenablerlegacy = row.enablerLegacy ? "Yes": string.Empty,
+                Mediatorsctebreakstart = row.scteBroadcastBreakStart ? "Yes" : string.Empty,
+                Mediatorscteadvstart = row.scteBroadcastProviderAdvStart ? "Yes" : string.Empty,
             }.ToObjectArray());
         }
-
         protocol.FillArray(Parameter.Mediator.tablePid, tableRows, NotifyProtocol.SaveOption.Full);
         return tableRows;
     }

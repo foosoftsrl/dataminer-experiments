@@ -28,6 +28,9 @@
                         ReconcileKey = row.FindAdSalesReconcileKey(),
                         ScheduleReference = row.GetScheduleReference(),
                         Status = row.Status.GenericList.Object[0].TransferStatus,
+                        enablerLegacy = row.FindEnablerLegacy() != null,
+                        scteBroadcastBreakStart = row.FindScteBroadcastBreakStart() != null,
+                        scteBroadcastProviderAdvStart = row.FindScteBroadcastProviderAdvStart() != null,
                     });
                 }
             }

@@ -34,9 +34,12 @@
         public int Id;
         public string ScheduleReference;
         public string ReconcileKey;
+        public DateTime StartTime;
         public string Title;
         public string Status;
-        public DateTime StartTime;
+        public bool scteBroadcastBreakStart;
+        public bool scteBroadcastProviderAdvStart;
+        public bool enablerLegacy;
     }
 
     public class EnablerScteRow
