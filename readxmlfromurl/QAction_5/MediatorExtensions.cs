@@ -66,6 +66,36 @@
             return null;
         }
 
+        public static Mediator.Templateparameter FindScteBroadcastBreakStart(this Mediator.Row mediatorRow)
+        {
+            return mediatorRow.FindTemplateParameterByName("scteBroadcastBreakStart-insertSegmentationDescriptor");
+        }
+
+        public static Mediator.Templateparameter FindScteBroadcastProviderAdvStart(this Mediator.Row mediatorRow)
+        {
+            return mediatorRow.FindTemplateParameterByName("scteBroadcastProviderAdvStart-insertSegmentationDescriptor");
+        }
+
+        public static Mediator.Templateparameter FindEnablerLegacy(this Mediator.Row mediatorRow)
+        {
+            return mediatorRow.FindTemplateParameterByName("enablerLegacy-compoundList");
+        }
+
+        public static Mediator.Templateparameter FindTemplateParameterByName(this Mediator.Row mediatorRow, string name)
+        {
+            foreach (var entry in mediatorRow.TemplateParameterList.GenericList.Object)
+            {
+                foreach (var templateParameter in entry.TemplateParameter)
+                {
+                    if (templateParameter.Name == name)
+                    {
+                        return templateParameter;
+                    }
+                }
+            }
+            return null;
+        }
+
         public static string GetScheduleReference(this Mediator.Row row)
         {
             if (row.ScheduleReference == null)
