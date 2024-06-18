@@ -17,20 +17,18 @@
     public class MediatorSource
     {
         public List<MediatorRow> Merge(List<MediatorRow> state, List<MediatorRow> delta) {
+            Dictionary<int, MediatorRow> mergedMap = new Dictionary<int, MediatorRow>();
             var minDate = DateTime.Today.AddDays(-3);
-            var merged = new List<MediatorRow>();
-            if (delta.Count != 0)
+            foreach (var row in state)
             {
-                var first = delta.First();
-                foreach (var row in state)
-                {
-                    if (row.StartTime >= first.StartTime)
-                        break;
-                    merged.Add(row);
-                }
-                merged.AddRange(delta);
-                merged.RemoveAll(row => row.StartTime < minDate);
+                mergedMap[row.Id] = row;
             }
+            foreach (var row in delta)
+            {
+                mergedMap[row.Id] = row;
+            }
+            var merged = mergedMap.Select(e => e.Value).ToList();
+            merged.RemoveAll(row => row.StartTime < minDate);
             return merged;
         }
 
