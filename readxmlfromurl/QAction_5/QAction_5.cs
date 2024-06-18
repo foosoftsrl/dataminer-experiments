@@ -270,7 +270,7 @@ public class QAction
             }
         } catch(Exception e)
         {
-            //.... silently fail. Should LOG!
+            protocol.Mediatordebugmsg = $"Failed parsing mediator table";
         }
         return result;
     }
@@ -285,7 +285,7 @@ public class QAction
             var parsed = await mediatorSource.ReadMediator(uri, channelName, maxResults);
             var merged = mediatorSource.Merge(lastPublished, parsed);
             protocol.Mediatordebugmsg = $"State {lastPublished.Count}, Parsed {parsed.Count} Merged {merged.Count} lines";
-            return merged;
+            return lastPublished;
         }
         catch (Exception ex)
         {
