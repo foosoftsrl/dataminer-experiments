@@ -37,9 +37,9 @@
         public DateTime StartTime;
         public string Title;
         public string Status;
-        public bool scteBroadcastBreakStart;
-        public bool scteBroadcastProviderAdvStart;
-        public bool enablerLegacy;
+        public string scteBroadcastBreakStart;
+        public string scteBroadcastProviderAdvStart;
+        public string enablerLegacy;
     }
 
     public class EnablerScteRow

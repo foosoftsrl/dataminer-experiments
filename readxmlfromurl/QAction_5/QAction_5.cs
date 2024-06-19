@@ -89,9 +89,9 @@ public class QAction
                 Wontitle = row.Title,
                 Wonreconcilekey = row.ReconcileKey ?? string.Empty,
                 Wonitemreference = row.ItemReference,
-                Wonenablerlegacy = row.enablerLegacy,
-                Wonsctebreakstart = row.scteBroadcastBreakStart,
-                Wonscteadvstart = row.scteBroadcastProviderAdvStart,
+                Wonenablerlegacy = row.enablerLegacy ?? string.Empty,
+                Wonsctebreakstart = row.scteBroadcastBreakStart ?? string.Empty,
+                Wonscteadvstart = row.scteBroadcastProviderAdvStart ?? string.Empty,
             }.ToObjectArray());
         }
 
@@ -112,9 +112,9 @@ public class QAction
                 Mediatortitle = row.Title,
                 Mediatorstatus = row.Status,
                 Mediatorreconcilekey = row.ReconcileKey,
-                Mediatorenablerlegacy = row.enablerLegacy ? "Yes": string.Empty,
-                Mediatorsctebreakstart = row.scteBroadcastBreakStart ? "Yes" : string.Empty,
-                Mediatorscteadvstart = row.scteBroadcastProviderAdvStart ? "Yes" : string.Empty,
+                Mediatorenablerlegacy = row.enablerLegacy ?? string.Empty,
+                Mediatorsctebreakstart = row.scteBroadcastBreakStart ?? string.Empty,
+                Mediatorscteadvstart = row.scteBroadcastProviderAdvStart ?? string.Empty,
             }.ToObjectArray());
         }
         protocol.FillArray(Parameter.Mediator.tablePid, tableRows, NotifyProtocol.SaveOption.Full);
@@ -303,6 +303,12 @@ public class QAction
         }
     }
 
+    public static string nullIfEmpty(string s)
+    {
+        if (s.Length == 0)
+            return null;
+        return s;
+    }
     public List<MediatorRow> GetLastPublishedMediator(SLProtocolExt protocol)
     {
         var result = new List<MediatorRow>();
@@ -318,9 +324,9 @@ public class QAction
                     Id = Int32.Parse((string)row.Mediatorid),
                     StartTime = DateTime.Parse((string)row.Mediatordate),
                     ReconcileKey = (string)row.Mediatorreconcilekey,
-                    Title = (string)row.Mediatortitle,
-                    Status = (string)row.Mediatorstatus,
-                    ScheduleReference = (string)row.Mediatorschedulereference,
+                    Title = nullIfEmpty((string)row.Mediatortitle),
+                    Status = nullIfEmpty((string)row.Mediatorstatus),
+                    ScheduleReference = nullIfEmpty((string)row.Mediatorschedulereference),
                 });
             }
         } catch(Exception e)

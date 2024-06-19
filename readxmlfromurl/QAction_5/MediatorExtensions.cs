@@ -1,5 +1,6 @@
 ﻿namespace QAction_5
 {
+    using Mediator;
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -9,11 +10,11 @@
 
     public static class MediatorExtensions
     {
-        public static List<MediatorRow> Flatten(this Mediator.Rootobject rootObjects)
+        public static List<MediatorRow> Flatten(this Mediator.Welcome rootObject)
         {
             var result = new List<MediatorRow>();
             // Convert Generated class into Connector Row data.
-            foreach (var command in rootObjects.PharosCs.CommandList.Command)
+            foreach (var command in rootObject.PharosCs.CommandList.Command)
             {
                 foreach (var row in command.Output.ResultSet.Rows)
                 {
@@ -23,14 +24,14 @@
                     result.Add(new MediatorRow
                     {
                         StartTime = (DateTime)startTime,
-                        Id = row.Id.GenericList.Object[0],
+                        Id = (int)row.Id.GenericList.Object[0],
                         Title = row.Title.AsString(),
                         ReconcileKey = row.FindAdSalesReconcileKey(),
                         ScheduleReference = row.GetScheduleReference(),
-                        Status = row.Status.GenericList.Object[0].TransferStatus,
-                        enablerLegacy = row.FindEnablerLegacy() != null,
-                        scteBroadcastBreakStart = row.FindScteBroadcastBreakStart() != null,
-                        scteBroadcastProviderAdvStart = row.FindScteBroadcastProviderAdvStart() != null,
+                        Status = row.Status.GenericList.Object[0].TransferStatus.ToString(),
+                        enablerLegacy = row.FindEnablerLegacyText(),
+                        scteBroadcastBreakStart = row.FindScteBroadcastBreakStartUpid(),
+                        scteBroadcastProviderAdvStart = row.FindScteBroadcastProviderAdvStartUpid(),
                     });
                 }
             }
@@ -51,40 +52,59 @@
             }
             return reconcileToRow;
         }
-        public static string FindAdSalesReconcileKey(this Mediator.Row mediatorRow)
+        public static string FindAdSalesReconcileKey(this Mediator.Row row)
         {
-            foreach (var entry in mediatorRow.TemplateParameterList.GenericList.Object)
+            return row.FindTemplateParameterByName(Mediator.PurpleName.AdSalesContentReconcileKeyText)?.Value.String;
+        }
+
+        public static Mediator.ObjectTemplateParameter FindScteBroadcastBreakStart(this Mediator.Row mediatorRow)
+        {
+            return mediatorRow.FindTemplateParameterByName(PurpleName.ScteBroadcastBreakStartInsertSegmentationDescriptor);
+        }
+
+        public static Mediator.ObjectTemplateParameter FindScteBroadcastProviderAdvStart(this Mediator.Row mediatorRow)
+        {
+            return mediatorRow.FindTemplateParameterByName(PurpleName.ScteBroadcastProviderAdvStartInsertSegmentationDescriptor);
+        }
+
+        public static Mediator.ObjectTemplateParameter FindEnablerLegacy(this Mediator.Row mediatorRow)
+        {
+            return mediatorRow.FindTemplateParameterByName(Mediator.PurpleName.EnablerLegacyCompoundList);
+        }
+
+        public static string FindScteBroadcastBreakStartUpid(this Mediator.Row mediatorRow)
+        {
+            return mediatorRow.FindScteBroadcastBreakStart()?.Value.ValueClass?.TemplateParameterListCompound.GetValueByName(FluffyName.SegmentationUpid);
+        }
+
+        public static string FindScteBroadcastProviderAdvStartUpid(this Mediator.Row mediatorRow)
+        {
+            return mediatorRow.FindScteBroadcastProviderAdvStart()?.Value.ValueClass?.TemplateParameterListCompound.GetValueByName(FluffyName.SegmentationUpid);
+        }
+
+        public static string FindEnablerLegacyText(this Mediator.Row mediatorRow)
+        {
+            var enablerValue = mediatorRow.FindEnablerLegacy()?.Value.ValueClass;
+            return enablerValue?.TemplateParameterListCompound.GetValueByName(FluffyName.EnablerLegacyUserText1);
+        }
+
+        public static string GetValueByName(this TemplateParameterListCompound compound, FluffyName name)
+        {
+            foreach (var a in compound.TemplateParameterList)
             {
-                foreach (var templateParameter in entry.TemplateParameter)
+                foreach (var b in a.TemplateParameter)
                 {
-                    if (templateParameter.Name == "adSalesContentReconcileKey-text")
+                    if (b.Name == name)
                     {
-                        if (templateParameter.Value is string)
-                        {
-                            return (string)templateParameter.Value;
-                        }
+                        return b.Value;
                     }
+
                 }
             }
             return null;
         }
 
-        public static Mediator.Templateparameter FindScteBroadcastBreakStart(this Mediator.Row mediatorRow)
-        {
-            return mediatorRow.FindTemplateParameterByName("scteBroadcastBreakStart-insertSegmentationDescriptor");
-        }
-
-        public static Mediator.Templateparameter FindScteBroadcastProviderAdvStart(this Mediator.Row mediatorRow)
-        {
-            return mediatorRow.FindTemplateParameterByName("scteBroadcastProviderAdvStart-insertSegmentationDescriptor");
-        }
-
-        public static Mediator.Templateparameter FindEnablerLegacy(this Mediator.Row mediatorRow)
-        {
-            return mediatorRow.FindTemplateParameterByName("enablerLegacy-compoundList");
-        }
-
-        public static Mediator.Templateparameter FindTemplateParameterByName(this Mediator.Row mediatorRow, string name)
+        public static Mediator.ObjectTemplateParameter FindTemplateParameterByName(this Mediator.Row mediatorRow, PurpleName name)
         {
             foreach (var entry in mediatorRow.TemplateParameterList.GenericList.Object)
             {
@@ -115,9 +135,9 @@
                 return null;
             if (row.StartDateTime.GenericList == null || row.StartDateTime.GenericList.Size != 1)
                 return null;
-            return DateTime.Parse(row.StartDateTime.GenericList.Object[0].ISO8601 + "Z");
+            return DateTime.Parse(row.StartDateTime.GenericList.Object[0].Iso8601 + "Z");
         }
-        public static string AsString(this Mediator.Title title)
+        public static string AsString(this Mediator.InTransitionName title)
         {
             if (title == null)
                 return null;

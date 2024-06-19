@@ -39,7 +39,7 @@
             return obj.Flatten();
         }
 
-        public async Task<Mediator.Rootobject> ReadMediatorRaw(string uri, string channelName, int maxResults)
+        public async Task<Mediator.Welcome> ReadMediatorRaw(string uri, string channelName, int maxResults)
         {
             string sessionKey = "A-VDRFtKctjLhGR3wMmoITydeAeNjhME";
             string cqlQuery = $"select parcel.templateparameterlist sequence.startdatetime sequence.id sequence.duration sequence.schedulereference parcel.title event.trimmaterialid event.infaderate event.intransitionname sequence.state status from '{channelName}' where maxresults = {maxResults} and event.stream in ('Main Video')";
@@ -72,7 +72,7 @@
 
             string jsonData = await SendMessageAndWaitForResponseAsync(uri, message);
 
-            return JsonConvert.DeserializeObject<Mediator.Rootobject>(jsonData);
+            return JsonConvert.DeserializeObject<Mediator.Welcome>(jsonData, Mediator.Converter.Settings);
         }
 
         public static async Task<string> SendMessageAndWaitForResponseAsync(string uri, string message)

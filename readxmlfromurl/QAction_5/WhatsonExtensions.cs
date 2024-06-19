@@ -30,9 +30,9 @@
                                     ItemReference = playlistItem.ItemReference,
                                     ReconcileKey = reconcileKey,
                                     Title = playlistItem.ScheduledTitle,
-                                    enablerLegacy = playlistItem.FindEnablerLegacyText() ?? string.Empty,
-                                    scteBroadcastBreakStart = playlistItem.FindScteBroadcastBreakStartUpid() ?? string.Empty,
-                                    scteBroadcastProviderAdvStart = playlistItem.FindScteBroadcastProviderAdvStartUpid() ?? string.Empty,
+                                    enablerLegacy = playlistItem.FindEnablerLegacyText(),
+                                    scteBroadcastBreakStart = playlistItem.FindScteBroadcastBreakStartUpid(),
+                                    scteBroadcastProviderAdvStart = playlistItem.FindScteBroadcastProviderAdvStartUpid(),
                                 });
                             }
                         }
