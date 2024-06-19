@@ -30,9 +30,9 @@
                                     ItemReference = playlistItem.ItemReference,
                                     ReconcileKey = reconcileKey,
                                     Title = playlistItem.ScheduledTitle,
-                                    enablerLegacy = playlistItem.FindEnablerLegacy() != null,
-                                    scteBroadcastBreakStart = playlistItem.FindScteBroadcastBreakStart() != null,
-                                    scteBroadcastProviderAdvStart = playlistItem.FindScteBroadcastProviderAdvStart() != null,
+                                    enablerLegacy = playlistItem.FindEnablerLegacyText() ?? string.Empty,
+                                    scteBroadcastBreakStart = playlistItem.FindScteBroadcastBreakStartUpid() ?? string.Empty,
+                                    scteBroadcastProviderAdvStart = playlistItem.FindScteBroadcastProviderAdvStartUpid() ?? string.Empty,
                                 });
                             }
                         }
@@ -65,14 +65,32 @@
             return playlistItem.FindDataElementByName("scteBroadcastBreakStart-insertSegmentationDescriptor");
         }
 
+        public static string FindScteBroadcastBreakStartUpid(this PharosPlaylistBlockPlaylistItem playlistItem)
+        {
+            var item = playlistItem.FindScteBroadcastBreakStart();
+            return item?.Value.DataElementCompoundList?.DataElementList.FindDataElementByName("segmentationUpid")?.Value;
+        }
+
         public static PharosPlaylistBlockPlaylistItemTemplateDataElement FindScteBroadcastProviderAdvStart(this PharosPlaylistBlockPlaylistItem playlistItem)
         {
             return playlistItem.FindDataElementByName("scteBroadcastProviderAdvStart-insertSegmentationDescriptor");
         }
 
+        public static string FindScteBroadcastProviderAdvStartUpid(this PharosPlaylistBlockPlaylistItem playlistItem)
+        {
+            var item = playlistItem.FindScteBroadcastProviderAdvStart();
+            return item?.Value.DataElementCompoundList?.DataElementList.FindDataElementByName("segmentationUpid")?.Value;
+        }
+
         public static PharosPlaylistBlockPlaylistItemTemplateDataElement FindEnablerLegacy(this PharosPlaylistBlockPlaylistItem playlistItem)
         {
             return playlistItem.FindDataElementByName("enablerLegacy-compoundList");
+        }
+
+        public static string FindEnablerLegacyText(this PharosPlaylistBlockPlaylistItem playlistItem)
+        {
+            var item = playlistItem.FindEnablerLegacy();
+            return item?.Value.DataElementCompoundList?.DataElementList.FindDataElementByName("enablerLegacy-userText1")?.Value;
         }
 
         public static string Text(this PharosPlaylistBlockPlaylistItemTemplateDataElement dataElement)
@@ -86,7 +104,24 @@
 
         public static PharosPlaylistBlockPlaylistItemTemplateDataElement FindDataElementByName(this PharosPlaylistBlockPlaylistItem playlistItem, String name)
         {
-            foreach (var entry in playlistItem.Template.DataElementList)
+            return playlistItem.Template.DataElementList.FindDataElementByName(name);
+        }
+
+        public static PharosPlaylistBlockPlaylistItemTemplateDataElementValueDataElementCompoundListDataElement FindDataElementByName(this PharosPlaylistBlockPlaylistItemTemplateDataElementValueDataElementCompoundListDataElement[] dataElementArray, String name)
+        {
+            foreach (var entry in dataElementArray)
+            {
+                if (entry.Name == name)
+                {
+                    return entry;
+                }
+            }
+            return null;
+        }
+
+        public static PharosPlaylistBlockPlaylistItemTemplateDataElement FindDataElementByName(this PharosPlaylistBlockPlaylistItemTemplateDataElement[] dataElementArray, String name)
+        {
+            foreach (var entry in dataElementArray)
             {
                 if (entry.Name == name)
                 {
