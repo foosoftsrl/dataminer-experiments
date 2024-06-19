@@ -17,20 +17,20 @@
     public class MediatorSource
     {
         public List<MediatorRow> Merge(List<MediatorRow> state, List<MediatorRow> delta) {
+            Dictionary<int, MediatorRow> mergedMap = new Dictionary<int, MediatorRow>();
             var minDate = DateTime.Today.AddDays(-3);
-            var merged = new List<MediatorRow>();
-            if (delta.Count != 0)
+            foreach (var row in state)
             {
-                var first = delta.First();
-                foreach (var row in state)
-                {
-                    if (row.StartTime >= first.StartTime)
-                        break;
-                    merged.Add(row);
-                }
-                merged.AddRange(delta);
-                merged.RemoveAll(row => row.StartTime < minDate);
+                mergedMap[row.Id] = row;
             }
+
+            foreach (var row in delta)
+            {
+                mergedMap[row.Id] = row;
+            }
+
+            var merged = mergedMap.Select(e => e.Value).ToList();
+            merged.RemoveAll(row => row.StartTime < minDate);
             return merged;
         }
 
@@ -39,7 +39,7 @@
             return obj.Flatten();
         }
 
-        public async Task<Mediator.Rootobject> ReadMediatorRaw(string uri, string channelName, int maxResults)
+        public async Task<Mediator.Welcome> ReadMediatorRaw(string uri, string channelName, int maxResults)
         {
             string sessionKey = "A-VDRFtKctjLhGR3wMmoITydeAeNjhME";
             string cqlQuery = $"select parcel.templateparameterlist sequence.startdatetime sequence.id sequence.duration sequence.schedulereference parcel.title event.trimmaterialid event.infaderate event.intransitionname sequence.state status from '{channelName}' where maxresults = {maxResults} and event.stream in ('Main Video')";
@@ -72,7 +72,7 @@
 
             string jsonData = await SendMessageAndWaitForResponseAsync(uri, message);
 
-            return JsonConvert.DeserializeObject<Mediator.Rootobject>(jsonData);
+            return JsonConvert.DeserializeObject<Mediator.Welcome>(jsonData, Mediator.Converter.Settings);
         }
 
         public static async Task<string> SendMessageAndWaitForResponseAsync(string uri, string message)
@@ -125,7 +125,6 @@
                     }
 
                     await clientWebSocket.CloseOutputAsync(WebSocketCloseStatus.NormalClosure, "Closing", CancellationToken.None);
-                    //await clientWebSocket.CloseAsync(WebSocketCloseStatus.NormalClosure, "Closed", CancellationToken.None);
                     Console.WriteLine("Connection closed.");
 
                     return receivedMessage;

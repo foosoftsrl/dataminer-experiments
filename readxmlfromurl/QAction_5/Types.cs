@@ -9,11 +9,13 @@
     public class AdSalesRow
     {
         public DateTime TimeOfDay;
+        public string BreakId;
+        public string ReconcileKey;
         public string Title;
         public string ProductCode;
         public string Type;
-        public string ReconcileKey;
         public string Duration;
+        public string Enabler;
     }
 
     public class WhatsonRow
@@ -22,6 +24,9 @@
         public string Title;
         public string ItemReference;
         public string ReconcileKey;
+        public string scteBroadcastBreakStart;
+        public string scteBroadcastProviderAdvStart;
+        public string enablerLegacy;
     }
 
     public class MediatorRow
@@ -29,8 +34,19 @@
         public int Id;
         public string ScheduleReference;
         public string ReconcileKey;
+        public DateTime StartTime;
         public string Title;
         public string Status;
-        public DateTime StartTime;
+        public string scteBroadcastBreakStart;
+        public string scteBroadcastProviderAdvStart;
+        public string enablerLegacy;
+    }
+
+    public class EnablerRow
+    {
+        public DateTime TimeStamp;
+        public int EventCode;
+        public string EventName;
+        public string Payload;
     }
 }

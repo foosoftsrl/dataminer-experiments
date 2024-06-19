@@ -21,11 +21,10 @@ namespace QAction_5
         {
             var date = firstDay;
             var result = new List<WhatsonRow>();
-            for (var i = 0; i < 3; i++)
+            for (var i = -1; i < 3; i++)
             {
-                string day = date.ToString("yyyy-MM-dd");
+                string day = date.AddDays(i).ToString("yyyy-MM-dd");
                 result.AddRange(ReadWhatson(channelName, dir, day));
-                date = date.AddDays(1);
             }
             return result;
         }

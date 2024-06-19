@@ -25,16 +25,19 @@
                         result.Add(new AdSalesRow
                         {
                             TimeOfDay = startTime,
+                            BreakId = break_.BreakID,
                             Title = content.ContentBrand,
                             Type = timeAllocation.TimeAllocationType1,
                             ProductCode = content.ContentProductCode,
                             Duration = content.ContentTotalDuration,
                             ReconcileKey = content.ContentReconcileKey,
+                            Enabler = content.ContentEnabler,
                         });
                         timeFromBreakStart += (content.ContentTotalDuration != null) ? Int32.Parse(content.ContentTotalDuration) : 0;
                     }
                 }
             }
+
             return result;
         }
     }

@@ -30,6 +30,9 @@
                                     ItemReference = playlistItem.ItemReference,
                                     ReconcileKey = reconcileKey,
                                     Title = playlistItem.ScheduledTitle,
+                                    enablerLegacy = playlistItem.FindEnablerLegacyText(),
+                                    scteBroadcastBreakStart = playlistItem.FindScteBroadcastBreakStartUpid(),
+                                    scteBroadcastProviderAdvStart = playlistItem.FindScteBroadcastProviderAdvStartUpid(),
                                 });
                             }
                         }
@@ -54,18 +57,80 @@
         }
         public static string FindAdSalesReconcileKey(this PharosPlaylistBlockPlaylistItem playlistItem)
         {
-            foreach (var entry in playlistItem.Template.DataElementList)
+            return playlistItem.FindDataElementByName("adSalesContentReconcileKey-text")?.Text();
+        }
+
+        public static PharosPlaylistBlockPlaylistItemTemplateDataElement FindScteBroadcastBreakStart(this PharosPlaylistBlockPlaylistItem playlistItem)
+        {
+            return playlistItem.FindDataElementByName("scteBroadcastBreakStart-insertSegmentationDescriptor");
+        }
+
+        public static string FindScteBroadcastBreakStartUpid(this PharosPlaylistBlockPlaylistItem playlistItem)
+        {
+            var item = playlistItem.FindScteBroadcastBreakStart();
+            return item?.Value.DataElementCompoundList?.DataElementList.FindDataElementByName("segmentationUpid")?.Value;
+        }
+
+        public static PharosPlaylistBlockPlaylistItemTemplateDataElement FindScteBroadcastProviderAdvStart(this PharosPlaylistBlockPlaylistItem playlistItem)
+        {
+            return playlistItem.FindDataElementByName("scteBroadcastProviderAdvStart-insertSegmentationDescriptor");
+        }
+
+        public static string FindScteBroadcastProviderAdvStartUpid(this PharosPlaylistBlockPlaylistItem playlistItem)
+        {
+            var item = playlistItem.FindScteBroadcastProviderAdvStart();
+            return item?.Value.DataElementCompoundList?.DataElementList.FindDataElementByName("segmentationUpid")?.Value;
+        }
+
+        public static PharosPlaylistBlockPlaylistItemTemplateDataElement FindEnablerLegacy(this PharosPlaylistBlockPlaylistItem playlistItem)
+        {
+            return playlistItem.FindDataElementByName("enablerLegacy-compoundList");
+        }
+
+        public static string FindEnablerLegacyText(this PharosPlaylistBlockPlaylistItem playlistItem)
+        {
+            var item = playlistItem.FindEnablerLegacy();
+            return item?.Value.DataElementCompoundList?.DataElementList.FindDataElementByName("enablerLegacy-userText1")?.Value;
+        }
+
+        public static string Text(this PharosPlaylistBlockPlaylistItemTemplateDataElement dataElement)
+        {
+            if (dataElement.Value.Text != null && dataElement.Value.Text.Length == 1)
             {
-                if (entry.Name == "adSalesContentReconcileKey-text")
+                return dataElement.Value.Text[0];
+            }
+            return null;
+        }
+
+        public static PharosPlaylistBlockPlaylistItemTemplateDataElement FindDataElementByName(this PharosPlaylistBlockPlaylistItem playlistItem, String name)
+        {
+            return playlistItem.Template.DataElementList.FindDataElementByName(name);
+        }
+
+        public static PharosPlaylistBlockPlaylistItemTemplateDataElementValueDataElementCompoundListDataElement FindDataElementByName(this PharosPlaylistBlockPlaylistItemTemplateDataElementValueDataElementCompoundListDataElement[] dataElementArray, String name)
+        {
+            foreach (var entry in dataElementArray)
+            {
+                if (entry.Name == name)
                 {
-                    if (entry.Value.Text != null && entry.Value.Text.Length == 1)
-                    {
-                        return entry.Value.Text[0];
-                    }
+                    return entry;
                 }
             }
             return null;
         }
+
+        public static PharosPlaylistBlockPlaylistItemTemplateDataElement FindDataElementByName(this PharosPlaylistBlockPlaylistItemTemplateDataElement[] dataElementArray, String name)
+        {
+            foreach (var entry in dataElementArray)
+            {
+                if (entry.Name == name)
+                {
+                    return entry;
+                }
+            }
+            return null;
+        }
+
         public static DateTime? StartDateTime(this PharosPlaylistBlockPlaylistItem playlistItem)
         {
             if (playlistItem.StartDate == null || playlistItem.StartTimecode == null)

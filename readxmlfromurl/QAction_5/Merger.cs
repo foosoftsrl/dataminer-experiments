@@ -11,20 +11,26 @@
 
     public static class Merger
     {
-        public static MergedEntry[] Merge(List<AdSalesRow> adSalesData, List<WhatsonRow> whatsonData, List<MediatorRow> mediatorData)
+        public static MergedEntry[] Merge(List<AdSalesRow> adSalesData, List<WhatsonRow> whatsonData, List<MediatorRow> mediatorData, List<EnablerRow> scteEvents, List<EnablerRow> legacyEvents)
         {
             var whatsonMap = whatsonData.ToReconcileKeyMap();
             var mediatorMap = mediatorData.ToReconcileKeyMap();
+            var scteMap = scteEvents.ToPayloadMap();
+            var legacyMap = legacyEvents.ToPayloadMap(); // TODO: use event name + payload!!!
             List<MergedEntry> rowList = new List<MergedEntry>();
             foreach (var row in adSalesData)
             {
                 var contentReconcileKey = row.ReconcileKey;
+                var whatsonRow = whatsonMap.GetValueOrDefault(contentReconcileKey, null);
                 rowList.Add(new MergedEntry
                 {
                     adSalesTime = row.TimeOfDay,
                     adSalesData = row,
-                    whatsonData = whatsonMap.GetValueOrDefault(contentReconcileKey, null),
+                    whatsonData = whatsonRow,
                     mediatorData = mediatorMap.GetValueOrDefault(contentReconcileKey, null),
+                    scteBroadcastBreakStart = scteMap.GetValueOrDefault(whatsonRow?.scteBroadcastBreakStart, null),
+                    scteBroadcastProviderAdvStart = scteMap.GetValueOrDefault(whatsonRow?.scteBroadcastProviderAdvStart, null),
+                    legacyEvent = legacyMap.GetValueOrDefault(whatsonRow?.enablerLegacy, null),
                 });
             }
             return rowList.ToArray();

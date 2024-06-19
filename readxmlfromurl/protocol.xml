@@ -354,8 +354,10 @@
 			<ArrayOptions index="0">
 				<ColumnOption idx="0" pid="1001" type="retrieved" options=""/>
 				<ColumnOption idx="1" pid="1002" type="retrieved" options=""/>
-				<ColumnOption idx="2" pid="1003" type="retrieved" options="" />
+				<ColumnOption idx="2" pid="1003" type="retrieved" options=""/>
 				<ColumnOption idx="3" pid="1004" type="retrieved" options="" />
+				<ColumnOption idx="4" pid="1005" type="retrieved" options="" />
+				<ColumnOption idx="5" pid="1006" type="retrieved" options="" />
 			</ArrayOptions>
 			<Information>
 				<Subtext>AdSales Table</Subtext>
@@ -371,7 +373,7 @@
 				</Positions>
 			</Display>
 			<Measurement>
-				<Type options="tab=columns:1001|0-1002|1-1003|2-1004|3,width:120-240-120-120,sort:STRING-STRING|ASC-STRING-STRING,lines:25,filter:true">table</Type>
+				<Type options="tab=columns:1001|0-1002|1-1003|2-1004|3-1005|4-1006|5,width:120-120-120-240-100-100,sort:STRING-STRING|ASC-STRING-STRING-STRING-STRING,lines:25,filter:true">table</Type>
 			</Measurement>
 		</Param>
 		<Param id="1001" trending="false">
@@ -413,6 +415,25 @@
 			</Measurement>
 		</Param>
 		<Param id="1003" trending="false">
+			<Name>adSalesBreakId</Name>
+			<Description>BreakId</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>Break Id</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="1004" trending="false">
 			<Name>adSalesTitle</Name>
 			<Description>Title</Description>
 			<Type>read</Type>
@@ -431,12 +452,31 @@
 				<Type>string</Type>
 			</Measurement>
 		</Param>
-		<Param id="1004" trending="false">
+		<Param id="1005" trending="false">
 			<Name>adSalesType</Name>
-			<Description>Allocation Type</Description>
+			<Description>Type</Description>
 			<Type>read</Type>
 			<Information>
 				<Subtext>Indicate what type of allocation is, such as SPOT or IS</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="1006" trending="false">
+			<Name>adSalesEnabler</Name>
+			<Description>Enabler</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>Enabler</Subtext>
 			</Information>
 			<Interprete>
 				<RawType>other</RawType>
@@ -462,6 +502,9 @@
 				<ColumnOption idx="3" pid="2004" type="retrieved" options=";save"/>
 				<ColumnOption idx="4" pid="2005" type="retrieved" options=";save"/>
 				<ColumnOption idx="5" pid="2006" type="retrieved" options=";save"/>
+				<ColumnOption idx="6" pid="2007" type="retrieved" options=";save"/>
+				<ColumnOption idx="7" pid="2008" type="retrieved" options=";save"/>
+				<ColumnOption idx="8" pid="2009" type="retrieved" options=";save"/>
 			</ArrayOptions>
 			<Information>
 				<Subtext>Mediator Table</Subtext>
@@ -477,7 +520,7 @@
 				</Positions>
 			</Display>
 			<Measurement>
-				<Type options="tab=columns:2001|0-2002|1-2003|2-2004|3-2005|4-2006|5,width:120-120-120-120-120-120,sort:STRING-STRING-STRING-STRING-STRING-STRING,lines:25,filter:true">table</Type>
+				<Type options="tab=columns:2001|0-2002|1-2003|2-2004|3-2005|4-2006|5-2007|6-2008|7-2009|8,width:120-120-120-120-120-120-100-102-100,sort:STRING-STRING|ASC|0-STRING-STRING-STRING-STRING-STRING-STRING-STRING,lines:25,filter:true">table</Type>
 			</Measurement>
 		</Param>
 		<Param id="2001" trending="false">
@@ -594,6 +637,63 @@
 				<Type>string</Type>
 			</Measurement>
 		</Param>
+		<Param id="2007" trending="false">
+			<Name>mediatorEnablerLegacy</Name>
+			<Description>EnablerLegacy</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>EnablerLegacy</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="2008" trending="false">
+			<Name>mediatorScteBreakStart</Name>
+			<Description>ScteBreakStart</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>ScteBreakStart</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="2009" trending="false">
+			<Name>mediatorScteAdvStart</Name>
+			<Description>ScteAdvStart</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>ScteAdvStart</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
 		<Param id="3000">
 			<Name>won</Name>
 			<Description>WON Table</Description>
@@ -603,6 +703,9 @@
 				<ColumnOption idx="1" pid="3002" type="retrieved" options="" />
 				<ColumnOption idx="2" pid="3003" type="retrieved" options="" />
 				<ColumnOption idx="3" pid="3004" type="retrieved" options="" />
+				<ColumnOption idx="4" pid="3005" type="retrieved" options="" />
+				<ColumnOption idx="5" pid="3006" type="retrieved" options="" />
+				<ColumnOption idx="6" pid="3007" type="retrieved" options="" />
 			</ArrayOptions>
 			<Information>
 				<Subtext>tableInformation</Subtext>
@@ -618,7 +721,7 @@
 				</Positions>
 			</Display>
 			<Measurement>
-				<Type options="tab=columns:3001|0-3002|1-3003|2-3004|3,width:240-120-240-120,sort:STRING-STRING|ASC-STRING-STRING,lines:25,filter:true">table</Type>
+				<Type options="tab=columns:3001|0-3002|1-3003|2-3004|3-3005|4-3006|5-3007|6,width:240-120-240-120-100-102-100,sort:STRING-STRING|ASC-STRING-STRING-STRING-STRING-STRING,lines:25,filter:true">table</Type>
 			</Measurement>
 		</Param>
 		<Param id="3001" trending="false">
@@ -684,6 +787,63 @@
 			<Type>read</Type>
 			<Information>
 				<Subtext>Reconcile Key</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="3005" trending="false">
+			<Name>wonEnablerLegacy</Name>
+			<Description>EnablerLegacy</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>EnablerLegacy</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="3006" trending="false">
+			<Name>wonScteBreakStart</Name>
+			<Description>ScteBreakStart</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>ScteBreakStart</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="3007" trending="false">
+			<Name>wonScteAdvStart</Name>
+			<Description>ScteAdvStart</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>ScteAdvStart</Subtext>
 			</Information>
 			<Interprete>
 				<RawType>other</RawType>
@@ -1036,7 +1196,7 @@
 					<Position>
 						<Page>Enabler Scte</Page>
 						<Column>0</Column>
-						<Row>3</Row>
+						<Row>1</Row>
 					</Position>
 				</Positions>
 			</Display>
@@ -1115,6 +1275,31 @@
 			</Interprete>
 			<Display>
 				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="6100" trending="false">
+			<Name>scteDebugMsg</Name>
+			<Description>Debug SCTE Data</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Enabler Scte</Page>
+						<Column>0</Column>
+						<Row>0</Row>
+					</Position>
+				</Positions>
 			</Display>
 			<Measurement>
 				<Type>string</Type>
@@ -1303,31 +1488,6 @@
 						<Page>Won</Page>
 						<Column>0</Column>
 						<Row>1</Row>
-					</Position>
-				</Positions>
-			</Display>
-			<Measurement>
-				<Type>string</Type>
-			</Measurement>
-		</Param>
-		<Param id="10303" trending="false">
-			<Name>wonFileName</Name>
-			<Description>Processing WON File Name</Description>
-			<Type>read</Type>
-			<Information>
-			</Information>
-			<Interprete>
-				<RawType>other</RawType>
-				<Type>string</Type>
-				<LengthType>next param</LengthType>
-			</Interprete>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-				<Positions>
-					<Position>
-						<Page>Won</Page>
-						<Column>0</Column>
-						<Row>3</Row>
 					</Position>
 				</Positions>
 			</Display>

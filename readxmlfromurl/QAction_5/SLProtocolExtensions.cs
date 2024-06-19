@@ -1,12 +1,12 @@
-﻿using Skyline.DataMiner.Scripting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace QAction_5
+﻿namespace QAction_5
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+    using Skyline.DataMiner.Scripting;
+
     public static class SLProtocolExtensions
     {
         public static string channelName(this SLProtocolExt protocol)

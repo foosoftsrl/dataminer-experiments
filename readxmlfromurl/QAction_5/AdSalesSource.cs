@@ -14,18 +14,19 @@
         {
             return ReadAdSales(channelName, dir, DateTime.Now);
         }
+
         public List<AdSalesRow> ReadAdSales(string channelName, string dir, DateTime firstDay)
         {
             var date = firstDay;
             var result = new List<AdSalesRow>();
-            for (var i = 0; i < 3; i++)
+            for (var i = -1; i < 3; i++)
             {
-                string day = date.ToString("yyyyMMdd");
+                string day = date.AddDays(i).ToString("yyyyMMdd");
                 result.AddRange(ReadAdSales(channelName, dir, day));
-                date = date.AddDays(1);
             }
             return result;
         }
+
         public List<AdSalesRow> ReadAdSales(string channelName, string dir, string date)
         {
             string fileNamePrefix = $"{channelName}_{date}_";

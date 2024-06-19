@@ -35,6 +35,12 @@ public static class Utils
         return (T)JsonConvert.DeserializeObject<T>(text);
     }
 
+    public static T JsonDeserializeFromFile<T>(string path, JsonSerializerSettings settings = null)
+    {
+        var text = ReadFile(path);
+        return (T)JsonConvert.DeserializeObject<T>(text, settings);
+    }
+
     public static string ReadFile(string path)
     {
         try
@@ -55,6 +61,10 @@ public static class Utils
         TKey key,
         TValue defaultValue)
     {
+        if(key == null)
+        {
+            return defaultValue;
+        }
         return dictionary.TryGetValue(key, out var value) ? value : defaultValue;
     }
 }
