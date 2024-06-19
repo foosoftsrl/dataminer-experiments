@@ -18,7 +18,7 @@ namespace QAction5Tests
             var adSalesData = Utils.XmlDeserializeFromFile<AdSales.DataType>("adsales.xml").Flatten();
             var whatsonData = Utils.XmlDeserializeFromFile<Pharos>("whatson.xml").Flatten();
             var mediatorData = Utils.JsonDeserializeFromFile<Mediator.Welcome>("mediator.json", Mediator.Converter.Settings).Flatten();
-            var merged = Merger.Merge(adSalesData, whatsonData, mediatorData);
+            var merged = Merger.Merge(adSalesData, whatsonData, mediatorData, new List<EnablerRow>(), new List<EnablerRow>());
             var matchedMediator = merged.Count(s => s.mediatorData != null);
             var matchedWhatson = merged.Count(s => s.whatsonData != null);
             Assert.AreEqual(505, matchedWhatson);

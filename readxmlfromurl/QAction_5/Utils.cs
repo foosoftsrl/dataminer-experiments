@@ -61,6 +61,10 @@ public static class Utils
         TKey key,
         TValue defaultValue)
     {
+        if(key == null)
+        {
+            return defaultValue;
+        }
         return dictionary.TryGetValue(key, out var value) ? value : defaultValue;
     }
 }

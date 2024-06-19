@@ -42,7 +42,7 @@
         public string enablerLegacy;
     }
 
-    public class EnablerScteRow
+    public class EnablerRow
     {
         public DateTime TimeStamp;
         public int EventCode;

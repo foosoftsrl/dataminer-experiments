@@ -12,5 +12,8 @@
         public AdSalesRow adSalesData;
         public WhatsonRow whatsonData;
         public MediatorRow mediatorData;
+        public EnablerRow scteBroadcastBreakStart;
+        public EnablerRow scteBroadcastProviderAdvStart;
+        public EnablerRow legacyEvent;
     }
 }

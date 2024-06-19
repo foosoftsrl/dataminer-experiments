@@ -1,11 +1,12 @@
 ﻿namespace QAction_5
 {
-    using Mediator;
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
+    using Mediator;
+    using Skyline.DataMiner.Net.Upload;
     using static Utils;
 
     public static class MediatorExtensions
@@ -14,25 +15,32 @@
         {
             var result = new List<MediatorRow>();
             // Convert Generated class into Connector Row data.
-            foreach (var command in rootObject.PharosCs.CommandList.Command)
+            var commandList = rootObject?.PharosCs?.CommandList;
+            if (commandList != null)
             {
-                foreach (var row in command.Output.ResultSet.Rows)
+                foreach (var command in commandList.Command)
                 {
-                    var startTime = row.StartDateTime();
-                    if (startTime == null)
+                    var rows = command?.Output?.ResultSet?.Rows;
+                    if (rows == null)
                         continue;
-                    result.Add(new MediatorRow
+                    foreach (var row in rows)
                     {
-                        StartTime = (DateTime)startTime,
-                        Id = (int)row.Id.GenericList.Object[0],
-                        Title = row.Title.AsString(),
-                        ReconcileKey = row.FindAdSalesReconcileKey(),
-                        ScheduleReference = row.GetScheduleReference(),
-                        Status = row.Status.GenericList.Object[0].TransferStatus.ToString(),
-                        enablerLegacy = row.FindEnablerLegacyText(),
-                        scteBroadcastBreakStart = row.FindScteBroadcastBreakStartUpid(),
-                        scteBroadcastProviderAdvStart = row.FindScteBroadcastProviderAdvStartUpid(),
-                    });
+                        var startTime = row.StartDateTime();
+                        if (startTime == null)
+                            continue;
+                        result.Add(new MediatorRow
+                        {
+                            StartTime = (DateTime)startTime,
+                            Id = (int)row.Id.GenericList.Object[0],
+                            Title = row.Title.AsString(),
+                            ReconcileKey = row.FindAdSalesReconcileKey(),
+                            ScheduleReference = row.GetScheduleReference(),
+                            Status = row.Status.GenericList.Object[0].TransferStatus.ToString(),
+                            enablerLegacy = row.FindEnablerLegacyText(),
+                            scteBroadcastBreakStart = row.FindScteBroadcastBreakStartUpid(),
+                            scteBroadcastProviderAdvStart = row.FindScteBroadcastProviderAdvStartUpid(),
+                        });
+                    }
                 }
             }
             return result;
@@ -90,13 +98,13 @@
 
         public static string GetValueByName(this TemplateParameterListCompound compound, FluffyName name)
         {
-            foreach (var a in compound.TemplateParameterList)
+            foreach (var element in compound.TemplateParameterList)
             {
-                foreach (var b in a.TemplateParameter)
+                foreach (var parameter in element.TemplateParameter)
                 {
-                    if (b.Name == name)
+                    if (parameter.Name == name)
                     {
-                        return b.Value;
+                        return parameter.Value;
                     }
 
                 }

@@ -47,13 +47,13 @@ public class QAction
             var scte = await ReadEnablerScte(protocol);
             PublishScteTable(protocol, scte);
 
-            var mergedRows = Merger.Merge(adSalesData, whatsonData, mediatorData);
+            var mergedRows = Merger.Merge(adSalesData, whatsonData, mediatorData, scte, legacy);
             PublishMergedTable(protocol, mergedRows);
-            protocol.Mergeddebugmsg = $"Everything ok!";
+            //protocol.Mergeddebugmsg = $"Everything ok!";
         }
         catch (Exception e)
         {
-            protocol.Mergeddebugmsg = $"Exception {e.Message}";
+            protocol.Mergeddebugmsg = $"Exception {e.Message} ${e.StackTrace.Substring(0,100)}";
         }
 
     }
@@ -144,7 +144,7 @@ public class QAction
         return tableRows;
     }
 
-    public void PublishEnablerLegacyTable(SLProtocolExt protocol, List<EnablerScteRow> rows)
+    public void PublishEnablerLegacyTable(SLProtocolExt protocol, List<EnablerRow> rows)
     {
         var tableRows = new List<object[]>();
         foreach (var row in rows)
@@ -160,7 +160,7 @@ public class QAction
         protocol.FillArray(Parameter.Enablerlegacy.tablePid, tableRows, NotifyProtocol.SaveOption.Full);
     }
 
-    public void PublishScteTable(SLProtocolExt protocol, List<EnablerScteRow> rows)
+    public void PublishScteTable(SLProtocolExt protocol, List<EnablerRow> rows)
     {
         var tableRows = new List<object[]>();
         foreach (var row in rows)
@@ -177,9 +177,9 @@ public class QAction
         protocol.FillArray(Parameter.Enablerscte.tablePid, tableRows, NotifyProtocol.SaveOption.Full);
     }
 
-    public async Task<List<EnablerScteRow>> ReadEnablerLegacy(SLProtocolExt protocol)
+    public async Task<List<EnablerRow>> ReadEnablerLegacy(SLProtocolExt protocol)
     {
-        List<EnablerScteRow> rows = new List<EnablerScteRow>();
+        List<EnablerRow> rows = new List<EnablerRow>();
         try
         {
             using (var httpClient = new HttpClient())
@@ -203,7 +203,7 @@ public class QAction
                         {
                             throw new Exception("Invalid legacy row should contain at least 4 cells");
                         }
-                        rows.Add(new EnablerScteRow
+                        rows.Add(new EnablerRow
                         {
                             TimeStamp = DateTime.Parse(cells[0]),
                             EventCode = int.Parse(cells[1]),
@@ -223,9 +223,9 @@ public class QAction
         return rows;
     }
 
-    public async Task<List<EnablerScteRow>> ReadEnablerScte(SLProtocolExt protocol)
+    public async Task<List<EnablerRow>> ReadEnablerScte(SLProtocolExt protocol)
     {
-        List<EnablerScteRow> rows = new List<EnablerScteRow>();
+        List<EnablerRow> rows = new List<EnablerRow>();
         try
         {
             using (var httpClient = new HttpClient())
@@ -249,7 +249,7 @@ public class QAction
                         {
                             throw new Exception("Invalid SCTE row should contain at least 4 cells");
                         }
-                        rows.Add(new EnablerScteRow
+                        rows.Add(new EnablerRow
                         {
                             TimeStamp = DateTime.Parse(cells[0]),
                             EventCode = int.Parse(cells[1]),
