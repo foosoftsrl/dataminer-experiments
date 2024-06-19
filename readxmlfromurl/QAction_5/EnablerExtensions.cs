@@ -1,13 +1,13 @@
 ﻿namespace QAction_5
 {
-    using Skyline.DataMiner.Net.Messages;
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
+    using Skyline.DataMiner.Net.Messages;
 
-    static class EnablerExtensions
+    public static class EnablerExtensions
     {
         public static Dictionary<String, EnablerRow> ToPayloadMap(this List<EnablerRow> rows)
         {
