@@ -218,13 +218,13 @@ namespace Mediator
         public MachineStatus MachineStatus { get; set; }
 
         [JsonProperty("PlaytimeTransferStatus")]
-        public TransferStatus PlaytimeTransferStatus { get; set; }
+        public string PlaytimeTransferStatus { get; set; }
 
         [JsonProperty("SequenceId")]
         public long SequenceId { get; set; }
 
         [JsonProperty("TransferStatus")]
-        public TransferStatus TransferStatus { get; set; }
+        public string TransferStatus { get; set; }
 
         [JsonProperty("TxMedia")]
         public string TxMedia { get; set; }
@@ -306,8 +306,6 @@ namespace Mediator
 
     public enum MachineStatus { Done, Error, Play, PlayCued, Unknown };
 
-    public enum TransferStatus { MaterialUnknown, NoMedia, Ready, Workflow };
-
     public enum GeneralType { String, TemplateParameterListCompound };
 
     public enum TypeEnum { TemplateParameter };
@@ -341,7 +339,6 @@ namespace Mediator
             {
                 RateConverter.Singleton,
                 MachineStatusConverter.Singleton,
-                TransferStatusConverter.Singleton,
                 GeneralTypeConverter.Singleton,
                 TypeEnumConverter.Singleton,
                 ValueUnionConverter.Singleton,
@@ -438,57 +435,6 @@ namespace Mediator
         }
 
         public static readonly MachineStatusConverter Singleton = new MachineStatusConverter();
-    }
-
-    internal class TransferStatusConverter : JsonConverter
-    {
-        public override bool CanConvert(Type t) => t == typeof(TransferStatus) || t == typeof(TransferStatus?);
-
-        public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
-        {
-            if (reader.TokenType == JsonToken.Null) return null;
-            var value = serializer.Deserialize<string>(reader);
-            switch (value)
-            {
-                case "Material unknown":
-                    return TransferStatus.MaterialUnknown;
-                case "No media":
-                    return TransferStatus.NoMedia;
-                case "Ready":
-                    return TransferStatus.Ready;
-                case "Workflow":
-                    return TransferStatus.Workflow;
-            }
-            throw new Exception("Cannot unmarshal type TransferStatus");
-        }
-
-        public override void WriteJson(JsonWriter writer, object untypedValue, JsonSerializer serializer)
-        {
-            if (untypedValue == null)
-            {
-                serializer.Serialize(writer, null);
-                return;
-            }
-            var value = (TransferStatus)untypedValue;
-            switch (value)
-            {
-                case TransferStatus.MaterialUnknown:
-                    serializer.Serialize(writer, "Material unknown");
-                    return;
-                case TransferStatus.NoMedia:
-                    serializer.Serialize(writer, "No media");
-                    return;
-                case TransferStatus.Ready:
-                    serializer.Serialize(writer, "Ready");
-                    return;
-                case TransferStatus.Workflow:
-                    serializer.Serialize(writer, "Workflow");
-                    return;
-            }
-            throw new Exception("Cannot marshal type TransferStatus");
-        }
-
-        public static readonly TransferStatusConverter Singleton = new TransferStatusConverter();
     }
 
     internal class GeneralTypeConverter : JsonConverter
