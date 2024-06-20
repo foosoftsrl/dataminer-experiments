@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Protocol xmlns="http://www.skyline.be/protocol">
-	<Name>AdSalesMonitor</Name>
+	<Name>readxmlfromurl</Name>
 	<Options>
 		<Encoding>unicode</Encoding>
 	</Options>
-	<Description>AdSales DataMiner connector</Description>
+	<Description>readxmlfromurl DataMiner connector</Description>
 	<Version>1.0.0.1</Version>
 	<IntegrationID>DMS-DRV-</IntegrationID>
 	<Provider>Foosoft</Provider>
