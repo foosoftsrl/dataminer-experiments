@@ -1315,6 +1315,7 @@
 				<ColumnOption idx="2" pid="7003" type="retrieved" options="" />
 				<ColumnOption idx="3" pid="7004" type="retrieved" options="" />
 				<ColumnOption idx="4" pid="7005" type="retrieved" options="" />
+				<ColumnOption idx="5" pid="7006" type="retrieved" options="" />
 			</ArrayOptions>
 			<Information>
 				<Subtext>
@@ -1332,7 +1333,7 @@
 				</Positions>
 			</Display>
 			<Measurement>
-				<Type options="tab=columns:7001|0-7002|1-7003|2-7004|3-7005|4,width:100-100-100-100-100,sort:STRING|ASC|0-STRING-STRING-STRING-STRING,lines:20,filter:true">table</Type>
+				<Type options="tab=columns:7001|0-7002|1-7003|2-7004|3-7005|4-7006|5,width:100-100-100-100-100-100,sort:STRING|ASC|0-STRING-STRING-STRING-STRING-STRING,lines:20,filter:true">table</Type>
 			</Measurement>
 		</Param>
 		<Param id="7001" trending="false">
@@ -1417,6 +1418,25 @@
 			<Type>read</Type>
 			<Information>
 				<Subtext>Mediator</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="7006" trending="false">
+			<Name>xprintErrors</Name>
+			<Description>Errors (fake)</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>Errors</Subtext>
 			</Information>
 			<Interprete>
 				<RawType>other</RawType>

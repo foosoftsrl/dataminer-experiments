@@ -35,6 +35,7 @@
                     Xprintadsales = adSalesData.Count(row => row.TimeOfDay >= from && row.TimeOfDay < to),
                     Xprintwhatson = whatsonRows.Count(row => row.StartTime >= from && row.StartTime < to),
                     Xprintmediator = mediatorRows.Count(row => row.StartTime >= from && row.StartTime < to),
+                    Xprinterrors = new Random().Next(2),
                 }.ToObjectArray());
             }
             protocol.FillArray(Parameter.Xprint.tablePid, tableRows, NotifyProtocol.SaveOption.Full);

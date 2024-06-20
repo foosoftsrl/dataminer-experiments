@@ -644,6 +644,11 @@ public static class Parameter
 			public const int xprintmediator_7005 = 7005;
 			/// <summary>PID: 7005 | Type: read</summary>
 			public const int xprintmediator = 7005;
+			/// <summary>PID: 7006 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int xprinterrors_7006 = 7006;
+			/// <summary>PID: 7006 | Type: read</summary>
+			public const int xprinterrors = 7006;
 			public class Write
 			{
 			}
@@ -675,6 +680,11 @@ public static class Parameter
 			public const int xprintmediator_7005 = 4;
 			/// <summary>IDX: 4 | Type: read</summary>
 			public const int xprintmediator = 4;
+			/// <summary>IDX: 5 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int xprinterrors_7006 = 5;
+			/// <summary>IDX: 5 | Type: read</summary>
+			public const int xprinterrors = 5;
 		}
 	}
 }
@@ -827,6 +837,8 @@ public interface SLProtocolExt : SLProtocol
 	object Xprintwhatson { get; set; }
 	object Xprintmediator_7005 { get; set; }
 	object Xprintmediator { get; set; }
+	object Xprinterrors_7006 { get; set; }
+	object Xprinterrors { get; set; }
 	object Adsalesdebugmsg_10001 { get; set; }
 	object Adsalesdebugmsg { get; set; }
 	object Adsalesfilename_10003 { get; set; }
@@ -1138,6 +1150,11 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public System.Object Xprintmediator_7005 {get { return GetParameter(7005); }set { SetParameter(7005, value); }}
 	/// <summary>PID: 7005  | Type: read</summary>
 	public System.Object Xprintmediator {get { return GetParameter(7005); }set { SetParameter(7005, value); }}
+	/// <summary>PID: 7006  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Xprinterrors_7006 {get { return GetParameter(7006); }set { SetParameter(7006, value); }}
+	/// <summary>PID: 7006  | Type: read</summary>
+	public System.Object Xprinterrors {get { return GetParameter(7006); }set { SetParameter(7006, value); }}
 	/// <summary>PID: 10001  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Adsalesdebugmsg_10001 {get { return GetParameter(10001); }set { SetParameter(10001, value); }}
@@ -1510,8 +1527,13 @@ public class XprintQActionRow : QActionTableRow
 	public System.Object Xprintmediator_7005 { get { if (base.Columns.ContainsKey(4)) { return base.Columns[4]; } else { return null; } } set { if (base.Columns.ContainsKey(4)) { base.Columns[4] = value; } else { base.Columns.Add(4, value); } } }
 	/// <summary>PID: 7005 | Type: read</summary>
 	public System.Object Xprintmediator { get { if (base.Columns.ContainsKey(4)) { return base.Columns[4]; } else { return null; } } set { if (base.Columns.ContainsKey(4)) { base.Columns[4] = value; } else { base.Columns.Add(4, value); } } }
-	public XprintQActionRow() : base(0, 5) { }
-	public XprintQActionRow(System.Object[] oRow) : base(0, 5, oRow) { }
+	/// <summary>PID: 7006 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Xprinterrors_7006 { get { if (base.Columns.ContainsKey(5)) { return base.Columns[5]; } else { return null; } } set { if (base.Columns.ContainsKey(5)) { base.Columns[5] = value; } else { base.Columns.Add(5, value); } } }
+	/// <summary>PID: 7006 | Type: read</summary>
+	public System.Object Xprinterrors { get { if (base.Columns.ContainsKey(5)) { return base.Columns[5]; } else { return null; } } set { if (base.Columns.ContainsKey(5)) { base.Columns[5] = value; } else { base.Columns.Add(5, value); } } }
+	public XprintQActionRow() : base(0, 6) { }
+	public XprintQActionRow(System.Object[] oRow) : base(0, 6, oRow) { }
 	public static implicit operator XprintQActionRow(System.Object[] source) { return new XprintQActionRow(source); }
 	public static implicit operator System.Object[](XprintQActionRow source) { return source.ToObjectArray(); }
 }
