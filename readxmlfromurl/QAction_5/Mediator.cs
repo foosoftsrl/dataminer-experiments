@@ -293,7 +293,7 @@ namespace Mediator
         public GeneralType GeneralType { get; set; }
 
         [JsonProperty("Name")]
-        public FluffyName Name { get; set; }
+        public string Name { get; set; }
 
         [JsonProperty("Value")]
         public string Value { get; set; }
@@ -314,7 +314,11 @@ namespace Mediator
 
     public enum TypeEnum { TemplateParameter };
 
-    public enum FluffyName { Duration, DurationExtensionFrames, EnablerLegacyDuration, EnablerLegacyGraphic, EnablerLegacyOffset, EnablerLegacyOffsetType, EnablerLegacyUserText1, GfxOffsetDurationDuration, GfxOffsetDurationMatId, GfxOffsetDurationOffset, GfxOffsetDurationOffsetType, GfxOffsetDurationStream, GfxOffsetDurationTransSpeed, GfxOffsetDurationTransSpeedIn, GfxStartEndEndOffset, GfxStartEndMatId, GfxStartEndStartOffset, GfxStartEndStream, GfxStartEndTransSpeed, GfxStartEndTransSpeedIn, InCode, MatId, OtbGfxOffsetDurationDuration, OtbGfxOffsetDurationMatId, OtbGfxOffsetDurationOffset, OtbGfxOffsetDurationOffsetType, OtbGfxOffsetDurationStream, OtbGfxOffsetDurationTransSpeed, OtbGfxOffsetDurationTransSpeedIn, OtbGfxOffsetDurationUserText1, PreRollTime, SegmentationEventId, SegmentationUpid, SegmentationUpidType };
+    public static class TemplateParameterName
+    {
+        public static readonly string SegmentationUpid = "segmentationUpid";
+        public static readonly string EnablerLegacyUserText1 = "enablerLegacy-userText1";
+    }
 
     public partial struct ValueUnion
     {
@@ -340,7 +344,6 @@ namespace Mediator
                 PurpleNameConverter.Singleton,
                 TypeEnumConverter.Singleton,
                 ValueUnionConverter.Singleton,
-                FluffyNameConverter.Singleton,
                 new IsoDateTimeConverter { DateTimeStyles = DateTimeStyles.AssumeUniversal }
             },
         };
@@ -854,206 +857,5 @@ namespace Mediator
         }
 
         public static readonly ValueUnionConverter Singleton = new ValueUnionConverter();
-    }
-
-    internal class FluffyNameConverter : JsonConverter
-    {
-        public override bool CanConvert(Type t) => t == typeof(FluffyName) || t == typeof(FluffyName?);
-
-        public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
-        {
-            if (reader.TokenType == JsonToken.Null) return null;
-            var value = serializer.Deserialize<string>(reader);
-            switch (value)
-            {
-                case "duration":
-                    return FluffyName.Duration;
-                case "durationExtensionFrames":
-                    return FluffyName.DurationExtensionFrames;
-                case "enablerLegacy-duration":
-                    return FluffyName.EnablerLegacyDuration;
-                case "enablerLegacy-graphic":
-                    return FluffyName.EnablerLegacyGraphic;
-                case "enablerLegacy-offset":
-                    return FluffyName.EnablerLegacyOffset;
-                case "enablerLegacy-offsetType":
-                    return FluffyName.EnablerLegacyOffsetType;
-                case "enablerLegacy-userText1":
-                    return FluffyName.EnablerLegacyUserText1;
-                case "gfxOffsetDuration-duration":
-                    return FluffyName.GfxOffsetDurationDuration;
-                case "gfxOffsetDuration-matId":
-                    return FluffyName.GfxOffsetDurationMatId;
-                case "gfxOffsetDuration-offset":
-                    return FluffyName.GfxOffsetDurationOffset;
-                case "gfxOffsetDuration-offsetType":
-                    return FluffyName.GfxOffsetDurationOffsetType;
-                case "gfxOffsetDuration-stream":
-                    return FluffyName.GfxOffsetDurationStream;
-                case "gfxOffsetDuration-transSpeed":
-                    return FluffyName.GfxOffsetDurationTransSpeed;
-                case "gfxOffsetDuration-transSpeedIn":
-                    return FluffyName.GfxOffsetDurationTransSpeedIn;
-                case "gfxStartEnd-endOffset":
-                    return FluffyName.GfxStartEndEndOffset;
-                case "gfxStartEnd-matId":
-                    return FluffyName.GfxStartEndMatId;
-                case "gfxStartEnd-startOffset":
-                    return FluffyName.GfxStartEndStartOffset;
-                case "gfxStartEnd-stream":
-                    return FluffyName.GfxStartEndStream;
-                case "gfxStartEnd-transSpeed":
-                    return FluffyName.GfxStartEndTransSpeed;
-                case "gfxStartEnd-transSpeedIn":
-                    return FluffyName.GfxStartEndTransSpeedIn;
-                case "inCode":
-                    return FluffyName.InCode;
-                case "matId":
-                    return FluffyName.MatId;
-                case "otbGfxOffsetDuration-duration":
-                    return FluffyName.OtbGfxOffsetDurationDuration;
-                case "otbGfxOffsetDuration-matId":
-                    return FluffyName.OtbGfxOffsetDurationMatId;
-                case "otbGfxOffsetDuration-offset":
-                    return FluffyName.OtbGfxOffsetDurationOffset;
-                case "otbGfxOffsetDuration-offsetType":
-                    return FluffyName.OtbGfxOffsetDurationOffsetType;
-                case "otbGfxOffsetDuration-stream":
-                    return FluffyName.OtbGfxOffsetDurationStream;
-                case "otbGfxOffsetDuration-transSpeed":
-                    return FluffyName.OtbGfxOffsetDurationTransSpeed;
-                case "otbGfxOffsetDuration-transSpeedIn":
-                    return FluffyName.OtbGfxOffsetDurationTransSpeedIn;
-                case "otbGfxOffsetDuration-userText1":
-                    return FluffyName.OtbGfxOffsetDurationUserText1;
-                case "preRollTime":
-                    return FluffyName.PreRollTime;
-                case "segmentationEventId":
-                    return FluffyName.SegmentationEventId;
-                case "segmentationUpid":
-                    return FluffyName.SegmentationUpid;
-                case "segmentationUpidType":
-                    return FluffyName.SegmentationUpidType;
-            }
-            throw new Exception("Cannot unmarshal type FluffyName");
-        }
-
-        public override void WriteJson(JsonWriter writer, object untypedValue, JsonSerializer serializer)
-        {
-            if (untypedValue == null)
-            {
-                serializer.Serialize(writer, null);
-                return;
-            }
-            var value = (FluffyName)untypedValue;
-            switch (value)
-            {
-                case FluffyName.Duration:
-                    serializer.Serialize(writer, "duration");
-                    return;
-                case FluffyName.DurationExtensionFrames:
-                    serializer.Serialize(writer, "durationExtensionFrames");
-                    return;
-                case FluffyName.EnablerLegacyDuration:
-                    serializer.Serialize(writer, "enablerLegacy-duration");
-                    return;
-                case FluffyName.EnablerLegacyGraphic:
-                    serializer.Serialize(writer, "enablerLegacy-graphic");
-                    return;
-                case FluffyName.EnablerLegacyOffset:
-                    serializer.Serialize(writer, "enablerLegacy-offset");
-                    return;
-                case FluffyName.EnablerLegacyOffsetType:
-                    serializer.Serialize(writer, "enablerLegacy-offsetType");
-                    return;
-                case FluffyName.EnablerLegacyUserText1:
-                    serializer.Serialize(writer, "enablerLegacy-userText1");
-                    return;
-                case FluffyName.GfxOffsetDurationDuration:
-                    serializer.Serialize(writer, "gfxOffsetDuration-duration");
-                    return;
-                case FluffyName.GfxOffsetDurationMatId:
-                    serializer.Serialize(writer, "gfxOffsetDuration-matId");
-                    return;
-                case FluffyName.GfxOffsetDurationOffset:
-                    serializer.Serialize(writer, "gfxOffsetDuration-offset");
-                    return;
-                case FluffyName.GfxOffsetDurationOffsetType:
-                    serializer.Serialize(writer, "gfxOffsetDuration-offsetType");
-                    return;
-                case FluffyName.GfxOffsetDurationStream:
-                    serializer.Serialize(writer, "gfxOffsetDuration-stream");
-                    return;
-                case FluffyName.GfxOffsetDurationTransSpeed:
-                    serializer.Serialize(writer, "gfxOffsetDuration-transSpeed");
-                    return;
-                case FluffyName.GfxOffsetDurationTransSpeedIn:
-                    serializer.Serialize(writer, "gfxOffsetDuration-transSpeedIn");
-                    return;
-                case FluffyName.GfxStartEndEndOffset:
-                    serializer.Serialize(writer, "gfxStartEnd-endOffset");
-                    return;
-                case FluffyName.GfxStartEndMatId:
-                    serializer.Serialize(writer, "gfxStartEnd-matId");
-                    return;
-                case FluffyName.GfxStartEndStartOffset:
-                    serializer.Serialize(writer, "gfxStartEnd-startOffset");
-                    return;
-                case FluffyName.GfxStartEndStream:
-                    serializer.Serialize(writer, "gfxStartEnd-stream");
-                    return;
-                case FluffyName.GfxStartEndTransSpeed:
-                    serializer.Serialize(writer, "gfxStartEnd-transSpeed");
-                    return;
-                case FluffyName.GfxStartEndTransSpeedIn:
-                    serializer.Serialize(writer, "gfxStartEnd-transSpeedIn");
-                    return;
-                case FluffyName.InCode:
-                    serializer.Serialize(writer, "inCode");
-                    return;
-                case FluffyName.MatId:
-                    serializer.Serialize(writer, "matId");
-                    return;
-                case FluffyName.OtbGfxOffsetDurationDuration:
-                    serializer.Serialize(writer, "otbGfxOffsetDuration-duration");
-                    return;
-                case FluffyName.OtbGfxOffsetDurationMatId:
-                    serializer.Serialize(writer, "otbGfxOffsetDuration-matId");
-                    return;
-                case FluffyName.OtbGfxOffsetDurationOffset:
-                    serializer.Serialize(writer, "otbGfxOffsetDuration-offset");
-                    return;
-                case FluffyName.OtbGfxOffsetDurationOffsetType:
-                    serializer.Serialize(writer, "otbGfxOffsetDuration-offsetType");
-                    return;
-                case FluffyName.OtbGfxOffsetDurationStream:
-                    serializer.Serialize(writer, "otbGfxOffsetDuration-stream");
-                    return;
-                case FluffyName.OtbGfxOffsetDurationTransSpeed:
-                    serializer.Serialize(writer, "otbGfxOffsetDuration-transSpeed");
-                    return;
-                case FluffyName.OtbGfxOffsetDurationTransSpeedIn:
-                    serializer.Serialize(writer, "otbGfxOffsetDuration-transSpeedIn");
-                    return;
-                case FluffyName.OtbGfxOffsetDurationUserText1:
-                    serializer.Serialize(writer, "otbGfxOffsetDuration-userText1");
-                    return;
-                case FluffyName.PreRollTime:
-                    serializer.Serialize(writer, "preRollTime");
-                    return;
-                case FluffyName.SegmentationEventId:
-                    serializer.Serialize(writer, "segmentationEventId");
-                    return;
-                case FluffyName.SegmentationUpid:
-                    serializer.Serialize(writer, "segmentationUpid");
-                    return;
-                case FluffyName.SegmentationUpidType:
-                    serializer.Serialize(writer, "segmentationUpidType");
-                    return;
-            }
-            throw new Exception("Cannot marshal type FluffyName");
-        }
-
-        public static readonly FluffyNameConverter Singleton = new FluffyNameConverter();
     }
 }

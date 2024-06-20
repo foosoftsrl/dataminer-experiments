@@ -82,21 +82,21 @@
 
         public static string FindScteBroadcastBreakStartUpid(this Mediator.Row mediatorRow)
         {
-            return mediatorRow.FindScteBroadcastBreakStart()?.Value.ValueClass?.TemplateParameterListCompound.GetValueByName(FluffyName.SegmentationUpid);
+            return mediatorRow.FindScteBroadcastBreakStart()?.Value.ValueClass?.TemplateParameterListCompound.GetValueByName(TemplateParameterName.SegmentationUpid);
         }
 
         public static string FindScteBroadcastProviderAdvStartUpid(this Mediator.Row mediatorRow)
         {
-            return mediatorRow.FindScteBroadcastProviderAdvStart()?.Value.ValueClass?.TemplateParameterListCompound.GetValueByName(FluffyName.SegmentationUpid);
+            return mediatorRow.FindScteBroadcastProviderAdvStart()?.Value.ValueClass?.TemplateParameterListCompound.GetValueByName(TemplateParameterName.SegmentationUpid);
         }
 
         public static string FindEnablerLegacyText(this Mediator.Row mediatorRow)
         {
             var enablerValue = mediatorRow.FindEnablerLegacy()?.Value.ValueClass;
-            return enablerValue?.TemplateParameterListCompound.GetValueByName(FluffyName.EnablerLegacyUserText1);
+            return enablerValue?.TemplateParameterListCompound.GetValueByName(TemplateParameterName.EnablerLegacyUserText1);
         }
 
-        public static string GetValueByName(this TemplateParameterListCompound compound, FluffyName name)
+        public static string GetValueByName(this TemplateParameterListCompound compound, string name)
         {
             foreach (var element in compound.TemplateParameterList)
             {
