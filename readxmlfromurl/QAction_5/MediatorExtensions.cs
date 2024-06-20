@@ -62,22 +62,22 @@
         }
         public static string FindAdSalesReconcileKey(this Mediator.Row row)
         {
-            return row.FindTemplateParameterByName(Mediator.PurpleName.AdSalesContentReconcileKeyText)?.Value.String;
+            return row.FindTemplateParameterByName(TemplateParameterName.AdSalesContentReconcileKeyText)?.Value.String;
         }
 
         public static Mediator.ObjectTemplateParameter FindScteBroadcastBreakStart(this Mediator.Row mediatorRow)
         {
-            return mediatorRow.FindTemplateParameterByName(PurpleName.ScteBroadcastBreakStartInsertSegmentationDescriptor);
+            return mediatorRow.FindTemplateParameterByName(TemplateParameterName.ScteBroadcastBreakStartInsertSegmentationDescriptor);
         }
 
         public static Mediator.ObjectTemplateParameter FindScteBroadcastProviderAdvStart(this Mediator.Row mediatorRow)
         {
-            return mediatorRow.FindTemplateParameterByName(PurpleName.ScteBroadcastProviderAdvStartInsertSegmentationDescriptor);
+            return mediatorRow.FindTemplateParameterByName(TemplateParameterName.ScteBroadcastProviderAdvStartInsertSegmentationDescriptor);
         }
 
         public static Mediator.ObjectTemplateParameter FindEnablerLegacy(this Mediator.Row mediatorRow)
         {
-            return mediatorRow.FindTemplateParameterByName(Mediator.PurpleName.EnablerLegacyCompoundList);
+            return mediatorRow.FindTemplateParameterByName(TemplateParameterName.EnablerLegacyCompoundList);
         }
 
         public static string FindScteBroadcastBreakStartUpid(this Mediator.Row mediatorRow)
@@ -112,7 +112,7 @@
             return null;
         }
 
-        public static Mediator.ObjectTemplateParameter FindTemplateParameterByName(this Mediator.Row mediatorRow, PurpleName name)
+        public static Mediator.ObjectTemplateParameter FindTemplateParameterByName(this Mediator.Row mediatorRow, string name)
         {
             foreach (var entry in mediatorRow.TemplateParameterList.GenericList.Object)
             {
