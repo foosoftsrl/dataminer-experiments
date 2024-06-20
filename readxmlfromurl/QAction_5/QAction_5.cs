@@ -23,9 +23,10 @@ using Skyline.DataMiner.Scripting;
 /// </summary>
 public class QAction
 {
-    private static AdSalesSource adSalesSource = new AdSalesSource();
-    private static MediatorSource mediatorSource = new MediatorSource();
-    private static WhatsonSource whatsonSource = new WhatsonSource();
+    private AdSalesSource adSalesSource = new AdSalesSource();
+    private MediatorSource mediatorSource = new MediatorSource();
+    private WhatsonSource whatsonSource = new WhatsonSource();
+    private EnablerSource enablerSource = new EnablerSource();
 
     /// <summary>
     /// The QAction entry point.
@@ -49,7 +50,7 @@ public class QAction
 
             var mergedRows = Merger.Merge(adSalesData, whatsonData, mediatorData, scte, legacy);
             PublishMergedTable(protocol, mergedRows);
-            //protocol.Mergeddebugmsg = $"Everything ok!";
+            protocol.Mergeddebugmsg = $"Everything ok!";
         }
         catch (Exception e)
         {
@@ -177,99 +178,40 @@ public class QAction
         protocol.FillArray(Parameter.Enablerscte.tablePid, tableRows, NotifyProtocol.SaveOption.Full);
     }
 
+
     public async Task<List<EnablerRow>> ReadEnablerLegacy(SLProtocolExt protocol)
     {
-        List<EnablerRow> rows = new List<EnablerRow>();
         try
         {
-            using (var httpClient = new HttpClient())
-            {
-                var request = new HttpRequestMessage
-                {
-                    Method = HttpMethod.Get,
-                    RequestUri = new Uri($"{protocol.Probeurl}legacy?channel={protocol.channelName()}"),
-                };
-
-                using (var response = await httpClient.SendAsync(request))
-                {
-                    string apiResponse = await response.Content.ReadAsStringAsync();
-                    var lines = apiResponse.Split('\n');
-                    foreach (var line in lines)
-                    {
-                        if (line.Length == 0)
-                            continue;
-                        var cells = line.Split(',');
-                        if (cells.Length < 4)
-                        {
-                            throw new Exception("Invalid legacy row should contain at least 4 cells");
-                        }
-                        rows.Add(new EnablerRow
-                        {
-                            TimeStamp = DateTime.Parse(cells[0]),
-                            EventCode = int.Parse(cells[1]),
-                            EventName = cells[2],
-                            Payload = cells[3],
-                        });
-
-                    }
-                }
-            }
+            var url = $"{protocol.Probeurl}legacy?channel={protocol.channelName()}";
+            var rows = await enablerSource.ReadEnabler(url);
             protocol.Legacydebugmsg = "Everything ok...";
+            return rows;
         }
         catch (Exception ex)
         {
             protocol.Legacydebugmsg = $"Exception {ex.Message}";
+            return new List<EnablerRow>();
         }
-        return rows;
     }
 
     public async Task<List<EnablerRow>> ReadEnablerScte(SLProtocolExt protocol)
     {
-        List<EnablerRow> rows = new List<EnablerRow>();
         try
         {
-            using (var httpClient = new HttpClient())
-            {
-                var request = new HttpRequestMessage
-                {
-                    Method = HttpMethod.Get,
-                    RequestUri = new Uri($"{protocol.Probeurl}scte?channel={protocol.channelName()}"),
-                };
-
-                using (var response = await httpClient.SendAsync(request))
-                {
-                    string apiResponse = await response.Content.ReadAsStringAsync();
-                    var lines = apiResponse.Split('\n');
-                    foreach (var line in lines)
-                    {
-                        if (line.Length == 0)
-                            continue;
-                        var cells = line.Split(',');
-                        if (cells.Length < 4)
-                        {
-                            throw new Exception("Invalid SCTE row should contain at least 4 cells");
-                        }
-                        rows.Add(new EnablerRow
-                        {
-                            TimeStamp = DateTime.Parse(cells[0]),
-                            EventCode = int.Parse(cells[1]),
-                            EventName = cells[2],
-                            Payload = cells[3],
-                        });
-
-                    }
-                }
-            }
-            protocol.Sctedebugmsg = "Everything ok";
+            var url = $"{protocol.Probeurl}scte?channel={protocol.channelName()}";
+            var rows = await enablerSource.ReadEnabler(url);
+            protocol.Sctedebugmsg = "Everything ok...";
+            return rows;
         }
         catch (Exception ex)
         {
             protocol.Sctedebugmsg = $"Exception {ex.Message}";
+            return new List<EnablerRow>();
         }
-        return rows;
     }
 
-    public static List<WhatsonRow> ReadWhatsonData(SLProtocolExt protocol)
+    public List<WhatsonRow> ReadWhatsonData(SLProtocolExt protocol)
     {
         string channelName = (string)protocol.channelName();
         string dir = @"\\winfs01.mediaset.it\DM_Watchfolder\WON";
@@ -287,7 +229,7 @@ public class QAction
         }
     }
 
-    public static List<AdSalesRow> ReadAdSalesData(SLProtocolExt protocol)
+    public List<AdSalesRow> ReadAdSalesData(SLProtocolExt protocol)
     {
         string channelName = protocol.channelName();
         string dir = @"\\winfs01.mediaset.it\DM_Watchfolder\Adsales";
@@ -303,7 +245,7 @@ public class QAction
         }
     }
 
-    public static string nullIfEmpty(string s)
+    public string nullIfEmpty(string s)
     {
         if (s.Length == 0)
             return null;

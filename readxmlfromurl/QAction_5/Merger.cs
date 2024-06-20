@@ -15,8 +15,8 @@
         {
             var whatsonMap = whatsonData.ToReconcileKeyMap();
             var mediatorMap = mediatorData.ToReconcileKeyMap();
-            var scteMap = scteEvents.ToPayloadMap();
-            var legacyMap = legacyEvents.ToPayloadMap(); // TODO: use event name + payload!!!
+            var scteMap = scteEvents.ToEventNamePayloadMap();
+            var legacyMap = legacyEvents.ToEventNamePayloadMap(); // TODO: use event name + payload!!!
             List<MergedEntry> rowList = new List<MergedEntry>();
             foreach (var row in adSalesData)
             {
@@ -28,9 +28,11 @@
                     adSalesData = row,
                     whatsonData = whatsonRow,
                     mediatorData = mediatorMap.GetValueOrDefault(contentReconcileKey, null),
-                    scteBroadcastBreakStart = scteMap.GetValueOrDefault(whatsonRow?.scteBroadcastBreakStart, null),
-                    scteBroadcastProviderAdvStart = scteMap.GetValueOrDefault(whatsonRow?.scteBroadcastProviderAdvStart, null),
-                    legacyEvent = legacyMap.GetValueOrDefault(whatsonRow?.enablerLegacy, null),
+                    scteBroadcastBreakStart = scteMap.GetValueOrDefault("SUPER_LOAD:" + whatsonRow?.scteBroadcastBreakStart, null),
+                    scteBroadcastProviderAdvStart = scteMap.GetValueOrDefault("AD_START:" + whatsonRow?.scteBroadcastProviderAdvStart, null),
+                    legacyEventLoad = legacyMap.GetValueOrDefault("LOAD:" + whatsonRow?.enablerLegacy, null),
+                    legacyEventStart = legacyMap.GetValueOrDefault("START:" + whatsonRow?.enablerLegacy, null),
+                    legacyEventStop = legacyMap.GetValueOrDefault("STOP:" + whatsonRow?.enablerLegacy, null),
                 });
             }
             return rowList.ToArray();

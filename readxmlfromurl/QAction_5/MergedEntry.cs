@@ -14,6 +14,8 @@
         public MediatorRow mediatorData;
         public EnablerRow scteBroadcastBreakStart;
         public EnablerRow scteBroadcastProviderAdvStart;
-        public EnablerRow legacyEvent;
+        public EnablerRow legacyEventLoad;
+        public EnablerRow legacyEventStart;
+        public EnablerRow legacyEventStop;
     }
 }
