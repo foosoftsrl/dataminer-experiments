@@ -13,20 +13,35 @@ namespace QAction5Tests
     public class UnitTest1
     {
         [TestMethod]
-        public void TestMethod1()
+        public void TestMerge()
         {
             var adSalesData = Utils.XmlDeserializeFromFile<AdSales.DataType>("adsales.xml").Flatten();
             var whatsonData = Utils.XmlDeserializeFromFile<Pharos>("whatson.xml").Flatten();
             var mediatorData = Utils.JsonDeserializeFromFile<Mediator.Welcome>("mediator.json", Mediator.Converter.Settings).Flatten();
-            var merged = Merger.Merge(adSalesData, whatsonData, mediatorData, new List<EnablerRow>(), new List<EnablerRow>());
+            var legacyData = EnablerSource.parseText(Utils.ReadFile("legacy.csv"));
+            var scteData = EnablerSource.parseText(Utils.ReadFile("scte.csv"));
+            var merged = Merger.Merge(adSalesData, whatsonData, mediatorData, scteData, legacyData);
             var matchedMediator = merged.Count(s => s.mediatorData != null);
             var matchedWhatson = merged.Count(s => s.whatsonData != null);
             Assert.AreEqual(505, matchedWhatson);
             Assert.AreEqual(175, matchedMediator);
+            var firstLegacy = whatsonData.First(s => s.enablerLegacy != null);
+            var firstLegacyOnMerged = merged.First(s => s.whatsonData == firstLegacy);
+            Assert.IsNotNull(firstLegacyOnMerged.legacyEventLoad);
+            Assert.IsNotNull(firstLegacyOnMerged.legacyEventStart);
+            Assert.IsNotNull(firstLegacyOnMerged.legacyEventStop);
+
+            var firstBreakStartUpid = whatsonData.First(s => s.scteBroadcastBreakStart != null);
+            var firstBreakStartUpidOnMerged = merged.First(s => s.whatsonData == firstBreakStartUpid);
+            Assert.IsNotNull(firstBreakStartUpidOnMerged.scteBroadcastBreakStart);
+
+            var firstAdvStartUpid = whatsonData.First(s => s.scteBroadcastProviderAdvStart != null);
+            var firstAdvStartUpidOnMerged = merged.First(s => s.whatsonData == firstAdvStartUpid);
+            Assert.IsNotNull(firstAdvStartUpidOnMerged.scteBroadcastProviderAdvStart);
         }
 
         [TestMethod]
-        public void TestMediatorParse()
+        public void TestParseMediator()
         {
             var mediatorData = Utils.JsonDeserializeFromFile<Mediator.Welcome>("mediator.json", Mediator.Converter.Settings).Flatten();
             var firstLegacy = mediatorData.First(s => s.enablerLegacy != null)?.enablerLegacy;

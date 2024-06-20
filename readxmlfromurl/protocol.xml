@@ -13,7 +13,7 @@
 	<DeviceOID></DeviceOID>
 	<ElementType>Connect to http</ElementType>
 	<Type relativeTimers="true">virtual</Type>
-	<Display defaultPage="General" pageOrder="General;-------;Adsales;Mediator;Won;Enabler Legacy;Enabler Scte" wideColumnPages=""/>
+	<Display defaultPage="General" pageOrder="General;-------;Adsales;Mediator;Won;Enabler Legacy;Enabler Scte;XPrint" wideColumnPages=""/>
 	<SNMP includepages="true">auto</SNMP>
 
 	<Compliancies>
@@ -1305,6 +1305,151 @@
 				<Type>string</Type>
 			</Measurement>
 		</Param>
+		<Param id="7000" trending="true">
+			<Name>XPrint</Name>
+			<Description>XPrint</Description>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="7001" type="retrieved" options="" />
+				<ColumnOption idx="1" pid="7002" type="retrieved" options="" />
+				<ColumnOption idx="2" pid="7003" type="retrieved" options="" />
+				<ColumnOption idx="3" pid="7004" type="retrieved" options="" />
+				<ColumnOption idx="4" pid="7005" type="retrieved" options="" />
+				<ColumnOption idx="5" pid="7006" type="retrieved" options="" />
+			</ArrayOptions>
+			<Information>
+				<Subtext>
+					<![CDATA[XPrint]]>
+				</Subtext>
+			</Information>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>XPrint</Page>
+						<Column>0</Column>
+						<Row>1</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type options="tab=columns:7001|0-7002|1-7003|2-7004|3-7005|4-7006|5,width:100-100-100-100-100-100,sort:STRING|ASC|0-STRING-STRING-STRING-STRING-STRING,lines:20,filter:true">table</Type>
+			</Measurement>
+		</Param>
+		<Param id="7001" trending="false">
+			<Name>xprintIndex</Name>
+			<Description>Index</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>Index</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="7002" trending="false">
+			<Name>xprintDate</Name>
+			<Description>Date</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>Date</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="7003" trending="false">
+			<Name>xprintAdSales</Name>
+			<Description>AdSales</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>AdSales</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="7004" trending="false">
+			<Name>xprintWhatson</Name>
+			<Description>Whatson</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>Whatson</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="7005" trending="false">
+			<Name>xprintMediator</Name>
+			<Description>Mediator</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>Mediator</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="7006" trending="false">
+			<Name>xprintErrors</Name>
+			<Description>Errors (fake)</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>Errors</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
 		
 		<!-- Debug stuff -->
 		<Param id="10001" trending="false">
@@ -1332,32 +1477,6 @@
 				<Type>string</Type>
 			</Measurement>
 		</Param>
-		<Param id="10003" trending="false">
-			<Name>adSalesFileName</Name>
-			<Description>Processing Adsales File Name</Description>
-			<Type>read</Type>
-			<Information>
-			</Information>
-			<Interprete>
-				<RawType>other</RawType>
-				<Type>string</Type>
-				<LengthType>next param</LengthType>
-			</Interprete>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-				<Positions>
-					<Position>
-						<Page>Adsales</Page>
-						<Column>0</Column>
-						<Row>3</Row>
-					</Position>
-				</Positions>
-			</Display>
-			<Measurement>
-				<Type>string</Type>
-			</Measurement>
-		</Param>
-		
 		<Param id="10101" trending="false">
 			<Name>mediatorDebugMsg</Name>
 			<Description>Debug Mediator Data</Description>
@@ -1579,8 +1698,8 @@
 
 	<Timers>
 		<Timer id="1">
-			<Name>Fast Timer (1s)</Name>
-			<Time initial="true">1000</Time>
+			<Name>Fast Timer (5s)</Name>
+			<Time initial="true">2000</Time>
 			<Interval>75</Interval>
 			<Content>
 				<Group>3</Group>

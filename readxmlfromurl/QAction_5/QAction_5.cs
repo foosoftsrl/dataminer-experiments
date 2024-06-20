@@ -23,9 +23,10 @@ using Skyline.DataMiner.Scripting;
 /// </summary>
 public class QAction
 {
-    private static AdSalesSource adSalesSource = new AdSalesSource();
-    private static MediatorSource mediatorSource = new MediatorSource();
-    private static WhatsonSource whatsonSource = new WhatsonSource();
+    private AdSalesSource adSalesSource = new AdSalesSource();
+    private MediatorSource mediatorSource = new MediatorSource();
+    private WhatsonSource whatsonSource = new WhatsonSource();
+    private EnablerSource enablerSource = new EnablerSource();
 
     /// <summary>
     /// The QAction entry point.
@@ -37,19 +38,20 @@ public class QAction
         try
         {
             var adSalesData = ReadAdSalesData(protocol);
-            PublishAdsalesTable(protocol, adSalesData);
+            protocol.PublishAdsalesTable(adSalesData);
             var whatsonData = ReadWhatsonData(protocol);
-            PublishWhatsonTable(protocol, whatsonData);
+            protocol.PublishWhatsonTable(whatsonData);
             var mediatorData = await ReadMediatorData(protocol);
-            PublishMediatorTable(protocol, mediatorData);
+            protocol.PublishMediatorTable(mediatorData);
             var legacy = await ReadEnablerLegacy(protocol);
-            PublishEnablerLegacyTable(protocol, legacy);
+            protocol.PublishEnablerLegacyTable(legacy);
             var scte = await ReadEnablerScte(protocol);
-            PublishScteTable(protocol, scte);
+            protocol.PublishScteTable(scte);
 
             var mergedRows = Merger.Merge(adSalesData, whatsonData, mediatorData, scte, legacy);
-            PublishMergedTable(protocol, mergedRows);
-            //protocol.Mergeddebugmsg = $"Everything ok!";
+            protocol.PublishMergedTable(mergedRows);
+            protocol.PublishXPrintTable(adSalesData, whatsonData, mediatorData);
+            protocol.Mergeddebugmsg = $"Everything ok!";
         }
         catch (Exception e)
         {
@@ -58,218 +60,40 @@ public class QAction
 
     }
 
-    public List<object[]> PublishAdsalesTable(SLProtocolExt protocol, List<AdSalesRow> adSalesRows) {
-        List<object[]> tableRows = new List<object[]>();
-        foreach (var row in adSalesRows)
-        {
-            tableRows.Add(new AdsalesQActionRow
-            {
-                Adsalestime = row.TimeOfDay,
-                Adsalesbreakid = row.BreakId,
-                Adsalesreconcilekey = row.ReconcileKey,
-                Adsalestitle = row.Title,
-                Adsalestype = row.Type,
-                Adsalesenabler = row.Enabler,
-            }.ToObjectArray());
-        }
-
-        protocol.FillArray(Parameter.Adsales.tablePid, tableRows, NotifyProtocol.SaveOption.Full);
-        protocol.Adsalesdebugmsg = string.Empty;
-        return tableRows;
-    }
-
-    public List<object[]> PublishWhatsonTable(SLProtocolExt protocol, List<WhatsonRow> whatsonRows)
-    {
-        List<object[]> tableRows = new List<object[]>();
-        foreach (var row in whatsonRows)
-        {
-            tableRows.Add(new WonQActionRow
-            {
-                Wonstartdate = row.StartTime.ToString("yyyy-MM-dd HH:mm:ss") ?? string.Empty,
-                Wontitle = row.Title,
-                Wonreconcilekey = row.ReconcileKey ?? string.Empty,
-                Wonitemreference = row.ItemReference,
-                Wonenablerlegacy = row.enablerLegacy ?? string.Empty,
-                Wonsctebreakstart = row.scteBroadcastBreakStart ?? string.Empty,
-                Wonscteadvstart = row.scteBroadcastProviderAdvStart ?? string.Empty,
-            }.ToObjectArray());
-        }
-
-        protocol.FillArray(Parameter.Won.tablePid, tableRows, NotifyProtocol.SaveOption.Full);
-        return tableRows;
-    }
-
-    public List<object[]> PublishMediatorTable(SLProtocolExt protocol, List<MediatorRow> mediatorRows)
-    {
-        List<object[]> tableRows = new List<object[]>();
-        foreach (var row in mediatorRows)
-        {
-            tableRows.Add(new MediatorQActionRow
-            {
-                Mediatorid = row.Id,
-                Mediatorschedulereference = row.ScheduleReference,
-                Mediatordate = row.StartTime.ToString("yyyy-MM-dd HH:mm:ss"),
-                Mediatortitle = row.Title,
-                Mediatorstatus = row.Status,
-                Mediatorreconcilekey = row.ReconcileKey,
-                Mediatorenablerlegacy = row.enablerLegacy ?? string.Empty,
-                Mediatorsctebreakstart = row.scteBroadcastBreakStart ?? string.Empty,
-                Mediatorscteadvstart = row.scteBroadcastProviderAdvStart ?? string.Empty,
-            }.ToObjectArray());
-        }
-        protocol.FillArray(Parameter.Mediator.tablePid, tableRows, NotifyProtocol.SaveOption.Full);
-        return tableRows;
-    }
-
-    public List<object[]> PublishMergedTable(SLProtocolExt protocol, MergedEntry[] mergedRows)
-    {
-        List<object[]> tableRows = new List<object[]>();
-        foreach (var row in mergedRows)
-        {
-            tableRows.Add(new MergedtableQActionRow
-            {
-                Mergedreconcilekey = row.adSalesData.ReconcileKey,
-                Mergedproductcode = row.adSalesData.ProductCode,
-                Mergedduration = row.adSalesData.Duration,
-                Mergedadsalestime = row.adSalesTime.ToString("yyyy-MM-dd HH:mm:ss"),
-                Mergedhavewon = (row.whatsonData != null) ? "\u2713" : string.Empty,
-                Mergedhavemediator = (row.mediatorData != null) ? "✓" : string.Empty,
-                Mergedwontime = row.whatsonData?.StartTime.ToString("yyyy-MM-dd HH:mm:ss") ?? string.Empty,
-                Mergedmediatortime = row.mediatorData?.StartTime.ToString("yyyy-MM-dd HH:mm:ss") ?? string.Empty,
-                Mergedtype = row.adSalesData.Type,
-            }.ToObjectArray());
-        }
-
-        protocol.FillArray(Parameter.Mergedtable.tablePid, tableRows, NotifyProtocol.SaveOption.Full);
-        return tableRows;
-    }
-
-    public void PublishEnablerLegacyTable(SLProtocolExt protocol, List<EnablerRow> rows)
-    {
-        var tableRows = new List<object[]>();
-        foreach (var row in rows)
-        {
-            tableRows.Add(new EnablerlegacyQActionRow
-            {
-                Enablerlegacytime = row.TimeStamp.ToString("yyyy-MM-dd HH:mm:ss"),
-                Enablerlegacyeventcode = row.EventCode.ToString(),
-                Enablerlegacyeventname = row.EventName.ToString(),
-                Enablerlegacypayload = row.Payload.ToString(),
-            }.ToObjectArray());
-        }
-        protocol.FillArray(Parameter.Enablerlegacy.tablePid, tableRows, NotifyProtocol.SaveOption.Full);
-    }
-
-    public void PublishScteTable(SLProtocolExt protocol, List<EnablerRow> rows)
-    {
-        var tableRows = new List<object[]>();
-        foreach (var row in rows)
-        {
-            tableRows.Add(new EnablerscteQActionRow
-            {
-                Enablersctetime = row.TimeStamp.ToString("yyyy-MM-dd HH:mm:ss"),
-                Enablerscteeventcode = row.EventCode.ToString(),
-                Enablerscteeventname = row.EventName.ToString(),
-                Enablersctepayload = row.Payload.ToString(),
-            }.ToObjectArray());
-        }
-
-        protocol.FillArray(Parameter.Enablerscte.tablePid, tableRows, NotifyProtocol.SaveOption.Full);
-    }
 
     public async Task<List<EnablerRow>> ReadEnablerLegacy(SLProtocolExt protocol)
     {
-        List<EnablerRow> rows = new List<EnablerRow>();
         try
         {
-            using (var httpClient = new HttpClient())
-            {
-                var request = new HttpRequestMessage
-                {
-                    Method = HttpMethod.Get,
-                    RequestUri = new Uri($"{protocol.Probeurl}legacy?channel={protocol.channelName()}"),
-                };
-
-                using (var response = await httpClient.SendAsync(request))
-                {
-                    string apiResponse = await response.Content.ReadAsStringAsync();
-                    var lines = apiResponse.Split('\n');
-                    foreach (var line in lines)
-                    {
-                        if (line.Length == 0)
-                            continue;
-                        var cells = line.Split(',');
-                        if (cells.Length < 4)
-                        {
-                            throw new Exception("Invalid legacy row should contain at least 4 cells");
-                        }
-                        rows.Add(new EnablerRow
-                        {
-                            TimeStamp = DateTime.Parse(cells[0]),
-                            EventCode = int.Parse(cells[1]),
-                            EventName = cells[2],
-                            Payload = cells[3],
-                        });
-
-                    }
-                }
-            }
+            var url = $"{protocol.Probeurl}legacy?channel={protocol.channelName()}";
+            var rows = await enablerSource.ReadEnabler(url);
             protocol.Legacydebugmsg = "Everything ok...";
+            return rows;
         }
         catch (Exception ex)
         {
             protocol.Legacydebugmsg = $"Exception {ex.Message}";
+            return new List<EnablerRow>();
         }
-        return rows;
     }
 
     public async Task<List<EnablerRow>> ReadEnablerScte(SLProtocolExt protocol)
     {
-        List<EnablerRow> rows = new List<EnablerRow>();
         try
         {
-            using (var httpClient = new HttpClient())
-            {
-                var request = new HttpRequestMessage
-                {
-                    Method = HttpMethod.Get,
-                    RequestUri = new Uri($"{protocol.Probeurl}scte?channel={protocol.channelName()}"),
-                };
-
-                using (var response = await httpClient.SendAsync(request))
-                {
-                    string apiResponse = await response.Content.ReadAsStringAsync();
-                    var lines = apiResponse.Split('\n');
-                    foreach (var line in lines)
-                    {
-                        if (line.Length == 0)
-                            continue;
-                        var cells = line.Split(',');
-                        if (cells.Length < 4)
-                        {
-                            throw new Exception("Invalid SCTE row should contain at least 4 cells");
-                        }
-                        rows.Add(new EnablerRow
-                        {
-                            TimeStamp = DateTime.Parse(cells[0]),
-                            EventCode = int.Parse(cells[1]),
-                            EventName = cells[2],
-                            Payload = cells[3],
-                        });
-
-                    }
-                }
-            }
-            protocol.Sctedebugmsg = "Everything ok";
+            var url = $"{protocol.Probeurl}scte?channel={protocol.channelName()}";
+            var rows = await enablerSource.ReadEnabler(url);
+            protocol.Sctedebugmsg = "Everything ok...";
+            return rows;
         }
         catch (Exception ex)
         {
             protocol.Sctedebugmsg = $"Exception {ex.Message}";
+            return new List<EnablerRow>();
         }
-        return rows;
     }
 
-    public static List<WhatsonRow> ReadWhatsonData(SLProtocolExt protocol)
+    public List<WhatsonRow> ReadWhatsonData(SLProtocolExt protocol)
     {
         string channelName = (string)protocol.channelName();
         string dir = @"\\winfs01.mediaset.it\DM_Watchfolder\WON";
@@ -287,13 +111,15 @@ public class QAction
         }
     }
 
-    public static List<AdSalesRow> ReadAdSalesData(SLProtocolExt protocol)
+    public List<AdSalesRow> ReadAdSalesData(SLProtocolExt protocol)
     {
         string channelName = protocol.channelName();
         string dir = @"\\winfs01.mediaset.it\DM_Watchfolder\Adsales";
         try
         {
-            return adSalesSource.ReadAdSales(channelName, dir);
+            var rows = adSalesSource.ReadAdSales(channelName, dir);
+            protocol.Adsalesdebugmsg = "Everything ok";
+            return rows;
         }
         catch (Exception ex)
         {
@@ -303,7 +129,7 @@ public class QAction
         }
     }
 
-    public static string nullIfEmpty(string s)
+    public string NullIfEmpty(string s)
     {
         if (s.Length == 0)
             return null;
@@ -324,9 +150,9 @@ public class QAction
                     Id = Int32.Parse((string)row.Mediatorid),
                     StartTime = DateTime.Parse((string)row.Mediatordate),
                     ReconcileKey = (string)row.Mediatorreconcilekey,
-                    Title = nullIfEmpty((string)row.Mediatortitle),
-                    Status = nullIfEmpty((string)row.Mediatorstatus),
-                    ScheduleReference = nullIfEmpty((string)row.Mediatorschedulereference),
+                    Title = NullIfEmpty((string)row.Mediatortitle),
+                    Status = NullIfEmpty((string)row.Mediatorstatus),
+                    ScheduleReference = NullIfEmpty((string)row.Mediatorschedulereference),
                 });
             }
         } catch(Exception e)
