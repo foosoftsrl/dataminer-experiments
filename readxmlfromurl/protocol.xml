@@ -1477,32 +1477,6 @@
 				<Type>string</Type>
 			</Measurement>
 		</Param>
-		<Param id="10003" trending="false">
-			<Name>adSalesFileName</Name>
-			<Description>Processing Adsales File Name</Description>
-			<Type>read</Type>
-			<Information>
-			</Information>
-			<Interprete>
-				<RawType>other</RawType>
-				<Type>string</Type>
-				<LengthType>next param</LengthType>
-			</Interprete>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-				<Positions>
-					<Position>
-						<Page>Adsales</Page>
-						<Column>0</Column>
-						<Row>3</Row>
-					</Position>
-				</Positions>
-			</Display>
-			<Measurement>
-				<Type>string</Type>
-			</Measurement>
-		</Param>
-		
 		<Param id="10101" trending="false">
 			<Name>mediatorDebugMsg</Name>
 			<Description>Debug Mediator Data</Description>

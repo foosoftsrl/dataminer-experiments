@@ -43,11 +43,6 @@ public static class Parameter
 	public const int adsalesdebugmsg_10001 = 10001;
 	/// <summary>PID: 10001 | Type: read</summary>
 	public const int adsalesdebugmsg = 10001;
-	/// <summary>PID: 10003 | Type: read</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public const int adsalesfilename_10003 = 10003;
-	/// <summary>PID: 10003 | Type: read</summary>
-	public const int adsalesfilename = 10003;
 	/// <summary>PID: 10101 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public const int mediatordebugmsg_10101 = 10101;
@@ -841,8 +836,6 @@ public interface SLProtocolExt : SLProtocol
 	object Xprinterrors { get; set; }
 	object Adsalesdebugmsg_10001 { get; set; }
 	object Adsalesdebugmsg { get; set; }
-	object Adsalesfilename_10003 { get; set; }
-	object Adsalesfilename { get; set; }
 	object Mediatordebugmsg_10101 { get; set; }
 	object Mediatordebugmsg { get; set; }
 	object Mergediterationcounter_10200 { get; set; }
@@ -1160,11 +1153,6 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public System.Object Adsalesdebugmsg_10001 {get { return GetParameter(10001); }set { SetParameter(10001, value); }}
 	/// <summary>PID: 10001  | Type: read</summary>
 	public System.Object Adsalesdebugmsg {get { return GetParameter(10001); }set { SetParameter(10001, value); }}
-	/// <summary>PID: 10003  | Type: read</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Adsalesfilename_10003 {get { return GetParameter(10003); }set { SetParameter(10003, value); }}
-	/// <summary>PID: 10003  | Type: read</summary>
-	public System.Object Adsalesfilename {get { return GetParameter(10003); }set { SetParameter(10003, value); }}
 	/// <summary>PID: 10101  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Mediatordebugmsg_10101 {get { return GetParameter(10101); }set { SetParameter(10101, value); }}
