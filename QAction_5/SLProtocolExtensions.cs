@@ -7,6 +7,7 @@
     using System.Text;
     using System.Threading.Tasks;
     using Mediator;
+    using Skyline.DataMiner.Net.SLSearch.Messages;
     using Skyline.DataMiner.Scripting;
 
     public static class SLProtocolExtensions
@@ -28,15 +29,39 @@
             {
                 var from = DateTime.Today.AddDays(i);
                 var to = DateTime.Today.AddDays(i + 1);
+                var adSalesCount = adSalesData.Count(row => row.TimeOfDay >= from && row.TimeOfDay < to);
+                var whatsonCount = whatsonRows.Count(row => row.StartTime >= from && row.StartTime < to);
+                var mediatorCount = mediatorRows.Count(row => row.StartTime >= from && row.StartTime < to);
+                var text = adSalesCount + "/" + whatsonCount + "/" + mediatorCount;
+                var errorCount = new Random().Next(2);
                 tableRows.Add(new XprintQActionRow
                 {
                     Xprintindex = i,
                     Xprintdate = from.ToString("yyyy-MM-dd HH:mm:ss"),
-                    Xprintadsales = adSalesData.Count(row => row.TimeOfDay >= from && row.TimeOfDay < to),
-                    Xprintwhatson = whatsonRows.Count(row => row.StartTime >= from && row.StartTime < to),
-                    Xprintmediator = mediatorRows.Count(row => row.StartTime >= from && row.StartTime < to),
-                    Xprinterrors = new Random().Next(2),
+                    Xprintadsales = adSalesCount,
+                    Xprintwhatson = whatsonCount,
+                    Xprintmediator = mediatorCount,
+                    Xprinterrors = errorCount,
                 }.ToObjectArray());
+
+                switch (i)
+                {
+                    case 0:
+                        protocol.Xprintdate0 = from.ToString("yyyy-MM-dd HH:mm:ss");
+                        protocol.Xprintdata0 = text;
+                        protocol.Xprintalarm0 = errorCount;
+                        break;
+                    case 1:
+                        protocol.Xprintdate1 = from.ToString("yyyy-MM-dd HH:mm:ss");
+                        protocol.Xprintdata1 = text;
+                        protocol.Xprintalarm1 = errorCount;
+                        break;
+                    case 2:
+                        protocol.Xprintdate2 = from.ToString("yyyy-MM-dd HH:mm:ss");
+                        protocol.Xprintdata2 = text;
+                        protocol.Xprintalarm2 = errorCount;
+                        break;
+                }
             }
             protocol.FillArray(Parameter.Xprint.tablePid, tableRows, NotifyProtocol.SaveOption.Full);
         }

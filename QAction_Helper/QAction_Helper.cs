@@ -68,6 +68,51 @@ public static class Parameter
 	public const int legacydebugmsg_10401 = 10401;
 	/// <summary>PID: 10401 | Type: read</summary>
 	public const int legacydebugmsg = 10401;
+	/// <summary>PID: 20000 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public const int xprintdate0_20000 = 20000;
+	/// <summary>PID: 20000 | Type: read</summary>
+	public const int xprintdate0 = 20000;
+	/// <summary>PID: 20001 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public const int xprintdate1_20001 = 20001;
+	/// <summary>PID: 20001 | Type: read</summary>
+	public const int xprintdate1 = 20001;
+	/// <summary>PID: 20002 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public const int xprintdate2_20002 = 20002;
+	/// <summary>PID: 20002 | Type: read</summary>
+	public const int xprintdate2 = 20002;
+	/// <summary>PID: 20100 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public const int xprintdata0_20100 = 20100;
+	/// <summary>PID: 20100 | Type: read</summary>
+	public const int xprintdata0 = 20100;
+	/// <summary>PID: 20101 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public const int xprintdata1_20101 = 20101;
+	/// <summary>PID: 20101 | Type: read</summary>
+	public const int xprintdata1 = 20101;
+	/// <summary>PID: 20102 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public const int xprintdata2_20102 = 20102;
+	/// <summary>PID: 20102 | Type: read</summary>
+	public const int xprintdata2 = 20102;
+	/// <summary>PID: 20200 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public const int xprintalarm0_20200 = 20200;
+	/// <summary>PID: 20200 | Type: read</summary>
+	public const int xprintalarm0 = 20200;
+	/// <summary>PID: 20201 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public const int xprintalarm1_20201 = 20201;
+	/// <summary>PID: 20201 | Type: read</summary>
+	public const int xprintalarm1 = 20201;
+	/// <summary>PID: 20202 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public const int xprintalarm2_20202 = 20202;
+	/// <summary>PID: 20202 | Type: read</summary>
+	public const int xprintalarm2 = 20202;
 	public class Write
 	{
 		/// <summary>PID: 4 | Type: write</summary>
@@ -848,6 +893,24 @@ public interface SLProtocolExt : SLProtocol
 	object Wondebugmsg { get; set; }
 	object Legacydebugmsg_10401 { get; set; }
 	object Legacydebugmsg { get; set; }
+	object Xprintdate0_20000 { get; set; }
+	object Xprintdate0 { get; set; }
+	object Xprintdate1_20001 { get; set; }
+	object Xprintdate1 { get; set; }
+	object Xprintdate2_20002 { get; set; }
+	object Xprintdate2 { get; set; }
+	object Xprintdata0_20100 { get; set; }
+	object Xprintdata0 { get; set; }
+	object Xprintdata1_20101 { get; set; }
+	object Xprintdata1 { get; set; }
+	object Xprintdata2_20102 { get; set; }
+	object Xprintdata2 { get; set; }
+	object Xprintalarm0_20200 { get; set; }
+	object Xprintalarm0 { get; set; }
+	object Xprintalarm1_20201 { get; set; }
+	object Xprintalarm1 { get; set; }
+	object Xprintalarm2_20202 { get; set; }
+	object Xprintalarm2 { get; set; }
 	WriteParameters Write { get; set; }
 }
 public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
@@ -1182,6 +1245,51 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public System.Object Legacydebugmsg_10401 {get { return GetParameter(10401); }set { SetParameter(10401, value); }}
 	/// <summary>PID: 10401  | Type: read</summary>
 	public System.Object Legacydebugmsg {get { return GetParameter(10401); }set { SetParameter(10401, value); }}
+	/// <summary>PID: 20000  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Xprintdate0_20000 {get { return GetParameter(20000); }set { SetParameter(20000, value); }}
+	/// <summary>PID: 20000  | Type: read</summary>
+	public System.Object Xprintdate0 {get { return GetParameter(20000); }set { SetParameter(20000, value); }}
+	/// <summary>PID: 20001  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Xprintdate1_20001 {get { return GetParameter(20001); }set { SetParameter(20001, value); }}
+	/// <summary>PID: 20001  | Type: read</summary>
+	public System.Object Xprintdate1 {get { return GetParameter(20001); }set { SetParameter(20001, value); }}
+	/// <summary>PID: 20002  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Xprintdate2_20002 {get { return GetParameter(20002); }set { SetParameter(20002, value); }}
+	/// <summary>PID: 20002  | Type: read</summary>
+	public System.Object Xprintdate2 {get { return GetParameter(20002); }set { SetParameter(20002, value); }}
+	/// <summary>PID: 20100  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Xprintdata0_20100 {get { return GetParameter(20100); }set { SetParameter(20100, value); }}
+	/// <summary>PID: 20100  | Type: read</summary>
+	public System.Object Xprintdata0 {get { return GetParameter(20100); }set { SetParameter(20100, value); }}
+	/// <summary>PID: 20101  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Xprintdata1_20101 {get { return GetParameter(20101); }set { SetParameter(20101, value); }}
+	/// <summary>PID: 20101  | Type: read</summary>
+	public System.Object Xprintdata1 {get { return GetParameter(20101); }set { SetParameter(20101, value); }}
+	/// <summary>PID: 20102  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Xprintdata2_20102 {get { return GetParameter(20102); }set { SetParameter(20102, value); }}
+	/// <summary>PID: 20102  | Type: read</summary>
+	public System.Object Xprintdata2 {get { return GetParameter(20102); }set { SetParameter(20102, value); }}
+	/// <summary>PID: 20200  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Xprintalarm0_20200 {get { return GetParameter(20200); }set { SetParameter(20200, value); }}
+	/// <summary>PID: 20200  | Type: read</summary>
+	public System.Object Xprintalarm0 {get { return GetParameter(20200); }set { SetParameter(20200, value); }}
+	/// <summary>PID: 20201  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Xprintalarm1_20201 {get { return GetParameter(20201); }set { SetParameter(20201, value); }}
+	/// <summary>PID: 20201  | Type: read</summary>
+	public System.Object Xprintalarm1 {get { return GetParameter(20201); }set { SetParameter(20201, value); }}
+	/// <summary>PID: 20202  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Xprintalarm2_20202 {get { return GetParameter(20202); }set { SetParameter(20202, value); }}
+	/// <summary>PID: 20202  | Type: read</summary>
+	public System.Object Xprintalarm2 {get { return GetParameter(20202); }set { SetParameter(20202, value); }}
 	public WriteParameters Write { get; set; }
 	public ConcreteSLProtocolExt()
 	{
