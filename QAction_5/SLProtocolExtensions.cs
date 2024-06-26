@@ -4,9 +4,11 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Runtime.CompilerServices;
+    using System.Security.Cryptography.X509Certificates;
     using System.Text;
     using System.Threading.Tasks;
     using Mediator;
+    using Skyline.DataMiner.Net.Helper;
     using Skyline.DataMiner.Net.SLSearch.Messages;
     using Skyline.DataMiner.Scripting;
 
@@ -203,6 +205,59 @@
             }
 
             protocol.FillArray(Parameter.Mergedtable.tablePid, tableRows, NotifyProtocol.SaveOption.Full);
+        }
+
+        public static string GetParameterDescriptionAsString(this SLProtocolExt protocol, int parameterId)
+        {
+            var description = protocol.GetParameterDescription(parameterId);
+            if(description is string)
+            {
+                return (string)description;
+            } else
+            {
+                return "???";
+            }
+        }
+        public static int GetRequiredIntParameter(this SLProtocolExt protocol, int parameterId)
+        {
+            var value = protocol.GetParameter(parameterId);
+            if(value is string)
+            {
+                try
+                {
+                    return Convert.ToInt32(value);
+                } catch(Exception ex)
+                {
+                    throw new Exception($"Invalid value '{value}' for parameter {protocol.GetParameterDescription(parameterId)}, should be an int");
+                }
+            } else if(value == null) {
+                throw new Exception($"Missing parameter {protocol.GetParameterDescription(parameterId)}");
+            } else
+            {
+                throw new Exception($"Unexpected type for parameter {protocol.GetParameterDescription(parameterId)}");
+            }
+        }
+
+        public static string GetRequiredNonEmptyStringParameter(this SLProtocolExt protocol, int parameterId)
+        {
+            var value = protocol.GetParameter(parameterId);
+            if (value is string)
+            {
+                var valueString = (string)value;
+                if(valueString.Trim().IsNullOrEmpty())
+                {
+                    throw new Exception($"Invalid value '{value}' for parameter {protocol.GetParameterDescription(parameterId)}, should be a non empty string");
+                }
+                return valueString;
+            }
+            else if (value == null)
+            {
+                throw new Exception($"Missing parameter {protocol.GetParameterDescription(parameterId)}");
+            }
+            else
+            {
+                throw new Exception($"Unexpected type for parameter {protocol.GetParameterDescription(parameterId)}");
+            }
         }
     }
 }

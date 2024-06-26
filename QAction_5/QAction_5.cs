@@ -166,12 +166,12 @@ public class QAction
 
     public async Task<List<MediatorRow>> ReadMediatorData(SLProtocolExt protocol)
     {
+        var lastPublished = GetLastPublishedMediator(protocol);
         try
         {
-            string uri = (string)protocol.GetParameter(Parameter.urimediator);
+            string uri = protocol.GetRequiredNonEmptyStringParameter(Parameter.urimediator);
             string channelName = protocol.channelName();
-            int maxResults = Convert.ToInt32(protocol.GetParameter(Parameter.maxresultsmediator));
-            var lastPublished = GetLastPublishedMediator(protocol);
+            int maxResults = protocol.GetRequiredIntParameter(Parameter.maxresultsmediator);
             var parsed = await mediatorSource.ReadMediator(uri, channelName, maxResults);
             var merged = mediatorSource.Merge(lastPublished, parsed);
             protocol.Mediatordebugmsg = $"State {lastPublished.Count}, Parsed {parsed.Count} Merged {merged.Count} lines";
@@ -181,7 +181,7 @@ public class QAction
         {
             protocol.Mediatordebugmsg = $"Failed reading Mediator data: {ex.Message}";
             protocol.Log($"QA{protocol.QActionID}|{protocol.GetTriggerParameter()}|Run|Exception thrown:{Environment.NewLine}{ex}", LogType.Error, LogLevel.NoLogging);
-            throw ex;
+            return lastPublished;
         }
     }
 }

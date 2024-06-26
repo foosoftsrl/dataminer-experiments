@@ -16,7 +16,7 @@ namespace QAction5Tests
         public void TestMerge()
         {
             var adSalesData = Utils.XmlDeserializeFromFile<AdSales.DataType>("adsales.xml").Flatten();
-            var whatsonData = Utils.XmlDeserializeFromFile<Pharos>("whatson.xml").Flatten();
+            var whatsonData = Utils.XmlDeserializeFromFile<Whatson.Pharos>("whatson.xml").Flatten();
             var mediatorData = Utils.JsonDeserializeFromFile<Mediator.Welcome>("mediator.json", Mediator.Converter.Settings).Flatten();
             var legacyData = EnablerSource.parseText(Utils.ReadFile("legacy.csv"));
             var scteData = EnablerSource.parseText(Utils.ReadFile("scte.csv"));
@@ -44,7 +44,7 @@ namespace QAction5Tests
         public void TestXPrintFiff()
         {
             var adSalesData = Utils.XmlDeserializeFromFile<AdSales.DataType>("adsales.xml").Flatten();
-            var whatsonData = Utils.XmlDeserializeFromFile<Pharos>("whatson.xml").Flatten();
+            var whatsonData = Utils.XmlDeserializeFromFile<Whatson.Pharos>("whatson.xml").Flatten();
             DiffTool.ComputeDiff(adSalesData, whatsonData);
         }
 

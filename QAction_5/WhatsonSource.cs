@@ -42,7 +42,7 @@ namespace QAction_5
                 .First();
             try
             {
-                return Utils.XmlDeserializeFromFile<Pharos>(latestFile).Flatten();
+                return Utils.XmlDeserializeFromFile<Whatson.Pharos>(latestFile).Flatten();
             } catch(Exception ex)
             {
                 throw new Exception($"Failed parsing Whatson file {latestFile}: {ex.Message}", ex);

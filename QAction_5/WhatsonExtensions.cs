@@ -9,7 +9,7 @@
 
     public static class WhatsonExtensions
     {
-        public static List<WhatsonRow> Flatten(this Pharos whatsonData)
+        public static List<WhatsonRow> Flatten(this Whatson.Pharos whatsonData)
         {
             List<WhatsonRow> result = new List<WhatsonRow>();
             if (whatsonData.Playlist != null && whatsonData.Playlist.BlockList != null)
@@ -55,45 +55,45 @@
             }
             return reconcileToRow;
         }
-        public static string FindAdSalesReconcileKey(this PharosPlaylistBlockPlaylistItem playlistItem)
+        public static string FindAdSalesReconcileKey(this Whatson.PlaylistItem playlistItem)
         {
             return playlistItem.FindDataElementByName("adSalesContentReconcileKey-text")?.Text();
         }
 
-        public static PharosPlaylistBlockPlaylistItemTemplateDataElement FindScteBroadcastBreakStart(this PharosPlaylistBlockPlaylistItem playlistItem)
+        public static Whatson.DataElement FindScteBroadcastBreakStart(this Whatson.PlaylistItem playlistItem)
         {
             return playlistItem.FindDataElementByName("scteBroadcastBreakStart-insertSegmentationDescriptor");
         }
 
-        public static string FindScteBroadcastBreakStartUpid(this PharosPlaylistBlockPlaylistItem playlistItem)
+        public static string FindScteBroadcastBreakStartUpid(this Whatson.PlaylistItem playlistItem)
         {
             var item = playlistItem.FindScteBroadcastBreakStart();
-            return item?.Value.DataElementCompoundList?.DataElementList.FindDataElementByName("segmentationUpid")?.Value;
+            return item?.Value.DataElementCompoundList?.DataElementList.FindDataElementByName("segmentationUpid")?.Value.Text[0];
         }
 
-        public static PharosPlaylistBlockPlaylistItemTemplateDataElement FindScteBroadcastProviderAdvStart(this PharosPlaylistBlockPlaylistItem playlistItem)
+        public static Whatson.DataElement FindScteBroadcastProviderAdvStart(this Whatson.PlaylistItem playlistItem)
         {
             return playlistItem.FindDataElementByName("scteBroadcastProviderAdvStart-insertSegmentationDescriptor");
         }
 
-        public static string FindScteBroadcastProviderAdvStartUpid(this PharosPlaylistBlockPlaylistItem playlistItem)
+        public static string FindScteBroadcastProviderAdvStartUpid(this Whatson.PlaylistItem playlistItem)
         {
             var item = playlistItem.FindScteBroadcastProviderAdvStart();
-            return item?.Value.DataElementCompoundList?.DataElementList.FindDataElementByName("segmentationUpid")?.Value;
+            return item?.Value.DataElementCompoundList?.DataElementList.FindDataElementByName("segmentationUpid")?.Value.Text[0];
         }
 
-        public static PharosPlaylistBlockPlaylistItemTemplateDataElement FindEnablerLegacy(this PharosPlaylistBlockPlaylistItem playlistItem)
+        public static Whatson.DataElement FindEnablerLegacy(this Whatson.PlaylistItem playlistItem)
         {
             return playlistItem.FindDataElementByName("enablerLegacy-compoundList");
         }
 
-        public static string FindEnablerLegacyText(this PharosPlaylistBlockPlaylistItem playlistItem)
+        public static string FindEnablerLegacyText(this Whatson.PlaylistItem playlistItem)
         {
             var item = playlistItem.FindEnablerLegacy();
-            return item?.Value.DataElementCompoundList?.DataElementList.FindDataElementByName("enablerLegacy-userText1")?.Value;
+            return item?.Value.DataElementCompoundList?.DataElementList.FindDataElementByName("enablerLegacy-userText1")?.Value.Text[0];
         }
 
-        public static string Text(this PharosPlaylistBlockPlaylistItemTemplateDataElement dataElement)
+        public static string Text(this Whatson.DataElement dataElement)
         {
             if (dataElement.Value.Text != null && dataElement.Value.Text.Length == 1)
             {
@@ -102,12 +102,12 @@
             return null;
         }
 
-        public static PharosPlaylistBlockPlaylistItemTemplateDataElement FindDataElementByName(this PharosPlaylistBlockPlaylistItem playlistItem, String name)
+        public static Whatson.DataElement FindDataElementByName(this Whatson.PlaylistItem playlistItem, String name)
         {
             return playlistItem.Template.DataElementList.FindDataElementByName(name);
         }
 
-        public static PharosPlaylistBlockPlaylistItemTemplateDataElementValueDataElementCompoundListDataElement FindDataElementByName(this PharosPlaylistBlockPlaylistItemTemplateDataElementValueDataElementCompoundListDataElement[] dataElementArray, String name)
+        public static Whatson.DataElement FindDataElementByName(this Whatson.DataElement[] dataElementArray, String name)
         {
             foreach (var entry in dataElementArray)
             {
@@ -119,19 +119,7 @@
             return null;
         }
 
-        public static PharosPlaylistBlockPlaylistItemTemplateDataElement FindDataElementByName(this PharosPlaylistBlockPlaylistItemTemplateDataElement[] dataElementArray, String name)
-        {
-            foreach (var entry in dataElementArray)
-            {
-                if (entry.Name == name)
-                {
-                    return entry;
-                }
-            }
-            return null;
-        }
-
-        public static DateTime? StartDateTime(this PharosPlaylistBlockPlaylistItem playlistItem)
+        public static DateTime? StartDateTime(this Whatson.PlaylistItem playlistItem)
         {
             if (playlistItem.StartDate == null || playlistItem.StartTimecode == null)
                 return null;
