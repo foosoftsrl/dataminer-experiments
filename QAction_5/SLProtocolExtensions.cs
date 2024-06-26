@@ -65,6 +65,29 @@
             }
             protocol.FillArray(Parameter.Xprint.tablePid, tableRows, NotifyProtocol.SaveOption.Full);
         }
+
+        public static void PublishXPrintDiffTable(this SLProtocolExt protocol, List<(AdSalesRow, WhatsonRow)> rows)
+        {
+            var tableRows = new List<object[]>();
+            var idx = 0;
+            foreach (var row in rows)
+            {
+                tableRows.Add(new XprintdiffQActionRow
+                {
+                    Xprintdiffkey = "ciao" + idx++,
+                    Xprintdiffleftreconcilekey = row.Item1?.ReconcileKey ?? "",
+                    Xprintdiffleftstarttime = row.Item1?.TimeOfDay.ToString("yyyy-MM-dd HH:mm:ss") ?? "",
+                    Xprintdiffleftprogramcode = row.Item1?.ProductCode ?? "",
+                    Xprintdiffleftprogramtitle = row.Item1?.Title,
+                    Xprintdiffrightreconcilekey = row.Item2?.ReconcileKey ?? "",
+                    Xprintdiffrightstarttime = row.Item2?.StartTime.ToString("yyyy-MM-dd HH:mm:ss") ?? "",
+                    Xprintdiffrightprogramcode = row.Item2?.ReconcileKey ?? "",
+                    Xprintdiffrightprogramtitle = row.Item2?.Title,
+                }.ToObjectArray());
+            }
+            protocol.FillArray(Parameter.Xprintdiff.tablePid, tableRows, NotifyProtocol.SaveOption.Full);
+        }
+
         public static void PublishEnablerLegacyTable(this SLProtocolExt protocol, List<EnablerRow> rows)
         {
             var tableRows = new List<object[]>();

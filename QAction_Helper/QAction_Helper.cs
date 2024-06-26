@@ -747,6 +747,114 @@ public static class Parameter
 			public const int xprinterrors = 5;
 		}
 	}
+	public class Xprintdiff
+	{
+		/// <summary>PID: 8000</summary>
+		public const int tablePid = 8000;
+		/// <summary>IDX: 0</summary>
+		public const int indexColumn = 0;
+		/// <summary>PID: 8001</summary>
+		public const int indexColumnPid = 8001;
+		public class Pid
+		{
+			/// <summary>PID: 8001 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int xprintdiffkey_8001 = 8001;
+			/// <summary>PID: 8001 | Type: read</summary>
+			public const int xprintdiffkey = 8001;
+			/// <summary>PID: 8002 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int xprintdiffleftreconcilekey_8002 = 8002;
+			/// <summary>PID: 8002 | Type: read</summary>
+			public const int xprintdiffleftreconcilekey = 8002;
+			/// <summary>PID: 8003 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int xprintdiffleftstarttime_8003 = 8003;
+			/// <summary>PID: 8003 | Type: read</summary>
+			public const int xprintdiffleftstarttime = 8003;
+			/// <summary>PID: 8004 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int xprintdiffleftprogramcode_8004 = 8004;
+			/// <summary>PID: 8004 | Type: read</summary>
+			public const int xprintdiffleftprogramcode = 8004;
+			/// <summary>PID: 8005 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int xprintdiffleftprogramtitle_8005 = 8005;
+			/// <summary>PID: 8005 | Type: read</summary>
+			public const int xprintdiffleftprogramtitle = 8005;
+			/// <summary>PID: 8006 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int xprintdiffrightreconcilekey_8006 = 8006;
+			/// <summary>PID: 8006 | Type: read</summary>
+			public const int xprintdiffrightreconcilekey = 8006;
+			/// <summary>PID: 8007 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int xprintdiffrightstarttime_8007 = 8007;
+			/// <summary>PID: 8007 | Type: read</summary>
+			public const int xprintdiffrightstarttime = 8007;
+			/// <summary>PID: 8008 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int xprintdiffrightprogramcode_8008 = 8008;
+			/// <summary>PID: 8008 | Type: read</summary>
+			public const int xprintdiffrightprogramcode = 8008;
+			/// <summary>PID: 8009 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int xprintdiffrightprogramtitle_8009 = 8009;
+			/// <summary>PID: 8009 | Type: read</summary>
+			public const int xprintdiffrightprogramtitle = 8009;
+			public class Write
+			{
+			}
+		}
+		public class Idx
+		{
+			/// <summary>IDX: 0 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int xprintdiffkey_8001 = 0;
+			/// <summary>IDX: 0 | Type: read</summary>
+			public const int xprintdiffkey = 0;
+			/// <summary>IDX: 1 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int xprintdiffleftreconcilekey_8002 = 1;
+			/// <summary>IDX: 1 | Type: read</summary>
+			public const int xprintdiffleftreconcilekey = 1;
+			/// <summary>IDX: 2 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int xprintdiffleftstarttime_8003 = 2;
+			/// <summary>IDX: 2 | Type: read</summary>
+			public const int xprintdiffleftstarttime = 2;
+			/// <summary>IDX: 3 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int xprintdiffleftprogramcode_8004 = 3;
+			/// <summary>IDX: 3 | Type: read</summary>
+			public const int xprintdiffleftprogramcode = 3;
+			/// <summary>IDX: 4 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int xprintdiffleftprogramtitle_8005 = 4;
+			/// <summary>IDX: 4 | Type: read</summary>
+			public const int xprintdiffleftprogramtitle = 4;
+			/// <summary>IDX: 5 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int xprintdiffrightreconcilekey_8006 = 5;
+			/// <summary>IDX: 5 | Type: read</summary>
+			public const int xprintdiffrightreconcilekey = 5;
+			/// <summary>IDX: 6 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int xprintdiffrightstarttime_8007 = 6;
+			/// <summary>IDX: 6 | Type: read</summary>
+			public const int xprintdiffrightstarttime = 6;
+			/// <summary>IDX: 7 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int xprintdiffrightprogramcode_8008 = 7;
+			/// <summary>IDX: 7 | Type: read</summary>
+			public const int xprintdiffrightprogramcode = 7;
+			/// <summary>IDX: 8 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int xprintdiffrightprogramtitle_8009 = 8;
+			/// <summary>IDX: 8 | Type: read</summary>
+			public const int xprintdiffrightprogramtitle = 8;
+		}
+	}
 }
 public class WriteParameters
 {
@@ -790,6 +898,8 @@ public interface SLProtocolExt : SLProtocol
 	EnablerscteQActionTable enablerscte { get; set; }
 	/// <summary>PID: 7000</summary>
 	XprintQActionTable xprint { get; set; }
+	/// <summary>PID: 8000</summary>
+	XprintdiffQActionTable xprintdiff { get; set; }
 	object Afterstartup_dummy { get; set; }
 	object Triggerqaction_dummy { get; set; }
 	object Pgbconfiguration_4 { get; set; }
@@ -909,6 +1019,24 @@ public interface SLProtocolExt : SLProtocol
 	object Xprintmediator { get; set; }
 	object Xprinterrors_7006 { get; set; }
 	object Xprinterrors { get; set; }
+	object Xprintdiffkey_8001 { get; set; }
+	object Xprintdiffkey { get; set; }
+	object Xprintdiffleftreconcilekey_8002 { get; set; }
+	object Xprintdiffleftreconcilekey { get; set; }
+	object Xprintdiffleftstarttime_8003 { get; set; }
+	object Xprintdiffleftstarttime { get; set; }
+	object Xprintdiffleftprogramcode_8004 { get; set; }
+	object Xprintdiffleftprogramcode { get; set; }
+	object Xprintdiffleftprogramtitle_8005 { get; set; }
+	object Xprintdiffleftprogramtitle { get; set; }
+	object Xprintdiffrightreconcilekey_8006 { get; set; }
+	object Xprintdiffrightreconcilekey { get; set; }
+	object Xprintdiffrightstarttime_8007 { get; set; }
+	object Xprintdiffrightstarttime { get; set; }
+	object Xprintdiffrightprogramcode_8008 { get; set; }
+	object Xprintdiffrightprogramcode { get; set; }
+	object Xprintdiffrightprogramtitle_8009 { get; set; }
+	object Xprintdiffrightprogramtitle { get; set; }
 	object Adsalesdebugmsg_10001 { get; set; }
 	object Adsalesdebugmsg { get; set; }
 	object Mediatordebugmsg_10101 { get; set; }
@@ -959,6 +1087,8 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public EnablerscteQActionTable enablerscte { get; set; }
 	/// <summary>PID: 7000</summary>
 	public XprintQActionTable xprint { get; set; }
+	/// <summary>PID: 8000</summary>
+	public XprintdiffQActionTable xprintdiff { get; set; }
 	/// <summary>PID: 2  | Type: dummy</summary>
 	public System.Object Afterstartup_dummy {get { return GetParameter(2); }set { SetParameter(2, value); }}
 	/// <summary>PID: 3  | Type: dummy</summary>
@@ -1257,6 +1387,51 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public System.Object Xprinterrors_7006 {get { return GetParameter(7006); }set { SetParameter(7006, value); }}
 	/// <summary>PID: 7006  | Type: read</summary>
 	public System.Object Xprinterrors {get { return GetParameter(7006); }set { SetParameter(7006, value); }}
+	/// <summary>PID: 8001  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Xprintdiffkey_8001 {get { return GetParameter(8001); }set { SetParameter(8001, value); }}
+	/// <summary>PID: 8001  | Type: read</summary>
+	public System.Object Xprintdiffkey {get { return GetParameter(8001); }set { SetParameter(8001, value); }}
+	/// <summary>PID: 8002  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Xprintdiffleftreconcilekey_8002 {get { return GetParameter(8002); }set { SetParameter(8002, value); }}
+	/// <summary>PID: 8002  | Type: read</summary>
+	public System.Object Xprintdiffleftreconcilekey {get { return GetParameter(8002); }set { SetParameter(8002, value); }}
+	/// <summary>PID: 8003  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Xprintdiffleftstarttime_8003 {get { return GetParameter(8003); }set { SetParameter(8003, value); }}
+	/// <summary>PID: 8003  | Type: read</summary>
+	public System.Object Xprintdiffleftstarttime {get { return GetParameter(8003); }set { SetParameter(8003, value); }}
+	/// <summary>PID: 8004  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Xprintdiffleftprogramcode_8004 {get { return GetParameter(8004); }set { SetParameter(8004, value); }}
+	/// <summary>PID: 8004  | Type: read</summary>
+	public System.Object Xprintdiffleftprogramcode {get { return GetParameter(8004); }set { SetParameter(8004, value); }}
+	/// <summary>PID: 8005  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Xprintdiffleftprogramtitle_8005 {get { return GetParameter(8005); }set { SetParameter(8005, value); }}
+	/// <summary>PID: 8005  | Type: read</summary>
+	public System.Object Xprintdiffleftprogramtitle {get { return GetParameter(8005); }set { SetParameter(8005, value); }}
+	/// <summary>PID: 8006  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Xprintdiffrightreconcilekey_8006 {get { return GetParameter(8006); }set { SetParameter(8006, value); }}
+	/// <summary>PID: 8006  | Type: read</summary>
+	public System.Object Xprintdiffrightreconcilekey {get { return GetParameter(8006); }set { SetParameter(8006, value); }}
+	/// <summary>PID: 8007  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Xprintdiffrightstarttime_8007 {get { return GetParameter(8007); }set { SetParameter(8007, value); }}
+	/// <summary>PID: 8007  | Type: read</summary>
+	public System.Object Xprintdiffrightstarttime {get { return GetParameter(8007); }set { SetParameter(8007, value); }}
+	/// <summary>PID: 8008  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Xprintdiffrightprogramcode_8008 {get { return GetParameter(8008); }set { SetParameter(8008, value); }}
+	/// <summary>PID: 8008  | Type: read</summary>
+	public System.Object Xprintdiffrightprogramcode {get { return GetParameter(8008); }set { SetParameter(8008, value); }}
+	/// <summary>PID: 8009  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Xprintdiffrightprogramtitle_8009 {get { return GetParameter(8009); }set { SetParameter(8009, value); }}
+	/// <summary>PID: 8009  | Type: read</summary>
+	public System.Object Xprintdiffrightprogramtitle {get { return GetParameter(8009); }set { SetParameter(8009, value); }}
 	/// <summary>PID: 10001  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Adsalesdebugmsg_10001 {get { return GetParameter(10001); }set { SetParameter(10001, value); }}
@@ -1346,6 +1521,7 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 		enablerlegacy = new EnablerlegacyQActionTable(this, 5000, "enablerlegacy");
 		enablerscte = new EnablerscteQActionTable(this, 6000, "enablerscte");
 		xprint = new XprintQActionTable(this, 7000, "xprint");
+		xprintdiff = new XprintdiffQActionTable(this, 8000, "xprintdiff");
 		Write = new WriteParameters(this);
 	}
 }
@@ -1397,6 +1573,13 @@ public class XprintQActionTable : QActionTable, IEnumerable<XprintQActionRow>
 	public XprintQActionTable(SLProtocol protocol, int tableId, string tableName) : base(protocol, tableId, tableName) { }
 	IEnumerator IEnumerable.GetEnumerator() { return (IEnumerator) GetEnumerator(); }
 	public IEnumerator<XprintQActionRow> GetEnumerator() { return new QActionTableEnumerator<XprintQActionRow>(this); }
+}
+/// <summary>IDX: 0</summary>
+public class XprintdiffQActionTable : QActionTable, IEnumerable<XprintdiffQActionRow>
+{
+	public XprintdiffQActionTable(SLProtocol protocol, int tableId, string tableName) : base(protocol, tableId, tableName) { }
+	IEnumerator IEnumerable.GetEnumerator() { return (IEnumerator) GetEnumerator(); }
+	public IEnumerator<XprintdiffQActionRow> GetEnumerator() { return new QActionTableEnumerator<XprintdiffQActionRow>(this); }
 }
 /// <summary>IDX: 0</summary>
 public class AdsalesQActionRow : QActionTableRow
@@ -1678,5 +1861,58 @@ public class XprintQActionRow : QActionTableRow
 	public XprintQActionRow(System.Object[] oRow) : base(0, 6, oRow) { }
 	public static implicit operator XprintQActionRow(System.Object[] source) { return new XprintQActionRow(source); }
 	public static implicit operator System.Object[](XprintQActionRow source) { return source.ToObjectArray(); }
+}
+/// <summary>IDX: 0</summary>
+public class XprintdiffQActionRow : QActionTableRow
+{
+	/// <summary>PID: 8001 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Xprintdiffkey_8001 { get { if (base.Columns.ContainsKey(0)) { return base.Columns[0]; } else { return null; } } set { if (base.Columns.ContainsKey(0)) { base.Columns[0] = value; } else { base.Columns.Add(0, value); } } }
+	/// <summary>PID: 8001 | Type: read</summary>
+	public System.Object Xprintdiffkey { get { if (base.Columns.ContainsKey(0)) { return base.Columns[0]; } else { return null; } } set { if (base.Columns.ContainsKey(0)) { base.Columns[0] = value; } else { base.Columns.Add(0, value); } } }
+	/// <summary>PID: 8002 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Xprintdiffleftreconcilekey_8002 { get { if (base.Columns.ContainsKey(1)) { return base.Columns[1]; } else { return null; } } set { if (base.Columns.ContainsKey(1)) { base.Columns[1] = value; } else { base.Columns.Add(1, value); } } }
+	/// <summary>PID: 8002 | Type: read</summary>
+	public System.Object Xprintdiffleftreconcilekey { get { if (base.Columns.ContainsKey(1)) { return base.Columns[1]; } else { return null; } } set { if (base.Columns.ContainsKey(1)) { base.Columns[1] = value; } else { base.Columns.Add(1, value); } } }
+	/// <summary>PID: 8003 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Xprintdiffleftstarttime_8003 { get { if (base.Columns.ContainsKey(2)) { return base.Columns[2]; } else { return null; } } set { if (base.Columns.ContainsKey(2)) { base.Columns[2] = value; } else { base.Columns.Add(2, value); } } }
+	/// <summary>PID: 8003 | Type: read</summary>
+	public System.Object Xprintdiffleftstarttime { get { if (base.Columns.ContainsKey(2)) { return base.Columns[2]; } else { return null; } } set { if (base.Columns.ContainsKey(2)) { base.Columns[2] = value; } else { base.Columns.Add(2, value); } } }
+	/// <summary>PID: 8004 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Xprintdiffleftprogramcode_8004 { get { if (base.Columns.ContainsKey(3)) { return base.Columns[3]; } else { return null; } } set { if (base.Columns.ContainsKey(3)) { base.Columns[3] = value; } else { base.Columns.Add(3, value); } } }
+	/// <summary>PID: 8004 | Type: read</summary>
+	public System.Object Xprintdiffleftprogramcode { get { if (base.Columns.ContainsKey(3)) { return base.Columns[3]; } else { return null; } } set { if (base.Columns.ContainsKey(3)) { base.Columns[3] = value; } else { base.Columns.Add(3, value); } } }
+	/// <summary>PID: 8005 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Xprintdiffleftprogramtitle_8005 { get { if (base.Columns.ContainsKey(4)) { return base.Columns[4]; } else { return null; } } set { if (base.Columns.ContainsKey(4)) { base.Columns[4] = value; } else { base.Columns.Add(4, value); } } }
+	/// <summary>PID: 8005 | Type: read</summary>
+	public System.Object Xprintdiffleftprogramtitle { get { if (base.Columns.ContainsKey(4)) { return base.Columns[4]; } else { return null; } } set { if (base.Columns.ContainsKey(4)) { base.Columns[4] = value; } else { base.Columns.Add(4, value); } } }
+	/// <summary>PID: 8006 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Xprintdiffrightreconcilekey_8006 { get { if (base.Columns.ContainsKey(5)) { return base.Columns[5]; } else { return null; } } set { if (base.Columns.ContainsKey(5)) { base.Columns[5] = value; } else { base.Columns.Add(5, value); } } }
+	/// <summary>PID: 8006 | Type: read</summary>
+	public System.Object Xprintdiffrightreconcilekey { get { if (base.Columns.ContainsKey(5)) { return base.Columns[5]; } else { return null; } } set { if (base.Columns.ContainsKey(5)) { base.Columns[5] = value; } else { base.Columns.Add(5, value); } } }
+	/// <summary>PID: 8007 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Xprintdiffrightstarttime_8007 { get { if (base.Columns.ContainsKey(6)) { return base.Columns[6]; } else { return null; } } set { if (base.Columns.ContainsKey(6)) { base.Columns[6] = value; } else { base.Columns.Add(6, value); } } }
+	/// <summary>PID: 8007 | Type: read</summary>
+	public System.Object Xprintdiffrightstarttime { get { if (base.Columns.ContainsKey(6)) { return base.Columns[6]; } else { return null; } } set { if (base.Columns.ContainsKey(6)) { base.Columns[6] = value; } else { base.Columns.Add(6, value); } } }
+	/// <summary>PID: 8008 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Xprintdiffrightprogramcode_8008 { get { if (base.Columns.ContainsKey(7)) { return base.Columns[7]; } else { return null; } } set { if (base.Columns.ContainsKey(7)) { base.Columns[7] = value; } else { base.Columns.Add(7, value); } } }
+	/// <summary>PID: 8008 | Type: read</summary>
+	public System.Object Xprintdiffrightprogramcode { get { if (base.Columns.ContainsKey(7)) { return base.Columns[7]; } else { return null; } } set { if (base.Columns.ContainsKey(7)) { base.Columns[7] = value; } else { base.Columns.Add(7, value); } } }
+	/// <summary>PID: 8009 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Xprintdiffrightprogramtitle_8009 { get { if (base.Columns.ContainsKey(8)) { return base.Columns[8]; } else { return null; } } set { if (base.Columns.ContainsKey(8)) { base.Columns[8] = value; } else { base.Columns.Add(8, value); } } }
+	/// <summary>PID: 8009 | Type: read</summary>
+	public System.Object Xprintdiffrightprogramtitle { get { if (base.Columns.ContainsKey(8)) { return base.Columns[8]; } else { return null; } } set { if (base.Columns.ContainsKey(8)) { base.Columns[8] = value; } else { base.Columns.Add(8, value); } } }
+	public XprintdiffQActionRow() : base(0, 9) { }
+	public XprintdiffQActionRow(System.Object[] oRow) : base(0, 9, oRow) { }
+	public static implicit operator XprintdiffQActionRow(System.Object[] source) { return new XprintdiffQActionRow(source); }
+	public static implicit operator System.Object[](XprintdiffQActionRow source) { return source.ToObjectArray(); }
 }
 }

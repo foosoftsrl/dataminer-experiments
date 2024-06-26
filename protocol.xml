@@ -13,7 +13,7 @@
 	<DeviceOID></DeviceOID>
 	<ElementType>Connect to http</ElementType>
 	<Type relativeTimers="true">virtual</Type>
-	<Display defaultPage="General" pageOrder="General;-------;Adsales;Mediator;Won;Enabler Legacy;Enabler Scte;XPrint;XPrint2" wideColumnPages=""/>
+	<Display defaultPage="General" pageOrder="General;-------;Adsales;Mediator;Won;Enabler Legacy;Enabler Scte;XPrint;XPrint2;XPrintDiff" wideColumnPages=""/>
 	<SNMP includepages="true">auto</SNMP>
 
 	<Compliancies>
@@ -1538,6 +1538,185 @@
 			<Information>
 				<Subtext>Errors</Subtext>
 			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		
+		<Param id="8000" trending="true">
+			<Name>XPrintDiff</Name>
+			<Description>XPrintDiff</Description>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="8001" type="retrieved" options="" />
+				<ColumnOption idx="1" pid="8002" type="retrieved" options="" />
+				<ColumnOption idx="2" pid="8003" type="retrieved" options="" />
+				<ColumnOption idx="3" pid="8004" type="retrieved" options="" />
+				<ColumnOption idx="4" pid="8005" type="retrieved" options="" />
+				<ColumnOption idx="5" pid="8006" type="retrieved" options="" />
+				<ColumnOption idx="6" pid="8007" type="retrieved" options="" />
+				<ColumnOption idx="7" pid="8008" type="retrieved" options="" />
+				<ColumnOption idx="8" pid="8009" type="retrieved" options="" />
+			</ArrayOptions>
+			<Information>
+				<Subtext>
+					<![CDATA[XPrint]]>
+				</Subtext>
+			</Information>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>XPrintDiff</Page>
+						<Column>0</Column>
+						<Row>1</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type options="tab=columns:8001|0-8002|1-8003|2-8004|3-8005|4-8006|5-8007|6-8008|7-8009|8,width:111-172-153-175-172-180-161-184-180,sort:STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING,lines:20,filter:true">table</Type>
+			</Measurement>
+		</Param>
+		<Param id="8001" trending="false">
+			<Name>XPrintDiffKey</Name>
+			<Description>XPrintDiffKey</Description>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="8002" trending="false">
+			<Name>XPrintDiffLeftReconcileKey</Name>
+			<Description>XPrintDiffLeftReconcileKey</Description>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="8003" trending="false">
+			<Name>XPrintDiffLeftStartTime</Name>
+			<Description>XPrintDiffLeftStartTime</Description>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="8004" trending="false">
+			<Name>XPrintDiffLeftProgramCode</Name>
+			<Description>XPrintDiffLeftProgramCode</Description>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="8005" trending="false">
+			<Name>XPrintDiffLeftProgramTitle</Name>
+			<Description>XPrintDiffLeftProgramTitle</Description>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="8006" trending="false">
+			<Name>XPrintDiffRightReconcileKey</Name>
+			<Description>XPrintDiffRightReconcileKey</Description>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="8007" trending="false">
+			<Name>XPrintDiffRightStartTime</Name>
+			<Description>XPrintDiffRightStartTime</Description>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="8008" trending="false">
+			<Name>XPrintDiffRightProgramCode</Name>
+			<Description>XPrintDiffRightProgramCode</Description>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="8009" trending="false">
+			<Name>XPrintDiffRightProgramTitle</Name>
+			<Description>XPrintDiffRightProgramTitle</Description>
+			<Type>read</Type>
 			<Interprete>
 				<RawType>other</RawType>
 				<Type>string</Type>

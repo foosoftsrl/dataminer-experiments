@@ -41,6 +41,14 @@ namespace QAction5Tests
         }
 
         [TestMethod]
+        public void TestXPrintFiff()
+        {
+            var adSalesData = Utils.XmlDeserializeFromFile<AdSales.DataType>("adsales.xml").Flatten();
+            var whatsonData = Utils.XmlDeserializeFromFile<Pharos>("whatson.xml").Flatten();
+            DiffTool.ComputeDiff(adSalesData, whatsonData);
+        }
+
+        [TestMethod]
         public void TestParseMediator()
         {
             var mediatorData = Utils.JsonDeserializeFromFile<Mediator.Welcome>("mediator.json", Mediator.Converter.Settings).Flatten();

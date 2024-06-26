@@ -47,15 +47,17 @@ public class QAction
             protocol.PublishEnablerLegacyTable(legacy);
             var scte = await ReadEnablerScte(protocol);
             protocol.PublishScteTable(scte);
-
             var mergedRows = Merger.Merge(adSalesData, whatsonData, mediatorData, scte, legacy);
             protocol.PublishMergedTable(mergedRows);
             protocol.PublishXPrintTable(adSalesData, whatsonData, mediatorData);
+
+            var xprintDiff = DiffTool.ComputeDiff(adSalesData, whatsonData);
+            protocol.PublishXPrintDiffTable(xprintDiff);
             protocol.Mergeddebugmsg = $"Everything ok!";
         }
         catch (Exception e)
         {
-            protocol.Mergeddebugmsg = $"Exception {e.Message} ${e.StackTrace.Substring(0,100)}";
+            protocol.Mergeddebugmsg = $"Exception {e.Message} ${e.StackTrace.Substring(0,200)}";
         }
 
     }
