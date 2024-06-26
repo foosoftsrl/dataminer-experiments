@@ -15,24 +15,34 @@ public static class Parameter
 	public const int channelname = 7;
 	/// <summary>PID: 9 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public const int urimediator_9 = 9;
+	public const int channeltitle_9 = 9;
 	/// <summary>PID: 9 | Type: read</summary>
-	public const int urimediator = 9;
+	public const int channeltitle = 9;
+	/// <summary>PID: 11 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public const int urimediator_11 = 11;
+	/// <summary>PID: 11 | Type: read</summary>
+	public const int urimediator = 11;
 	/// <summary>PID: 13 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public const int maxresultsmediator_13 = 13;
+	public const int icon_13 = 13;
 	/// <summary>PID: 13 | Type: read</summary>
-	public const int maxresultsmediator = 13;
+	public const int icon = 13;
 	/// <summary>PID: 15 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public const int probeurl_15 = 15;
+	public const int maxresultsmediator_15 = 15;
 	/// <summary>PID: 15 | Type: read</summary>
-	public const int probeurl = 15;
+	public const int maxresultsmediator = 15;
 	/// <summary>PID: 17 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public const int probeserviceid_17 = 17;
+	public const int probeurl_17 = 17;
 	/// <summary>PID: 17 | Type: read</summary>
-	public const int probeserviceid = 17;
+	public const int probeurl = 17;
+	/// <summary>PID: 19 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public const int probeserviceid_19 = 19;
+	/// <summary>PID: 19 | Type: read</summary>
+	public const int probeserviceid = 19;
 	/// <summary>PID: 6100 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public const int sctedebugmsg_6100 = 6100;
@@ -127,24 +137,34 @@ public static class Parameter
 		public const int channelname = 8;
 		/// <summary>PID: 10 | Type: write</summary>
 		[EditorBrowsable(EditorBrowsableState.Never)]
-		public const int urimediator_10 = 10;
+		public const int channeltitle_10 = 10;
 		/// <summary>PID: 10 | Type: write</summary>
-		public const int urimediator = 10;
+		public const int channeltitle = 10;
+		/// <summary>PID: 12 | Type: write</summary>
+		[EditorBrowsable(EditorBrowsableState.Never)]
+		public const int urimediator_12 = 12;
+		/// <summary>PID: 12 | Type: write</summary>
+		public const int urimediator = 12;
 		/// <summary>PID: 14 | Type: write</summary>
 		[EditorBrowsable(EditorBrowsableState.Never)]
-		public const int maxresultsmediator_14 = 14;
+		public const int icon_14 = 14;
 		/// <summary>PID: 14 | Type: write</summary>
-		public const int maxresultsmediator = 14;
+		public const int icon = 14;
 		/// <summary>PID: 16 | Type: write</summary>
 		[EditorBrowsable(EditorBrowsableState.Never)]
-		public const int probeurl_16 = 16;
+		public const int maxresultsmediator_16 = 16;
 		/// <summary>PID: 16 | Type: write</summary>
-		public const int probeurl = 16;
+		public const int maxresultsmediator = 16;
 		/// <summary>PID: 18 | Type: write</summary>
 		[EditorBrowsable(EditorBrowsableState.Never)]
-		public const int probeserviceid_18 = 18;
+		public const int probeurl_18 = 18;
 		/// <summary>PID: 18 | Type: write</summary>
-		public const int probeserviceid = 18;
+		public const int probeurl = 18;
+		/// <summary>PID: 20 | Type: write</summary>
+		[EditorBrowsable(EditorBrowsableState.Never)]
+		public const int probeserviceid_20 = 20;
+		/// <summary>PID: 20 | Type: write</summary>
+		public const int probeserviceid = 20;
 		/// <summary>PID: 10202 | Type: write</summary>
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		public const int mergedprocesstable_10202 = 10202;
@@ -735,13 +755,17 @@ public class WriteParameters
 	/// <summary>PID: 8  | Type: write</summary>
 	public System.Object Channelname {get { return Protocol.GetParameter(8); }set { Protocol.SetParameter(8, value); }}
 	/// <summary>PID: 10  | Type: write</summary>
-	public System.Object Urimediator {get { return Protocol.GetParameter(10); }set { Protocol.SetParameter(10, value); }}
+	public System.Object Channeltitle {get { return Protocol.GetParameter(10); }set { Protocol.SetParameter(10, value); }}
+	/// <summary>PID: 12  | Type: write</summary>
+	public System.Object Urimediator {get { return Protocol.GetParameter(12); }set { Protocol.SetParameter(12, value); }}
 	/// <summary>PID: 14  | Type: write</summary>
-	public System.Object Maxresultsmediator {get { return Protocol.GetParameter(14); }set { Protocol.SetParameter(14, value); }}
+	public System.Object Icon {get { return Protocol.GetParameter(14); }set { Protocol.SetParameter(14, value); }}
 	/// <summary>PID: 16  | Type: write</summary>
-	public System.Object Probeurl {get { return Protocol.GetParameter(16); }set { Protocol.SetParameter(16, value); }}
+	public System.Object Maxresultsmediator {get { return Protocol.GetParameter(16); }set { Protocol.SetParameter(16, value); }}
 	/// <summary>PID: 18  | Type: write</summary>
-	public System.Object Probeserviceid {get { return Protocol.GetParameter(18); }set { Protocol.SetParameter(18, value); }}
+	public System.Object Probeurl {get { return Protocol.GetParameter(18); }set { Protocol.SetParameter(18, value); }}
+	/// <summary>PID: 20  | Type: write</summary>
+	public System.Object Probeserviceid {get { return Protocol.GetParameter(20); }set { Protocol.SetParameter(20, value); }}
 	/// <summary>PID: 10202  | Type: write | DISCREETS: Merge Tables = check</summary>
 	public System.Object Mergedprocesstable {get { return Protocol.GetParameter(10202); }set { Protocol.SetParameter(10202, value); }}
 	public SLProtocolExt Protocol;
@@ -775,18 +799,24 @@ public interface SLProtocolExt : SLProtocol
 	object Channelname_7 { get; set; }
 	object Channelname { get; set; }
 	object Channelname_8 { get; set; }
-	object Urimediator_9 { get; set; }
+	object Channeltitle_9 { get; set; }
+	object Channeltitle { get; set; }
+	object Channeltitle_10 { get; set; }
+	object Urimediator_11 { get; set; }
 	object Urimediator { get; set; }
-	object Urimediator_10 { get; set; }
-	object Maxresultsmediator_13 { get; set; }
+	object Urimediator_12 { get; set; }
+	object Icon_13 { get; set; }
+	object Icon { get; set; }
+	object Icon_14 { get; set; }
+	object Maxresultsmediator_15 { get; set; }
 	object Maxresultsmediator { get; set; }
-	object Maxresultsmediator_14 { get; set; }
-	object Probeurl_15 { get; set; }
+	object Maxresultsmediator_16 { get; set; }
+	object Probeurl_17 { get; set; }
 	object Probeurl { get; set; }
-	object Probeurl_16 { get; set; }
-	object Probeserviceid_17 { get; set; }
+	object Probeurl_18 { get; set; }
+	object Probeserviceid_19 { get; set; }
 	object Probeserviceid { get; set; }
-	object Probeserviceid_18 { get; set; }
+	object Probeserviceid_20 { get; set; }
 	object Adsalesreconcilekey_1001 { get; set; }
 	object Adsalesreconcilekey { get; set; }
 	object Adsalestime_1002 { get; set; }
@@ -951,36 +981,52 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public System.Object Channelname_8 {get { return GetParameter(8); }set { SetParameter(8, value); }}
 	/// <summary>PID: 9  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Urimediator_9 {get { return GetParameter(9); }set { SetParameter(9, value); }}
+	public System.Object Channeltitle_9 {get { return GetParameter(9); }set { SetParameter(9, value); }}
 	/// <summary>PID: 9  | Type: read</summary>
-	public System.Object Urimediator {get { return GetParameter(9); }set { SetParameter(9, value); }}
+	public System.Object Channeltitle {get { return GetParameter(9); }set { SetParameter(9, value); }}
 	/// <summary>PID: 10  | Type: write</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Urimediator_10 {get { return GetParameter(10); }set { SetParameter(10, value); }}
+	public System.Object Channeltitle_10 {get { return GetParameter(10); }set { SetParameter(10, value); }}
+	/// <summary>PID: 11  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Urimediator_11 {get { return GetParameter(11); }set { SetParameter(11, value); }}
+	/// <summary>PID: 11  | Type: read</summary>
+	public System.Object Urimediator {get { return GetParameter(11); }set { SetParameter(11, value); }}
+	/// <summary>PID: 12  | Type: write</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Urimediator_12 {get { return GetParameter(12); }set { SetParameter(12, value); }}
 	/// <summary>PID: 13  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Maxresultsmediator_13 {get { return GetParameter(13); }set { SetParameter(13, value); }}
+	public System.Object Icon_13 {get { return GetParameter(13); }set { SetParameter(13, value); }}
 	/// <summary>PID: 13  | Type: read</summary>
-	public System.Object Maxresultsmediator {get { return GetParameter(13); }set { SetParameter(13, value); }}
+	public System.Object Icon {get { return GetParameter(13); }set { SetParameter(13, value); }}
 	/// <summary>PID: 14  | Type: write</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Maxresultsmediator_14 {get { return GetParameter(14); }set { SetParameter(14, value); }}
+	public System.Object Icon_14 {get { return GetParameter(14); }set { SetParameter(14, value); }}
 	/// <summary>PID: 15  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Probeurl_15 {get { return GetParameter(15); }set { SetParameter(15, value); }}
+	public System.Object Maxresultsmediator_15 {get { return GetParameter(15); }set { SetParameter(15, value); }}
 	/// <summary>PID: 15  | Type: read</summary>
-	public System.Object Probeurl {get { return GetParameter(15); }set { SetParameter(15, value); }}
+	public System.Object Maxresultsmediator {get { return GetParameter(15); }set { SetParameter(15, value); }}
 	/// <summary>PID: 16  | Type: write</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Probeurl_16 {get { return GetParameter(16); }set { SetParameter(16, value); }}
+	public System.Object Maxresultsmediator_16 {get { return GetParameter(16); }set { SetParameter(16, value); }}
 	/// <summary>PID: 17  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Probeserviceid_17 {get { return GetParameter(17); }set { SetParameter(17, value); }}
+	public System.Object Probeurl_17 {get { return GetParameter(17); }set { SetParameter(17, value); }}
 	/// <summary>PID: 17  | Type: read</summary>
-	public System.Object Probeserviceid {get { return GetParameter(17); }set { SetParameter(17, value); }}
+	public System.Object Probeurl {get { return GetParameter(17); }set { SetParameter(17, value); }}
 	/// <summary>PID: 18  | Type: write</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Probeserviceid_18 {get { return GetParameter(18); }set { SetParameter(18, value); }}
+	public System.Object Probeurl_18 {get { return GetParameter(18); }set { SetParameter(18, value); }}
+	/// <summary>PID: 19  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Probeserviceid_19 {get { return GetParameter(19); }set { SetParameter(19, value); }}
+	/// <summary>PID: 19  | Type: read</summary>
+	public System.Object Probeserviceid {get { return GetParameter(19); }set { SetParameter(19, value); }}
+	/// <summary>PID: 20  | Type: write</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Probeserviceid_20 {get { return GetParameter(20); }set { SetParameter(20, value); }}
 	/// <summary>PID: 1001  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Adsalesreconcilekey_1001 {get { return GetParameter(1001); }set { SetParameter(1001, value); }}

@@ -47,17 +47,17 @@
                 switch (i)
                 {
                     case 0:
-                        protocol.Xprintdate0 = from.ToString("yyyy-MM-dd HH:mm:ss");
+                        protocol.Xprintdate0 = from.ToString("yyyy-MM-dd");
                         protocol.Xprintdata0 = text;
                         protocol.Xprintalarm0 = errorCount;
                         break;
                     case 1:
-                        protocol.Xprintdate1 = from.ToString("yyyy-MM-dd HH:mm:ss");
+                        protocol.Xprintdate1 = from.ToString("yyyy-MM-dd");
                         protocol.Xprintdata1 = text;
                         protocol.Xprintalarm1 = errorCount;
                         break;
                     case 2:
-                        protocol.Xprintdate2 = from.ToString("yyyy-MM-dd HH:mm:ss");
+                        protocol.Xprintdate2 = from.ToString("yyyy-MM-dd");
                         protocol.Xprintdata2 = text;
                         protocol.Xprintalarm2 = errorCount;
                         break;

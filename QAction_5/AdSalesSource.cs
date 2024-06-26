@@ -10,26 +10,26 @@
     using Skyline.DataMiner.Scripting;
     public class AdSalesSource
     {
-        public List<AdSalesRow> ReadAdSales(string channelName, string dir)
+        public List<AdSalesRow> ReadAdSales(string channelCode, string dir)
         {
-            return ReadAdSales(channelName, dir, DateTime.Now);
+            return ReadAdSales(channelCode, dir, DateTime.Now);
         }
 
-        public List<AdSalesRow> ReadAdSales(string channelName, string dir, DateTime firstDay)
+        public List<AdSalesRow> ReadAdSales(string channelCode, string dir, DateTime firstDay)
         {
             var date = firstDay;
             var result = new List<AdSalesRow>();
             for (var i = -1; i < 3; i++)
             {
                 string day = date.AddDays(i).ToString("yyyyMMdd");
-                result.AddRange(ReadAdSales(channelName, dir, day));
+                result.AddRange(ReadAdSales(channelCode, dir, day));
             }
             return result;
         }
 
-        public List<AdSalesRow> ReadAdSales(string channelName, string dir, string date)
+        public List<AdSalesRow> ReadAdSales(string channelCode, string dir, string date)
         {
-            string fileNamePrefix = $"{channelName}_{date}_";
+            string fileNamePrefix = $"{channelCode}_{date}_";
             string[] files = Directory.GetFiles(dir, $"{fileNamePrefix}*.xml");
             if (files.Length > 0)
             {

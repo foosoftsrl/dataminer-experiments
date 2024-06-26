@@ -5,7 +5,7 @@
 		<Encoding>unicode</Encoding>
 	</Options>
 	<Description>AdSales DataMiner connector</Description>
-	<Version>1.0.0.1</Version>
+	<Version>1.0.0.2</Version>
 	<IntegrationID>DMS-DRV-</IntegrationID>
 	<Provider>Foosoft</Provider>
 	<Vendor>Foosoft</Vendor>
@@ -88,7 +88,7 @@
 					<Position>
 						<Page>Configuration</Page>
 						<Column>0</Column>
-						<Row>10</Row>
+						<Row>12</Row>
 					</Position>
 				</Positions>
 			</Display>
@@ -99,7 +99,7 @@
 		
 		<Param id="7" trending="false" save="true">
 			<Name>channelName</Name>
-			<Description>Channel Name (tipo KI...)</Description>
+			<Description>Channel Name</Description>
 			<Type>read</Type>
 			<Information>
 			</Information>
@@ -147,11 +147,9 @@
 				<Type>string</Type>
 			</Measurement>
 		</Param>
-		
-		
 		<Param id="9" trending="false" save="true">
-			<Name>uriMediator</Name>
-			<Description>URI Mediator</Description>
+			<Name>channelTitle</Name>
+			<Description>Channel Title</Description>
 			<Type>read</Type>
 			<Information>
 			</Information>
@@ -175,8 +173,8 @@
 			</Measurement>
 		</Param>
 		<Param id="10" trending="false" setter="true">
-			<Name>uriMediator</Name>
-			<Description>URI Mediator</Description>
+			<Name>channelTitle</Name>
+			<Description>Channel Title</Description>
 			<Type>write</Type>
 			<Information>
 			</Information>
@@ -199,9 +197,11 @@
 				<Type>string</Type>
 			</Measurement>
 		</Param>
-		<Param id="13" trending="false" save="true">
-			<Name>maxResultsMediator</Name>
-			<Description>Max Results Mediator</Description>
+		
+		
+		<Param id="11" trending="false" save="true">
+			<Name>uriMediator</Name>
+			<Description>URI Mediator</Description>
 			<Type>read</Type>
 			<Information>
 			</Information>
@@ -216,7 +216,57 @@
 					<Position>
 						<Page>Configuration</Page>
 						<Column>0</Column>
-						<Row>5</Row>
+						<Row>4</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="12" trending="false" setter="true">
+			<Name>uriMediator</Name>
+			<Description>URI Mediator</Description>
+			<Type>write</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Configuration</Page>
+						<Column>0</Column>
+						<Row>4</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="13" trending="false" save="true">
+			<Name>icon</Name>
+			<Description>Icon</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Configuration</Page>
+						<Column>0</Column>
+						<Row>3</Row>
 					</Position>
 				</Positions>
 			</Display>
@@ -225,9 +275,84 @@
 			</Measurement>
 		</Param>
 		<Param id="14" trending="false" setter="true">
+			<Name>icon</Name>
+			<Description>Icon</Description>
+			<Type>write</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Configuration</Page>
+						<Column>0</Column>
+						<Row>3</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="15" trending="false" save="true">
+			<Name>maxResultsMediator</Name>
+			<Description>Max Results Mediator</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Configuration</Page>
+						<Column>0</Column>
+						<Row>7</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="16" trending="false" setter="true">
 			<Name>maxResultsMediator</Name>
 			<Description>Max Results Mediator</Description>
 			<Type>write</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Configuration</Page>
+						<Column>0</Column>
+						<Row>7</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="17" trending="false" save="true">
+			<Name>probeUrl</Name>
+			<Description>Probe URL, such as http://teamcity-agent-rh8-vm.dvp.ravfav.priv:5031/</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
 			<Interprete>
 				<RawType>other</RawType>
 				<Type>string</Type>
@@ -247,82 +372,57 @@
 				<Type>string</Type>
 			</Measurement>
 		</Param>
-		<Param id="15" trending="false" save="true">
-			<Name>probeUrl</Name>
-			<Description>Probe URL, such as http://teamcity-agent-rh8-vm.dvp.ravfav.priv:5031/</Description>
-			<Type>read</Type>
-			<Information>
-			</Information>
-			<Interprete>
-				<RawType>other</RawType>
-				<Type>string</Type>
-				<LengthType>next param</LengthType>
-			</Interprete>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-				<Positions>
-					<Position>
-						<Page>Configuration</Page>
-						<Column>0</Column>
-						<Row>3</Row>
-					</Position>
-				</Positions>
-			</Display>
-			<Measurement>
-				<Type>string</Type>
-			</Measurement>
-		</Param>
-		<Param id="16" trending="false" setter="true">
-			<Name>probeUrl</Name>
-			<Description>Probe URL, such as http://teamcity-agent-rh8-vm.dvp.ravfav.priv:5031/</Description>
-			<Type>write</Type>
-			<Information>
-			</Information>
-			<Interprete>
-				<RawType>other</RawType>
-				<Type>string</Type>
-				<LengthType>next param</LengthType>
-			</Interprete>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-				<Positions>
-					<Position>
-						<Page>Configuration</Page>
-						<Column>0</Column>
-						<Row>3</Row>
-					</Position>
-				</Positions>
-			</Display>
-			<Measurement>
-				<Type>string</Type>
-			</Measurement>
-		</Param>
-		<Param id="17" trending="false" save="true">
-			<Name>probeServiceId</Name>
-			<Description>Probe Service ID</Description>
-			<Type>read</Type>
-			<Information>
-			</Information>
-			<Interprete>
-				<RawType>other</RawType>
-				<Type>string</Type>
-				<LengthType>next param</LengthType>
-			</Interprete>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-				<Positions>
-					<Position>
-						<Page>Configuration</Page>
-						<Column>0</Column>
-						<Row>4</Row>
-					</Position>
-				</Positions>
-			</Display>
-			<Measurement>
-				<Type>string</Type>
-			</Measurement>
-		</Param>
 		<Param id="18" trending="false" setter="true">
+			<Name>probeUrl</Name>
+			<Description>Probe URL, such as http://teamcity-agent-rh8-vm.dvp.ravfav.priv:5031/</Description>
+			<Type>write</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Configuration</Page>
+						<Column>0</Column>
+						<Row>5</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="19" trending="false" save="true">
+			<Name>probeServiceId</Name>
+			<Description>Probe Service ID</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Configuration</Page>
+						<Column>0</Column>
+						<Row>6</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="20" trending="false" setter="true">
 			<Name>probeServiceId</Name>
 			<Description>Probe Service ID</Description>
 			<Type>write</Type>
@@ -339,7 +439,7 @@
 					<Position>
 						<Page>Configuration</Page>
 						<Column>0</Column>
-						<Row>4</Row>
+						<Row>6</Row>
 					</Position>
 				</Positions>
 			</Display>
