@@ -21,6 +21,7 @@
     public class WhatsonRow
     {
         public DateTime StartTime;
+        public string ProgramCode;
         public string Title;
         public string ItemReference;
         public string ReconcileKey;

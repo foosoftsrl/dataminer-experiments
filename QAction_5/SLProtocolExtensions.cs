@@ -83,7 +83,7 @@
                     Xprintdiffleftprogramtitle = row.Item1?.Title ?? string.Empty,
                     Xprintdiffrightreconcilekey = row.Item2?.ReconcileKey ?? string.Empty,
                     Xprintdiffrightstarttime = row.Item2?.StartTime.ToString("yyyy-MM-dd HH:mm:ss") ?? string.Empty,
-                    Xprintdiffrightprogramcode = row.Item2?.ReconcileKey ?? string.Empty,
+                    Xprintdiffrightprogramcode = row.Item2?.ProgramCode ?? string.Empty,
                     Xprintdiffrightprogramtitle = row.Item2?.Title ?? string.Empty,
                 }.ToObjectArray());
             }

@@ -30,6 +30,7 @@
                                     ItemReference = playlistItem.ItemReference,
                                     ReconcileKey = reconcileKey,
                                     Title = playlistItem.ScheduledTitle,
+                                    ProgramCode = playlistItem.FindProgramCode() ?? string.Empty,
                                     enablerLegacy = playlistItem.FindEnablerLegacyText(),
                                     scteBroadcastBreakStart = playlistItem.FindScteBroadcastBreakStartUpid(),
                                     scteBroadcastProviderAdvStart = playlistItem.FindScteBroadcastProviderAdvStartUpid(),
@@ -58,6 +59,11 @@
         public static string FindAdSalesReconcileKey(this Whatson.PlaylistItem playlistItem)
         {
             return playlistItem.FindDataElementByName("adSalesContentReconcileKey-text")?.Text();
+        }
+
+        public static string FindProgramCode(this Whatson.PlaylistItem playlistItem)
+        {
+            return playlistItem.FindDataElementByName("materialSegment-matId")?.Text();
         }
 
         public static Whatson.DataElement FindScteBroadcastBreakStart(this Whatson.PlaylistItem playlistItem)
