@@ -65,17 +65,17 @@
             return row.FindTemplateParameterByName(TemplateParameterName.AdSalesContentReconcileKeyText)?.Value.String;
         }
 
-        public static Mediator.ObjectTemplateParameter FindScteBroadcastBreakStart(this Mediator.Row mediatorRow)
+        public static Mediator.TemplateParameter FindScteBroadcastBreakStart(this Mediator.Row mediatorRow)
         {
             return mediatorRow.FindTemplateParameterByName(TemplateParameterName.ScteBroadcastBreakStartInsertSegmentationDescriptor);
         }
 
-        public static Mediator.ObjectTemplateParameter FindScteBroadcastProviderAdvStart(this Mediator.Row mediatorRow)
+        public static Mediator.TemplateParameter FindScteBroadcastProviderAdvStart(this Mediator.Row mediatorRow)
         {
             return mediatorRow.FindTemplateParameterByName(TemplateParameterName.ScteBroadcastProviderAdvStartInsertSegmentationDescriptor);
         }
 
-        public static Mediator.ObjectTemplateParameter FindEnablerLegacy(this Mediator.Row mediatorRow)
+        public static Mediator.TemplateParameter FindEnablerLegacy(this Mediator.Row mediatorRow)
         {
             return mediatorRow.FindTemplateParameterByName(TemplateParameterName.EnablerLegacyCompoundList);
         }
@@ -112,7 +112,7 @@
             return null;
         }
 
-        public static Mediator.ObjectTemplateParameter FindTemplateParameterByName(this Mediator.Row mediatorRow, string name)
+        public static Mediator.TemplateParameter FindTemplateParameterByName(this Mediator.Row mediatorRow, string name)
         {
             foreach (var entry in mediatorRow.TemplateParameterList.GenericList.Object)
             {

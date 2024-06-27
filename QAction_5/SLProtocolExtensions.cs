@@ -172,11 +172,11 @@
                 tableRows.Add(new MediatorQActionRow
                 {
                     Mediatorid = row.Id,
-                    Mediatorschedulereference = row.ScheduleReference,
+                    Mediatorschedulereference = row.ScheduleReference ?? string.Empty,
                     Mediatordate = row.StartTime.ToString("yyyy-MM-dd HH:mm:ss"),
                     Mediatortitle = row.Title,
                     Mediatorstatus = row.Status,
-                    Mediatorreconcilekey = row.ReconcileKey,
+                    Mediatorreconcilekey = row.ReconcileKey ?? string.Empty,
                     Mediatorenablerlegacy = row.enablerLegacy ?? string.Empty,
                     Mediatorsctebreakstart = row.scteBroadcastBreakStart ?? string.Empty,
                     Mediatorscteadvstart = row.scteBroadcastProviderAdvStart ?? string.Empty,

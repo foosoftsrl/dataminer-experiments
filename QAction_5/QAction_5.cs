@@ -151,15 +151,15 @@ public class QAction
                 {
                     Id = Int32.Parse((string)row.Mediatorid),
                     StartTime = DateTime.Parse((string)row.Mediatordate),
-                    ReconcileKey = (string)row.Mediatorreconcilekey,
+                    ReconcileKey = NullIfEmpty((string)row.Mediatorreconcilekey),
                     Title = NullIfEmpty((string)row.Mediatortitle),
                     Status = NullIfEmpty((string)row.Mediatorstatus),
                     ScheduleReference = NullIfEmpty((string)row.Mediatorschedulereference),
                 });
             }
-        } catch(Exception e)
+        } catch(Exception ex)
         {
-            protocol.Mediatordebugmsg = $"Failed parsing mediator table: ${e.Message}";
+            protocol.Log($"QA{protocol.QActionID}|{protocol.GetTriggerParameter()}|Run|Exception thrown:{Environment.NewLine}{ex}", LogType.Error, LogLevel.NoLogging);
         }
         return result;
     }

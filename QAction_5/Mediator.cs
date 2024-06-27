@@ -242,16 +242,10 @@ namespace Mediator
         public long Size { get; set; }
 
         [JsonProperty("Object")]
-        public StickyObject[] Object { get; set; }
+        public TemplateParameterListElement[] Object { get; set; }
     }
 
-    public partial class StickyObject
-    {
-        [JsonProperty("TemplateParameter")]
-        public ObjectTemplateParameter[] TemplateParameter { get; set; }
-    }
-
-    public partial class ObjectTemplateParameter
+    public partial class TemplateParameter
     {
         [JsonProperty("GeneralType")]
         public GeneralType GeneralType { get; set; }
@@ -284,22 +278,7 @@ namespace Mediator
     public partial class TemplateParameterListElement
     {
         [JsonProperty("TemplateParameter")]
-        public TemplateParameterListTemplateParameter[] TemplateParameter { get; set; }
-    }
-
-    public partial class TemplateParameterListTemplateParameter
-    {
-        [JsonProperty("GeneralType")]
-        public GeneralType GeneralType { get; set; }
-
-        [JsonProperty("Name")]
-        public string Name { get; set; }
-
-        [JsonProperty("Value")]
-        public ValueUnion Value { get; set; }
-
-        [JsonProperty("Type")]
-        public TypeEnum Type { get; set; }
+        public TemplateParameter[] TemplateParameter { get; set; }
     }
 
     public enum Rate { Ndf25 };
