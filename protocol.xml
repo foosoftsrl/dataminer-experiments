@@ -1587,7 +1587,7 @@
 		</Param>
 		<Param id="8001" trending="false">
 			<Name>XPrintDiffKey</Name>
-			<Description>XPrintDiffKey</Description>
+			<Description>Key</Description>
 			<Type>read</Type>
 			<Interprete>
 				<RawType>other</RawType>
@@ -1603,7 +1603,7 @@
 		</Param>
 		<Param id="8002" trending="false">
 			<Name>XPrintDiffLeftReconcileKey</Name>
-			<Description>XPrintDiffLeftReconcileKey</Description>
+			<Description>LeftReconcileKey</Description>
 			<Type>read</Type>
 			<Interprete>
 				<RawType>other</RawType>
@@ -1619,7 +1619,7 @@
 		</Param>
 		<Param id="8003" trending="false">
 			<Name>XPrintDiffLeftStartTime</Name>
-			<Description>XPrintDiffLeftStartTime</Description>
+			<Description>LeftTime</Description>
 			<Type>read</Type>
 			<Interprete>
 				<RawType>other</RawType>
@@ -1635,7 +1635,7 @@
 		</Param>
 		<Param id="8004" trending="false">
 			<Name>XPrintDiffLeftProgramCode</Name>
-			<Description>XPrintDiffLeftProgramCode</Description>
+			<Description>LeftProgramCode</Description>
 			<Type>read</Type>
 			<Interprete>
 				<RawType>other</RawType>
@@ -1651,7 +1651,7 @@
 		</Param>
 		<Param id="8005" trending="false">
 			<Name>XPrintDiffLeftProgramTitle</Name>
-			<Description>XPrintDiffLeftProgramTitle</Description>
+			<Description>LeftTitle</Description>
 			<Type>read</Type>
 			<Interprete>
 				<RawType>other</RawType>
@@ -1667,7 +1667,7 @@
 		</Param>
 		<Param id="8006" trending="false">
 			<Name>XPrintDiffRightReconcileKey</Name>
-			<Description>XPrintDiffRightReconcileKey</Description>
+			<Description>RightReconcileKey</Description>
 			<Type>read</Type>
 			<Interprete>
 				<RawType>other</RawType>
@@ -1683,7 +1683,7 @@
 		</Param>
 		<Param id="8007" trending="false">
 			<Name>XPrintDiffRightStartTime</Name>
-			<Description>XPrintDiffRightStartTime</Description>
+			<Description>RightTime</Description>
 			<Type>read</Type>
 			<Interprete>
 				<RawType>other</RawType>
@@ -1699,7 +1699,7 @@
 		</Param>
 		<Param id="8008" trending="false">
 			<Name>XPrintDiffRightProgramCode</Name>
-			<Description>XPrintDiffRightProgramCode</Description>
+			<Description>RightProgramCode</Description>
 			<Type>read</Type>
 			<Interprete>
 				<RawType>other</RawType>
@@ -1715,7 +1715,7 @@
 		</Param>
 		<Param id="8009" trending="false">
 			<Name>XPrintDiffRightProgramTitle</Name>
-			<Description>XPrintDiffRightProgramTitle</Description>
+			<Description>RightTitle</Description>
 			<Type>read</Type>
 			<Interprete>
 				<RawType>other</RawType>

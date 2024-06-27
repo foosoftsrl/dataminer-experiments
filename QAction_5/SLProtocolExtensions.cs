@@ -76,15 +76,15 @@
             {
                 tableRows.Add(new XprintdiffQActionRow
                 {
-                    Xprintdiffkey = "ciao" + idx++,
-                    Xprintdiffleftreconcilekey = row.Item1?.ReconcileKey ?? "",
-                    Xprintdiffleftstarttime = row.Item1?.TimeOfDay.ToString("yyyy-MM-dd HH:mm:ss") ?? "",
-                    Xprintdiffleftprogramcode = row.Item1?.ProductCode ?? "",
-                    Xprintdiffleftprogramtitle = row.Item1?.Title,
-                    Xprintdiffrightreconcilekey = row.Item2?.ReconcileKey ?? "",
-                    Xprintdiffrightstarttime = row.Item2?.StartTime.ToString("yyyy-MM-dd HH:mm:ss") ?? "",
-                    Xprintdiffrightprogramcode = row.Item2?.ReconcileKey ?? "",
-                    Xprintdiffrightprogramtitle = row.Item2?.Title,
+                    Xprintdiffkey = (idx++).ToString(),
+                    Xprintdiffleftreconcilekey = row.Item1?.ReconcileKey ?? string.Empty,
+                    Xprintdiffleftstarttime = row.Item1?.TimeOfDay.ToString("yyyy-MM-dd HH:mm:ss") ?? string.Empty,
+                    Xprintdiffleftprogramcode = row.Item1?.ProductCode ?? string.Empty,
+                    Xprintdiffleftprogramtitle = row.Item1?.Title ?? string.Empty,
+                    Xprintdiffrightreconcilekey = row.Item2?.ReconcileKey ?? string.Empty,
+                    Xprintdiffrightstarttime = row.Item2?.StartTime.ToString("yyyy-MM-dd HH:mm:ss") ?? string.Empty,
+                    Xprintdiffrightprogramcode = row.Item2?.ReconcileKey ?? string.Empty,
+                    Xprintdiffrightprogramtitle = row.Item2?.Title ?? string.Empty,
                 }.ToObjectArray());
             }
             protocol.FillArray(Parameter.Xprintdiff.tablePid, tableRows, NotifyProtocol.SaveOption.Full);
