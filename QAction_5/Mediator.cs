@@ -296,7 +296,7 @@ namespace Mediator
         public string Name { get; set; }
 
         [JsonProperty("Value")]
-        public string Value { get; set; }
+        public ValueUnion Value { get; set; }
 
         [JsonProperty("Type")]
         public TypeEnum Type { get; set; }

@@ -104,7 +104,7 @@
                 {
                     if (parameter.Name == name)
                     {
-                        return parameter.Value;
+                        return parameter.Value.String + "";
                     }
 
                 }
