@@ -43,6 +43,11 @@
             return result;
         }
 
+        public static List<WhatsonRow> FilterSpots(this List<WhatsonRow> list)
+        {
+            return list.FindAll(row => row.TemplateName == "SPOTAFF" || row.TemplateName == "SPOTNOAFF" || row.TemplateName == "PROMO" || row.TemplateName == "CIAK");
+        }
+
         public static Dictionary<String, WhatsonRow> ToReconcileKeyMap(this List<WhatsonRow> whatsonRows)
         {
             Dictionary<String, WhatsonRow> reconcileToRow = new Dictionary<String, WhatsonRow>();

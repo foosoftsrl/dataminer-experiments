@@ -806,6 +806,7 @@
 				<ColumnOption idx="4" pid="3005" type="retrieved" options="" />
 				<ColumnOption idx="5" pid="3006" type="retrieved" options="" />
 				<ColumnOption idx="6" pid="3007" type="retrieved" options="" />
+				<ColumnOption idx="7" pid="3008" type="retrieved" options="" />
 			</ArrayOptions>
 			<Information>
 				<Subtext>tableInformation</Subtext>
@@ -821,7 +822,7 @@
 				</Positions>
 			</Display>
 			<Measurement>
-				<Type options="tab=columns:3001|0-3002|1-3003|2-3004|3-3005|4-3006|5-3007|6,width:240-120-240-120-100-102-100,sort:STRING-STRING|ASC-STRING-STRING-STRING-STRING-STRING,lines:25,filter:true">table</Type>
+				<Type options="tab=columns:3001|0-3002|1-3003|2-3004|3-3005|4-3006|5-3007|6-3008|7,width:240-120-240-120-100-102-100-100,sort:STRING-STRING|ASC-STRING-STRING-STRING-STRING-STRING-STRING,lines:25,filter:true">table</Type>
 			</Measurement>
 		</Param>
 		<Param id="3001" trending="false">
@@ -944,6 +945,25 @@
 			<Type>read</Type>
 			<Information>
 				<Subtext>ScteAdvStart</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="3008" trending="false">
+			<Name>wonTemplateName</Name>
+			<Description>Template</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>Template</Subtext>
 			</Information>
 			<Interprete>
 				<RawType>other</RawType>

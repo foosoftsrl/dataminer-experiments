@@ -45,7 +45,7 @@ namespace QAction5Tests
         {
             var adSalesData = Utils.XmlDeserializeFromFile<AdSales.DataType>("adsales.xml").Flatten();
             var whatsonData = Utils.XmlDeserializeFromFile<Whatson.Pharos>("whatson.xml").Flatten();
-            DiffTool.ComputeDiff(adSalesData, whatsonData);
+            DiffTool.ComputeDiff(adSalesData, whatsonData!.FilterSpots());
         }
 
         [TestMethod]

@@ -25,6 +25,7 @@
         public string Title;
         public string ItemReference;
         public string ReconcileKey;
+        public string TemplateName;
         public string scteBroadcastBreakStart;
         public string scteBroadcastProviderAdvStart;
         public string enablerLegacy;

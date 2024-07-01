@@ -157,6 +157,7 @@
                     Wonenablerlegacy = row.enablerLegacy ?? string.Empty,
                     Wonsctebreakstart = row.scteBroadcastBreakStart ?? string.Empty,
                     Wonscteadvstart = row.scteBroadcastProviderAdvStart ?? string.Empty,
+                    Wontemplatename = row.TemplateName ?? string.Empty,
                 }.ToObjectArray());
             }
 
