@@ -8,49 +8,54 @@
     using System.Threading.Tasks;
     public class DiffTool
     {
-        public static List<(AdSalesRow, WhatsonRow)> ComputeDiff(List<AdSalesRow> adSalesRows, List<WhatsonRow> whatsonRows)
+        public static List<(AdSalesRow, WhatsonRow)> ComputeDiff(List<AdSalesRow> adSalesRowsGlobal, List<WhatsonRow> whatsonRowsGlobal)
         {
             var result = new List<(AdSalesRow, WhatsonRow)>();
-            var reconcileKeyToWhatsonIndex = new Dictionary<string, int>();
-            // First... find matching rows
-            foreach(var (row,index) in whatsonRows.WithIndex())
+            for (var day = -1; day < 3; day++)
             {
-                if (row.ReconcileKey != null)
+                List<AdSalesRow> adSalesRows = adSalesRowsGlobal.FindAll(row => row.DayOffset == day);
+                List< WhatsonRow > whatsonRows = whatsonRowsGlobal.FindAll(row => row.DayOffset == day);
+                var reconcileKeyToWhatsonIndex = new Dictionary<string, int>();
+                // First... find matching rows
+                foreach (var (row, index) in whatsonRows.WithIndex())
                 {
-                    reconcileKeyToWhatsonIndex.Add(row.DayOffset + row.ReconcileKey, index);
-                }
-            }
-
-            int lastAdSalesIdx = -1;
-            int lastWhatsonIdx = -1;
-            foreach(var (adSalesRow, adSalesIdx) in adSalesRows.WithIndex())
-            {
-                var reconcileKey = adSalesRow.DayOffset + adSalesRow.ReconcileKey;
-                if (reconcileKeyToWhatsonIndex.TryGetValue(reconcileKey, out var whatsonIdx))
-                {
-                    if (whatsonIdx > lastWhatsonIdx)
+                    if (row.ReconcileKey != null)
                     {
-                        for (var i = lastAdSalesIdx + 1; i < adSalesIdx; i++)
-                        {
-                            result.Add((adSalesRows[i], null));
-                        }
-                        for (var i = lastWhatsonIdx + 1; i < whatsonIdx; i++)
-                        {
-                            result.Add((null, whatsonRows[i]));
-                        }
-                        result.Add((adSalesRows[adSalesIdx], whatsonRows[whatsonIdx]));
-                        lastAdSalesIdx = adSalesIdx;
-                        lastWhatsonIdx = whatsonIdx;
+                        reconcileKeyToWhatsonIndex.Add(row.ReconcileKey, index);
                     }
                 }
-            }
-            for (var i = lastAdSalesIdx + 1; i < adSalesRows.Count; i++)
-            {
-                result.Add((adSalesRows[i], null));
-            }
-            for (var i = lastWhatsonIdx + 1; i < whatsonRows.Count; i++)
-            {
-                result.Add((null, whatsonRows[i]));
+
+                int lastAdSalesIdx = -1;
+                int lastWhatsonIdx = -1;
+                foreach (var (adSalesRow, adSalesIdx) in adSalesRows.WithIndex())
+                {
+                    var reconcileKey = adSalesRow.ReconcileKey;
+                    if (reconcileKeyToWhatsonIndex.TryGetValue(reconcileKey, out var whatsonIdx))
+                    {
+                        if (whatsonIdx > lastWhatsonIdx)
+                        {
+                            for (var i = lastAdSalesIdx + 1; i < adSalesIdx; i++)
+                            {
+                                result.Add((adSalesRows[i], null));
+                            }
+                            for (var i = lastWhatsonIdx + 1; i < whatsonIdx; i++)
+                            {
+                                result.Add((null, whatsonRows[i]));
+                            }
+                            result.Add((adSalesRows[adSalesIdx], whatsonRows[whatsonIdx]));
+                            lastAdSalesIdx = adSalesIdx;
+                            lastWhatsonIdx = whatsonIdx;
+                        }
+                    }
+                }
+                for (var i = lastAdSalesIdx + 1; i < adSalesRows.Count; i++)
+                {
+                    result.Add((adSalesRows[i], null));
+                }
+                for (var i = lastWhatsonIdx + 1; i < whatsonRows.Count; i++)
+                {
+                    result.Add((null, whatsonRows[i]));
+                }
             }
             return result;
         }
