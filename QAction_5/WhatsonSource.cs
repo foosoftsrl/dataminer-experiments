@@ -24,7 +24,13 @@ namespace QAction_5
             for (var i = -1; i < 3; i++)
             {
                 string day = date.AddDays(i).ToString("yyyy-MM-dd");
-                result.AddRange(ReadWhatson(channelName, dir, day));
+                var partialResult = ReadWhatson(channelName, dir, day);
+                foreach (var row in partialResult)
+                {
+                    row.DayOffset = i;
+                }
+
+                result.AddRange(partialResult);
             }
             return result;
         }

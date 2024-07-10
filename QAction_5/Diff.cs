@@ -1,5 +1,6 @@
 ﻿namespace QAction_5
 {
+    using Mediator;
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -16,7 +17,7 @@
             {
                 if (row.ReconcileKey != null)
                 {
-                    reconcileKeyToWhatsonIndex.Add(row.ReconcileKey, index);
+                    reconcileKeyToWhatsonIndex.Add(row.DayOffset + row.ReconcileKey, index);
                 }
             }
 
@@ -24,7 +25,7 @@
             int lastWhatsonIdx = -1;
             foreach(var (adSalesRow, adSalesIdx) in adSalesRows.WithIndex())
             {
-                var reconcileKey = adSalesRow.ReconcileKey;
+                var reconcileKey = adSalesRow.DayOffset + adSalesRow.ReconcileKey;
                 if (reconcileKeyToWhatsonIndex.TryGetValue(reconcileKey, out var whatsonIdx))
                 {
                     if (whatsonIdx > lastWhatsonIdx)

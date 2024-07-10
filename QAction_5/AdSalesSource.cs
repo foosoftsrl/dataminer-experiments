@@ -22,7 +22,13 @@
             for (var i = -1; i < 3; i++)
             {
                 string day = date.AddDays(i).ToString("yyyyMMdd");
-                result.AddRange(ReadAdSales(channelCode, dir, day));
+                var partialResult = ReadAdSales(channelCode, dir, day);
+                foreach(var row in partialResult)
+                {
+                    row.DayOffset = i;
+                }
+
+                result.AddRange(partialResult);
             }
             return result;
         }

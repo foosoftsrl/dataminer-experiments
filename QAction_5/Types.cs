@@ -16,6 +16,7 @@
         public string Type;
         public string Duration;
         public string Enabler;
+        public int DayOffset;
     }
 
     public class WhatsonRow
@@ -29,6 +30,7 @@
         public string scteBroadcastBreakStart;
         public string scteBroadcastProviderAdvStart;
         public string enablerLegacy;
+        public int DayOffset;
     }
 
     public class MediatorRow
