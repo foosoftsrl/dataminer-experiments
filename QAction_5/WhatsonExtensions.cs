@@ -46,7 +46,7 @@
 
         public static List<WhatsonRow> FilterSpots(this List<WhatsonRow> list)
         {
-            return list.FindAll(row => row.TemplateName == "SPOTAFF" || row.TemplateName == "SPOTNOAFF" || row.TemplateName == "PROMO" || row.TemplateName == "CIAK");
+            return list.FindAll(row => row.TemplateName == "SPOTAFF" || row.TemplateName == "SPOTNOAFF" || row.TemplateName == "CIAK");
         }
 
         public static Dictionary<String, WhatsonRow> ToReconcileKeyMap(this List<WhatsonRow> whatsonRows)
