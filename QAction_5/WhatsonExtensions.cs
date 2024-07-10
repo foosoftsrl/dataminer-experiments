@@ -34,6 +34,7 @@
                                     enablerLegacy = playlistItem.FindEnablerLegacyText(),
                                     scteBroadcastBreakStart = playlistItem.FindScteBroadcastBreakStartUpid(),
                                     scteBroadcastProviderAdvStart = playlistItem.FindScteBroadcastProviderAdvStartUpid(),
+                                    TemplateName = playlistItem.Template.TemplateName,
                                 });
                             }
                         }
