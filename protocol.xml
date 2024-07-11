@@ -5,7 +5,7 @@
 		<Encoding>unicode</Encoding>
 	</Options>
 	<Description>AdSales DataMiner connector</Description>
-	<Version>1.0.0.3</Version>
+	<Version>1.0.0.4</Version>
 	<IntegrationID>DMS-DRV-</IntegrationID>
 	<Provider>Foosoft</Provider>
 	<Vendor>Foosoft</Vendor>
@@ -1586,6 +1586,7 @@
 				<ColumnOption idx="7" pid="8008" type="retrieved" options="" />
 				<ColumnOption idx="8" pid="8009" type="retrieved" options="" />
 				<ColumnOption idx="9" pid="8010" type="retrieved" options="" />
+				<ColumnOption idx="10" pid="8011" type="retrieved" options="" />
 			</ArrayOptions>
 			<Information>
 				<Subtext>
@@ -1603,7 +1604,7 @@
 				</Positions>
 			</Display>
 			<Measurement>
-				<Type options="tab=columns:8001|0-8002|1-8003|2-8004|3-8005|4-8006|5-8007|6-8008|7-8009|8-8010|9,width:70-115-160-170-160-180-160-170-160-180,sort:STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING,lines:20,filter:true">table</Type>
+				<Type options="tab=columns:8001|0-8002|1-8003|2-8004|3-8005|4-8006|5-8007|6-8008|7-8009|8-8010|9-8011|10,width:70-115-160-170-160-180-160-170-160-180-100,sort:STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING,lines:20,filter:true">table</Type>
 			</Measurement>
 		</Param>
 		<Param id="8001" trending="false">
@@ -1753,6 +1754,22 @@
 		<Param id="8010" trending="false">
 			<Name>XPrintDiffDayOffset</Name>
 			<Description>DayOffset</Description>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="8011" trending="false">
+			<Name>XPrintDiffResult</Name>
+			<Description>Result</Description>
 			<Type>read</Type>
 			<Interprete>
 				<RawType>other</RawType>

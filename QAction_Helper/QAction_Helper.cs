@@ -817,6 +817,11 @@ public static class Parameter
 			public const int xprintdiffdayoffset_8010 = 8010;
 			/// <summary>PID: 8010 | Type: read</summary>
 			public const int xprintdiffdayoffset = 8010;
+			/// <summary>PID: 8011 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int xprintdiffresult_8011 = 8011;
+			/// <summary>PID: 8011 | Type: read</summary>
+			public const int xprintdiffresult = 8011;
 			public class Write
 			{
 			}
@@ -873,6 +878,11 @@ public static class Parameter
 			public const int xprintdiffdayoffset_8010 = 9;
 			/// <summary>IDX: 9 | Type: read</summary>
 			public const int xprintdiffdayoffset = 9;
+			/// <summary>IDX: 10 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int xprintdiffresult_8011 = 10;
+			/// <summary>IDX: 10 | Type: read</summary>
+			public const int xprintdiffresult = 10;
 		}
 	}
 }
@@ -1061,6 +1071,8 @@ public interface SLProtocolExt : SLProtocol
 	object Xprintdiffrightprogramtitle { get; set; }
 	object Xprintdiffdayoffset_8010 { get; set; }
 	object Xprintdiffdayoffset { get; set; }
+	object Xprintdiffresult_8011 { get; set; }
+	object Xprintdiffresult { get; set; }
 	object Adsalesdebugmsg_10001 { get; set; }
 	object Adsalesdebugmsg { get; set; }
 	object Mediatordebugmsg_10101 { get; set; }
@@ -1466,6 +1478,11 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public System.Object Xprintdiffdayoffset_8010 {get { return GetParameter(8010); }set { SetParameter(8010, value); }}
 	/// <summary>PID: 8010  | Type: read</summary>
 	public System.Object Xprintdiffdayoffset {get { return GetParameter(8010); }set { SetParameter(8010, value); }}
+	/// <summary>PID: 8011  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Xprintdiffresult_8011 {get { return GetParameter(8011); }set { SetParameter(8011, value); }}
+	/// <summary>PID: 8011  | Type: read</summary>
+	public System.Object Xprintdiffresult {get { return GetParameter(8011); }set { SetParameter(8011, value); }}
 	/// <summary>PID: 10001  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Adsalesdebugmsg_10001 {get { return GetParameter(10001); }set { SetParameter(10001, value); }}
@@ -1954,8 +1971,13 @@ public class XprintdiffQActionRow : QActionTableRow
 	public System.Object Xprintdiffdayoffset_8010 { get { if (base.Columns.ContainsKey(9)) { return base.Columns[9]; } else { return null; } } set { if (base.Columns.ContainsKey(9)) { base.Columns[9] = value; } else { base.Columns.Add(9, value); } } }
 	/// <summary>PID: 8010 | Type: read</summary>
 	public System.Object Xprintdiffdayoffset { get { if (base.Columns.ContainsKey(9)) { return base.Columns[9]; } else { return null; } } set { if (base.Columns.ContainsKey(9)) { base.Columns[9] = value; } else { base.Columns.Add(9, value); } } }
-	public XprintdiffQActionRow() : base(0, 10) { }
-	public XprintdiffQActionRow(System.Object[] oRow) : base(0, 10, oRow) { }
+	/// <summary>PID: 8011 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Xprintdiffresult_8011 { get { if (base.Columns.ContainsKey(10)) { return base.Columns[10]; } else { return null; } } set { if (base.Columns.ContainsKey(10)) { base.Columns[10] = value; } else { base.Columns.Add(10, value); } } }
+	/// <summary>PID: 8011 | Type: read</summary>
+	public System.Object Xprintdiffresult { get { if (base.Columns.ContainsKey(10)) { return base.Columns[10]; } else { return null; } } set { if (base.Columns.ContainsKey(10)) { base.Columns[10] = value; } else { base.Columns.Add(10, value); } } }
+	public XprintdiffQActionRow() : base(0, 11) { }
+	public XprintdiffQActionRow(System.Object[] oRow) : base(0, 11, oRow) { }
 	public static implicit operator XprintdiffQActionRow(System.Object[] source) { return new XprintdiffQActionRow(source); }
 	public static implicit operator System.Object[](XprintdiffQActionRow source) { return source.ToObjectArray(); }
 }

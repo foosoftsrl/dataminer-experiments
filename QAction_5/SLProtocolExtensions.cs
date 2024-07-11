@@ -68,7 +68,7 @@
             protocol.FillArray(Parameter.Xprint.tablePid, tableRows, NotifyProtocol.SaveOption.Full);
         }
 
-        public static void PublishXPrintDiffTable(this SLProtocolExt protocol, List<(AdSalesRow, WhatsonRow)> rows)
+        public static void PublishXPrintDiffTable(this SLProtocolExt protocol, List<(AdSalesRow, WhatsonRow, int)> rows)
         {
             var tableRows = new List<object[]>();
             var idx = 0;
@@ -77,7 +77,6 @@
                 tableRows.Add(new XprintdiffQActionRow
                 {
                     Xprintdiffkey = (idx++).ToString(),
-                    Xprintdiffdayoffset = row.Item1 != null ? row.Item1?.DayOffset.ToString() : row.Item2?.DayOffset.ToString(),
                     Xprintdiffleftreconcilekey = row.Item1?.ReconcileKey ?? string.Empty,
                     Xprintdiffleftstarttime = row.Item1?.TimeOfDay.ToString("yyyy-MM-dd HH:mm:ss") ?? string.Empty,
                     Xprintdiffleftprogramcode = row.Item1?.ProductCode ?? string.Empty,
@@ -86,6 +85,8 @@
                     Xprintdiffrightstarttime = row.Item2?.StartTime.ToString("yyyy-MM-dd HH:mm:ss") ?? string.Empty,
                     Xprintdiffrightprogramcode = row.Item2?.ProgramCode ?? string.Empty,
                     Xprintdiffrightprogramtitle = row.Item2?.Title ?? string.Empty,
+                    Xprintdiffdayoffset = row.Item1 != null ? row.Item1?.DayOffset.ToString() : row.Item2?.DayOffset.ToString(),
+                    Xprintdiffresult = row.Item3.ToString(),
                 }.ToObjectArray());
             }
             protocol.FillArray(Parameter.Xprintdiff.tablePid, tableRows, NotifyProtocol.SaveOption.Full);
