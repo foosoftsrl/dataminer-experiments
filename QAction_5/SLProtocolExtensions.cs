@@ -77,6 +77,7 @@
                 tableRows.Add(new XprintdiffQActionRow
                 {
                     Xprintdiffkey = (idx++).ToString(),
+                    Xprintdiffdayoffset = row.Item1 != null ? row.Item1?.DayOffset.ToString() : row.Item2?.DayOffset.ToString(),
                     Xprintdiffleftreconcilekey = row.Item1?.ReconcileKey ?? string.Empty,
                     Xprintdiffleftstarttime = row.Item1?.TimeOfDay.ToString("yyyy-MM-dd HH:mm:ss") ?? string.Empty,
                     Xprintdiffleftprogramcode = row.Item1?.ProductCode ?? string.Empty,

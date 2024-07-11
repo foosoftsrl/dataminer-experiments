@@ -1585,6 +1585,7 @@
 				<ColumnOption idx="6" pid="8007" type="retrieved" options="" />
 				<ColumnOption idx="7" pid="8008" type="retrieved" options="" />
 				<ColumnOption idx="8" pid="8009" type="retrieved" options="" />
+				<ColumnOption idx="9" pid="8010" type="retrieved" options="" />
 			</ArrayOptions>
 			<Information>
 				<Subtext>
@@ -1602,7 +1603,7 @@
 				</Positions>
 			</Display>
 			<Measurement>
-				<Type options="tab=columns:8001|0-8002|1-8003|2-8004|3-8005|4-8006|5-8007|6-8008|7-8009|8,width:111-172-153-175-172-180-161-184-180,sort:STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING,lines:20,filter:true">table</Type>
+				<Type options="tab=columns:8001|0-8002|1-8003|2-8004|3-8005|4-8006|5-8007|6-8008|7-8009|8-8010|9,width:70-75-160-170-160-180-160-170-160-180,sort:STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING,lines:20,filter:true">table</Type>
 			</Measurement>
 		</Param>
 		<Param id="8001" trending="false">
@@ -1622,6 +1623,22 @@
 			</Measurement>
 		</Param>
 		<Param id="8002" trending="false">
+			<Name>XPrintDiffDayOffset</Name>
+			<Description>DayOffset</Description>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="8003" trending="false">
 			<Name>XPrintDiffLeftReconcileKey</Name>
 			<Description>LeftReconcileKey</Description>
 			<Type>read</Type>
@@ -1637,7 +1654,7 @@
 				<Type>string</Type>
 			</Measurement>
 		</Param>
-		<Param id="8003" trending="false">
+		<Param id="8004" trending="false">
 			<Name>XPrintDiffLeftStartTime</Name>
 			<Description>LeftTime</Description>
 			<Type>read</Type>
@@ -1653,7 +1670,7 @@
 				<Type>string</Type>
 			</Measurement>
 		</Param>
-		<Param id="8004" trending="false">
+		<Param id="8005" trending="false">
 			<Name>XPrintDiffLeftProgramCode</Name>
 			<Description>LeftProgramCode</Description>
 			<Type>read</Type>
@@ -1669,7 +1686,7 @@
 				<Type>string</Type>
 			</Measurement>
 		</Param>
-		<Param id="8005" trending="false">
+		<Param id="8006" trending="false">
 			<Name>XPrintDiffLeftProgramTitle</Name>
 			<Description>LeftTitle</Description>
 			<Type>read</Type>
@@ -1685,7 +1702,7 @@
 				<Type>string</Type>
 			</Measurement>
 		</Param>
-		<Param id="8006" trending="false">
+		<Param id="8007" trending="false">
 			<Name>XPrintDiffRightReconcileKey</Name>
 			<Description>RightReconcileKey</Description>
 			<Type>read</Type>
@@ -1701,7 +1718,7 @@
 				<Type>string</Type>
 			</Measurement>
 		</Param>
-		<Param id="8007" trending="false">
+		<Param id="8008" trending="false">
 			<Name>XPrintDiffRightStartTime</Name>
 			<Description>RightTime</Description>
 			<Type>read</Type>
@@ -1717,7 +1734,7 @@
 				<Type>string</Type>
 			</Measurement>
 		</Param>
-		<Param id="8008" trending="false">
+		<Param id="8009" trending="false">
 			<Name>XPrintDiffRightProgramCode</Name>
 			<Description>RightProgramCode</Description>
 			<Type>read</Type>
@@ -1733,7 +1750,7 @@
 				<Type>string</Type>
 			</Measurement>
 		</Param>
-		<Param id="8009" trending="false">
+		<Param id="8010" trending="false">
 			<Name>XPrintDiffRightProgramTitle</Name>
 			<Description>RightTitle</Description>
 			<Type>read</Type>
