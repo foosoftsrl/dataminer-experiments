@@ -68,7 +68,7 @@
             protocol.FillArray(Parameter.Xprint.tablePid, tableRows, NotifyProtocol.SaveOption.Full);
         }
 
-        public static void PublishXPrintDiffTable(this SLProtocolExt protocol, List<(AdSalesRow, WhatsonRow, int)> rows)
+        public static void PublishXPrintDiffTable(this SLProtocolExt protocol, List<(AdSalesRow, WhatsonRow, string)> rows)
         {
             var tableRows = new List<object[]>();
             var idx = 0;
@@ -86,7 +86,7 @@
                     Xprintdiffrightprogramcode = row.Item2?.ProgramCode ?? string.Empty,
                     Xprintdiffrightprogramtitle = row.Item2?.Title ?? string.Empty,
                     Xprintdiffdayoffset = row.Item1 != null ? row.Item1?.DayOffset.ToString() : row.Item2?.DayOffset.ToString(),
-                    Xprintdiffresult = row.Item3.ToString(),
+                    Xprintdiffresult = row.Item3,
                 }.ToObjectArray());
             }
             protocol.FillArray(Parameter.Xprintdiff.tablePid, tableRows, NotifyProtocol.SaveOption.Full);

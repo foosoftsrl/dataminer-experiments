@@ -4,20 +4,20 @@
 
     public class DiffTool
     {
-        public static List<(AdSalesRow, WhatsonRow, int)> ComputeDiff(List<AdSalesRow> adSalesRowsGlobal, List<WhatsonRow> whatsonRowsGlobal)
+        public static List<(AdSalesRow, WhatsonRow, string)> ComputeDiff(List<AdSalesRow> adSalesRowsGlobal, List<WhatsonRow> whatsonRowsGlobal)
         {
             /*
              * Result:
-             * 0 - ok
-             * 1 - no whatson entry - red
-             * 2 - no adsales entry - yellow
-             * 3 - code mismatch
+             * "ok" - ok
+             * "warn_only_adsales" - no whatson entry - red
+             * "warn_only_whatson" - no adsales entry - yellow
+             * "warn_material_mismatch" - code mismatch
             */
-            var result = new List<(AdSalesRow, WhatsonRow, int)>();
+            var result = new List<(AdSalesRow, WhatsonRow, string)>();
             for (var day = -1; day < 3; day++)
             {
                 List<AdSalesRow> adSalesRows = adSalesRowsGlobal.FindAll(row => row.DayOffset == day);
-                List< WhatsonRow > whatsonRows = whatsonRowsGlobal.FindAll(row => row.DayOffset == day);
+                List<WhatsonRow> whatsonRows = whatsonRowsGlobal.FindAll(row => row.DayOffset == day);
                 var reconcileKeyToWhatsonIndex = new Dictionary<string, int>();
 
                 foreach (var (row, index) in whatsonRows.WithIndex())
@@ -41,18 +41,18 @@
                         {
                             for (var i = lastAdSalesIdx + 1; i < adSalesIdx; i++)
                             {
-                                result.Add((adSalesRows[i], null, 1));
+                                result.Add((adSalesRows[i], null, "warn_only_adsales"));
                             }
 
                             for (var i = lastWhatsonIdx + 1; i < whatsonIdx; i++)
                             {
-                                result.Add((null, whatsonRows[i], 2));
+                                result.Add((null, whatsonRows[i], "warn_only_whatson"));
                             }
 
-                            var resultCode = 0;
+                            var resultCode = "ok";
                             if(adSalesRows[adSalesIdx].ProductCode != whatsonRows[whatsonIdx].ProgramCode)
                             {
-                                resultCode = 3;
+                                resultCode = "warn_material_mismatch";
                             }
 
                             result.Add((adSalesRows[adSalesIdx], whatsonRows[whatsonIdx], resultCode));
@@ -64,12 +64,12 @@
 
                 for (var i = lastAdSalesIdx + 1; i < adSalesRows.Count; i++)
                 {
-                    result.Add((adSalesRows[i], null, 1));
+                    result.Add((adSalesRows[i], null, "warn_only_adsales"));
                 }
 
                 for (var i = lastWhatsonIdx + 1; i < whatsonRows.Count; i++)
                 {
-                    result.Add((null, whatsonRows[i], 2));
+                    result.Add((null, whatsonRows[i], "warn_only_whatson"));
                 }
             }
 
