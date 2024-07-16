@@ -4,7 +4,7 @@
 
     public class DiffTool
     {
-        public static List<(AdSalesRow, WhatsonRow, string)> ComputeDiff(List<AdSalesRow> adSalesRowsGlobal, List<WhatsonRow> whatsonRowsGlobal)
+        public static List<(AdSalesRow, WhatsonRow, string)> ComputeAdSalesWhatsonDiff(List<AdSalesRow> adSalesRowsGlobal, List<WhatsonRow> whatsonRowsGlobal)
         {
             /*
              * Result:

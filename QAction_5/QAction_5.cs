@@ -51,8 +51,10 @@ public class QAction
             protocol.PublishMergedTable(mergedRows);
             protocol.PublishXPrintTable(adSalesData, whatsonData, mediatorData);
 
-            var xprintDiff = DiffTool.ComputeDiff(adSalesData, whatsonData.FilterSpots());
+            var xprintDiff = DiffTool.ComputeAdSalesWhatsonDiff(adSalesData, whatsonData.FilterSpots());
             protocol.PublishXPrintDiffTable(xprintDiff);
+
+
             protocol.Mergeddebugmsg = $"Everything ok!";
         }
         catch (Exception e)
