@@ -44,6 +44,8 @@
         public string scteBroadcastBreakStart;
         public string scteBroadcastProviderAdvStart;
         public string enablerLegacy;
+        public string materialId;
+        public int DayOffset;
     }
 
     public class EnablerRow

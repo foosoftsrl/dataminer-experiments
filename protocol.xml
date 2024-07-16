@@ -13,7 +13,7 @@
 	<DeviceOID></DeviceOID>
 	<ElementType>Connect to http</ElementType>
 	<Type relativeTimers="true">virtual</Type>
-	<Display defaultPage="General" pageOrder="General;-------;Adsales;Mediator;Won;Enabler Legacy;Enabler Scte;XPrint;XPrint2;XPrintDiff" wideColumnPages=""/>
+	<Display defaultPage="General" pageOrder="General;-------;Adsales;Mediator;Won;Enabler Legacy;Enabler Scte;XPrint;XPrint2;XPrintDiff;MediatorWonDiff" wideColumnPages=""/>
 	<SNMP includepages="true">auto</SNMP>
 
 	<Compliancies>
@@ -1769,6 +1769,219 @@
 		</Param>
 		<Param id="8011" trending="false">
 			<Name>XPrintDiffResult</Name>
+			<Description>Result</Description>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		
+		<Param id="9000" trending="true">
+			<Name>MediatorWonDiff</Name>
+			<Description>MediatorWonDiff</Description>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="9001" type="retrieved" options="" />
+				<ColumnOption idx="1" pid="9002" type="retrieved" options="" />
+				<ColumnOption idx="2" pid="9003" type="retrieved" options="" />
+				<ColumnOption idx="3" pid="9004" type="retrieved" options="" />
+				<ColumnOption idx="4" pid="9005" type="retrieved" options="" />
+				<ColumnOption idx="5" pid="9006" type="retrieved" options="" />
+				<ColumnOption idx="6" pid="9007" type="retrieved" options="" />
+				<ColumnOption idx="7" pid="9008" type="retrieved" options="" />
+				<ColumnOption idx="8" pid="9009" type="retrieved" options="" />
+				<ColumnOption idx="9" pid="9010" type="retrieved" options="" />
+				<ColumnOption idx="10" pid="9011" type="retrieved" options="" />
+			</ArrayOptions>
+			<Information>
+				<Subtext>
+					<![CDATA[XPrint]]>
+				</Subtext>
+			</Information>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>MediatorWonDiff</Page>
+						<Column>0</Column>
+						<Row>1</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type options="tab=columns:9001|0-9002|1-9003|2-9004|3-9005|4-9006|5-9007|6-9008|7-9009|8-9010|9-9011|10,width:70-115-160-170-160-180-160-170-160-180-100,sort:STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING,lines:20,filter:true">table</Type>
+			</Measurement>
+		</Param>
+		<Param id="9001" trending="false">
+			<Name>MediatorWonDiffKey</Name>
+			<Description>Key</Description>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="9002" trending="false">
+			<Name>MediatorWonDiffLeftReconcileKey</Name>
+			<Description>LeftReconcileKey</Description>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="9003" trending="false">
+			<Name>MediatorWonDiffLeftStartTime</Name>
+			<Description>LeftTime</Description>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="9004" trending="false">
+			<Name>MediatorWonDiffLeftProgramCode</Name>
+			<Description>LeftProgramCode</Description>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="9005" trending="false">
+			<Name>MediatorWonDiffLeftProgramTitle</Name>
+			<Description>LeftTitle</Description>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="9006" trending="false">
+			<Name>MediatorWonDiffRightReconcileKey</Name>
+			<Description>RightReconcileKey</Description>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="9007" trending="false">
+			<Name>MediatorWonDiffRightStartTime</Name>
+			<Description>RightTime</Description>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="9008" trending="false">
+			<Name>MediatorWonDiffRightProgramCode</Name>
+			<Description>RightProgramCode</Description>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="9009" trending="false">
+			<Name>MediatorWonDiffRightProgramTitle</Name>
+			<Description>RightTitle</Description>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="9010" trending="false">
+			<Name>MediatorWonDiffDayOffset</Name>
+			<Description>DayOffset</Description>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="9011" trending="false">
+			<Name>MediatorWonDiffResult</Name>
 			<Description>Result</Description>
 			<Type>read</Type>
 			<Interprete>

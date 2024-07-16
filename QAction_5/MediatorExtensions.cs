@@ -2,18 +2,14 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     using Mediator;
-    using Skyline.DataMiner.Net.Upload;
-    using static Utils;
 
     public static class MediatorExtensions
     {
         public static List<MediatorRow> Flatten(this Mediator.Welcome rootObject)
         {
             var result = new List<MediatorRow>();
+
             // Convert Generated class into Connector Row data.
             var commandList = rootObject?.PharosCs?.CommandList;
             if (commandList != null)
@@ -39,12 +35,15 @@
                             enablerLegacy = row.FindEnablerLegacyText(),
                             scteBroadcastBreakStart = row.FindScteBroadcastBreakStartUpid(),
                             scteBroadcastProviderAdvStart = row.FindScteBroadcastProviderAdvStartUpid(),
+                            materialId = row.GetTrimMaterialId(),
                         });
                     }
                 }
             }
+
             return result;
         }
+
         public static Dictionary<string, MediatorRow> ToReconcileKeyMap(this List<MediatorRow> mediatorRows)
         {
             var reconcileToRow = new Dictionary<String, MediatorRow>();
@@ -58,8 +57,10 @@
                     reconcileToRow[reconcileKey] = row;
                 }
             }
+
             return reconcileToRow;
         }
+
         public static string FindAdSalesReconcileKey(this Mediator.Row row)
         {
             return row.FindTemplateParameterByName(TemplateParameterName.AdSalesContentReconcileKeyText)?.Value.String;
@@ -106,9 +107,9 @@
                     {
                         return parameter.Value.String + "";
                     }
-
                 }
             }
+
             return null;
         }
 
@@ -124,6 +125,7 @@
                     }
                 }
             }
+
             return null;
         }
 
@@ -137,6 +139,18 @@
                 return null;
             return row.ScheduleReference.GenericList.Object[0];
         }
+
+        public static string GetTrimMaterialId(this Mediator.Row row)
+        {
+            if (row.TrimMaterialId == null)
+                return null;
+            if (row.TrimMaterialId.GenericList == null)
+                return null;
+            if (row.TrimMaterialId.GenericList.Size != 1)
+                return null;
+            return row.TrimMaterialId.GenericList.Object[0];
+        }
+
         public static DateTime? StartDateTime(this Mediator.Row row)
         {
             if (row.StartDateTime == null)
@@ -145,6 +159,7 @@
                 return null;
             return DateTime.Parse(row.StartDateTime.GenericList.Object[0].Iso8601 + "Z");
         }
+
         public static string AsString(this Mediator.InTransitionName title)
         {
             if (title == null)
@@ -152,7 +167,6 @@
             if (title.GenericList == null || title.GenericList.Size != 1)
                 return null;
             return title.GenericList.Object[0];
-
         }
     }
 }

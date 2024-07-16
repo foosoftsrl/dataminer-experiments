@@ -1,5 +1,7 @@
 ﻿namespace QAction_5
 {
+    using Skyline.DataMiner.Net.Helper;
+    using System;
     using System.Collections.Generic;
 
     public class DiffTool
@@ -65,6 +67,89 @@
                 for (var i = lastAdSalesIdx + 1; i < adSalesRows.Count; i++)
                 {
                     result.Add((adSalesRows[i], null, "warn_only_adsales"));
+                }
+
+                for (var i = lastWhatsonIdx + 1; i < whatsonRows.Count; i++)
+                {
+                    result.Add((null, whatsonRows[i], "warn_only_whatson"));
+                }
+            }
+
+            return result;
+        }
+
+        public static List<(MediatorRow, WhatsonRow, string)> ComputeMediatorWhatsonDiff(List<MediatorRow> mediatorRowsGlobal, List<WhatsonRow> whatsonRowsGlobal)
+        {
+            /*
+             * Result:
+             * "ok" - ok
+             * "warn_only_adsales" - no whatson entry - red
+             * "warn_only_whatson" - no adsales entry - yellow
+             * "warn_material_mismatch" - code mismatch
+            */
+            var result = new List<(MediatorRow, WhatsonRow, string)>();
+            for (var day = -1; day < 3; day++)
+            {
+                List<WhatsonRow> whatsonRows = whatsonRowsGlobal.FindAll(row => row.DayOffset == day);
+                if(whatsonRows.IsNullOrEmpty())
+                {
+                    continue;
+                }
+
+                var startDateTime = whatsonRows[0].StartTime;
+                var endDateTime = whatsonRows[whatsonRows.Count - 1].StartTime;
+
+                List<MediatorRow> mediatorRows = mediatorRowsGlobal.FindAll(row => row.StartTime >= startDateTime && row.StartTime <= endDateTime);
+                var reconcileKeyToWhatsonIndex = new Dictionary<string, int>();
+
+                foreach (var (row, index) in whatsonRows.WithIndex())
+                {
+                    if (row.ReconcileKey != null)
+                    {
+                        reconcileKeyToWhatsonIndex.Add(row.ReconcileKey, index);
+                    }
+                }
+
+                int lastMediatorIdx = -1;
+                int lastWhatsonIdx = -1;
+                foreach (var (mediatorRow, mediatorIdx) in mediatorRows.WithIndex())
+                {
+                    var reconcileKey = mediatorRow.ReconcileKey;
+
+                    // First... find matching rows
+                    if (reconcileKeyToWhatsonIndex.TryGetValue(reconcileKey, out var whatsonIdx))
+                    {
+                        if (whatsonIdx > lastWhatsonIdx)
+                        {
+                            for (var i = lastMediatorIdx + 1; i < mediatorIdx; i++)
+                            {
+                                mediatorRows[i].DayOffset = whatsonRows[whatsonIdx].DayOffset;
+                                result.Add((mediatorRows[i], null, "warn_only_mediator"));
+                            }
+
+                            for (var i = lastWhatsonIdx + 1; i < whatsonIdx; i++)
+                            {
+                                result.Add((null, whatsonRows[i], "warn_only_whatson"));
+                            }
+
+                            var resultCode = "ok";
+                            if (mediatorRows[mediatorIdx].materialId != whatsonRows[whatsonIdx].ProgramCode)
+                            {
+                                resultCode = "warn_material_mismatch";
+                            }
+
+                            mediatorRows[mediatorIdx].DayOffset = whatsonRows[whatsonIdx].DayOffset;
+                            result.Add((mediatorRows[mediatorIdx], whatsonRows[whatsonIdx], resultCode));
+                            lastMediatorIdx = mediatorIdx;
+                            lastWhatsonIdx = whatsonIdx;
+                        }
+                    }
+                }
+
+                for (var i = lastMediatorIdx + 1; i < mediatorRows.Count; i++)
+                {
+                    mediatorRows[i].DayOffset = whatsonRows[lastWhatsonIdx].DayOffset;
+                    result.Add((mediatorRows[i], null, "warn_only_mediator"));
                 }
 
                 for (var i = lastWhatsonIdx + 1; i < whatsonRows.Count; i++)

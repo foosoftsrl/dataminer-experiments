@@ -92,6 +92,30 @@
             protocol.FillArray(Parameter.Xprintdiff.tablePid, tableRows, NotifyProtocol.SaveOption.Full);
         }
 
+        public static void PublishMediatorWonDiffTable(this SLProtocolExt protocol, List<(MediatorRow, WhatsonRow, string)> rows)
+        {
+            var tableRows = new List<object[]>();
+            var idx = 0;
+            foreach (var row in rows)
+            {
+                tableRows.Add(new MediatorwondiffQActionRow
+                {
+                    Mediatorwondiffkey = (idx++).ToString(),
+                    Mediatorwondiffleftreconcilekey = row.Item1?.ReconcileKey ?? string.Empty,
+                    Mediatorwondiffleftstarttime = row.Item1?.StartTime.ToString("yyyy-MM-dd HH:mm:ss") ?? string.Empty,
+                    Mediatorwondiffleftprogramcode = row.Item1?.materialId ?? string.Empty,
+                    Mediatorwondiffleftprogramtitle = row.Item1?.Title ?? string.Empty,
+                    Mediatorwondiffrightreconcilekey = row.Item2?.ReconcileKey ?? string.Empty,
+                    Mediatorwondiffrightstarttime = row.Item2?.StartTime.ToString("yyyy-MM-dd HH:mm:ss") ?? string.Empty,
+                    Mediatorwondiffrightprogramcode = row.Item2?.ProgramCode ?? string.Empty,
+                    Mediatorwondiffrightprogramtitle = row.Item2?.Title ?? string.Empty,
+                    Mediatorwondiffdayoffset = row.Item2 != null ? row.Item2?.DayOffset.ToString() : row.Item1?.DayOffset.ToString(),
+                    Mediatorwondiffresult = row.Item3,
+                }.ToObjectArray());
+            }
+            protocol.FillArray(Parameter.Mediatorwondiff.tablePid, tableRows, NotifyProtocol.SaveOption.Full);
+        }
+
         public static void PublishEnablerLegacyTable(this SLProtocolExt protocol, List<EnablerRow> rows)
         {
             var tableRows = new List<object[]>();

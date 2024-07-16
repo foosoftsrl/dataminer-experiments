@@ -4,10 +4,7 @@
     using System.Collections.Generic;
     using System.IO;
     using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-    using System.Xml.Serialization;
-    using Skyline.DataMiner.Scripting;
+
     public class AdSalesSource
     {
         public List<AdSalesRow> ReadAdSales(string channelCode, string dir)
@@ -30,6 +27,7 @@
 
                 result.AddRange(partialResult);
             }
+
             return result;
         }
 
@@ -42,8 +40,8 @@
                 string latestFile = files.OrderByDescending(f => File.GetLastWriteTime(f)).First();
                 return Utils.XmlDeserializeFromFile<AdSales.DataType>(latestFile).Flatten();
             }
+
             return new List<AdSalesRow>();
         }
     }
-
 }

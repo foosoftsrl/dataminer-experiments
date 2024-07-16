@@ -54,6 +54,8 @@ public class QAction
             var xprintDiff = DiffTool.ComputeAdSalesWhatsonDiff(adSalesData, whatsonData.FilterSpots());
             protocol.PublishXPrintDiffTable(xprintDiff);
 
+            var mediatorWonDiff = DiffTool.ComputeMediatorWhatsonDiff(mediatorData, whatsonData);
+            protocol.PublishMediatorWonDiffTable(mediatorWonDiff);
 
             protocol.Mergeddebugmsg = $"Everything ok!";
         }
