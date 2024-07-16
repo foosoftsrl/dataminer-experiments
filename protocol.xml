@@ -5,7 +5,7 @@
 		<Encoding>unicode</Encoding>
 	</Options>
 	<Description>AdSales DataMiner connector</Description>
-	<Version>1.0.0.4</Version>
+	<Version>1.0.0.5</Version>
 	<IntegrationID>DMS-DRV-</IntegrationID>
 	<Provider>Foosoft</Provider>
 	<Vendor>Foosoft</Vendor>
@@ -13,7 +13,7 @@
 	<DeviceOID></DeviceOID>
 	<ElementType>Connect to http</ElementType>
 	<Type relativeTimers="true">virtual</Type>
-	<Display defaultPage="General" pageOrder="General;-------;Adsales;Mediator;Won;Enabler Legacy;Enabler Scte;XPrint;XPrint2;XPrintDiff;MediatorWonDiff" wideColumnPages=""/>
+	<Display defaultPage="General" pageOrder="General;-------;Adsales;Mediator;Won;Enabler Legacy;Enabler Scte;XPrint;XPrint2;AdSalesWonDiff;WonMediatorDiff" wideColumnPages=""/>
 	<SNMP includepages="true">auto</SNMP>
 
 	<Compliancies>
@@ -1572,8 +1572,8 @@
 		</Param>
 		
 		<Param id="8000" trending="true">
-			<Name>XPrintDiff</Name>
-			<Description>XPrintDiff</Description>
+			<Name>AdSalesWonDiff</Name>
+			<Description>AdSalesWonDiff</Description>
 			<Type>array</Type>
 			<ArrayOptions index="0">
 				<ColumnOption idx="0" pid="8001" type="retrieved" options="" />
@@ -1597,7 +1597,7 @@
 				<RTDisplay>true</RTDisplay>
 				<Positions>
 					<Position>
-						<Page>XPrintDiff</Page>
+						<Page>AdSalesWonDiff</Page>
 						<Column>0</Column>
 						<Row>1</Row>
 					</Position>
@@ -1608,8 +1608,8 @@
 			</Measurement>
 		</Param>
 		<Param id="8001" trending="false">
-			<Name>XPrintDiffKey</Name>
-			<Description>Key</Description>
+			<Name>AdSalesWonDiffKey</Name>
+			<Description>AdSalesWonKey</Description>
 			<Type>read</Type>
 			<Interprete>
 				<RawType>other</RawType>
@@ -1624,8 +1624,8 @@
 			</Measurement>
 		</Param>
 		<Param id="8002" trending="false">
-			<Name>XPrintDiffLeftReconcileKey</Name>
-			<Description>LeftReconcileKey</Description>
+			<Name>AdSalesWonDiffAdSalesReconcileKey</Name>
+			<Description>AdSalesReconcileKey</Description>
 			<Type>read</Type>
 			<Interprete>
 				<RawType>other</RawType>
@@ -1640,8 +1640,8 @@
 			</Measurement>
 		</Param>
 		<Param id="8003" trending="false">
-			<Name>XPrintDiffLeftStartTime</Name>
-			<Description>LeftTime</Description>
+			<Name>AdSalesWonDiffAdSalesStartTime</Name>
+			<Description>AdSalesTime</Description>
 			<Type>read</Type>
 			<Interprete>
 				<RawType>other</RawType>
@@ -1656,8 +1656,8 @@
 			</Measurement>
 		</Param>
 		<Param id="8004" trending="false">
-			<Name>XPrintDiffLeftProgramCode</Name>
-			<Description>LeftProgramCode</Description>
+			<Name>AdSalesWonDiffAdSalesProgramCode</Name>
+			<Description>AdSalesProgramCode</Description>
 			<Type>read</Type>
 			<Interprete>
 				<RawType>other</RawType>
@@ -1672,8 +1672,8 @@
 			</Measurement>
 		</Param>
 		<Param id="8005" trending="false">
-			<Name>XPrintDiffLeftProgramTitle</Name>
-			<Description>LeftTitle</Description>
+			<Name>AdSalesWonDiffAdSalesProgramTitle</Name>
+			<Description>AdSalesTitle</Description>
 			<Type>read</Type>
 			<Interprete>
 				<RawType>other</RawType>
@@ -1688,8 +1688,8 @@
 			</Measurement>
 		</Param>
 		<Param id="8006" trending="false">
-			<Name>XPrintDiffRightReconcileKey</Name>
-			<Description>RightReconcileKey</Description>
+			<Name>AdSalesWonDiffWonReconcileKey</Name>
+			<Description>WonReconcileKey</Description>
 			<Type>read</Type>
 			<Interprete>
 				<RawType>other</RawType>
@@ -1704,8 +1704,8 @@
 			</Measurement>
 		</Param>
 		<Param id="8007" trending="false">
-			<Name>XPrintDiffRightStartTime</Name>
-			<Description>RightTime</Description>
+			<Name>AdSalesWonDiffWonStartTime</Name>
+			<Description>WonTime</Description>
 			<Type>read</Type>
 			<Interprete>
 				<RawType>other</RawType>
@@ -1720,8 +1720,8 @@
 			</Measurement>
 		</Param>
 		<Param id="8008" trending="false">
-			<Name>XPrintDiffRightProgramCode</Name>
-			<Description>RightProgramCode</Description>
+			<Name>AdSalesWonDiffWonProgramCode</Name>
+			<Description>WonProgramCode</Description>
 			<Type>read</Type>
 			<Interprete>
 				<RawType>other</RawType>
@@ -1736,8 +1736,8 @@
 			</Measurement>
 		</Param>
 		<Param id="8009" trending="false">
-			<Name>XPrintDiffRightProgramTitle</Name>
-			<Description>RightTitle</Description>
+			<Name>AdSalesWonDiffWonProgramTitle</Name>
+			<Description>WonTitle</Description>
 			<Type>read</Type>
 			<Interprete>
 				<RawType>other</RawType>
@@ -1752,7 +1752,7 @@
 			</Measurement>
 		</Param>
 		<Param id="8010" trending="false">
-			<Name>XPrintDiffDayOffset</Name>
+			<Name>AdSalesWonDiffDayOffset</Name>
 			<Description>DayOffset</Description>
 			<Type>read</Type>
 			<Interprete>
@@ -1768,7 +1768,7 @@
 			</Measurement>
 		</Param>
 		<Param id="8011" trending="false">
-			<Name>XPrintDiffResult</Name>
+			<Name>AdSalesWonDiffResult</Name>
 			<Description>Result</Description>
 			<Type>read</Type>
 			<Interprete>
@@ -1785,8 +1785,8 @@
 		</Param>
 		
 		<Param id="9000" trending="true">
-			<Name>MediatorWonDiff</Name>
-			<Description>MediatorWonDiff</Description>
+			<Name>WonMediatorDiff</Name>
+			<Description>WonMediatorDiff</Description>
 			<Type>array</Type>
 			<ArrayOptions index="0">
 				<ColumnOption idx="0" pid="9001" type="retrieved" options="" />
@@ -1810,7 +1810,7 @@
 				<RTDisplay>true</RTDisplay>
 				<Positions>
 					<Position>
-						<Page>MediatorWonDiff</Page>
+						<Page>WonMediatorDiff</Page>
 						<Column>0</Column>
 						<Row>1</Row>
 					</Position>
@@ -1821,8 +1821,8 @@
 			</Measurement>
 		</Param>
 		<Param id="9001" trending="false">
-			<Name>MediatorWonDiffKey</Name>
-			<Description>Key</Description>
+			<Name>WonMediatorDiffKey</Name>
+			<Description>WonMediatorDiffKey</Description>
 			<Type>read</Type>
 			<Interprete>
 				<RawType>other</RawType>
@@ -1837,8 +1837,8 @@
 			</Measurement>
 		</Param>
 		<Param id="9002" trending="false">
-			<Name>MediatorWonDiffLeftReconcileKey</Name>
-			<Description>LeftReconcileKey</Description>
+			<Name>WonMediatorDiffWonReconcileKey</Name>
+			<Description>WonReconcileKey</Description>
 			<Type>read</Type>
 			<Interprete>
 				<RawType>other</RawType>
@@ -1853,8 +1853,8 @@
 			</Measurement>
 		</Param>
 		<Param id="9003" trending="false">
-			<Name>MediatorWonDiffLeftStartTime</Name>
-			<Description>LeftTime</Description>
+			<Name>WonMediatorDiffWonStartTime</Name>
+			<Description>WonTime</Description>
 			<Type>read</Type>
 			<Interprete>
 				<RawType>other</RawType>
@@ -1869,8 +1869,8 @@
 			</Measurement>
 		</Param>
 		<Param id="9004" trending="false">
-			<Name>MediatorWonDiffLeftProgramCode</Name>
-			<Description>LeftProgramCode</Description>
+			<Name>WonMediatorDiffWonProgramCode</Name>
+			<Description>WonProgramCode</Description>
 			<Type>read</Type>
 			<Interprete>
 				<RawType>other</RawType>
@@ -1885,8 +1885,8 @@
 			</Measurement>
 		</Param>
 		<Param id="9005" trending="false">
-			<Name>MediatorWonDiffLeftProgramTitle</Name>
-			<Description>LeftTitle</Description>
+			<Name>WonMediatorDiffWonProgramTitle</Name>
+			<Description>WonTitle</Description>
 			<Type>read</Type>
 			<Interprete>
 				<RawType>other</RawType>
@@ -1901,8 +1901,8 @@
 			</Measurement>
 		</Param>
 		<Param id="9006" trending="false">
-			<Name>MediatorWonDiffRightReconcileKey</Name>
-			<Description>RightReconcileKey</Description>
+			<Name>WonMediatorDiffMediatorReconcileKey</Name>
+			<Description>MediatorReconcileKey</Description>
 			<Type>read</Type>
 			<Interprete>
 				<RawType>other</RawType>
@@ -1917,8 +1917,8 @@
 			</Measurement>
 		</Param>
 		<Param id="9007" trending="false">
-			<Name>MediatorWonDiffRightStartTime</Name>
-			<Description>RightTime</Description>
+			<Name>WonMediatorDiffMediatorStartTime</Name>
+			<Description>MediatorTime</Description>
 			<Type>read</Type>
 			<Interprete>
 				<RawType>other</RawType>
@@ -1933,8 +1933,8 @@
 			</Measurement>
 		</Param>
 		<Param id="9008" trending="false">
-			<Name>MediatorWonDiffRightProgramCode</Name>
-			<Description>RightProgramCode</Description>
+			<Name>WonMediatorDiffMediatorProgramCode</Name>
+			<Description>MediatorProgramCode</Description>
 			<Type>read</Type>
 			<Interprete>
 				<RawType>other</RawType>
@@ -1949,8 +1949,8 @@
 			</Measurement>
 		</Param>
 		<Param id="9009" trending="false">
-			<Name>MediatorWonDiffRightProgramTitle</Name>
-			<Description>RightTitle</Description>
+			<Name>WonMediatorDiffMediatorProgramTitle</Name>
+			<Description>MediatorTitle</Description>
 			<Type>read</Type>
 			<Interprete>
 				<RawType>other</RawType>
@@ -1965,7 +1965,7 @@
 			</Measurement>
 		</Param>
 		<Param id="9010" trending="false">
-			<Name>MediatorWonDiffDayOffset</Name>
+			<Name>WonMediatorDiffDayOffset</Name>
 			<Description>DayOffset</Description>
 			<Type>read</Type>
 			<Interprete>
@@ -1981,7 +1981,7 @@
 			</Measurement>
 		</Param>
 		<Param id="9011" trending="false">
-			<Name>MediatorWonDiffResult</Name>
+			<Name>WonMediatorDiffResult</Name>
 			<Description>Result</Description>
 			<Type>read</Type>
 			<Interprete>

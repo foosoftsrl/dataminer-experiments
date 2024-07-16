@@ -51,11 +51,11 @@ public class QAction
             protocol.PublishMergedTable(mergedRows);
             protocol.PublishXPrintTable(adSalesData, whatsonData, mediatorData);
 
-            var xprintDiff = DiffTool.ComputeAdSalesWhatsonDiff(adSalesData, whatsonData.FilterSpots());
-            protocol.PublishXPrintDiffTable(xprintDiff);
+            var adsalesWonDiff = DiffTool.ComputeAdSalesWhatsonDiff(adSalesData, whatsonData.FilterSpots());
+            protocol.PublishAdSalesWhatsonDiffTable(adsalesWonDiff);
 
-            var mediatorWonDiff = DiffTool.ComputeMediatorWhatsonDiff(mediatorData.FilterSpots(), whatsonData.FilterSpots());
-            protocol.PublishMediatorWonDiffTable(mediatorWonDiff);
+            var wonMediatorDiff = DiffTool.ComputeWhatsonMediatorDiff(whatsonData.FilterSpots(), mediatorData.FilterSpots());
+            protocol.PublishMediatorWonDiffTable(wonMediatorDiff);
 
             protocol.Mergeddebugmsg = $"Everything ok!";
         }

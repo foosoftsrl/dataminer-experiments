@@ -78,7 +78,7 @@
             return result;
         }
 
-        public static List<(MediatorRow, WhatsonRow, string)> ComputeMediatorWhatsonDiff(List<MediatorRow> mediatorRowsGlobal, List<WhatsonRow> whatsonRowsGlobal)
+        public static List<(WhatsonRow, MediatorRow, string)> ComputeWhatsonMediatorDiff(List<WhatsonRow> whatsonRowsGlobal, List<MediatorRow> mediatorRowsGlobal)
         {
             /*
              * Result:
@@ -87,7 +87,7 @@
              * "warn_only_whatson" - no adsales entry - yellow
              * "warn_material_mismatch" - code mismatch
             */
-            var result = new List<(MediatorRow, WhatsonRow, string)>();
+            var result = new List<(WhatsonRow, MediatorRow, string)>();
             for (var day = -1; day < 3; day++)
             {
                 List<WhatsonRow> whatsonRows = whatsonRowsGlobal.FindAll(row => row.DayOffset == day);
@@ -124,12 +124,12 @@
                             for (var i = lastMediatorIdx + 1; i < mediatorIdx; i++)
                             {
                                 mediatorRows[i].DayOffset = whatsonRows[whatsonIdx].DayOffset;
-                                result.Add((mediatorRows[i], null, "warn_only_mediator"));
+                                result.Add((null, mediatorRows[i], "warn_only_mediator"));
                             }
 
                             for (var i = lastWhatsonIdx + 1; i < whatsonIdx; i++)
                             {
-                                result.Add((null, whatsonRows[i], "warn_only_whatson"));
+                                result.Add((whatsonRows[i], null, "warn_only_whatson"));
                             }
 
                             var resultCode = "ok";
@@ -139,7 +139,7 @@
                             }
 
                             mediatorRows[mediatorIdx].DayOffset = whatsonRows[whatsonIdx].DayOffset;
-                            result.Add((mediatorRows[mediatorIdx], whatsonRows[whatsonIdx], resultCode));
+                            result.Add((whatsonRows[whatsonIdx], mediatorRows[mediatorIdx], resultCode));
                             lastMediatorIdx = mediatorIdx;
                             lastWhatsonIdx = whatsonIdx;
                         }
@@ -149,12 +149,12 @@
                 for (var i = lastMediatorIdx + 1; i < mediatorRows.Count; i++)
                 {
                     mediatorRows[i].DayOffset = whatsonRows[lastWhatsonIdx].DayOffset;
-                    result.Add((mediatorRows[i], null, "warn_only_mediator"));
+                    result.Add((null, mediatorRows[i], "warn_only_mediator"));
                 }
 
                 for (var i = lastWhatsonIdx + 1; i < whatsonRows.Count; i++)
                 {
-                    result.Add((null, whatsonRows[i], "warn_only_whatson"));
+                    result.Add((whatsonRows[i], null, "warn_only_whatson"));
                 }
             }
 
