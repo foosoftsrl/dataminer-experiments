@@ -44,6 +44,11 @@
             return result;
         }
 
+        public static List<MediatorRow> FilterSpots(this List<MediatorRow> list)
+        {
+            return list.FindAll(row => row.ReconcileKey != null);
+        }
+
         public static Dictionary<string, MediatorRow> ToReconcileKeyMap(this List<MediatorRow> mediatorRows)
         {
             var reconcileToRow = new Dictionary<String, MediatorRow>();
