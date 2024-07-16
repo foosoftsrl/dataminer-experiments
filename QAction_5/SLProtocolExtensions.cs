@@ -74,22 +74,22 @@
             var idx = 0;
             foreach (var row in rows)
             {
-                tableRows.Add(new XprintdiffQActionRow
+                tableRows.Add(new AdsaleswondiffQActionRow
                 {
-                    Xprintdiffkey = (idx++).ToString(),
-                    Xprintdiffleftreconcilekey = row.Item1?.ReconcileKey ?? string.Empty,
-                    Xprintdiffleftstarttime = row.Item1?.TimeOfDay.ToString("yyyy-MM-dd HH:mm:ss") ?? string.Empty,
-                    Xprintdiffleftprogramcode = row.Item1?.ProductCode ?? string.Empty,
-                    Xprintdiffleftprogramtitle = row.Item1?.Title ?? string.Empty,
-                    Xprintdiffrightreconcilekey = row.Item2?.ReconcileKey ?? string.Empty,
-                    Xprintdiffrightstarttime = row.Item2?.StartTime.ToString("yyyy-MM-dd HH:mm:ss") ?? string.Empty,
-                    Xprintdiffrightprogramcode = row.Item2?.ProgramCode ?? string.Empty,
-                    Xprintdiffrightprogramtitle = row.Item2?.Title ?? string.Empty,
-                    Xprintdiffdayoffset = row.Item1 != null ? row.Item1?.DayOffset.ToString() : row.Item2?.DayOffset.ToString(),
-                    Xprintdiffresult = row.Item3,
+                    Adsaleswondiffkey = (idx++).ToString(),
+                    Adsaleswondiffadsalesreconcilekey = row.Item1?.ReconcileKey ?? string.Empty,
+                    Adsaleswondiffadsalesstarttime = row.Item1?.TimeOfDay.ToString("yyyy-MM-dd HH:mm:ss") ?? string.Empty,
+                    Adsaleswondiffadsalesprogramcode = row.Item1?.ProductCode ?? string.Empty,
+                    Adsaleswondiffadsalesprogramtitle = row.Item1?.Title ?? string.Empty,
+                    Adsaleswondiffwonreconcilekey = row.Item2?.ReconcileKey ?? string.Empty,
+                    Adsaleswondiffwonstarttime = row.Item2?.StartTime.ToString("yyyy-MM-dd HH:mm:ss") ?? string.Empty,
+                    Adsaleswondiffwonprogramcode = row.Item2?.ProgramCode ?? string.Empty,
+                    Adsaleswondiffwonprogramtitle = row.Item2?.Title ?? string.Empty,
+                    Adsaleswondiffdayoffset = row.Item1 != null ? row.Item1?.DayOffset.ToString() : row.Item2?.DayOffset.ToString(),
+                    Adsaleswondiffresult = row.Item3,
                 }.ToObjectArray());
             }
-            protocol.FillArray(Parameter.Xprintdiff.tablePid, tableRows, NotifyProtocol.SaveOption.Full);
+            protocol.FillArray(Parameter.Adsaleswondiff.tablePid, tableRows, NotifyProtocol.SaveOption.Full);
         }
 
         public static void PublishMediatorWonDiffTable(this SLProtocolExt protocol, List<(WhatsonRow, MediatorRow, string)> rows)
