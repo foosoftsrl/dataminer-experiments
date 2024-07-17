@@ -39,10 +39,15 @@ public class QAction
         {
             var adSalesData = ReadAdSalesData(protocol);
             protocol.PublishAdsalesTable(adSalesData);
+
             var whatsonData = ReadWhatsonData(protocol);
             protocol.PublishWhatsonTable(whatsonData);
+            var whatsonDataSpot = whatsonData.FilterSpots();
+
             var mediatorData = await ReadMediatorData(protocol);
             protocol.PublishMediatorTable(mediatorData);
+            var mediatorDataSpot = mediatorData.FilterSpots();
+
             var legacy = await ReadEnablerLegacy(protocol);
             protocol.PublishEnablerLegacyTable(legacy);
             var scte = await ReadEnablerScte(protocol);
@@ -51,11 +56,13 @@ public class QAction
             protocol.PublishMergedTable(mergedRows);
             protocol.PublishXPrintTable(adSalesData, whatsonData, mediatorData);
 
-            var adsalesWonDiff = DiffTool.ComputeAdSalesWhatsonDiff(adSalesData, whatsonData.FilterSpots());
+            var adsalesWonDiff = DiffTool.ComputeAdSalesWhatsonDiff(adSalesData, whatsonDataSpot);
             protocol.PublishAdSalesWhatsonDiffTable(adsalesWonDiff);
 
-            var wonMediatorDiff = DiffTool.ComputeWhatsonMediatorDiff(whatsonData.FilterSpots(), mediatorData.FilterSpots());
+            var wonMediatorDiff = DiffTool.ComputeWhatsonMediatorDiff(whatsonDataSpot, mediatorDataSpot);
             protocol.PublishMediatorWonDiffTable(wonMediatorDiff);
+
+            protocol.PublishAlarmBoxData(adSalesData, whatsonDataSpot, mediatorDataSpot, adsalesWonDiff, wonMediatorDiff);
 
             protocol.Mergeddebugmsg = $"Everything ok!";
         }

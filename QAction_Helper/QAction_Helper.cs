@@ -48,6 +48,96 @@ public static class Parameter
 	public const int sctedebugmsg_6100 = 6100;
 	/// <summary>PID: 6100 | Type: read</summary>
 	public const int sctedebugmsg = 6100;
+	/// <summary>PID: 9501 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public const int alarmboxdate0_9501 = 9501;
+	/// <summary>PID: 9501 | Type: read</summary>
+	public const int alarmboxdate0 = 9501;
+	/// <summary>PID: 9502 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public const int alarmboxadsalesitems0_9502 = 9502;
+	/// <summary>PID: 9502 | Type: read</summary>
+	public const int alarmboxadsalesitems0 = 9502;
+	/// <summary>PID: 9503 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public const int alarmboxwonitems0_9503 = 9503;
+	/// <summary>PID: 9503 | Type: read</summary>
+	public const int alarmboxwonitems0 = 9503;
+	/// <summary>PID: 9504 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public const int alarmboxmediatoritems0_9504 = 9504;
+	/// <summary>PID: 9504 | Type: read</summary>
+	public const int alarmboxmediatoritems0 = 9504;
+	/// <summary>PID: 9505 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public const int alarmboxadsaleswonalarm0_9505 = 9505;
+	/// <summary>PID: 9505 | Type: read</summary>
+	public const int alarmboxadsaleswonalarm0 = 9505;
+	/// <summary>PID: 9506 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public const int alarmboxwonmediatoralarm0_9506 = 9506;
+	/// <summary>PID: 9506 | Type: read</summary>
+	public const int alarmboxwonmediatoralarm0 = 9506;
+	/// <summary>PID: 9507 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public const int alarmboxdate1_9507 = 9507;
+	/// <summary>PID: 9507 | Type: read</summary>
+	public const int alarmboxdate1 = 9507;
+	/// <summary>PID: 9508 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public const int alarmboxadsalesitems1_9508 = 9508;
+	/// <summary>PID: 9508 | Type: read</summary>
+	public const int alarmboxadsalesitems1 = 9508;
+	/// <summary>PID: 9509 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public const int alarmboxwonitems1_9509 = 9509;
+	/// <summary>PID: 9509 | Type: read</summary>
+	public const int alarmboxwonitems1 = 9509;
+	/// <summary>PID: 9510 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public const int alarmboxmediatoritems1_9510 = 9510;
+	/// <summary>PID: 9510 | Type: read</summary>
+	public const int alarmboxmediatoritems1 = 9510;
+	/// <summary>PID: 9511 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public const int alarmboxadsaleswonalarm1_9511 = 9511;
+	/// <summary>PID: 9511 | Type: read</summary>
+	public const int alarmboxadsaleswonalarm1 = 9511;
+	/// <summary>PID: 9512 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public const int alarmboxwonmediatoralarm1_9512 = 9512;
+	/// <summary>PID: 9512 | Type: read</summary>
+	public const int alarmboxwonmediatoralarm1 = 9512;
+	/// <summary>PID: 9513 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public const int alarmboxdate2_9513 = 9513;
+	/// <summary>PID: 9513 | Type: read</summary>
+	public const int alarmboxdate2 = 9513;
+	/// <summary>PID: 9514 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public const int alarmboxadsalesitems2_9514 = 9514;
+	/// <summary>PID: 9514 | Type: read</summary>
+	public const int alarmboxadsalesitems2 = 9514;
+	/// <summary>PID: 9515 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public const int alarmboxwonitems2_9515 = 9515;
+	/// <summary>PID: 9515 | Type: read</summary>
+	public const int alarmboxwonitems2 = 9515;
+	/// <summary>PID: 9516 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public const int alarmboxmediatoritems2_9516 = 9516;
+	/// <summary>PID: 9516 | Type: read</summary>
+	public const int alarmboxmediatoritems2 = 9516;
+	/// <summary>PID: 9517 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public const int alarmboxadsaleswonalarm2_9517 = 9517;
+	/// <summary>PID: 9517 | Type: read</summary>
+	public const int alarmboxadsaleswonalarm2 = 9517;
+	/// <summary>PID: 9518 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public const int alarmboxwonmediatoralarm2_9518 = 9518;
+	/// <summary>PID: 9518 | Type: read</summary>
+	public const int alarmboxwonmediatoralarm2 = 9518;
 	/// <summary>PID: 10001 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public const int adsalesdebugmsg_10001 = 10001;
@@ -1225,6 +1315,42 @@ public interface SLProtocolExt : SLProtocol
 	object Wonmediatordiffdayoffset { get; set; }
 	object Wonmediatordiffresult_9011 { get; set; }
 	object Wonmediatordiffresult { get; set; }
+	object Alarmboxdate0_9501 { get; set; }
+	object Alarmboxdate0 { get; set; }
+	object Alarmboxadsalesitems0_9502 { get; set; }
+	object Alarmboxadsalesitems0 { get; set; }
+	object Alarmboxwonitems0_9503 { get; set; }
+	object Alarmboxwonitems0 { get; set; }
+	object Alarmboxmediatoritems0_9504 { get; set; }
+	object Alarmboxmediatoritems0 { get; set; }
+	object Alarmboxadsaleswonalarm0_9505 { get; set; }
+	object Alarmboxadsaleswonalarm0 { get; set; }
+	object Alarmboxwonmediatoralarm0_9506 { get; set; }
+	object Alarmboxwonmediatoralarm0 { get; set; }
+	object Alarmboxdate1_9507 { get; set; }
+	object Alarmboxdate1 { get; set; }
+	object Alarmboxadsalesitems1_9508 { get; set; }
+	object Alarmboxadsalesitems1 { get; set; }
+	object Alarmboxwonitems1_9509 { get; set; }
+	object Alarmboxwonitems1 { get; set; }
+	object Alarmboxmediatoritems1_9510 { get; set; }
+	object Alarmboxmediatoritems1 { get; set; }
+	object Alarmboxadsaleswonalarm1_9511 { get; set; }
+	object Alarmboxadsaleswonalarm1 { get; set; }
+	object Alarmboxwonmediatoralarm1_9512 { get; set; }
+	object Alarmboxwonmediatoralarm1 { get; set; }
+	object Alarmboxdate2_9513 { get; set; }
+	object Alarmboxdate2 { get; set; }
+	object Alarmboxadsalesitems2_9514 { get; set; }
+	object Alarmboxadsalesitems2 { get; set; }
+	object Alarmboxwonitems2_9515 { get; set; }
+	object Alarmboxwonitems2 { get; set; }
+	object Alarmboxmediatoritems2_9516 { get; set; }
+	object Alarmboxmediatoritems2 { get; set; }
+	object Alarmboxadsaleswonalarm2_9517 { get; set; }
+	object Alarmboxadsaleswonalarm2 { get; set; }
+	object Alarmboxwonmediatoralarm2_9518 { get; set; }
+	object Alarmboxwonmediatoralarm2 { get; set; }
 	object Adsalesdebugmsg_10001 { get; set; }
 	object Adsalesdebugmsg { get; set; }
 	object Mediatordebugmsg_10101 { get; set; }
@@ -1692,6 +1818,96 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public System.Object Wonmediatordiffresult_9011 {get { return GetParameter(9011); }set { SetParameter(9011, value); }}
 	/// <summary>PID: 9011  | Type: read</summary>
 	public System.Object Wonmediatordiffresult {get { return GetParameter(9011); }set { SetParameter(9011, value); }}
+	/// <summary>PID: 9501  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Alarmboxdate0_9501 {get { return GetParameter(9501); }set { SetParameter(9501, value); }}
+	/// <summary>PID: 9501  | Type: read</summary>
+	public System.Object Alarmboxdate0 {get { return GetParameter(9501); }set { SetParameter(9501, value); }}
+	/// <summary>PID: 9502  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Alarmboxadsalesitems0_9502 {get { return GetParameter(9502); }set { SetParameter(9502, value); }}
+	/// <summary>PID: 9502  | Type: read</summary>
+	public System.Object Alarmboxadsalesitems0 {get { return GetParameter(9502); }set { SetParameter(9502, value); }}
+	/// <summary>PID: 9503  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Alarmboxwonitems0_9503 {get { return GetParameter(9503); }set { SetParameter(9503, value); }}
+	/// <summary>PID: 9503  | Type: read</summary>
+	public System.Object Alarmboxwonitems0 {get { return GetParameter(9503); }set { SetParameter(9503, value); }}
+	/// <summary>PID: 9504  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Alarmboxmediatoritems0_9504 {get { return GetParameter(9504); }set { SetParameter(9504, value); }}
+	/// <summary>PID: 9504  | Type: read</summary>
+	public System.Object Alarmboxmediatoritems0 {get { return GetParameter(9504); }set { SetParameter(9504, value); }}
+	/// <summary>PID: 9505  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Alarmboxadsaleswonalarm0_9505 {get { return GetParameter(9505); }set { SetParameter(9505, value); }}
+	/// <summary>PID: 9505  | Type: read</summary>
+	public System.Object Alarmboxadsaleswonalarm0 {get { return GetParameter(9505); }set { SetParameter(9505, value); }}
+	/// <summary>PID: 9506  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Alarmboxwonmediatoralarm0_9506 {get { return GetParameter(9506); }set { SetParameter(9506, value); }}
+	/// <summary>PID: 9506  | Type: read</summary>
+	public System.Object Alarmboxwonmediatoralarm0 {get { return GetParameter(9506); }set { SetParameter(9506, value); }}
+	/// <summary>PID: 9507  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Alarmboxdate1_9507 {get { return GetParameter(9507); }set { SetParameter(9507, value); }}
+	/// <summary>PID: 9507  | Type: read</summary>
+	public System.Object Alarmboxdate1 {get { return GetParameter(9507); }set { SetParameter(9507, value); }}
+	/// <summary>PID: 9508  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Alarmboxadsalesitems1_9508 {get { return GetParameter(9508); }set { SetParameter(9508, value); }}
+	/// <summary>PID: 9508  | Type: read</summary>
+	public System.Object Alarmboxadsalesitems1 {get { return GetParameter(9508); }set { SetParameter(9508, value); }}
+	/// <summary>PID: 9509  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Alarmboxwonitems1_9509 {get { return GetParameter(9509); }set { SetParameter(9509, value); }}
+	/// <summary>PID: 9509  | Type: read</summary>
+	public System.Object Alarmboxwonitems1 {get { return GetParameter(9509); }set { SetParameter(9509, value); }}
+	/// <summary>PID: 9510  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Alarmboxmediatoritems1_9510 {get { return GetParameter(9510); }set { SetParameter(9510, value); }}
+	/// <summary>PID: 9510  | Type: read</summary>
+	public System.Object Alarmboxmediatoritems1 {get { return GetParameter(9510); }set { SetParameter(9510, value); }}
+	/// <summary>PID: 9511  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Alarmboxadsaleswonalarm1_9511 {get { return GetParameter(9511); }set { SetParameter(9511, value); }}
+	/// <summary>PID: 9511  | Type: read</summary>
+	public System.Object Alarmboxadsaleswonalarm1 {get { return GetParameter(9511); }set { SetParameter(9511, value); }}
+	/// <summary>PID: 9512  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Alarmboxwonmediatoralarm1_9512 {get { return GetParameter(9512); }set { SetParameter(9512, value); }}
+	/// <summary>PID: 9512  | Type: read</summary>
+	public System.Object Alarmboxwonmediatoralarm1 {get { return GetParameter(9512); }set { SetParameter(9512, value); }}
+	/// <summary>PID: 9513  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Alarmboxdate2_9513 {get { return GetParameter(9513); }set { SetParameter(9513, value); }}
+	/// <summary>PID: 9513  | Type: read</summary>
+	public System.Object Alarmboxdate2 {get { return GetParameter(9513); }set { SetParameter(9513, value); }}
+	/// <summary>PID: 9514  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Alarmboxadsalesitems2_9514 {get { return GetParameter(9514); }set { SetParameter(9514, value); }}
+	/// <summary>PID: 9514  | Type: read</summary>
+	public System.Object Alarmboxadsalesitems2 {get { return GetParameter(9514); }set { SetParameter(9514, value); }}
+	/// <summary>PID: 9515  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Alarmboxwonitems2_9515 {get { return GetParameter(9515); }set { SetParameter(9515, value); }}
+	/// <summary>PID: 9515  | Type: read</summary>
+	public System.Object Alarmboxwonitems2 {get { return GetParameter(9515); }set { SetParameter(9515, value); }}
+	/// <summary>PID: 9516  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Alarmboxmediatoritems2_9516 {get { return GetParameter(9516); }set { SetParameter(9516, value); }}
+	/// <summary>PID: 9516  | Type: read</summary>
+	public System.Object Alarmboxmediatoritems2 {get { return GetParameter(9516); }set { SetParameter(9516, value); }}
+	/// <summary>PID: 9517  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Alarmboxadsaleswonalarm2_9517 {get { return GetParameter(9517); }set { SetParameter(9517, value); }}
+	/// <summary>PID: 9517  | Type: read</summary>
+	public System.Object Alarmboxadsaleswonalarm2 {get { return GetParameter(9517); }set { SetParameter(9517, value); }}
+	/// <summary>PID: 9518  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Alarmboxwonmediatoralarm2_9518 {get { return GetParameter(9518); }set { SetParameter(9518, value); }}
+	/// <summary>PID: 9518  | Type: read</summary>
+	public System.Object Alarmboxwonmediatoralarm2 {get { return GetParameter(9518); }set { SetParameter(9518, value); }}
 	/// <summary>PID: 10001  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Adsalesdebugmsg_10001 {get { return GetParameter(10001); }set { SetParameter(10001, value); }}
