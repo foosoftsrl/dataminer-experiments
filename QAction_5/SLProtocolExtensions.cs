@@ -278,11 +278,15 @@
                     Mediatorenablerlegacy = row.enablerLegacy ?? string.Empty,
                     Mediatorsctebreakstart = row.scteBroadcastBreakStart ?? string.Empty,
                     Mediatorscteadvstart = row.scteBroadcastProviderAdvStart ?? string.Empty,
+                    Mediatormaterialid = row.materialId ?? string.Empty,
+                    Mediatordayoffset = row.DayOffset,
                 }.ToObjectArray());
             }
+
             protocol.FillArray(Parameter.Mediator.tablePid, tableRows, NotifyProtocol.SaveOption.Full);
             return tableRows;
         }
+
         public static void PublishMergedTable(this SLProtocolExt protocol, MergedEntry[] mergedRows)
         {
             List<object[]> tableRows = new List<object[]>();

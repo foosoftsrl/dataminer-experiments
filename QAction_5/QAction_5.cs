@@ -148,30 +148,37 @@ public class QAction
             return null;
         return s;
     }
+
     public List<MediatorRow> GetLastPublishedMediator(SLProtocolExt protocol)
     {
         var result = new List<MediatorRow>();
         try
         {
             var count = protocol.mediator.RowCount;
-            for(var idx = 0; idx < count; idx++) 
+            for(var idx = 0; idx < count; idx++)
             {
                 var data = (object[])protocol.GetRow(Parameter.Mediator.tablePid, idx);
                 var row = new MediatorQActionRow(data);
                 result.Add(new MediatorRow
                 {
                     Id = Int32.Parse((string)row.Mediatorid),
-                    StartTime = DateTime.Parse((string)row.Mediatordate),
+                    ScheduleReference = NullIfEmpty((string)row.Mediatorschedulereference),
                     ReconcileKey = NullIfEmpty((string)row.Mediatorreconcilekey),
+                    StartTime = DateTime.Parse((string)row.Mediatordate),
                     Title = NullIfEmpty((string)row.Mediatortitle),
                     Status = NullIfEmpty((string)row.Mediatorstatus),
-                    ScheduleReference = NullIfEmpty((string)row.Mediatorschedulereference),
+                    scteBroadcastBreakStart = NullIfEmpty((string)row.Mediatorsctebreakstart),
+                    scteBroadcastProviderAdvStart = NullIfEmpty((string)row.Mediatorscteadvstart),
+                    enablerLegacy = NullIfEmpty((string)row.Mediatorenablerlegacy),
+                    materialId = NullIfEmpty((string)row.Mediatormaterialid),
                 });
             }
-        } catch(Exception ex)
+        }
+        catch(Exception ex)
         {
             protocol.Log($"QA{protocol.QActionID}|{protocol.GetTriggerParameter()}|Run|Exception thrown:{Environment.NewLine}{ex}", LogType.Error, LogLevel.NoLogging);
         }
+
         return result;
     }
 

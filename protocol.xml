@@ -605,6 +605,8 @@
 				<ColumnOption idx="6" pid="2007" type="retrieved" options=";save"/>
 				<ColumnOption idx="7" pid="2008" type="retrieved" options=";save"/>
 				<ColumnOption idx="8" pid="2009" type="retrieved" options=";save"/>
+				<ColumnOption idx="9" pid="2010" type="retrieved" options=";save"/>
+				<ColumnOption idx="10" pid="2011" type="retrieved" options=";save"/>
 			</ArrayOptions>
 			<Information>
 				<Subtext>Mediator Table</Subtext>
@@ -794,6 +796,45 @@
 				<Type>string</Type>
 			</Measurement>
 		</Param>
+		<Param id="2010" trending="false">
+			<Name>mediatorMaterialId</Name>
+			<Description>MaterialId</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>MaterialId</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="2011" trending="false">
+			<Name>mediatorDayOffset</Name>
+			<Description>DayOffset</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>DayOffset</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		
 		<Param id="3000">
 			<Name>won</Name>
 			<Description>WON Table</Description>
