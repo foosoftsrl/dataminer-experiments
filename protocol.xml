@@ -1020,8 +1020,8 @@
 		</Param>
 		
 		<Param id="4000">
-			<Name>mergedTable</Name>
-			<Description>Merged Table</Description>
+			<Name>taCheckTable</Name>
+			<Description>Palline</Description>
 			<Type>array</Type>
 			<ArrayOptions index="0">
 				<ColumnOption idx="0" pid="4001" type="retrieved" options=""/>
@@ -1031,8 +1031,6 @@
 				<ColumnOption idx="4" pid="4005" type="retrieved" options=""/>
 				<ColumnOption idx="5" pid="4006" type="retrieved" options=""/>
 				<ColumnOption idx="6" pid="4007" type="retrieved" options=""/>
-				<ColumnOption idx="7" pid="4008" type="retrieved" options=""/>
-				<ColumnOption idx="8" pid="4009" type="retrieved" options=""/>
 			</ArrayOptions>
 			<Information>
 				<Subtext>Table Which Shows Data From Other Tables</Subtext>
@@ -1048,12 +1046,12 @@
 				</Positions>
 			</Display>
 			<Measurement>
-				<Type options=";tab=columns:4001|0-4002|1-4003|2-4004|3-4005|4-4006|5-4007|6-4008|7-4009|8,width:100-120-100-100-100-100-160-160-120,sort:STRING-STRING|ASC|0-STRING-STRING-STRING-STRING-STRING-STRING-STRING,lines:25,filter:true">table</Type>
+				<Type options=";tab=columns:4001|0-4002|1-4003|2-4004|3-4005|4-4006|5-4007|6,width:100-120-100-100-100-100-160,sort:STRING-STRING|ASC|0-STRING-STRING-STRING-STRING-STRING,lines:25,filter:true">table</Type>
 			</Measurement>
 		</Param>
 		
 		<Param id="4001" trending="false">
-			<Name>mergedReconcileKey</Name>
+			<Name>taCheckReconcileKey</Name>
 			<Description>ReconcileKey</Description>
 			<Type>read</Type>
 			<Information>
@@ -1072,7 +1070,7 @@
 			</Measurement>
 		</Param>
 		<Param id="4002" trending="false">
-			<Name>mergedAdSalesTime</Name>
+			<Name>taCheckAdSalesTime</Name>
 			<Description>Ora Prevista</Description>
 			<Type>read</Type>
 			<Information>
@@ -1091,7 +1089,7 @@
 			</Measurement>
 		</Param>
 		<Param id="4003" trending="false">
-			<Name>mergedProductCode</Name>
+			<Name>taCheckProductCode</Name>
 			<Description>ProductCode</Description>
 			<Type>read</Type>
 			<Information>
@@ -1111,27 +1109,7 @@
 		</Param>
 		
 		<Param id="4004" trending="false">
-			<Name>mergedDuration</Name>
-			<Description>Duration</Description>
-			<Type>read</Type>
-			<Information>
-				<Subtext>Duration</Subtext>
-			</Information>
-			<Interprete>
-				<RawType>other</RawType>
-				<Type>string</Type>
-				<LengthType>next param</LengthType>
-			</Interprete>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-			</Display>
-			<Measurement>
-				<Type>string</Type>
-			</Measurement>
-		</Param>
-		
-		<Param id="4005" trending="false">
-			<Name>mergedHaveWon</Name>
+			<Name>taCheckHaveWon</Name>
 			<Description>HaveWon</Description>
 			<Type>read</Type>
 			<Information>
@@ -1150,8 +1128,8 @@
 			</Measurement>
 		</Param>
 		
-		<Param id="4006" trending="false">
-			<Name>mergedHaveMediator</Name>
+		<Param id="4005" trending="false">
+			<Name>taCheckHaveMediator</Name>
 			<Description>HaveMediator</Description>
 			<Type>read</Type>
 			<Information>
@@ -1170,28 +1148,8 @@
 			</Measurement>
 		</Param>
 		
-		<Param id="4007" trending="false">
-			<Name>mergedWonTime</Name>
-			<Description>WonTime</Description>
-			<Type>read</Type>
-			<Information>
-				<Subtext>WonTime</Subtext>
-			</Information>
-			<Interprete>
-				<RawType>other</RawType>
-				<Type>string</Type>
-				<LengthType>next param</LengthType>
-			</Interprete>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-			</Display>
-			<Measurement>
-				<Type>string</Type>
-			</Measurement>
-		</Param>
-		
-		<Param id="4008" trending="false">
-			<Name>mergedMediatorTime</Name>
+		<Param id="4006" trending="false">
+			<Name>taCheckMediatorTime</Name>
 			<Description>MediatorTime</Description>
 			<Type>read</Type>
 			<Information>
@@ -1210,8 +1168,8 @@
 			</Measurement>
 		</Param>
 		
-		<Param id="4009" trending="false">
-			<Name>mergedType</Name>
+		<Param id="4007" trending="false">
+			<Name>taCheckType</Name>
 			<Description>AllocationType</Description>
 			<Type>read</Type>
 			<Information>
@@ -2541,7 +2499,7 @@
 			</Measurement>
 		</Param>
 		<Param id="10200" trending="false" save="true">
-			<Name>mergedIterationCounter</Name>
+			<Name>iterationCounter</Name>
 			<Description>How Many Times Tables Has Been Processed</Description>
 			<Type>read</Type>
 			<Information>
@@ -2965,7 +2923,7 @@
 	<Timers>
 		<Timer id="1">
 			<Name>Fast Timer (5s)</Name>
-			<Time initial="true">2000</Time>
+			<Time initial="true">5000</Time>
 			<Interval>75</Interval>
 			<Content>
 				<Group>3</Group>

@@ -13,14 +13,14 @@ namespace QAction5Tests
     public class UnitTest1
     {
         [TestMethod]
-        public void TestMerge()
+        public void TestPalline()
         {
             var adSalesData = Utils.XmlDeserializeFromFile<AdSales.DataType>("adsales.xml").Flatten();
             var whatsonData = Utils.XmlDeserializeFromFile<Whatson.Pharos>("whatson.xml").Flatten();
             var mediatorData = Utils.JsonDeserializeFromFile<Mediator.Welcome>("mediator.json", Mediator.Converter.Settings).Flatten();
             var legacyData = EnablerSource.parseText(Utils.ReadFile("legacy.csv"));
             var scteData = EnablerSource.parseText(Utils.ReadFile("scte.csv"));
-            var merged = Merger.Merge(adSalesData, whatsonData, mediatorData, scteData, legacyData);
+            var merged = Palline.Compute(adSalesData, whatsonData, mediatorData, scteData, legacyData);
             var matchedMediator = merged.Count(s => s.mediatorData != null);
             var matchedWhatson = merged.Count(s => s.whatsonData != null);
             Assert.AreEqual(505, matchedWhatson);

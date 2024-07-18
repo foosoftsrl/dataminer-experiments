@@ -34,7 +34,7 @@ public class QAction
     /// <param name="protocol">Link with SLProtocol process.</param>
     public async Task Run(SLProtocolExt protocol)
     {
-        protocol.Mergediterationcounter = (double)protocol.Mergediterationcounter + 1;
+        protocol.Iterationcounter = (double)protocol.Iterationcounter + 1;
         try
         {
             var adSalesData = ReadAdSalesData(protocol);
@@ -52,9 +52,8 @@ public class QAction
             protocol.PublishEnablerLegacyTable(legacy);
             var scte = await ReadEnablerScte(protocol);
             protocol.PublishScteTable(scte);
-            var mergedRows = Merger.Merge(adSalesData, whatsonData, mediatorData, scte, legacy);
+            var mergedRows = Palline.Compute(adSalesData, whatsonData, mediatorData, scte, legacy);
             protocol.PublishMergedTable(mergedRows);
-            protocol.PublishXPrintTable(adSalesData, whatsonData, mediatorData);
 
             var adsalesWonDiff = XPrint.ComputeAdSalesWhatsonDiff(adSalesData, whatsonDataSpot);
             protocol.PublishAdSalesWhatsonDiffTable(adsalesWonDiff);

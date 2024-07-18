@@ -24,50 +24,6 @@
             return (string)channelName;
         }
 
-        public static void PublishXPrintTable(this SLProtocolExt protocol, List<AdSalesRow> adSalesData, List<WhatsonRow> whatsonRows, List<MediatorRow> mediatorRows) 
-        {
-            List<object[]> tableRows = new List<object[]>();
-            for (var i = 0; i < 3; i++)
-            {
-                var from = DateTime.Today.AddDays(i);
-                var to = DateTime.Today.AddDays(i + 1);
-                var adSalesCount = adSalesData.Count(row => row.TimeOfDay >= from && row.TimeOfDay < to);
-                var whatsonCount = whatsonRows.Count(row => row.StartTime >= from && row.StartTime < to);
-                var mediatorCount = mediatorRows.Count(row => row.StartTime >= from && row.StartTime < to);
-                var text = adSalesCount + "/" + whatsonCount + "/" + mediatorCount;
-                var errorCount = new Random().Next(2);
-                tableRows.Add(new XprintQActionRow
-                {
-                    Xprintindex = i,
-                    Xprintdate = from.ToString("yyyy-MM-dd HH:mm:ss"),
-                    Xprintadsales = adSalesCount,
-                    Xprintwhatson = whatsonCount,
-                    Xprintmediator = mediatorCount,
-                    Xprinterrors = errorCount,
-                }.ToObjectArray());
-
-                switch (i)
-                {
-                    case 0:
-                        protocol.Xprintdate0 = from.ToString("yyyy-MM-dd");
-                        protocol.Xprintdata0 = text;
-                        protocol.Xprintalarm0 = errorCount;
-                        break;
-                    case 1:
-                        protocol.Xprintdate1 = from.ToString("yyyy-MM-dd");
-                        protocol.Xprintdata1 = text;
-                        protocol.Xprintalarm1 = errorCount;
-                        break;
-                    case 2:
-                        protocol.Xprintdate2 = from.ToString("yyyy-MM-dd");
-                        protocol.Xprintdata2 = text;
-                        protocol.Xprintalarm2 = errorCount;
-                        break;
-                }
-            }
-            protocol.FillArray(Parameter.Xprint.tablePid, tableRows, NotifyProtocol.SaveOption.Full);
-        }
-
         public static void PublishAlarmBoxData(this SLProtocolExt protocol, List<AdSalesRow> adSalesData, List<WhatsonRow> whatsonData, List<MediatorRow> mediatorData, List<(AdSalesRow, WhatsonRow, string)> adsalesWonDiff, List<(WhatsonRow, MediatorRow, string)> wonMediatorDiff)
         {
             for (var i = 0; i < 3; i++)
@@ -292,21 +248,19 @@
             List<object[]> tableRows = new List<object[]>();
             foreach (var row in mergedRows)
             {
-                tableRows.Add(new MergedtableQActionRow
+                tableRows.Add(new TachecktableQActionRow
                 {
-                    Mergedreconcilekey = row.adSalesData.ReconcileKey,
-                    Mergedproductcode = row.adSalesData.ProductCode,
-                    Mergedduration = row.adSalesData.Duration,
-                    Mergedadsalestime = row.adSalesTime.ToString("yyyy-MM-dd HH:mm:ss"),
-                    Mergedhavewon = (row.whatsonData != null) ? "\u2713" : string.Empty,
-                    Mergedhavemediator = (row.mediatorData != null) ? "✓" : string.Empty,
-                    Mergedwontime = row.whatsonData?.StartTime.ToString("yyyy-MM-dd HH:mm:ss") ?? string.Empty,
-                    Mergedmediatortime = row.mediatorData?.StartTime.ToString("yyyy-MM-dd HH:mm:ss") ?? string.Empty,
-                    Mergedtype = row.adSalesData.Type,
+                    Tacheckreconcilekey = row.adSalesData.ReconcileKey,
+                    Tacheckproductcode = row.adSalesData.ProductCode,
+                    Tacheckadsalestime = row.adSalesTime.ToString("yyyy-MM-dd HH:mm:ss"),
+                    Tacheckhavewon = (row.whatsonData != null) ? "\u2713" : string.Empty,
+                    Tacheckhavemediator = (row.mediatorData != null) ? "✓" : string.Empty,
+                    Tacheckmediatortime = row.mediatorData?.StartTime.ToString("yyyy-MM-dd HH:mm:ss") ?? string.Empty,
+                    Tachecktype = row.adSalesData.Type,
                 }.ToObjectArray());
             }
 
-            protocol.FillArray(Parameter.Mergedtable.tablePid, tableRows, NotifyProtocol.SaveOption.Full);
+            protocol.FillArray(Parameter.Tachecktable.tablePid, tableRows, NotifyProtocol.SaveOption.Full);
         }
 
         public static string GetParameterDescriptionAsString(this SLProtocolExt protocol, int parameterId)
