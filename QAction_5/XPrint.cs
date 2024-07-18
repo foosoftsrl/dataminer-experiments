@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace QAction_5
 {
-    public class DiffTool
+    public class XPrint
     {
         public static List<(AdSalesRow, WhatsonRow, string)> ComputeAdSalesWhatsonDiff(List<AdSalesRow> adSalesRowsGlobal, List<WhatsonRow> whatsonRowsGlobal)
         {

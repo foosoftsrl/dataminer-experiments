@@ -56,10 +56,10 @@ public class QAction
             protocol.PublishMergedTable(mergedRows);
             protocol.PublishXPrintTable(adSalesData, whatsonData, mediatorData);
 
-            var adsalesWonDiff = DiffTool.ComputeAdSalesWhatsonDiff(adSalesData, whatsonDataSpot);
+            var adsalesWonDiff = XPrint.ComputeAdSalesWhatsonDiff(adSalesData, whatsonDataSpot);
             protocol.PublishAdSalesWhatsonDiffTable(adsalesWonDiff);
 
-            var wonMediatorDiff = DiffTool.ComputeWhatsonMediatorDiff(whatsonDataSpot, mediatorDataSpot);
+            var wonMediatorDiff = XPrint.ComputeWhatsonMediatorDiff(whatsonDataSpot, mediatorDataSpot);
             protocol.PublishMediatorWonDiffTable(wonMediatorDiff);
 
             protocol.PublishAlarmBoxData(adSalesData, whatsonDataSpot, mediatorDataSpot, adsalesWonDiff, wonMediatorDiff);
