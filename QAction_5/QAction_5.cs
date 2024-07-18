@@ -46,7 +46,7 @@ public class QAction
 
             var mediatorData = await ReadMediatorData(protocol);
             protocol.PublishMediatorTable(mediatorData);
-            var mediatorDataSpot = mediatorData.FilterSpots();
+            var mediatorDataSpot = mediatorData.FilterSpots().ComputeDayOffsetFromWhatsonData(whatsonDataSpot);
 
             var legacy = await ReadEnablerLegacy(protocol);
             protocol.PublishEnablerLegacyTable(legacy);

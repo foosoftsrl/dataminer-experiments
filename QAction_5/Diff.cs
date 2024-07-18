@@ -1,9 +1,8 @@
-﻿namespace QAction_5
-{
-    using Skyline.DataMiner.Net.Helper;
-    using System;
-    using System.Collections.Generic;
+﻿using Skyline.DataMiner.Net.Helper;
+using System.Collections.Generic;
 
+namespace QAction_5
+{
     public class DiffTool
     {
         public static List<(AdSalesRow, WhatsonRow, string)> ComputeAdSalesWhatsonDiff(List<AdSalesRow> adSalesRowsGlobal, List<WhatsonRow> whatsonRowsGlobal)

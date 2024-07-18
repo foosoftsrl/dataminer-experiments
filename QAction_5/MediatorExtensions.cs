@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using Mediator;
+    using Skyline.DataMiner.Net.Helper;
 
     public static class MediatorExtensions
     {
@@ -172,6 +173,66 @@
             if (title.GenericList == null || title.GenericList.Size != 1)
                 return null;
             return title.GenericList.Object[0];
+        }
+
+        public static List<MediatorRow> ComputeDayOffsetFromWhatsonData(this List<MediatorRow> list, List<WhatsonRow> whatsonRowsGlobal)
+        {
+            bool insertDayOffset = false;
+            for (var day = -1; day < 3; day++)
+            {
+                List<WhatsonRow> whatsonRows = whatsonRowsGlobal.FindAll(row => row.DayOffset == day);
+                if (whatsonRows.IsNullOrEmpty())
+                {
+                    continue;
+                }
+
+                var reconcileKeyToWhatsonIndex = new Dictionary<string, int>();
+
+                foreach (var (row, index) in whatsonRows.WithIndex())
+                {
+                    if (row.ReconcileKey != null)
+                    {
+                        reconcileKeyToWhatsonIndex.Add(row.ReconcileKey, index);
+                    }
+                }
+
+                int lastMediatorIdx = -1;
+                int lastWhatsonIdx = -1;
+                foreach (var (mediatorRow, mediatorIdx) in list.WithIndex())
+                {
+                    var reconcileKey = mediatorRow.ReconcileKey;
+
+                    if (reconcileKeyToWhatsonIndex.TryGetValue(reconcileKey, out var whatsonIdx))
+                    {
+                        if (whatsonIdx > lastWhatsonIdx)
+                        {
+                            for (var i = lastMediatorIdx + 1; i < mediatorIdx; i++)
+                            {
+                                list[i].DayOffset = whatsonRows[whatsonIdx].DayOffset;
+                            }
+
+                            list[mediatorIdx].DayOffset = whatsonRows[whatsonIdx].DayOffset;
+                            lastMediatorIdx = mediatorIdx;
+                            lastWhatsonIdx = whatsonIdx;
+                            insertDayOffset = true;
+                        }
+                    }
+                    else if(day == -1 || insertDayOffset)
+                    {
+                        list[mediatorIdx].DayOffset = whatsonRows[whatsonIdx].DayOffset;
+                    }
+                }
+
+                if(day == 2)
+                {
+                    for (var i = lastMediatorIdx + 1; i < list.Count; i++)
+                    {
+                        list[i].DayOffset = whatsonRows[lastWhatsonIdx].DayOffset;
+                    }
+                }
+            }
+
+            return list;
         }
     }
 }
