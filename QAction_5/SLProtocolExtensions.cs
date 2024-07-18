@@ -256,7 +256,10 @@
                     Tacheckhavewon = (row.whatsonData != null) ? "\u2713" : string.Empty,
                     Tacheckhavemediator = (row.mediatorData != null) ? "✓" : string.Empty,
                     Tacheckmediatortime = row.mediatorData?.StartTime.ToString("yyyy-MM-dd HH:mm:ss") ?? string.Empty,
-                    Tachecktype = row.adSalesData.Type,
+                    Tachecktype = row.adSalesData.Enabler,
+                    Tacheckenablerprobe = string.Empty,
+                    Tacheckscteprobe = string.Empty,
+
                 }.ToObjectArray());
             }
 

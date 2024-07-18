@@ -1031,6 +1031,8 @@
 				<ColumnOption idx="4" pid="4005" type="retrieved" options=""/>
 				<ColumnOption idx="5" pid="4006" type="retrieved" options=""/>
 				<ColumnOption idx="6" pid="4007" type="retrieved" options=""/>
+				<ColumnOption idx="7" pid="4008" type="retrieved" options="" />
+				<ColumnOption idx="8" pid="4009" type="retrieved" options="" />
 			</ArrayOptions>
 			<Information>
 				<Subtext>Table Which Shows Data From Other Tables</Subtext>
@@ -1046,7 +1048,7 @@
 				</Positions>
 			</Display>
 			<Measurement>
-				<Type options=";tab=columns:4001|0-4002|1-4003|2-4004|3-4005|4-4006|5-4007|6,width:100-120-100-100-100-100-160,sort:STRING-STRING|ASC|0-STRING-STRING-STRING-STRING-STRING,lines:25,filter:true">table</Type>
+				<Type options=";tab=columns:4001|0-4002|1-4003|2-4004|3-4005|4-4006|5-4007|6-4008|7-4009|8,width:100-120-100-100-100-100-160-100-100,sort:STRING-STRING|ASC|0-STRING-STRING-STRING-STRING-STRING-STRING-STRING,lines:25,filter:true">table</Type>
 			</Measurement>
 		</Param>
 		
@@ -1170,10 +1172,50 @@
 		
 		<Param id="4007" trending="false">
 			<Name>taCheckType</Name>
-			<Description>AllocationType</Description>
+			<Description>Type</Description>
 			<Type>read</Type>
 			<Information>
-				<Subtext>Allocation Type</Subtext>
+				<Subtext>Type</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		
+		<Param id="4008" trending="false">
+			<Name>taCheckEnablerProbe</Name>
+			<Description>Enabler</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>Enabler</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		
+		<Param id="4009" trending="false">
+			<Name>taCheckScteProbe</Name>
+			<Description>Scte</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>Scte</Subtext>
 			</Information>
 			<Interprete>
 				<RawType>other</RawType>
