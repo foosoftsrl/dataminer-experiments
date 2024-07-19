@@ -18,7 +18,7 @@ namespace QAction5Tests
             var mediatorData = Utils.JsonDeserializeFromFile<Mediator.Welcome>("mediator.json", Mediator.Converter.Settings).Flatten();
             var legacyData = EnablerSource.parseText(Utils.ReadFile("legacy.csv"));
             var scteData = EnablerSource.parseText(Utils.ReadFile("scte.csv"));
-            var merged = Palline.Compute(adSalesData, whatsonData, mediatorData, scteData, legacyData);
+            var merged = Palline.Compute(adSalesData, whatsonData, mediatorData, scteData, legacyData, "Pippo", "PippoMux");
             var matchedMediator = merged.Count(s => s.mediatorData != null);
             var matchedWhatson = merged.Count(s => s.whatsonData != null);
             Assert.AreEqual(9, matchedWhatson);
