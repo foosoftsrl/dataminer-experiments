@@ -5,9 +5,7 @@
 //-----------------------------------------------------------------------
 namespace QAction5Tests
 {
-    using Newtonsoft.Json;
     using QAction_5;
-    using Skyline.DataMiner.Scripting;
 
     [TestClass]
     public class UnitTest1
@@ -23,8 +21,8 @@ namespace QAction5Tests
             var merged = Palline.Compute(adSalesData, whatsonData, mediatorData, scteData, legacyData);
             var matchedMediator = merged.Count(s => s.mediatorData != null);
             var matchedWhatson = merged.Count(s => s.whatsonData != null);
-            Assert.AreEqual(505, matchedWhatson);
-            Assert.AreEqual(175, matchedMediator);
+            Assert.AreEqual(9, matchedWhatson);
+            Assert.AreEqual(2, matchedMediator);
             var firstLegacy = whatsonData.First(s => s.enablerLegacy != null);
             var firstLegacyOnMerged = merged.First(s => s.whatsonData == firstLegacy);
             Assert.IsNotNull(firstLegacyOnMerged.legacyEventLoad);
@@ -41,12 +39,25 @@ namespace QAction5Tests
         }
 
         [TestMethod]
-        public void TestXPrintFiff()
+        public void TestAdSalesWhatsonDiff()
         {
             var adSalesData = Utils.XmlDeserializeFromFile<AdSales.DataType>("adsales.xml").Flatten();
             var whatsonData = Utils.XmlDeserializeFromFile<Whatson.Pharos>("whatson.xml").Flatten();
             var diff = XPrint.ComputeAdSalesWhatsonDiff(adSalesData, whatsonData!.FilterSpots());
             Assert.IsNotNull(diff);
+            var countOk = diff.FindAll(e => e.Item3 == "ok").Count();
+            Assert.AreEqual(482, countOk);
+        }
+
+        [TestMethod]
+        public void TestWhatsonMediatorDiff()
+        {
+            var whatsonData = Utils.XmlDeserializeFromFile<Whatson.Pharos>("whatson.xml").Flatten();
+            var mediatorData = Utils.JsonDeserializeFromFile<Mediator.Welcome>("mediator.json", Mediator.Converter.Settings).Flatten();
+            var diff = XPrint.ComputeWhatsonMediatorDiff(whatsonData!.FilterSpots(), mediatorData!.FilterSpots());
+            Assert.IsNotNull(diff);
+            var countOk = diff.FindAll(e => e.Item3 == "ok").Count();
+            Assert.AreEqual(178, countOk);
         }
 
         [TestMethod]
