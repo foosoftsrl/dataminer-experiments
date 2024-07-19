@@ -79,7 +79,7 @@ public class QAction
     {
         try
         {
-            var url = $"{protocol.Probeurl}legacy?channel={protocol.channelName()}";
+            var url = $"{protocol.Probeurl}legacy?channel={protocol.ChannelName()}";
             var rows = await enablerSource.ReadEnabler(url);
             protocol.Legacydebugmsg = "Everything ok...";
             return rows;
@@ -95,7 +95,7 @@ public class QAction
     {
         try
         {
-            var url = $"{protocol.Probeurl}scte?channel={protocol.channelName()}";
+            var url = $"{protocol.Probeurl}scte?channel={protocol.ChannelName()}";
             var rows = await enablerSource.ReadEnabler(url);
             protocol.Sctedebugmsg = "Everything ok...";
             return rows;
@@ -109,7 +109,7 @@ public class QAction
 
     public List<WhatsonRow> ReadWhatsonData(SLProtocolExt protocol)
     {
-        string channelName = (string)protocol.channelName();
+        string channelName = (string)protocol.ChannelName();
         string dir = @"\\winfs01.mediaset.it\DM_Watchfolder\WON";
         try
         {
@@ -127,7 +127,7 @@ public class QAction
 
     public List<AdSalesRow> ReadAdSalesData(SLProtocolExt protocol)
     {
-        string channelName = protocol.channelName();
+        string channelName = protocol.ChannelName();
         string dir = @"\\winfs01.mediaset.it\DM_Watchfolder\Adsales";
         try
         {
@@ -189,7 +189,7 @@ public class QAction
         try
         {
             string uri = protocol.GetRequiredNonEmptyStringParameter(Parameter.urimediator);
-            string channelName = protocol.channelName();
+            string channelName = protocol.ChannelName();
             int maxResults = protocol.GetRequiredIntParameter(Parameter.maxresultsmediator);
             var parsed = await mediatorSource.ReadMediator(uri, channelName, maxResults);
             var merged = mediatorSource.Merge(lastPublished, parsed);
