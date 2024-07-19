@@ -8,7 +8,7 @@
 
     public class Palline
     {
-        public static MergedEntry[] Compute(List<AdSalesRow> adSalesData, List<WhatsonRow> whatsonData, List<MediatorRow> mediatorData, List<EnablerRow> scteEvents, List<EnablerRow> legacyEvents, string channel)
+        public static MergedEntry[] Compute(List<AdSalesRow> adSalesData, List<WhatsonRow> whatsonData, List<MediatorRow> mediatorData, List<EnablerRow> scteEvents, List<EnablerRow> legacyEvents, string channel, string mux)
         {
             var whatsonMap = whatsonData.ToReconcileKeyMap();
             var mediatorMap = mediatorData.ToReconcileKeyMap();
@@ -24,6 +24,7 @@
                 rowList.Add(new MergedEntry
                 {
                     channel = channel,
+                    mux = mux,
                     adSalesTime = adSalesRow.TimeOfDay,
                     adSalesData = adSalesRow,
                     whatsonData = whatsonRow,

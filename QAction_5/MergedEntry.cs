@@ -9,6 +9,7 @@
     public class MergedEntry
     {
         public string channel;
+        public string mux;
         public DateTime adSalesTime;
         public AdSalesRow adSalesData;
         public WhatsonRow whatsonData;

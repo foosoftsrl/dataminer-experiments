@@ -5,7 +5,7 @@
 		<Encoding>unicode</Encoding>
 	</Options>
 	<Description>AdSales DataMiner connector</Description>
-	<Version>1.0.0.6</Version>
+	<Version>1.0.0.7</Version>
 	<IntegrationID>DMS-DRV-</IntegrationID>
 	<Provider>Foosoft</Provider>
 	<Vendor>Foosoft</Vendor>
@@ -63,7 +63,7 @@
 		</Param>
 		<Param id="5">
 			<Name>title_Begin_UrlConfig</Name>
-			<Description>URL Configuration</Description>
+			<Description>Configuration</Description>
 			<Type>fixed</Type>
 			<Display>
 				<RTDisplay>true</RTDisplay>
@@ -88,7 +88,7 @@
 					<Position>
 						<Page>Configuration</Page>
 						<Column>0</Column>
-						<Row>12</Row>
+						<Row>13</Row>
 					</Position>
 				</Positions>
 			</Display>
@@ -197,6 +197,56 @@
 				<Type>string</Type>
 			</Measurement>
 		</Param>
+		<Param id="21" trending="false" save="true">
+			<Name>muxName</Name>
+			<Description>Mux Name</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Configuration</Page>
+						<Column>0</Column>
+						<Row>3</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="22" trending="false" setter="true">
+			<Name>muxName</Name>
+			<Description>Mux Name</Description>
+			<Type>write</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Configuration</Page>
+						<Column>0</Column>
+						<Row>3</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
 		
 		
 		<Param id="11" trending="false" save="true">
@@ -216,7 +266,7 @@
 					<Position>
 						<Page>Configuration</Page>
 						<Column>0</Column>
-						<Row>4</Row>
+						<Row>5</Row>
 					</Position>
 				</Positions>
 			</Display>
@@ -241,7 +291,7 @@
 					<Position>
 						<Page>Configuration</Page>
 						<Column>0</Column>
-						<Row>4</Row>
+						<Row>5</Row>
 					</Position>
 				</Positions>
 			</Display>
@@ -266,7 +316,7 @@
 					<Position>
 						<Page>Configuration</Page>
 						<Column>0</Column>
-						<Row>3</Row>
+						<Row>4</Row>
 					</Position>
 				</Positions>
 			</Display>
@@ -291,7 +341,7 @@
 					<Position>
 						<Page>Configuration</Page>
 						<Column>0</Column>
-						<Row>3</Row>
+						<Row>4</Row>
 					</Position>
 				</Positions>
 			</Display>
@@ -316,7 +366,7 @@
 					<Position>
 						<Page>Configuration</Page>
 						<Column>0</Column>
-						<Row>7</Row>
+						<Row>8</Row>
 					</Position>
 				</Positions>
 			</Display>
@@ -339,7 +389,7 @@
 					<Position>
 						<Page>Configuration</Page>
 						<Column>0</Column>
-						<Row>7</Row>
+						<Row>8</Row>
 					</Position>
 				</Positions>
 			</Display>
@@ -364,7 +414,7 @@
 					<Position>
 						<Page>Configuration</Page>
 						<Column>0</Column>
-						<Row>5</Row>
+						<Row>6</Row>
 					</Position>
 				</Positions>
 			</Display>
@@ -389,7 +439,7 @@
 					<Position>
 						<Page>Configuration</Page>
 						<Column>0</Column>
-						<Row>5</Row>
+						<Row>6</Row>
 					</Position>
 				</Positions>
 			</Display>
@@ -414,7 +464,7 @@
 					<Position>
 						<Page>Configuration</Page>
 						<Column>0</Column>
-						<Row>6</Row>
+						<Row>7</Row>
 					</Position>
 				</Positions>
 			</Display>
@@ -439,7 +489,7 @@
 					<Position>
 						<Page>Configuration</Page>
 						<Column>0</Column>
-						<Row>6</Row>
+						<Row>7</Row>
 					</Position>
 				</Positions>
 			</Display>
@@ -1026,14 +1076,15 @@
 			<ArrayOptions index="0">
 				<ColumnOption idx="0" pid="4001" type="retrieved" options=""/>
 				<ColumnOption idx="1" pid="4010" type="retrieved" options="" />
-				<ColumnOption idx="2" pid="4002" type="retrieved" options=""/>
-				<ColumnOption idx="3" pid="4003" type="retrieved" options=""/>
-				<ColumnOption idx="4" pid="4004" type="retrieved" options=""/>
-				<ColumnOption idx="5" pid="4005" type="retrieved" options=""/>
-				<ColumnOption idx="6" pid="4006" type="retrieved" options=""/>
-				<ColumnOption idx="7" pid="4007" type="retrieved" options=""/>
-				<ColumnOption idx="8" pid="4008" type="retrieved" options="" />
-				<ColumnOption idx="9" pid="4009" type="retrieved" options="" />
+				<ColumnOption idx="2" pid="4011" type="retrieved" options="" />
+				<ColumnOption idx="3" pid="4002" type="retrieved" options=""/>
+				<ColumnOption idx="4" pid="4003" type="retrieved" options=""/>
+				<ColumnOption idx="5" pid="4004" type="retrieved" options=""/>
+				<ColumnOption idx="6" pid="4005" type="retrieved" options=""/>
+				<ColumnOption idx="7" pid="4006" type="retrieved" options=""/>
+				<ColumnOption idx="8" pid="4007" type="retrieved" options=""/>
+				<ColumnOption idx="9" pid="4008" type="retrieved" options="" />
+				<ColumnOption idx="10" pid="4009" type="retrieved" options="" />
 			</ArrayOptions>
 			<Information>
 				<Subtext>Targeted Advertising Check</Subtext>
@@ -1049,7 +1100,7 @@
 				</Positions>
 			</Display>
 			<Measurement>
-				<Type options=";tab=columns:4001|0-4002|2-4003|3-4004|4-4005|5-4006|6-4007|7-4008|8-4009|9-4010|1,width:100-120-100-100-100-100-160-100-100-100,sort:STRING-STRING|ASC|0-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING,lines:25,filter:true">table</Type>
+				<Type options=";tab=columns:4001|0-4002|3-4003|4-4004|5-4005|6-4006|7-4007|8-4008|9-4009|10-4010|1,width:100-120-100-100-100-100-160-100-100-100,sort:STRING-STRING|ASC|0-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING,lines:25,filter:true">table</Type>
 			</Measurement>
 		</Param>
 		
@@ -1230,10 +1281,28 @@
 				<Type>string</Type>
 			</Measurement>
 		</Param>
-		
 		<Param id="4010" trending="false">
 			<Name>taCheckChannel</Name>
 			<Description>Channel</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>Scte</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="4011" trending="false">
+			<Name>taCheckMux</Name>
+			<Description>Mux</Description>
 			<Type>read</Type>
 			<Information>
 				<Subtext>Scte</Subtext>
@@ -2654,6 +2723,16 @@
 										</Provider>
 										<Changes>
 											<NewFeature>Initial version</NewFeature>
+										</Changes>
+									</MinorVersion>
+									<MinorVersion id="7" basedOn="1.0.0.6">
+										<Date>2024-07-19</Date>
+										<Provider>
+											<Author>Foosoft</Author>
+											<Company>Foosoft</Company>
+										</Provider>
+										<Changes>
+											<NewFeature>Mux name</NewFeature>
 										</Changes>
 									</MinorVersion>
 								</MinorVersions>

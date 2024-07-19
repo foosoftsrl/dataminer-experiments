@@ -14,13 +14,25 @@
 
     public static class SLProtocolExtensions
     {
-        public static string channelName(this SLProtocolExt protocol)
+        public static string ChannelName(this SLProtocolExt protocol)
         {
             var channelName = protocol.GetParameter(Parameter.channelname);
             if (!(channelName is string))
             {
                 throw new Exception("Channel is not defined");
             }
+
+            return (string)channelName;
+        }
+
+        public static string MuxName(this SLProtocolExt protocol)
+        {
+            var channelName = protocol.GetParameter(Parameter.muxname);
+            if (!(channelName is string))
+            {
+                throw new Exception("Mux is not defined");
+            }
+
             return (string)channelName;
         }
 
