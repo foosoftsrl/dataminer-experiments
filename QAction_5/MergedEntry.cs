@@ -8,6 +8,7 @@
 
     public class MergedEntry
     {
+        public string channel;
         public DateTime adSalesTime;
         public AdSalesRow adSalesData;
         public WhatsonRow whatsonData;

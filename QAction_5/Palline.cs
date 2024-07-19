@@ -8,7 +8,7 @@
 
     public class Palline
     {
-        public static MergedEntry[] Compute(List<AdSalesRow> adSalesData, List<WhatsonRow> whatsonData, List<MediatorRow> mediatorData, List<EnablerRow> scteEvents, List<EnablerRow> legacyEvents)
+        public static MergedEntry[] Compute(List<AdSalesRow> adSalesData, List<WhatsonRow> whatsonData, List<MediatorRow> mediatorData, List<EnablerRow> scteEvents, List<EnablerRow> legacyEvents, string channel)
         {
             var whatsonMap = whatsonData.ToReconcileKeyMap();
             var mediatorMap = mediatorData.ToReconcileKeyMap();
@@ -23,6 +23,7 @@
                 var whatsonRow = whatsonMap.GetValueOrDefault(contentReconcileKey, null);
                 rowList.Add(new MergedEntry
                 {
+                    channel = channel,
                     adSalesTime = adSalesRow.TimeOfDay,
                     adSalesData = adSalesRow,
                     whatsonData = whatsonRow,
@@ -34,6 +35,7 @@
                     legacyEventStop = legacyMap.GetValueOrDefault("STOP:" + whatsonRow?.enablerLegacy, null),
                 });
             }
+
             return rowList.ToArray();
         }
     }

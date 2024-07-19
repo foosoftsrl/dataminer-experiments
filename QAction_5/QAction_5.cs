@@ -50,9 +50,11 @@ public class QAction
 
             var legacy = await ReadEnablerLegacy(protocol);
             protocol.PublishEnablerLegacyTable(legacy);
+
             var scte = await ReadEnablerScte(protocol);
             protocol.PublishScteTable(scte);
-            var mergedRows = Palline.Compute(adSalesData, whatsonData, mediatorData, scte, legacy);
+
+            var mergedRows = Palline.Compute(adSalesData, whatsonData, mediatorData, scte, legacy, protocol.channelName());
             protocol.PublishMergedTable(mergedRows);
 
             var adsalesWonDiff = XPrint.ComputeAdSalesWhatsonDiff(adSalesData, whatsonDataSpot);

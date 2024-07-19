@@ -535,6 +535,11 @@ public static class Parameter
 			public const int tacheckreconcilekey_4001 = 4001;
 			/// <summary>PID: 4001 | Type: read</summary>
 			public const int tacheckreconcilekey = 4001;
+			/// <summary>PID: 4010 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int tacheckchannel_4010 = 4010;
+			/// <summary>PID: 4010 | Type: read</summary>
+			public const int tacheckchannel = 4010;
 			/// <summary>PID: 4002 | Type: read</summary>
 			[EditorBrowsable(EditorBrowsableState.Never)]
 			public const int tacheckadsalestime_4002 = 4002;
@@ -588,44 +593,49 @@ public static class Parameter
 			public const int tacheckreconcilekey = 0;
 			/// <summary>IDX: 1 | Type: read</summary>
 			[EditorBrowsable(EditorBrowsableState.Never)]
-			public const int tacheckadsalestime_4002 = 1;
+			public const int tacheckchannel_4010 = 1;
 			/// <summary>IDX: 1 | Type: read</summary>
-			public const int tacheckadsalestime = 1;
+			public const int tacheckchannel = 1;
 			/// <summary>IDX: 2 | Type: read</summary>
 			[EditorBrowsable(EditorBrowsableState.Never)]
-			public const int tacheckproductcode_4003 = 2;
+			public const int tacheckadsalestime_4002 = 2;
 			/// <summary>IDX: 2 | Type: read</summary>
-			public const int tacheckproductcode = 2;
+			public const int tacheckadsalestime = 2;
 			/// <summary>IDX: 3 | Type: read</summary>
 			[EditorBrowsable(EditorBrowsableState.Never)]
-			public const int tacheckhavewon_4004 = 3;
+			public const int tacheckproductcode_4003 = 3;
 			/// <summary>IDX: 3 | Type: read</summary>
-			public const int tacheckhavewon = 3;
+			public const int tacheckproductcode = 3;
 			/// <summary>IDX: 4 | Type: read</summary>
 			[EditorBrowsable(EditorBrowsableState.Never)]
-			public const int tacheckhavemediator_4005 = 4;
+			public const int tacheckhavewon_4004 = 4;
 			/// <summary>IDX: 4 | Type: read</summary>
-			public const int tacheckhavemediator = 4;
+			public const int tacheckhavewon = 4;
 			/// <summary>IDX: 5 | Type: read</summary>
 			[EditorBrowsable(EditorBrowsableState.Never)]
-			public const int tacheckmediatortime_4006 = 5;
+			public const int tacheckhavemediator_4005 = 5;
 			/// <summary>IDX: 5 | Type: read</summary>
-			public const int tacheckmediatortime = 5;
+			public const int tacheckhavemediator = 5;
 			/// <summary>IDX: 6 | Type: read</summary>
 			[EditorBrowsable(EditorBrowsableState.Never)]
-			public const int tachecktype_4007 = 6;
+			public const int tacheckmediatortime_4006 = 6;
 			/// <summary>IDX: 6 | Type: read</summary>
-			public const int tachecktype = 6;
+			public const int tacheckmediatortime = 6;
 			/// <summary>IDX: 7 | Type: read</summary>
 			[EditorBrowsable(EditorBrowsableState.Never)]
-			public const int tacheckenablerprobe_4008 = 7;
+			public const int tachecktype_4007 = 7;
 			/// <summary>IDX: 7 | Type: read</summary>
-			public const int tacheckenablerprobe = 7;
+			public const int tachecktype = 7;
 			/// <summary>IDX: 8 | Type: read</summary>
 			[EditorBrowsable(EditorBrowsableState.Never)]
-			public const int tacheckscteprobe_4009 = 8;
+			public const int tacheckenablerprobe_4008 = 8;
 			/// <summary>IDX: 8 | Type: read</summary>
-			public const int tacheckscteprobe = 8;
+			public const int tacheckenablerprobe = 8;
+			/// <summary>IDX: 9 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int tacheckscteprobe_4009 = 9;
+			/// <summary>IDX: 9 | Type: read</summary>
+			public const int tacheckscteprobe = 9;
 		}
 	}
 	public class Enablerlegacy
@@ -1140,6 +1150,8 @@ public interface SLProtocolExt : SLProtocol
 	object Tacheckenablerprobe { get; set; }
 	object Tacheckscteprobe_4009 { get; set; }
 	object Tacheckscteprobe { get; set; }
+	object Tacheckchannel_4010 { get; set; }
+	object Tacheckchannel { get; set; }
 	object Enablerlegacytime_5001 { get; set; }
 	object Enablerlegacytime { get; set; }
 	object Enablerlegacyeventcode_5002 { get; set; }
@@ -1510,6 +1522,11 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public System.Object Tacheckscteprobe_4009 {get { return GetParameter(4009); }set { SetParameter(4009, value); }}
 	/// <summary>PID: 4009  | Type: read</summary>
 	public System.Object Tacheckscteprobe {get { return GetParameter(4009); }set { SetParameter(4009, value); }}
+	/// <summary>PID: 4010  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Tacheckchannel_4010 {get { return GetParameter(4010); }set { SetParameter(4010, value); }}
+	/// <summary>PID: 4010  | Type: read</summary>
+	public System.Object Tacheckchannel {get { return GetParameter(4010); }set { SetParameter(4010, value); }}
 	/// <summary>PID: 5001  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Enablerlegacytime_5001 {get { return GetParameter(5001); }set { SetParameter(5001, value); }}
@@ -2016,48 +2033,53 @@ public class TachecktableQActionRow : QActionTableRow
 	public System.Object Tacheckreconcilekey_4001 { get { if (base.Columns.ContainsKey(0)) { return base.Columns[0]; } else { return null; } } set { if (base.Columns.ContainsKey(0)) { base.Columns[0] = value; } else { base.Columns.Add(0, value); } } }
 	/// <summary>PID: 4001 | Type: read</summary>
 	public System.Object Tacheckreconcilekey { get { if (base.Columns.ContainsKey(0)) { return base.Columns[0]; } else { return null; } } set { if (base.Columns.ContainsKey(0)) { base.Columns[0] = value; } else { base.Columns.Add(0, value); } } }
+	/// <summary>PID: 4010 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Tacheckchannel_4010 { get { if (base.Columns.ContainsKey(1)) { return base.Columns[1]; } else { return null; } } set { if (base.Columns.ContainsKey(1)) { base.Columns[1] = value; } else { base.Columns.Add(1, value); } } }
+	/// <summary>PID: 4010 | Type: read</summary>
+	public System.Object Tacheckchannel { get { if (base.Columns.ContainsKey(1)) { return base.Columns[1]; } else { return null; } } set { if (base.Columns.ContainsKey(1)) { base.Columns[1] = value; } else { base.Columns.Add(1, value); } } }
 	/// <summary>PID: 4002 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Tacheckadsalestime_4002 { get { if (base.Columns.ContainsKey(1)) { return base.Columns[1]; } else { return null; } } set { if (base.Columns.ContainsKey(1)) { base.Columns[1] = value; } else { base.Columns.Add(1, value); } } }
+	public System.Object Tacheckadsalestime_4002 { get { if (base.Columns.ContainsKey(2)) { return base.Columns[2]; } else { return null; } } set { if (base.Columns.ContainsKey(2)) { base.Columns[2] = value; } else { base.Columns.Add(2, value); } } }
 	/// <summary>PID: 4002 | Type: read</summary>
-	public System.Object Tacheckadsalestime { get { if (base.Columns.ContainsKey(1)) { return base.Columns[1]; } else { return null; } } set { if (base.Columns.ContainsKey(1)) { base.Columns[1] = value; } else { base.Columns.Add(1, value); } } }
+	public System.Object Tacheckadsalestime { get { if (base.Columns.ContainsKey(2)) { return base.Columns[2]; } else { return null; } } set { if (base.Columns.ContainsKey(2)) { base.Columns[2] = value; } else { base.Columns.Add(2, value); } } }
 	/// <summary>PID: 4003 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Tacheckproductcode_4003 { get { if (base.Columns.ContainsKey(2)) { return base.Columns[2]; } else { return null; } } set { if (base.Columns.ContainsKey(2)) { base.Columns[2] = value; } else { base.Columns.Add(2, value); } } }
+	public System.Object Tacheckproductcode_4003 { get { if (base.Columns.ContainsKey(3)) { return base.Columns[3]; } else { return null; } } set { if (base.Columns.ContainsKey(3)) { base.Columns[3] = value; } else { base.Columns.Add(3, value); } } }
 	/// <summary>PID: 4003 | Type: read</summary>
-	public System.Object Tacheckproductcode { get { if (base.Columns.ContainsKey(2)) { return base.Columns[2]; } else { return null; } } set { if (base.Columns.ContainsKey(2)) { base.Columns[2] = value; } else { base.Columns.Add(2, value); } } }
+	public System.Object Tacheckproductcode { get { if (base.Columns.ContainsKey(3)) { return base.Columns[3]; } else { return null; } } set { if (base.Columns.ContainsKey(3)) { base.Columns[3] = value; } else { base.Columns.Add(3, value); } } }
 	/// <summary>PID: 4004 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Tacheckhavewon_4004 { get { if (base.Columns.ContainsKey(3)) { return base.Columns[3]; } else { return null; } } set { if (base.Columns.ContainsKey(3)) { base.Columns[3] = value; } else { base.Columns.Add(3, value); } } }
+	public System.Object Tacheckhavewon_4004 { get { if (base.Columns.ContainsKey(4)) { return base.Columns[4]; } else { return null; } } set { if (base.Columns.ContainsKey(4)) { base.Columns[4] = value; } else { base.Columns.Add(4, value); } } }
 	/// <summary>PID: 4004 | Type: read</summary>
-	public System.Object Tacheckhavewon { get { if (base.Columns.ContainsKey(3)) { return base.Columns[3]; } else { return null; } } set { if (base.Columns.ContainsKey(3)) { base.Columns[3] = value; } else { base.Columns.Add(3, value); } } }
+	public System.Object Tacheckhavewon { get { if (base.Columns.ContainsKey(4)) { return base.Columns[4]; } else { return null; } } set { if (base.Columns.ContainsKey(4)) { base.Columns[4] = value; } else { base.Columns.Add(4, value); } } }
 	/// <summary>PID: 4005 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Tacheckhavemediator_4005 { get { if (base.Columns.ContainsKey(4)) { return base.Columns[4]; } else { return null; } } set { if (base.Columns.ContainsKey(4)) { base.Columns[4] = value; } else { base.Columns.Add(4, value); } } }
+	public System.Object Tacheckhavemediator_4005 { get { if (base.Columns.ContainsKey(5)) { return base.Columns[5]; } else { return null; } } set { if (base.Columns.ContainsKey(5)) { base.Columns[5] = value; } else { base.Columns.Add(5, value); } } }
 	/// <summary>PID: 4005 | Type: read</summary>
-	public System.Object Tacheckhavemediator { get { if (base.Columns.ContainsKey(4)) { return base.Columns[4]; } else { return null; } } set { if (base.Columns.ContainsKey(4)) { base.Columns[4] = value; } else { base.Columns.Add(4, value); } } }
+	public System.Object Tacheckhavemediator { get { if (base.Columns.ContainsKey(5)) { return base.Columns[5]; } else { return null; } } set { if (base.Columns.ContainsKey(5)) { base.Columns[5] = value; } else { base.Columns.Add(5, value); } } }
 	/// <summary>PID: 4006 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Tacheckmediatortime_4006 { get { if (base.Columns.ContainsKey(5)) { return base.Columns[5]; } else { return null; } } set { if (base.Columns.ContainsKey(5)) { base.Columns[5] = value; } else { base.Columns.Add(5, value); } } }
+	public System.Object Tacheckmediatortime_4006 { get { if (base.Columns.ContainsKey(6)) { return base.Columns[6]; } else { return null; } } set { if (base.Columns.ContainsKey(6)) { base.Columns[6] = value; } else { base.Columns.Add(6, value); } } }
 	/// <summary>PID: 4006 | Type: read</summary>
-	public System.Object Tacheckmediatortime { get { if (base.Columns.ContainsKey(5)) { return base.Columns[5]; } else { return null; } } set { if (base.Columns.ContainsKey(5)) { base.Columns[5] = value; } else { base.Columns.Add(5, value); } } }
+	public System.Object Tacheckmediatortime { get { if (base.Columns.ContainsKey(6)) { return base.Columns[6]; } else { return null; } } set { if (base.Columns.ContainsKey(6)) { base.Columns[6] = value; } else { base.Columns.Add(6, value); } } }
 	/// <summary>PID: 4007 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Tachecktype_4007 { get { if (base.Columns.ContainsKey(6)) { return base.Columns[6]; } else { return null; } } set { if (base.Columns.ContainsKey(6)) { base.Columns[6] = value; } else { base.Columns.Add(6, value); } } }
+	public System.Object Tachecktype_4007 { get { if (base.Columns.ContainsKey(7)) { return base.Columns[7]; } else { return null; } } set { if (base.Columns.ContainsKey(7)) { base.Columns[7] = value; } else { base.Columns.Add(7, value); } } }
 	/// <summary>PID: 4007 | Type: read</summary>
-	public System.Object Tachecktype { get { if (base.Columns.ContainsKey(6)) { return base.Columns[6]; } else { return null; } } set { if (base.Columns.ContainsKey(6)) { base.Columns[6] = value; } else { base.Columns.Add(6, value); } } }
+	public System.Object Tachecktype { get { if (base.Columns.ContainsKey(7)) { return base.Columns[7]; } else { return null; } } set { if (base.Columns.ContainsKey(7)) { base.Columns[7] = value; } else { base.Columns.Add(7, value); } } }
 	/// <summary>PID: 4008 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Tacheckenablerprobe_4008 { get { if (base.Columns.ContainsKey(7)) { return base.Columns[7]; } else { return null; } } set { if (base.Columns.ContainsKey(7)) { base.Columns[7] = value; } else { base.Columns.Add(7, value); } } }
+	public System.Object Tacheckenablerprobe_4008 { get { if (base.Columns.ContainsKey(8)) { return base.Columns[8]; } else { return null; } } set { if (base.Columns.ContainsKey(8)) { base.Columns[8] = value; } else { base.Columns.Add(8, value); } } }
 	/// <summary>PID: 4008 | Type: read</summary>
-	public System.Object Tacheckenablerprobe { get { if (base.Columns.ContainsKey(7)) { return base.Columns[7]; } else { return null; } } set { if (base.Columns.ContainsKey(7)) { base.Columns[7] = value; } else { base.Columns.Add(7, value); } } }
+	public System.Object Tacheckenablerprobe { get { if (base.Columns.ContainsKey(8)) { return base.Columns[8]; } else { return null; } } set { if (base.Columns.ContainsKey(8)) { base.Columns[8] = value; } else { base.Columns.Add(8, value); } } }
 	/// <summary>PID: 4009 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Tacheckscteprobe_4009 { get { if (base.Columns.ContainsKey(8)) { return base.Columns[8]; } else { return null; } } set { if (base.Columns.ContainsKey(8)) { base.Columns[8] = value; } else { base.Columns.Add(8, value); } } }
+	public System.Object Tacheckscteprobe_4009 { get { if (base.Columns.ContainsKey(9)) { return base.Columns[9]; } else { return null; } } set { if (base.Columns.ContainsKey(9)) { base.Columns[9] = value; } else { base.Columns.Add(9, value); } } }
 	/// <summary>PID: 4009 | Type: read</summary>
-	public System.Object Tacheckscteprobe { get { if (base.Columns.ContainsKey(8)) { return base.Columns[8]; } else { return null; } } set { if (base.Columns.ContainsKey(8)) { base.Columns[8] = value; } else { base.Columns.Add(8, value); } } }
-	public TachecktableQActionRow() : base(0, 9) { }
-	public TachecktableQActionRow(System.Object[] oRow) : base(0, 9, oRow) { }
+	public System.Object Tacheckscteprobe { get { if (base.Columns.ContainsKey(9)) { return base.Columns[9]; } else { return null; } } set { if (base.Columns.ContainsKey(9)) { base.Columns[9] = value; } else { base.Columns.Add(9, value); } } }
+	public TachecktableQActionRow() : base(0, 10) { }
+	public TachecktableQActionRow(System.Object[] oRow) : base(0, 10, oRow) { }
 	public static implicit operator TachecktableQActionRow(System.Object[] source) { return new TachecktableQActionRow(source); }
 	public static implicit operator System.Object[](TachecktableQActionRow source) { return source.ToObjectArray(); }
 }

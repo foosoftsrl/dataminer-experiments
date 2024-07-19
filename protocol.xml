@@ -1025,14 +1025,15 @@
 			<Type>array</Type>
 			<ArrayOptions index="0">
 				<ColumnOption idx="0" pid="4001" type="retrieved" options=""/>
-				<ColumnOption idx="1" pid="4002" type="retrieved" options=""/>
-				<ColumnOption idx="2" pid="4003" type="retrieved" options=""/>
-				<ColumnOption idx="3" pid="4004" type="retrieved" options=""/>
-				<ColumnOption idx="4" pid="4005" type="retrieved" options=""/>
-				<ColumnOption idx="5" pid="4006" type="retrieved" options=""/>
-				<ColumnOption idx="6" pid="4007" type="retrieved" options=""/>
-				<ColumnOption idx="7" pid="4008" type="retrieved" options="" />
-				<ColumnOption idx="8" pid="4009" type="retrieved" options="" />
+				<ColumnOption idx="1" pid="4010" type="retrieved" options="" />
+				<ColumnOption idx="2" pid="4002" type="retrieved" options=""/>
+				<ColumnOption idx="3" pid="4003" type="retrieved" options=""/>
+				<ColumnOption idx="4" pid="4004" type="retrieved" options=""/>
+				<ColumnOption idx="5" pid="4005" type="retrieved" options=""/>
+				<ColumnOption idx="6" pid="4006" type="retrieved" options=""/>
+				<ColumnOption idx="7" pid="4007" type="retrieved" options=""/>
+				<ColumnOption idx="8" pid="4008" type="retrieved" options="" />
+				<ColumnOption idx="9" pid="4009" type="retrieved" options="" />
 			</ArrayOptions>
 			<Information>
 				<Subtext>Targeted Advertising Check</Subtext>
@@ -1048,7 +1049,7 @@
 				</Positions>
 			</Display>
 			<Measurement>
-				<Type options=";tab=columns:4001|0-4002|1-4003|2-4004|3-4005|4-4006|5-4007|6-4008|7-4009|8,width:100-120-100-100-100-100-160-100-100,sort:STRING-STRING|ASC|0-STRING-STRING-STRING-STRING-STRING-STRING-STRING,lines:25,filter:true">table</Type>
+				<Type options=";tab=columns:4001|0-4002|2-4003|3-4004|4-4005|5-4006|6-4007|7-4008|8-4009|9-4010|1,width:100-120-100-100-100-100-160-100-100-100,sort:STRING-STRING|ASC|0-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING,lines:25,filter:true">table</Type>
 			</Measurement>
 		</Param>
 		
@@ -1213,6 +1214,26 @@
 		<Param id="4009" trending="false">
 			<Name>taCheckScteProbe</Name>
 			<Description>Scte</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>Scte</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		
+		<Param id="4010" trending="false">
+			<Name>taCheckChannel</Name>
+			<Description>Channel</Description>
 			<Type>read</Type>
 			<Information>
 				<Subtext>Scte</Subtext>

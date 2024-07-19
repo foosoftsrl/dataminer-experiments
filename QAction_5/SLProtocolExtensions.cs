@@ -252,6 +252,7 @@
                 {
                     Tacheckreconcilekey = row.adSalesData.ReconcileKey,
                     Tacheckproductcode = row.adSalesData.ProductCode,
+                    Tacheckchannel = row.channel,
                     Tacheckadsalestime = row.adSalesTime.ToString("yyyy-MM-dd HH:mm:ss"),
                     Tacheckhavewon = (row.whatsonData != null) ? "\u2713" : string.Empty,
                     Tacheckhavemediator = (row.mediatorData != null) ? "✓" : string.Empty,
@@ -259,7 +260,6 @@
                     Tachecktype = row.adSalesData.Enabler,
                     Tacheckenablerprobe = string.Empty,
                     Tacheckscteprobe = string.Empty,
-
                 }.ToObjectArray());
             }
 
