@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Net;
     using System.Net.Http;
     using System.Text;
     using System.Threading.Tasks;
@@ -23,6 +24,10 @@
 
                 using (var response = await httpClient.SendAsync(request))
                 {
+                    if(response.StatusCode != HttpStatusCode.OK)
+                    {
+                        throw new Exception($"Invalid status code for URL {url}: {response.StatusCode}");
+                    }
                     string apiResponse = await response.Content.ReadAsStringAsync();
                     return parseText(apiResponse);
                 }
