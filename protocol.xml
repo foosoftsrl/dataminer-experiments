@@ -13,7 +13,7 @@
 	<DeviceOID></DeviceOID>
 	<ElementType>Connect to http</ElementType>
 	<Type relativeTimers="true">virtual</Type>
-	<Display defaultPage="General" pageOrder="General;-------;Adsales;Mediator;Won;Enabler Legacy;Enabler Scte;XPrint;XPrint2;AdSalesWonDiff;WonMediatorDiff;AlarmBox" wideColumnPages=""/>
+	<Display defaultPage="General" pageOrder="General;-------;Adsales;Mediator;Won;Enabler Legacy;Enabler Scte;XPrint2;AdSalesWonDiff;WonMediatorDiff;AlarmBox" wideColumnPages=""/>
 	<SNMP includepages="true">auto</SNMP>
 
 	<Compliancies>
@@ -850,7 +850,7 @@
 				<ColumnOption idx="7" pid="3008" type="retrieved" options="" />
 			</ArrayOptions>
 			<Information>
-				<Subtext>tableInformation</Subtext>
+				<Subtext>WON Table</Subtext>
 			</Information>
 			<Display>
 				<RTDisplay>true</RTDisplay>
@@ -1021,7 +1021,7 @@
 		
 		<Param id="4000">
 			<Name>taCheckTable</Name>
-			<Description>Palline</Description>
+			<Description>Targeted Advertising Check</Description>
 			<Type>array</Type>
 			<ArrayOptions index="0">
 				<ColumnOption idx="0" pid="4001" type="retrieved" options=""/>
@@ -1035,7 +1035,7 @@
 				<ColumnOption idx="8" pid="4009" type="retrieved" options="" />
 			</ArrayOptions>
 			<Information>
-				<Subtext>Table Which Shows Data From Other Tables</Subtext>
+				<Subtext>Targeted Advertising Check</Subtext>
 			</Information>
 			<Display>
 				<RTDisplay>true</RTDisplay>
@@ -1466,152 +1466,6 @@
 				<Type>string</Type>
 			</Measurement>
 		</Param>
-		<Param id="7000" trending="true">
-			<Name>XPrint</Name>
-			<Description>XPrint</Description>
-			<Type>array</Type>
-			<ArrayOptions index="0">
-				<ColumnOption idx="0" pid="7001" type="retrieved" options="" />
-				<ColumnOption idx="1" pid="7002" type="retrieved" options="" />
-				<ColumnOption idx="2" pid="7003" type="retrieved" options="" />
-				<ColumnOption idx="3" pid="7004" type="retrieved" options="" />
-				<ColumnOption idx="4" pid="7005" type="retrieved" options="" />
-				<ColumnOption idx="5" pid="7006" type="retrieved" options="" />
-			</ArrayOptions>
-			<Information>
-				<Subtext>
-					<![CDATA[XPrint]]>
-				</Subtext>
-			</Information>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-				<Positions>
-					<Position>
-						<Page>XPrint</Page>
-						<Column>0</Column>
-						<Row>1</Row>
-					</Position>
-				</Positions>
-			</Display>
-			<Measurement>
-				<Type options="tab=columns:7001|0-7002|1-7003|2-7004|3-7005|4-7006|5,width:100-100-100-100-100-100,sort:STRING|ASC|0-STRING-STRING-STRING-STRING-STRING,lines:20,filter:true">table</Type>
-			</Measurement>
-		</Param>
-		<Param id="7001" trending="false">
-			<Name>xprintIndex</Name>
-			<Description>Index</Description>
-			<Type>read</Type>
-			<Information>
-				<Subtext>Index</Subtext>
-			</Information>
-			<Interprete>
-				<RawType>other</RawType>
-				<Type>string</Type>
-				<LengthType>next param</LengthType>
-			</Interprete>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-			</Display>
-			<Measurement>
-				<Type>string</Type>
-			</Measurement>
-		</Param>
-		<Param id="7002" trending="false">
-			<Name>xprintDate</Name>
-			<Description>Date</Description>
-			<Type>read</Type>
-			<Information>
-				<Subtext>Date</Subtext>
-			</Information>
-			<Interprete>
-				<RawType>other</RawType>
-				<Type>string</Type>
-				<LengthType>next param</LengthType>
-			</Interprete>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-			</Display>
-			<Measurement>
-				<Type>string</Type>
-			</Measurement>
-		</Param>
-		<Param id="7003" trending="false">
-			<Name>xprintAdSales</Name>
-			<Description>AdSales</Description>
-			<Type>read</Type>
-			<Information>
-				<Subtext>AdSales</Subtext>
-			</Information>
-			<Interprete>
-				<RawType>other</RawType>
-				<Type>string</Type>
-				<LengthType>next param</LengthType>
-			</Interprete>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-			</Display>
-			<Measurement>
-				<Type>string</Type>
-			</Measurement>
-		</Param>
-		<Param id="7004" trending="false">
-			<Name>xprintWhatson</Name>
-			<Description>Whatson</Description>
-			<Type>read</Type>
-			<Information>
-				<Subtext>Whatson</Subtext>
-			</Information>
-			<Interprete>
-				<RawType>other</RawType>
-				<Type>string</Type>
-				<LengthType>next param</LengthType>
-			</Interprete>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-			</Display>
-			<Measurement>
-				<Type>string</Type>
-			</Measurement>
-		</Param>
-		<Param id="7005" trending="false">
-			<Name>xprintMediator</Name>
-			<Description>Mediator</Description>
-			<Type>read</Type>
-			<Information>
-				<Subtext>Mediator</Subtext>
-			</Information>
-			<Interprete>
-				<RawType>other</RawType>
-				<Type>string</Type>
-				<LengthType>next param</LengthType>
-			</Interprete>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-			</Display>
-			<Measurement>
-				<Type>string</Type>
-			</Measurement>
-		</Param>
-		<Param id="7006" trending="false">
-			<Name>xprintErrors</Name>
-			<Description>Errors (fake)</Description>
-			<Type>read</Type>
-			<Information>
-				<Subtext>Errors</Subtext>
-			</Information>
-			<Interprete>
-				<RawType>other</RawType>
-				<Type>string</Type>
-				<LengthType>next param</LengthType>
-			</Interprete>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-			</Display>
-			<Measurement>
-				<Type>string</Type>
-			</Measurement>
-		</Param>
-		
 		<Param id="8000" trending="true">
 			<Name>AdSalesWonDiff</Name>
 			<Description>AdSalesWonDiff</Description>
@@ -1631,7 +1485,7 @@
 			</ArrayOptions>
 			<Information>
 				<Subtext>
-					<![CDATA[XPrint]]>
+					AdSalesWonDiff
 				</Subtext>
 			</Information>
 			<Display>
@@ -1844,7 +1698,7 @@
 			</ArrayOptions>
 			<Information>
 				<Subtext>
-					<![CDATA[XPrint]]>
+					WonMediatorDiff
 				</Subtext>
 			</Information>
 			<Display>
@@ -2670,234 +2524,6 @@
 						<Page>Enabler Legacy</Page>
 						<Column>0</Column>
 						<Row>1</Row>
-					</Position>
-				</Positions>
-			</Display>
-			<Measurement>
-				<Type>string</Type>
-			</Measurement>
-		</Param>
-		
-		
-		<!-- Experimental stuff -->
-		<Param id="20000" trending="false">
-			<Name>xprintDate0</Name>
-			<Description>Date0</Description>
-			<Type>read</Type>
-			<Information>
-			</Information>
-			<Interprete>
-				<RawType>other</RawType>
-				<Type>string</Type>
-				<LengthType>next param</LengthType>
-			</Interprete>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-				<Positions>
-					<Position>
-						<Page>XPrint2</Page>
-						<Column>0</Column>
-						<Row>0</Row>
-					</Position>
-				</Positions>
-			</Display>
-			<Measurement>
-				<Type>string</Type>
-			</Measurement>
-		</Param>
-		<Param id="20001" trending="false">
-			<Name>xprintDate1</Name>
-			<Description>Date1</Description>
-			<Type>read</Type>
-			<Information>
-			</Information>
-			<Interprete>
-				<RawType>other</RawType>
-				<Type>string</Type>
-				<LengthType>next param</LengthType>
-			</Interprete>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-				<Positions>
-					<Position>
-						<Page>XPrint2</Page>
-						<Column>0</Column>
-						<Row>1</Row>
-					</Position>
-				</Positions>
-			</Display>
-			<Measurement>
-				<Type>string</Type>
-			</Measurement>
-		</Param>
-		<Param id="20002" trending="false">
-			<Name>xprintDate2</Name>
-			<Description>Date2</Description>
-			<Type>read</Type>
-			<Information>
-			</Information>
-			<Interprete>
-				<RawType>other</RawType>
-				<Type>string</Type>
-				<LengthType>next param</LengthType>
-			</Interprete>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-				<Positions>
-					<Position>
-						<Page>XPrint2</Page>
-						<Column>0</Column>
-						<Row>2</Row>
-					</Position>
-				</Positions>
-			</Display>
-			<Measurement>
-				<Type>string</Type>
-			</Measurement>
-		</Param>
-		<Param id="20100" trending="false">
-			<Name>xprintData0</Name>
-			<Description>Data0</Description>
-			<Type>read</Type>
-			<Information>
-			</Information>
-			<Interprete>
-				<RawType>other</RawType>
-				<Type>string</Type>
-				<LengthType>next param</LengthType>
-			</Interprete>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-				<Positions>
-					<Position>
-						<Page>XPrint2</Page>
-						<Column>0</Column>
-						<Row>3</Row>
-					</Position>
-				</Positions>
-			</Display>
-			<Measurement>
-				<Type>string</Type>
-			</Measurement>
-		</Param>
-		<Param id="20101" trending="false">
-			<Name>xprintData1</Name>
-			<Description>Data1</Description>
-			<Type>read</Type>
-			<Information>
-			</Information>
-			<Interprete>
-				<RawType>other</RawType>
-				<Type>string</Type>
-				<LengthType>next param</LengthType>
-			</Interprete>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-				<Positions>
-					<Position>
-						<Page>XPrint2</Page>
-						<Column>0</Column>
-						<Row>4</Row>
-					</Position>
-				</Positions>
-			</Display>
-			<Measurement>
-				<Type>string</Type>
-			</Measurement>
-		</Param>
-		<Param id="20102" trending="false">
-			<Name>xprintData2</Name>
-			<Description>Data2</Description>
-			<Type>read</Type>
-			<Information>
-			</Information>
-			<Interprete>
-				<RawType>other</RawType>
-				<Type>string</Type>
-				<LengthType>next param</LengthType>
-			</Interprete>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-				<Positions>
-					<Position>
-						<Page>XPrint2</Page>
-						<Column>0</Column>
-						<Row>5</Row>
-					</Position>
-				</Positions>
-			</Display>
-			<Measurement>
-				<Type>string</Type>
-			</Measurement>
-		</Param>
-		<Param id="20200" trending="false">
-			<Name>xprintAlarm0</Name>
-			<Description>Alarm0</Description>
-			<Type>read</Type>
-			<Information>
-			</Information>
-			<Interprete>
-				<RawType>other</RawType>
-				<Type>string</Type>
-				<LengthType>next param</LengthType>
-			</Interprete>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-				<Positions>
-					<Position>
-						<Page>XPrint2</Page>
-						<Column>0</Column>
-						<Row>6</Row>
-					</Position>
-				</Positions>
-			</Display>
-			<Measurement>
-				<Type>string</Type>
-			</Measurement>
-		</Param>
-		<Param id="20201" trending="false">
-			<Name>xprintAlarm1</Name>
-			<Description>Alarm1</Description>
-			<Type>read</Type>
-			<Information>
-			</Information>
-			<Interprete>
-				<RawType>other</RawType>
-				<Type>string</Type>
-				<LengthType>next param</LengthType>
-			</Interprete>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-				<Positions>
-					<Position>
-						<Page>XPrint2</Page>
-						<Column>0</Column>
-						<Row>7</Row>
-					</Position>
-				</Positions>
-			</Display>
-			<Measurement>
-				<Type>string</Type>
-			</Measurement>
-		</Param>
-		<Param id="20202" trending="false">
-			<Name>xprintAlarm2</Name>
-			<Description>Alarm2</Description>
-			<Type>read</Type>
-			<Information>
-			</Information>
-			<Interprete>
-				<RawType>other</RawType>
-				<Type>string</Type>
-				<LengthType>next param</LengthType>
-			</Interprete>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-				<Positions>
-					<Position>
-						<Page>XPrint2</Page>
-						<Column>0</Column>
-						<Row>8</Row>
 					</Position>
 				</Positions>
 			</Display>
