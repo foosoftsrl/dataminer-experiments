@@ -5,7 +5,7 @@
 		<Encoding>unicode</Encoding>
 	</Options>
 	<Description>AdSales DataMiner connector</Description>
-	<Version>1.0.0.5</Version>
+	<Version>1.0.0.6</Version>
 	<IntegrationID>DMS-DRV-</IntegrationID>
 	<Provider>Foosoft</Provider>
 	<Vendor>Foosoft</Vendor>
@@ -13,7 +13,7 @@
 	<DeviceOID></DeviceOID>
 	<ElementType>Connect to http</ElementType>
 	<Type relativeTimers="true">virtual</Type>
-	<Display defaultPage="General" pageOrder="General;-------;Adsales;Mediator;Won;Enabler Legacy;Enabler Scte;XPrint2;AdSalesWonDiff;WonMediatorDiff;AlarmBox" wideColumnPages=""/>
+	<Display defaultPage="General" pageOrder="General;-------;Adsales;Mediator;Won;Enabler Legacy;Enabler Scte;AdSalesWonDiff;WonMediatorDiff;AlarmBox" wideColumnPages=""/>
 	<SNMP includepages="true">auto</SNMP>
 
 	<Compliancies>
@@ -468,7 +468,7 @@
 					<Position>
 						<Page>Adsales</Page>
 						<Column>0</Column>
-						<Row>4</Row>
+						<Row>1</Row>
 					</Position>
 				</Positions>
 			</Display>
@@ -617,7 +617,7 @@
 					<Position>
 						<Page>Mediator</Page>
 						<Column>0</Column>
-						<Row>4</Row>
+						<Row>1</Row>
 					</Position>
 				</Positions>
 			</Display>
@@ -858,7 +858,7 @@
 					<Position>
 						<Page>Won</Page>
 						<Column>0</Column>
-						<Row>4</Row>
+						<Row>1</Row>
 					</Position>
 				</Positions>
 			</Display>
@@ -1251,7 +1251,7 @@
 					<Position>
 						<Page>Enabler Legacy</Page>
 						<Column>0</Column>
-						<Row>3</Row>
+						<Row>1</Row>
 					</Position>
 				</Positions>
 			</Display>
@@ -1494,7 +1494,7 @@
 					<Position>
 						<Page>AdSalesWonDiff</Page>
 						<Column>0</Column>
-						<Row>1</Row>
+						<Row>0</Row>
 					</Position>
 				</Positions>
 			</Display>
@@ -1707,7 +1707,7 @@
 					<Position>
 						<Page>WonMediatorDiff</Page>
 						<Column>0</Column>
-						<Row>1</Row>
+						<Row>0</Row>
 					</Position>
 				</Positions>
 			</Display>
@@ -2361,7 +2361,7 @@
 					<Position>
 						<Page>Adsales</Page>
 						<Column>0</Column>
-						<Row>1</Row>
+						<Row>0</Row>
 					</Position>
 				</Positions>
 			</Display>
@@ -2386,7 +2386,7 @@
 					<Position>
 						<Page>Mediator</Page>
 						<Column>0</Column>
-						<Row>1</Row>
+						<Row>0</Row>
 					</Position>
 				</Positions>
 			</Display>
@@ -2498,7 +2498,7 @@
 					<Position>
 						<Page>Won</Page>
 						<Column>0</Column>
-						<Row>1</Row>
+						<Row>0</Row>
 					</Position>
 				</Positions>
 			</Display>
@@ -2523,7 +2523,7 @@
 					<Position>
 						<Page>Enabler Legacy</Page>
 						<Column>0</Column>
-						<Row>1</Row>
+						<Row>0</Row>
 					</Position>
 				</Positions>
 			</Display>
