@@ -13,7 +13,7 @@
         public string ReconcileKey;
         public string Title;
         public string ProductCode;
-        public string Type;
+        public string TimeAllocationType; // STANDARD, PUSH, IS...
         public string Duration;
         public string Enabler;
         public int DayOffset;
@@ -29,6 +29,8 @@
         public string TemplateName;
         public string scteBroadcastBreakStart;
         public string scteBroadcastProviderAdvStart;
+        public string scteBroadcastProviderOverlayPlacementStart;
+        public string scteBroadcastProviderOverlayPlacementEnd;
         public string enablerLegacy;
         public int DayOffset;
     }

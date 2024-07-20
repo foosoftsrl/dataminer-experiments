@@ -18,22 +18,40 @@
                 var breakStart = TimeSpan.ParseExact(break_.BreakNominalTime, @"mm\:ss", null).TotalSeconds * 60;
                 foreach (var timeAllocation in break_.TimeAllocations)
                 {
-                    var timeFromBreakStart = 0;
-                    foreach (var content in timeAllocation.Contents)
+                    if (timeAllocation.TimeAllocationType1 == "PUSH")
                     {
-                        var startTime = dayStart.AddSeconds(breakStart + timeFromBreakStart);
+                        var startTime = dayStart.AddSeconds(breakStart);
                         result.Add(new AdSalesRow
                         {
                             TimeOfDay = startTime,
                             BreakId = break_.BreakID,
-                            Title = content.ContentBrand,
-                            Type = timeAllocation.TimeAllocationType1,
-                            ProductCode = content.ContentProductCode,
-                            Duration = content.ContentTotalDuration,
-                            ReconcileKey = content.ContentReconcileKey,
-                            Enabler = content.ContentEnabler,
+                            Title = break_.BreakCommercialProductSales,
+                            TimeAllocationType = timeAllocation.TimeAllocationType1,
+                            ProductCode = string.Empty,
+                            Duration = timeAllocation.TimeAllocationNominalDuration,
+                            ReconcileKey = string.Empty,
+                            Enabler = string.Empty,
                         });
-                        timeFromBreakStart += (content.ContentTotalDuration != null) ? Int32.Parse(content.ContentTotalDuration) : 0;
+                    }
+                    else
+                    {
+                        var timeFromBreakStart = 0;
+                        foreach (var content in timeAllocation.Contents)
+                        {
+                            var startTime = dayStart.AddSeconds(breakStart + timeFromBreakStart);
+                            result.Add(new AdSalesRow
+                            {
+                                TimeOfDay = startTime,
+                                BreakId = break_.BreakID,
+                                Title = content.ContentBrand,
+                                TimeAllocationType = timeAllocation.TimeAllocationType1,
+                                ProductCode = content.ContentProductCode,
+                                Duration = content.ContentTotalDuration,
+                                ReconcileKey = content.ContentReconcileKey,
+                                Enabler = content.ContentEnabler,
+                            });
+                            timeFromBreakStart += (content.ContentTotalDuration != null) ? Int32.Parse(content.ContentTotalDuration) : 0;
+                        }
                     }
                 }
             }

@@ -1,5 +1,6 @@
 ﻿namespace QAction_5
 {
+    using Skyline.DataMiner.Net.Messages.SLDataGateway;
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -34,6 +35,8 @@
                                     enablerLegacy = playlistItem.FindEnablerLegacyText(),
                                     scteBroadcastBreakStart = playlistItem.FindScteBroadcastBreakStartUpid(),
                                     scteBroadcastProviderAdvStart = playlistItem.FindScteBroadcastProviderAdvStartUpid(),
+                                    scteBroadcastProviderOverlayPlacementStart = playlistItem.FindScteBroadcastProviderOverlayPlacementStartUpid(),
+                                    scteBroadcastProviderOverlayPlacementEnd = playlistItem.FindScteBroadcastProviderOverlayPlacementEndUpid(),
                                     TemplateName = playlistItem.Template.TemplateName,
                                 });
                             }
@@ -77,10 +80,33 @@
             return playlistItem.FindDataElementByName("scteBroadcastBreakStart-insertSegmentationDescriptor");
         }
 
+        public static Whatson.DataElement FindScteBroadcastProviderOverlayPlacementStart(this Whatson.PlaylistItem playlistItem)
+        {
+            return playlistItem.FindDataElementByName("scteBroadcastProviderOverlayPlacementStart-compoundList");
+        }
+        public static Whatson.DataElement FindScteBroadcastProviderOverlayPlacementEnd(this Whatson.PlaylistItem playlistItem)
+        {
+            return playlistItem.FindDataElementByName("scteBroadcastProviderOverlayPlacementEnd-compoundList");
+        }
+
         public static string FindScteBroadcastBreakStartUpid(this Whatson.PlaylistItem playlistItem)
         {
             var item = playlistItem.FindScteBroadcastBreakStart();
             return item?.Value.DataElementCompoundList?.DataElementList.FindDataElementByName("segmentationUpid")?.Value.Text[0];
+        }
+
+        public static string FindScteBroadcastProviderOverlayPlacementStartUpid(this Whatson.PlaylistItem playlistItem)
+        {
+            var item = playlistItem.FindScteBroadcastProviderOverlayPlacementStart();
+            var item2 = item?.Value.DataElementCompoundList.DataElementList.FindDataElementByName("scteBroadcastProviderOverlayPlacementStart-insertSegmentationDescriptor");
+            return item2?.Value.DataElementCompoundList?.DataElementList.FindDataElementByName("segmentationUpid")?.Value.Text[0];
+        }
+
+        public static string FindScteBroadcastProviderOverlayPlacementEndUpid(this Whatson.PlaylistItem playlistItem)
+        {
+            var item = playlistItem.FindScteBroadcastProviderOverlayPlacementEnd();
+            var item2 = item?.Value.DataElementCompoundList.DataElementList.FindDataElementByName("scteBroadcastProviderOverlayPlacementEnd-insertSegmentationDescriptor");
+            return item2?.Value.DataElementCompoundList?.DataElementList.FindDataElementByName("segmentationUpid")?.Value.Text[0];
         }
 
         public static Whatson.DataElement FindScteBroadcastProviderAdvStart(this Whatson.PlaylistItem playlistItem)

@@ -199,7 +199,7 @@
                     Adsalesbreakid = row.BreakId,
                     Adsalesreconcilekey = row.ReconcileKey,
                     Adsalestitle = row.Title,
-                    Adsalestype = row.Type,
+                    Adsalestype = row.TimeAllocationType,
                     Adsalesenabler = row.Enabler,
                 }.ToObjectArray());
             }

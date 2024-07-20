@@ -17,10 +17,14 @@
             List<MergedEntry> rowList = new List<MergedEntry>();
             foreach (var adSalesRow in adSalesData)
             {
-                if (adSalesRow.Enabler == "N")
+                if (adSalesRow.Enabler == "N" && adSalesRow.TimeAllocationType != "PUSH")
                     continue;
                 var contentReconcileKey = adSalesRow.ReconcileKey;
                 var whatsonRow = whatsonMap.GetValueOrDefault(contentReconcileKey, null);
+                if(adSalesRow.TimeAllocationType == "PUSH")
+                {
+                    whatsonRow = whatsonData.Find(s => s.enablerLegacy == adSalesRow.BreakId);
+                }
                 rowList.Add(new MergedEntry
                 {
                     channel = channel,
