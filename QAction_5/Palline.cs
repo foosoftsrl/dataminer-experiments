@@ -5,6 +5,7 @@
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
+    using Skyline.DataMiner.Net.Upload;
 
     public class Palline
     {
@@ -17,13 +18,22 @@
             List<MergedEntry> rowList = new List<MergedEntry>();
             foreach (var adSalesRow in adSalesData)
             {
-                if (adSalesRow.Enabler == "N" && adSalesRow.TimeAllocationType != "PUSH")
-                    continue;
                 var contentReconcileKey = adSalesRow.ReconcileKey;
-                var whatsonRow = whatsonMap.GetValueOrDefault(contentReconcileKey, null);
-                if(adSalesRow.TimeAllocationType == "PUSH")
-                {
+                WhatsonRow whatsonRow;
+                MediatorRow mediatorRow;
+                if (adSalesRow.TimeAllocationType == "PUSH") {
+                    // PUSH events may be scheduled in any event near the request...
+                    // let's look for a matching one
                     whatsonRow = whatsonData.Find(s => s.enablerLegacy == adSalesRow.BreakId);
+                    mediatorRow = mediatorData.Find(s => s.enablerLegacy == adSalesRow.BreakId);
+                }
+                else if(adSalesRow.Enabler == "E" || adSalesRow.Enabler == "X") {
+                    // Substitution / Enhancement events are scheduled for the ad itself
+                    whatsonRow = whatsonMap.GetValueOrDefault(contentReconcileKey, null);
+                    mediatorRow = mediatorMap.GetValueOrDefault(contentReconcileKey, null);
+                } else
+                {
+                    continue;
                 }
                 rowList.Add(new MergedEntry
                 {
