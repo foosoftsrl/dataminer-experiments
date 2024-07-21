@@ -162,10 +162,10 @@ public class QAction
                     StartTime = DateTime.Parse((string)row.Mediatordate),
                     Title = NullIfEmpty((string)row.Mediatortitle),
                     Status = NullIfEmpty((string)row.Mediatorstatus),
-                    scteBroadcastBreakStart = NullIfEmpty((string)row.Mediatorsctebreakstart),
-                    scteBroadcastProviderAdvStart = NullIfEmpty((string)row.Mediatorscteadvstart),
-                    enablerLegacy = NullIfEmpty((string)row.Mediatorenablerlegacy),
-                    materialId = NullIfEmpty((string)row.Mediatormaterialid),
+                    ScteBroadcastBreakStart = NullIfEmpty((string)row.Mediatorsctebreakstart),
+                    ScteBroadcastProviderAdvStart = NullIfEmpty((string)row.Mediatorscteadvstart),
+                    EnablerLegacy = NullIfEmpty((string)row.Mediatorenablerlegacy),
+                    MaterialId = NullIfEmpty((string)row.Mediatormaterialid),
                 });
             }
         }

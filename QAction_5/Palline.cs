@@ -25,8 +25,8 @@
                 {
                     // PUSH events may be scheduled in any event near the request...
                     // let's look for a matching one
-                    whatsonRow = whatsonData.Find(s => s.enablerLegacy == adSalesRow.BreakId);
-                    mediatorRow = mediatorData.Find(s => s.enablerLegacy == adSalesRow.BreakId);
+                    whatsonRow = whatsonData.Find(s => s.EnablerLegacy == adSalesRow.BreakId);
+                    mediatorRow = mediatorData.Find(s => s.EnablerLegacy == adSalesRow.BreakId);
                 }
                 else if(adSalesRow.Enabler == "E" || adSalesRow.Enabler == "X")
                 {
@@ -41,17 +41,17 @@
 
                 rowList.Add(new MergedEntry
                 {
-                    channel = channel,
-                    mux = mux,
-                    adSalesTime = adSalesRow.TimeOfDay,
-                    adSalesData = adSalesRow,
-                    whatsonData = whatsonRow,
-                    mediatorData = mediatorMap.GetValueOrDefault(contentReconcileKey, null),
-                    scteBroadcastBreakStart = scteMap.GetValueOrDefault("SUPER_LOAD:" + whatsonRow?.scteBroadcastBreakStart, null),
-                    scteBroadcastProviderAdvStart = scteMap.GetValueOrDefault("AD_START:" + whatsonRow?.scteBroadcastProviderAdvStart, null),
-                    legacyEventLoad = legacyMap.GetValueOrDefault("LOAD:" + whatsonRow?.enablerLegacy, null),
-                    legacyEventStart = legacyMap.GetValueOrDefault("START:" + whatsonRow?.enablerLegacy, null),
-                    legacyEventStop = legacyMap.GetValueOrDefault("STOP:" + whatsonRow?.enablerLegacy, null),
+                    Channel = channel,
+                    Mux = mux,
+                    AdSalesTime = adSalesRow.TimeOfDay,
+                    AdSalesData = adSalesRow,
+                    WhatsonData = whatsonRow,
+                    MediatorData = mediatorMap.GetValueOrDefault(contentReconcileKey, null),
+                    ScteBroadcastBreakStart = scteMap.GetValueOrDefault("SUPER_LOAD:" + whatsonRow?.ScteBroadcastBreakStart, null),
+                    ScteBroadcastProviderAdvStart = scteMap.GetValueOrDefault("AD_START:" + whatsonRow?.ScteBroadcastProviderAdvStart, null),
+                    LegacyEventLoad = legacyMap.GetValueOrDefault("LOAD:" + whatsonRow?.EnablerLegacy, null),
+                    LegacyEventStart = legacyMap.GetValueOrDefault("START:" + whatsonRow?.EnablerLegacy, null),
+                    LegacyEventStop = legacyMap.GetValueOrDefault("STOP:" + whatsonRow?.EnablerLegacy, null),
                 });
             }
 

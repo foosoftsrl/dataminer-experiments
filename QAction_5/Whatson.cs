@@ -1,5 +1,4 @@
-﻿#pragma warning disable SA1627
-#pragma warning disable SA1516
+﻿#pragma warning disable SA1516
 #pragma warning disable SA1505
 #pragma warning disable SA1605 // missing summary
 #pragma warning disable SA1300 // lowercase elements
@@ -256,7 +255,6 @@ namespace Whatson
             }
         }
 
-        /// <remarks/>
         public string StartDate
         {
             get
@@ -269,7 +267,6 @@ namespace Whatson
             }
         }
 
-        /// <remarks/>
         public string StartTimecode
         {
             get
@@ -282,7 +279,6 @@ namespace Whatson
             }
         }
 
-        /// <remarks/>
         public string ScheduledDuration
         {
             get
@@ -295,7 +291,6 @@ namespace Whatson
             }
         }
 
-        /// <remarks/>
         public string ScheduleReference
         {
             get
@@ -308,7 +303,6 @@ namespace Whatson
             }
         }
 
-        /// <remarks/>
         public string ScheduledTitle
         {
             get
@@ -321,7 +315,6 @@ namespace Whatson
             }
         }
 
-        /// <remarks/>
         public Template Template
         {
             get
@@ -335,7 +328,6 @@ namespace Whatson
         }
     }
 
-    /// <remarks/>
     [System.SerializableAttribute]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
@@ -346,7 +338,6 @@ namespace Whatson
 
         private DataElement[] dataElementListField;
 
-        /// <remarks/>
         public string TemplateName
         {
             get
@@ -359,7 +350,6 @@ namespace Whatson
             }
         }
 
-        /// <remarks/>
         [System.Xml.Serialization.XmlArrayItemAttribute("DataElement", IsNullable = false)]
         public DataElement[] DataElementList
         {
@@ -374,7 +364,6 @@ namespace Whatson
         }
     }
 
-    /// <remarks/>
     [System.SerializableAttribute]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
@@ -387,7 +376,6 @@ namespace Whatson
 
         private DataElementValue valueField;
 
-        /// <remarks/>
         public string Name
         {
             get
@@ -400,7 +388,6 @@ namespace Whatson
             }
         }
 
-        /// <remarks/>
         public string Type
         {
             get
@@ -413,7 +400,6 @@ namespace Whatson
             }
         }
 
-        /// <remarks/>
         public DataElementValue Value
         {
             get
@@ -427,7 +413,6 @@ namespace Whatson
         }
     }
 
-    /// <remarks/>
     [System.SerializableAttribute]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
@@ -438,7 +423,6 @@ namespace Whatson
 
         private string[] textField;
 
-        /// <remarks/>
         public DataElementCompoundList DataElementCompoundList
         {
             get
@@ -451,7 +435,6 @@ namespace Whatson
             }
         }
 
-        /// <remarks/>
         [System.Xml.Serialization.XmlTextAttribute]
         public string[] Text
         {
@@ -466,7 +449,6 @@ namespace Whatson
         }
     }
 
-    /// <remarks/>
     [System.SerializableAttribute]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
@@ -475,7 +457,6 @@ namespace Whatson
 
         private DataElement[] dataElementListField;
 
-        /// <remarks/>
         [System.Xml.Serialization.XmlArrayItemAttribute("DataElement", IsNullable = false)]
         public DataElement[] DataElementList
         {
@@ -490,7 +471,6 @@ namespace Whatson
         }
     }
 
-    /// <remarks/>
     [System.SerializableAttribute]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
@@ -507,7 +487,6 @@ namespace Whatson
 
         private string bottomItemRefField;
 
-        /// <remarks/>
         public string UserName
         {
             get
@@ -520,7 +499,6 @@ namespace Whatson
             }
         }
 
-        /// <remarks/>
         public string Notes
         {
             get
@@ -533,7 +511,6 @@ namespace Whatson
             }
         }
 
-        /// <remarks/>
         public string Colour
         {
             get
@@ -546,7 +523,6 @@ namespace Whatson
             }
         }
 
-        /// <remarks/>
         public string TopItemRef
         {
             get
@@ -559,7 +535,6 @@ namespace Whatson
             }
         }
 
-        /// <remarks/>
         public string BottomItemRef
         {
             get
@@ -573,7 +548,6 @@ namespace Whatson
         }
     }
 
-    /// <remarks/>
     [System.SerializableAttribute]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
@@ -602,7 +576,6 @@ namespace Whatson
 
         private PharosMaterialSegment[] segmentListField;
 
-        /// <remarks/>
         public string MatId
         {
             get
@@ -615,7 +588,6 @@ namespace Whatson
             }
         }
 
-        /// <remarks/>
         public string Title
         {
             get
@@ -628,7 +600,6 @@ namespace Whatson
             }
         }
 
-        /// <remarks/>
         public string SubTitle
         {
             get
@@ -641,7 +612,6 @@ namespace Whatson
             }
         }
 
-        /// <remarks/>
         public string MaterialType
         {
             get
@@ -654,7 +624,6 @@ namespace Whatson
             }
         }
 
-        /// <remarks/>
         public PharosMaterialDuration Duration
         {
             get
@@ -667,7 +636,6 @@ namespace Whatson
             }
         }
 
-        /// <remarks/>
         public PharosMaterialOwner Owner
         {
             get
@@ -680,7 +648,6 @@ namespace Whatson
             }
         }
 
-        /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute("Track")]
         public PharosMaterialTrack[] Track
         {
@@ -694,7 +661,6 @@ namespace Whatson
             }
         }
 
-        /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute("TrackTypeLink")]
         public PharosMaterialTrackTypeLink[] TrackTypeLink
         {
@@ -708,7 +674,6 @@ namespace Whatson
             }
         }
 
-        /// <remarks/>
         [System.Xml.Serialization.XmlArrayItemAttribute("DataElement", IsNullable = false)]
         public DataElement[] DataElementList
         {
@@ -722,7 +687,6 @@ namespace Whatson
             }
         }
 
-        /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute("Marker")]
         public PharosMaterialMarker[] Marker
         {
@@ -736,7 +700,6 @@ namespace Whatson
             }
         }
 
-        /// <remarks/>
         [System.Xml.Serialization.XmlArrayItemAttribute("Segment", IsNullable = false)]
         public PharosMaterialSegment[] SegmentList
         {
@@ -751,7 +714,6 @@ namespace Whatson
         }
     }
 
-    /// <remarks/>
     [System.SerializableAttribute]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
@@ -762,7 +724,6 @@ namespace Whatson
 
         private string valueField;
 
-        /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute]
         public string rate
         {
@@ -776,7 +737,6 @@ namespace Whatson
             }
         }
 
-        /// <remarks/>
         [System.Xml.Serialization.XmlTextAttribute]
         public string Value
         {
@@ -791,7 +751,6 @@ namespace Whatson
         }
     }
 
-    /// <remarks/>
     [System.SerializableAttribute]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
@@ -800,7 +759,6 @@ namespace Whatson
 
         private string nameField;
 
-        /// <remarks/>
         public string Name
         {
             get
@@ -814,7 +772,6 @@ namespace Whatson
         }
     }
 
-    /// <remarks/>
     [System.SerializableAttribute]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
@@ -825,7 +782,6 @@ namespace Whatson
 
         private PharosMaterialTrackTrackDefinition trackDefinitionField;
 
-        /// <remarks/>
         public string MediaName
         {
             get
@@ -838,7 +794,6 @@ namespace Whatson
             }
         }
 
-        /// <remarks/>
         public PharosMaterialTrackTrackDefinition TrackDefinition
         {
             get
@@ -852,7 +807,6 @@ namespace Whatson
         }
     }
 
-    /// <remarks/>
     [System.SerializableAttribute]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
@@ -867,7 +821,6 @@ namespace Whatson
 
         private bool positionFieldSpecified;
 
-        /// <remarks/>
         public string TrackTypeName
         {
             get
@@ -880,7 +833,6 @@ namespace Whatson
             }
         }
 
-        /// <remarks/>
         public PharosMaterialTrackTrackDefinitionTrackFile TrackFile
         {
             get
@@ -893,7 +845,6 @@ namespace Whatson
             }
         }
 
-        /// <remarks/>
         public byte Position
         {
             get
@@ -906,7 +857,6 @@ namespace Whatson
             }
         }
 
-        /// <remarks/>
         [System.Xml.Serialization.XmlIgnoreAttribute]
         public bool PositionSpecified
         {
@@ -921,7 +871,6 @@ namespace Whatson
         }
     }
 
-    /// <remarks/>
     [System.SerializableAttribute]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
@@ -930,7 +879,6 @@ namespace Whatson
 
         private string nameField;
 
-        /// <remarks/>
         public string Name
         {
             get
@@ -944,7 +892,6 @@ namespace Whatson
         }
     }
 
-    /// <remarks/>
     [System.SerializableAttribute]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
@@ -957,7 +904,6 @@ namespace Whatson
 
         private string stateNameField;
 
-        /// <remarks/>
         public string TrackTypeName
         {
             get
@@ -970,7 +916,6 @@ namespace Whatson
             }
         }
 
-        /// <remarks/>
         public string StateMachine
         {
             get
@@ -983,7 +928,6 @@ namespace Whatson
             }
         }
 
-        /// <remarks/>
         public string StateName
         {
             get
@@ -997,7 +941,6 @@ namespace Whatson
         }
     }
 
-    /// <remarks/>
     [System.SerializableAttribute]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
@@ -1008,7 +951,6 @@ namespace Whatson
 
         private PharosMaterialMarkerTimecode timecodeField;
 
-        /// <remarks/>
         public string MarkerType
         {
             get
@@ -1021,7 +963,6 @@ namespace Whatson
             }
         }
 
-        /// <remarks/>
         public PharosMaterialMarkerTimecode Timecode
         {
             get
@@ -1035,7 +976,6 @@ namespace Whatson
         }
     }
 
-    /// <remarks/>
     [System.SerializableAttribute]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
@@ -1046,7 +986,6 @@ namespace Whatson
 
         private string valueField;
 
-        /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute]
         public string rate
         {
@@ -1060,7 +999,6 @@ namespace Whatson
             }
         }
 
-        /// <remarks/>
         [System.Xml.Serialization.XmlTextAttribute]
         public string Value
         {
@@ -1075,7 +1013,6 @@ namespace Whatson
         }
     }
 
-    /// <remarks/>
     [System.SerializableAttribute]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
@@ -1094,7 +1031,6 @@ namespace Whatson
 
         private PharosMaterialSegmentMarkerOut markerOutField;
 
-        /// <remarks/>
         public string Name
         {
             get
@@ -1107,7 +1043,6 @@ namespace Whatson
             }
         }
 
-        /// <remarks/>
         public PharosMaterialSegmentSegmentGroup SegmentGroup
         {
             get
@@ -1120,7 +1055,6 @@ namespace Whatson
             }
         }
 
-        /// <remarks/>
         public PharosMaterialSegmentSegmentType SegmentType
         {
             get
@@ -1133,7 +1067,6 @@ namespace Whatson
             }
         }
 
-        /// <remarks/>
         public byte Index
         {
             get
@@ -1146,7 +1079,6 @@ namespace Whatson
             }
         }
 
-        /// <remarks/>
         public PharosMaterialSegmentMarkerIn MarkerIn
         {
             get
@@ -1159,7 +1091,6 @@ namespace Whatson
             }
         }
 
-        /// <remarks/>
         public PharosMaterialSegmentMarkerOut MarkerOut
         {
             get
@@ -1173,7 +1104,6 @@ namespace Whatson
         }
     }
 
-    /// <remarks/>
     [System.SerializableAttribute]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
@@ -1182,7 +1112,6 @@ namespace Whatson
 
         private string nameField;
 
-        /// <remarks/>
         public string Name
         {
             get
@@ -1196,7 +1125,6 @@ namespace Whatson
         }
     }
 
-    /// <remarks/>
     [System.SerializableAttribute]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
@@ -1205,7 +1133,6 @@ namespace Whatson
 
         private string nameField;
 
-        /// <remarks/>
         public string Name
         {
             get
@@ -1219,7 +1146,6 @@ namespace Whatson
         }
     }
 
-    /// <remarks/>
     [System.SerializableAttribute]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
@@ -1230,7 +1156,6 @@ namespace Whatson
 
         private string frameRateField;
 
-        /// <remarks/>
         public string Timecode
         {
             get
@@ -1243,7 +1168,6 @@ namespace Whatson
             }
         }
 
-        /// <remarks/>
         public string FrameRate
         {
             get
@@ -1257,7 +1181,6 @@ namespace Whatson
         }
     }
 
-    /// <remarks/>
     [System.SerializableAttribute]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
@@ -1268,7 +1191,6 @@ namespace Whatson
 
         private string frameRateField;
 
-        /// <remarks/>
         public string Timecode
         {
             get
@@ -1281,7 +1203,6 @@ namespace Whatson
             }
         }
 
-        /// <remarks/>
         public string FrameRate
         {
             get

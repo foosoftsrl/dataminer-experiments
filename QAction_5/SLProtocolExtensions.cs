@@ -146,7 +146,7 @@
                     Wonmediatordiffwonprogramtitle = row.Item1?.Title ?? string.Empty,
                     Wonmediatordiffmediatorreconcilekey = row.Item2?.ReconcileKey ?? string.Empty,
                     Wonmediatordiffmediatorstarttime = row.Item2?.StartTime.ToString("yyyy-MM-dd HH:mm:ss") ?? string.Empty,
-                    Wonmediatordiffmediatorprogramcode = row.Item2?.materialId ?? string.Empty,
+                    Wonmediatordiffmediatorprogramcode = row.Item2?.MaterialId ?? string.Empty,
                     Wonmediatordiffmediatorprogramtitle = row.Item2?.Title ?? string.Empty,
                     Wonmediatordiffdayoffset = row.Item1 != null ? row.Item1?.DayOffset.ToString() : row.Item2?.DayOffset.ToString(),
                     Wonmediatordiffresult = row.Item3,
@@ -221,9 +221,9 @@
                     Wontitle = row.Title,
                     Wonreconcilekey = row.ReconcileKey ?? string.Empty,
                     Wonitemreference = row.ItemReference,
-                    Wonenablerlegacy = row.enablerLegacy ?? string.Empty,
-                    Wonsctebreakstart = row.scteBroadcastBreakStart ?? string.Empty,
-                    Wonscteadvstart = row.scteBroadcastProviderAdvStart ?? string.Empty,
+                    Wonenablerlegacy = row.EnablerLegacy ?? string.Empty,
+                    Wonsctebreakstart = row.ScteBroadcastBreakStart ?? string.Empty,
+                    Wonscteadvstart = row.ScteBroadcastProviderAdvStart ?? string.Empty,
                     Wontemplatename = row.TemplateName ?? string.Empty,
                 }.ToObjectArray());
             }
@@ -245,10 +245,10 @@
                     Mediatortitle = row.Title,
                     Mediatorstatus = row.Status,
                     Mediatorreconcilekey = row.ReconcileKey ?? string.Empty,
-                    Mediatorenablerlegacy = row.enablerLegacy ?? string.Empty,
-                    Mediatorsctebreakstart = row.scteBroadcastBreakStart ?? string.Empty,
-                    Mediatorscteadvstart = row.scteBroadcastProviderAdvStart ?? string.Empty,
-                    Mediatormaterialid = row.materialId ?? string.Empty,
+                    Mediatorenablerlegacy = row.EnablerLegacy ?? string.Empty,
+                    Mediatorsctebreakstart = row.ScteBroadcastBreakStart ?? string.Empty,
+                    Mediatorscteadvstart = row.ScteBroadcastProviderAdvStart ?? string.Empty,
+                    Mediatormaterialid = row.MaterialId ?? string.Empty,
                     Mediatordayoffset = row.DayOffset,
                 }.ToObjectArray());
             }
@@ -264,15 +264,15 @@
             {
                 tableRows.Add(new TachecktableQActionRow
                 {
-                    Tacheckreconcilekey = row.adSalesData.ReconcileKey,
-                    Tacheckproductcode = row.adSalesData.ProductCode,
-                    Tacheckchannel = row.channel,
-                    Tacheckmux = row.mux,
-                    Tacheckadsalestime = row.adSalesTime.ToString("yyyy-MM-dd HH:mm:ss"),
-                    Tacheckhavewon = (row.whatsonData != null) ? "\u2713" : string.Empty,
-                    Tacheckhavemediator = (row.mediatorData != null) ? "✓" : string.Empty,
-                    Tacheckmediatortime = row.mediatorData?.StartTime.ToString("yyyy-MM-dd HH:mm:ss") ?? string.Empty,
-                    Tachecktype = row.adSalesData.Enabler,
+                    Tacheckreconcilekey = row.AdSalesData.ReconcileKey,
+                    Tacheckproductcode = row.AdSalesData.ProductCode,
+                    Tacheckchannel = row.Channel,
+                    Tacheckmux = row.Mux,
+                    Tacheckadsalestime = row.AdSalesTime.ToString("yyyy-MM-dd HH:mm:ss"),
+                    Tacheckhavewon = (row.WhatsonData != null) ? "\u2713" : string.Empty,
+                    Tacheckhavemediator = (row.MediatorData != null) ? "✓" : string.Empty,
+                    Tacheckmediatortime = row.MediatorData?.StartTime.ToString("yyyy-MM-dd HH:mm:ss") ?? string.Empty,
+                    Tachecktype = row.AdSalesData.Enabler,
                     Tacheckenablerprobe = string.Empty,
                     Tacheckscteprobe = string.Empty,
                 }.ToObjectArray());

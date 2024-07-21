@@ -33,10 +33,10 @@
                             ReconcileKey = row.FindAdSalesReconcileKey(),
                             ScheduleReference = row.GetScheduleReference(),
                             Status = row.Status.GenericList.Object[0].TransferStatus.ToString(),
-                            enablerLegacy = row.FindEnablerLegacyText(),
-                            scteBroadcastBreakStart = row.FindScteBroadcastBreakStartUpid(),
-                            scteBroadcastProviderAdvStart = row.FindScteBroadcastProviderAdvStartUpid(),
-                            materialId = row.GetTrimMaterialId(),
+                            EnablerLegacy = row.FindEnablerLegacyText(),
+                            ScteBroadcastBreakStart = row.FindScteBroadcastBreakStartUpid(),
+                            ScteBroadcastProviderAdvStart = row.FindScteBroadcastProviderAdvStartUpid(),
+                            MaterialId = row.GetTrimMaterialId(),
                         });
                     }
                 }

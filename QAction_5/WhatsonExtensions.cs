@@ -32,11 +32,11 @@
                                     ReconcileKey = reconcileKey,
                                     Title = playlistItem.ScheduledTitle,
                                     ProgramCode = playlistItem.FindProgramCode() ?? string.Empty,
-                                    enablerLegacy = playlistItem.FindEnablerLegacyText(),
-                                    scteBroadcastBreakStart = playlistItem.FindScteBroadcastBreakStartUpid(),
-                                    scteBroadcastProviderAdvStart = playlistItem.FindScteBroadcastProviderAdvStartUpid(),
-                                    scteBroadcastProviderOverlayPlacementStart = playlistItem.FindScteBroadcastProviderOverlayPlacementStartUpid(),
-                                    scteBroadcastProviderOverlayPlacementEnd = playlistItem.FindScteBroadcastProviderOverlayPlacementEndUpid(),
+                                    EnablerLegacy = playlistItem.FindEnablerLegacyText(),
+                                    ScteBroadcastBreakStart = playlistItem.FindScteBroadcastBreakStartUpid(),
+                                    ScteBroadcastProviderAdvStart = playlistItem.FindScteBroadcastProviderAdvStartUpid(),
+                                    ScteBroadcastProviderOverlayPlacementStart = playlistItem.FindScteBroadcastProviderOverlayPlacementStartUpid(),
+                                    ScteBroadcastProviderOverlayPlacementEnd = playlistItem.FindScteBroadcastProviderOverlayPlacementEndUpid(),
                                     TemplateName = playlistItem.Template.TemplateName,
                                 });
                             }

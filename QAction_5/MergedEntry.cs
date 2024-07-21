@@ -1,5 +1,4 @@
 ﻿#pragma warning disable SA1401 // C# does not like public fields
-#pragma warning disable SA1307 // field lower case
 namespace QAction_5
 {
     using System;
@@ -10,16 +9,16 @@ namespace QAction_5
 
     public class MergedEntry
     {
-        public string channel;
-        public string mux;
-        public DateTime adSalesTime;
-        public AdSalesRow adSalesData;
-        public WhatsonRow whatsonData;
-        public MediatorRow mediatorData;
-        public EnablerRow scteBroadcastBreakStart;
-        public EnablerRow scteBroadcastProviderAdvStart;
-        public EnablerRow legacyEventLoad;
-        public EnablerRow legacyEventStart;
-        public EnablerRow legacyEventStop;
+        public string Channel;
+        public string Mux;
+        public DateTime AdSalesTime;
+        public AdSalesRow AdSalesData;
+        public WhatsonRow WhatsonData;
+        public MediatorRow MediatorData;
+        public EnablerRow ScteBroadcastBreakStart;
+        public EnablerRow ScteBroadcastProviderAdvStart;
+        public EnablerRow LegacyEventLoad;
+        public EnablerRow LegacyEventStart;
+        public EnablerRow LegacyEventStop;
     }
 }

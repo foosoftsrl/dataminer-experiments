@@ -123,7 +123,7 @@
                         }
 
                         var resultCode = "ok";
-                        if (mediatorRows[mediatorIdx].materialId != whatsonRows[whatsonIdx].ProgramCode)
+                        if (mediatorRows[mediatorIdx].MaterialId != whatsonRows[whatsonIdx].ProgramCode)
                         {
                             resultCode = "warn_material_mismatch";
                         }

@@ -1,9 +1,4 @@
-﻿#pragma warning disable SA1627
-#pragma warning disable SA1513
-#pragma warning disable SA1505
-#pragma warning disable SA1502 // Elements should not be on a single line
-#pragma warning disable SA1106 // Code should not contain empty statements???
-// Generated here: https://app.quicktype.io/?l=csharp
+﻿// Generated here: https://app.quicktype.io/?l=csharp
 namespace Mediator
 {
     using System;
@@ -289,7 +284,7 @@ namespace Mediator
     public enum Rate
     {
         Ndf25,
-    };
+    }
 
     public enum MachineStatus
     {
@@ -298,15 +293,18 @@ namespace Mediator
         Play,
         PlayCued,
         Unknown,
-    };
+    }
 
     public enum GeneralType
     {
         String,
         TemplateParameterListCompound,
-    };
+    }
 
-    public enum TypeEnum { TemplateParameter };
+    public enum TypeEnum
+    {
+        TemplateParameter,
+    }
 
     public static class TemplateParameterName
     {
@@ -359,6 +357,7 @@ namespace Mediator
             {
                 return Rate.Ndf25;
             }
+
             throw new Exception("Cannot unmarshal type Rate");
         }
 
@@ -369,12 +368,14 @@ namespace Mediator
                 serializer.Serialize(writer, null);
                 return;
             }
+
             var value = (Rate)untypedValue;
             if (value == Rate.Ndf25)
             {
                 serializer.Serialize(writer, "NDF25");
                 return;
             }
+
             throw new Exception("Cannot marshal type Rate");
         }
 
@@ -403,6 +404,7 @@ namespace Mediator
                 case "Unknown":
                     return MachineStatus.Unknown;
             }
+
             throw new Exception("Cannot unmarshal type MachineStatus");
         }
 
@@ -413,6 +415,7 @@ namespace Mediator
                 serializer.Serialize(writer, null);
                 return;
             }
+
             var value = (MachineStatus)untypedValue;
             switch (value)
             {
@@ -432,6 +435,7 @@ namespace Mediator
                     serializer.Serialize(writer, "Unknown");
                     return;
             }
+
             throw new Exception("Cannot marshal type MachineStatus");
         }
 
@@ -454,6 +458,7 @@ namespace Mediator
                 case "TemplateParameterListCompound":
                     return GeneralType.TemplateParameterListCompound;
             }
+
             throw new Exception("Cannot unmarshal type GeneralType");
         }
 
@@ -464,6 +469,7 @@ namespace Mediator
                 serializer.Serialize(writer, null);
                 return;
             }
+
             var value = (GeneralType)untypedValue;
             switch (value)
             {
@@ -474,6 +480,7 @@ namespace Mediator
                     serializer.Serialize(writer, "TemplateParameterListCompound");
                     return;
             }
+
             throw new Exception("Cannot marshal type GeneralType");
         }
 
@@ -493,6 +500,7 @@ namespace Mediator
             {
                 return TypeEnum.TemplateParameter;
             }
+
             throw new Exception("Cannot unmarshal type TypeEnum");
         }
 
@@ -503,12 +511,14 @@ namespace Mediator
                 serializer.Serialize(writer, null);
                 return;
             }
+
             var value = (TypeEnum)untypedValue;
             if (value == TypeEnum.TemplateParameter)
             {
                 serializer.Serialize(writer, "template parameter");
                 return;
             }
+
             throw new Exception("Cannot marshal type TypeEnum");
         }
 
@@ -531,6 +541,7 @@ namespace Mediator
                     var objectValue = serializer.Deserialize<ValueClass>(reader);
                     return new ValueUnion { ValueClass = objectValue };
             }
+
             throw new Exception("Cannot unmarshal type ValueUnion");
         }
 
@@ -542,11 +553,13 @@ namespace Mediator
                 serializer.Serialize(writer, value.String);
                 return;
             }
+
             if (value.ValueClass != null)
             {
                 serializer.Serialize(writer, value.ValueClass);
                 return;
             }
+
             throw new Exception("Cannot marshal type ValueUnion");
         }
 

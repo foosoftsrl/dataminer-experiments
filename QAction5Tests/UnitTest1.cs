@@ -17,23 +17,23 @@ namespace QAction5Tests
             var legacyData = EnablerSource.ParseText(Utils.ReadFile("legacy.csv"));
             var scteData = EnablerSource.ParseText(Utils.ReadFile("scte.csv"));
             var merged = Palline.Compute(adSalesData, whatsonData, mediatorData, scteData, legacyData, "Pippo", "PippoMux");
-            var matchedMediator = merged.Count(s => s.mediatorData != null);
-            var matchedWhatson = merged.Count(s => s.whatsonData != null);
+            var matchedMediator = merged.Count(s => s.MediatorData != null);
+            var matchedWhatson = merged.Count(s => s.WhatsonData != null);
             Assert.AreEqual(9, matchedWhatson);
             Assert.AreEqual(2, matchedMediator);
-            var firstLegacy = whatsonData.First(s => s.enablerLegacy != null);
-            var firstLegacyOnMerged = merged.First(s => s.whatsonData == firstLegacy);
-            Assert.IsNotNull(firstLegacyOnMerged.legacyEventLoad);
-            Assert.IsNotNull(firstLegacyOnMerged.legacyEventStart);
-            Assert.IsNotNull(firstLegacyOnMerged.legacyEventStop);
+            var firstLegacy = whatsonData.First(s => s.EnablerLegacy != null);
+            var firstLegacyOnMerged = merged.First(s => s.WhatsonData == firstLegacy);
+            Assert.IsNotNull(firstLegacyOnMerged.LegacyEventLoad);
+            Assert.IsNotNull(firstLegacyOnMerged.LegacyEventStart);
+            Assert.IsNotNull(firstLegacyOnMerged.LegacyEventStop);
 
-            var firstBreakStartUpid = whatsonData.First(s => s.scteBroadcastBreakStart != null);
-            var firstBreakStartUpidOnMerged = merged.First(s => s.whatsonData == firstBreakStartUpid);
-            Assert.IsNotNull(firstBreakStartUpidOnMerged.scteBroadcastBreakStart);
+            var firstBreakStartUpid = whatsonData.First(s => s.ScteBroadcastBreakStart != null);
+            var firstBreakStartUpidOnMerged = merged.First(s => s.WhatsonData == firstBreakStartUpid);
+            Assert.IsNotNull(firstBreakStartUpidOnMerged.ScteBroadcastBreakStart);
 
-            var firstAdvStartUpid = whatsonData.First(s => s.scteBroadcastProviderAdvStart != null);
-            var firstAdvStartUpidOnMerged = merged.First(s => s.whatsonData == firstAdvStartUpid);
-            Assert.IsNotNull(firstAdvStartUpidOnMerged.scteBroadcastProviderAdvStart);
+            var firstAdvStartUpid = whatsonData.First(s => s.ScteBroadcastProviderAdvStart != null);
+            var firstAdvStartUpidOnMerged = merged.First(s => s.WhatsonData == firstAdvStartUpid);
+            Assert.IsNotNull(firstAdvStartUpidOnMerged.ScteBroadcastProviderAdvStart);
         }
 
         [TestMethod]
@@ -45,35 +45,35 @@ namespace QAction5Tests
             var legacyData = EnablerSource.ParseText(Utils.ReadFile("legacy.csv"));
             var scteData = EnablerSource.ParseText(Utils.ReadFile("scte.csv"));
             var taCheckRows = Palline.Compute(adSalesData, whatsonData, mediatorData, scteData, legacyData, "Pippo", "PippoMux");
-            var matchedMediator = taCheckRows.Count(s => s.mediatorData != null);
-            var matchedWhatson = taCheckRows.Count(s => s.whatsonData != null);
+            var matchedMediator = taCheckRows.Count(s => s.MediatorData != null);
+            var matchedWhatson = taCheckRows.Count(s => s.WhatsonData != null);
             Assert.AreEqual(36, taCheckRows.Length);
-            Assert.AreEqual(18, taCheckRows.Count(s => s.adSalesData.TimeAllocationType == "PUSH"));
-            Assert.AreEqual(3, taCheckRows.Count(s => s.adSalesData.Enabler == "E"));
-            Assert.AreEqual(15, taCheckRows.Count(s => s.adSalesData.Enabler == "X"));
+            Assert.AreEqual(18, taCheckRows.Count(s => s.AdSalesData.TimeAllocationType == "PUSH"));
+            Assert.AreEqual(3, taCheckRows.Count(s => s.AdSalesData.Enabler == "E"));
+            Assert.AreEqual(15, taCheckRows.Count(s => s.AdSalesData.Enabler == "X"));
             Assert.AreEqual(36, matchedWhatson);
             Assert.AreEqual(0, matchedMediator);
 
-            var firstSubstitution = taCheckRows.First(s => s.adSalesData.Enabler == "X");
-            Assert.AreEqual(firstSubstitution.adSalesData.ReconcileKey, "0119996378");
-            Assert.AreEqual(firstSubstitution.whatsonData.ReconcileKey, "0119996378");
-            Assert.AreEqual(firstSubstitution.whatsonData.enablerLegacy, "X0119996378");
-            Assert.AreEqual("urn:uuid:Break-B0023476544_0005", firstSubstitution.whatsonData.scteBroadcastBreakStart);
-            Assert.AreEqual("urn:uuid:Break-B0023476544_0005-3-10-X0119996378", firstSubstitution.whatsonData.scteBroadcastProviderAdvStart);
+            var firstSubstitution = taCheckRows.First(s => s.AdSalesData.Enabler == "X");
+            Assert.AreEqual(firstSubstitution.AdSalesData.ReconcileKey, "0119996378");
+            Assert.AreEqual(firstSubstitution.WhatsonData.ReconcileKey, "0119996378");
+            Assert.AreEqual(firstSubstitution.WhatsonData.EnablerLegacy, "X0119996378");
+            Assert.AreEqual("urn:uuid:Break-B0023476544_0005", firstSubstitution.WhatsonData.ScteBroadcastBreakStart);
+            Assert.AreEqual("urn:uuid:Break-B0023476544_0005-3-10-X0119996378", firstSubstitution.WhatsonData.ScteBroadcastProviderAdvStart);
 
-            var firstEnhancement = taCheckRows.First(s => s.adSalesData.Enabler == "E");
-            Assert.AreEqual(firstEnhancement.adSalesData.ReconcileKey, "0119932622");
-            Assert.AreEqual(firstEnhancement.whatsonData.ReconcileKey, "0119932622");
-            Assert.AreEqual(firstEnhancement.whatsonData.enablerLegacy, "0119932622");
-            Assert.AreEqual("urn:uuid:0119932622", firstEnhancement.whatsonData.scteBroadcastProviderOverlayPlacementStart);
-            Assert.AreEqual("urn:uuid:0119932622", firstEnhancement.whatsonData.scteBroadcastProviderOverlayPlacementEnd);
+            var firstEnhancement = taCheckRows.First(s => s.AdSalesData.Enabler == "E");
+            Assert.AreEqual(firstEnhancement.AdSalesData.ReconcileKey, "0119932622");
+            Assert.AreEqual(firstEnhancement.WhatsonData.ReconcileKey, "0119932622");
+            Assert.AreEqual(firstEnhancement.WhatsonData.EnablerLegacy, "0119932622");
+            Assert.AreEqual("urn:uuid:0119932622", firstEnhancement.WhatsonData.ScteBroadcastProviderOverlayPlacementStart);
+            Assert.AreEqual("urn:uuid:0119932622", firstEnhancement.WhatsonData.ScteBroadcastProviderOverlayPlacementEnd);
 
-            var firstPush = taCheckRows.First(s => s.adSalesData.TimeAllocationType == "PUSH");
-            Assert.AreEqual(firstPush.adSalesData.ReconcileKey, string.Empty);
-            Assert.AreEqual("P0061063068", firstPush.adSalesData.BreakId);
-            Assert.AreEqual("P0061063068", firstPush.whatsonData.enablerLegacy);
-            Assert.AreEqual("urn:uuid:P0061063068", firstPush.whatsonData.scteBroadcastProviderOverlayPlacementStart);
-            Assert.AreEqual("urn:uuid:P0061063068", firstPush.whatsonData.scteBroadcastProviderOverlayPlacementEnd);
+            var firstPush = taCheckRows.First(s => s.AdSalesData.TimeAllocationType == "PUSH");
+            Assert.AreEqual(firstPush.AdSalesData.ReconcileKey, string.Empty);
+            Assert.AreEqual("P0061063068", firstPush.AdSalesData.BreakId);
+            Assert.AreEqual("P0061063068", firstPush.WhatsonData.EnablerLegacy);
+            Assert.AreEqual("urn:uuid:P0061063068", firstPush.WhatsonData.ScteBroadcastProviderOverlayPlacementStart);
+            Assert.AreEqual("urn:uuid:P0061063068", firstPush.WhatsonData.ScteBroadcastProviderOverlayPlacementEnd);
         }
 
         [TestMethod]
@@ -102,13 +102,13 @@ namespace QAction5Tests
         public void TestParseMediator()
         {
             var mediatorData = Utils.JsonDeserializeFromFile<Mediator.Welcome>("mediator.json", Mediator.Converter.Settings).Flatten();
-            var firstLegacy = mediatorData.First(s => s.enablerLegacy != null)?.enablerLegacy;
+            var firstLegacy = mediatorData.First(s => s.EnablerLegacy != null)?.EnablerLegacy;
             Assert.AreEqual("X0119308788", firstLegacy);
 
-            var firstBreakStartUpid = mediatorData.First(s => s.scteBroadcastBreakStart != null)?.scteBroadcastBreakStart;
+            var firstBreakStartUpid = mediatorData.First(s => s.ScteBroadcastBreakStart != null)?.ScteBroadcastBreakStart;
             Assert.AreEqual("urn:uuid:Break-B0023407280_0004", firstBreakStartUpid);
 
-            var firstAdvStartUpid = mediatorData.First(s => s.scteBroadcastProviderAdvStart != null)?.scteBroadcastProviderAdvStart;
+            var firstAdvStartUpid = mediatorData.First(s => s.ScteBroadcastProviderAdvStart != null)?.ScteBroadcastProviderAdvStart;
             Assert.AreEqual("urn:uuid:Break-B0023407280_0004-3-13-X0119308788", firstAdvStartUpid);
 
             var firstReconcileKey = mediatorData.First(s => s.ReconcileKey != null)?.ReconcileKey;

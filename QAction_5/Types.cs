@@ -1,5 +1,4 @@
 ﻿#pragma warning disable SA1401 // C# does not like public fields
-#pragma warning disable SA1307 // field lower case
 
 namespace QAction_5
 {
@@ -30,11 +29,11 @@ namespace QAction_5
         public string ItemReference;
         public string ReconcileKey;
         public string TemplateName;
-        public string scteBroadcastBreakStart;
-        public string scteBroadcastProviderAdvStart;
-        public string scteBroadcastProviderOverlayPlacementStart;
-        public string scteBroadcastProviderOverlayPlacementEnd;
-        public string enablerLegacy;
+        public string ScteBroadcastBreakStart;
+        public string ScteBroadcastProviderAdvStart;
+        public string ScteBroadcastProviderOverlayPlacementStart;
+        public string ScteBroadcastProviderOverlayPlacementEnd;
+        public string EnablerLegacy;
         public int DayOffset;
     }
 
@@ -46,10 +45,10 @@ namespace QAction_5
         public DateTime StartTime;
         public string Title;
         public string Status;
-        public string scteBroadcastBreakStart;
-        public string scteBroadcastProviderAdvStart;
-        public string enablerLegacy;
-        public string materialId;
+        public string ScteBroadcastBreakStart;
+        public string ScteBroadcastProviderAdvStart;
+        public string EnablerLegacy;
+        public string MaterialId;
         public int DayOffset;
     }
 
