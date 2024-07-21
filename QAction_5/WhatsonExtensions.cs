@@ -1,11 +1,11 @@
 ﻿namespace QAction_5
 {
-    using Skyline.DataMiner.Net.Messages.SLDataGateway;
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
+    using Skyline.DataMiner.Net.Messages.SLDataGateway;
     using static Utils;
 
     public static class WhatsonExtensions
@@ -44,6 +44,7 @@
                     }
                 }
             }
+
             return result;
         }
 
@@ -63,8 +64,10 @@
                     reconcileToRow[adSalesReconcileKey] = row;
                 }
             }
+
             return reconcileToRow;
         }
+
         public static string FindAdSalesReconcileKey(this Whatson.PlaylistItem playlistItem)
         {
             return playlistItem.FindDataElementByName("adSalesContentReconcileKey-text")?.Text();
@@ -84,6 +87,7 @@
         {
             return playlistItem.FindDataElementByName("scteBroadcastProviderOverlayPlacementStart-compoundList");
         }
+
         public static Whatson.DataElement FindScteBroadcastProviderOverlayPlacementEnd(this Whatson.PlaylistItem playlistItem)
         {
             return playlistItem.FindDataElementByName("scteBroadcastProviderOverlayPlacementEnd-compoundList");
@@ -137,6 +141,7 @@
             {
                 return dataElement.Value.Text[0];
             }
+
             return null;
         }
 
@@ -154,6 +159,7 @@
                     return entry;
                 }
             }
+
             return null;
         }
 
@@ -165,7 +171,6 @@
             string time = playlistItem.StartTimecode.Substring(0, 8);
             var dateTime = DateTime.Parse(date + "T" + time + "Z");
             return dateTime;
-
         }
     }
 }

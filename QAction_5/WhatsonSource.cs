@@ -1,5 +1,4 @@
-﻿
-namespace QAction_5
+﻿namespace QAction_5
 {
     using System;
     using System.Collections.Generic;
@@ -17,6 +16,7 @@ namespace QAction_5
         {
             return ReadWhatson(channelName, dir, DateTime.Now);
         }
+
         public List<WhatsonRow> ReadWhatson(string channelName, string dir, DateTime firstDay)
         {
             var date = firstDay;
@@ -32,24 +32,27 @@ namespace QAction_5
 
                 result.AddRange(partialResult);
             }
+
             return result;
         }
 
-        public List<WhatsonRow> ReadWhatson(string channelName, string dir, String date) 
-        {   
+        public List<WhatsonRow> ReadWhatson(string channelName, string dir, String date)
+        {
             string[] files = Directory.GetFiles(dir, $"{channelName}_Schedule_{date}_*.xml");
 
             if (files.Length == 0)
             {
                 return new List<WhatsonRow>();
             }
+
             string latestFile = files
                 .OrderByDescending(f => GetFileVersion(f))
                 .First();
             try
             {
                 return Utils.XmlDeserializeFromFile<Whatson.Pharos>(latestFile).Flatten();
-            } catch(Exception ex)
+            }
+            catch(Exception ex)
             {
                 throw new Exception($"Failed parsing Whatson file {latestFile}: {ex.Message}", ex);
             }
@@ -66,6 +69,5 @@ namespace QAction_5
 
             return 0; // default in case of no match
         }
-
     }
 }

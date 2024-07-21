@@ -1,9 +1,12 @@
-﻿namespace Whatson
+﻿#pragma warning disable SA1627
+#pragma warning disable SA1516
+#pragma warning disable SA1505
+#pragma warning disable SA1605 // missing summary
+#pragma warning disable SA1300 // lowercase elements
+namespace Whatson
 {
-
     // NOTE: Generated code may require at least .NET Framework 4.5 or .NET Core/Standard 2.0.
-    /// <remarks/>
-    [System.SerializableAttribute()]
+    [System.SerializableAttribute]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
     [System.Xml.Serialization.XmlRootAttribute(Namespace = "", IsNullable = false)]
@@ -16,7 +19,6 @@
 
         private PharosMaterial[] materialField;
 
-        /// <remarks/>
         public PharosImportMetaData ImportMetaData
         {
             get
@@ -29,7 +31,6 @@
             }
         }
 
-        /// <remarks/>
         public Playlist Playlist
         {
             get
@@ -42,7 +43,6 @@
             }
         }
 
-        /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute("Material")]
         public PharosMaterial[] Material
         {
@@ -57,8 +57,7 @@
         }
     }
 
-    /// <remarks/>
-    [System.SerializableAttribute()]
+    [System.SerializableAttribute]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
     public partial class PharosImportMetaData
@@ -66,13 +65,13 @@
 
         private string noteField;
 
-        /// <remarks/>
         public string Note
         {
             get
             {
                 return this.noteField;
             }
+
             set
             {
                 this.noteField = value;
@@ -80,8 +79,7 @@
         }
     }
 
-    /// <remarks/>
-    [System.SerializableAttribute()]
+    [System.SerializableAttribute]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
     public partial class Playlist
@@ -93,7 +91,6 @@
 
         private Bookmark[] bookmarkListField;
 
-        /// <remarks/>
         public string ChannelName
         {
             get
@@ -106,7 +103,6 @@
             }
         }
 
-        /// <remarks/>
         [System.Xml.Serialization.XmlArrayItemAttribute("Block", IsNullable = false)]
         public Block[] BlockList
         {
@@ -120,7 +116,6 @@
             }
         }
 
-        /// <remarks/>
         [System.Xml.Serialization.XmlArrayItemAttribute("Bookmark", IsNullable = false)]
         public Bookmark[] BookmarkList
         {
@@ -135,8 +130,7 @@
         }
     }
 
-    /// <remarks/>
-    [System.SerializableAttribute()]
+    [System.SerializableAttribute]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
     public partial class Block
@@ -152,7 +146,6 @@
 
         private PlaylistItem[] playlistItemField;
 
-        /// <remarks/>
         public ulong BlockName
         {
             get
@@ -165,8 +158,7 @@
             }
         }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        [System.Xml.Serialization.XmlIgnoreAttribute]
         public bool BlockNameSpecified
         {
             get
@@ -179,7 +171,6 @@
             }
         }
 
-        /// <remarks/>
         public ulong PreviousBlockName
         {
             get
@@ -192,8 +183,7 @@
             }
         }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        [System.Xml.Serialization.XmlIgnoreAttribute]
         public bool PreviousBlockNameSpecified
         {
             get
@@ -206,7 +196,6 @@
             }
         }
 
-        /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute("PlaylistItem")]
         public PlaylistItem[] PlaylistItem
         {
@@ -221,8 +210,7 @@
         }
     }
 
-    /// <remarks/>
-    [System.SerializableAttribute()]
+    [System.SerializableAttribute]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
     public partial class PlaylistItem
@@ -244,7 +232,6 @@
 
         private Template templateField;
 
-        /// <remarks/>
         public string ItemReference
         {
             get
@@ -257,7 +244,6 @@
             }
         }
 
-        /// <remarks/>
         public string StartMode
         {
             get
@@ -350,7 +336,7 @@
     }
 
     /// <remarks/>
-    [System.SerializableAttribute()]
+    [System.SerializableAttribute]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
     public partial class Template
@@ -389,7 +375,7 @@
     }
 
     /// <remarks/>
-    [System.SerializableAttribute()]
+    [System.SerializableAttribute]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
     public partial class DataElement
@@ -442,7 +428,7 @@
     }
 
     /// <remarks/>
-    [System.SerializableAttribute()]
+    [System.SerializableAttribute]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
     public partial class DataElementValue
@@ -466,7 +452,7 @@
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlTextAttribute()]
+        [System.Xml.Serialization.XmlTextAttribute]
         public string[] Text
         {
             get
@@ -481,7 +467,7 @@
     }
 
     /// <remarks/>
-    [System.SerializableAttribute()]
+    [System.SerializableAttribute]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
     public partial class DataElementCompoundList
@@ -505,7 +491,7 @@
     }
 
     /// <remarks/>
-    [System.SerializableAttribute()]
+    [System.SerializableAttribute]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
     public partial class Bookmark
@@ -588,7 +574,7 @@
     }
 
     /// <remarks/>
-    [System.SerializableAttribute()]
+    [System.SerializableAttribute]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
     public partial class PharosMaterial
@@ -766,7 +752,7 @@
     }
 
     /// <remarks/>
-    [System.SerializableAttribute()]
+    [System.SerializableAttribute]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
     public partial class PharosMaterialDuration
@@ -777,7 +763,7 @@
         private string valueField;
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        [System.Xml.Serialization.XmlAttributeAttribute]
         public string rate
         {
             get
@@ -791,7 +777,7 @@
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlTextAttribute()]
+        [System.Xml.Serialization.XmlTextAttribute]
         public string Value
         {
             get
@@ -806,7 +792,7 @@
     }
 
     /// <remarks/>
-    [System.SerializableAttribute()]
+    [System.SerializableAttribute]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
     public partial class PharosMaterialOwner
@@ -829,7 +815,7 @@
     }
 
     /// <remarks/>
-    [System.SerializableAttribute()]
+    [System.SerializableAttribute]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
     public partial class PharosMaterialTrack
@@ -867,7 +853,7 @@
     }
 
     /// <remarks/>
-    [System.SerializableAttribute()]
+    [System.SerializableAttribute]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
     public partial class PharosMaterialTrackTrackDefinition
@@ -921,7 +907,7 @@
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        [System.Xml.Serialization.XmlIgnoreAttribute]
         public bool PositionSpecified
         {
             get
@@ -936,7 +922,7 @@
     }
 
     /// <remarks/>
-    [System.SerializableAttribute()]
+    [System.SerializableAttribute]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
     public partial class PharosMaterialTrackTrackDefinitionTrackFile
@@ -959,7 +945,7 @@
     }
 
     /// <remarks/>
-    [System.SerializableAttribute()]
+    [System.SerializableAttribute]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
     public partial class PharosMaterialTrackTypeLink
@@ -1012,7 +998,7 @@
     }
 
     /// <remarks/>
-    [System.SerializableAttribute()]
+    [System.SerializableAttribute]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
     public partial class PharosMaterialMarker
@@ -1050,7 +1036,7 @@
     }
 
     /// <remarks/>
-    [System.SerializableAttribute()]
+    [System.SerializableAttribute]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
     public partial class PharosMaterialMarkerTimecode
@@ -1061,7 +1047,7 @@
         private string valueField;
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        [System.Xml.Serialization.XmlAttributeAttribute]
         public string rate
         {
             get
@@ -1075,7 +1061,7 @@
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlTextAttribute()]
+        [System.Xml.Serialization.XmlTextAttribute]
         public string Value
         {
             get
@@ -1090,7 +1076,7 @@
     }
 
     /// <remarks/>
-    [System.SerializableAttribute()]
+    [System.SerializableAttribute]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
     public partial class PharosMaterialSegment
@@ -1188,7 +1174,7 @@
     }
 
     /// <remarks/>
-    [System.SerializableAttribute()]
+    [System.SerializableAttribute]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
     public partial class PharosMaterialSegmentSegmentGroup
@@ -1211,7 +1197,7 @@
     }
 
     /// <remarks/>
-    [System.SerializableAttribute()]
+    [System.SerializableAttribute]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
     public partial class PharosMaterialSegmentSegmentType
@@ -1234,7 +1220,7 @@
     }
 
     /// <remarks/>
-    [System.SerializableAttribute()]
+    [System.SerializableAttribute]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
     public partial class PharosMaterialSegmentMarkerIn
@@ -1272,7 +1258,7 @@
     }
 
     /// <remarks/>
-    [System.SerializableAttribute()]
+    [System.SerializableAttribute]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
     public partial class PharosMaterialSegmentMarkerOut
@@ -1308,5 +1294,4 @@
             }
         }
     }
-
 }

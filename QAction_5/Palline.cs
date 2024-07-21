@@ -21,20 +21,24 @@
                 var contentReconcileKey = adSalesRow.ReconcileKey;
                 WhatsonRow whatsonRow;
                 MediatorRow mediatorRow;
-                if (adSalesRow.TimeAllocationType == "PUSH") {
+                if (adSalesRow.TimeAllocationType == "PUSH")
+                {
                     // PUSH events may be scheduled in any event near the request...
                     // let's look for a matching one
                     whatsonRow = whatsonData.Find(s => s.enablerLegacy == adSalesRow.BreakId);
                     mediatorRow = mediatorData.Find(s => s.enablerLegacy == adSalesRow.BreakId);
                 }
-                else if(adSalesRow.Enabler == "E" || adSalesRow.Enabler == "X") {
+                else if(adSalesRow.Enabler == "E" || adSalesRow.Enabler == "X")
+                {
                     // Substitution / Enhancement events are scheduled for the ad itself
                     whatsonRow = whatsonMap.GetValueOrDefault(contentReconcileKey, null);
                     mediatorRow = mediatorMap.GetValueOrDefault(contentReconcileKey, null);
-                } else
+                }
+                else
                 {
                     continue;
                 }
+
                 rowList.Add(new MergedEntry
                 {
                     channel = channel,

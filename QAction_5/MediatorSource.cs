@@ -16,7 +16,8 @@
 
     public class MediatorSource
     {
-        public List<MediatorRow> Merge(List<MediatorRow> state, List<MediatorRow> delta) {
+        public List<MediatorRow> Merge(List<MediatorRow> state, List<MediatorRow> delta)
+        {
             return MergeWithDate(state, delta);
         }
 
@@ -64,6 +65,7 @@
                     merged.Add(row);
                 }
             }
+
             return merged;
         }
 
@@ -87,7 +89,8 @@
             return merged;
         }
 
-        public async Task<List<MediatorRow>> ReadMediator(string uri, string channelName, int maxResults) {
+        public async Task<List<MediatorRow>> ReadMediator(string uri, string channelName, int maxResults)
+        {
             var obj = await ReadMediatorRaw(uri, channelName, maxResults);
             return obj.Flatten();
         }
@@ -105,19 +108,19 @@
                         SessionKey = sessionKey,
                         Command = new[]
                         {
-                        new
-                        {
-                            Subsystem = "playtime",
-                            Method = "executeCQL",
-                            ParameterList = new
+                            new
                             {
-                                cql = new
+                                Subsystem = "playtime",
+                                Method = "executeCQL",
+                                ParameterList = new
                                 {
-                                    String = cqlQuery,
+                                    cql = new
+                                    {
+                                        String = cqlQuery,
+                                    },
                                 },
                             },
                         },
-                    },
                     },
                 },
             };
@@ -128,7 +131,7 @@
             return JsonConvert.DeserializeObject<Mediator.Welcome>(jsonData, Mediator.Converter.Settings);
         }
 
-        public static async Task<string> SendMessageAndWaitForResponseAsync(string uri, string message)
+        private static async Task<string> SendMessageAndWaitForResponseAsync(string uri, string message)
         {
             if (!uri.StartsWith("ws://") && !uri.StartsWith("wss://"))
             {
@@ -209,6 +212,7 @@
                 }
             }
         }
+
         private static bool IsExpectedMessage(string message)
         {
             // Implementa la logica per verificare se il messaggio ricevuto è quello desiderato.

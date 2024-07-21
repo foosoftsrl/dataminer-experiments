@@ -127,6 +127,7 @@
                     Adsaleswondiffresult = row.Item3,
                 }.ToObjectArray());
             }
+
             protocol.FillArray(Parameter.Adsaleswondiff.tablePid, tableRows, NotifyProtocol.SaveOption.Full);
         }
 
@@ -168,6 +169,7 @@
                     Enablerlegacypayload = row.Payload.ToString(),
                 }.ToObjectArray());
             }
+
             protocol.FillArray(Parameter.Enablerlegacy.tablePid, tableRows, NotifyProtocol.SaveOption.Full);
         }
 
@@ -285,11 +287,13 @@
             if(description is string)
             {
                 return (string)description;
-            } else
+            }
+            else
             {
                 return "???";
             }
         }
+
         public static int GetRequiredIntParameter(this SLProtocolExt protocol, int parameterId)
         {
             var value = protocol.GetParameter(parameterId);
@@ -298,13 +302,17 @@
                 try
                 {
                     return Convert.ToInt32(value);
-                } catch(Exception ex)
+                }
+                catch(Exception)
                 {
                     throw new Exception($"Invalid value '{value}' for parameter {protocol.GetParameterDescription(parameterId)}, should be an int");
                 }
-            } else if(value == null) {
+            }
+            else if(value == null)
+            {
                 throw new Exception($"Missing parameter {protocol.GetParameterDescription(parameterId)}");
-            } else
+            }
+            else
             {
                 throw new Exception($"Unexpected type for parameter {protocol.GetParameterDescription(parameterId)}");
             }
@@ -320,6 +328,7 @@
                 {
                     throw new Exception($"Invalid value '{value}' for parameter {protocol.GetParameterDescription(parameterId)}, should be a non empty string");
                 }
+
                 return valueString;
             }
             else if (value == null)

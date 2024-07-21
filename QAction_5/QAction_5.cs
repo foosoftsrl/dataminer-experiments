@@ -28,10 +28,6 @@ public class QAction
     private WhatsonSource whatsonSource = new WhatsonSource();
     private EnablerSource enablerSource = new EnablerSource();
 
-    /// <summary>
-    /// The QAction entry point.
-    /// </summary>
-    /// <param name="protocol">Link with SLProtocol process.</param>
     public async Task Run(SLProtocolExt protocol)
     {
         protocol.Iterationcounter = (double)protocol.Iterationcounter + 1;
@@ -71,9 +67,7 @@ public class QAction
         {
             protocol.Mergeddebugmsg = $"Exception {e.Message} ${e.StackTrace.Substring(0,200)}";
         }
-
     }
-
 
     public async Task<List<EnablerRow>> ReadEnablerLegacy(SLProtocolExt protocol)
     {

@@ -111,7 +111,7 @@
                 {
                     if (parameter.Name == name)
                     {
-                        return parameter.Value.String + "";
+                        return parameter.Value.String + string.Empty;
                     }
                 }
             }

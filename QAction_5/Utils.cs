@@ -65,9 +65,10 @@ public static class Utils
         {
             return defaultValue;
         }
+
         return dictionary.TryGetValue(key, out var value) ? value : defaultValue;
     }
+
     public static IEnumerable<(T item, int index)> WithIndex<T>(this IEnumerable<T> self)
        => self.Select((item, index) => (item, index));
-
 }

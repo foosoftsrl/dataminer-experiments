@@ -1,4 +1,9 @@
-﻿/// Generated here: https://app.quicktype.io/?l=csharp
+﻿#pragma warning disable SA1627
+#pragma warning disable SA1513
+#pragma warning disable SA1505
+#pragma warning disable SA1502 // Elements should not be on a single line
+#pragma warning disable SA1106 // Code should not contain empty statements???
+// Generated here: https://app.quicktype.io/?l=csharp
 namespace Mediator
 {
     using System;
@@ -281,11 +286,25 @@ namespace Mediator
         public TemplateParameter[] TemplateParameter { get; set; }
     }
 
-    public enum Rate { Ndf25 };
+    public enum Rate
+    {
+        Ndf25,
+    };
 
-    public enum MachineStatus { Done, Error, Play, PlayCued, Unknown };
+    public enum MachineStatus
+    {
+        Done,
+        Error,
+        Play,
+        PlayCued,
+        Unknown,
+    };
 
-    public enum GeneralType { String, TemplateParameterListCompound };
+    public enum GeneralType
+    {
+        String,
+        TemplateParameterListCompound,
+    };
 
     public enum TypeEnum { TemplateParameter };
 
@@ -304,8 +323,9 @@ namespace Mediator
         public string String;
         public ValueClass ValueClass;
 
-        public static implicit operator ValueUnion(string String) => new ValueUnion { String = String };
-        public static implicit operator ValueUnion(ValueClass ValueClass) => new ValueUnion { ValueClass = ValueClass };
+        public static implicit operator ValueUnion(string value) => new ValueUnion { String = value };
+
+        public static implicit operator ValueUnion(ValueClass value) => new ValueUnion { ValueClass = value };
     }
 
     public static class Converter
@@ -321,7 +341,7 @@ namespace Mediator
                 GeneralTypeConverter.Singleton,
                 TypeEnumConverter.Singleton,
                 ValueUnionConverter.Singleton,
-                new IsoDateTimeConverter { DateTimeStyles = DateTimeStyles.AssumeUniversal }
+                new IsoDateTimeConverter { DateTimeStyles = DateTimeStyles.AssumeUniversal },
             },
         };
     }
@@ -332,7 +352,8 @@ namespace Mediator
 
         public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
         {
-            if (reader.TokenType == JsonToken.Null) return null;
+            if (reader.TokenType == JsonToken.Null)
+                return null;
             var value = serializer.Deserialize<string>(reader);
             if (value == "NDF25")
             {
@@ -366,7 +387,8 @@ namespace Mediator
 
         public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
         {
-            if (reader.TokenType == JsonToken.Null) return null;
+            if (reader.TokenType == JsonToken.Null)
+                return null;
             var value = serializer.Deserialize<string>(reader);
             switch (value)
             {
@@ -422,7 +444,8 @@ namespace Mediator
 
         public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
         {
-            if (reader.TokenType == JsonToken.Null) return null;
+            if (reader.TokenType == JsonToken.Null)
+                return null;
             var value = serializer.Deserialize<string>(reader);
             switch (value)
             {
@@ -457,14 +480,14 @@ namespace Mediator
         public static readonly GeneralTypeConverter Singleton = new GeneralTypeConverter();
     }
 
-
     internal class TypeEnumConverter : JsonConverter
     {
         public override bool CanConvert(Type t) => t == typeof(TypeEnum) || t == typeof(TypeEnum?);
 
         public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
         {
-            if (reader.TokenType == JsonToken.Null) return null;
+            if (reader.TokenType == JsonToken.Null)
+                return null;
             var value = serializer.Deserialize<string>(reader);
             if (value == "template parameter")
             {

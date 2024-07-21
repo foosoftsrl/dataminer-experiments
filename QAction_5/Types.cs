@@ -1,4 +1,7 @@
-﻿namespace QAction_5
+﻿#pragma warning disable SA1401 // C# does not like public fields
+#pragma warning disable SA1307 // field lower case
+
+namespace QAction_5
 {
     using System;
     using System.Collections.Generic;

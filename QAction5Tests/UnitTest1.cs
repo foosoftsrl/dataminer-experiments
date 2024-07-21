@@ -1,8 +1,5 @@
-//-----------------------------------------------------------------------
-// <copyright file="UnitTest1.cs" company="Foosoft SRL">
-//     Company copyright tag.
-// </copyright>
-//-----------------------------------------------------------------------
+#pragma warning disable SA1633 // Tabs. Not clear what is happening
+#pragma warning disable SA1027 // Tabs. Not clear what is happening
 namespace QAction5Tests
 {
     using QAction_5;
@@ -17,8 +14,8 @@ namespace QAction5Tests
             var adSalesData = Utils.XmlDeserializeFromFile<AdSales.DataType>("adsales.xml").Flatten();
             var whatsonData = Utils.XmlDeserializeFromFile<Whatson.Pharos>("whatson.xml").Flatten();
             var mediatorData = Utils.JsonDeserializeFromFile<Mediator.Welcome>("mediator.json", Mediator.Converter.Settings).Flatten();
-            var legacyData = EnablerSource.parseText(Utils.ReadFile("legacy.csv"));
-            var scteData = EnablerSource.parseText(Utils.ReadFile("scte.csv"));
+            var legacyData = EnablerSource.ParseText(Utils.ReadFile("legacy.csv"));
+            var scteData = EnablerSource.ParseText(Utils.ReadFile("scte.csv"));
             var merged = Palline.Compute(adSalesData, whatsonData, mediatorData, scteData, legacyData, "Pippo", "PippoMux");
             var matchedMediator = merged.Count(s => s.mediatorData != null);
             var matchedWhatson = merged.Count(s => s.whatsonData != null);
@@ -45,8 +42,8 @@ namespace QAction5Tests
             var adSalesData = Utils.XmlDeserializeFromFile<AdSales.DataType>("AdSales_LB_20240718_20240719002821.xml").Flatten();
             var whatsonData = Utils.XmlDeserializeFromFile<Whatson.Pharos>("Whatson_LB_Schedule_2024-07-18_0021_0600_-_2959.xml").Flatten();
             var mediatorData = Utils.JsonDeserializeFromFile<Mediator.Welcome>("mediator.json", Mediator.Converter.Settings).Flatten();
-            var legacyData = EnablerSource.parseText(Utils.ReadFile("legacy.csv"));
-            var scteData = EnablerSource.parseText(Utils.ReadFile("scte.csv"));
+            var legacyData = EnablerSource.ParseText(Utils.ReadFile("legacy.csv"));
+            var scteData = EnablerSource.ParseText(Utils.ReadFile("scte.csv"));
             var taCheckRows = Palline.Compute(adSalesData, whatsonData, mediatorData, scteData, legacyData, "Pippo", "PippoMux");
             var matchedMediator = taCheckRows.Count(s => s.mediatorData != null);
             var matchedWhatson = taCheckRows.Count(s => s.whatsonData != null);

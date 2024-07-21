@@ -1,8 +1,8 @@
-﻿using Skyline.DataMiner.Net.Helper;
-using System.Collections.Generic;
-
-namespace QAction_5
+﻿namespace QAction_5
 {
+    using System.Collections.Generic;
+    using Skyline.DataMiner.Net.Helper;
+
     public class XPrint
     {
         public static List<(AdSalesRow, WhatsonRow, string)> ComputeAdSalesWhatsonDiff(List<AdSalesRow> adSalesRowsGlobal, List<WhatsonRow> whatsonRowsGlobal)
