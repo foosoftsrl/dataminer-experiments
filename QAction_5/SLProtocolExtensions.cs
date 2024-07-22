@@ -273,8 +273,8 @@
                     Tacheckhavemediator = (row.MediatorData != null) ? "✓" : string.Empty,
                     Tacheckmediatortime = row.MediatorData?.StartTime.ToString("yyyy-MM-dd HH:mm:ss") ?? string.Empty,
                     Tachecktype = row.AdSalesData.Enabler,
-                    Tacheckenablerprobe = string.Empty,
-                    Tacheckscteprobe = string.Empty,
+                    Tacheckenablerprobe = (row.LegacyEventLoad != null || row.LegacyEventStart != null || row.LegacyEventStop != null) ? "✓" : string.Empty,
+                    Tacheckscteprobe = (row.ScteBroadcastBreakStart != null || row.ScteBroadcastProviderAdvStart != null) ? "✓" : string.Empty,
                 }.ToObjectArray());
             }
 
