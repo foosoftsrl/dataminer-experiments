@@ -262,6 +262,21 @@
             List<object[]> tableRows = new List<object[]>();
             foreach (var row in mergedRows)
             {
+                string enablerProbe = string.Empty;
+                if(row.LegacyEventLoad != null || row.LegacyEventStart != null || row.LegacyEventStop != null)
+                {
+                    enablerProbe += (row.LegacyEventLoad != null) ? "L" : "-";
+                    enablerProbe += (row.LegacyEventStart != null) ? "P" : "-";
+                    enablerProbe += (row.LegacyEventStop != null) ? "S" : "-";
+                }
+
+                string scteProbe = string.Empty;
+                if (row.ScteBroadcastBreakStart != null || row.ScteBroadcastProviderAdvStart != null)
+                {
+                    scteProbe += (row.ScteBroadcastBreakStart != null) ? "L" : "-";
+                    scteProbe += (row.ScteBroadcastProviderAdvStart != null) ? "P" : "-";
+                }
+
                 tableRows.Add(new TachecktableQActionRow
                 {
                     Tacheckreconcilekey = row.AdSalesData.ReconcileKey,
@@ -273,8 +288,8 @@
                     Tacheckhavemediator = (row.MediatorData != null) ? "✓" : string.Empty,
                     Tacheckmediatortime = row.MediatorData?.StartTime.ToString("yyyy-MM-dd HH:mm:ss") ?? string.Empty,
                     Tachecktype = row.AdSalesData.Enabler,
-                    Tacheckenablerprobe = (row.LegacyEventLoad != null || row.LegacyEventStart != null || row.LegacyEventStop != null) ? "✓" : string.Empty,
-                    Tacheckscteprobe = (row.ScteBroadcastBreakStart != null || row.ScteBroadcastProviderAdvStart != null) ? "✓" : string.Empty,
+                    Tacheckenablerprobe = enablerProbe,
+                    Tacheckscteprobe = scteProbe,
                 }.ToObjectArray());
             }
 
