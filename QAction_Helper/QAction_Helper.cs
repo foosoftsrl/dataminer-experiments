@@ -379,6 +379,16 @@ public static class Parameter
 			public const int mediatordayoffset_2011 = 2011;
 			/// <summary>PID: 2011 | Type: read</summary>
 			public const int mediatordayoffset = 2011;
+			/// <summary>PID: 2012 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int mediatorsctebroadcastprovideroverlayplacementstart_2012 = 2012;
+			/// <summary>PID: 2012 | Type: read</summary>
+			public const int mediatorsctebroadcastprovideroverlayplacementstart = 2012;
+			/// <summary>PID: 2013 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int mediatorsctebroadcastprovideroverlayplacementend_2013 = 2013;
+			/// <summary>PID: 2013 | Type: read</summary>
+			public const int mediatorsctebroadcastprovideroverlayplacementend = 2013;
 			public class Write
 			{
 			}
@@ -440,6 +450,16 @@ public static class Parameter
 			public const int mediatordayoffset_2011 = 10;
 			/// <summary>IDX: 10 | Type: read</summary>
 			public const int mediatordayoffset = 10;
+			/// <summary>IDX: 11 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int mediatorsctebroadcastprovideroverlayplacementstart_2012 = 11;
+			/// <summary>IDX: 11 | Type: read</summary>
+			public const int mediatorsctebroadcastprovideroverlayplacementstart = 11;
+			/// <summary>IDX: 12 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int mediatorsctebroadcastprovideroverlayplacementend_2013 = 12;
+			/// <summary>IDX: 12 | Type: read</summary>
+			public const int mediatorsctebroadcastprovideroverlayplacementend = 12;
 		}
 	}
 	public class Won
@@ -1156,6 +1176,10 @@ public interface SLProtocolExt : SLProtocol
 	object Mediatormaterialid { get; set; }
 	object Mediatordayoffset_2011 { get; set; }
 	object Mediatordayoffset { get; set; }
+	object Mediatorsctebroadcastprovideroverlayplacementstart_2012 { get; set; }
+	object Mediatorsctebroadcastprovideroverlayplacementstart { get; set; }
+	object Mediatorsctebroadcastprovideroverlayplacementend_2013 { get; set; }
+	object Mediatorsctebroadcastprovideroverlayplacementend { get; set; }
 	object Wonitemreference_3001 { get; set; }
 	object Wonitemreference { get; set; }
 	object Wonstartdate_3002 { get; set; }
@@ -1495,6 +1519,16 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public System.Object Mediatordayoffset_2011 {get { return GetParameter(2011); }set { SetParameter(2011, value); }}
 	/// <summary>PID: 2011  | Type: read</summary>
 	public System.Object Mediatordayoffset {get { return GetParameter(2011); }set { SetParameter(2011, value); }}
+	/// <summary>PID: 2012  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Mediatorsctebroadcastprovideroverlayplacementstart_2012 {get { return GetParameter(2012); }set { SetParameter(2012, value); }}
+	/// <summary>PID: 2012  | Type: read</summary>
+	public System.Object Mediatorsctebroadcastprovideroverlayplacementstart {get { return GetParameter(2012); }set { SetParameter(2012, value); }}
+	/// <summary>PID: 2013  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Mediatorsctebroadcastprovideroverlayplacementend_2013 {get { return GetParameter(2013); }set { SetParameter(2013, value); }}
+	/// <summary>PID: 2013  | Type: read</summary>
+	public System.Object Mediatorsctebroadcastprovideroverlayplacementend {get { return GetParameter(2013); }set { SetParameter(2013, value); }}
 	/// <summary>PID: 3001  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Wonitemreference_3001 {get { return GetParameter(3001); }set { SetParameter(3001, value); }}
@@ -2035,8 +2069,18 @@ public class MediatorQActionRow : QActionTableRow
 	public System.Object Mediatordayoffset_2011 { get { if (base.Columns.ContainsKey(10)) { return base.Columns[10]; } else { return null; } } set { if (base.Columns.ContainsKey(10)) { base.Columns[10] = value; } else { base.Columns.Add(10, value); } } }
 	/// <summary>PID: 2011 | Type: read</summary>
 	public System.Object Mediatordayoffset { get { if (base.Columns.ContainsKey(10)) { return base.Columns[10]; } else { return null; } } set { if (base.Columns.ContainsKey(10)) { base.Columns[10] = value; } else { base.Columns.Add(10, value); } } }
-	public MediatorQActionRow() : base(0, 11) { }
-	public MediatorQActionRow(System.Object[] oRow) : base(0, 11, oRow) { }
+	/// <summary>PID: 2012 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Mediatorsctebroadcastprovideroverlayplacementstart_2012 { get { if (base.Columns.ContainsKey(11)) { return base.Columns[11]; } else { return null; } } set { if (base.Columns.ContainsKey(11)) { base.Columns[11] = value; } else { base.Columns.Add(11, value); } } }
+	/// <summary>PID: 2012 | Type: read</summary>
+	public System.Object Mediatorsctebroadcastprovideroverlayplacementstart { get { if (base.Columns.ContainsKey(11)) { return base.Columns[11]; } else { return null; } } set { if (base.Columns.ContainsKey(11)) { base.Columns[11] = value; } else { base.Columns.Add(11, value); } } }
+	/// <summary>PID: 2013 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Mediatorsctebroadcastprovideroverlayplacementend_2013 { get { if (base.Columns.ContainsKey(12)) { return base.Columns[12]; } else { return null; } } set { if (base.Columns.ContainsKey(12)) { base.Columns[12] = value; } else { base.Columns.Add(12, value); } } }
+	/// <summary>PID: 2013 | Type: read</summary>
+	public System.Object Mediatorsctebroadcastprovideroverlayplacementend { get { if (base.Columns.ContainsKey(12)) { return base.Columns[12]; } else { return null; } } set { if (base.Columns.ContainsKey(12)) { base.Columns[12] = value; } else { base.Columns.Add(12, value); } } }
+	public MediatorQActionRow() : base(0, 13) { }
+	public MediatorQActionRow(System.Object[] oRow) : base(0, 13, oRow) { }
 	public static implicit operator MediatorQActionRow(System.Object[] source) { return new MediatorQActionRow(source); }
 	public static implicit operator System.Object[](MediatorQActionRow source) { return source.ToObjectArray(); }
 }

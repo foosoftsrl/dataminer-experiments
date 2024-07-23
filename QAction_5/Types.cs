@@ -47,6 +47,8 @@ namespace QAction_5
         public string Status;
         public string ScteBroadcastBreakStart;
         public string ScteBroadcastProviderAdvStart;
+        public string ScteBroadcastProviderOverlayPlacementStart;
+        public string ScteBroadcastProviderOverlayPlacementEnd;
         public string EnablerLegacy;
         public string MaterialId;
         public int DayOffset;

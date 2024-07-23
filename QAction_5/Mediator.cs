@@ -313,6 +313,10 @@ namespace Mediator
         public static readonly string AdSalesContentReconcileKeyText = "adSalesContentReconcileKey-text";
         public static readonly string ScteBroadcastBreakStartInsertSegmentationDescriptor = "scteBroadcastBreakStart-insertSegmentationDescriptor";
         public static readonly string ScteBroadcastProviderAdvStartInsertSegmentationDescriptor = "scteBroadcastProviderAdvStart-insertSegmentationDescriptor";
+        public static readonly string ScteBroadcastProviderOverlayPlacementStartCompoundList = "scteBroadcastProviderOverlayPlacementStart-compoundList";
+        public static readonly string ScteBroadcastProviderOverlayPlacementStartInsertSegmentationDescriptor = "scteBroadcastProviderOverlayPlacementStart-insertSegmentationDescriptor";
+        public static readonly string ScteBroadcastProviderOverlayPlacementEndCompoundList = "scteBroadcastProviderOverlayPlacementEnd-compoundList";
+        public static readonly string ScteBroadcastProviderOverlayPlacementEndInsertSegmentationDescriptor = "scteBroadcastProviderOverlayPlacementEnd-insertSegmentationDescriptor";
         public static readonly string EnablerLegacyCompoundList = "enablerLegacy-compoundList";
     }
 

@@ -250,6 +250,8 @@
                     Mediatorscteadvstart = row.ScteBroadcastProviderAdvStart ?? string.Empty,
                     Mediatormaterialid = row.MaterialId ?? string.Empty,
                     Mediatordayoffset = row.DayOffset,
+                    Mediatorsctebroadcastprovideroverlayplacementstart = row.ScteBroadcastProviderOverlayPlacementStart ?? string.Empty,
+                    Mediatorsctebroadcastprovideroverlayplacementend = row.ScteBroadcastProviderOverlayPlacementEnd ?? string.Empty,
                 }.ToObjectArray());
             }
 

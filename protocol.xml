@@ -5,7 +5,7 @@
 		<Encoding>unicode</Encoding>
 	</Options>
 	<Description>AdSales DataMiner connector</Description>
-	<Version>1.0.0.8</Version>
+	<Version>1.0.0.9</Version>
 	<IntegrationID>DMS-DRV-</IntegrationID>
 	<Provider>Foosoft</Provider>
 	<Vendor>Foosoft</Vendor>
@@ -545,7 +545,7 @@
 				<Type>string</Type>
 			</Measurement>
 		</Param>
-
+		
 		<Param id="1000">
 			<Name>adSales</Name>
 			<Description>Adsales Table</Description>
@@ -706,6 +706,8 @@
 				<ColumnOption idx="8" pid="2009" type="retrieved" options=";save"/>
 				<ColumnOption idx="9" pid="2010" type="retrieved" options=";save"/>
 				<ColumnOption idx="10" pid="2011" type="retrieved" options=";save"/>
+				<ColumnOption idx="11" pid="2012" type="retrieved" options=";save"/>
+				<ColumnOption idx="12" pid="2013" type="retrieved" options=";save"/>
 			</ArrayOptions>
 			<Information>
 				<Subtext>Mediator Table</Subtext>
@@ -721,7 +723,7 @@
 				</Positions>
 			</Display>
 			<Measurement>
-				<Type options="tab=columns:2001|0-2002|1-2003|2-2004|3-2005|4-2006|5-2007|6-2008|7-2009|8,width:120-120-120-120-120-120-100-102-100,sort:STRING-STRING|ASC|0-STRING-STRING-STRING-STRING-STRING-STRING-STRING,lines:25,filter:true">table</Type>
+				<Type options="tab=columns:2001|0-2002|1-2003|2-2004|3-2005|4-2006|5-2007|6-2008|7-2009|8-2010|9-2011|10-2012|11-2013|12,width:120-120-120-125-120-120-100-102-100-100-100-275-269,sort:STRING-STRING|ASC|0-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING,lines:25,filter:true">table</Type>
 			</Measurement>
 		</Param>
 		<Param id="2001" trending="false">
@@ -920,6 +922,44 @@
 			<Type>read</Type>
 			<Information>
 				<Subtext>DayOffset</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="2012" trending="false">
+			<Name>mediatorScteBroadcastProviderOverlayPlacementStart</Name>
+			<Description>ScteBroadcastProviderOverlayPlacementStart</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>ScteBroadcastProviderOverlayPlacementStart</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="2013" trending="false">
+			<Name>mediatorScteBroadcastProviderOverlayPlacementEnd</Name>
+			<Description>ScteBroadcastProviderOverlayPlacementEnd</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>ScteBroadcastProviderOverlayPlacementEnd</Subtext>
 			</Information>
 			<Interprete>
 				<RawType>other</RawType>
@@ -1149,7 +1189,7 @@
 				</Positions>
 			</Display>
 			<Measurement>
-				<Type options=";tab=columns:4001|0-4002|3-4003|4-4004|5-4005|6-4006|7-4007|8-4008|9-4009|10-4010|1,width:100-120-100-100-100-100-160-100-100-100,sort:STRING-STRING|ASC|0-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING,lines:25,filter:true">table</Type>
+				<Type options=";tab=columns:4001|0-4002|3-4003|4-4004|5-4005|6-4006|7-4007|8-4008|9-4009|10-4010|1,width:108-120-100-100-100-100-160-100-100-100,sort:STRING-STRING|ASC|0-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING,lines:25,filter:true">table</Type>
 			</Measurement>
 		</Param>
 		
@@ -1638,7 +1678,7 @@
 				</Positions>
 			</Display>
 			<Measurement>
-				<Type options="tab=columns:8001|0-8002|1-8003|2-8004|3-8005|4-8006|5-8007|6-8008|7-8009|8-8010|9-8011|10,width:70-115-160-170-160-180-160-170-160-180-100,sort:STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING,lines:20,filter:true">table</Type>
+				<Type options="tab=columns:8001|0-8002|1-8003|2-8004|3-8005|4-8006|5-8007|6-8008|7-8009|8-8010|9-8011|10,width:125-137-160-170-160-180-160-170-160-180-100,sort:STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING,lines:20,filter:true">table</Type>
 			</Measurement>
 		</Param>
 		<Param id="8001" trending="false">
@@ -1851,7 +1891,7 @@
 				</Positions>
 			</Display>
 			<Measurement>
-				<Type options="tab=columns:9001|0-9002|1-9003|2-9004|3-9005|4-9006|5-9007|6-9008|7-9009|8-9010|9-9011|10,width:70-115-160-170-160-180-160-170-160-180-100,sort:STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING,lines:20,filter:true">table</Type>
+				<Type options="tab=columns:9001|0-9002|1-9003|2-9004|3-9005|4-9006|5-9007|6-9008|7-9009|8-9010|9-9011|10,width:154-119-160-170-160-180-160-170-160-180-100,sort:STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING,lines:20,filter:true">table</Type>
 			</Measurement>
 		</Param>
 		<Param id="9001" trending="false">

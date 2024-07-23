@@ -36,6 +36,8 @@
                             EnablerLegacy = row.FindEnablerLegacyText(),
                             ScteBroadcastBreakStart = row.FindScteBroadcastBreakStartUpid(),
                             ScteBroadcastProviderAdvStart = row.FindScteBroadcastProviderAdvStartUpid(),
+                            ScteBroadcastProviderOverlayPlacementStart = row.FindScteBroadcastProviderOverlayPlacementStartUpid(),
+                            ScteBroadcastProviderOverlayPlacementEnd = row.FindScteBroadcastProviderOverlayPlacementEndUpid(),
                             MaterialId = row.GetTrimMaterialId(),
                         });
                     }
@@ -82,6 +84,16 @@
             return mediatorRow.FindTemplateParameterByName(TemplateParameterName.ScteBroadcastProviderAdvStartInsertSegmentationDescriptor);
         }
 
+        public static Mediator.TemplateParameter FindScteBroadcastProviderOverlayPlacementStartCompoundList(this Mediator.Row mediatorRow)
+        {
+            return mediatorRow.FindTemplateParameterByName(TemplateParameterName.ScteBroadcastProviderOverlayPlacementStartCompoundList);
+        }
+
+        public static Mediator.TemplateParameter FindScteBroadcastProviderOverlayPlacementEndCompoundList(this Mediator.Row mediatorRow)
+        {
+            return mediatorRow.FindTemplateParameterByName(TemplateParameterName.ScteBroadcastProviderOverlayPlacementEndCompoundList);
+        }
+
         public static Mediator.TemplateParameter FindEnablerLegacy(this Mediator.Row mediatorRow)
         {
             return mediatorRow.FindTemplateParameterByName(TemplateParameterName.EnablerLegacyCompoundList);
@@ -95,6 +107,20 @@
         public static string FindScteBroadcastProviderAdvStartUpid(this Mediator.Row mediatorRow)
         {
             return mediatorRow.FindScteBroadcastProviderAdvStart()?.Value.ValueClass?.TemplateParameterListCompound.GetValueByName(TemplateParameterName.SegmentationUpid);
+        }
+
+        public static string FindScteBroadcastProviderOverlayPlacementStartUpid(this Mediator.Row mediatorRow)
+        {
+            return mediatorRow.FindScteBroadcastProviderOverlayPlacementStartCompoundList()?.Value.ValueClass?
+                .TemplateParameterListCompound.FindTemplateParameterByName(TemplateParameterName.ScteBroadcastProviderOverlayPlacementStartInsertSegmentationDescriptor)?.Value.ValueClass?
+                .TemplateParameterListCompound.GetValueByName(TemplateParameterName.SegmentationUpid);
+        }
+
+        public static string FindScteBroadcastProviderOverlayPlacementEndUpid(this Mediator.Row mediatorRow)
+        {
+            return mediatorRow.FindScteBroadcastProviderOverlayPlacementEndCompoundList()?.Value.ValueClass?
+                .TemplateParameterListCompound.FindTemplateParameterByName(TemplateParameterName.ScteBroadcastProviderOverlayPlacementEndInsertSegmentationDescriptor)?.Value.ValueClass?
+                .TemplateParameterListCompound.GetValueByName(TemplateParameterName.SegmentationUpid);
         }
 
         public static string FindEnablerLegacyText(this Mediator.Row mediatorRow)
@@ -173,6 +199,22 @@
             if (title.GenericList == null || title.GenericList.Size != 1)
                 return null;
             return title.GenericList.Object[0];
+        }
+
+        public static Mediator.TemplateParameter FindTemplateParameterByName(this Mediator.TemplateParameterListCompound mediatorRow, string name)
+        {
+            foreach (var entry in mediatorRow.TemplateParameterList)
+            {
+                foreach (var templateParameter in entry.TemplateParameter)
+                {
+                    if (templateParameter.Name == name)
+                    {
+                        return templateParameter;
+                    }
+                }
+            }
+
+            return null;
         }
     }
 }
