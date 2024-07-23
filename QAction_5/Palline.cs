@@ -21,7 +21,7 @@
                 var contentReconcileKey = adSalesRow.ReconcileKey;
                 WhatsonRow whatsonRow;
                 MediatorRow mediatorRow;
-                if (adSalesRow.TimeAllocationType == "PUSH")
+                if (adSalesRow.Enabler == "P")
                 {
                     // PUSH events may be scheduled in any event near the request...
                     // let's look for a matching one
@@ -49,6 +49,8 @@
                     MediatorData = mediatorMap.GetValueOrDefault(contentReconcileKey, null),
                     ScteBroadcastBreakStart = scteMap.GetValueOrDefault("SUPER_LOAD:" + whatsonRow?.ScteBroadcastBreakStart, null),
                     ScteBroadcastProviderAdvStart = scteMap.GetValueOrDefault("AD_START:" + whatsonRow?.ScteBroadcastProviderAdvStart, null),
+                    ScteBroadcastProviderOverlayPlacementStart = scteMap.GetValueOrDefault("START:" + whatsonRow?.ScteBroadcastProviderOverlayPlacementStart, null),
+                    ScteBroadcastProviderOverlayPlacementEnd = scteMap.GetValueOrDefault("STOP:" + whatsonRow?.ScteBroadcastProviderOverlayPlacementEnd, null),
                     LegacyEventLoad = legacyMap.GetValueOrDefault("LOAD:" + whatsonRow?.EnablerLegacy, null),
                     LegacyEventStart = legacyMap.GetValueOrDefault("START:" + whatsonRow?.EnablerLegacy, null),
                     LegacyEventStop = legacyMap.GetValueOrDefault("STOP:" + whatsonRow?.EnablerLegacy, null),

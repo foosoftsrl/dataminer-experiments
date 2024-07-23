@@ -30,7 +30,7 @@
                             ProductCode = string.Empty,
                             Duration = timeAllocation.TimeAllocationNominalDuration,
                             ReconcileKey = string.Empty,
-                            Enabler = string.Empty,
+                            Enabler = "P",
                         });
                     }
                     else

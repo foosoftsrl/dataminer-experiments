@@ -279,6 +279,12 @@
                     scteProbe += (row.ScteBroadcastProviderAdvStart != null) ? "P" : "-";
                 }
 
+                if(row.ScteBroadcastProviderOverlayPlacementStart != null || row.ScteBroadcastProviderOverlayPlacementEnd != null)
+                {
+                    scteProbe += (row.ScteBroadcastProviderOverlayPlacementStart != null) ? "P" : "-";
+                    scteProbe += (row.ScteBroadcastProviderOverlayPlacementEnd != null) ? "S" : "-";
+                }
+
                 tableRows.Add(new TachecktableQActionRow
                 {
                     Tacheckreconcilekey = row.AdSalesData.ReconcileKey,

@@ -17,6 +17,8 @@ namespace QAction_5
         public MediatorRow MediatorData;
         public EnablerRow ScteBroadcastBreakStart;
         public EnablerRow ScteBroadcastProviderAdvStart;
+        public EnablerRow ScteBroadcastProviderOverlayPlacementStart;
+        public EnablerRow ScteBroadcastProviderOverlayPlacementEnd;
         public EnablerRow LegacyEventLoad;
         public EnablerRow LegacyEventStart;
         public EnablerRow LegacyEventStop;
