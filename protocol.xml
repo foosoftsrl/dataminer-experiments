@@ -5,7 +5,7 @@
 		<Encoding>unicode</Encoding>
 	</Options>
 	<Description>AdSales DataMiner connector</Description>
-	<Version>1.0.0.7</Version>
+	<Version>1.0.0.8</Version>
 	<IntegrationID>DMS-DRV-</IntegrationID>
 	<Provider>Foosoft</Provider>
 	<Vendor>Foosoft</Vendor>
@@ -88,7 +88,7 @@
 					<Position>
 						<Page>Configuration</Page>
 						<Column>0</Column>
-						<Row>13</Row>
+						<Row>12</Row>
 					</Position>
 				</Positions>
 			</Display>
@@ -247,8 +247,6 @@
 				<Type>string</Type>
 			</Measurement>
 		</Param>
-		
-		
 		<Param id="11" trending="false" save="true">
 			<Name>uriMediator</Name>
 			<Description>URI Mediator</Description>
@@ -497,6 +495,57 @@
 				<Type>string</Type>
 			</Measurement>
 		</Param>
+		<Param id="23" trending="false" save="true">
+			<Name>channelPriority</Name>
+			<Description>Channel Priority</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Configuration</Page>
+						<Column>0</Column>
+						<Row>9</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="24" trending="false" setter="true">
+			<Name>channelPriority</Name>
+			<Description>Channel Priority</Description>
+			<Type>write</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Configuration</Page>
+						<Column>0</Column>
+						<Row>9</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+
 		<Param id="1000">
 			<Name>adSales</Name>
 			<Description>Adsales Table</Description>
