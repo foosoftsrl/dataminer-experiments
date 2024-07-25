@@ -1,5 +1,6 @@
 #pragma warning disable SA1633 // Tabs. Not clear what is happening
 #pragma warning disable SA1027 // Tabs. Not clear what is happening
+#pragma warning disable SA1600 // Documentation
 namespace QAction5Tests
 {
     using QAction_5;
@@ -120,6 +121,46 @@ namespace QAction5Tests
         {
             var row = new AdSalesSource().ReadAdSales("KI", ".", new DateTime(2024, 6, 17));
             Assert.AreEqual(5, row.Count);
+        }
+
+        [TestMethod]
+        public void TestXPrint20240725()
+        {
+            var adSalesData = Utils.XmlDeserializeFromFile<AdSales.DataType>("LB_20240725_20240725002932.xml").Flatten();
+            var whatsonData = Utils.XmlDeserializeFromFile<Whatson.Pharos>("LB_Schedule_2024-07-25_0004_0600_-_2959.xml").Flatten();
+            var mediatorData = Utils.JsonDeserializeFromFile<Mediator.Welcome>("LB_20240725_mediator.json", Mediator.Converter.Settings).Flatten();
+            var diff = XPrint.ComputeWhatsonMediatorDiff(whatsonData!.FilterSpots(), mediatorData!.FilterSpots());
+            Assert.IsNotNull(diff);
+            var countOk = diff.FindAll(e => e.Item3 == "ok").Count();
+            Assert.AreEqual(184, countOk);
+        }
+
+        [TestMethod]
+        public void TestMediatorMerge()
+        {
+            var mediatorData = Utils.JsonDeserializeFromFile<Mediator.Welcome>("LB_20240725_mediator.json", Mediator.Converter.Settings).Flatten();
+            this.SetToday(mediatorData, false); // simulate get data from dataminer table
+            var mediatorData2 = Utils.JsonDeserializeFromFile<Mediator.Welcome>("LB_20240725_mediator_2.json", Mediator.Converter.Settings).Flatten();
+            this.SetToday(mediatorData2, true); // simulate get data from mediator call parsing
+            MediatorSource mediatorSource = new MediatorSource();
+            var merged = mediatorSource.Merge(mediatorData, mediatorData2!);
+            Assert.IsNotNull(merged);
+            List<int> mediatorIdList = new List<int>();
+            foreach (var item in merged)
+            {
+                Assert.IsFalse(mediatorIdList.Contains(item.Id));
+                mediatorIdList.Add(item.Id);
+            }
+        }
+
+        private void SetToday(List<MediatorRow> list, bool addMillis)
+        {
+            foreach (var row in list)
+            {
+                row.StartTime = addMillis
+                    ? new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day, row.StartTime.Hour, row.StartTime.Minute, row.StartTime.Second, row.StartTime.Millisecond)
+                    : new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day, row.StartTime.Hour, row.StartTime.Minute, row.StartTime.Second);
+            }
         }
     }
 }

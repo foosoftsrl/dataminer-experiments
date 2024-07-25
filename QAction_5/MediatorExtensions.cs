@@ -25,9 +25,10 @@
                         var startTime = row.StartDateTime();
                         if (startTime == null)
                             continue;
+                        var truncatedStartTime = startTime.Value.AddTicks(-(startTime.Value.Ticks % TimeSpan.TicksPerSecond));
                         result.Add(new MediatorRow
                         {
-                            StartTime = (DateTime)startTime,
+                            StartTime = (DateTime)truncatedStartTime,
                             Id = (int)row.Id.GenericList.Object[0],
                             Title = row.Title.AsString(),
                             ReconcileKey = row.FindAdSalesReconcileKey(),
