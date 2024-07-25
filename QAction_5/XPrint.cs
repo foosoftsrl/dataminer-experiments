@@ -92,7 +92,7 @@
 
             foreach (var (row, index) in whatsonRows.WithIndex())
             {
-                if (row.ReconcileKey != null)
+                if (row.ReconcileKey != null && !reconcileKeyToWhatsonIndex.ContainsKey(row.ReconcileKey))
                 {
                     reconcileKeyToWhatsonIndex.Add(row.ReconcileKey, index);
                 }
