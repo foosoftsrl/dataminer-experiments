@@ -5,7 +5,7 @@
 		<Encoding>unicode</Encoding>
 	</Options>
 	<Description>AdSales DataMiner connector</Description>
-	<Version>1.0.0.9</Version>
+	<Version>1.0.0.10</Version>
 	<IntegrationID>DMS-DRV-</IntegrationID>
 	<Provider>Foosoft</Provider>
 	<Vendor>Foosoft</Vendor>
@@ -397,7 +397,7 @@
 		</Param>
 		<Param id="17" trending="false" save="true">
 			<Name>probeUrl</Name>
-			<Description>Probe URL, such as http://teamcity-agent-rh8-vm.dvp.ravfav.priv:5031/</Description>
+			<Description>Probe URL</Description>
 			<Type>read</Type>
 			<Information>
 			</Information>
@@ -422,7 +422,7 @@
 		</Param>
 		<Param id="18" trending="false" setter="true">
 			<Name>probeUrl</Name>
-			<Description>Probe URL, such as http://teamcity-agent-rh8-vm.dvp.ravfav.priv:5031/</Description>
+			<Description>Probe URL</Description>
 			<Type>write</Type>
 			<Information>
 			</Information>
