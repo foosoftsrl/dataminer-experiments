@@ -29,7 +29,7 @@
                             TimeAllocationType = timeAllocation.TimeAllocationType1,
                             ProductCode = string.Empty,
                             Duration = timeAllocation.TimeAllocationNominalDuration,
-                            ReconcileKey = string.Empty,
+                            ReconcileKey = break_.BreakID,  // We are quite sure that break with timeallocationtype PUSH has single timeallocation
                             Enabler = "P",
                         });
                     }

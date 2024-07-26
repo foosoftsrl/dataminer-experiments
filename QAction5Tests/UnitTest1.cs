@@ -17,7 +17,7 @@ namespace QAction5Tests
             var mediatorData = Utils.JsonDeserializeFromFile<Mediator.Welcome>("mediator.json", Mediator.Converter.Settings).Flatten();
             var legacyData = EnablerSource.ParseText(Utils.ReadFile("legacy.csv"));
             var scteData = EnablerSource.ParseText(Utils.ReadFile("scte.csv"));
-            var merged = Palline.Compute(adSalesData, whatsonData, mediatorData, scteData, legacyData, "Pippo", "PippoMux");
+            var merged = TaCheckProcessor.Compute(adSalesData, whatsonData, mediatorData, scteData, legacyData, "Pippo", "PippoMux");
             var matchedMediator = merged.Count(s => s.MediatorData != null);
             var matchedWhatson = merged.Count(s => s.WhatsonData != null);
             Assert.AreEqual(9, matchedWhatson);
@@ -45,7 +45,7 @@ namespace QAction5Tests
             var mediatorData = Utils.JsonDeserializeFromFile<Mediator.Welcome>("mediator.json", Mediator.Converter.Settings).Flatten();
             var legacyData = EnablerSource.ParseText(Utils.ReadFile("legacy.csv"));
             var scteData = EnablerSource.ParseText(Utils.ReadFile("scte.csv"));
-            var taCheckRows = Palline.Compute(adSalesData, whatsonData, mediatorData, scteData, legacyData, "Pippo", "PippoMux");
+            var taCheckRows = TaCheckProcessor.Compute(adSalesData, whatsonData, mediatorData, scteData, legacyData, "Pippo", "PippoMux");
             var matchedMediator = taCheckRows.Count(s => s.MediatorData != null);
             var matchedWhatson = taCheckRows.Count(s => s.WhatsonData != null);
             Assert.AreEqual(36, taCheckRows.Length);

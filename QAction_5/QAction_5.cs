@@ -50,7 +50,7 @@ public class QAction
             var scte = await ReadEnablerScte(protocol);
             protocol.PublishScteTable(scte);
 
-            var mergedRows = Palline.Compute(adSalesData, whatsonData, mediatorData, scte, legacy, protocol.ChannelName(), protocol.MuxName());
+            var mergedRows = TaCheckProcessor.Compute(adSalesData, whatsonData, mediatorData, scte, legacy, protocol.ChannelName(), protocol.MuxName());
             protocol.PublishMergedTable(mergedRows);
 
             var adsalesWonDiff = XPrint.ComputeAdSalesWhatsonDiff(adSalesData, whatsonDataSpot);

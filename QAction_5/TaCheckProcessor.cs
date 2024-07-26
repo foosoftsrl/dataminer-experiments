@@ -7,7 +7,7 @@
     using System.Threading.Tasks;
     using Skyline.DataMiner.Net.Upload;
 
-    public class Palline
+    public class TaCheckProcessor
     {
         public static MergedEntry[] Compute(List<AdSalesRow> adSalesData, List<WhatsonRow> whatsonData, List<MediatorRow> mediatorData, List<EnablerRow> scteEvents, List<EnablerRow> legacyEvents, string channel, string mux)
         {
@@ -46,7 +46,7 @@
                     AdSalesTime = adSalesRow.TimeOfDay,
                     AdSalesData = adSalesRow,
                     WhatsonData = whatsonRow,
-                    MediatorData = mediatorMap.GetValueOrDefault(contentReconcileKey, null),
+                    MediatorData = mediatorRow,
                     ScteBroadcastBreakStart = scteMap.GetValueOrDefault("SUPER_LOAD:" + whatsonRow?.ScteBroadcastBreakStart, null),
                     ScteBroadcastProviderAdvStart = scteMap.GetValueOrDefault("AD_START:" + whatsonRow?.ScteBroadcastProviderAdvStart, null),
                     ScteBroadcastProviderOverlayPlacementStart = scteMap.GetValueOrDefault("START:" + whatsonRow?.ScteBroadcastProviderOverlayPlacementStart, null),
