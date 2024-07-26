@@ -164,6 +164,8 @@ public class QAction
                     Status = NullIfEmpty((string)row.Mediatorstatus),
                     ScteBroadcastBreakStart = NullIfEmpty((string)row.Mediatorsctebreakstart),
                     ScteBroadcastProviderAdvStart = NullIfEmpty((string)row.Mediatorscteadvstart),
+                    ScteBroadcastProviderOverlayPlacementStart = NullIfEmpty((string)row.Mediatorsctebroadcastprovideroverlayplacementstart),
+                    ScteBroadcastProviderOverlayPlacementEnd = NullIfEmpty((string)row.Mediatorsctebroadcastprovideroverlayplacementend),
                     EnablerLegacy = NullIfEmpty((string)row.Mediatorenablerlegacy),
                     MaterialId = NullIfEmpty((string)row.Mediatormaterialid),
                 });
