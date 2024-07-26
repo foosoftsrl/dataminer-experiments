@@ -47,13 +47,13 @@
                     AdSalesData = adSalesRow,
                     WhatsonData = whatsonRow,
                     MediatorData = mediatorRow,
-                    ScteBroadcastBreakStart = scteMap.GetValueOrDefault("SUPER_LOAD:" + whatsonRow?.ScteBroadcastBreakStart, null),
-                    ScteBroadcastProviderAdvStart = scteMap.GetValueOrDefault("AD_START:" + whatsonRow?.ScteBroadcastProviderAdvStart, null),
-                    ScteBroadcastProviderOverlayPlacementStart = scteMap.GetValueOrDefault("START:" + whatsonRow?.ScteBroadcastProviderOverlayPlacementStart, null),
-                    ScteBroadcastProviderOverlayPlacementEnd = scteMap.GetValueOrDefault("STOP:" + whatsonRow?.ScteBroadcastProviderOverlayPlacementEnd, null),
-                    LegacyEventLoad = legacyMap.GetValueOrDefault("LOAD:" + whatsonRow?.EnablerLegacy, null),
-                    LegacyEventStart = legacyMap.GetValueOrDefault("START:" + whatsonRow?.EnablerLegacy, null),
-                    LegacyEventStop = legacyMap.GetValueOrDefault("STOP:" + whatsonRow?.EnablerLegacy, null),
+                    ScteBroadcastBreakStart = scteMap.GetValueOrDefault("SUPER_LOAD:" + mediatorRow?.ScteBroadcastBreakStart, null),
+                    ScteBroadcastProviderAdvStart = scteMap.GetValueOrDefault("AD_START:" + mediatorRow?.ScteBroadcastProviderAdvStart, null),
+                    ScteBroadcastProviderOverlayPlacementStart = scteMap.GetValueOrDefault("START:" + mediatorRow?.ScteBroadcastProviderOverlayPlacementStart, null),
+                    ScteBroadcastProviderOverlayPlacementEnd = scteMap.GetValueOrDefault("STOP:" + mediatorRow?.ScteBroadcastProviderOverlayPlacementEnd, null),
+                    LegacyEventLoad = legacyMap.GetValueOrDefault("LOAD:" + mediatorRow?.EnablerLegacy, null),
+                    LegacyEventStart = legacyMap.GetValueOrDefault("START:" + mediatorRow?.EnablerLegacy, null),
+                    LegacyEventStop = legacyMap.GetValueOrDefault("STOP:" + mediatorRow?.EnablerLegacy, null),
                 });
             }
 
