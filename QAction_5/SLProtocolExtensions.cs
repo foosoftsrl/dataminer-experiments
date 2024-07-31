@@ -298,6 +298,8 @@
                     Tachecktype = row.AdSalesData.Enabler,
                     Tacheckenablerprobe = enablerProbe,
                     Tacheckscteprobe = scteProbe,
+                    Tacheckresult = row.Result,
+                    Tacheckerrormessage = row.ErrorMessage,
                 }.ToObjectArray());
             }
 

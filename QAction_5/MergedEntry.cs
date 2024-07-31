@@ -22,5 +22,7 @@ namespace QAction_5
         public EnablerRow LegacyEventLoad;
         public EnablerRow LegacyEventStart;
         public EnablerRow LegacyEventStop;
+        public int Result;
+        public string ErrorMessage;
     }
 }

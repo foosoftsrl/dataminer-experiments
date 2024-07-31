@@ -5,7 +5,7 @@
 		<Encoding>unicode</Encoding>
 	</Options>
 	<Description>AdSales DataMiner connector</Description>
-	<Version>1.0.0.10</Version>
+	<Version>1.0.0.11</Version>
 	<IntegrationID>DMS-DRV-</IntegrationID>
 	<Provider>Foosoft</Provider>
 	<Vendor>Foosoft</Vendor>
@@ -1174,6 +1174,8 @@
 				<ColumnOption idx="8" pid="4007" type="retrieved" options=""/>
 				<ColumnOption idx="9" pid="4008" type="retrieved" options="" />
 				<ColumnOption idx="10" pid="4009" type="retrieved" options="" />
+				<ColumnOption idx="11" pid="4012" type="retrieved" options="" />
+				<ColumnOption idx="12" pid="4013" type="retrieved" options="" />
 			</ArrayOptions>
 			<Information>
 				<Subtext>Targeted Advertising Check</Subtext>
@@ -1189,7 +1191,7 @@
 				</Positions>
 			</Display>
 			<Measurement>
-				<Type options=";tab=columns:4001|0-4002|3-4003|4-4004|5-4005|6-4006|7-4007|8-4008|9-4009|10-4010|1,width:108-120-100-100-100-100-160-100-100-100,sort:STRING-STRING|ASC|0-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING,lines:25,filter:true">table</Type>
+				<Type options=";tab=columns:4001|0-4002|3-4003|4-4004|5-4005|6-4006|7-4007|8-4008|9-4009|10-4010|1-4012|11-4013|12,width:108-120-100-100-100-100-160-100-100-100-108-154,sort:STRING-STRING|ASC|0-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING,lines:25,filter:true">table</Type>
 			</Measurement>
 		</Param>
 		
@@ -1392,6 +1394,44 @@
 		<Param id="4011" trending="false">
 			<Name>taCheckMux</Name>
 			<Description>Mux</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>Scte</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="4012" trending="false">
+			<Name>taCheckResult</Name>
+			<Description>TA Check Result</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>Scte</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="4013" trending="false">
+			<Name>taCheckErrorMessage</Name>
+			<Description>TA Check Error Message</Description>
 			<Type>read</Type>
 			<Information>
 				<Subtext>Scte</Subtext>

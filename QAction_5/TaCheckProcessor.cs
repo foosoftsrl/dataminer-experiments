@@ -39,6 +39,65 @@
                     continue;
                 }
 
+                var scteBroadcastBreakStart = scteMap.GetValueOrDefault("SUPER_LOAD:" + mediatorRow?.ScteBroadcastBreakStart, null);
+                var scteBroadcastProviderAdvStart = scteMap.GetValueOrDefault("AD_START:" + mediatorRow?.ScteBroadcastProviderAdvStart, null);
+                var scteBroadcastProviderOverlayPlacementStart = scteMap.GetValueOrDefault("START:" + mediatorRow?.ScteBroadcastProviderOverlayPlacementStart, null);
+                var scteBroadcastProviderOverlayPlacementEnd = scteMap.GetValueOrDefault("STOP:" + mediatorRow?.ScteBroadcastProviderOverlayPlacementEnd, null);
+
+                var legacyEventLoad = legacyMap.GetValueOrDefault("LOAD:" + mediatorRow?.EnablerLegacy, null);
+                var legacyEventStart = legacyMap.GetValueOrDefault("START:" + mediatorRow?.EnablerLegacy, null);
+                var legacyEventStop = legacyMap.GetValueOrDefault("STOP:" + mediatorRow?.EnablerLegacy, null);
+
+                int result = 0;
+                string errorMessage = string.Empty;
+
+                bool continueCheck = true;
+                if(whatsonRow == null)
+                {
+                    result = 2;
+                    errorMessage += "no data in whatson\n";
+                    continueCheck = false;
+                }
+
+                if (mediatorRow == null)
+                {
+                    result = 2;
+                    errorMessage += "no data in mediator\n";
+                    continueCheck = false;
+                }
+
+                if (continueCheck)
+                {
+                    if (adSalesRow.Enabler == "P" && mediatorRow.StartTime < DateTime.Now)
+                    {
+                        if(scteBroadcastProviderOverlayPlacementStart == null)
+                        {
+                            result = 2;
+                            errorMessage += "missing scte overlay placement start\n";
+                        }
+
+                        if(legacyEventStart == null)
+                        {
+                            result = 2;
+                            errorMessage += "missing legacy start\n";
+                        }
+                    }
+                    else if ((adSalesRow.Enabler == "E" || adSalesRow.Enabler == "X") && mediatorRow.StartTime < DateTime.Now)
+                    {
+                        if (scteBroadcastBreakStart == null)
+                        {
+                            result = 2;
+                            errorMessage += "missing scte adv start\n";
+                        }
+
+                        if (legacyEventStart == null)
+                        {
+                            result = 2;
+                            errorMessage += "missing legacy start\n";
+                        }
+                    }
+                }
+
                 rowList.Add(new MergedEntry
                 {
                     Channel = channel,
@@ -47,13 +106,15 @@
                     AdSalesData = adSalesRow,
                     WhatsonData = whatsonRow,
                     MediatorData = mediatorRow,
-                    ScteBroadcastBreakStart = scteMap.GetValueOrDefault("SUPER_LOAD:" + mediatorRow?.ScteBroadcastBreakStart, null),
-                    ScteBroadcastProviderAdvStart = scteMap.GetValueOrDefault("AD_START:" + mediatorRow?.ScteBroadcastProviderAdvStart, null),
-                    ScteBroadcastProviderOverlayPlacementStart = scteMap.GetValueOrDefault("START:" + mediatorRow?.ScteBroadcastProviderOverlayPlacementStart, null),
-                    ScteBroadcastProviderOverlayPlacementEnd = scteMap.GetValueOrDefault("STOP:" + mediatorRow?.ScteBroadcastProviderOverlayPlacementEnd, null),
-                    LegacyEventLoad = legacyMap.GetValueOrDefault("LOAD:" + mediatorRow?.EnablerLegacy, null),
-                    LegacyEventStart = legacyMap.GetValueOrDefault("START:" + mediatorRow?.EnablerLegacy, null),
-                    LegacyEventStop = legacyMap.GetValueOrDefault("STOP:" + mediatorRow?.EnablerLegacy, null),
+                    ScteBroadcastBreakStart = scteBroadcastBreakStart,
+                    ScteBroadcastProviderAdvStart = scteBroadcastProviderAdvStart,
+                    ScteBroadcastProviderOverlayPlacementStart = scteBroadcastProviderOverlayPlacementStart,
+                    ScteBroadcastProviderOverlayPlacementEnd = scteBroadcastProviderOverlayPlacementEnd,
+                    LegacyEventLoad = legacyEventLoad,
+                    LegacyEventStart = legacyEventStart,
+                    LegacyEventStop = legacyEventStop,
+                    Result = result,
+                    ErrorMessage = errorMessage,
                 });
             }
 
