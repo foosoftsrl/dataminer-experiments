@@ -5,7 +5,7 @@
 		<Encoding>unicode</Encoding>
 	</Options>
 	<Description>AdSales DataMiner connector</Description>
-	<Version>1.0.0.12</Version>
+	<Version>1.0.0.13</Version>
 	<IntegrationID>DMS-DRV-</IntegrationID>
 	<Provider>Foosoft</Provider>
 	<Vendor>Foosoft</Vendor>
@@ -1196,6 +1196,7 @@
 				<ColumnOption idx="10" pid="4009" type="retrieved" options="" />
 				<ColumnOption idx="11" pid="4012" type="retrieved" options="" />
 				<ColumnOption idx="12" pid="4013" type="retrieved" options="" />
+				<ColumnOption idx="13" pid="4014" type="retrieved" options="" />
 			</ArrayOptions>
 			<Information>
 				<Subtext>Targeted Advertising Check</Subtext>
@@ -1211,7 +1212,7 @@
 				</Positions>
 			</Display>
 			<Measurement>
-				<Type options=";tab=columns:4001|0-4002|3-4003|4-4004|5-4005|6-4006|7-4007|8-4008|9-4009|10-4010|1-4012|11-4013|12,width:108-120-100-100-100-100-160-100-100-100-108-154,sort:STRING-STRING|ASC|0-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING,lines:25,filter:true">table</Type>
+				<Type options=";tab=columns:4001|0-4002|3-4003|4-4004|5-4005|6-4006|7-4007|8-4008|9-4009|10-4010|1-4012|11-4013|12-4014|13,width:108-120-100-100-100-100-160-100-100-100-108-154-137,sort:STRING-STRING|ASC|0-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING,lines:25,filter:true">table</Type>
 			</Measurement>
 		</Param>
 		
@@ -1455,6 +1456,25 @@
 			<Type>read</Type>
 			<Information>
 				<Subtext>Scte</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="4014" trending="false">
+			<Name>taCheckFutureFlag</Name>
+			<Description>TA Check Future Flag</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>FutureFLag</Subtext>
 			</Information>
 			<Interprete>
 				<RawType>other</RawType>

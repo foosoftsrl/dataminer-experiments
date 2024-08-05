@@ -118,6 +118,17 @@
                     }
                 }
 
+                var futureFilterFlag = 0;
+                if(mediatorRow != null && mediatorRow.StartTime > DateTime.Now.AddMinutes(-5))
+                {
+                    futureFilterFlag = 1;
+                }
+                else if(mediatorRow == null && adSalesRow.TimeOfDay > DateTime.Now.AddMinutes(-5))
+                {
+                    futureFilterFlag = 1;
+                }
+
+
                 rowList.Add(new MergedEntry
                 {
                     Channel = channel,
@@ -135,6 +146,7 @@
                     LegacyEventStop = legacyEventStop,
                     Result = result,
                     Message = message,
+                    FutureFilterFlag = futureFilterFlag,
                 });
             }
 

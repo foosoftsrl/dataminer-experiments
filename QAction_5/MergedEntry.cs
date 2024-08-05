@@ -30,5 +30,6 @@ namespace QAction_5
          */
         public int Result;
         public string Message;
+        public int FutureFilterFlag;
     }
 }

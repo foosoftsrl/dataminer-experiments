@@ -645,6 +645,11 @@ public static class Parameter
 			public const int tacheckmessage_4013 = 4013;
 			/// <summary>PID: 4013 | Type: read</summary>
 			public const int tacheckmessage = 4013;
+			/// <summary>PID: 4014 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int tacheckfutureflag_4014 = 4014;
+			/// <summary>PID: 4014 | Type: read</summary>
+			public const int tacheckfutureflag = 4014;
 			public class Write
 			{
 			}
@@ -716,6 +721,11 @@ public static class Parameter
 			public const int tacheckmessage_4013 = 12;
 			/// <summary>IDX: 12 | Type: read</summary>
 			public const int tacheckmessage = 12;
+			/// <summary>IDX: 13 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int tacheckfutureflag_4014 = 13;
+			/// <summary>IDX: 13 | Type: read</summary>
+			public const int tacheckfutureflag = 13;
 		}
 	}
 	public class Enablerlegacy
@@ -1254,6 +1264,8 @@ public interface SLProtocolExt : SLProtocol
 	object Tacheckresult { get; set; }
 	object Tacheckmessage_4013 { get; set; }
 	object Tacheckmessage { get; set; }
+	object Tacheckfutureflag_4014 { get; set; }
+	object Tacheckfutureflag { get; set; }
 	object Enablerlegacytime_5001 { get; set; }
 	object Enablerlegacytime { get; set; }
 	object Enablerlegacyeventcode_5002 { get; set; }
@@ -1675,6 +1687,11 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public System.Object Tacheckmessage_4013 {get { return GetParameter(4013); }set { SetParameter(4013, value); }}
 	/// <summary>PID: 4013  | Type: read</summary>
 	public System.Object Tacheckmessage {get { return GetParameter(4013); }set { SetParameter(4013, value); }}
+	/// <summary>PID: 4014  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Tacheckfutureflag_4014 {get { return GetParameter(4014); }set { SetParameter(4014, value); }}
+	/// <summary>PID: 4014  | Type: read</summary>
+	public System.Object Tacheckfutureflag {get { return GetParameter(4014); }set { SetParameter(4014, value); }}
 	/// <summary>PID: 5001  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Enablerlegacytime_5001 {get { return GetParameter(5001); }set { SetParameter(5001, value); }}
@@ -2256,8 +2273,13 @@ public class TachecktableQActionRow : QActionTableRow
 	public System.Object Tacheckmessage_4013 { get { if (base.Columns.ContainsKey(12)) { return base.Columns[12]; } else { return null; } } set { if (base.Columns.ContainsKey(12)) { base.Columns[12] = value; } else { base.Columns.Add(12, value); } } }
 	/// <summary>PID: 4013 | Type: read</summary>
 	public System.Object Tacheckmessage { get { if (base.Columns.ContainsKey(12)) { return base.Columns[12]; } else { return null; } } set { if (base.Columns.ContainsKey(12)) { base.Columns[12] = value; } else { base.Columns.Add(12, value); } } }
-	public TachecktableQActionRow() : base(0, 13) { }
-	public TachecktableQActionRow(System.Object[] oRow) : base(0, 13, oRow) { }
+	/// <summary>PID: 4014 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Tacheckfutureflag_4014 { get { if (base.Columns.ContainsKey(13)) { return base.Columns[13]; } else { return null; } } set { if (base.Columns.ContainsKey(13)) { base.Columns[13] = value; } else { base.Columns.Add(13, value); } } }
+	/// <summary>PID: 4014 | Type: read</summary>
+	public System.Object Tacheckfutureflag { get { if (base.Columns.ContainsKey(13)) { return base.Columns[13]; } else { return null; } } set { if (base.Columns.ContainsKey(13)) { base.Columns[13] = value; } else { base.Columns.Add(13, value); } } }
+	public TachecktableQActionRow() : base(0, 14) { }
+	public TachecktableQActionRow(System.Object[] oRow) : base(0, 14, oRow) { }
 	public static implicit operator TachecktableQActionRow(System.Object[] source) { return new TachecktableQActionRow(source); }
 	public static implicit operator System.Object[](TachecktableQActionRow source) { return source.ToObjectArray(); }
 }

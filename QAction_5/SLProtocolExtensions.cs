@@ -259,7 +259,7 @@
             return tableRows;
         }
 
-        public static void PublishMergedTable(this SLProtocolExt protocol, MergedEntry[] mergedRows)
+        public static void PublishTaCheckTable(this SLProtocolExt protocol, MergedEntry[] mergedRows)
         {
             List<object[]> tableRows = new List<object[]>();
             foreach (var row in mergedRows)
@@ -300,6 +300,7 @@
                     Tacheckscteprobe = scteProbe,
                     Tacheckresult = row.Result,
                     Tacheckmessage = row.Message,
+                    Tacheckfutureflag = row.FutureFilterFlag,
                 }.ToObjectArray());
             }
 
