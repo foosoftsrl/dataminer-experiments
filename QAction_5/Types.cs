@@ -12,6 +12,7 @@ namespace QAction_5
     {
         public DateTime TimeOfDay;
         public string BreakId;
+        public string BreakPosition;
         public string ReconcileKey;
         public string Title;
         public string ProductCode;

@@ -25,6 +25,7 @@
                         {
                             TimeOfDay = startTime,
                             BreakId = break_.BreakID,
+                            BreakPosition = "0",
                             Title = break_.BreakCommercialProductSales,
                             TimeAllocationType = timeAllocation.TimeAllocationType1,
                             ProductCode = string.Empty,
@@ -43,6 +44,7 @@
                             {
                                 TimeOfDay = startTime,
                                 BreakId = break_.BreakID,
+                                BreakPosition = content.ContentOrder,
                                 Title = content.ContentBrand,
                                 TimeAllocationType = timeAllocation.TimeAllocationType1,
                                 ProductCode = content.ContentProductCode,
