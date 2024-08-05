@@ -299,7 +299,7 @@
                     Tacheckenablerprobe = enablerProbe,
                     Tacheckscteprobe = scteProbe,
                     Tacheckresult = row.Result,
-                    Tacheckerrormessage = row.ErrorMessage,
+                    Tacheckmessage = row.Message,
                 }.ToObjectArray());
             }
 

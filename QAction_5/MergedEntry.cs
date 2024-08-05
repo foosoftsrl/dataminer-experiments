@@ -22,7 +22,13 @@ namespace QAction_5
         public EnablerRow LegacyEventLoad;
         public EnablerRow LegacyEventStart;
         public EnablerRow LegacyEventStop;
+        /*
+         * 0 - Everything ok (green)
+         * 1 - Warning (yellow)
+         * 2 - Error (red)
+         * 9 - Element ok but in the future (gray)
+         */
         public int Result;
-        public string ErrorMessage;
+        public string Message;
     }
 }

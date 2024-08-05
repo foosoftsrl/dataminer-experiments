@@ -632,9 +632,9 @@ public static class Parameter
 			public const int tacheckresult = 4012;
 			/// <summary>PID: 4013 | Type: read</summary>
 			[EditorBrowsable(EditorBrowsableState.Never)]
-			public const int tacheckerrormessage_4013 = 4013;
+			public const int tacheckmessage_4013 = 4013;
 			/// <summary>PID: 4013 | Type: read</summary>
-			public const int tacheckerrormessage = 4013;
+			public const int tacheckmessage = 4013;
 			public class Write
 			{
 			}
@@ -703,9 +703,9 @@ public static class Parameter
 			public const int tacheckresult = 11;
 			/// <summary>IDX: 12 | Type: read</summary>
 			[EditorBrowsable(EditorBrowsableState.Never)]
-			public const int tacheckerrormessage_4013 = 12;
+			public const int tacheckmessage_4013 = 12;
 			/// <summary>IDX: 12 | Type: read</summary>
-			public const int tacheckerrormessage = 12;
+			public const int tacheckmessage = 12;
 		}
 	}
 	public class Enablerlegacy
@@ -1240,8 +1240,8 @@ public interface SLProtocolExt : SLProtocol
 	object Tacheckmux { get; set; }
 	object Tacheckresult_4012 { get; set; }
 	object Tacheckresult { get; set; }
-	object Tacheckerrormessage_4013 { get; set; }
-	object Tacheckerrormessage { get; set; }
+	object Tacheckmessage_4013 { get; set; }
+	object Tacheckmessage { get; set; }
 	object Enablerlegacytime_5001 { get; set; }
 	object Enablerlegacytime { get; set; }
 	object Enablerlegacyeventcode_5002 { get; set; }
@@ -1655,9 +1655,9 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public System.Object Tacheckresult {get { return GetParameter(4012); }set { SetParameter(4012, value); }}
 	/// <summary>PID: 4013  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Tacheckerrormessage_4013 {get { return GetParameter(4013); }set { SetParameter(4013, value); }}
+	public System.Object Tacheckmessage_4013 {get { return GetParameter(4013); }set { SetParameter(4013, value); }}
 	/// <summary>PID: 4013  | Type: read</summary>
-	public System.Object Tacheckerrormessage {get { return GetParameter(4013); }set { SetParameter(4013, value); }}
+	public System.Object Tacheckmessage {get { return GetParameter(4013); }set { SetParameter(4013, value); }}
 	/// <summary>PID: 5001  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Enablerlegacytime_5001 {get { return GetParameter(5001); }set { SetParameter(5001, value); }}
@@ -2231,9 +2231,9 @@ public class TachecktableQActionRow : QActionTableRow
 	public System.Object Tacheckresult { get { if (base.Columns.ContainsKey(11)) { return base.Columns[11]; } else { return null; } } set { if (base.Columns.ContainsKey(11)) { base.Columns[11] = value; } else { base.Columns.Add(11, value); } } }
 	/// <summary>PID: 4013 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Tacheckerrormessage_4013 { get { if (base.Columns.ContainsKey(12)) { return base.Columns[12]; } else { return null; } } set { if (base.Columns.ContainsKey(12)) { base.Columns[12] = value; } else { base.Columns.Add(12, value); } } }
+	public System.Object Tacheckmessage_4013 { get { if (base.Columns.ContainsKey(12)) { return base.Columns[12]; } else { return null; } } set { if (base.Columns.ContainsKey(12)) { base.Columns[12] = value; } else { base.Columns.Add(12, value); } } }
 	/// <summary>PID: 4013 | Type: read</summary>
-	public System.Object Tacheckerrormessage { get { if (base.Columns.ContainsKey(12)) { return base.Columns[12]; } else { return null; } } set { if (base.Columns.ContainsKey(12)) { base.Columns[12] = value; } else { base.Columns.Add(12, value); } } }
+	public System.Object Tacheckmessage { get { if (base.Columns.ContainsKey(12)) { return base.Columns[12]; } else { return null; } } set { if (base.Columns.ContainsKey(12)) { base.Columns[12] = value; } else { base.Columns.Add(12, value); } } }
 	public TachecktableQActionRow() : base(0, 13) { }
 	public TachecktableQActionRow(System.Object[] oRow) : base(0, 13, oRow) { }
 	public static implicit operator TachecktableQActionRow(System.Object[] source) { return new TachecktableQActionRow(source); }

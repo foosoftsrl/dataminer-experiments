@@ -5,7 +5,7 @@
 		<Encoding>unicode</Encoding>
 	</Options>
 	<Description>AdSales DataMiner connector</Description>
-	<Version>1.0.0.11</Version>
+	<Version>1.0.0.12</Version>
 	<IntegrationID>DMS-DRV-</IntegrationID>
 	<Provider>Foosoft</Provider>
 	<Vendor>Foosoft</Vendor>
@@ -1430,8 +1430,8 @@
 			</Measurement>
 		</Param>
 		<Param id="4013" trending="false">
-			<Name>taCheckErrorMessage</Name>
-			<Description>TA Check Error Message</Description>
+			<Name>taCheckMessage</Name>
+			<Description>TA Check Message</Description>
 			<Type>read</Type>
 			<Information>
 				<Subtext>Scte</Subtext>

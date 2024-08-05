@@ -51,7 +51,7 @@ namespace QAction5Tests
             Assert.AreEqual(1, errors);
 
             var errorEntry = merged.First(e => e.Result != 0);
-            Assert.AreEqual("missing scte adv start\n", errorEntry.ErrorMessage);
+            Assert.AreEqual("missing scte adv start\n", errorEntry.Message);
         }
 
         [TestMethod]
@@ -75,10 +75,10 @@ namespace QAction5Tests
             Assert.AreEqual(2, errors);
 
             var errorEntry = merged[0];
-            Assert.AreEqual("missing scte overlay placement start\n", errorEntry.ErrorMessage);
+            Assert.AreEqual("missing scte overlay placement start\n", errorEntry.Message);
 
             errorEntry = merged[1];
-            Assert.AreEqual("missing scte adv start\n", errorEntry.ErrorMessage);
+            Assert.AreEqual("missing scte adv start\n", errorEntry.Message);
         }
     }
 }

@@ -49,52 +49,72 @@
                 var legacyEventStop = legacyMap.GetValueOrDefault("STOP:" + mediatorRow?.EnablerLegacy, null);
 
                 int result = 0;
-                string errorMessage = string.Empty;
+                string message = string.Empty;
 
-                bool continueCheck = true;
                 if(whatsonRow == null)
                 {
                     result = 2;
-                    errorMessage += "no data in whatson\n";
-                    continueCheck = false;
+                    message += "no data in whatson\n";
                 }
 
                 if (mediatorRow == null)
                 {
                     result = 2;
-                    errorMessage += "no data in mediator\n";
-                    continueCheck = false;
+                    message += "no data in mediator\n";
                 }
 
-                if (continueCheck)
+                if (result == 0)
                 {
                     if (adSalesRow.Enabler == "P" && mediatorRow.StartTime < DateTime.Now)
                     {
                         if(scteBroadcastProviderOverlayPlacementStart == null)
                         {
                             result = 2;
-                            errorMessage += "missing scte overlay placement start\n";
+                            message += "missing scte overlay placement start\n";
                         }
 
                         if(legacyEventStart == null)
                         {
                             result = 2;
-                            errorMessage += "missing legacy start\n";
+                            message += "missing legacy start\n";
                         }
                     }
-                    else if ((adSalesRow.Enabler == "E" || adSalesRow.Enabler == "X") && mediatorRow.StartTime < DateTime.Now)
+                    else if (adSalesRow.Enabler == "E" && mediatorRow.StartTime < DateTime.Now)
                     {
-                        if (scteBroadcastBreakStart == null)
+                        if (scteBroadcastProviderOverlayPlacementStart == null)
                         {
                             result = 2;
-                            errorMessage += "missing scte adv start\n";
+                            message += "missing scte overlay placement start\n";
                         }
 
                         if (legacyEventStart == null)
                         {
                             result = 2;
-                            errorMessage += "missing legacy start\n";
+                            message += "missing legacy start\n";
                         }
+                    }
+                    else if (adSalesRow.Enabler == "X" && mediatorRow.StartTime < DateTime.Now)
+                    {
+                        if (scteBroadcastBreakStart == null)
+                        {
+                            result = 2;
+                            message += "missing scte adv start\n";
+                        }
+
+                        if (legacyEventStart == null)
+                        {
+                            result = 2;
+                            message += "missing legacy start\n";
+                        }
+                    }
+                }
+
+                if (result == 0)
+                {
+                    message = "ok";
+                    if(mediatorRow.StartTime > DateTime.Now)
+                    {
+                        result = 9;
                     }
                 }
 
@@ -114,7 +134,7 @@
                     LegacyEventStart = legacyEventStart,
                     LegacyEventStop = legacyEventStop,
                     Result = result,
-                    ErrorMessage = errorMessage,
+                    Message = message,
                 });
             }
 
