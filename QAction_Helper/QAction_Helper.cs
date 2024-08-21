@@ -627,9 +627,9 @@ public static class Parameter
 			public const int tachecktype = 4007;
 			/// <summary>PID: 4008 | Type: read</summary>
 			[EditorBrowsable(EditorBrowsableState.Never)]
-			public const int tacheckenablerprobe_4008 = 4008;
+			public const int tachecklegacyprobe_4008 = 4008;
 			/// <summary>PID: 4008 | Type: read</summary>
-			public const int tacheckenablerprobe = 4008;
+			public const int tachecklegacyprobe = 4008;
 			/// <summary>PID: 4009 | Type: read</summary>
 			[EditorBrowsable(EditorBrowsableState.Never)]
 			public const int tacheckscteprobe_4009 = 4009;
@@ -703,9 +703,9 @@ public static class Parameter
 			public const int tachecktype = 8;
 			/// <summary>IDX: 9 | Type: read</summary>
 			[EditorBrowsable(EditorBrowsableState.Never)]
-			public const int tacheckenablerprobe_4008 = 9;
+			public const int tachecklegacyprobe_4008 = 9;
 			/// <summary>IDX: 9 | Type: read</summary>
-			public const int tacheckenablerprobe = 9;
+			public const int tachecklegacyprobe = 9;
 			/// <summary>IDX: 10 | Type: read</summary>
 			[EditorBrowsable(EditorBrowsableState.Never)]
 			public const int tacheckscteprobe_4009 = 10;
@@ -1252,8 +1252,8 @@ public interface SLProtocolExt : SLProtocol
 	object Tacheckmediatortime { get; set; }
 	object Tachecktype_4007 { get; set; }
 	object Tachecktype { get; set; }
-	object Tacheckenablerprobe_4008 { get; set; }
-	object Tacheckenablerprobe { get; set; }
+	object Tachecklegacyprobe_4008 { get; set; }
+	object Tachecklegacyprobe { get; set; }
 	object Tacheckscteprobe_4009 { get; set; }
 	object Tacheckscteprobe { get; set; }
 	object Tacheckchannel_4010 { get; set; }
@@ -1659,9 +1659,9 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public System.Object Tachecktype {get { return GetParameter(4007); }set { SetParameter(4007, value); }}
 	/// <summary>PID: 4008  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Tacheckenablerprobe_4008 {get { return GetParameter(4008); }set { SetParameter(4008, value); }}
+	public System.Object Tachecklegacyprobe_4008 {get { return GetParameter(4008); }set { SetParameter(4008, value); }}
 	/// <summary>PID: 4008  | Type: read</summary>
-	public System.Object Tacheckenablerprobe {get { return GetParameter(4008); }set { SetParameter(4008, value); }}
+	public System.Object Tachecklegacyprobe {get { return GetParameter(4008); }set { SetParameter(4008, value); }}
 	/// <summary>PID: 4009  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Tacheckscteprobe_4009 {get { return GetParameter(4009); }set { SetParameter(4009, value); }}
@@ -2255,9 +2255,9 @@ public class TachecktableQActionRow : QActionTableRow
 	public System.Object Tachecktype { get { if (base.Columns.ContainsKey(8)) { return base.Columns[8]; } else { return null; } } set { if (base.Columns.ContainsKey(8)) { base.Columns[8] = value; } else { base.Columns.Add(8, value); } } }
 	/// <summary>PID: 4008 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Tacheckenablerprobe_4008 { get { if (base.Columns.ContainsKey(9)) { return base.Columns[9]; } else { return null; } } set { if (base.Columns.ContainsKey(9)) { base.Columns[9] = value; } else { base.Columns.Add(9, value); } } }
+	public System.Object Tachecklegacyprobe_4008 { get { if (base.Columns.ContainsKey(9)) { return base.Columns[9]; } else { return null; } } set { if (base.Columns.ContainsKey(9)) { base.Columns[9] = value; } else { base.Columns.Add(9, value); } } }
 	/// <summary>PID: 4008 | Type: read</summary>
-	public System.Object Tacheckenablerprobe { get { if (base.Columns.ContainsKey(9)) { return base.Columns[9]; } else { return null; } } set { if (base.Columns.ContainsKey(9)) { base.Columns[9] = value; } else { base.Columns.Add(9, value); } } }
+	public System.Object Tachecklegacyprobe { get { if (base.Columns.ContainsKey(9)) { return base.Columns[9]; } else { return null; } } set { if (base.Columns.ContainsKey(9)) { base.Columns[9] = value; } else { base.Columns.Add(9, value); } } }
 	/// <summary>PID: 4009 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Tacheckscteprobe_4009 { get { if (base.Columns.ContainsKey(10)) { return base.Columns[10]; } else { return null; } } set { if (base.Columns.ContainsKey(10)) { base.Columns[10] = value; } else { base.Columns.Add(10, value); } } }

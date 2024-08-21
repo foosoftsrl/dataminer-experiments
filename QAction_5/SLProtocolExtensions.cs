@@ -42,7 +42,7 @@
             {
                 var from = DateTime.Today.AddDays(i);
 
-                var adSalesDayData = adSalesData.FindAll(row => row.DayOffset == i);
+                var adSalesDayData = adSalesData.FindAll(row => row.DayOffset == i && row.Enabler != "P");
                 var whatsonDayData = whatsonData.FindAll(row => row.DayOffset == i);
                 var mediatorDayData = mediatorData.FindAll(row => row.DayOffset == i);
 
@@ -203,6 +203,7 @@
                     Adsalestitle = row.Title,
                     Adsalestype = row.TimeAllocationType,
                     Adsalesenabler = row.Enabler,
+                    Adsalesbreakposition = row.BreakPosition,
                 }.ToObjectArray());
             }
 
@@ -264,12 +265,12 @@
             List<object[]> tableRows = new List<object[]>();
             foreach (var row in mergedRows)
             {
-                string enablerProbe = string.Empty;
+                string legacyProbe = string.Empty;
                 if(row.LegacyEventLoad != null || row.LegacyEventStart != null || row.LegacyEventStop != null)
                 {
-                    enablerProbe += (row.LegacyEventLoad != null) ? "L" : "-";
-                    enablerProbe += (row.LegacyEventStart != null) ? "P" : "-";
-                    enablerProbe += (row.LegacyEventStop != null) ? "S" : "-";
+                    legacyProbe += (row.LegacyEventLoad != null) ? "L" : "-";
+                    legacyProbe += (row.LegacyEventStart != null) ? "P" : "-";
+                    legacyProbe += (row.LegacyEventStop != null) ? "S" : "-";
                 }
 
                 string scteProbe = string.Empty;
@@ -296,7 +297,7 @@
                     Tacheckhavemediator = (row.MediatorData != null) ? "✓" : string.Empty,
                     Tacheckmediatortime = row.MediatorData?.StartTime.ToString("yyyy-MM-dd HH:mm:ss") ?? string.Empty,
                     Tachecktype = row.AdSalesData.Enabler,
-                    Tacheckenablerprobe = enablerProbe,
+                    Tachecklegacyprobe = legacyProbe,
                     Tacheckscteprobe = scteProbe,
                     Tacheckresult = row.Result,
                     Tacheckmessage = row.Message,

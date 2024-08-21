@@ -5,7 +5,7 @@
 		<Encoding>unicode</Encoding>
 	</Options>
 	<Description>AdSales DataMiner connector</Description>
-	<Version>1.0.0.13</Version>
+	<Version>1.0.0.14</Version>
 	<IntegrationID>DMS-DRV-</IntegrationID>
 	<Provider>Foosoft</Provider>
 	<Vendor>Foosoft</Vendor>
@@ -1355,11 +1355,11 @@
 		</Param>
 		
 		<Param id="4008" trending="false">
-			<Name>taCheckEnablerProbe</Name>
-			<Description>Enabler</Description>
+			<Name>taCheckLegacyProbe</Name>
+			<Description>Legacy</Description>
 			<Type>read</Type>
 			<Information>
-				<Subtext>Enabler</Subtext>
+				<Subtext>Legacy</Subtext>
 			</Information>
 			<Interprete>
 				<RawType>other</RawType>
