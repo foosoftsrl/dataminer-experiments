@@ -17,7 +17,7 @@
             var result = new List<(AdSalesRow, WhatsonRow, string)>();
             for (var day = -1; day < 3; day++)
             {
-                List<AdSalesRow> adSalesRows = adSalesRowsGlobal.FindAll(row => row.DayOffset == day);
+                List<AdSalesRow> adSalesRows = adSalesRowsGlobal.FindAll(row => row.DayOffset == day && row.Enabler != "P");
                 List<WhatsonRow> whatsonRows = whatsonRowsGlobal.FindAll(row => row.DayOffset == day);
                 var reconcileKeyToWhatsonIndex = new Dictionary<string, int>();
 
