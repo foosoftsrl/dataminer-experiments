@@ -16,11 +16,11 @@
             foreach (var break_ in adSalesData.Breaks)
             {
                 var breakStart = TimeSpan.ParseExact(break_.BreakNominalTime, @"mm\:ss", null).TotalSeconds * 60;
+                var startTime = dayStart.AddSeconds(breakStart);
                 foreach (var timeAllocation in break_.TimeAllocations)
                 {
                     if (timeAllocation.TimeAllocationType1 == "PUSH")
                     {
-                        var startTime = dayStart.AddSeconds(breakStart);
                         result.Add(new AdSalesRow
                         {
                             TimeOfDay = startTime,
@@ -39,7 +39,7 @@
                         var timeFromBreakStart = 0;
                         foreach (var content in timeAllocation.Contents)
                         {
-                            var startTime = dayStart.AddSeconds(breakStart + timeFromBreakStart);
+                            // var startTime = dayStart.AddSeconds(breakStart + timeFromBreakStart);
                             result.Add(new AdSalesRow
                             {
                                 TimeOfDay = startTime,
