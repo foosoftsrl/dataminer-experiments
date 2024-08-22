@@ -21,7 +21,7 @@
                 List<AdSalesRow> adSalesRows = adSalesRowsGlobal.FindAll(row => row.DayOffset == day);
                 List<WhatsonRow> whatsonRows = whatsonRowsGlobal.FindAll(row => row.DayOffset == day);
 
-                List<string> adSalesBillboardReconcileKey = adSalesRows.FindAll(row => row.TimeAllocationType == "IS-BILLBOARD").Select(row => row.ReconcileKey).ToList();
+                List<string> adSalesBillboardReconcileKey = adSalesRows.FindAll(row => row.TimeAllocationType == "IS-BILLBOARD" || row.TimeAllocationType == "CIAK").Select(row => row.ReconcileKey).ToList();
 
                 var reconcileKeyToWhatsonIndex = new Dictionary<string, int>();
 
@@ -43,6 +43,7 @@
                     var reconcileKey = adSalesRow.ReconcileKey;
                     if (adSalesBillboardReconcileKey.Contains(reconcileKey))
                     {
+                        lastAdSalesIdx++;
                         continue;
                     }
 
@@ -58,7 +59,7 @@
 
                             for (var i = lastWhatsonIdx + 1; i < whatsonIdx; i++)
                             {
-                                if(!adSalesBillboardReconcileKey.Contains(reconcileKey))
+                                if(!adSalesBillboardReconcileKey.Contains(whatsonRows[i].ReconcileKey))
                                 {
                                     result.Add((null, whatsonRows[i], "warn_only_whatson"));
                                 }
@@ -84,7 +85,10 @@
 
                 for (var i = lastWhatsonIdx + 1; i < whatsonRows.Count; i++)
                 {
-                    result.Add((null, whatsonRows[i], "warn_only_whatson"));
+                    if (!adSalesBillboardReconcileKey.Contains(whatsonRows[i].ReconcileKey))
+                    {
+                        result.Add((null, whatsonRows[i], "warn_only_whatson"));
+                    }
                 }
             }
 

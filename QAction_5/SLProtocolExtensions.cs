@@ -42,7 +42,7 @@
             {
                 var from = DateTime.Today.AddDays(i);
 
-                var adSalesDayData = adSalesData.FindAll(row => row.DayOffset == i);
+                var adSalesDayData = adSalesData.FindAll(row => row.DayOffset == i && row.TimeAllocationType != "IS-BILLBOARD" && row.TimeAllocationType != "CIAK");
                 var whatsonDayData = whatsonData.FindAll(row => row.DayOffset == i);
                 var mediatorDayData = mediatorData.FindAll(row => row.DayOffset == i);
 
