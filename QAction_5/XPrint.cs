@@ -41,6 +41,10 @@
                 foreach (var (adSalesRow, adSalesIdx) in adSalesRows.WithIndex())
                 {
                     var reconcileKey = adSalesRow.ReconcileKey;
+                    if (adSalesBillboardReconcileKey.Contains(reconcileKey))
+                    {
+                        continue;
+                    }
 
                     // First... find matching rows
                     if (reconcileKeyToWhatsonIndex.TryGetValue(reconcileKey, out var whatsonIdx))
