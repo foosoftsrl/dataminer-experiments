@@ -20,6 +20,7 @@ namespace QAction_5
         public string Duration;
         public string Enabler;
         public int DayOffset;
+        public string BreakScreenLayout;
     }
 
     public class WhatsonRow

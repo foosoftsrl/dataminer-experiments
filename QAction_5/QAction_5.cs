@@ -33,8 +33,9 @@ public class QAction
         protocol.Iterationcounter = (double)protocol.Iterationcounter + 1;
         try
         {
-            var adSalesData = ReadAdSalesData(protocol);
+            var adSalesData = ReadAdSalesData(protocol);        // Complete AdSales data
             protocol.PublishAdsalesTable(adSalesData);
+            var adSalesDataNoPush = adSalesData.FindAll(row => row.Enabler != "P");
 
             var whatsonData = ReadWhatsonData(protocol);
             protocol.PublishWhatsonTable(whatsonData);
@@ -42,7 +43,7 @@ public class QAction
 
             var mediatorData = await ReadMediatorData(protocol);
             protocol.PublishMediatorTable(mediatorData);
-            var mediatorDataSpot = mediatorData.FilterSpots();
+            var mediatorDataSpot = mediatorData.FilterSpots().OrderBy(row => row.StartTime).ToList();
 
             var legacy = await ReadEnablerLegacy(protocol);
             protocol.PublishEnablerLegacyTable(legacy);
@@ -53,13 +54,13 @@ public class QAction
             var mergedRows = TaCheckProcessor.Compute(adSalesData, whatsonData, mediatorData, scte, legacy, protocol.ChannelName(), protocol.MuxName());
             protocol.PublishTaCheckTable(mergedRows);
 
-            var adsalesWonDiff = XPrint.ComputeAdSalesWhatsonDiff(adSalesData, whatsonDataSpot);
+            var adsalesWonDiff = XPrint.ComputeAdSalesWhatsonDiff(adSalesDataNoPush, whatsonDataSpot);
             protocol.PublishAdSalesWhatsonDiffTable(adsalesWonDiff);
 
             var wonMediatorDiff = XPrint.ComputeWhatsonMediatorDiff(whatsonDataSpot, mediatorDataSpot);
             protocol.PublishMediatorWonDiffTable(wonMediatorDiff);
 
-            protocol.PublishAlarmBoxData(adSalesData, whatsonDataSpot, mediatorDataSpot, adsalesWonDiff, wonMediatorDiff);
+            protocol.PublishAlarmBoxData(adSalesDataNoPush, whatsonDataSpot, mediatorDataSpot, adsalesWonDiff, wonMediatorDiff);
 
             protocol.Mergeddebugmsg = $"Everything ok!";
         }

@@ -32,14 +32,13 @@
                             Duration = timeAllocation.TimeAllocationNominalDuration,
                             ReconcileKey = break_.BreakID,  // We are quite sure that break with timeallocationtype PUSH has single timeallocation
                             Enabler = "P",
+                            BreakScreenLayout = break_.BreakScreenLayout,
                         });
                     }
                     else
                     {
-                        var timeFromBreakStart = 0;
                         foreach (var content in timeAllocation.Contents)
                         {
-                            // var startTime = dayStart.AddSeconds(breakStart + timeFromBreakStart);
                             result.Add(new AdSalesRow
                             {
                                 TimeOfDay = startTime,
@@ -51,8 +50,8 @@
                                 Duration = content.ContentTotalDuration,
                                 ReconcileKey = content.ContentReconcileKey,
                                 Enabler = content.ContentEnabler,
+                                BreakScreenLayout = break_.BreakScreenLayout,
                             });
-                            timeFromBreakStart += (content.ContentTotalDuration != null) ? Int32.Parse(content.ContentTotalDuration) : 0;
                         }
                     }
                 }

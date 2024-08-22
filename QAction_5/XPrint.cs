@@ -1,6 +1,7 @@
 ﻿namespace QAction_5
 {
     using System.Collections.Generic;
+    using System.Linq;
     using Skyline.DataMiner.Net.Helper;
 
     public class XPrint
@@ -17,8 +18,11 @@
             var result = new List<(AdSalesRow, WhatsonRow, string)>();
             for (var day = -1; day < 3; day++)
             {
-                List<AdSalesRow> adSalesRows = adSalesRowsGlobal.FindAll(row => row.DayOffset == day && row.Enabler != "P");
+                List<AdSalesRow> adSalesRows = adSalesRowsGlobal.FindAll(row => row.DayOffset == day);
                 List<WhatsonRow> whatsonRows = whatsonRowsGlobal.FindAll(row => row.DayOffset == day);
+
+                List<string> adSalesBillboardReconcileKey = adSalesRows.FindAll(row => row.TimeAllocationType == "IS-BILLBOARD").Select(row => row.ReconcileKey).ToList();
+
                 var reconcileKeyToWhatsonIndex = new Dictionary<string, int>();
 
                 foreach (var (row, index) in whatsonRows.WithIndex())
@@ -45,31 +49,14 @@
                         {
                             for (var i = lastAdSalesIdx + 1; i < adSalesIdx; i++)
                             {
-                                if (whatsonOrphanIndex.TryGetValue(reconcileKey, out var orphanWhatsonIdx))
-                                {
-                                    result.Add((adSalesRows[i], null, "warn_position_mismatch"));
-                                    var entry = result[orphanWhatsonIdx];
-                                    entry.Item3 = "warn_position_mismatch";
-                                }
-                                else
-                                {
-                                    result.Add((adSalesRows[i], null, "warn_only_adsales"));
-                                    adsalesOrphanIndex.Add(reconcileKey, result.Count - 1);
-                                }
+                                result.Add((adSalesRows[i], null, "warn_only_adsales"));
                             }
 
                             for (var i = lastWhatsonIdx + 1; i < whatsonIdx; i++)
                             {
-                                if (adsalesOrphanIndex.TryGetValue(reconcileKey, out var orphanAdsalesIdx))
-                                {
-                                    result.Add((null, whatsonRows[i], "warn_position_mismatch"));
-                                    var entry = result[orphanAdsalesIdx];
-                                    entry.Item3 = "warn_position_mismatch";
-                                }
-                                else
+                                if(!adSalesBillboardReconcileKey.Contains(reconcileKey))
                                 {
                                     result.Add((null, whatsonRows[i], "warn_only_whatson"));
-                                    whatsonOrphanIndex.Add(reconcileKey, result.Count - 1);
                                 }
                             }
 

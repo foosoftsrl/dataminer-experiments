@@ -5,7 +5,7 @@
 		<Encoding>unicode</Encoding>
 	</Options>
 	<Description>AdSales DataMiner connector</Description>
-	<Version>1.0.0.14</Version>
+	<Version>1.0.0.15</Version>
 	<IntegrationID>DMS-DRV-</IntegrationID>
 	<Provider>Foosoft</Provider>
 	<Vendor>Foosoft</Vendor>
@@ -558,6 +558,7 @@
 				<ColumnOption idx="4" pid="1004" type="retrieved" options="" />
 				<ColumnOption idx="5" pid="1005" type="retrieved" options="" />
 				<ColumnOption idx="6" pid="1006" type="retrieved" options="" />
+				<ColumnOption idx="7" pid="1008" type="retrieved" options="" />
 			</ArrayOptions>
 			<Information>
 				<Subtext>AdSales Table</Subtext>
@@ -573,7 +574,7 @@
 				</Positions>
 			</Display>
 			<Measurement>
-				<Type options="tab=columns:1001|0-1002|1-1003|2-1004|4-1005|5-1006|6-1007|3,width:120-120-120-240-100-100-100,sort:STRING-STRING|ASC-STRING-STRING-STRING-STRING-STRING,lines:25,filter:true">table</Type>
+				<Type options="tab=columns:1001|0-1002|1-1003|2-1004|4-1005|5-1006|6-1007|3-1008|7,width:120-120-120-240-100-100-100-126,sort:STRING-STRING|ASC-STRING-STRING-STRING-STRING-STRING-STRING,lines:25,filter:true">table</Type>
 			</Measurement>
 		</Param>
 		<Param id="1001" trending="false">
@@ -696,6 +697,25 @@
 			<Type>read</Type>
 			<Information>
 				<Subtext>Break Position</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="1008" trending="false">
+			<Name>adSalesBreakScreenLayout</Name>
+			<Description>BreakScreenLayout</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>Break ScreenLayout</Subtext>
 			</Information>
 			<Interprete>
 				<RawType>other</RawType>

@@ -42,7 +42,7 @@
             {
                 var from = DateTime.Today.AddDays(i);
 
-                var adSalesDayData = adSalesData.FindAll(row => row.DayOffset == i && row.Enabler != "P");
+                var adSalesDayData = adSalesData.FindAll(row => row.DayOffset == i);
                 var whatsonDayData = whatsonData.FindAll(row => row.DayOffset == i);
                 var mediatorDayData = mediatorData.FindAll(row => row.DayOffset == i);
 
@@ -204,6 +204,7 @@
                     Adsalestype = row.TimeAllocationType,
                     Adsalesenabler = row.Enabler,
                     Adsalesbreakposition = row.BreakPosition,
+                    Adsalesbreakscreenlayout = row.BreakScreenLayout,
                 }.ToObjectArray());
             }
 
