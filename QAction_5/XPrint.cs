@@ -29,6 +29,9 @@
                     }
                 }
 
+                var whatsonOrphanIndex = new Dictionary<string, int>();
+                var adsalesOrphanIndex = new Dictionary<string, int>();
+
                 int lastAdSalesIdx = -1;
                 int lastWhatsonIdx = -1;
                 foreach (var (adSalesRow, adSalesIdx) in adSalesRows.WithIndex())
@@ -42,12 +45,32 @@
                         {
                             for (var i = lastAdSalesIdx + 1; i < adSalesIdx; i++)
                             {
-                                result.Add((adSalesRows[i], null, "warn_only_adsales"));
+                                if (whatsonOrphanIndex.TryGetValue(reconcileKey, out var orphanWhatsonIdx))
+                                {
+                                    result.Add((adSalesRows[i], null, "warn_position_mismatch"));
+                                    var entry = result[orphanWhatsonIdx];
+                                    entry.Item3 = "warn_position_mismatch";
+                                }
+                                else
+                                {
+                                    result.Add((adSalesRows[i], null, "warn_only_adsales"));
+                                    adsalesOrphanIndex.Add(reconcileKey, result.Count - 1);
+                                }
                             }
 
                             for (var i = lastWhatsonIdx + 1; i < whatsonIdx; i++)
                             {
-                                result.Add((null, whatsonRows[i], "warn_only_whatson"));
+                                if (adsalesOrphanIndex.TryGetValue(reconcileKey, out var orphanAdsalesIdx))
+                                {
+                                    result.Add((null, whatsonRows[i], "warn_position_mismatch"));
+                                    var entry = result[orphanAdsalesIdx];
+                                    entry.Item3 = "warn_position_mismatch";
+                                }
+                                else
+                                {
+                                    result.Add((null, whatsonRows[i], "warn_only_whatson"));
+                                    whatsonOrphanIndex.Add(reconcileKey, result.Count - 1);
+                                }
                             }
 
                             var resultCode = "ok";
