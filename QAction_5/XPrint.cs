@@ -21,7 +21,7 @@
                 List<AdSalesRow> adSalesRows = adSalesRowsGlobal.FindAll(row => row.DayOffset == day);
                 List<WhatsonRow> whatsonRows = whatsonRowsGlobal.FindAll(row => row.DayOffset == day);
 
-                List<string> adSalesBillboardReconcileKey = adSalesRows.FindAll(row => row.TimeAllocationType == "IS-BILLBOARD" || row.TimeAllocationType == "CIAK").Select(row => row.ReconcileKey).ToList();
+                List<string> adSalesFilterOutReconcileKey = adSalesRows.FindAll(row => row.TimeAllocationType == "IS-BILLBOARD" || row.TimeAllocationType == "CIAK" || row.BreakScreenLayout == "OVL").Select(row => row.ReconcileKey).ToList();
 
                 var reconcileKeyToWhatsonIndex = new Dictionary<string, int>();
 
@@ -41,7 +41,7 @@
                 foreach (var (adSalesRow, adSalesIdx) in adSalesRows.WithIndex())
                 {
                     var reconcileKey = adSalesRow.ReconcileKey;
-                    if (adSalesBillboardReconcileKey.Contains(reconcileKey))
+                    if (adSalesFilterOutReconcileKey.Contains(reconcileKey))
                     {
                         lastAdSalesIdx++;
                         continue;
@@ -59,7 +59,7 @@
 
                             for (var i = lastWhatsonIdx + 1; i < whatsonIdx; i++)
                             {
-                                if(!adSalesBillboardReconcileKey.Contains(whatsonRows[i].ReconcileKey))
+                                if(!adSalesFilterOutReconcileKey.Contains(whatsonRows[i].ReconcileKey))
                                 {
                                     result.Add((null, whatsonRows[i], "warn_only_whatson"));
                                 }
@@ -85,7 +85,7 @@
 
                 for (var i = lastWhatsonIdx + 1; i < whatsonRows.Count; i++)
                 {
-                    if (!adSalesBillboardReconcileKey.Contains(whatsonRows[i].ReconcileKey))
+                    if (!adSalesFilterOutReconcileKey.Contains(whatsonRows[i].ReconcileKey))
                     {
                         result.Add((null, whatsonRows[i], "warn_only_whatson"));
                     }
