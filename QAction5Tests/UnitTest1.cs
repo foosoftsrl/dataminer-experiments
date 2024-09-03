@@ -153,6 +153,15 @@ namespace QAction5Tests
             }
         }
 
+        [TestMethod]
+        public void TestParseParentalRating()
+        {
+            var parentalRatingData = ParentalRatingSource.ParseText(Utils.ReadFile("parental.csv"));
+
+            Assert.IsNotNull(parentalRatingData);
+            Assert.AreEqual(58, parentalRatingData.Count);
+        }
+
         private void SetToday(List<MediatorRow> list, bool addMillis)
         {
             foreach (var row in list)

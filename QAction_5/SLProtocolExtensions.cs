@@ -36,6 +36,17 @@
             return (string)channelName;
         }
 
+        public static string ServiceId(this SLProtocolExt protocol)
+        {
+            var serviceId = protocol.GetParameter(Parameter.channelserviceid);
+            if (!(serviceId is string))
+            {
+                throw new Exception("ServiceId is not defined");
+            }
+
+            return (string)serviceId;
+        }
+
         public static void PublishAlarmBoxData(this SLProtocolExt protocol, List<AdSalesRow> adSalesData, List<WhatsonRow> whatsonData, List<MediatorRow> mediatorData, List<(AdSalesRow, WhatsonRow, string)> adsalesWonDiff, List<(WhatsonRow, MediatorRow, string)> wonMediatorDiff)
         {
             for (var i = 0; i < 3; i++)

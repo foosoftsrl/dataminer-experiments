@@ -53,6 +53,11 @@ public static class Parameter
 	public const int channelpriority_23 = 23;
 	/// <summary>PID: 23 | Type: read</summary>
 	public const int channelpriority = 23;
+	/// <summary>PID: 25 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public const int channelserviceid_25 = 25;
+	/// <summary>PID: 25 | Type: read</summary>
+	public const int channelserviceid = 25;
 	/// <summary>PID: 6100 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public const int sctedebugmsg_6100 = 6100;
@@ -230,6 +235,11 @@ public static class Parameter
 		public const int channelpriority_24 = 24;
 		/// <summary>PID: 24 | Type: write</summary>
 		public const int channelpriority = 24;
+		/// <summary>PID: 26 | Type: write</summary>
+		[EditorBrowsable(EditorBrowsableState.Never)]
+		public const int channelserviceid_26 = 26;
+		/// <summary>PID: 26 | Type: write</summary>
+		public const int channelserviceid = 26;
 		/// <summary>PID: 10202 | Type: write</summary>
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		public const int mergedprocesstable_10202 = 10202;
@@ -1133,6 +1143,8 @@ public class WriteParameters
 	public System.Object Muxname {get { return Protocol.GetParameter(22); }set { Protocol.SetParameter(22, value); }}
 	/// <summary>PID: 24  | Type: write</summary>
 	public System.Object Channelpriority {get { return Protocol.GetParameter(24); }set { Protocol.SetParameter(24, value); }}
+	/// <summary>PID: 26  | Type: write</summary>
+	public System.Object Channelserviceid {get { return Protocol.GetParameter(26); }set { Protocol.SetParameter(26, value); }}
 	/// <summary>PID: 10202  | Type: write | DISCREETS: Merge Tables = check</summary>
 	public System.Object Mergedprocesstable {get { return Protocol.GetParameter(10202); }set { Protocol.SetParameter(10202, value); }}
 	public SLProtocolExt Protocol;
@@ -1192,6 +1204,9 @@ public interface SLProtocolExt : SLProtocol
 	object Channelpriority_23 { get; set; }
 	object Channelpriority { get; set; }
 	object Channelpriority_24 { get; set; }
+	object Channelserviceid_25 { get; set; }
+	object Channelserviceid { get; set; }
+	object Channelserviceid_26 { get; set; }
 	object Adsalesreconcilekey_1001 { get; set; }
 	object Adsalesreconcilekey { get; set; }
 	object Adsalestime_1002 { get; set; }
@@ -1494,6 +1509,14 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	/// <summary>PID: 24  | Type: write</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Channelpriority_24 {get { return GetParameter(24); }set { SetParameter(24, value); }}
+	/// <summary>PID: 25  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Channelserviceid_25 {get { return GetParameter(25); }set { SetParameter(25, value); }}
+	/// <summary>PID: 25  | Type: read</summary>
+	public System.Object Channelserviceid {get { return GetParameter(25); }set { SetParameter(25, value); }}
+	/// <summary>PID: 26  | Type: write</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Channelserviceid_26 {get { return GetParameter(26); }set { SetParameter(26, value); }}
 	/// <summary>PID: 1001  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Adsalesreconcilekey_1001 {get { return GetParameter(1001); }set { SetParameter(1001, value); }}

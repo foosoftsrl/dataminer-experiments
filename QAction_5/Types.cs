@@ -63,4 +63,10 @@ namespace QAction_5
         public string EventName;
         public string Payload;
     }
+
+    public class ParentalRatingRow
+    {
+        public DateTime TimeStamp;
+        public int ParentalRating;
+    }
 }

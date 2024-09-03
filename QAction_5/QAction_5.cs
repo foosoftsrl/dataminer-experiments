@@ -27,6 +27,7 @@ public class QAction
     private MediatorSource mediatorSource = new MediatorSource();
     private WhatsonSource whatsonSource = new WhatsonSource();
     private EnablerSource enablerSource = new EnablerSource();
+    private ParentalRatingSource parentalRatingSource = new ParentalRatingSource();
 
     public async Task Run(SLProtocolExt protocol)
     {
@@ -61,6 +62,8 @@ public class QAction
             protocol.PublishMediatorWonDiffTable(wonMediatorDiff);
 
             protocol.PublishAlarmBoxData(adSalesDataNoPush, whatsonDataSpot, mediatorDataSpot, adsalesWonDiff, wonMediatorDiff);
+
+            var parental = await ReadParentalRating(protocol);
 
             protocol.Mergeddebugmsg = $"Everything ok!";
         }
@@ -198,6 +201,23 @@ public class QAction
             protocol.Mediatordebugmsg = $"Failed reading Mediator data: {ex.Message}";
             protocol.Log($"QA{protocol.QActionID}|{protocol.GetTriggerParameter()}|Run|Exception thrown:{Environment.NewLine}{ex}", LogType.Error, LogLevel.NoLogging);
             return lastPublished;
+        }
+    }
+
+    // Parental rating
+    public async Task<List<ParentalRatingRow>> ReadParentalRating(SLProtocolExt protocol)
+    {
+        try
+        {
+            var url = $"{protocol.Probeurl}parental?serviceId={protocol.ServiceId()}";
+            var rows = await parentalRatingSource.ReadParentalRating(url);
+            protocol.Legacydebugmsg = "Everything ok...";
+            return rows;
+        }
+        catch (Exception ex)
+        {
+            protocol.Legacydebugmsg = $"Exception {ex.Message}";
+            return new List<ParentalRatingRow>();
         }
     }
 }

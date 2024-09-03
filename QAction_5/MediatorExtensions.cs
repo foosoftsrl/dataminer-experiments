@@ -50,6 +50,14 @@
 
         public static List<MediatorRow> FilterSpots(this List<MediatorRow> list)
         {
+            /* TODO
+             * Non c'è un modo particolarmente semplice per filtrare gli elementi di tipo pubblicità in mediator.
+             * Questi elementi in playlist hanno sempre la reconcile key valorizzata, e come "template" hanno dei parametri tipo:
+             * - ciak-txprofile2-txProfile
+             * - spotaff-txprofile2-txProfile
+             * - spotnoaff-txprofile2-txProfile
+             * Da capire se utilizzare questi dati o se va bene la reconcile key
+             */
             return list.FindAll(row => row.ReconcileKey != null);
         }
 
