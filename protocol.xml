@@ -5,7 +5,7 @@
 		<Encoding>unicode</Encoding>
 	</Options>
 	<Description>AdSales DataMiner connector</Description>
-	<Version>1.0.0.15</Version>
+	<Version>1.0.0.16</Version>
 	<IntegrationID>DMS-DRV-</IntegrationID>
 	<Provider>Foosoft</Provider>
 	<Vendor>Foosoft</Vendor>
@@ -13,7 +13,7 @@
 	<DeviceOID></DeviceOID>
 	<ElementType>Connect to http</ElementType>
 	<Type relativeTimers="true">virtual</Type>
-	<Display defaultPage="General" pageOrder="General;-------;Adsales;Mediator;Won;Enabler Legacy;Enabler Scte;AdSalesWonDiff;WonMediatorDiff;AlarmBox" wideColumnPages=""/>
+	<Display defaultPage="General" pageOrder="General;-------;Adsales;Mediator;Won;Enabler Legacy;Enabler Scte;AdSalesWonDiff;WonMediatorDiff;AlarmBox;Parental Rating" wideColumnPages=""/>
 	<SNMP includepages="true">auto</SNMP>
 
 	<Compliancies>
@@ -545,8 +545,8 @@
 				<Type>string</Type>
 			</Measurement>
 		</Param>
-
-
+		
+		
 		<Param id="25" trending="false" save="true">
 			<Name>channelServiceId</Name>
 			<Description>Channel Service ID</Description>
@@ -2853,6 +2853,96 @@
 				<Positions>
 					<Position>
 						<Page>Enabler Legacy</Page>
+						<Column>0</Column>
+						<Row>0</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		
+		<Param id="11000" trending="true">
+			<Name>ParentalRating</Name>
+			<Description>Parental Rating</Description>
+			<Type>array</Type>
+			<ArrayOptions index="0" >
+				<ColumnOption idx="0" pid="11001" type="retrieved" options="" />
+				<ColumnOption idx="1" pid="11002" type="retrieved" options="" />
+			</ArrayOptions>
+			<Information>
+				<Subtext>
+					<![CDATA[Parental Rating]]>
+				</Subtext>
+			</Information>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Parental Rating</Page>
+						<Column>0</Column>
+						<Row>1</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type options="tab=columns:11001|0-11002|1,width:100-100,sort:INT-INT,lines:20,filter:true">table</Type>
+			</Measurement>
+		</Param>
+		<Param id="11001" trending="false">
+			<Name>ParentalRatingTime</Name>
+			<Description>Time (Parental Rating)</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="11002" trending="false">
+			<Name>ParentalRatingValue</Name>
+			<Description>Value (Parental Rating)</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		
+		<Param id="11999" trending="false">
+			<Name>parentalDebugMsg</Name>
+			<Description>Debug Parental Data</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Parental Rating</Page>
 						<Column>0</Column>
 						<Row>0</Row>
 					</Position>

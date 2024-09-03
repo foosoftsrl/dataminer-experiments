@@ -201,6 +201,21 @@
             protocol.FillArray(Parameter.Enablerscte.tablePid, tableRows, NotifyProtocol.SaveOption.Full);
         }
 
+        public static void PublishParentalRatingTable(this SLProtocolExt protocol, List<ParentalRatingRow> rows)
+        {
+            var tableRows = new List<object[]>();
+            foreach (var row in rows)
+            {
+                tableRows.Add(new ParentalratingQActionRow
+                {
+                    Parentalratingtime = row.TimeStamp.ToString("yyyy-MM-dd HH:mm:ss"),
+                    Parentalratingvalue = row.ParentalRating.ToString(),
+                }.ToObjectArray());
+            }
+
+            protocol.FillArray(Parameter.Parentalrating.tablePid, tableRows, NotifyProtocol.SaveOption.Full);
+        }
+
         public static List<object[]> PublishAdsalesTable(this SLProtocolExt protocol, List<AdSalesRow> adSalesRows)
         {
             List<object[]> tableRows = new List<object[]>();

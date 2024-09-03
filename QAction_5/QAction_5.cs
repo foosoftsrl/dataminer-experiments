@@ -64,6 +64,7 @@ public class QAction
             protocol.PublishAlarmBoxData(adSalesDataNoPush, whatsonDataSpot, mediatorDataSpot, adsalesWonDiff, wonMediatorDiff);
 
             var parental = await ReadParentalRating(protocol);
+            protocol.PublishParentalRatingTable(parental);
 
             protocol.Mergeddebugmsg = $"Everything ok!";
         }
@@ -211,12 +212,12 @@ public class QAction
         {
             var url = $"{protocol.Probeurl}parental?serviceId={protocol.ServiceId()}";
             var rows = await parentalRatingSource.ReadParentalRating(url);
-            protocol.Legacydebugmsg = "Everything ok...";
+            protocol.Parentaldebugmsg = "Everything ok...";
             return rows;
         }
         catch (Exception ex)
         {
-            protocol.Legacydebugmsg = $"Exception {ex.Message}";
+            protocol.Parentaldebugmsg = $"Exception {ex.Message}";
             return new List<ParentalRatingRow>();
         }
     }

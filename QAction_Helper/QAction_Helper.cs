@@ -183,6 +183,11 @@ public static class Parameter
 	public const int legacydebugmsg_10401 = 10401;
 	/// <summary>PID: 10401 | Type: read</summary>
 	public const int legacydebugmsg = 10401;
+	/// <summary>PID: 11999 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public const int parentaldebugmsg_11999 = 11999;
+	/// <summary>PID: 11999 | Type: read</summary>
+	public const int parentaldebugmsg = 11999;
 	public class Write
 	{
 		/// <summary>PID: 4 | Type: write</summary>
@@ -1120,6 +1125,44 @@ public static class Parameter
 			public const int wonmediatordiffresult = 10;
 		}
 	}
+	public class Parentalrating
+	{
+		/// <summary>PID: 11000</summary>
+		public const int tablePid = 11000;
+		/// <summary>IDX: 0</summary>
+		public const int indexColumn = 0;
+		/// <summary>PID: 11001</summary>
+		public const int indexColumnPid = 11001;
+		public class Pid
+		{
+			/// <summary>PID: 11001 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int parentalratingtime_11001 = 11001;
+			/// <summary>PID: 11001 | Type: read</summary>
+			public const int parentalratingtime = 11001;
+			/// <summary>PID: 11002 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int parentalratingvalue_11002 = 11002;
+			/// <summary>PID: 11002 | Type: read</summary>
+			public const int parentalratingvalue = 11002;
+			public class Write
+			{
+			}
+		}
+		public class Idx
+		{
+			/// <summary>IDX: 0 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int parentalratingtime_11001 = 0;
+			/// <summary>IDX: 0 | Type: read</summary>
+			public const int parentalratingtime = 0;
+			/// <summary>IDX: 1 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int parentalratingvalue_11002 = 1;
+			/// <summary>IDX: 1 | Type: read</summary>
+			public const int parentalratingvalue = 1;
+		}
+	}
 }
 public class WriteParameters
 {
@@ -1171,6 +1214,8 @@ public interface SLProtocolExt : SLProtocol
 	AdsaleswondiffQActionTable adsaleswondiff { get; set; }
 	/// <summary>PID: 9000</summary>
 	WonmediatordiffQActionTable wonmediatordiff { get; set; }
+	/// <summary>PID: 11000</summary>
+	ParentalratingQActionTable parentalrating { get; set; }
 	object Afterstartup_dummy { get; set; }
 	object Triggerqaction_dummy { get; set; }
 	object Pgbconfiguration_4 { get; set; }
@@ -1405,6 +1450,12 @@ public interface SLProtocolExt : SLProtocol
 	object Wondebugmsg { get; set; }
 	object Legacydebugmsg_10401 { get; set; }
 	object Legacydebugmsg { get; set; }
+	object Parentalratingtime_11001 { get; set; }
+	object Parentalratingtime { get; set; }
+	object Parentalratingvalue_11002 { get; set; }
+	object Parentalratingvalue { get; set; }
+	object Parentaldebugmsg_11999 { get; set; }
+	object Parentaldebugmsg { get; set; }
 	WriteParameters Write { get; set; }
 }
 public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
@@ -1425,6 +1476,8 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public AdsaleswondiffQActionTable adsaleswondiff { get; set; }
 	/// <summary>PID: 9000</summary>
 	public WonmediatordiffQActionTable wonmediatordiff { get; set; }
+	/// <summary>PID: 11000</summary>
+	public ParentalratingQActionTable parentalrating { get; set; }
 	/// <summary>PID: 2  | Type: dummy</summary>
 	public System.Object Afterstartup_dummy {get { return GetParameter(2); }set { SetParameter(2, value); }}
 	/// <summary>PID: 3  | Type: dummy</summary>
@@ -2011,6 +2064,21 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public System.Object Legacydebugmsg_10401 {get { return GetParameter(10401); }set { SetParameter(10401, value); }}
 	/// <summary>PID: 10401  | Type: read</summary>
 	public System.Object Legacydebugmsg {get { return GetParameter(10401); }set { SetParameter(10401, value); }}
+	/// <summary>PID: 11001  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Parentalratingtime_11001 {get { return GetParameter(11001); }set { SetParameter(11001, value); }}
+	/// <summary>PID: 11001  | Type: read</summary>
+	public System.Object Parentalratingtime {get { return GetParameter(11001); }set { SetParameter(11001, value); }}
+	/// <summary>PID: 11002  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Parentalratingvalue_11002 {get { return GetParameter(11002); }set { SetParameter(11002, value); }}
+	/// <summary>PID: 11002  | Type: read</summary>
+	public System.Object Parentalratingvalue {get { return GetParameter(11002); }set { SetParameter(11002, value); }}
+	/// <summary>PID: 11999  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Parentaldebugmsg_11999 {get { return GetParameter(11999); }set { SetParameter(11999, value); }}
+	/// <summary>PID: 11999  | Type: read</summary>
+	public System.Object Parentaldebugmsg {get { return GetParameter(11999); }set { SetParameter(11999, value); }}
 	public WriteParameters Write { get; set; }
 	public ConcreteSLProtocolExt()
 	{
@@ -2022,6 +2090,7 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 		enablerscte = new EnablerscteQActionTable(this, 6000, "enablerscte");
 		adsaleswondiff = new AdsaleswondiffQActionTable(this, 8000, "adsaleswondiff");
 		wonmediatordiff = new WonmediatordiffQActionTable(this, 9000, "wonmediatordiff");
+		parentalrating = new ParentalratingQActionTable(this, 11000, "parentalrating");
 		Write = new WriteParameters(this);
 	}
 }
@@ -2080,6 +2149,13 @@ public class WonmediatordiffQActionTable : QActionTable, IEnumerable<Wonmediator
 	public WonmediatordiffQActionTable(SLProtocol protocol, int tableId, string tableName) : base(protocol, tableId, tableName) { }
 	IEnumerator IEnumerable.GetEnumerator() { return (IEnumerator) GetEnumerator(); }
 	public IEnumerator<WonmediatordiffQActionRow> GetEnumerator() { return new QActionTableEnumerator<WonmediatordiffQActionRow>(this); }
+}
+/// <summary>IDX: 0</summary>
+public class ParentalratingQActionTable : QActionTable, IEnumerable<ParentalratingQActionRow>
+{
+	public ParentalratingQActionTable(SLProtocol protocol, int tableId, string tableName) : base(protocol, tableId, tableName) { }
+	IEnumerator IEnumerable.GetEnumerator() { return (IEnumerator) GetEnumerator(); }
+	public IEnumerator<ParentalratingQActionRow> GetEnumerator() { return new QActionTableEnumerator<ParentalratingQActionRow>(this); }
 }
 /// <summary>IDX: 0</summary>
 public class AdsalesQActionRow : QActionTableRow
@@ -2509,5 +2585,23 @@ public class WonmediatordiffQActionRow : QActionTableRow
 	public WonmediatordiffQActionRow(System.Object[] oRow) : base(0, 11, oRow) { }
 	public static implicit operator WonmediatordiffQActionRow(System.Object[] source) { return new WonmediatordiffQActionRow(source); }
 	public static implicit operator System.Object[](WonmediatordiffQActionRow source) { return source.ToObjectArray(); }
+}
+/// <summary>IDX: 0</summary>
+public class ParentalratingQActionRow : QActionTableRow
+{
+	/// <summary>PID: 11001 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Parentalratingtime_11001 { get { if (base.Columns.ContainsKey(0)) { return base.Columns[0]; } else { return null; } } set { if (base.Columns.ContainsKey(0)) { base.Columns[0] = value; } else { base.Columns.Add(0, value); } } }
+	/// <summary>PID: 11001 | Type: read</summary>
+	public System.Object Parentalratingtime { get { if (base.Columns.ContainsKey(0)) { return base.Columns[0]; } else { return null; } } set { if (base.Columns.ContainsKey(0)) { base.Columns[0] = value; } else { base.Columns.Add(0, value); } } }
+	/// <summary>PID: 11002 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Parentalratingvalue_11002 { get { if (base.Columns.ContainsKey(1)) { return base.Columns[1]; } else { return null; } } set { if (base.Columns.ContainsKey(1)) { base.Columns[1] = value; } else { base.Columns.Add(1, value); } } }
+	/// <summary>PID: 11002 | Type: read</summary>
+	public System.Object Parentalratingvalue { get { if (base.Columns.ContainsKey(1)) { return base.Columns[1]; } else { return null; } } set { if (base.Columns.ContainsKey(1)) { base.Columns[1] = value; } else { base.Columns.Add(1, value); } } }
+	public ParentalratingQActionRow() : base(0, 2) { }
+	public ParentalratingQActionRow(System.Object[] oRow) : base(0, 2, oRow) { }
+	public static implicit operator ParentalratingQActionRow(System.Object[] source) { return new ParentalratingQActionRow(source); }
+	public static implicit operator System.Object[](ParentalratingQActionRow source) { return source.ToObjectArray(); }
 }
 }
