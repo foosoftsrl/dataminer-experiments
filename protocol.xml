@@ -800,6 +800,7 @@
 				<ColumnOption idx="10" pid="2011" type="retrieved" options=";save"/>
 				<ColumnOption idx="11" pid="2012" type="retrieved" options=";save"/>
 				<ColumnOption idx="12" pid="2013" type="retrieved" options=";save"/>
+				<ColumnOption idx="13" pid="2014" type="retrieved" options="" />
 			</ArrayOptions>
 			<Information>
 				<Subtext>Mediator Table</Subtext>
@@ -1065,6 +1066,24 @@
 				<Type>string</Type>
 			</Measurement>
 		</Param>
+		<Param id="2014" trending="false">
+			<Name>mediatorParentalRating</Name>
+			<Description>Parental Rating Value (Mediator)</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
 		
 		<Param id="3000">
 			<Name>won</Name>
@@ -1255,7 +1274,6 @@
 			<Description>Parental Rating (WON)</Description>
 			<Type>read</Type>
 			<Information>
-				<Subtext></Subtext>
 			</Information>
 			<Interprete>
 				<RawType>other</RawType>

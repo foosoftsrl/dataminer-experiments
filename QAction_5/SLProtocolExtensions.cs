@@ -281,6 +281,7 @@
                     Mediatordayoffset = row.DayOffset,
                     Mediatorsctebroadcastprovideroverlayplacementstart = row.ScteBroadcastProviderOverlayPlacementStart ?? string.Empty,
                     Mediatorsctebroadcastprovideroverlayplacementend = row.ScteBroadcastProviderOverlayPlacementEnd ?? string.Empty,
+                    Mediatorparentalrating = row.ParentalRatingValue,
                 }.ToObjectArray());
             }
 
