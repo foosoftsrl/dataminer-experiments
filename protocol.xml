@@ -5,7 +5,7 @@
 		<Encoding>unicode</Encoding>
 	</Options>
 	<Description>AdSales DataMiner connector</Description>
-	<Version>1.0.0.16</Version>
+	<Version>1.0.0.17</Version>
 	<IntegrationID>DMS-DRV-</IntegrationID>
 	<Provider>Foosoft</Provider>
 	<Vendor>Foosoft</Vendor>
@@ -13,7 +13,7 @@
 	<DeviceOID></DeviceOID>
 	<ElementType>Connect to http</ElementType>
 	<Type relativeTimers="true">virtual</Type>
-	<Display defaultPage="General" pageOrder="General;-------;Adsales;Mediator;Won;Enabler Legacy;Enabler Scte;AdSalesWonDiff;WonMediatorDiff;AlarmBox;Parental Rating" wideColumnPages=""/>
+	<Display defaultPage="General" pageOrder="General;-------;Adsales;Mediator;Won;Enabler Legacy;Enabler Scte;AdSalesWonDiff;WonMediatorDiff;AlarmBox;Parental Rating;Parental Rating Check" wideColumnPages=""/>
 	<SNMP includepages="true">auto</SNMP>
 
 	<Compliancies>
