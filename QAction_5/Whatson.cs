@@ -139,7 +139,7 @@ namespace Whatson
 
         private bool blockNameFieldSpecified;
 
-        private ulong previousBlockNameField;
+        private string previousBlockNameField;
 
         private bool previousBlockNameFieldSpecified;
 
@@ -170,7 +170,7 @@ namespace Whatson
             }
         }
 
-        public ulong PreviousBlockName
+        public string PreviousBlockName
         {
             get
             {

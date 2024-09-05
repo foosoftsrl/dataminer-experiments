@@ -153,6 +153,14 @@ namespace QAction5Tests
             }
         }
 
+        [TestMethod]
+        public void TestParseWon20240905()
+        {
+            // Test field <PreviousBlockName> empty
+            var whatsonData = Utils.XmlDeserializeFromFile<Whatson.Pharos>("LT_Schedule_2024-09-05_0001_0621_-_2937.xml").Flatten();
+            Assert.IsNotNull(whatsonData);
+        }
+
         private void SetToday(List<MediatorRow> list, bool addMillis)
         {
             foreach (var row in list)

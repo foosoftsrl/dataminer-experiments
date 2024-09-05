@@ -1,0 +1,4427 @@
+<?xml version="1.0"?>
+<Pharos xmlns:java="http://xml.apache.org/xslt/java">
+	<ImportMetaData>
+		<Note>LT Schedule, 2024-09-05 0001 06:21 - 29:37</Note>
+	</ImportMetaData>
+	<Playlist>
+		<ChannelName>LT</ChannelName>
+		<BlockList>
+			<Block>
+				<BlockName>2049450876</BlockName>
+				<PreviousBlockName></PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>13771a58-9da1-46b8-b4db-b9c0ddf3682e</ItemReference>
+					<StartMode>Fixed</StartMode>
+					<StartDate>2024-09-05T00:00:00.000</StartDate>
+					<StartTimecode>04:21:28:00</StartTimecode>
+					<ScheduledDuration>00:00:16:05</ScheduledDuration>
+					<ScheduleReference>13771a58-9da1-46b8-b4db-b9c0ddf3682e</ScheduleReference>
+					<ScheduledTitle>SIGLA APERTURA CIAK NEWS (CON JINGLE MEDIASET) - 2024</ScheduledTitle>
+					<Template>
+						<TemplateName>SHORTFORM</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialSegment-matId</Name>
+								<Type>template parameter</Type>
+								<Value>FSGC2024000023LB</Value>
+							</DataElement>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FSGC2024000023LB</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>10:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:16:05</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+							<DataElement>
+								<Name>transition-transType</Name>
+								<Type>template parameter</Type>
+								<Value>Cut</Value>
+							</DataElement>
+							<DataElement>
+								<Name>mediaSource-text</Name>
+								<Type>template parameter</Type>
+								<Value>MAM</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049450881</BlockName>
+				<PreviousBlockName>2049450876</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>1377679e-0bf3-44a8-929a-ee6b7c02068b</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-05T00:00:00.000</StartDate>
+					<StartTimecode>04:23:08:00</StartTimecode>
+					<ScheduledDuration>00:00:11:00</ScheduledDuration>
+					<ScheduleReference>1377679e-0bf3-44a8-929a-ee6b7c02068b</ScheduleReference>
+					<ScheduledTitle>SIGLA CHIUSURA CIAK NEWS - 2024</ScheduledTitle>
+					<Template>
+						<TemplateName>SHORTFORM</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialSegment-matId</Name>
+								<Type>template parameter</Type>
+								<Value>FSGC2024000002KB</Value>
+							</DataElement>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FSGC2024000002KB</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>10:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:11:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+							<DataElement>
+								<Name>transition-transType</Name>
+								<Type>template parameter</Type>
+								<Value>Cut</Value>
+							</DataElement>
+							<DataElement>
+								<Name>mediaSource-text</Name>
+								<Type>template parameter</Type>
+								<Value>MAM</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049450886</BlockName>
+				<PreviousBlockName>2049450881</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>13771221-c429-4942-91c3-9fc3044ec596</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-05T00:00:00.000</StartDate>
+					<StartTimecode>04:23:19:00</StartTimecode>
+					<ScheduledDuration>00:41:00:00</ScheduledDuration>
+					<ScheduleReference>13771221-c429-4942-91c3-9fc3044ec596</ScheduleReference>
+					<ScheduledTitle>&lt;Nessun titolo&gt; - 1/1</ScheduledTitle>
+					<Template>
+						<TemplateName>PRGDUMMY</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FAKE</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:41:00:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+							<DataElement>
+								<Name>parentalRating-graphic</Name>
+								<Type>template parameter</Type>
+								<Value>PR_ENGINE</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-graphic</Name>
+								<Type>template parameter</Type>
+								<Value>OTT_RESTART</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-userText1</Name>
+								<Type>template parameter</Type>
+								<Value>20494508840</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-userText3</Name>
+								<Type>template parameter</Type>
+								<Value>00:00:00:00</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049450893</BlockName>
+				<PreviousBlockName>2049450886</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>1377b75c-3477-4d00-bf4b-a6a055fbf147</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-05T00:00:00.000</StartDate>
+					<StartTimecode>05:04:19:00</StartTimecode>
+					<ScheduledDuration>00:41:00:00</ScheduledDuration>
+					<ScheduleReference>1377b75c-3477-4d00-bf4b-a6a055fbf147</ScheduleReference>
+					<ScheduledTitle>&lt;Nessun titolo&gt; - 1/1</ScheduledTitle>
+					<Template>
+						<TemplateName>PRGDUMMY</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FAKE</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:41:00:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+							<DataElement>
+								<Name>parentalRating-graphic</Name>
+								<Type>template parameter</Type>
+								<Value>PR_ENGINE</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-graphic</Name>
+								<Type>template parameter</Type>
+								<Value>OTT_RESTART</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-userText1</Name>
+								<Type>template parameter</Type>
+								<Value>20494508910</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-userText3</Name>
+								<Type>template parameter</Type>
+								<Value>00:00:00:00</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049450900</BlockName>
+				<PreviousBlockName>2049450893</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>1377fac1-3531-4546-b699-870533cf930c</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-05T00:00:00.000</StartDate>
+					<StartTimecode>05:45:19:00</StartTimecode>
+					<ScheduledDuration>00:41:00:00</ScheduledDuration>
+					<ScheduleReference>1377fac1-3531-4546-b699-870533cf930c</ScheduleReference>
+					<ScheduledTitle>&lt;Nessun titolo&gt; - 1/1</ScheduledTitle>
+					<Template>
+						<TemplateName>PRGDUMMY</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FAKE</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:41:00:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+							<DataElement>
+								<Name>parentalRating-graphic</Name>
+								<Type>template parameter</Type>
+								<Value>PR_ENGINE</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-graphic</Name>
+								<Type>template parameter</Type>
+								<Value>OTT_RESTART</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-userText1</Name>
+								<Type>template parameter</Type>
+								<Value>20494508980</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-userText3</Name>
+								<Type>template parameter</Type>
+								<Value>00:00:00:00</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049450920</BlockName>
+				<PreviousBlockName>2049450900</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>1377b295-8ddc-4433-ace7-2f932fb85edd</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-05T00:00:00.000</StartDate>
+					<StartTimecode>06:31:39:00</StartTimecode>
+					<ScheduledDuration>00:10:00:00</ScheduledDuration>
+					<ScheduleReference>1377b295-8ddc-4433-ace7-2f932fb85edd</ScheduleReference>
+					<ScheduledTitle>&lt;Nessun titolo&gt; - 1/4</ScheduledTitle>
+					<Template>
+						<TemplateName>PRGDUMMY</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FAKE</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:10:00:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+							<DataElement>
+								<Name>parentalRating-graphic</Name>
+								<Type>template parameter</Type>
+								<Value>PR_ENGINE</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-graphic</Name>
+								<Type>template parameter</Type>
+								<Value>OTT_RESTART</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-userText1</Name>
+								<Type>template parameter</Type>
+								<Value>20494509120</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-userText3</Name>
+								<Type>template parameter</Type>
+								<Value>00:00:00:00</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049450926</BlockName>
+				<PreviousBlockName>2049450920</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>1377a928-d8c0-4b77-b5c4-1f6380ca36b8</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-05T00:00:00.000</StartDate>
+					<StartTimecode>06:47:09:00</StartTimecode>
+					<ScheduledDuration>00:10:00:00</ScheduledDuration>
+					<ScheduleReference>1377a928-d8c0-4b77-b5c4-1f6380ca36b8</ScheduleReference>
+					<ScheduledTitle>&lt;Nessun titolo&gt; - 2/4</ScheduledTitle>
+					<Template>
+						<TemplateName>PRGDUMMY</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FAKE</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:10:00:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049450932</BlockName>
+				<PreviousBlockName>2049450926</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>1377f39e-f793-4029-b67c-c50d275a7bc5</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-05T00:00:00.000</StartDate>
+					<StartTimecode>07:02:39:00</StartTimecode>
+					<ScheduledDuration>00:10:00:00</ScheduledDuration>
+					<ScheduleReference>1377f39e-f793-4029-b67c-c50d275a7bc5</ScheduleReference>
+					<ScheduledTitle>&lt;Nessun titolo&gt; - 3/4</ScheduledTitle>
+					<Template>
+						<TemplateName>PRGDUMMY</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FAKE</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:10:00:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049450938</BlockName>
+				<PreviousBlockName>2049450932</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>137713c3-5722-4763-967e-d5d05e73795c</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-05T00:00:00.000</StartDate>
+					<StartTimecode>07:18:09:00</StartTimecode>
+					<ScheduledDuration>00:11:00:00</ScheduledDuration>
+					<ScheduleReference>137713c3-5722-4763-967e-d5d05e73795c</ScheduleReference>
+					<ScheduledTitle>&lt;Nessun titolo&gt; - 4/4</ScheduledTitle>
+					<Template>
+						<TemplateName>PRGDUMMY</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FAKE</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:11:00:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049450952</BlockName>
+				<PreviousBlockName>2049450938</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>137765b5-d06b-4979-b8a8-0e1751ecbc30</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-05T00:00:00.000</StartDate>
+					<StartTimecode>07:29:09:00</StartTimecode>
+					<ScheduledDuration>00:10:00:00</ScheduledDuration>
+					<ScheduleReference>137765b5-d06b-4979-b8a8-0e1751ecbc30</ScheduleReference>
+					<ScheduledTitle>&lt;Nessun titolo&gt; - 1/4</ScheduledTitle>
+					<Template>
+						<TemplateName>PRGDUMMY</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FAKE</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:10:00:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+							<DataElement>
+								<Name>parentalRating-graphic</Name>
+								<Type>template parameter</Type>
+								<Value>PR_ENGINE</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-graphic</Name>
+								<Type>template parameter</Type>
+								<Value>OTT_RESTART</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-userText1</Name>
+								<Type>template parameter</Type>
+								<Value>20494509440</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-userText3</Name>
+								<Type>template parameter</Type>
+								<Value>00:00:00:00</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049450958</BlockName>
+				<PreviousBlockName>2049450952</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>137749d0-92e2-4a52-9aea-34c7a7d89e08</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-05T00:00:00.000</StartDate>
+					<StartTimecode>07:44:39:00</StartTimecode>
+					<ScheduledDuration>00:10:00:00</ScheduledDuration>
+					<ScheduleReference>137749d0-92e2-4a52-9aea-34c7a7d89e08</ScheduleReference>
+					<ScheduledTitle>&lt;Nessun titolo&gt; - 2/4</ScheduledTitle>
+					<Template>
+						<TemplateName>PRGDUMMY</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FAKE</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:10:00:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049450964</BlockName>
+				<PreviousBlockName>2049450958</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>1377ce71-6071-433c-8dd8-9a36a2d24cb3</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-05T00:00:00.000</StartDate>
+					<StartTimecode>08:00:09:00</StartTimecode>
+					<ScheduledDuration>00:10:00:00</ScheduledDuration>
+					<ScheduleReference>1377ce71-6071-433c-8dd8-9a36a2d24cb3</ScheduleReference>
+					<ScheduledTitle>&lt;Nessun titolo&gt; - 3/4</ScheduledTitle>
+					<Template>
+						<TemplateName>PRGDUMMY</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FAKE</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:10:00:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049450970</BlockName>
+				<PreviousBlockName>2049450964</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>1377e0fa-2c99-41ef-9d66-ecfafc3709e0</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-05T00:00:00.000</StartDate>
+					<StartTimecode>08:15:39:00</StartTimecode>
+					<ScheduledDuration>00:11:00:00</ScheduledDuration>
+					<ScheduleReference>1377e0fa-2c99-41ef-9d66-ecfafc3709e0</ScheduleReference>
+					<ScheduledTitle>&lt;Nessun titolo&gt; - 4/4</ScheduledTitle>
+					<Template>
+						<TemplateName>PRGDUMMY</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FAKE</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:11:00:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049450984</BlockName>
+				<PreviousBlockName>2049450970</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>13777e38-814a-4eb3-8493-66fd61c24113</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-05T00:00:00.000</StartDate>
+					<StartTimecode>08:26:39:00</StartTimecode>
+					<ScheduledDuration>00:10:00:00</ScheduledDuration>
+					<ScheduleReference>13777e38-814a-4eb3-8493-66fd61c24113</ScheduleReference>
+					<ScheduledTitle>&lt;Nessun titolo&gt; - 1/4</ScheduledTitle>
+					<Template>
+						<TemplateName>PRGDUMMY</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FAKE</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:10:00:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+							<DataElement>
+								<Name>parentalRating-graphic</Name>
+								<Type>template parameter</Type>
+								<Value>PR_ENGINE</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-graphic</Name>
+								<Type>template parameter</Type>
+								<Value>OTT_RESTART</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-userText1</Name>
+								<Type>template parameter</Type>
+								<Value>20494509760</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-userText3</Name>
+								<Type>template parameter</Type>
+								<Value>00:00:00:00</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049450990</BlockName>
+				<PreviousBlockName>2049450984</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>137767ac-c368-4563-b6fc-039ca14e7b6b</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-05T00:00:00.000</StartDate>
+					<StartTimecode>08:42:09:00</StartTimecode>
+					<ScheduledDuration>00:10:00:00</ScheduledDuration>
+					<ScheduleReference>137767ac-c368-4563-b6fc-039ca14e7b6b</ScheduleReference>
+					<ScheduledTitle>&lt;Nessun titolo&gt; - 2/4</ScheduledTitle>
+					<Template>
+						<TemplateName>PRGDUMMY</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FAKE</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:10:00:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049450996</BlockName>
+				<PreviousBlockName>2049450990</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>13776fea-6129-4b16-9c28-7fdfccb08290</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-05T00:00:00.000</StartDate>
+					<StartTimecode>08:57:39:00</StartTimecode>
+					<ScheduledDuration>00:10:00:00</ScheduledDuration>
+					<ScheduleReference>13776fea-6129-4b16-9c28-7fdfccb08290</ScheduleReference>
+					<ScheduledTitle>&lt;Nessun titolo&gt; - 3/4</ScheduledTitle>
+					<Template>
+						<TemplateName>PRGDUMMY</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FAKE</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:10:00:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049451002</BlockName>
+				<PreviousBlockName>2049450996</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>1377d735-a919-44bd-a677-44b6564b636e</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-05T00:00:00.000</StartDate>
+					<StartTimecode>09:13:09:00</StartTimecode>
+					<ScheduledDuration>00:11:00:00</ScheduledDuration>
+					<ScheduleReference>1377d735-a919-44bd-a677-44b6564b636e</ScheduleReference>
+					<ScheduledTitle>&lt;Nessun titolo&gt; - 4/4</ScheduledTitle>
+					<Template>
+						<TemplateName>PRGDUMMY</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FAKE</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:11:00:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049451016</BlockName>
+				<PreviousBlockName>2049451002</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>13778eea-53c0-4a3e-b3e1-bac7203a3781</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-05T00:00:00.000</StartDate>
+					<StartTimecode>09:24:09:00</StartTimecode>
+					<ScheduledDuration>00:10:00:00</ScheduledDuration>
+					<ScheduleReference>13778eea-53c0-4a3e-b3e1-bac7203a3781</ScheduleReference>
+					<ScheduledTitle>&lt;Nessun titolo&gt; - 1/4</ScheduledTitle>
+					<Template>
+						<TemplateName>PRGDUMMY</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FAKE</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:10:00:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+							<DataElement>
+								<Name>parentalRating-graphic</Name>
+								<Type>template parameter</Type>
+								<Value>PR_ENGINE</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-graphic</Name>
+								<Type>template parameter</Type>
+								<Value>OTT_RESTART</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-userText1</Name>
+								<Type>template parameter</Type>
+								<Value>20494510080</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-userText3</Name>
+								<Type>template parameter</Type>
+								<Value>00:00:00:00</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049451022</BlockName>
+				<PreviousBlockName>2049451016</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>13776a59-3458-47ef-8272-605696663b7e</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-05T00:00:00.000</StartDate>
+					<StartTimecode>09:39:39:00</StartTimecode>
+					<ScheduledDuration>00:10:00:00</ScheduledDuration>
+					<ScheduleReference>13776a59-3458-47ef-8272-605696663b7e</ScheduleReference>
+					<ScheduledTitle>&lt;Nessun titolo&gt; - 2/4</ScheduledTitle>
+					<Template>
+						<TemplateName>PRGDUMMY</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FAKE</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:10:00:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049451028</BlockName>
+				<PreviousBlockName>2049451022</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>1377bc9b-aa31-4457-b5d8-e8aeb626d73f</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-05T00:00:00.000</StartDate>
+					<StartTimecode>09:55:09:00</StartTimecode>
+					<ScheduledDuration>00:10:00:00</ScheduledDuration>
+					<ScheduleReference>1377bc9b-aa31-4457-b5d8-e8aeb626d73f</ScheduleReference>
+					<ScheduledTitle>&lt;Nessun titolo&gt; - 3/4</ScheduledTitle>
+					<Template>
+						<TemplateName>PRGDUMMY</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FAKE</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:10:00:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049451034</BlockName>
+				<PreviousBlockName>2049451028</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>13775319-43e2-4e60-a90c-b29ee923fd42</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-05T00:00:00.000</StartDate>
+					<StartTimecode>10:10:39:00</StartTimecode>
+					<ScheduledDuration>00:11:00:00</ScheduledDuration>
+					<ScheduleReference>13775319-43e2-4e60-a90c-b29ee923fd42</ScheduleReference>
+					<ScheduledTitle>&lt;Nessun titolo&gt; - 4/4</ScheduledTitle>
+					<Template>
+						<TemplateName>PRGDUMMY</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FAKE</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:11:00:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049451048</BlockName>
+				<PreviousBlockName>2049451034</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>13773fe0-99b1-4721-9e1c-de7ecc3ab901</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-05T00:00:00.000</StartDate>
+					<StartTimecode>10:21:39:00</StartTimecode>
+					<ScheduledDuration>00:10:00:00</ScheduledDuration>
+					<ScheduleReference>13773fe0-99b1-4721-9e1c-de7ecc3ab901</ScheduleReference>
+					<ScheduledTitle>&lt;Nessun titolo&gt; - 1/4</ScheduledTitle>
+					<Template>
+						<TemplateName>PRGDUMMY</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FAKE</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:10:00:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+							<DataElement>
+								<Name>parentalRating-graphic</Name>
+								<Type>template parameter</Type>
+								<Value>PR_ENGINE</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-graphic</Name>
+								<Type>template parameter</Type>
+								<Value>OTT_RESTART</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-userText1</Name>
+								<Type>template parameter</Type>
+								<Value>20494510400</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-userText3</Name>
+								<Type>template parameter</Type>
+								<Value>00:00:00:00</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049451054</BlockName>
+				<PreviousBlockName>2049451048</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>137752d6-c647-4f62-b535-80cb476ac5ad</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-05T00:00:00.000</StartDate>
+					<StartTimecode>10:37:09:00</StartTimecode>
+					<ScheduledDuration>00:10:00:00</ScheduledDuration>
+					<ScheduleReference>137752d6-c647-4f62-b535-80cb476ac5ad</ScheduleReference>
+					<ScheduledTitle>&lt;Nessun titolo&gt; - 2/4</ScheduledTitle>
+					<Template>
+						<TemplateName>PRGDUMMY</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FAKE</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:10:00:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049451060</BlockName>
+				<PreviousBlockName>2049451054</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>13774cc8-f739-47d5-8585-fd4e7044c8f4</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-05T00:00:00.000</StartDate>
+					<StartTimecode>10:52:39:00</StartTimecode>
+					<ScheduledDuration>00:10:00:00</ScheduledDuration>
+					<ScheduleReference>13774cc8-f739-47d5-8585-fd4e7044c8f4</ScheduleReference>
+					<ScheduledTitle>&lt;Nessun titolo&gt; - 3/4</ScheduledTitle>
+					<Template>
+						<TemplateName>PRGDUMMY</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FAKE</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:10:00:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049451066</BlockName>
+				<PreviousBlockName>2049451060</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>13775d82-648e-4a39-b5eb-96a24f00965e</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-05T00:00:00.000</StartDate>
+					<StartTimecode>11:08:09:00</StartTimecode>
+					<ScheduledDuration>00:11:00:00</ScheduledDuration>
+					<ScheduleReference>13775d82-648e-4a39-b5eb-96a24f00965e</ScheduleReference>
+					<ScheduledTitle>&lt;Nessun titolo&gt; - 4/4</ScheduledTitle>
+					<Template>
+						<TemplateName>PRGDUMMY</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FAKE</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:11:00:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049451080</BlockName>
+				<PreviousBlockName>2049451066</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>1377d2c7-8953-45fb-8eb5-5d6334a152af</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-05T00:00:00.000</StartDate>
+					<StartTimecode>11:19:09:00</StartTimecode>
+					<ScheduledDuration>00:10:00:00</ScheduledDuration>
+					<ScheduleReference>1377d2c7-8953-45fb-8eb5-5d6334a152af</ScheduleReference>
+					<ScheduledTitle>&lt;Nessun titolo&gt; - 1/4</ScheduledTitle>
+					<Template>
+						<TemplateName>PRGDUMMY</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FAKE</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:10:00:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+							<DataElement>
+								<Name>parentalRating-graphic</Name>
+								<Type>template parameter</Type>
+								<Value>PR_ENGINE</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-graphic</Name>
+								<Type>template parameter</Type>
+								<Value>OTT_RESTART</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-userText1</Name>
+								<Type>template parameter</Type>
+								<Value>20494510720</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-userText3</Name>
+								<Type>template parameter</Type>
+								<Value>00:00:00:00</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049451086</BlockName>
+				<PreviousBlockName>2049451080</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>13777c63-4fe3-4ee7-87da-d3761a68b61b</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-05T00:00:00.000</StartDate>
+					<StartTimecode>11:34:39:00</StartTimecode>
+					<ScheduledDuration>00:10:00:00</ScheduledDuration>
+					<ScheduleReference>13777c63-4fe3-4ee7-87da-d3761a68b61b</ScheduleReference>
+					<ScheduledTitle>&lt;Nessun titolo&gt; - 2/4</ScheduledTitle>
+					<Template>
+						<TemplateName>PRGDUMMY</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FAKE</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:10:00:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049451092</BlockName>
+				<PreviousBlockName>2049451086</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>1377c3d7-1ef8-426c-8e9e-71b73e62af64</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-05T00:00:00.000</StartDate>
+					<StartTimecode>11:50:09:00</StartTimecode>
+					<ScheduledDuration>00:10:00:00</ScheduledDuration>
+					<ScheduleReference>1377c3d7-1ef8-426c-8e9e-71b73e62af64</ScheduleReference>
+					<ScheduledTitle>&lt;Nessun titolo&gt; - 3/4</ScheduledTitle>
+					<Template>
+						<TemplateName>PRGDUMMY</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FAKE</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:10:00:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049451098</BlockName>
+				<PreviousBlockName>2049451092</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>1377d829-a959-43a4-b572-1d1f1c4e367c</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-05T00:00:00.000</StartDate>
+					<StartTimecode>12:05:39:00</StartTimecode>
+					<ScheduledDuration>00:11:00:00</ScheduledDuration>
+					<ScheduleReference>1377d829-a959-43a4-b572-1d1f1c4e367c</ScheduleReference>
+					<ScheduledTitle>&lt;Nessun titolo&gt; - 4/4</ScheduledTitle>
+					<Template>
+						<TemplateName>PRGDUMMY</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FAKE</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:11:00:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049451113</BlockName>
+				<PreviousBlockName>2049451098</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>1377a39e-df57-4604-a2ac-2ff5574a5b7e</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-05T00:00:00.000</StartDate>
+					<StartTimecode>12:16:39:00</StartTimecode>
+					<ScheduledDuration>00:10:00:00</ScheduledDuration>
+					<ScheduleReference>1377a39e-df57-4604-a2ac-2ff5574a5b7e</ScheduleReference>
+					<ScheduledTitle>&lt;Nessun titolo&gt; - 1/4</ScheduledTitle>
+					<Template>
+						<TemplateName>PRGDUMMY</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FAKE</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:10:00:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+							<DataElement>
+								<Name>parentalRating-graphic</Name>
+								<Type>template parameter</Type>
+								<Value>PR_ENGINE</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-graphic</Name>
+								<Type>template parameter</Type>
+								<Value>OTT_RESTART</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-userText1</Name>
+								<Type>template parameter</Type>
+								<Value>20494511050</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-userText3</Name>
+								<Type>template parameter</Type>
+								<Value>00:00:00:00</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049451119</BlockName>
+				<PreviousBlockName>2049451113</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>13778875-4c6d-45bf-89f7-aea7e94353be</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-05T00:00:00.000</StartDate>
+					<StartTimecode>12:32:09:00</StartTimecode>
+					<ScheduledDuration>00:10:00:00</ScheduledDuration>
+					<ScheduleReference>13778875-4c6d-45bf-89f7-aea7e94353be</ScheduleReference>
+					<ScheduledTitle>&lt;Nessun titolo&gt; - 2/4</ScheduledTitle>
+					<Template>
+						<TemplateName>PRGDUMMY</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FAKE</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:10:00:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049451125</BlockName>
+				<PreviousBlockName>2049451119</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>1377e325-5f0d-4b68-ae7b-74b69043ca21</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-05T00:00:00.000</StartDate>
+					<StartTimecode>12:47:39:00</StartTimecode>
+					<ScheduledDuration>00:10:00:00</ScheduledDuration>
+					<ScheduleReference>1377e325-5f0d-4b68-ae7b-74b69043ca21</ScheduleReference>
+					<ScheduledTitle>&lt;Nessun titolo&gt; - 3/4</ScheduledTitle>
+					<Template>
+						<TemplateName>PRGDUMMY</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FAKE</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:10:00:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049451131</BlockName>
+				<PreviousBlockName>2049451125</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>13773160-afc5-4057-a3a4-62fe2ee98679</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-05T00:00:00.000</StartDate>
+					<StartTimecode>13:03:09:00</StartTimecode>
+					<ScheduledDuration>00:11:00:00</ScheduledDuration>
+					<ScheduleReference>13773160-afc5-4057-a3a4-62fe2ee98679</ScheduleReference>
+					<ScheduledTitle>&lt;Nessun titolo&gt; - 4/4</ScheduledTitle>
+					<Template>
+						<TemplateName>PRGDUMMY</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FAKE</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:11:00:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049451143</BlockName>
+				<PreviousBlockName>2049451131</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>1377a945-7fbc-4bb9-b4ee-cb1eda23ebf6</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-05T00:00:00.000</StartDate>
+					<StartTimecode>13:14:09:00</StartTimecode>
+					<ScheduledDuration>00:00:16:05</ScheduledDuration>
+					<ScheduleReference>1377a945-7fbc-4bb9-b4ee-cb1eda23ebf6</ScheduleReference>
+					<ScheduledTitle>SIGLA APERTURA CIAK NEWS (CON JINGLE MEDIASET) - 2024</ScheduledTitle>
+					<Template>
+						<TemplateName>SHORTFORM</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialSegment-matId</Name>
+								<Type>template parameter</Type>
+								<Value>FSGC2024000023LB</Value>
+							</DataElement>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FSGC2024000023LB</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>10:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:16:05</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+							<DataElement>
+								<Name>transition-transType</Name>
+								<Type>template parameter</Type>
+								<Value>Cut</Value>
+							</DataElement>
+							<DataElement>
+								<Name>mediaSource-text</Name>
+								<Type>template parameter</Type>
+								<Value>MAM</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049451148</BlockName>
+				<PreviousBlockName>2049451143</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>13772a96-e5bf-44bc-9fc8-6232174e2195</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-05T00:00:00.000</StartDate>
+					<StartTimecode>13:15:49:00</StartTimecode>
+					<ScheduledDuration>00:00:11:00</ScheduledDuration>
+					<ScheduleReference>13772a96-e5bf-44bc-9fc8-6232174e2195</ScheduleReference>
+					<ScheduledTitle>SIGLA CHIUSURA CIAK NEWS - 2024</ScheduledTitle>
+					<Template>
+						<TemplateName>SHORTFORM</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialSegment-matId</Name>
+								<Type>template parameter</Type>
+								<Value>FSGC2024000002KB</Value>
+							</DataElement>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FSGC2024000002KB</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>10:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:11:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+							<DataElement>
+								<Name>transition-transType</Name>
+								<Type>template parameter</Type>
+								<Value>Cut</Value>
+							</DataElement>
+							<DataElement>
+								<Name>mediaSource-text</Name>
+								<Type>template parameter</Type>
+								<Value>MAM</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049620389</BlockName>
+				<PreviousBlockName>2049451148</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>13943f28-b343-4fc9-a430-83d7b30e14fb</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-05T00:00:00.000</StartDate>
+					<StartTimecode>13:16:00:00</StartTimecode>
+					<ScheduledDuration>00:10:00:00</ScheduledDuration>
+					<ScheduleReference>13943f28-b343-4fc9-a430-83d7b30e14fb</ScheduleReference>
+					<ScheduledTitle>&lt;Nessun titolo&gt; - 1/4</ScheduledTitle>
+					<Template>
+						<TemplateName>PRGDUMMY</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FAKE</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:10:00:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+							<DataElement>
+								<Name>parentalRating-graphic</Name>
+								<Type>template parameter</Type>
+								<Value>PR_ENGINE</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-graphic</Name>
+								<Type>template parameter</Type>
+								<Value>OTT_RESTART</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-userText1</Name>
+								<Type>template parameter</Type>
+								<Value>20494511510</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-userText3</Name>
+								<Type>template parameter</Type>
+								<Value>00:00:00:00</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049621425</BlockName>
+				<PreviousBlockName>2049620389</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>139463fd-328b-4335-9f96-debac087d9e9</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-05T00:00:00.000</StartDate>
+					<StartTimecode>13:31:30:00</StartTimecode>
+					<ScheduledDuration>00:10:00:00</ScheduledDuration>
+					<ScheduleReference>139463fd-328b-4335-9f96-debac087d9e9</ScheduleReference>
+					<ScheduledTitle>&lt;Nessun titolo&gt; - 2/4</ScheduledTitle>
+					<Template>
+						<TemplateName>PRGDUMMY</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FAKE</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:10:00:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049621431</BlockName>
+				<PreviousBlockName>2049621425</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>1394c8e0-8678-4f11-88fa-8db36c2083d5</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-05T00:00:00.000</StartDate>
+					<StartTimecode>13:47:00:00</StartTimecode>
+					<ScheduledDuration>00:10:00:00</ScheduledDuration>
+					<ScheduleReference>1394c8e0-8678-4f11-88fa-8db36c2083d5</ScheduleReference>
+					<ScheduledTitle>&lt;Nessun titolo&gt; - 3/4</ScheduledTitle>
+					<Template>
+						<TemplateName>PRGDUMMY</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FAKE</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:10:00:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049621437</BlockName>
+				<PreviousBlockName>2049621431</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>1394f74d-d74c-4321-a837-ddc386abbb40</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-05T00:00:00.000</StartDate>
+					<StartTimecode>14:02:30:00</StartTimecode>
+					<ScheduledDuration>00:11:00:00</ScheduledDuration>
+					<ScheduleReference>1394f74d-d74c-4321-a837-ddc386abbb40</ScheduleReference>
+					<ScheduledTitle>&lt;Nessun titolo&gt; - 4/4</ScheduledTitle>
+					<Template>
+						<TemplateName>PRGDUMMY</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FAKE</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:11:00:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049621445</BlockName>
+				<PreviousBlockName>2049621437</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>1394936b-556f-4759-ba64-140475652a9a</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-05T00:00:00.000</StartDate>
+					<StartTimecode>14:13:30:00</StartTimecode>
+					<ScheduledDuration>00:10:00:00</ScheduledDuration>
+					<ScheduleReference>1394936b-556f-4759-ba64-140475652a9a</ScheduleReference>
+					<ScheduledTitle>&lt;Nessun titolo&gt; - 1/4</ScheduledTitle>
+					<Template>
+						<TemplateName>PRGDUMMY</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FAKE</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:10:00:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+							<DataElement>
+								<Name>parentalRating-graphic</Name>
+								<Type>template parameter</Type>
+								<Value>PR_ENGINE</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-graphic</Name>
+								<Type>template parameter</Type>
+								<Value>OTT_RESTART</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-userText1</Name>
+								<Type>template parameter</Type>
+								<Value>20494511580</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-userText3</Name>
+								<Type>template parameter</Type>
+								<Value>00:00:00:00</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049621451</BlockName>
+				<PreviousBlockName>2049621445</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>13948917-8bf2-4df0-9649-8067400b4c4c</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-05T00:00:00.000</StartDate>
+					<StartTimecode>14:29:00:00</StartTimecode>
+					<ScheduledDuration>00:10:00:00</ScheduledDuration>
+					<ScheduleReference>13948917-8bf2-4df0-9649-8067400b4c4c</ScheduleReference>
+					<ScheduledTitle>&lt;Nessun titolo&gt; - 2/4</ScheduledTitle>
+					<Template>
+						<TemplateName>PRGDUMMY</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FAKE</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:10:00:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049621457</BlockName>
+				<PreviousBlockName>2049621451</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>1394e46f-e44a-47ed-83ad-6e82e9f1a662</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-05T00:00:00.000</StartDate>
+					<StartTimecode>14:44:30:00</StartTimecode>
+					<ScheduledDuration>00:10:00:00</ScheduledDuration>
+					<ScheduleReference>1394e46f-e44a-47ed-83ad-6e82e9f1a662</ScheduleReference>
+					<ScheduledTitle>&lt;Nessun titolo&gt; - 3/4</ScheduledTitle>
+					<Template>
+						<TemplateName>PRGDUMMY</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FAKE</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:10:00:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049621463</BlockName>
+				<PreviousBlockName>2049621457</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>13940243-6c15-4269-9a7c-fa3957509c66</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-05T00:00:00.000</StartDate>
+					<StartTimecode>15:00:00:00</StartTimecode>
+					<ScheduledDuration>00:11:00:00</ScheduledDuration>
+					<ScheduleReference>13940243-6c15-4269-9a7c-fa3957509c66</ScheduleReference>
+					<ScheduledTitle>&lt;Nessun titolo&gt; - 4/4</ScheduledTitle>
+					<Template>
+						<TemplateName>PRGDUMMY</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FAKE</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:11:00:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049451173</BlockName>
+				<PreviousBlockName>2049621463</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>1377663d-c173-40ce-b164-d5194f011862</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-05T00:00:00.000</StartDate>
+					<StartTimecode>15:11:00:00</StartTimecode>
+					<ScheduledDuration>00:10:00:00</ScheduledDuration>
+					<ScheduleReference>1377663d-c173-40ce-b164-d5194f011862</ScheduleReference>
+					<ScheduledTitle>&lt;Nessun titolo&gt; - 1/4</ScheduledTitle>
+					<Template>
+						<TemplateName>PRGDUMMY</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FAKE</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:10:00:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+							<DataElement>
+								<Name>parentalRating-graphic</Name>
+								<Type>template parameter</Type>
+								<Value>PR_ENGINE</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-graphic</Name>
+								<Type>template parameter</Type>
+								<Value>OTT_RESTART</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-userText1</Name>
+								<Type>template parameter</Type>
+								<Value>20494511650</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-userText3</Name>
+								<Type>template parameter</Type>
+								<Value>00:00:00:00</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049451179</BlockName>
+				<PreviousBlockName>2049451173</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>1377528d-0a49-41a4-b105-fe221b4c9ece</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-05T00:00:00.000</StartDate>
+					<StartTimecode>15:26:30:00</StartTimecode>
+					<ScheduledDuration>00:10:00:00</ScheduledDuration>
+					<ScheduleReference>1377528d-0a49-41a4-b105-fe221b4c9ece</ScheduleReference>
+					<ScheduledTitle>&lt;Nessun titolo&gt; - 2/4</ScheduledTitle>
+					<Template>
+						<TemplateName>PRGDUMMY</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FAKE</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:10:00:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049451185</BlockName>
+				<PreviousBlockName>2049451179</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>137704ea-d886-4b0b-8e3d-25aff63d2163</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-05T00:00:00.000</StartDate>
+					<StartTimecode>15:42:00:00</StartTimecode>
+					<ScheduledDuration>00:10:00:00</ScheduledDuration>
+					<ScheduleReference>137704ea-d886-4b0b-8e3d-25aff63d2163</ScheduleReference>
+					<ScheduledTitle>&lt;Nessun titolo&gt; - 3/4</ScheduledTitle>
+					<Template>
+						<TemplateName>PRGDUMMY</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FAKE</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:10:00:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049451191</BlockName>
+				<PreviousBlockName>2049451185</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>13770e6b-ac76-47af-9270-1779a0b6b8b8</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-05T00:00:00.000</StartDate>
+					<StartTimecode>15:57:30:00</StartTimecode>
+					<ScheduledDuration>00:11:00:00</ScheduledDuration>
+					<ScheduleReference>13770e6b-ac76-47af-9270-1779a0b6b8b8</ScheduleReference>
+					<ScheduledTitle>&lt;Nessun titolo&gt; - 4/4</ScheduledTitle>
+					<Template>
+						<TemplateName>PRGDUMMY</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FAKE</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:11:00:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049451206</BlockName>
+				<PreviousBlockName>2049451191</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>13778ba4-c262-4926-9ded-f7c954bec2f9</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-05T00:00:00.000</StartDate>
+					<StartTimecode>16:08:30:00</StartTimecode>
+					<ScheduledDuration>00:10:00:00</ScheduledDuration>
+					<ScheduleReference>13778ba4-c262-4926-9ded-f7c954bec2f9</ScheduleReference>
+					<ScheduledTitle>&lt;Nessun titolo&gt; - 1/4</ScheduledTitle>
+					<Template>
+						<TemplateName>PRGDUMMY</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FAKE</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:10:00:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+							<DataElement>
+								<Name>parentalRating-graphic</Name>
+								<Type>template parameter</Type>
+								<Value>PR_ENGINE</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-graphic</Name>
+								<Type>template parameter</Type>
+								<Value>OTT_RESTART</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-userText1</Name>
+								<Type>template parameter</Type>
+								<Value>20494511980</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-userText3</Name>
+								<Type>template parameter</Type>
+								<Value>00:00:00:00</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049451212</BlockName>
+				<PreviousBlockName>2049451206</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>1377cb46-fa5c-44c6-b543-332c1a6e84dc</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-05T00:00:00.000</StartDate>
+					<StartTimecode>16:24:00:00</StartTimecode>
+					<ScheduledDuration>00:10:00:00</ScheduledDuration>
+					<ScheduleReference>1377cb46-fa5c-44c6-b543-332c1a6e84dc</ScheduleReference>
+					<ScheduledTitle>&lt;Nessun titolo&gt; - 2/4</ScheduledTitle>
+					<Template>
+						<TemplateName>PRGDUMMY</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FAKE</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:10:00:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049451218</BlockName>
+				<PreviousBlockName>2049451212</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>1377c2ed-80b0-4b31-9fb6-af29b2915b13</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-05T00:00:00.000</StartDate>
+					<StartTimecode>16:39:30:00</StartTimecode>
+					<ScheduledDuration>00:10:00:00</ScheduledDuration>
+					<ScheduleReference>1377c2ed-80b0-4b31-9fb6-af29b2915b13</ScheduleReference>
+					<ScheduledTitle>&lt;Nessun titolo&gt; - 3/4</ScheduledTitle>
+					<Template>
+						<TemplateName>PRGDUMMY</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FAKE</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:10:00:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049451224</BlockName>
+				<PreviousBlockName>2049451218</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>1377afee-0b9d-441f-a9e9-191ffed22f12</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-05T00:00:00.000</StartDate>
+					<StartTimecode>16:55:00:00</StartTimecode>
+					<ScheduledDuration>00:11:00:00</ScheduledDuration>
+					<ScheduleReference>1377afee-0b9d-441f-a9e9-191ffed22f12</ScheduleReference>
+					<ScheduledTitle>&lt;Nessun titolo&gt; - 4/4</ScheduledTitle>
+					<Template>
+						<TemplateName>PRGDUMMY</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FAKE</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:11:00:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049621539</BlockName>
+				<PreviousBlockName>2049451224</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>13957dc1-9ec0-4a9e-9634-0db7d04fff3c</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-05T00:00:00.000</StartDate>
+					<StartTimecode>17:06:00:00</StartTimecode>
+					<ScheduledDuration>00:10:00:00</ScheduledDuration>
+					<ScheduleReference>13957dc1-9ec0-4a9e-9634-0db7d04fff3c</ScheduleReference>
+					<ScheduledTitle>&lt;Nessun titolo&gt; - 1/4</ScheduledTitle>
+					<Template>
+						<TemplateName>PRGDUMMY</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FAKE</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:10:00:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+							<DataElement>
+								<Name>parentalRating-graphic</Name>
+								<Type>template parameter</Type>
+								<Value>PR_ENGINE</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-graphic</Name>
+								<Type>template parameter</Type>
+								<Value>OTT_RESTART</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-userText1</Name>
+								<Type>template parameter</Type>
+								<Value>20494512310</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-userText3</Name>
+								<Type>template parameter</Type>
+								<Value>00:00:00:00</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049621575</BlockName>
+				<PreviousBlockName>2049621539</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>1395c480-55d3-4abf-90ee-73928c1ad342</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-05T00:00:00.000</StartDate>
+					<StartTimecode>17:21:30:00</StartTimecode>
+					<ScheduledDuration>00:10:00:00</ScheduledDuration>
+					<ScheduleReference>1395c480-55d3-4abf-90ee-73928c1ad342</ScheduleReference>
+					<ScheduledTitle>&lt;Nessun titolo&gt; - 2/4</ScheduledTitle>
+					<Template>
+						<TemplateName>PRGDUMMY</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FAKE</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:10:00:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049621581</BlockName>
+				<PreviousBlockName>2049621575</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>1395f86d-5012-4ef8-ae1c-657f29f50178</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-05T00:00:00.000</StartDate>
+					<StartTimecode>17:37:00:00</StartTimecode>
+					<ScheduledDuration>00:10:00:00</ScheduledDuration>
+					<ScheduleReference>1395f86d-5012-4ef8-ae1c-657f29f50178</ScheduleReference>
+					<ScheduledTitle>&lt;Nessun titolo&gt; - 3/4</ScheduledTitle>
+					<Template>
+						<TemplateName>PRGDUMMY</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FAKE</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:10:00:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049621587</BlockName>
+				<PreviousBlockName>2049621581</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>1395704a-b789-4f3c-806f-427a36dac6df</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-05T00:00:00.000</StartDate>
+					<StartTimecode>17:52:30:00</StartTimecode>
+					<ScheduledDuration>00:11:00:00</ScheduledDuration>
+					<ScheduleReference>1395704a-b789-4f3c-806f-427a36dac6df</ScheduleReference>
+					<ScheduledTitle>&lt;Nessun titolo&gt; - 4/4</ScheduledTitle>
+					<Template>
+						<TemplateName>PRGDUMMY</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FAKE</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:11:00:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049621595</BlockName>
+				<PreviousBlockName>2049621587</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>139508fb-f23d-40c5-9e4a-b86e3e39429c</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-05T00:00:00.000</StartDate>
+					<StartTimecode>18:03:30:00</StartTimecode>
+					<ScheduledDuration>00:10:00:00</ScheduledDuration>
+					<ScheduleReference>139508fb-f23d-40c5-9e4a-b86e3e39429c</ScheduleReference>
+					<ScheduledTitle>&lt;Nessun titolo&gt; - 1/4</ScheduledTitle>
+					<Template>
+						<TemplateName>PRGDUMMY</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FAKE</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:10:00:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+							<DataElement>
+								<Name>parentalRating-graphic</Name>
+								<Type>template parameter</Type>
+								<Value>PR_ENGINE</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-graphic</Name>
+								<Type>template parameter</Type>
+								<Value>OTT_RESTART</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-userText1</Name>
+								<Type>template parameter</Type>
+								<Value>20494512370</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-userText3</Name>
+								<Type>template parameter</Type>
+								<Value>00:00:00:00</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049621601</BlockName>
+				<PreviousBlockName>2049621595</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>1395f106-5771-4dee-8e4e-cf1424eca168</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-05T00:00:00.000</StartDate>
+					<StartTimecode>18:19:00:00</StartTimecode>
+					<ScheduledDuration>00:10:00:00</ScheduledDuration>
+					<ScheduleReference>1395f106-5771-4dee-8e4e-cf1424eca168</ScheduleReference>
+					<ScheduledTitle>&lt;Nessun titolo&gt; - 2/4</ScheduledTitle>
+					<Template>
+						<TemplateName>PRGDUMMY</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FAKE</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:10:00:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049621607</BlockName>
+				<PreviousBlockName>2049621601</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>1395c4eb-6233-47a2-80b7-85c7d6c878f4</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-05T00:00:00.000</StartDate>
+					<StartTimecode>18:34:30:00</StartTimecode>
+					<ScheduledDuration>00:10:00:00</ScheduledDuration>
+					<ScheduleReference>1395c4eb-6233-47a2-80b7-85c7d6c878f4</ScheduleReference>
+					<ScheduledTitle>&lt;Nessun titolo&gt; - 3/4</ScheduledTitle>
+					<Template>
+						<TemplateName>PRGDUMMY</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FAKE</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:10:00:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049621613</BlockName>
+				<PreviousBlockName>2049621607</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>1395c1e8-1f5d-42d2-aa4b-93e6b3592303</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-05T00:00:00.000</StartDate>
+					<StartTimecode>18:50:00:00</StartTimecode>
+					<ScheduledDuration>00:11:00:00</ScheduledDuration>
+					<ScheduleReference>1395c1e8-1f5d-42d2-aa4b-93e6b3592303</ScheduleReference>
+					<ScheduledTitle>&lt;Nessun titolo&gt; - 4/4</ScheduledTitle>
+					<Template>
+						<TemplateName>PRGDUMMY</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FAKE</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:11:00:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049451258</BlockName>
+				<PreviousBlockName>2049621613</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>137741cd-1f98-4657-90dc-7d1897d604f3</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-05T00:00:00.000</StartDate>
+					<StartTimecode>19:02:00:00</StartTimecode>
+					<ScheduledDuration>00:12:00:00</ScheduledDuration>
+					<ScheduleReference>137741cd-1f98-4657-90dc-7d1897d604f3</ScheduleReference>
+					<ScheduledTitle>&lt;Nessun titolo&gt; - 1/3</ScheduledTitle>
+					<Template>
+						<TemplateName>PRGDUMMY</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FAKE</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:12:00:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+							<DataElement>
+								<Name>parentalRating-graphic</Name>
+								<Type>template parameter</Type>
+								<Value>PR_ENGINE</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-graphic</Name>
+								<Type>template parameter</Type>
+								<Value>OTT_RESTART</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-userText1</Name>
+								<Type>template parameter</Type>
+								<Value>20494512500</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-userText3</Name>
+								<Type>template parameter</Type>
+								<Value>00:00:00:00</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049451264</BlockName>
+				<PreviousBlockName>2049451258</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>13770de1-9e34-48c4-9a94-eb34e8bbf9ac</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-05T00:00:00.000</StartDate>
+					<StartTimecode>19:19:30:00</StartTimecode>
+					<ScheduledDuration>00:18:00:00</ScheduledDuration>
+					<ScheduleReference>13770de1-9e34-48c4-9a94-eb34e8bbf9ac</ScheduleReference>
+					<ScheduledTitle>&lt;Nessun titolo&gt; - 2/3</ScheduledTitle>
+					<Template>
+						<TemplateName>PRGDUMMY</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FAKE</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:18:00:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049451270</BlockName>
+				<PreviousBlockName>2049451264</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>1377e027-cb6e-463a-8a73-2a6cf04fcc1e</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-05T00:00:00.000</StartDate>
+					<StartTimecode>19:43:00:00</StartTimecode>
+					<ScheduledDuration>00:11:00:00</ScheduledDuration>
+					<ScheduleReference>1377e027-cb6e-463a-8a73-2a6cf04fcc1e</ScheduleReference>
+					<ScheduledTitle>&lt;Nessun titolo&gt; - 3/3</ScheduledTitle>
+					<Template>
+						<TemplateName>PRGDUMMY</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FAKE</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:11:00:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049451283</BlockName>
+				<PreviousBlockName>2049451270</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>13779819-ebff-4353-9549-f7f72e09a114</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-05T00:00:00.000</StartDate>
+					<StartTimecode>19:54:00:00</StartTimecode>
+					<ScheduledDuration>00:10:00:00</ScheduledDuration>
+					<ScheduleReference>13779819-ebff-4353-9549-f7f72e09a114</ScheduleReference>
+					<ScheduledTitle>&lt;Nessun titolo&gt; - 1/4</ScheduledTitle>
+					<Template>
+						<TemplateName>PRGDUMMY</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FAKE</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:10:00:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+							<DataElement>
+								<Name>parentalRating-graphic</Name>
+								<Type>template parameter</Type>
+								<Value>PR_ENGINE</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-graphic</Name>
+								<Type>template parameter</Type>
+								<Value>OTT_RESTART</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-userText1</Name>
+								<Type>template parameter</Type>
+								<Value>20494512750</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-userText3</Name>
+								<Type>template parameter</Type>
+								<Value>00:00:00:00</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049451289</BlockName>
+				<PreviousBlockName>2049451283</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>1377a2fb-4035-46c4-a336-19eff2aef112</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-05T00:00:00.000</StartDate>
+					<StartTimecode>20:09:30:00</StartTimecode>
+					<ScheduledDuration>00:10:00:00</ScheduledDuration>
+					<ScheduleReference>1377a2fb-4035-46c4-a336-19eff2aef112</ScheduleReference>
+					<ScheduledTitle>&lt;Nessun titolo&gt; - 2/4</ScheduledTitle>
+					<Template>
+						<TemplateName>PRGDUMMY</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FAKE</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:10:00:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049451295</BlockName>
+				<PreviousBlockName>2049451289</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>137730a8-3c55-4852-b708-68f65414182e</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-05T00:00:00.000</StartDate>
+					<StartTimecode>20:25:00:00</StartTimecode>
+					<ScheduledDuration>00:10:00:00</ScheduledDuration>
+					<ScheduleReference>137730a8-3c55-4852-b708-68f65414182e</ScheduleReference>
+					<ScheduledTitle>&lt;Nessun titolo&gt; - 3/4</ScheduledTitle>
+					<Template>
+						<TemplateName>PRGDUMMY</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FAKE</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:10:00:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049451301</BlockName>
+				<PreviousBlockName>2049451295</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>137741bf-fd63-402d-af7d-f1426dd24897</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-05T00:00:00.000</StartDate>
+					<StartTimecode>20:40:30:00</StartTimecode>
+					<ScheduledDuration>00:11:00:00</ScheduledDuration>
+					<ScheduleReference>137741bf-fd63-402d-af7d-f1426dd24897</ScheduleReference>
+					<ScheduledTitle>&lt;Nessun titolo&gt; - 4/4</ScheduledTitle>
+					<Template>
+						<TemplateName>PRGDUMMY</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FAKE</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:11:00:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049451315</BlockName>
+				<PreviousBlockName>2049451301</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>137794c6-d649-4f58-a118-084517ac0d96</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-05T00:00:00.000</StartDate>
+					<StartTimecode>20:51:30:00</StartTimecode>
+					<ScheduledDuration>00:10:00:00</ScheduledDuration>
+					<ScheduleReference>137794c6-d649-4f58-a118-084517ac0d96</ScheduleReference>
+					<ScheduledTitle>&lt;Nessun titolo&gt; - 1/4</ScheduledTitle>
+					<Template>
+						<TemplateName>PRGDUMMY</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FAKE</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:10:00:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+							<DataElement>
+								<Name>parentalRating-graphic</Name>
+								<Type>template parameter</Type>
+								<Value>PR_ENGINE</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-graphic</Name>
+								<Type>template parameter</Type>
+								<Value>OTT_RESTART</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-userText1</Name>
+								<Type>template parameter</Type>
+								<Value>20494513070</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-userText3</Name>
+								<Type>template parameter</Type>
+								<Value>00:00:00:00</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049451321</BlockName>
+				<PreviousBlockName>2049451315</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>1377d494-393b-4779-b5e4-7303a0a4c3f9</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-05T00:00:00.000</StartDate>
+					<StartTimecode>21:07:00:00</StartTimecode>
+					<ScheduledDuration>00:10:00:00</ScheduledDuration>
+					<ScheduleReference>1377d494-393b-4779-b5e4-7303a0a4c3f9</ScheduleReference>
+					<ScheduledTitle>&lt;Nessun titolo&gt; - 2/4</ScheduledTitle>
+					<Template>
+						<TemplateName>PRGDUMMY</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FAKE</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:10:00:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049451327</BlockName>
+				<PreviousBlockName>2049451321</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>13775aaf-4469-4a0d-8620-0c7567a0ee15</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-05T00:00:00.000</StartDate>
+					<StartTimecode>21:22:30:00</StartTimecode>
+					<ScheduledDuration>00:10:00:00</ScheduledDuration>
+					<ScheduleReference>13775aaf-4469-4a0d-8620-0c7567a0ee15</ScheduleReference>
+					<ScheduledTitle>&lt;Nessun titolo&gt; - 3/4</ScheduledTitle>
+					<Template>
+						<TemplateName>PRGDUMMY</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FAKE</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:10:00:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049451333</BlockName>
+				<PreviousBlockName>2049451327</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>137773a0-25c6-4f0b-b01e-b79bcdaade67</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-05T00:00:00.000</StartDate>
+					<StartTimecode>21:38:00:00</StartTimecode>
+					<ScheduledDuration>00:11:00:00</ScheduledDuration>
+					<ScheduleReference>137773a0-25c6-4f0b-b01e-b79bcdaade67</ScheduleReference>
+					<ScheduledTitle>&lt;Nessun titolo&gt; - 4/4</ScheduledTitle>
+					<Template>
+						<TemplateName>PRGDUMMY</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FAKE</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:11:00:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049622198</BlockName>
+				<PreviousBlockName>2049451333</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>13968d74-12b3-4090-8c7e-e1e57835b9e9</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-05T00:00:00.000</StartDate>
+					<StartTimecode>21:49:00:00</StartTimecode>
+					<ScheduledDuration>00:12:00:00</ScheduledDuration>
+					<ScheduleReference>13968d74-12b3-4090-8c7e-e1e57835b9e9</ScheduleReference>
+					<ScheduledTitle>&lt;Nessun titolo&gt; - 1/3</ScheduledTitle>
+					<Template>
+						<TemplateName>PRGDUMMY</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FAKE</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:12:00:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+							<DataElement>
+								<Name>parentalRating-graphic</Name>
+								<Type>template parameter</Type>
+								<Value>PR_ENGINE</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-graphic</Name>
+								<Type>template parameter</Type>
+								<Value>OTT_RESTART</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-userText1</Name>
+								<Type>template parameter</Type>
+								<Value>20494513400</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-userText3</Name>
+								<Type>template parameter</Type>
+								<Value>00:00:00:00</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049622204</BlockName>
+				<PreviousBlockName>2049622198</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>1396a076-842a-4830-9082-19b2f04b4c87</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-05T00:00:00.000</StartDate>
+					<StartTimecode>22:06:30:00</StartTimecode>
+					<ScheduledDuration>00:18:00:00</ScheduledDuration>
+					<ScheduleReference>1396a076-842a-4830-9082-19b2f04b4c87</ScheduleReference>
+					<ScheduledTitle>&lt;Nessun titolo&gt; - 2/3</ScheduledTitle>
+					<Template>
+						<TemplateName>PRGDUMMY</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FAKE</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:18:00:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049622210</BlockName>
+				<PreviousBlockName>2049622204</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>139617c4-05c6-44a5-8917-2dccb439b05b</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-05T00:00:00.000</StartDate>
+					<StartTimecode>22:30:00:00</StartTimecode>
+					<ScheduledDuration>00:11:00:00</ScheduledDuration>
+					<ScheduleReference>139617c4-05c6-44a5-8917-2dccb439b05b</ScheduleReference>
+					<ScheduledTitle>&lt;Nessun titolo&gt; - 3/3</ScheduledTitle>
+					<Template>
+						<TemplateName>PRGDUMMY</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FAKE</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:11:00:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049451368</BlockName>
+				<PreviousBlockName>2049622210</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>13773acc-f1c7-4474-9533-b2f3c8dc9972</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-05T00:00:00.000</StartDate>
+					<StartTimecode>22:41:00:00</StartTimecode>
+					<ScheduledDuration>00:41:00:00</ScheduledDuration>
+					<ScheduleReference>13773acc-f1c7-4474-9533-b2f3c8dc9972</ScheduleReference>
+					<ScheduledTitle>&lt;Nessun titolo&gt; - 1/1</ScheduledTitle>
+					<Template>
+						<TemplateName>PRGDUMMY</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FAKE</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:41:00:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+							<DataElement>
+								<Name>parentalRating-graphic</Name>
+								<Type>template parameter</Type>
+								<Value>PR_ENGINE</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-graphic</Name>
+								<Type>template parameter</Type>
+								<Value>OTT_RESTART</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-userText1</Name>
+								<Type>template parameter</Type>
+								<Value>20494513660</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-userText3</Name>
+								<Type>template parameter</Type>
+								<Value>00:00:00:00</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049451383</BlockName>
+				<PreviousBlockName>2049451368</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>13771a0c-7ec3-4393-97cb-4d8bee26888b</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-05T00:00:00.000</StartDate>
+					<StartTimecode>23:27:20:00</StartTimecode>
+					<ScheduledDuration>00:41:00:00</ScheduledDuration>
+					<ScheduleReference>13771a0c-7ec3-4393-97cb-4d8bee26888b</ScheduleReference>
+					<ScheduledTitle>&lt;Nessun titolo&gt; - 1/1</ScheduledTitle>
+					<Template>
+						<TemplateName>PRGDUMMY</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FAKE</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:41:00:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+							<DataElement>
+								<Name>parentalRating-graphic</Name>
+								<Type>template parameter</Type>
+								<Value>PR_ENGINE</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-graphic</Name>
+								<Type>template parameter</Type>
+								<Value>OTT_RESTART</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-userText1</Name>
+								<Type>template parameter</Type>
+								<Value>20494513810</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-userText3</Name>
+								<Type>template parameter</Type>
+								<Value>00:00:00:00</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049451394</BlockName>
+				<PreviousBlockName>2049451383</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>1377e312-4e3f-4e59-a572-de38498885ab</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-06T00:00:00.000</StartDate>
+					<StartTimecode>00:08:20:00</StartTimecode>
+					<ScheduledDuration>00:00:16:05</ScheduledDuration>
+					<ScheduleReference>1377e312-4e3f-4e59-a572-de38498885ab</ScheduleReference>
+					<ScheduledTitle>SIGLA APERTURA CIAK NEWS (CON JINGLE MEDIASET) - 2024</ScheduledTitle>
+					<Template>
+						<TemplateName>SHORTFORM</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialSegment-matId</Name>
+								<Type>template parameter</Type>
+								<Value>FSGC2024000023LB</Value>
+							</DataElement>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FSGC2024000023LB</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>10:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:16:05</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+							<DataElement>
+								<Name>transition-transType</Name>
+								<Type>template parameter</Type>
+								<Value>Cut</Value>
+							</DataElement>
+							<DataElement>
+								<Name>mediaSource-text</Name>
+								<Type>template parameter</Type>
+								<Value>MAM</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049451399</BlockName>
+				<PreviousBlockName>2049451394</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>13770659-fce0-44b2-892e-58cceddeae45</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-06T00:00:00.000</StartDate>
+					<StartTimecode>00:10:00:00</StartTimecode>
+					<ScheduledDuration>00:00:11:00</ScheduledDuration>
+					<ScheduleReference>13770659-fce0-44b2-892e-58cceddeae45</ScheduleReference>
+					<ScheduledTitle>SIGLA CHIUSURA CIAK NEWS - 2024</ScheduledTitle>
+					<Template>
+						<TemplateName>SHORTFORM</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialSegment-matId</Name>
+								<Type>template parameter</Type>
+								<Value>FSGC2024000002KB</Value>
+							</DataElement>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FSGC2024000002KB</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>10:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:11:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+							<DataElement>
+								<Name>transition-transType</Name>
+								<Type>template parameter</Type>
+								<Value>Cut</Value>
+							</DataElement>
+							<DataElement>
+								<Name>mediaSource-text</Name>
+								<Type>template parameter</Type>
+								<Value>MAM</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049451404</BlockName>
+				<PreviousBlockName>2049451399</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>1377cfc8-7ad2-4194-a4b5-29423ebbee29</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-06T00:00:00.000</StartDate>
+					<StartTimecode>00:10:11:00</StartTimecode>
+					<ScheduledDuration>00:41:00:00</ScheduledDuration>
+					<ScheduleReference>1377cfc8-7ad2-4194-a4b5-29423ebbee29</ScheduleReference>
+					<ScheduledTitle>&lt;Nessun titolo&gt; - 1/1</ScheduledTitle>
+					<Template>
+						<TemplateName>PRGDUMMY</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FAKE</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:41:00:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+							<DataElement>
+								<Name>parentalRating-graphic</Name>
+								<Type>template parameter</Type>
+								<Value>PR_ENGINE</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-graphic</Name>
+								<Type>template parameter</Type>
+								<Value>OTT_RESTART</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-userText1</Name>
+								<Type>template parameter</Type>
+								<Value>20494514020</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-userText3</Name>
+								<Type>template parameter</Type>
+								<Value>00:00:00:00</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049451412</BlockName>
+				<PreviousBlockName>2049451404</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>1377c149-885d-4d8e-9ad9-1f155e98cf65</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-06T00:00:00.000</StartDate>
+					<StartTimecode>00:51:11:00</StartTimecode>
+					<ScheduledDuration>00:41:00:00</ScheduledDuration>
+					<ScheduleReference>1377c149-885d-4d8e-9ad9-1f155e98cf65</ScheduleReference>
+					<ScheduledTitle>&lt;Nessun titolo&gt; - 1/1</ScheduledTitle>
+					<Template>
+						<TemplateName>PRGDUMMY</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FAKE</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:41:00:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+							<DataElement>
+								<Name>parentalRating-graphic</Name>
+								<Type>template parameter</Type>
+								<Value>PR_ENGINE</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-graphic</Name>
+								<Type>template parameter</Type>
+								<Value>OTT_RESTART</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-userText1</Name>
+								<Type>template parameter</Type>
+								<Value>20494514100</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-userText3</Name>
+								<Type>template parameter</Type>
+								<Value>00:00:00:00</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049451420</BlockName>
+				<PreviousBlockName>2049451412</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>1377b3cd-7428-4332-bd78-6f33cfde163d</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-06T00:00:00.000</StartDate>
+					<StartTimecode>01:32:11:00</StartTimecode>
+					<ScheduledDuration>00:02:00:00</ScheduledDuration>
+					<ScheduleReference>1377b3cd-7428-4332-bd78-6f33cfde163d</ScheduleReference>
+					<ScheduledTitle>&lt;Nessun titolo&gt; - 1/1</ScheduledTitle>
+					<Template>
+						<TemplateName>PRGDUMMY</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FAKE</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:02:00:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+							<DataElement>
+								<Name>parentalRating-graphic</Name>
+								<Type>template parameter</Type>
+								<Value>PR_ENGINE</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049451426</BlockName>
+				<PreviousBlockName>2049451420</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>1377b182-781b-4c67-875e-b8457297c328</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-06T00:00:00.000</StartDate>
+					<StartTimecode>01:34:11:00</StartTimecode>
+					<ScheduledDuration>00:41:00:00</ScheduledDuration>
+					<ScheduleReference>1377b182-781b-4c67-875e-b8457297c328</ScheduleReference>
+					<ScheduledTitle>&lt;Nessun titolo&gt; - 1/1</ScheduledTitle>
+					<Template>
+						<TemplateName>PRGDUMMY</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FAKE</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:41:00:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+							<DataElement>
+								<Name>parentalRating-graphic</Name>
+								<Type>template parameter</Type>
+								<Value>PR_ENGINE</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-graphic</Name>
+								<Type>template parameter</Type>
+								<Value>OTT_RESTART</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-userText1</Name>
+								<Type>template parameter</Type>
+								<Value>20494514240</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-userText3</Name>
+								<Type>template parameter</Type>
+								<Value>00:00:00:00</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049451433</BlockName>
+				<PreviousBlockName>2049451426</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>137729ec-301d-402f-b09c-d1ff412ea383</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-06T00:00:00.000</StartDate>
+					<StartTimecode>02:15:11:00</StartTimecode>
+					<ScheduledDuration>00:41:00:00</ScheduledDuration>
+					<ScheduleReference>137729ec-301d-402f-b09c-d1ff412ea383</ScheduleReference>
+					<ScheduledTitle>&lt;Nessun titolo&gt; - 1/1</ScheduledTitle>
+					<Template>
+						<TemplateName>PRGDUMMY</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FAKE</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:41:00:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+							<DataElement>
+								<Name>parentalRating-graphic</Name>
+								<Type>template parameter</Type>
+								<Value>PR_ENGINE</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-graphic</Name>
+								<Type>template parameter</Type>
+								<Value>OTT_RESTART</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-userText1</Name>
+								<Type>template parameter</Type>
+								<Value>20494514310</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-userText3</Name>
+								<Type>template parameter</Type>
+								<Value>00:00:00:00</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2049451440</BlockName>
+				<PreviousBlockName>2049451433</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>13776be9-50b4-46a7-a7b9-8b8083f24a55</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-09-06T00:00:00.000</StartDate>
+					<StartTimecode>02:56:11:00</StartTimecode>
+					<ScheduledDuration>00:41:00:00</ScheduledDuration>
+					<ScheduleReference>13776be9-50b4-46a7-a7b9-8b8083f24a55</ScheduleReference>
+					<ScheduledTitle>&lt;Nessun titolo&gt; - 1/1</ScheduledTitle>
+					<Template>
+						<TemplateName>PRGDUMMY</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>FAKE</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:41:00:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+							<DataElement>
+								<Name>parentalRating-graphic</Name>
+								<Type>template parameter</Type>
+								<Value>PR_ENGINE</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-graphic</Name>
+								<Type>template parameter</Type>
+								<Value>OTT_RESTART</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-userText1</Name>
+								<Type>template parameter</Type>
+								<Value>20494514380</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-userText3</Name>
+								<Type>template parameter</Type>
+								<Value>00:00:00:00</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+		</BlockList>
+		<BookmarkList>
+			<Bookmark>
+				<UserName>WON</UserName>
+				<Notes>FASCIA</Notes>
+				<Colour>green</Colour>
+				<TopItemRef>13771a58-9da1-46b8-b4db-b9c0ddf3682e</TopItemRef>
+				<BottomItemRef>1377679e-0bf3-44a8-929a-ee6b7c02068b</BottomItemRef>
+			</Bookmark>
+			<Bookmark>
+				<UserName>WON</UserName>
+				<Notes>No title</Notes>
+				<Colour>red</Colour>
+				<TopItemRef>13771221-c429-4942-91c3-9fc3044ec596</TopItemRef>
+				<BottomItemRef>13771221-c429-4942-91c3-9fc3044ec596</BottomItemRef>
+			</Bookmark>
+			<Bookmark>
+				<UserName>WON</UserName>
+				<Notes>No title</Notes>
+				<Colour>red</Colour>
+				<TopItemRef>1377b75c-3477-4d00-bf4b-a6a055fbf147</TopItemRef>
+				<BottomItemRef>1377b75c-3477-4d00-bf4b-a6a055fbf147</BottomItemRef>
+			</Bookmark>
+			<Bookmark>
+				<UserName>WON</UserName>
+				<Notes>No title</Notes>
+				<Colour>red</Colour>
+				<TopItemRef>1377fac1-3531-4546-b699-870533cf930c</TopItemRef>
+				<BottomItemRef>1377fac1-3531-4546-b699-870533cf930c</BottomItemRef>
+			</Bookmark>
+			<Bookmark>
+				<UserName>WON</UserName>
+				<Notes>No title</Notes>
+				<Colour>red</Colour>
+				<TopItemRef>1377b295-8ddc-4433-ace7-2f932fb85edd</TopItemRef>
+				<BottomItemRef>137713c3-5722-4763-967e-d5d05e73795c</BottomItemRef>
+			</Bookmark>
+			<Bookmark>
+				<UserName>WON</UserName>
+				<Notes>No title</Notes>
+				<Colour>red</Colour>
+				<TopItemRef>137765b5-d06b-4979-b8a8-0e1751ecbc30</TopItemRef>
+				<BottomItemRef>1377e0fa-2c99-41ef-9d66-ecfafc3709e0</BottomItemRef>
+			</Bookmark>
+			<Bookmark>
+				<UserName>WON</UserName>
+				<Notes>No title</Notes>
+				<Colour>red</Colour>
+				<TopItemRef>13777e38-814a-4eb3-8493-66fd61c24113</TopItemRef>
+				<BottomItemRef>1377d735-a919-44bd-a677-44b6564b636e</BottomItemRef>
+			</Bookmark>
+			<Bookmark>
+				<UserName>WON</UserName>
+				<Notes>No title</Notes>
+				<Colour>red</Colour>
+				<TopItemRef>13778eea-53c0-4a3e-b3e1-bac7203a3781</TopItemRef>
+				<BottomItemRef>13775319-43e2-4e60-a90c-b29ee923fd42</BottomItemRef>
+			</Bookmark>
+			<Bookmark>
+				<UserName>WON</UserName>
+				<Notes>No title</Notes>
+				<Colour>red</Colour>
+				<TopItemRef>13773fe0-99b1-4721-9e1c-de7ecc3ab901</TopItemRef>
+				<BottomItemRef>13775d82-648e-4a39-b5eb-96a24f00965e</BottomItemRef>
+			</Bookmark>
+			<Bookmark>
+				<UserName>WON</UserName>
+				<Notes>No title</Notes>
+				<Colour>red</Colour>
+				<TopItemRef>1377d2c7-8953-45fb-8eb5-5d6334a152af</TopItemRef>
+				<BottomItemRef>1377d829-a959-43a4-b572-1d1f1c4e367c</BottomItemRef>
+			</Bookmark>
+			<Bookmark>
+				<UserName>WON</UserName>
+				<Notes>No title</Notes>
+				<Colour>red</Colour>
+				<TopItemRef>1377a39e-df57-4604-a2ac-2ff5574a5b7e</TopItemRef>
+				<BottomItemRef>13773160-afc5-4057-a3a4-62fe2ee98679</BottomItemRef>
+			</Bookmark>
+			<Bookmark>
+				<UserName>WON</UserName>
+				<Notes>FASCIA</Notes>
+				<Colour>green</Colour>
+				<TopItemRef>1377a945-7fbc-4bb9-b4ee-cb1eda23ebf6</TopItemRef>
+				<BottomItemRef>13772a96-e5bf-44bc-9fc8-6232174e2195</BottomItemRef>
+			</Bookmark>
+			<Bookmark>
+				<UserName>WON</UserName>
+				<Notes>No title</Notes>
+				<Colour>red</Colour>
+				<TopItemRef>13943f28-b343-4fc9-a430-83d7b30e14fb</TopItemRef>
+				<BottomItemRef>1394f74d-d74c-4321-a837-ddc386abbb40</BottomItemRef>
+			</Bookmark>
+			<Bookmark>
+				<UserName>WON</UserName>
+				<Notes>No title</Notes>
+				<Colour>red</Colour>
+				<TopItemRef>1394936b-556f-4759-ba64-140475652a9a</TopItemRef>
+				<BottomItemRef>13940243-6c15-4269-9a7c-fa3957509c66</BottomItemRef>
+			</Bookmark>
+			<Bookmark>
+				<UserName>WON</UserName>
+				<Notes>No title</Notes>
+				<Colour>red</Colour>
+				<TopItemRef>1377663d-c173-40ce-b164-d5194f011862</TopItemRef>
+				<BottomItemRef>13770e6b-ac76-47af-9270-1779a0b6b8b8</BottomItemRef>
+			</Bookmark>
+			<Bookmark>
+				<UserName>WON</UserName>
+				<Notes>No title</Notes>
+				<Colour>red</Colour>
+				<TopItemRef>13778ba4-c262-4926-9ded-f7c954bec2f9</TopItemRef>
+				<BottomItemRef>1377afee-0b9d-441f-a9e9-191ffed22f12</BottomItemRef>
+			</Bookmark>
+			<Bookmark>
+				<UserName>WON</UserName>
+				<Notes>No title</Notes>
+				<Colour>red</Colour>
+				<TopItemRef>13957dc1-9ec0-4a9e-9634-0db7d04fff3c</TopItemRef>
+				<BottomItemRef>1395704a-b789-4f3c-806f-427a36dac6df</BottomItemRef>
+			</Bookmark>
+			<Bookmark>
+				<UserName>WON</UserName>
+				<Notes>No title</Notes>
+				<Colour>red</Colour>
+				<TopItemRef>139508fb-f23d-40c5-9e4a-b86e3e39429c</TopItemRef>
+				<BottomItemRef>1395c1e8-1f5d-42d2-aa4b-93e6b3592303</BottomItemRef>
+			</Bookmark>
+			<Bookmark>
+				<UserName>WON</UserName>
+				<Notes>No title</Notes>
+				<Colour>red</Colour>
+				<TopItemRef>137741cd-1f98-4657-90dc-7d1897d604f3</TopItemRef>
+				<BottomItemRef>1377e027-cb6e-463a-8a73-2a6cf04fcc1e</BottomItemRef>
+			</Bookmark>
+			<Bookmark>
+				<UserName>WON</UserName>
+				<Notes>No title</Notes>
+				<Colour>red</Colour>
+				<TopItemRef>13779819-ebff-4353-9549-f7f72e09a114</TopItemRef>
+				<BottomItemRef>137741bf-fd63-402d-af7d-f1426dd24897</BottomItemRef>
+			</Bookmark>
+			<Bookmark>
+				<UserName>WON</UserName>
+				<Notes>No title</Notes>
+				<Colour>red</Colour>
+				<TopItemRef>137794c6-d649-4f58-a118-084517ac0d96</TopItemRef>
+				<BottomItemRef>137773a0-25c6-4f0b-b01e-b79bcdaade67</BottomItemRef>
+			</Bookmark>
+			<Bookmark>
+				<UserName>WON</UserName>
+				<Notes>No title</Notes>
+				<Colour>red</Colour>
+				<TopItemRef>13968d74-12b3-4090-8c7e-e1e57835b9e9</TopItemRef>
+				<BottomItemRef>139617c4-05c6-44a5-8917-2dccb439b05b</BottomItemRef>
+			</Bookmark>
+			<Bookmark>
+				<UserName>WON</UserName>
+				<Notes>No title</Notes>
+				<Colour>red</Colour>
+				<TopItemRef>13773acc-f1c7-4474-9533-b2f3c8dc9972</TopItemRef>
+				<BottomItemRef>13773acc-f1c7-4474-9533-b2f3c8dc9972</BottomItemRef>
+			</Bookmark>
+			<Bookmark>
+				<UserName>WON</UserName>
+				<Notes>No title</Notes>
+				<Colour>red</Colour>
+				<TopItemRef>13771a0c-7ec3-4393-97cb-4d8bee26888b</TopItemRef>
+				<BottomItemRef>13771a0c-7ec3-4393-97cb-4d8bee26888b</BottomItemRef>
+			</Bookmark>
+			<Bookmark>
+				<UserName>WON</UserName>
+				<Notes>No title</Notes>
+				<Colour>red</Colour>
+				<TopItemRef>1377cfc8-7ad2-4194-a4b5-29423ebbee29</TopItemRef>
+				<BottomItemRef>1377cfc8-7ad2-4194-a4b5-29423ebbee29</BottomItemRef>
+			</Bookmark>
+			<Bookmark>
+				<UserName>WON</UserName>
+				<Notes>No title</Notes>
+				<Colour>red</Colour>
+				<TopItemRef>1377c149-885d-4d8e-9ad9-1f155e98cf65</TopItemRef>
+				<BottomItemRef>1377c149-885d-4d8e-9ad9-1f155e98cf65</BottomItemRef>
+			</Bookmark>
+			<Bookmark>
+				<UserName>WON</UserName>
+				<Notes>No title</Notes>
+				<Colour>red</Colour>
+				<TopItemRef>1377b3cd-7428-4332-bd78-6f33cfde163d</TopItemRef>
+				<BottomItemRef>1377b3cd-7428-4332-bd78-6f33cfde163d</BottomItemRef>
+			</Bookmark>
+			<Bookmark>
+				<UserName>WON</UserName>
+				<Notes>No title</Notes>
+				<Colour>red</Colour>
+				<TopItemRef>1377b182-781b-4c67-875e-b8457297c328</TopItemRef>
+				<BottomItemRef>1377b182-781b-4c67-875e-b8457297c328</BottomItemRef>
+			</Bookmark>
+			<Bookmark>
+				<UserName>WON</UserName>
+				<Notes>No title</Notes>
+				<Colour>red</Colour>
+				<TopItemRef>137729ec-301d-402f-b09c-d1ff412ea383</TopItemRef>
+				<BottomItemRef>137729ec-301d-402f-b09c-d1ff412ea383</BottomItemRef>
+			</Bookmark>
+			<Bookmark>
+				<UserName>WON</UserName>
+				<Notes>No title</Notes>
+				<Colour>red</Colour>
+				<TopItemRef>13776be9-50b4-46a7-a7b9-8b8083f24a55</TopItemRef>
+				<BottomItemRef>13776be9-50b4-46a7-a7b9-8b8083f24a55</BottomItemRef>
+			</Bookmark>
+		</BookmarkList>
+	</Playlist>
+</Pharos>

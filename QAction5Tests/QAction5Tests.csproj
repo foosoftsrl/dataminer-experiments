@@ -56,6 +56,9 @@
     <None Update="LT_Mediator_2024-08-22.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="LT_Schedule_2024-09-05_0001_0621_-_2937.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="PR_Last_14_LT_Mediator.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
