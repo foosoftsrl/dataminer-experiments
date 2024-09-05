@@ -547,6 +547,11 @@ public static class Parameter
 			public const int wontemplatename_3008 = 3008;
 			/// <summary>PID: 3008 | Type: read</summary>
 			public const int wontemplatename = 3008;
+			/// <summary>PID: 3009 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int wonparentalrating_3009 = 3009;
+			/// <summary>PID: 3009 | Type: read</summary>
+			public const int wonparentalrating = 3009;
 			public class Write
 			{
 			}
@@ -593,6 +598,11 @@ public static class Parameter
 			public const int wontemplatename_3008 = 7;
 			/// <summary>IDX: 7 | Type: read</summary>
 			public const int wontemplatename = 7;
+			/// <summary>IDX: 8 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int wonparentalrating_3009 = 8;
+			/// <summary>IDX: 8 | Type: read</summary>
+			public const int wonparentalrating = 8;
 		}
 	}
 	public class Tachecktable
@@ -1460,6 +1470,8 @@ public interface SLProtocolExt : SLProtocol
 	object Wonscteadvstart { get; set; }
 	object Wontemplatename_3008 { get; set; }
 	object Wontemplatename { get; set; }
+	object Wonparentalrating_3009 { get; set; }
+	object Wonparentalrating { get; set; }
 	object Tacheckreconcilekey_4001 { get; set; }
 	object Tacheckreconcilekey { get; set; }
 	object Tacheckadsalestime_4002 { get; set; }
@@ -1893,6 +1905,11 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public System.Object Wontemplatename_3008 {get { return GetParameter(3008); }set { SetParameter(3008, value); }}
 	/// <summary>PID: 3008  | Type: read</summary>
 	public System.Object Wontemplatename {get { return GetParameter(3008); }set { SetParameter(3008, value); }}
+	/// <summary>PID: 3009  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Wonparentalrating_3009 {get { return GetParameter(3009); }set { SetParameter(3009, value); }}
+	/// <summary>PID: 3009  | Type: read</summary>
+	public System.Object Wonparentalrating {get { return GetParameter(3009); }set { SetParameter(3009, value); }}
 	/// <summary>PID: 4001  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Tacheckreconcilekey_4001 {get { return GetParameter(4001); }set { SetParameter(4001, value); }}
@@ -2572,8 +2589,13 @@ public class WonQActionRow : QActionTableRow
 	public System.Object Wontemplatename_3008 { get { if (base.Columns.ContainsKey(7)) { return base.Columns[7]; } else { return null; } } set { if (base.Columns.ContainsKey(7)) { base.Columns[7] = value; } else { base.Columns.Add(7, value); } } }
 	/// <summary>PID: 3008 | Type: read</summary>
 	public System.Object Wontemplatename { get { if (base.Columns.ContainsKey(7)) { return base.Columns[7]; } else { return null; } } set { if (base.Columns.ContainsKey(7)) { base.Columns[7] = value; } else { base.Columns.Add(7, value); } } }
-	public WonQActionRow() : base(0, 8) { }
-	public WonQActionRow(System.Object[] oRow) : base(0, 8, oRow) { }
+	/// <summary>PID: 3009 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Wonparentalrating_3009 { get { if (base.Columns.ContainsKey(8)) { return base.Columns[8]; } else { return null; } } set { if (base.Columns.ContainsKey(8)) { base.Columns[8] = value; } else { base.Columns.Add(8, value); } } }
+	/// <summary>PID: 3009 | Type: read</summary>
+	public System.Object Wonparentalrating { get { if (base.Columns.ContainsKey(8)) { return base.Columns[8]; } else { return null; } } set { if (base.Columns.ContainsKey(8)) { base.Columns[8] = value; } else { base.Columns.Add(8, value); } } }
+	public WonQActionRow() : base(0, 9) { }
+	public WonQActionRow(System.Object[] oRow) : base(0, 9, oRow) { }
 	public static implicit operator WonQActionRow(System.Object[] source) { return new WonQActionRow(source); }
 	public static implicit operator System.Object[](WonQActionRow source) { return source.ToObjectArray(); }
 }

@@ -5,7 +5,7 @@
 		<Encoding>unicode</Encoding>
 	</Options>
 	<Description>AdSales DataMiner connector</Description>
-	<Version>1.0.0.17</Version>
+	<Version>1.0.0.18</Version>
 	<IntegrationID>DMS-DRV-</IntegrationID>
 	<Provider>Foosoft</Provider>
 	<Vendor>Foosoft</Vendor>
@@ -1079,6 +1079,7 @@
 				<ColumnOption idx="5" pid="3006" type="retrieved" options="" />
 				<ColumnOption idx="6" pid="3007" type="retrieved" options="" />
 				<ColumnOption idx="7" pid="3008" type="retrieved" options="" />
+				<ColumnOption idx="8" pid="3009" type="retrieved" options="" />
 			</ArrayOptions>
 			<Information>
 				<Subtext>WON Table</Subtext>
@@ -1236,6 +1237,25 @@
 			<Type>read</Type>
 			<Information>
 				<Subtext>Template</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="3009" trending="false">
+			<Name>wonParentalRating</Name>
+			<Description>Parental Rating (WON)</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext></Subtext>
 			</Information>
 			<Interprete>
 				<RawType>other</RawType>

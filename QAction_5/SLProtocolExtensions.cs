@@ -253,6 +253,7 @@
                     Wonsctebreakstart = row.ScteBroadcastBreakStart ?? string.Empty,
                     Wonscteadvstart = row.ScteBroadcastProviderAdvStart ?? string.Empty,
                     Wontemplatename = row.TemplateName ?? string.Empty,
+                    Wonparentalrating = row.ParentalRatingValue,
                 }.ToObjectArray());
             }
 
