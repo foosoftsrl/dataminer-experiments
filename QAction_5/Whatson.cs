@@ -139,10 +139,6 @@ namespace Whatson
 
         private bool blockNameFieldSpecified;
 
-        private string previousBlockNameField;
-
-        private bool previousBlockNameFieldSpecified;
-
         private PlaylistItem[] playlistItemField;
 
         public ulong BlockName
@@ -167,31 +163,6 @@ namespace Whatson
             set
             {
                 this.blockNameFieldSpecified = value;
-            }
-        }
-
-        public string PreviousBlockName
-        {
-            get
-            {
-                return this.previousBlockNameField;
-            }
-            set
-            {
-                this.previousBlockNameField = value;
-            }
-        }
-
-        [System.Xml.Serialization.XmlIgnoreAttribute]
-        public bool PreviousBlockNameSpecified
-        {
-            get
-            {
-                return this.previousBlockNameFieldSpecified;
-            }
-            set
-            {
-                this.previousBlockNameFieldSpecified = value;
             }
         }
 
