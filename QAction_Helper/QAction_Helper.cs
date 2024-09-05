@@ -1163,6 +1163,154 @@ public static class Parameter
 			public const int parentalratingvalue = 1;
 		}
 	}
+	public class Parentalratingchecktable
+	{
+		/// <summary>PID: 12000</summary>
+		public const int tablePid = 12000;
+		/// <summary>IDX: 0</summary>
+		public const int indexColumn = 0;
+		/// <summary>PID: 12001</summary>
+		public const int indexColumnPid = 12001;
+		public class Pid
+		{
+			/// <summary>PID: 12001 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int parentalratingcheckkey_12001 = 12001;
+			/// <summary>PID: 12001 | Type: read</summary>
+			public const int parentalratingcheckkey = 12001;
+			/// <summary>PID: 12012 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int parentalratingcheckchannel_12012 = 12012;
+			/// <summary>PID: 12012 | Type: read</summary>
+			public const int parentalratingcheckchannel = 12012;
+			/// <summary>PID: 12013 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int parentalratingcheckmux_12013 = 12013;
+			/// <summary>PID: 12013 | Type: read</summary>
+			public const int parentalratingcheckmux = 12013;
+			/// <summary>PID: 12002 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int parentalratingchecktimestamp_12002 = 12002;
+			/// <summary>PID: 12002 | Type: read</summary>
+			public const int parentalratingchecktimestamp = 12002;
+			/// <summary>PID: 12003 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int parentalratingcheckproductcode_12003 = 12003;
+			/// <summary>PID: 12003 | Type: read</summary>
+			public const int parentalratingcheckproductcode = 12003;
+			/// <summary>PID: 12004 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int parentalratingchecktitle_12004 = 12004;
+			/// <summary>PID: 12004 | Type: read</summary>
+			public const int parentalratingchecktitle = 12004;
+			/// <summary>PID: 12005 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int parentalratingcheckwonpr_12005 = 12005;
+			/// <summary>PID: 12005 | Type: read</summary>
+			public const int parentalratingcheckwonpr = 12005;
+			/// <summary>PID: 12006 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int parentalratingcheckhasmediatordata_12006 = 12006;
+			/// <summary>PID: 12006 | Type: read</summary>
+			public const int parentalratingcheckhasmediatordata = 12006;
+			/// <summary>PID: 12007 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int parentalratingcheckcheckmediatordata_12007 = 12007;
+			/// <summary>PID: 12007 | Type: read</summary>
+			public const int parentalratingcheckcheckmediatordata = 12007;
+			/// <summary>PID: 12008 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int parentalratingcheckmediatorparentalrating_12008 = 12008;
+			/// <summary>PID: 12008 | Type: read</summary>
+			public const int parentalratingcheckmediatorparentalrating = 12008;
+			/// <summary>PID: 12009 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int parentalratingcheckhasprobedata_12009 = 12009;
+			/// <summary>PID: 12009 | Type: read</summary>
+			public const int parentalratingcheckhasprobedata = 12009;
+			/// <summary>PID: 12010 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int parentalratingcheckonairtimestamp_12010 = 12010;
+			/// <summary>PID: 12010 | Type: read</summary>
+			public const int parentalratingcheckonairtimestamp = 12010;
+			/// <summary>PID: 12011 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int parentalratingcheckmessage_12011 = 12011;
+			/// <summary>PID: 12011 | Type: read</summary>
+			public const int parentalratingcheckmessage = 12011;
+			public class Write
+			{
+			}
+		}
+		public class Idx
+		{
+			/// <summary>IDX: 0 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int parentalratingcheckkey_12001 = 0;
+			/// <summary>IDX: 0 | Type: read</summary>
+			public const int parentalratingcheckkey = 0;
+			/// <summary>IDX: 1 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int parentalratingcheckchannel_12012 = 1;
+			/// <summary>IDX: 1 | Type: read</summary>
+			public const int parentalratingcheckchannel = 1;
+			/// <summary>IDX: 2 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int parentalratingcheckmux_12013 = 2;
+			/// <summary>IDX: 2 | Type: read</summary>
+			public const int parentalratingcheckmux = 2;
+			/// <summary>IDX: 3 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int parentalratingchecktimestamp_12002 = 3;
+			/// <summary>IDX: 3 | Type: read</summary>
+			public const int parentalratingchecktimestamp = 3;
+			/// <summary>IDX: 4 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int parentalratingcheckproductcode_12003 = 4;
+			/// <summary>IDX: 4 | Type: read</summary>
+			public const int parentalratingcheckproductcode = 4;
+			/// <summary>IDX: 5 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int parentalratingchecktitle_12004 = 5;
+			/// <summary>IDX: 5 | Type: read</summary>
+			public const int parentalratingchecktitle = 5;
+			/// <summary>IDX: 6 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int parentalratingcheckwonpr_12005 = 6;
+			/// <summary>IDX: 6 | Type: read</summary>
+			public const int parentalratingcheckwonpr = 6;
+			/// <summary>IDX: 7 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int parentalratingcheckhasmediatordata_12006 = 7;
+			/// <summary>IDX: 7 | Type: read</summary>
+			public const int parentalratingcheckhasmediatordata = 7;
+			/// <summary>IDX: 8 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int parentalratingcheckcheckmediatordata_12007 = 8;
+			/// <summary>IDX: 8 | Type: read</summary>
+			public const int parentalratingcheckcheckmediatordata = 8;
+			/// <summary>IDX: 9 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int parentalratingcheckmediatorparentalrating_12008 = 9;
+			/// <summary>IDX: 9 | Type: read</summary>
+			public const int parentalratingcheckmediatorparentalrating = 9;
+			/// <summary>IDX: 10 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int parentalratingcheckhasprobedata_12009 = 10;
+			/// <summary>IDX: 10 | Type: read</summary>
+			public const int parentalratingcheckhasprobedata = 10;
+			/// <summary>IDX: 11 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int parentalratingcheckonairtimestamp_12010 = 11;
+			/// <summary>IDX: 11 | Type: read</summary>
+			public const int parentalratingcheckonairtimestamp = 11;
+			/// <summary>IDX: 12 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int parentalratingcheckmessage_12011 = 12;
+			/// <summary>IDX: 12 | Type: read</summary>
+			public const int parentalratingcheckmessage = 12;
+		}
+	}
 }
 public class WriteParameters
 {
@@ -1216,6 +1364,8 @@ public interface SLProtocolExt : SLProtocol
 	WonmediatordiffQActionTable wonmediatordiff { get; set; }
 	/// <summary>PID: 11000</summary>
 	ParentalratingQActionTable parentalrating { get; set; }
+	/// <summary>PID: 12000</summary>
+	ParentalratingchecktableQActionTable parentalratingchecktable { get; set; }
 	object Afterstartup_dummy { get; set; }
 	object Triggerqaction_dummy { get; set; }
 	object Pgbconfiguration_4 { get; set; }
@@ -1456,6 +1606,32 @@ public interface SLProtocolExt : SLProtocol
 	object Parentalratingvalue { get; set; }
 	object Parentaldebugmsg_11999 { get; set; }
 	object Parentaldebugmsg { get; set; }
+	object Parentalratingcheckkey_12001 { get; set; }
+	object Parentalratingcheckkey { get; set; }
+	object Parentalratingchecktimestamp_12002 { get; set; }
+	object Parentalratingchecktimestamp { get; set; }
+	object Parentalratingcheckproductcode_12003 { get; set; }
+	object Parentalratingcheckproductcode { get; set; }
+	object Parentalratingchecktitle_12004 { get; set; }
+	object Parentalratingchecktitle { get; set; }
+	object Parentalratingcheckwonpr_12005 { get; set; }
+	object Parentalratingcheckwonpr { get; set; }
+	object Parentalratingcheckhasmediatordata_12006 { get; set; }
+	object Parentalratingcheckhasmediatordata { get; set; }
+	object Parentalratingcheckcheckmediatordata_12007 { get; set; }
+	object Parentalratingcheckcheckmediatordata { get; set; }
+	object Parentalratingcheckmediatorparentalrating_12008 { get; set; }
+	object Parentalratingcheckmediatorparentalrating { get; set; }
+	object Parentalratingcheckhasprobedata_12009 { get; set; }
+	object Parentalratingcheckhasprobedata { get; set; }
+	object Parentalratingcheckonairtimestamp_12010 { get; set; }
+	object Parentalratingcheckonairtimestamp { get; set; }
+	object Parentalratingcheckmessage_12011 { get; set; }
+	object Parentalratingcheckmessage { get; set; }
+	object Parentalratingcheckchannel_12012 { get; set; }
+	object Parentalratingcheckchannel { get; set; }
+	object Parentalratingcheckmux_12013 { get; set; }
+	object Parentalratingcheckmux { get; set; }
 	WriteParameters Write { get; set; }
 }
 public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
@@ -1478,6 +1654,8 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public WonmediatordiffQActionTable wonmediatordiff { get; set; }
 	/// <summary>PID: 11000</summary>
 	public ParentalratingQActionTable parentalrating { get; set; }
+	/// <summary>PID: 12000</summary>
+	public ParentalratingchecktableQActionTable parentalratingchecktable { get; set; }
 	/// <summary>PID: 2  | Type: dummy</summary>
 	public System.Object Afterstartup_dummy {get { return GetParameter(2); }set { SetParameter(2, value); }}
 	/// <summary>PID: 3  | Type: dummy</summary>
@@ -2079,6 +2257,71 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public System.Object Parentaldebugmsg_11999 {get { return GetParameter(11999); }set { SetParameter(11999, value); }}
 	/// <summary>PID: 11999  | Type: read</summary>
 	public System.Object Parentaldebugmsg {get { return GetParameter(11999); }set { SetParameter(11999, value); }}
+	/// <summary>PID: 12001  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Parentalratingcheckkey_12001 {get { return GetParameter(12001); }set { SetParameter(12001, value); }}
+	/// <summary>PID: 12001  | Type: read</summary>
+	public System.Object Parentalratingcheckkey {get { return GetParameter(12001); }set { SetParameter(12001, value); }}
+	/// <summary>PID: 12002  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Parentalratingchecktimestamp_12002 {get { return GetParameter(12002); }set { SetParameter(12002, value); }}
+	/// <summary>PID: 12002  | Type: read</summary>
+	public System.Object Parentalratingchecktimestamp {get { return GetParameter(12002); }set { SetParameter(12002, value); }}
+	/// <summary>PID: 12003  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Parentalratingcheckproductcode_12003 {get { return GetParameter(12003); }set { SetParameter(12003, value); }}
+	/// <summary>PID: 12003  | Type: read</summary>
+	public System.Object Parentalratingcheckproductcode {get { return GetParameter(12003); }set { SetParameter(12003, value); }}
+	/// <summary>PID: 12004  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Parentalratingchecktitle_12004 {get { return GetParameter(12004); }set { SetParameter(12004, value); }}
+	/// <summary>PID: 12004  | Type: read</summary>
+	public System.Object Parentalratingchecktitle {get { return GetParameter(12004); }set { SetParameter(12004, value); }}
+	/// <summary>PID: 12005  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Parentalratingcheckwonpr_12005 {get { return GetParameter(12005); }set { SetParameter(12005, value); }}
+	/// <summary>PID: 12005  | Type: read</summary>
+	public System.Object Parentalratingcheckwonpr {get { return GetParameter(12005); }set { SetParameter(12005, value); }}
+	/// <summary>PID: 12006  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Parentalratingcheckhasmediatordata_12006 {get { return GetParameter(12006); }set { SetParameter(12006, value); }}
+	/// <summary>PID: 12006  | Type: read</summary>
+	public System.Object Parentalratingcheckhasmediatordata {get { return GetParameter(12006); }set { SetParameter(12006, value); }}
+	/// <summary>PID: 12007  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Parentalratingcheckcheckmediatordata_12007 {get { return GetParameter(12007); }set { SetParameter(12007, value); }}
+	/// <summary>PID: 12007  | Type: read</summary>
+	public System.Object Parentalratingcheckcheckmediatordata {get { return GetParameter(12007); }set { SetParameter(12007, value); }}
+	/// <summary>PID: 12008  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Parentalratingcheckmediatorparentalrating_12008 {get { return GetParameter(12008); }set { SetParameter(12008, value); }}
+	/// <summary>PID: 12008  | Type: read</summary>
+	public System.Object Parentalratingcheckmediatorparentalrating {get { return GetParameter(12008); }set { SetParameter(12008, value); }}
+	/// <summary>PID: 12009  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Parentalratingcheckhasprobedata_12009 {get { return GetParameter(12009); }set { SetParameter(12009, value); }}
+	/// <summary>PID: 12009  | Type: read</summary>
+	public System.Object Parentalratingcheckhasprobedata {get { return GetParameter(12009); }set { SetParameter(12009, value); }}
+	/// <summary>PID: 12010  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Parentalratingcheckonairtimestamp_12010 {get { return GetParameter(12010); }set { SetParameter(12010, value); }}
+	/// <summary>PID: 12010  | Type: read</summary>
+	public System.Object Parentalratingcheckonairtimestamp {get { return GetParameter(12010); }set { SetParameter(12010, value); }}
+	/// <summary>PID: 12011  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Parentalratingcheckmessage_12011 {get { return GetParameter(12011); }set { SetParameter(12011, value); }}
+	/// <summary>PID: 12011  | Type: read</summary>
+	public System.Object Parentalratingcheckmessage {get { return GetParameter(12011); }set { SetParameter(12011, value); }}
+	/// <summary>PID: 12012  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Parentalratingcheckchannel_12012 {get { return GetParameter(12012); }set { SetParameter(12012, value); }}
+	/// <summary>PID: 12012  | Type: read</summary>
+	public System.Object Parentalratingcheckchannel {get { return GetParameter(12012); }set { SetParameter(12012, value); }}
+	/// <summary>PID: 12013  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Parentalratingcheckmux_12013 {get { return GetParameter(12013); }set { SetParameter(12013, value); }}
+	/// <summary>PID: 12013  | Type: read</summary>
+	public System.Object Parentalratingcheckmux {get { return GetParameter(12013); }set { SetParameter(12013, value); }}
 	public WriteParameters Write { get; set; }
 	public ConcreteSLProtocolExt()
 	{
@@ -2091,6 +2334,7 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 		adsaleswondiff = new AdsaleswondiffQActionTable(this, 8000, "adsaleswondiff");
 		wonmediatordiff = new WonmediatordiffQActionTable(this, 9000, "wonmediatordiff");
 		parentalrating = new ParentalratingQActionTable(this, 11000, "parentalrating");
+		parentalratingchecktable = new ParentalratingchecktableQActionTable(this, 12000, "parentalratingchecktable");
 		Write = new WriteParameters(this);
 	}
 }
@@ -2156,6 +2400,13 @@ public class ParentalratingQActionTable : QActionTable, IEnumerable<Parentalrati
 	public ParentalratingQActionTable(SLProtocol protocol, int tableId, string tableName) : base(protocol, tableId, tableName) { }
 	IEnumerator IEnumerable.GetEnumerator() { return (IEnumerator) GetEnumerator(); }
 	public IEnumerator<ParentalratingQActionRow> GetEnumerator() { return new QActionTableEnumerator<ParentalratingQActionRow>(this); }
+}
+/// <summary>IDX: 0</summary>
+public class ParentalratingchecktableQActionTable : QActionTable, IEnumerable<ParentalratingchecktableQActionRow>
+{
+	public ParentalratingchecktableQActionTable(SLProtocol protocol, int tableId, string tableName) : base(protocol, tableId, tableName) { }
+	IEnumerator IEnumerable.GetEnumerator() { return (IEnumerator) GetEnumerator(); }
+	public IEnumerator<ParentalratingchecktableQActionRow> GetEnumerator() { return new QActionTableEnumerator<ParentalratingchecktableQActionRow>(this); }
 }
 /// <summary>IDX: 0</summary>
 public class AdsalesQActionRow : QActionTableRow
@@ -2603,5 +2854,78 @@ public class ParentalratingQActionRow : QActionTableRow
 	public ParentalratingQActionRow(System.Object[] oRow) : base(0, 2, oRow) { }
 	public static implicit operator ParentalratingQActionRow(System.Object[] source) { return new ParentalratingQActionRow(source); }
 	public static implicit operator System.Object[](ParentalratingQActionRow source) { return source.ToObjectArray(); }
+}
+/// <summary>IDX: 0</summary>
+public class ParentalratingchecktableQActionRow : QActionTableRow
+{
+	/// <summary>PID: 12001 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Parentalratingcheckkey_12001 { get { if (base.Columns.ContainsKey(0)) { return base.Columns[0]; } else { return null; } } set { if (base.Columns.ContainsKey(0)) { base.Columns[0] = value; } else { base.Columns.Add(0, value); } } }
+	/// <summary>PID: 12001 | Type: read</summary>
+	public System.Object Parentalratingcheckkey { get { if (base.Columns.ContainsKey(0)) { return base.Columns[0]; } else { return null; } } set { if (base.Columns.ContainsKey(0)) { base.Columns[0] = value; } else { base.Columns.Add(0, value); } } }
+	/// <summary>PID: 12012 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Parentalratingcheckchannel_12012 { get { if (base.Columns.ContainsKey(1)) { return base.Columns[1]; } else { return null; } } set { if (base.Columns.ContainsKey(1)) { base.Columns[1] = value; } else { base.Columns.Add(1, value); } } }
+	/// <summary>PID: 12012 | Type: read</summary>
+	public System.Object Parentalratingcheckchannel { get { if (base.Columns.ContainsKey(1)) { return base.Columns[1]; } else { return null; } } set { if (base.Columns.ContainsKey(1)) { base.Columns[1] = value; } else { base.Columns.Add(1, value); } } }
+	/// <summary>PID: 12013 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Parentalratingcheckmux_12013 { get { if (base.Columns.ContainsKey(2)) { return base.Columns[2]; } else { return null; } } set { if (base.Columns.ContainsKey(2)) { base.Columns[2] = value; } else { base.Columns.Add(2, value); } } }
+	/// <summary>PID: 12013 | Type: read</summary>
+	public System.Object Parentalratingcheckmux { get { if (base.Columns.ContainsKey(2)) { return base.Columns[2]; } else { return null; } } set { if (base.Columns.ContainsKey(2)) { base.Columns[2] = value; } else { base.Columns.Add(2, value); } } }
+	/// <summary>PID: 12002 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Parentalratingchecktimestamp_12002 { get { if (base.Columns.ContainsKey(3)) { return base.Columns[3]; } else { return null; } } set { if (base.Columns.ContainsKey(3)) { base.Columns[3] = value; } else { base.Columns.Add(3, value); } } }
+	/// <summary>PID: 12002 | Type: read</summary>
+	public System.Object Parentalratingchecktimestamp { get { if (base.Columns.ContainsKey(3)) { return base.Columns[3]; } else { return null; } } set { if (base.Columns.ContainsKey(3)) { base.Columns[3] = value; } else { base.Columns.Add(3, value); } } }
+	/// <summary>PID: 12003 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Parentalratingcheckproductcode_12003 { get { if (base.Columns.ContainsKey(4)) { return base.Columns[4]; } else { return null; } } set { if (base.Columns.ContainsKey(4)) { base.Columns[4] = value; } else { base.Columns.Add(4, value); } } }
+	/// <summary>PID: 12003 | Type: read</summary>
+	public System.Object Parentalratingcheckproductcode { get { if (base.Columns.ContainsKey(4)) { return base.Columns[4]; } else { return null; } } set { if (base.Columns.ContainsKey(4)) { base.Columns[4] = value; } else { base.Columns.Add(4, value); } } }
+	/// <summary>PID: 12004 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Parentalratingchecktitle_12004 { get { if (base.Columns.ContainsKey(5)) { return base.Columns[5]; } else { return null; } } set { if (base.Columns.ContainsKey(5)) { base.Columns[5] = value; } else { base.Columns.Add(5, value); } } }
+	/// <summary>PID: 12004 | Type: read</summary>
+	public System.Object Parentalratingchecktitle { get { if (base.Columns.ContainsKey(5)) { return base.Columns[5]; } else { return null; } } set { if (base.Columns.ContainsKey(5)) { base.Columns[5] = value; } else { base.Columns.Add(5, value); } } }
+	/// <summary>PID: 12005 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Parentalratingcheckwonpr_12005 { get { if (base.Columns.ContainsKey(6)) { return base.Columns[6]; } else { return null; } } set { if (base.Columns.ContainsKey(6)) { base.Columns[6] = value; } else { base.Columns.Add(6, value); } } }
+	/// <summary>PID: 12005 | Type: read</summary>
+	public System.Object Parentalratingcheckwonpr { get { if (base.Columns.ContainsKey(6)) { return base.Columns[6]; } else { return null; } } set { if (base.Columns.ContainsKey(6)) { base.Columns[6] = value; } else { base.Columns.Add(6, value); } } }
+	/// <summary>PID: 12006 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Parentalratingcheckhasmediatordata_12006 { get { if (base.Columns.ContainsKey(7)) { return base.Columns[7]; } else { return null; } } set { if (base.Columns.ContainsKey(7)) { base.Columns[7] = value; } else { base.Columns.Add(7, value); } } }
+	/// <summary>PID: 12006 | Type: read</summary>
+	public System.Object Parentalratingcheckhasmediatordata { get { if (base.Columns.ContainsKey(7)) { return base.Columns[7]; } else { return null; } } set { if (base.Columns.ContainsKey(7)) { base.Columns[7] = value; } else { base.Columns.Add(7, value); } } }
+	/// <summary>PID: 12007 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Parentalratingcheckcheckmediatordata_12007 { get { if (base.Columns.ContainsKey(8)) { return base.Columns[8]; } else { return null; } } set { if (base.Columns.ContainsKey(8)) { base.Columns[8] = value; } else { base.Columns.Add(8, value); } } }
+	/// <summary>PID: 12007 | Type: read</summary>
+	public System.Object Parentalratingcheckcheckmediatordata { get { if (base.Columns.ContainsKey(8)) { return base.Columns[8]; } else { return null; } } set { if (base.Columns.ContainsKey(8)) { base.Columns[8] = value; } else { base.Columns.Add(8, value); } } }
+	/// <summary>PID: 12008 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Parentalratingcheckmediatorparentalrating_12008 { get { if (base.Columns.ContainsKey(9)) { return base.Columns[9]; } else { return null; } } set { if (base.Columns.ContainsKey(9)) { base.Columns[9] = value; } else { base.Columns.Add(9, value); } } }
+	/// <summary>PID: 12008 | Type: read</summary>
+	public System.Object Parentalratingcheckmediatorparentalrating { get { if (base.Columns.ContainsKey(9)) { return base.Columns[9]; } else { return null; } } set { if (base.Columns.ContainsKey(9)) { base.Columns[9] = value; } else { base.Columns.Add(9, value); } } }
+	/// <summary>PID: 12009 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Parentalratingcheckhasprobedata_12009 { get { if (base.Columns.ContainsKey(10)) { return base.Columns[10]; } else { return null; } } set { if (base.Columns.ContainsKey(10)) { base.Columns[10] = value; } else { base.Columns.Add(10, value); } } }
+	/// <summary>PID: 12009 | Type: read</summary>
+	public System.Object Parentalratingcheckhasprobedata { get { if (base.Columns.ContainsKey(10)) { return base.Columns[10]; } else { return null; } } set { if (base.Columns.ContainsKey(10)) { base.Columns[10] = value; } else { base.Columns.Add(10, value); } } }
+	/// <summary>PID: 12010 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Parentalratingcheckonairtimestamp_12010 { get { if (base.Columns.ContainsKey(11)) { return base.Columns[11]; } else { return null; } } set { if (base.Columns.ContainsKey(11)) { base.Columns[11] = value; } else { base.Columns.Add(11, value); } } }
+	/// <summary>PID: 12010 | Type: read</summary>
+	public System.Object Parentalratingcheckonairtimestamp { get { if (base.Columns.ContainsKey(11)) { return base.Columns[11]; } else { return null; } } set { if (base.Columns.ContainsKey(11)) { base.Columns[11] = value; } else { base.Columns.Add(11, value); } } }
+	/// <summary>PID: 12011 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Parentalratingcheckmessage_12011 { get { if (base.Columns.ContainsKey(12)) { return base.Columns[12]; } else { return null; } } set { if (base.Columns.ContainsKey(12)) { base.Columns[12] = value; } else { base.Columns.Add(12, value); } } }
+	/// <summary>PID: 12011 | Type: read</summary>
+	public System.Object Parentalratingcheckmessage { get { if (base.Columns.ContainsKey(12)) { return base.Columns[12]; } else { return null; } } set { if (base.Columns.ContainsKey(12)) { base.Columns[12] = value; } else { base.Columns.Add(12, value); } } }
+	public ParentalratingchecktableQActionRow() : base(0, 13) { }
+	public ParentalratingchecktableQActionRow(System.Object[] oRow) : base(0, 13, oRow) { }
+	public static implicit operator ParentalratingchecktableQActionRow(System.Object[] source) { return new ParentalratingchecktableQActionRow(source); }
+	public static implicit operator System.Object[](ParentalratingchecktableQActionRow source) { return source.ToObjectArray(); }
 }
 }

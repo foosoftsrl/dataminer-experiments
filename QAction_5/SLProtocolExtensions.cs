@@ -335,6 +335,32 @@
             protocol.FillArray(Parameter.Tachecktable.tablePid, tableRows, NotifyProtocol.SaveOption.Full);
         }
 
+        public static void PublishParentalRatingCheckTable(this SLProtocolExt protocol, List<ParentalRatingCheckEntry> mergedRows)
+        {
+            List<object[]> tableRows = new List<object[]>();
+            foreach (var row in mergedRows)
+            {
+                tableRows.Add(new ParentalratingchecktableQActionRow
+                {
+                    Parentalratingcheckkey = row.WhatsonData.ItemReference,
+                    Parentalratingcheckchannel = row.Channel,
+                    Parentalratingcheckmux = row.Mux,
+                    Parentalratingchecktimestamp = row.ElementTime,
+                    Parentalratingcheckproductcode = row.WhatsonData.ProgramCode,
+                    Parentalratingchecktitle = row.WhatsonData.Title,
+                    Parentalratingcheckwonpr = row.WhatsonData.ParentalRatingValue,
+                    Parentalratingcheckhasmediatordata = row.MediatorData != null ? "ok" : "ko",
+                    Parentalratingcheckcheckmediatordata = row.CheckMediatorData,
+                    Parentalratingcheckmediatorparentalrating = row.MediatorData.ParentalRatingValue,
+                    Parentalratingcheckhasprobedata = row.ParentalRatingRow != null,
+                    Parentalratingcheckonairtimestamp = row.MuxTime,
+                    Parentalratingcheckmessage = row.CheckResult,
+                }.ToObjectArray());
+            }
+
+            protocol.FillArray(Parameter.Parentalratingchecktable.tablePid, tableRows, NotifyProtocol.SaveOption.Full);
+        }
+
         public static string GetParameterDescriptionAsString(this SLProtocolExt protocol, int parameterId)
         {
             var description = protocol.GetParameterDescription(parameterId);

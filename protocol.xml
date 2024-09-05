@@ -2952,6 +2952,279 @@
 				<Type>string</Type>
 			</Measurement>
 		</Param>
+		
+		<Param id="12000" trending="true">
+			<Name>ParentalRatingCheckTable</Name>
+			<Description>Parental Rating Check Table</Description>
+			<Type>array</Type>
+			<ArrayOptions  index="0">
+				<ColumnOption idx="0" pid="12001" type="retrieved" options="" />
+				<ColumnOption idx="1" pid="12012" type="retrieved" options="" />
+				<ColumnOption idx="2" pid="12013" type="retrieved" options="" />
+				<ColumnOption idx="3" pid="12002" type="retrieved" options="" />
+				<ColumnOption idx="4" pid="12003" type="retrieved" options="" />
+				<ColumnOption idx="5" pid="12004" type="retrieved" options="" />
+				<ColumnOption idx="6" pid="12005" type="retrieved" options="" />
+				<ColumnOption idx="7" pid="12006" type="retrieved" options="" />
+				<ColumnOption idx="8" pid="12007" type="retrieved" options="" />
+				<ColumnOption idx="9" pid="12008" type="retrieved" options="" />
+				<ColumnOption idx="10" pid="12009" type="retrieved" options="" />
+				<ColumnOption idx="11" pid="12010" type="retrieved" options="" />
+				<ColumnOption idx="12" pid="12011" type="retrieved" options="" />
+			</ArrayOptions>
+			<Information>
+				<Subtext>
+					<![CDATA[Parental Rating Check Table]]>
+				</Subtext>
+			</Information>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Parental Rating Check</Page>
+						<Column>0</Column>
+						<Row>1</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type options="tab=columns:12001|0-12002|3-12003|4-12004|5-12005|6-12006|7-12007|8-12008|9-12009|10-12010|11-12011|12-12012|1-12013|2,width:100-100-100-100-169-124-137-195-106-121-100-100-100,sort:STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING,lines:20,filter:true">table</Type>
+			</Measurement>
+		</Param>
+		<Param id="12001" trending="false">
+			<Name>ParentalRatingCheckKey</Name>
+			<Description>Key (Parental Rating Check)</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="12002" trending="false">
+			<Name>ParentalRatingCheckTimestamp</Name>
+			<Description>Timestamp (Parental Rating Check)</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="12003" trending="false">
+			<Name>ParentalRatingCheckProductCode</Name>
+			<Description>Product Code (Parental Rating Check)</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="12004" trending="false">
+			<Name>ParentalRatingCheckTitle</Name>
+			<Description>Title (Parental Rating Check)</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="12005" trending="false">
+			<Name>ParentalRatingCheckWonPr</Name>
+			<Description>Won Parental Rating Value (Parental Rating Check)</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="12006" trending="false">
+			<Name>ParentalRatingCheckHasMediatorData</Name>
+			<Description>Has Mediator Data (Parental Rating Check)</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="12007" trending="false">
+			<Name>ParentalRatingCheckCheckMediatorData</Name>
+			<Description>Check Mediator Data (Parental Rating Check)</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="12008" trending="false">
+			<Name>ParentalRatingCheckMediatorParentalRating</Name>
+			<Description>Mediator Parental Rating Value (Parental Rating Check)</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="12009" trending="false">
+			<Name>ParentalRatingCheckHasProbeData</Name>
+			<Description>Has Probe Data (Parental Rating Check)</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="12010" trending="false">
+			<Name>ParentalRatingCheckOnairTimestamp</Name>
+			<Description>On Air Timestamp (Parental Rating Check)</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="12011" trending="false">
+			<Name>ParentalRatingCheckMessage</Name>
+			<Description>Message (Parental Rating Check)</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="12012" trending="false">
+			<Name>ParentalRatingCheckChannel</Name>
+			<Description>Channel (Parental Rating Check)</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="12013" trending="false">
+			<Name>ParentalRatingCheckMux</Name>
+			<Description>Mux (Parental Rating Check)</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
 	</Params>
 	
 	<QActions>

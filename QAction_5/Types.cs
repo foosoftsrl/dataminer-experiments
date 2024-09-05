@@ -37,6 +37,7 @@ namespace QAction_5
         public string ScteBroadcastProviderOverlayPlacementEnd;
         public string EnablerLegacy;
         public int DayOffset;
+        public string ParentalRatingValue;
     }
 
     public class MediatorRow
@@ -54,6 +55,7 @@ namespace QAction_5
         public string EnablerLegacy;
         public string MaterialId;
         public int DayOffset;
+        public string ParentalRatingValue;
     }
 
     public class EnablerRow

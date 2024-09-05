@@ -38,6 +38,7 @@
                                     ScteBroadcastProviderOverlayPlacementStart = playlistItem.FindScteBroadcastProviderOverlayPlacementStartUpid(),
                                     ScteBroadcastProviderOverlayPlacementEnd = playlistItem.FindScteBroadcastProviderOverlayPlacementEndUpid(),
                                     TemplateName = playlistItem.Template.TemplateName,
+                                    ParentalRatingValue = playlistItem.FindParentalRatingValue(),
                                 });
                             }
                         }
@@ -171,6 +172,17 @@
             string time = playlistItem.StartTimecode.Substring(0, 8);
             var dateTime = DateTime.Parse(date + "T" + time + "Z");
             return dateTime;
+        }
+
+        public static string FindParentalRatingValue(this Whatson.PlaylistItem playlistItem)
+        {
+            var checkField = playlistItem.FindDataElementByName("parentalRating-graphic");
+            if(checkField?.Value.Text.Length == 1 && checkField?.Value.Text[0] == "PR_ENGINE")
+            {
+                return playlistItem.FindDataElementByName("parentalRating-userText1")?.Value.Text[0];
+            }
+
+            return null;
         }
     }
 }

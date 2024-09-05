@@ -40,6 +40,7 @@
                             ScteBroadcastProviderOverlayPlacementStart = row.FindScteBroadcastProviderOverlayPlacementStartUpid(),
                             ScteBroadcastProviderOverlayPlacementEnd = row.FindScteBroadcastProviderOverlayPlacementEndUpid(),
                             MaterialId = row.GetTrimMaterialId(),
+                            ParentalRatingValue = row.FindParentalRatingValue(),
                         });
                     }
                 }
@@ -76,6 +77,23 @@
             }
 
             return reconcileToRow;
+        }
+
+        public static Dictionary<string, MediatorRow> ToScheduleReferenceKeyMap(this List<MediatorRow> mediatorRows)
+        {
+            var scheduleReferenceToRow = new Dictionary<String, MediatorRow>();
+
+            // Convert Generated class into Connector Row data.
+            foreach (var row in mediatorRows)
+            {
+                var scheduleReference = row.ScheduleReference;
+                if (scheduleReference != null)
+                {
+                    scheduleReferenceToRow[scheduleReference] = row;
+                }
+            }
+
+            return scheduleReferenceToRow;
         }
 
         public static string FindAdSalesReconcileKey(this Mediator.Row row)
@@ -221,6 +239,17 @@
                         return templateParameter;
                     }
                 }
+            }
+
+            return null;
+        }
+
+        public static string FindParentalRatingValue(this Mediator.Row mediatorRow)
+        {
+            var checkField = mediatorRow.FindTemplateParameterByName("parentalRating-graphic");
+            if (checkField?.Value.String == "PR_ENGINE")
+            {
+                return mediatorRow.FindTemplateParameterByName("parentalRating-userText1").Value.String;
             }
 
             return null;

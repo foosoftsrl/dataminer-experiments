@@ -10,8 +10,11 @@ namespace QAction_5
         public DateTime ElementTime;
         public WhatsonRow WhatsonData;
         public MediatorRow MediatorData;
-        public DateTime MuxTime;
+        public bool CheckMediatorData;
         public ParentalRatingRow ParentalRatingRow;
+        public bool CheckProbeData;
+        public DateTime? MuxTime;
+        public long Delta;
         public string CheckResult;
     }
 }

@@ -20,15 +20,16 @@ namespace QAction_5
                 if (trimmed.Length == 0)
                     continue;
                 var cells = trimmed.Split(';');
-                if (cells.Length == 0)
+                if (cells.Length < 2)
                 {
-                    throw new Exception("Invalid row should contain at least 4 cells");
+                    throw new Exception("Invalid row should contain at least 2 cells");
                 }
 
+                int value = cells[1] == string.Empty ? 0 : (int.Parse(cells[1]) + 3);
                 rows.Add(new ParentalRatingRow
                 {
                     TimeStamp = DateTime.Parse(cells[0]),
-                    ParentalRating = cells[1] == string.Empty ? 0 : int.Parse(cells[1]),
+                    ParentalRating = value,
                 });
             }
 

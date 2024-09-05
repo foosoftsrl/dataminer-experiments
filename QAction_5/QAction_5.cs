@@ -66,6 +66,9 @@ public class QAction
             var parental = await ReadParentalRating(protocol);
             protocol.PublishParentalRatingTable(parental);
 
+            var parentalCheck = ParentalRatingProcessor.Compute(whatsonData, mediatorData, parental, protocol.ChannelName(), protocol.MuxName());
+            protocol.PublishParentalRatingCheckTable(parentalCheck);
+
             protocol.Mergeddebugmsg = $"Everything ok!";
         }
         catch (Exception e)
