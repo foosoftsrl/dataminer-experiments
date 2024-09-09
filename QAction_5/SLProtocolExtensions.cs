@@ -353,7 +353,7 @@
                     Parentalratingcheckwonpr = row.WhatsonData.ParentalRatingValue,
                     Parentalratingcheckhasmediatordata = row.MediatorData != null ? "ok" : "ko",
                     Parentalratingcheckcheckmediatordata = row.CheckMediatorData,
-                    Parentalratingcheckmediatorparentalrating = row.MediatorData.ParentalRatingValue,
+                    Parentalratingcheckmediatorparentalrating = row.MediatorData != null ? row.MediatorData?.ParentalRatingValue : string.Empty,
                     Parentalratingcheckhasprobedata = row.ParentalRatingRow != null,
                     Parentalratingcheckonairtimestamp = row.MuxTime,
                     Parentalratingcheckmessage = row.CheckResult,
