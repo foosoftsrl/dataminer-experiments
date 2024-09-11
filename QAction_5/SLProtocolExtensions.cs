@@ -352,9 +352,9 @@
                     Parentalratingchecktitle = row.WhatsonData.Title,
                     Parentalratingcheckwonpr = row.WhatsonData.ParentalRatingValue,
                     Parentalratingcheckhasmediatordata = row.MediatorData != null ? "ok" : "ko",
-                    Parentalratingcheckcheckmediatordata = row.CheckMediatorData,
+                    Parentalratingcheckcheckmediatordata = row.CheckMediatorData ? "ok" : "ko",
                     Parentalratingcheckmediatorparentalrating = row.MediatorData != null ? row.MediatorData?.ParentalRatingValue : string.Empty,
-                    Parentalratingcheckhasprobedata = row.ParentalRatingRow != null,
+                    Parentalratingcheckhasprobedata = row.ParentalRatingRow != null ? "ok" : "ko",
                     Parentalratingcheckonairtimestamp = row.MuxTime,
                     Parentalratingcheckmessage = row.CheckResult,
                 }.ToObjectArray());
