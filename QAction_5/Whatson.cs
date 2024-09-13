@@ -1,1414 +1,1189 @@
-﻿
-// NOTE: Generated code may require at least .NET Framework 4.5 or .NET Core/Standard 2.0.
-/// <remarks/>
-[System.SerializableAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
-[System.Xml.Serialization.XmlRootAttribute(Namespace = "", IsNullable = false)]
-public partial class Pharos
+﻿#pragma warning disable SA1516
+#pragma warning disable SA1505
+#pragma warning disable SA1605 // missing summary
+#pragma warning disable SA1300 // lowercase elements
+namespace Whatson
 {
+    // NOTE: Generated code may require at least .NET Framework 4.5 or .NET Core/Standard 2.0.
+    [System.SerializableAttribute]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+    [System.Xml.Serialization.XmlRootAttribute(Namespace = "", IsNullable = false)]
+    public partial class Pharos
+    {
 
-    private PharosImportMetaData importMetaDataField;
+        private PharosImportMetaData importMetaDataField;
 
-    private PharosPlaylist playlistField;
+        private Playlist playlistField;
 
-    private PharosMaterial[] materialField;
+        private PharosMaterial[] materialField;
 
-    /// <remarks/>
-    public PharosImportMetaData ImportMetaData
-    {
-        get
+        public PharosImportMetaData ImportMetaData
         {
-            return this.importMetaDataField;
+            get
+            {
+                return this.importMetaDataField;
+            }
+            set
+            {
+                this.importMetaDataField = value;
+            }
         }
-        set
-        {
-            this.importMetaDataField = value;
-        }
-    }
 
-    /// <remarks/>
-    public PharosPlaylist Playlist
-    {
-        get
-        {
-            return this.playlistField;
-        }
-        set
+        public Playlist Playlist
         {
-            this.playlistField = value;
+            get
+            {
+                return this.playlistField;
+            }
+            set
+            {
+                this.playlistField = value;
+            }
         }
-    }
 
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute("Material")]
-    public PharosMaterial[] Material
-    {
-        get
+        [System.Xml.Serialization.XmlElementAttribute("Material")]
+        public PharosMaterial[] Material
         {
-            return this.materialField;
+            get
+            {
+                return this.materialField;
+            }
+            set
+            {
+                this.materialField = value;
+            }
         }
-        set
-        {
-            this.materialField = value;
-        }
     }
-}
-
-/// <remarks/>
-[System.SerializableAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
-public partial class PharosImportMetaData
-{
-
-    private string noteField;
-
-    /// <remarks/>
-    public string Note
+
+    [System.SerializableAttribute]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+    public partial class PharosImportMetaData
     {
-        get
-        {
-            return this.noteField;
-        }
-        set
+
+        private string noteField;
+
+        public string Note
         {
-            this.noteField = value;
+            get
+            {
+                return this.noteField;
+            }
+
+            set
+            {
+                this.noteField = value;
+            }
         }
     }
-}
 
-/// <remarks/>
-[System.SerializableAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
-public partial class PharosPlaylist
-{
+    [System.SerializableAttribute]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+    public partial class Playlist
+    {
 
-    private string channelNameField;
+        private string channelNameField;
 
-    private PharosPlaylistBlock[] blockListField;
+        private Block[] blockListField;
 
-    private PharosPlaylistBookmark[] bookmarkListField;
+        private Bookmark[] bookmarkListField;
 
-    /// <remarks/>
-    public string ChannelName
-    {
-        get
-        {
-            return this.channelNameField;
-        }
-        set
+        public string ChannelName
         {
-            this.channelNameField = value;
+            get
+            {
+                return this.channelNameField;
+            }
+            set
+            {
+                this.channelNameField = value;
+            }
         }
-    }
 
-    /// <remarks/>
-    [System.Xml.Serialization.XmlArrayItemAttribute("Block", IsNullable = false)]
-    public PharosPlaylistBlock[] BlockList
-    {
-        get
-        {
-            return this.blockListField;
-        }
-        set
+        [System.Xml.Serialization.XmlArrayItemAttribute("Block", IsNullable = false)]
+        public Block[] BlockList
         {
-            this.blockListField = value;
+            get
+            {
+                return this.blockListField;
+            }
+            set
+            {
+                this.blockListField = value;
+            }
         }
-    }
 
-    /// <remarks/>
-    [System.Xml.Serialization.XmlArrayItemAttribute("Bookmark", IsNullable = false)]
-    public PharosPlaylistBookmark[] BookmarkList
-    {
-        get
+        [System.Xml.Serialization.XmlArrayItemAttribute("Bookmark", IsNullable = false)]
+        public Bookmark[] BookmarkList
         {
-            return this.bookmarkListField;
+            get
+            {
+                return this.bookmarkListField;
+            }
+            set
+            {
+                this.bookmarkListField = value;
+            }
         }
-        set
-        {
-            this.bookmarkListField = value;
-        }
     }
-}
-
-/// <remarks/>
-[System.SerializableAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
-public partial class PharosPlaylistBlock
-{
 
-    private ulong blockNameField;
-
-    private bool blockNameFieldSpecified;
-
-    private ulong previousBlockNameField;
+    [System.SerializableAttribute]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+    public partial class Block
+    {
 
-    private bool previousBlockNameFieldSpecified;
+        private ulong blockNameField;
 
-    private PharosPlaylistBlockPlaylistItem[] playlistItemField;
+        private bool blockNameFieldSpecified;
 
-    /// <remarks/>
-    public ulong BlockName
-    {
-        get
-        {
-            return this.blockNameField;
-        }
-        set
-        {
-            this.blockNameField = value;
-        }
-    }
+        private PlaylistItem[] playlistItemField;
 
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool BlockNameSpecified
-    {
-        get
-        {
-            return this.blockNameFieldSpecified;
-        }
-        set
+        public ulong BlockName
         {
-            this.blockNameFieldSpecified = value;
+            get
+            {
+                return this.blockNameField;
+            }
+            set
+            {
+                this.blockNameField = value;
+            }
         }
-    }
 
-    /// <remarks/>
-    public ulong PreviousBlockName
-    {
-        get
-        {
-            return this.previousBlockNameField;
-        }
-        set
+        [System.Xml.Serialization.XmlIgnoreAttribute]
+        public bool BlockNameSpecified
         {
-            this.previousBlockNameField = value;
+            get
+            {
+                return this.blockNameFieldSpecified;
+            }
+            set
+            {
+                this.blockNameFieldSpecified = value;
+            }
         }
-    }
 
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool PreviousBlockNameSpecified
-    {
-        get
+        [System.Xml.Serialization.XmlElementAttribute("PlaylistItem")]
+        public PlaylistItem[] PlaylistItem
         {
-            return this.previousBlockNameFieldSpecified;
+            get
+            {
+                return this.playlistItemField;
+            }
+            set
+            {
+                this.playlistItemField = value;
+            }
         }
-        set
-        {
-            this.previousBlockNameFieldSpecified = value;
-        }
     }
 
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute("PlaylistItem")]
-    public PharosPlaylistBlockPlaylistItem[] PlaylistItem
+    [System.SerializableAttribute]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+    public partial class PlaylistItem
     {
-        get
-        {
-            return this.playlistItemField;
-        }
-        set
-        {
-            this.playlistItemField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.SerializableAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
-public partial class PharosPlaylistBlockPlaylistItem
-{
 
-    private string itemReferenceField;
+        private string itemReferenceField;
 
-    private string startModeField;
+        private string startModeField;
 
-    private string startDateField;
+        private string startDateField;
 
-    private string startTimecodeField;
+        private string startTimecodeField;
 
-    private string scheduledDurationField;
+        private string scheduledDurationField;
 
-    private string scheduleReferenceField;
+        private string scheduleReferenceField;
 
-    private string scheduledTitleField;
+        private string scheduledTitleField;
 
-    private PharosPlaylistBlockPlaylistItemTemplate templateField;
+        private Template templateField;
 
-    /// <remarks/>
-    public string ItemReference
-    {
-        get
-        {
-            return this.itemReferenceField;
-        }
-        set
+        public string ItemReference
         {
-            this.itemReferenceField = value;
+            get
+            {
+                return this.itemReferenceField;
+            }
+            set
+            {
+                this.itemReferenceField = value;
+            }
         }
-    }
 
-    /// <remarks/>
-    public string StartMode
-    {
-        get
-        {
-            return this.startModeField;
-        }
-        set
+        public string StartMode
         {
-            this.startModeField = value;
+            get
+            {
+                return this.startModeField;
+            }
+            set
+            {
+                this.startModeField = value;
+            }
         }
-    }
 
-    /// <remarks/>
-    public string StartDate
-    {
-        get
-        {
-            return this.startDateField;
-        }
-        set
+        public string StartDate
         {
-            this.startDateField = value;
+            get
+            {
+                return this.startDateField;
+            }
+            set
+            {
+                this.startDateField = value;
+            }
         }
-    }
 
-    /// <remarks/>
-    public string StartTimecode
-    {
-        get
-        {
-            return this.startTimecodeField;
-        }
-        set
+        public string StartTimecode
         {
-            this.startTimecodeField = value;
+            get
+            {
+                return this.startTimecodeField;
+            }
+            set
+            {
+                this.startTimecodeField = value;
+            }
         }
-    }
 
-    /// <remarks/>
-    public string ScheduledDuration
-    {
-        get
+        public string ScheduledDuration
         {
-            return this.scheduledDurationField;
+            get
+            {
+                return this.scheduledDurationField;
+            }
+            set
+            {
+                this.scheduledDurationField = value;
+            }
         }
-        set
-        {
-            this.scheduledDurationField = value;
-        }
-    }
 
-    /// <remarks/>
-    public string ScheduleReference
-    {
-        get
-        {
-            return this.scheduleReferenceField;
-        }
-        set
+        public string ScheduleReference
         {
-            this.scheduleReferenceField = value;
+            get
+            {
+                return this.scheduleReferenceField;
+            }
+            set
+            {
+                this.scheduleReferenceField = value;
+            }
         }
-    }
 
-    /// <remarks/>
-    public string ScheduledTitle
-    {
-        get
+        public string ScheduledTitle
         {
-            return this.scheduledTitleField;
+            get
+            {
+                return this.scheduledTitleField;
+            }
+            set
+            {
+                this.scheduledTitleField = value;
+            }
         }
-        set
-        {
-            this.scheduledTitleField = value;
-        }
-    }
 
-    /// <remarks/>
-    public PharosPlaylistBlockPlaylistItemTemplate Template
-    {
-        get
-        {
-            return this.templateField;
-        }
-        set
+        public Template Template
         {
-            this.templateField = value;
+            get
+            {
+                return this.templateField;
+            }
+            set
+            {
+                this.templateField = value;
+            }
         }
     }
-}
 
-/// <remarks/>
-[System.SerializableAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
-public partial class PharosPlaylistBlockPlaylistItemTemplate
-{
+    [System.SerializableAttribute]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+    public partial class Template
+    {
 
-    private string templateNameField;
+        private string templateNameField;
 
-    private PharosPlaylistBlockPlaylistItemTemplateDataElement[] dataElementListField;
+        private DataElement[] dataElementListField;
 
-    /// <remarks/>
-    public string TemplateName
-    {
-        get
+        public string TemplateName
         {
-            return this.templateNameField;
+            get
+            {
+                return this.templateNameField;
+            }
+            set
+            {
+                this.templateNameField = value;
+            }
         }
-        set
-        {
-            this.templateNameField = value;
-        }
-    }
 
-    /// <remarks/>
-    [System.Xml.Serialization.XmlArrayItemAttribute("DataElement", IsNullable = false)]
-    public PharosPlaylistBlockPlaylistItemTemplateDataElement[] DataElementList
-    {
-        get
-        {
-            return this.dataElementListField;
-        }
-        set
+        [System.Xml.Serialization.XmlArrayItemAttribute("DataElement", IsNullable = false)]
+        public DataElement[] DataElementList
         {
-            this.dataElementListField = value;
+            get
+            {
+                return this.dataElementListField;
+            }
+            set
+            {
+                this.dataElementListField = value;
+            }
         }
     }
-}
 
-/// <remarks/>
-[System.SerializableAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
-public partial class PharosPlaylistBlockPlaylistItemTemplateDataElement
-{
+    [System.SerializableAttribute]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+    public partial class DataElement
+    {
 
-    private string nameField;
+        private string nameField;
 
-    private string typeField;
+        private string typeField;
 
-    private PharosPlaylistBlockPlaylistItemTemplateDataElementValue valueField;
+        private DataElementValue valueField;
 
-    /// <remarks/>
-    public string Name
-    {
-        get
-        {
-            return this.nameField;
-        }
-        set
+        public string Name
         {
-            this.nameField = value;
+            get
+            {
+                return this.nameField;
+            }
+            set
+            {
+                this.nameField = value;
+            }
         }
-    }
 
-    /// <remarks/>
-    public string Type
-    {
-        get
-        {
-            return this.typeField;
-        }
-        set
+        public string Type
         {
-            this.typeField = value;
+            get
+            {
+                return this.typeField;
+            }
+            set
+            {
+                this.typeField = value;
+            }
         }
-    }
 
-    /// <remarks/>
-    public PharosPlaylistBlockPlaylistItemTemplateDataElementValue Value
-    {
-        get
+        public DataElementValue Value
         {
-            return this.valueField;
+            get
+            {
+                return this.valueField;
+            }
+            set
+            {
+                this.valueField = value;
+            }
         }
-        set
-        {
-            this.valueField = value;
-        }
     }
-}
 
-/// <remarks/>
-[System.SerializableAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
-public partial class PharosPlaylistBlockPlaylistItemTemplateDataElementValue
-{
+    [System.SerializableAttribute]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+    public partial class DataElementValue
+    {
 
-    private PharosPlaylistBlockPlaylistItemTemplateDataElementValueDataElementCompoundList dataElementCompoundListField;
+        private DataElementCompoundList dataElementCompoundListField;
 
-    private string[] textField;
+        private string[] textField;
 
-    /// <remarks/>
-    public PharosPlaylistBlockPlaylistItemTemplateDataElementValueDataElementCompoundList DataElementCompoundList
-    {
-        get
-        {
-            return this.dataElementCompoundListField;
-        }
-        set
+        public DataElementCompoundList DataElementCompoundList
         {
-            this.dataElementCompoundListField = value;
+            get
+            {
+                return this.dataElementCompoundListField;
+            }
+            set
+            {
+                this.dataElementCompoundListField = value;
+            }
         }
-    }
 
-    /// <remarks/>
-    [System.Xml.Serialization.XmlTextAttribute()]
-    public string[] Text
-    {
-        get
-        {
-            return this.textField;
-        }
-        set
-        {
-            this.textField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.SerializableAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
-public partial class PharosPlaylistBlockPlaylistItemTemplateDataElementValueDataElementCompoundList
-{
-
-    private PharosPlaylistBlockPlaylistItemTemplateDataElementValueDataElementCompoundListDataElement[] dataElementListField;
-
-    /// <remarks/>
-    [System.Xml.Serialization.XmlArrayItemAttribute("DataElement", IsNullable = false)]
-    public PharosPlaylistBlockPlaylistItemTemplateDataElementValueDataElementCompoundListDataElement[] DataElementList
-    {
-        get
-        {
-            return this.dataElementListField;
-        }
-        set
+        [System.Xml.Serialization.XmlTextAttribute]
+        public string[] Text
         {
-            this.dataElementListField = value;
+            get
+            {
+                return this.textField;
+            }
+            set
+            {
+                this.textField = value;
+            }
         }
     }
-}
 
-/// <remarks/>
-[System.SerializableAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
-public partial class PharosPlaylistBlockPlaylistItemTemplateDataElementValueDataElementCompoundListDataElement
-{
-
-    private string nameField;
-
-    private string typeField;
-
-    private string valueField;
-
-    /// <remarks/>
-    public string Name
+    [System.SerializableAttribute]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+    public partial class DataElementCompoundList
     {
-        get
-        {
-            return this.nameField;
-        }
-        set
-        {
-            this.nameField = value;
-        }
-    }
 
-    /// <remarks/>
-    public string Type
-    {
-        get
-        {
-            return this.typeField;
-        }
-        set
-        {
-            this.typeField = value;
-        }
-    }
+        private DataElement[] dataElementListField;
 
-    /// <remarks/>
-    public string Value
-    {
-        get
+        [System.Xml.Serialization.XmlArrayItemAttribute("DataElement", IsNullable = false)]
+        public DataElement[] DataElementList
         {
-            return this.valueField;
+            get
+            {
+                return this.dataElementListField;
+            }
+            set
+            {
+                this.dataElementListField = value;
+            }
         }
-        set
-        {
-            this.valueField = value;
-        }
     }
-}
 
-/// <remarks/>
-[System.SerializableAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
-public partial class PharosPlaylistBookmark
-{
+    [System.SerializableAttribute]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+    public partial class Bookmark
+    {
 
-    private string userNameField;
+        private string userNameField;
 
-    private string notesField;
+        private string notesField;
 
-    private string colourField;
+        private string colourField;
 
-    private string topItemRefField;
+        private string topItemRefField;
 
-    private string bottomItemRefField;
+        private string bottomItemRefField;
 
-    /// <remarks/>
-    public string UserName
-    {
-        get
-        {
-            return this.userNameField;
-        }
-        set
+        public string UserName
         {
-            this.userNameField = value;
+            get
+            {
+                return this.userNameField;
+            }
+            set
+            {
+                this.userNameField = value;
+            }
         }
-    }
 
-    /// <remarks/>
-    public string Notes
-    {
-        get
+        public string Notes
         {
-            return this.notesField;
+            get
+            {
+                return this.notesField;
+            }
+            set
+            {
+                this.notesField = value;
+            }
         }
-        set
-        {
-            this.notesField = value;
-        }
-    }
 
-    /// <remarks/>
-    public string Colour
-    {
-        get
-        {
-            return this.colourField;
-        }
-        set
+        public string Colour
         {
-            this.colourField = value;
+            get
+            {
+                return this.colourField;
+            }
+            set
+            {
+                this.colourField = value;
+            }
         }
-    }
 
-    /// <remarks/>
-    public string TopItemRef
-    {
-        get
+        public string TopItemRef
         {
-            return this.topItemRefField;
+            get
+            {
+                return this.topItemRefField;
+            }
+            set
+            {
+                this.topItemRefField = value;
+            }
         }
-        set
-        {
-            this.topItemRefField = value;
-        }
-    }
 
-    /// <remarks/>
-    public string BottomItemRef
-    {
-        get
-        {
-            return this.bottomItemRefField;
-        }
-        set
+        public string BottomItemRef
         {
-            this.bottomItemRefField = value;
+            get
+            {
+                return this.bottomItemRefField;
+            }
+            set
+            {
+                this.bottomItemRefField = value;
+            }
         }
     }
-}
 
-/// <remarks/>
-[System.SerializableAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
-public partial class PharosMaterial
-{
+    [System.SerializableAttribute]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+    public partial class PharosMaterial
+    {
 
-    private string matIdField;
+        private string matIdField;
 
-    private string titleField;
+        private string titleField;
 
-    private string subTitleField;
+        private string subTitleField;
 
-    private string materialTypeField;
+        private string materialTypeField;
 
-    private PharosMaterialDuration durationField;
+        private PharosMaterialDuration durationField;
 
-    private PharosMaterialOwner ownerField;
+        private PharosMaterialOwner ownerField;
 
-    private PharosMaterialTrack[] trackField;
+        private PharosMaterialTrack[] trackField;
 
-    private PharosMaterialTrackTypeLink[] trackTypeLinkField;
+        private PharosMaterialTrackTypeLink[] trackTypeLinkField;
 
-    private PharosMaterialDataElement[] dataElementListField;
+        private DataElement[] dataElementListField;
 
-    private PharosMaterialMarker[] markerField;
+        private PharosMaterialMarker[] markerField;
 
-    private PharosMaterialSegment[] segmentListField;
+        private PharosMaterialSegment[] segmentListField;
 
-    /// <remarks/>
-    public string MatId
-    {
-        get
+        public string MatId
         {
-            return this.matIdField;
+            get
+            {
+                return this.matIdField;
+            }
+            set
+            {
+                this.matIdField = value;
+            }
         }
-        set
-        {
-            this.matIdField = value;
-        }
-    }
 
-    /// <remarks/>
-    public string Title
-    {
-        get
-        {
-            return this.titleField;
-        }
-        set
+        public string Title
         {
-            this.titleField = value;
+            get
+            {
+                return this.titleField;
+            }
+            set
+            {
+                this.titleField = value;
+            }
         }
-    }
 
-    /// <remarks/>
-    public string SubTitle
-    {
-        get
-        {
-            return this.subTitleField;
-        }
-        set
+        public string SubTitle
         {
-            this.subTitleField = value;
+            get
+            {
+                return this.subTitleField;
+            }
+            set
+            {
+                this.subTitleField = value;
+            }
         }
-    }
 
-    /// <remarks/>
-    public string MaterialType
-    {
-        get
-        {
-            return this.materialTypeField;
-        }
-        set
+        public string MaterialType
         {
-            this.materialTypeField = value;
+            get
+            {
+                return this.materialTypeField;
+            }
+            set
+            {
+                this.materialTypeField = value;
+            }
         }
-    }
 
-    /// <remarks/>
-    public PharosMaterialDuration Duration
-    {
-        get
+        public PharosMaterialDuration Duration
         {
-            return this.durationField;
+            get
+            {
+                return this.durationField;
+            }
+            set
+            {
+                this.durationField = value;
+            }
         }
-        set
-        {
-            this.durationField = value;
-        }
-    }
 
-    /// <remarks/>
-    public PharosMaterialOwner Owner
-    {
-        get
-        {
-            return this.ownerField;
-        }
-        set
+        public PharosMaterialOwner Owner
         {
-            this.ownerField = value;
+            get
+            {
+                return this.ownerField;
+            }
+            set
+            {
+                this.ownerField = value;
+            }
         }
-    }
 
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute("Track")]
-    public PharosMaterialTrack[] Track
-    {
-        get
+        [System.Xml.Serialization.XmlElementAttribute("Track")]
+        public PharosMaterialTrack[] Track
         {
-            return this.trackField;
+            get
+            {
+                return this.trackField;
+            }
+            set
+            {
+                this.trackField = value;
+            }
         }
-        set
-        {
-            this.trackField = value;
-        }
-    }
 
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute("TrackTypeLink")]
-    public PharosMaterialTrackTypeLink[] TrackTypeLink
-    {
-        get
-        {
-            return this.trackTypeLinkField;
-        }
-        set
+        [System.Xml.Serialization.XmlElementAttribute("TrackTypeLink")]
+        public PharosMaterialTrackTypeLink[] TrackTypeLink
         {
-            this.trackTypeLinkField = value;
+            get
+            {
+                return this.trackTypeLinkField;
+            }
+            set
+            {
+                this.trackTypeLinkField = value;
+            }
         }
-    }
 
-    /// <remarks/>
-    [System.Xml.Serialization.XmlArrayItemAttribute("DataElement", IsNullable = false)]
-    public PharosMaterialDataElement[] DataElementList
-    {
-        get
+        [System.Xml.Serialization.XmlArrayItemAttribute("DataElement", IsNullable = false)]
+        public DataElement[] DataElementList
         {
-            return this.dataElementListField;
+            get
+            {
+                return this.dataElementListField;
+            }
+            set
+            {
+                this.dataElementListField = value;
+            }
         }
-        set
-        {
-            this.dataElementListField = value;
-        }
-    }
 
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute("Marker")]
-    public PharosMaterialMarker[] Marker
-    {
-        get
-        {
-            return this.markerField;
-        }
-        set
+        [System.Xml.Serialization.XmlElementAttribute("Marker")]
+        public PharosMaterialMarker[] Marker
         {
-            this.markerField = value;
+            get
+            {
+                return this.markerField;
+            }
+            set
+            {
+                this.markerField = value;
+            }
         }
-    }
 
-    /// <remarks/>
-    [System.Xml.Serialization.XmlArrayItemAttribute("Segment", IsNullable = false)]
-    public PharosMaterialSegment[] SegmentList
-    {
-        get
-        {
-            return this.segmentListField;
-        }
-        set
+        [System.Xml.Serialization.XmlArrayItemAttribute("Segment", IsNullable = false)]
+        public PharosMaterialSegment[] SegmentList
         {
-            this.segmentListField = value;
+            get
+            {
+                return this.segmentListField;
+            }
+            set
+            {
+                this.segmentListField = value;
+            }
         }
     }
-}
 
-/// <remarks/>
-[System.SerializableAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
-public partial class PharosMaterialDuration
-{
+    [System.SerializableAttribute]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+    public partial class PharosMaterialDuration
+    {
 
-    private string rateField;
+        private string rateField;
 
-    private string valueField;
+        private string valueField;
 
-    /// <remarks/>
-    [System.Xml.Serialization.XmlAttributeAttribute()]
-    public string rate
-    {
-        get
-        {
-            return this.rateField;
-        }
-        set
+        [System.Xml.Serialization.XmlAttributeAttribute]
+        public string rate
         {
-            this.rateField = value;
+            get
+            {
+                return this.rateField;
+            }
+            set
+            {
+                this.rateField = value;
+            }
         }
-    }
 
-    /// <remarks/>
-    [System.Xml.Serialization.XmlTextAttribute()]
-    public string Value
-    {
-        get
-        {
-            return this.valueField;
-        }
-        set
-        {
-            this.valueField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.SerializableAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
-public partial class PharosMaterialOwner
-{
-
-    private string nameField;
-
-    /// <remarks/>
-    public string Name
-    {
-        get
+        [System.Xml.Serialization.XmlTextAttribute]
+        public string Value
         {
-            return this.nameField;
+            get
+            {
+                return this.valueField;
+            }
+            set
+            {
+                this.valueField = value;
+            }
         }
-        set
-        {
-            this.nameField = value;
-        }
     }
-}
-
-/// <remarks/>
-[System.SerializableAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
-public partial class PharosMaterialTrack
-{
 
-    private string mediaNameField;
+    [System.SerializableAttribute]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+    public partial class PharosMaterialOwner
+    {
 
-    private PharosMaterialTrackTrackDefinition trackDefinitionField;
+        private string nameField;
 
-    /// <remarks/>
-    public string MediaName
-    {
-        get
+        public string Name
         {
-            return this.mediaNameField;
+            get
+            {
+                return this.nameField;
+            }
+            set
+            {
+                this.nameField = value;
+            }
         }
-        set
-        {
-            this.mediaNameField = value;
-        }
     }
 
-    /// <remarks/>
-    public PharosMaterialTrackTrackDefinition TrackDefinition
+    [System.SerializableAttribute]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+    public partial class PharosMaterialTrack
     {
-        get
-        {
-            return this.trackDefinitionField;
-        }
-        set
-        {
-            this.trackDefinitionField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.SerializableAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
-public partial class PharosMaterialTrackTrackDefinition
-{
 
-    private string trackTypeNameField;
+        private string mediaNameField;
 
-    private PharosMaterialTrackTrackDefinitionTrackFile trackFileField;
-
-    private byte positionField;
-
-    private bool positionFieldSpecified;
-
-    /// <remarks/>
-    public string TrackTypeName
-    {
-        get
-        {
-            return this.trackTypeNameField;
-        }
-        set
-        {
-            this.trackTypeNameField = value;
-        }
-    }
+        private PharosMaterialTrackTrackDefinition trackDefinitionField;
 
-    /// <remarks/>
-    public PharosMaterialTrackTrackDefinitionTrackFile TrackFile
-    {
-        get
-        {
-            return this.trackFileField;
-        }
-        set
+        public string MediaName
         {
-            this.trackFileField = value;
+            get
+            {
+                return this.mediaNameField;
+            }
+            set
+            {
+                this.mediaNameField = value;
+            }
         }
-    }
 
-    /// <remarks/>
-    public byte Position
-    {
-        get
+        public PharosMaterialTrackTrackDefinition TrackDefinition
         {
-            return this.positionField;
+            get
+            {
+                return this.trackDefinitionField;
+            }
+            set
+            {
+                this.trackDefinitionField = value;
+            }
         }
-        set
-        {
-            this.positionField = value;
-        }
     }
 
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool PositionSpecified
-    {
-        get
-        {
-            return this.positionFieldSpecified;
-        }
-        set
-        {
-            this.positionFieldSpecified = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.SerializableAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
-public partial class PharosMaterialTrackTrackDefinitionTrackFile
-{
-
-    private string nameField;
-
-    /// <remarks/>
-    public string Name
+    [System.SerializableAttribute]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+    public partial class PharosMaterialTrackTrackDefinition
     {
-        get
-        {
-            return this.nameField;
-        }
-        set
-        {
-            this.nameField = value;
-        }
-    }
-}
 
-/// <remarks/>
-[System.SerializableAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
-public partial class PharosMaterialTrackTypeLink
-{
+        private string trackTypeNameField;
 
-    private string trackTypeNameField;
+        private PharosMaterialTrackTrackDefinitionTrackFile trackFileField;
 
-    private string stateMachineField;
+        private byte positionField;
 
-    private string stateNameField;
+        private bool positionFieldSpecified;
 
-    /// <remarks/>
-    public string TrackTypeName
-    {
-        get
+        public string TrackTypeName
         {
-            return this.trackTypeNameField;
+            get
+            {
+                return this.trackTypeNameField;
+            }
+            set
+            {
+                this.trackTypeNameField = value;
+            }
         }
-        set
+
+        public PharosMaterialTrackTrackDefinitionTrackFile TrackFile
         {
-            this.trackTypeNameField = value;
+            get
+            {
+                return this.trackFileField;
+            }
+            set
+            {
+                this.trackFileField = value;
+            }
         }
-    }
 
-    /// <remarks/>
-    public string StateMachine
-    {
-        get
+        public byte Position
         {
-            return this.stateMachineField;
+            get
+            {
+                return this.positionField;
+            }
+            set
+            {
+                this.positionField = value;
+            }
         }
-        set
+
+        [System.Xml.Serialization.XmlIgnoreAttribute]
+        public bool PositionSpecified
         {
-            this.stateMachineField = value;
+            get
+            {
+                return this.positionFieldSpecified;
+            }
+            set
+            {
+                this.positionFieldSpecified = value;
+            }
         }
     }
 
-    /// <remarks/>
-    public string StateName
+    [System.SerializableAttribute]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+    public partial class PharosMaterialTrackTrackDefinitionTrackFile
     {
-        get
-        {
-            return this.stateNameField;
-        }
-        set
+
+        private string nameField;
+
+        public string Name
         {
-            this.stateNameField = value;
+            get
+            {
+                return this.nameField;
+            }
+            set
+            {
+                this.nameField = value;
+            }
         }
     }
-}
 
-/// <remarks/>
-[System.SerializableAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
-public partial class PharosMaterialDataElement
-{
+    [System.SerializableAttribute]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+    public partial class PharosMaterialTrackTypeLink
+    {
 
-    private string nameField;
+        private string trackTypeNameField;
 
-    private string typeField;
+        private string stateMachineField;
 
-    private string valueField;
+        private string stateNameField;
 
-    /// <remarks/>
-    public string Name
-    {
-        get
+        public string TrackTypeName
         {
-            return this.nameField;
+            get
+            {
+                return this.trackTypeNameField;
+            }
+            set
+            {
+                this.trackTypeNameField = value;
+            }
         }
-        set
-        {
-            this.nameField = value;
-        }
-    }
 
-    /// <remarks/>
-    public string Type
-    {
-        get
-        {
-            return this.typeField;
-        }
-        set
+        public string StateMachine
         {
-            this.typeField = value;
+            get
+            {
+                return this.stateMachineField;
+            }
+            set
+            {
+                this.stateMachineField = value;
+            }
         }
-    }
 
-    /// <remarks/>
-    public string Value
-    {
-        get
+        public string StateName
         {
-            return this.valueField;
+            get
+            {
+                return this.stateNameField;
+            }
+            set
+            {
+                this.stateNameField = value;
+            }
         }
-        set
-        {
-            this.valueField = value;
-        }
     }
-}
 
-/// <remarks/>
-[System.SerializableAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
-public partial class PharosMaterialMarker
-{
+    [System.SerializableAttribute]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+    public partial class PharosMaterialMarker
+    {
 
-    private string markerTypeField;
+        private string markerTypeField;
 
-    private PharosMaterialMarkerTimecode timecodeField;
+        private PharosMaterialMarkerTimecode timecodeField;
 
-    /// <remarks/>
-    public string MarkerType
-    {
-        get
-        {
-            return this.markerTypeField;
-        }
-        set
+        public string MarkerType
         {
-            this.markerTypeField = value;
+            get
+            {
+                return this.markerTypeField;
+            }
+            set
+            {
+                this.markerTypeField = value;
+            }
         }
-    }
 
-    /// <remarks/>
-    public PharosMaterialMarkerTimecode Timecode
-    {
-        get
+        public PharosMaterialMarkerTimecode Timecode
         {
-            return this.timecodeField;
+            get
+            {
+                return this.timecodeField;
+            }
+            set
+            {
+                this.timecodeField = value;
+            }
         }
-        set
-        {
-            this.timecodeField = value;
-        }
     }
-}
 
-/// <remarks/>
-[System.SerializableAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
-public partial class PharosMaterialMarkerTimecode
-{
+    [System.SerializableAttribute]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+    public partial class PharosMaterialMarkerTimecode
+    {
 
-    private string rateField;
+        private string rateField;
 
-    private string valueField;
+        private string valueField;
 
-    /// <remarks/>
-    [System.Xml.Serialization.XmlAttributeAttribute()]
-    public string rate
-    {
-        get
-        {
-            return this.rateField;
-        }
-        set
+        [System.Xml.Serialization.XmlAttributeAttribute]
+        public string rate
         {
-            this.rateField = value;
+            get
+            {
+                return this.rateField;
+            }
+            set
+            {
+                this.rateField = value;
+            }
         }
-    }
 
-    /// <remarks/>
-    [System.Xml.Serialization.XmlTextAttribute()]
-    public string Value
-    {
-        get
+        [System.Xml.Serialization.XmlTextAttribute]
+        public string Value
         {
-            return this.valueField;
+            get
+            {
+                return this.valueField;
+            }
+            set
+            {
+                this.valueField = value;
+            }
         }
-        set
-        {
-            this.valueField = value;
-        }
     }
-}
 
-/// <remarks/>
-[System.SerializableAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
-public partial class PharosMaterialSegment
-{
+    [System.SerializableAttribute]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+    public partial class PharosMaterialSegment
+    {
 
-    private string nameField;
+        private string nameField;
 
-    private PharosMaterialSegmentSegmentGroup segmentGroupField;
+        private PharosMaterialSegmentSegmentGroup segmentGroupField;
 
-    private PharosMaterialSegmentSegmentType segmentTypeField;
+        private PharosMaterialSegmentSegmentType segmentTypeField;
 
-    private byte indexField;
+        private byte indexField;
 
-    private PharosMaterialSegmentMarkerIn markerInField;
+        private PharosMaterialSegmentMarkerIn markerInField;
 
-    private PharosMaterialSegmentMarkerOut markerOutField;
+        private PharosMaterialSegmentMarkerOut markerOutField;
 
-    /// <remarks/>
-    public string Name
-    {
-        get
-        {
-            return this.nameField;
-        }
-        set
+        public string Name
         {
-            this.nameField = value;
+            get
+            {
+                return this.nameField;
+            }
+            set
+            {
+                this.nameField = value;
+            }
         }
-    }
 
-    /// <remarks/>
-    public PharosMaterialSegmentSegmentGroup SegmentGroup
-    {
-        get
-        {
-            return this.segmentGroupField;
-        }
-        set
+        public PharosMaterialSegmentSegmentGroup SegmentGroup
         {
-            this.segmentGroupField = value;
+            get
+            {
+                return this.segmentGroupField;
+            }
+            set
+            {
+                this.segmentGroupField = value;
+            }
         }
-    }
 
-    /// <remarks/>
-    public PharosMaterialSegmentSegmentType SegmentType
-    {
-        get
-        {
-            return this.segmentTypeField;
-        }
-        set
+        public PharosMaterialSegmentSegmentType SegmentType
         {
-            this.segmentTypeField = value;
+            get
+            {
+                return this.segmentTypeField;
+            }
+            set
+            {
+                this.segmentTypeField = value;
+            }
         }
-    }
 
-    /// <remarks/>
-    public byte Index
-    {
-        get
+        public byte Index
         {
-            return this.indexField;
+            get
+            {
+                return this.indexField;
+            }
+            set
+            {
+                this.indexField = value;
+            }
         }
-        set
-        {
-            this.indexField = value;
-        }
-    }
 
-    /// <remarks/>
-    public PharosMaterialSegmentMarkerIn MarkerIn
-    {
-        get
-        {
-            return this.markerInField;
-        }
-        set
+        public PharosMaterialSegmentMarkerIn MarkerIn
         {
-            this.markerInField = value;
+            get
+            {
+                return this.markerInField;
+            }
+            set
+            {
+                this.markerInField = value;
+            }
         }
-    }
 
-    /// <remarks/>
-    public PharosMaterialSegmentMarkerOut MarkerOut
-    {
-        get
+        public PharosMaterialSegmentMarkerOut MarkerOut
         {
-            return this.markerOutField;
+            get
+            {
+                return this.markerOutField;
+            }
+            set
+            {
+                this.markerOutField = value;
+            }
         }
-        set
-        {
-            this.markerOutField = value;
-        }
     }
-}
-
-/// <remarks/>
-[System.SerializableAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
-public partial class PharosMaterialSegmentSegmentGroup
-{
-
-    private string nameField;
-
-    /// <remarks/>
-    public string Name
+
+    [System.SerializableAttribute]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+    public partial class PharosMaterialSegmentSegmentGroup
     {
-        get
-        {
-            return this.nameField;
-        }
-        set
+
+        private string nameField;
+
+        public string Name
         {
-            this.nameField = value;
+            get
+            {
+                return this.nameField;
+            }
+            set
+            {
+                this.nameField = value;
+            }
         }
     }
-}
-
-/// <remarks/>
-[System.SerializableAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
-public partial class PharosMaterialSegmentSegmentType
-{
-
-    private string nameField;
-
-    /// <remarks/>
-    public string Name
+
+    [System.SerializableAttribute]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+    public partial class PharosMaterialSegmentSegmentType
     {
-        get
-        {
-            return this.nameField;
-        }
-        set
+
+        private string nameField;
+
+        public string Name
         {
-            this.nameField = value;
+            get
+            {
+                return this.nameField;
+            }
+            set
+            {
+                this.nameField = value;
+            }
         }
     }
-}
 
-/// <remarks/>
-[System.SerializableAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
-public partial class PharosMaterialSegmentMarkerIn
-{
+    [System.SerializableAttribute]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+    public partial class PharosMaterialSegmentMarkerIn
+    {
 
-    private string timecodeField;
+        private string timecodeField;
 
-    private string frameRateField;
+        private string frameRateField;
 
-    /// <remarks/>
-    public string Timecode
-    {
-        get
+        public string Timecode
         {
-            return this.timecodeField;
+            get
+            {
+                return this.timecodeField;
+            }
+            set
+            {
+                this.timecodeField = value;
+            }
         }
-        set
-        {
-            this.timecodeField = value;
-        }
-    }
 
-    /// <remarks/>
-    public string FrameRate
-    {
-        get
-        {
-            return this.frameRateField;
-        }
-        set
+        public string FrameRate
         {
-            this.frameRateField = value;
+            get
+            {
+                return this.frameRateField;
+            }
+            set
+            {
+                this.frameRateField = value;
+            }
         }
     }
-}
 
-/// <remarks/>
-[System.SerializableAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
-public partial class PharosMaterialSegmentMarkerOut
-{
+    [System.SerializableAttribute]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+    public partial class PharosMaterialSegmentMarkerOut
+    {
 
-    private string timecodeField;
+        private string timecodeField;
 
-    private string frameRateField;
+        private string frameRateField;
 
-    /// <remarks/>
-    public string Timecode
-    {
-        get
+        public string Timecode
         {
-            return this.timecodeField;
+            get
+            {
+                return this.timecodeField;
+            }
+            set
+            {
+                this.timecodeField = value;
+            }
         }
-        set
-        {
-            this.timecodeField = value;
-        }
-    }
 
-    /// <remarks/>
-    public string FrameRate
-    {
-        get
-        {
-            return this.frameRateField;
-        }
-        set
+        public string FrameRate
         {
-            this.frameRateField = value;
+            get
+            {
+                return this.frameRateField;
+            }
+            set
+            {
+                this.frameRateField = value;
+            }
         }
     }
 }

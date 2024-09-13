@@ -22,8 +22,10 @@
                     result[payload] = row;
                 }
             }
+
             return result;
         }
+
         public static Dictionary<String, EnablerRow> ToEventNamePayloadMap(this List<EnablerRow> rows)
         {
             var result = new Dictionary<String, EnablerRow>();
@@ -37,8 +39,8 @@
                     result[row.EventName + ":" + payload] = row;
                 }
             }
+
             return result;
         }
-
     }
 }

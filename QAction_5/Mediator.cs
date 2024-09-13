@@ -1,4 +1,4 @@
-﻿/// Generated here: https://app.quicktype.io/?l=csharp
+﻿// Generated here: https://app.quicktype.io/?l=csharp
 namespace Mediator
 {
     using System;
@@ -242,16 +242,10 @@ namespace Mediator
         public long Size { get; set; }
 
         [JsonProperty("Object")]
-        public StickyObject[] Object { get; set; }
+        public TemplateParameterListElement[] Object { get; set; }
     }
 
-    public partial class StickyObject
-    {
-        [JsonProperty("TemplateParameter")]
-        public ObjectTemplateParameter[] TemplateParameter { get; set; }
-    }
-
-    public partial class ObjectTemplateParameter
+    public partial class TemplateParameter
     {
         [JsonProperty("GeneralType")]
         public GeneralType GeneralType { get; set; }
@@ -284,31 +278,33 @@ namespace Mediator
     public partial class TemplateParameterListElement
     {
         [JsonProperty("TemplateParameter")]
-        public TemplateParameterListTemplateParameter[] TemplateParameter { get; set; }
+        public TemplateParameter[] TemplateParameter { get; set; }
     }
 
-    public partial class TemplateParameterListTemplateParameter
+    public enum Rate
     {
-        [JsonProperty("GeneralType")]
-        public GeneralType GeneralType { get; set; }
-
-        [JsonProperty("Name")]
-        public string Name { get; set; }
-
-        [JsonProperty("Value")]
-        public string Value { get; set; }
-
-        [JsonProperty("Type")]
-        public TypeEnum Type { get; set; }
+        Ndf25,
     }
 
-    public enum Rate { Ndf25 };
+    public enum MachineStatus
+    {
+        Done,
+        Error,
+        Play,
+        PlayCued,
+        Unknown,
+    }
 
-    public enum MachineStatus { Done, Error, Play, PlayCued, Unknown };
+    public enum GeneralType
+    {
+        String,
+        TemplateParameterListCompound,
+    }
 
-    public enum GeneralType { String, TemplateParameterListCompound };
-
-    public enum TypeEnum { TemplateParameter };
+    public enum TypeEnum
+    {
+        TemplateParameter,
+    }
 
     public static class TemplateParameterName
     {
@@ -317,6 +313,10 @@ namespace Mediator
         public static readonly string AdSalesContentReconcileKeyText = "adSalesContentReconcileKey-text";
         public static readonly string ScteBroadcastBreakStartInsertSegmentationDescriptor = "scteBroadcastBreakStart-insertSegmentationDescriptor";
         public static readonly string ScteBroadcastProviderAdvStartInsertSegmentationDescriptor = "scteBroadcastProviderAdvStart-insertSegmentationDescriptor";
+        public static readonly string ScteBroadcastProviderOverlayPlacementStartCompoundList = "scteBroadcastProviderOverlayPlacementStart-compoundList";
+        public static readonly string ScteBroadcastProviderOverlayPlacementStartInsertSegmentationDescriptor = "scteBroadcastProviderOverlayPlacementStart-insertSegmentationDescriptor";
+        public static readonly string ScteBroadcastProviderOverlayPlacementEndCompoundList = "scteBroadcastProviderOverlayPlacementEnd-compoundList";
+        public static readonly string ScteBroadcastProviderOverlayPlacementEndInsertSegmentationDescriptor = "scteBroadcastProviderOverlayPlacementEnd-insertSegmentationDescriptor";
         public static readonly string EnablerLegacyCompoundList = "enablerLegacy-compoundList";
     }
 
@@ -325,8 +325,9 @@ namespace Mediator
         public string String;
         public ValueClass ValueClass;
 
-        public static implicit operator ValueUnion(string String) => new ValueUnion { String = String };
-        public static implicit operator ValueUnion(ValueClass ValueClass) => new ValueUnion { ValueClass = ValueClass };
+        public static implicit operator ValueUnion(string value) => new ValueUnion { String = value };
+
+        public static implicit operator ValueUnion(ValueClass value) => new ValueUnion { ValueClass = value };
     }
 
     public static class Converter
@@ -342,7 +343,7 @@ namespace Mediator
                 GeneralTypeConverter.Singleton,
                 TypeEnumConverter.Singleton,
                 ValueUnionConverter.Singleton,
-                new IsoDateTimeConverter { DateTimeStyles = DateTimeStyles.AssumeUniversal }
+                new IsoDateTimeConverter { DateTimeStyles = DateTimeStyles.AssumeUniversal },
             },
         };
     }
@@ -353,12 +354,14 @@ namespace Mediator
 
         public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
         {
-            if (reader.TokenType == JsonToken.Null) return null;
+            if (reader.TokenType == JsonToken.Null)
+                return null;
             var value = serializer.Deserialize<string>(reader);
             if (value == "NDF25")
             {
                 return Rate.Ndf25;
             }
+
             throw new Exception("Cannot unmarshal type Rate");
         }
 
@@ -369,12 +372,14 @@ namespace Mediator
                 serializer.Serialize(writer, null);
                 return;
             }
+
             var value = (Rate)untypedValue;
             if (value == Rate.Ndf25)
             {
                 serializer.Serialize(writer, "NDF25");
                 return;
             }
+
             throw new Exception("Cannot marshal type Rate");
         }
 
@@ -387,7 +392,8 @@ namespace Mediator
 
         public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
         {
-            if (reader.TokenType == JsonToken.Null) return null;
+            if (reader.TokenType == JsonToken.Null)
+                return null;
             var value = serializer.Deserialize<string>(reader);
             switch (value)
             {
@@ -402,6 +408,7 @@ namespace Mediator
                 case "Unknown":
                     return MachineStatus.Unknown;
             }
+
             throw new Exception("Cannot unmarshal type MachineStatus");
         }
 
@@ -412,6 +419,7 @@ namespace Mediator
                 serializer.Serialize(writer, null);
                 return;
             }
+
             var value = (MachineStatus)untypedValue;
             switch (value)
             {
@@ -431,6 +439,7 @@ namespace Mediator
                     serializer.Serialize(writer, "Unknown");
                     return;
             }
+
             throw new Exception("Cannot marshal type MachineStatus");
         }
 
@@ -443,7 +452,8 @@ namespace Mediator
 
         public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
         {
-            if (reader.TokenType == JsonToken.Null) return null;
+            if (reader.TokenType == JsonToken.Null)
+                return null;
             var value = serializer.Deserialize<string>(reader);
             switch (value)
             {
@@ -452,6 +462,7 @@ namespace Mediator
                 case "TemplateParameterListCompound":
                     return GeneralType.TemplateParameterListCompound;
             }
+
             throw new Exception("Cannot unmarshal type GeneralType");
         }
 
@@ -462,6 +473,7 @@ namespace Mediator
                 serializer.Serialize(writer, null);
                 return;
             }
+
             var value = (GeneralType)untypedValue;
             switch (value)
             {
@@ -472,12 +484,12 @@ namespace Mediator
                     serializer.Serialize(writer, "TemplateParameterListCompound");
                     return;
             }
+
             throw new Exception("Cannot marshal type GeneralType");
         }
 
         public static readonly GeneralTypeConverter Singleton = new GeneralTypeConverter();
     }
-
 
     internal class TypeEnumConverter : JsonConverter
     {
@@ -485,12 +497,14 @@ namespace Mediator
 
         public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
         {
-            if (reader.TokenType == JsonToken.Null) return null;
+            if (reader.TokenType == JsonToken.Null)
+                return null;
             var value = serializer.Deserialize<string>(reader);
             if (value == "template parameter")
             {
                 return TypeEnum.TemplateParameter;
             }
+
             throw new Exception("Cannot unmarshal type TypeEnum");
         }
 
@@ -501,12 +515,14 @@ namespace Mediator
                 serializer.Serialize(writer, null);
                 return;
             }
+
             var value = (TypeEnum)untypedValue;
             if (value == TypeEnum.TemplateParameter)
             {
                 serializer.Serialize(writer, "template parameter");
                 return;
             }
+
             throw new Exception("Cannot marshal type TypeEnum");
         }
 
@@ -529,6 +545,7 @@ namespace Mediator
                     var objectValue = serializer.Deserialize<ValueClass>(reader);
                     return new ValueUnion { ValueClass = objectValue };
             }
+
             throw new Exception("Cannot unmarshal type ValueUnion");
         }
 
@@ -540,11 +557,13 @@ namespace Mediator
                 serializer.Serialize(writer, value.String);
                 return;
             }
+
             if (value.ValueClass != null)
             {
                 serializer.Serialize(writer, value.ValueClass);
                 return;
             }
+
             throw new Exception("Cannot marshal type ValueUnion");
         }
 

@@ -17,7 +17,7 @@ namespace AdSales {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.8.3928.0")]
-    [System.SerializableAttribute()]
+    [System.SerializableAttribute]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlRootAttribute("Data", Namespace="", IsNullable=false)]
@@ -66,7 +66,7 @@ namespace AdSales {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.8.3928.0")]
-    [System.SerializableAttribute()]
+    [System.SerializableAttribute]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class BreakType {
@@ -231,7 +231,7 @@ namespace AdSales {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.8.3928.0")]
-    [System.SerializableAttribute()]
+    [System.SerializableAttribute]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class TimeAllocationType {
@@ -383,7 +383,7 @@ namespace AdSales {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.8.3928.0")]
-    [System.SerializableAttribute()]
+    [System.SerializableAttribute]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class ContentType {
@@ -587,7 +587,7 @@ namespace AdSales {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlTextAttribute()]
+        [System.Xml.Serialization.XmlTextAttribute]
         public string[] Text {
             get {
                 return this.textField;

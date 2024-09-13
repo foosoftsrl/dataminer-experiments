@@ -27,45 +27,61 @@ public class QAction
     private MediatorSource mediatorSource = new MediatorSource();
     private WhatsonSource whatsonSource = new WhatsonSource();
     private EnablerSource enablerSource = new EnablerSource();
+    private ParentalRatingSource parentalRatingSource = new ParentalRatingSource();
 
-    /// <summary>
-    /// The QAction entry point.
-    /// </summary>
-    /// <param name="protocol">Link with SLProtocol process.</param>
     public async Task Run(SLProtocolExt protocol)
     {
-        protocol.Mergediterationcounter = (double)protocol.Mergediterationcounter + 1;
+        protocol.Iterationcounter = (double)protocol.Iterationcounter + 1;
         try
         {
-            var adSalesData = ReadAdSalesData(protocol);
+            var adSalesData = ReadAdSalesData(protocol);        // Complete AdSales data
             protocol.PublishAdsalesTable(adSalesData);
+            var adSalesDataNoPush = adSalesData.FindAll(row => row.Enabler != "P");
+
             var whatsonData = ReadWhatsonData(protocol);
             protocol.PublishWhatsonTable(whatsonData);
+            var whatsonDataSpot = whatsonData.FilterSpots();
+
             var mediatorData = await ReadMediatorData(protocol);
             protocol.PublishMediatorTable(mediatorData);
+            var mediatorDataSpot = mediatorData.FilterSpots().OrderBy(row => row.StartTime).ToList();
+
             var legacy = await ReadEnablerLegacy(protocol);
             protocol.PublishEnablerLegacyTable(legacy);
+
             var scte = await ReadEnablerScte(protocol);
             protocol.PublishScteTable(scte);
 
-            var mergedRows = Merger.Merge(adSalesData, whatsonData, mediatorData, scte, legacy);
-            protocol.PublishMergedTable(mergedRows);
-            protocol.PublishXPrintTable(adSalesData, whatsonData, mediatorData);
+            var mergedRows = TaCheckProcessor.Compute(adSalesData, whatsonData, mediatorData, scte, legacy, protocol.ChannelName(), protocol.MuxName());
+            protocol.PublishTaCheckTable(mergedRows);
+
+            var adsalesWonDiff = XPrint.ComputeAdSalesWhatsonDiff(adSalesDataNoPush, whatsonDataSpot);
+            protocol.PublishAdSalesWhatsonDiffTable(adsalesWonDiff);
+
+            var wonMediatorDiff = XPrint.ComputeWhatsonMediatorDiff(whatsonDataSpot, mediatorDataSpot);
+            protocol.PublishMediatorWonDiffTable(wonMediatorDiff);
+
+            protocol.PublishAlarmBoxData(adSalesDataNoPush, whatsonDataSpot, mediatorDataSpot, adsalesWonDiff, wonMediatorDiff);
+
+            var parental = await ReadParentalRating(protocol);
+            protocol.PublishParentalRatingTable(parental);
+
+            var parentalCheck = ParentalRatingProcessor.Compute(whatsonData, mediatorData, parental, protocol.ChannelName(), protocol.MuxName());
+            protocol.PublishParentalRatingCheckTable(parentalCheck);
+
             protocol.Mergeddebugmsg = $"Everything ok!";
         }
         catch (Exception e)
         {
-            protocol.Mergeddebugmsg = $"Exception {e.Message} ${e.StackTrace.Substring(0,100)}";
+            protocol.Mergeddebugmsg = $"Exception {e.Message} ${e.StackTrace.Substring(0,200)}";
         }
-
     }
-
 
     public async Task<List<EnablerRow>> ReadEnablerLegacy(SLProtocolExt protocol)
     {
         try
         {
-            var url = $"{protocol.Probeurl}legacy?channel={protocol.channelName()}";
+            var url = $"{protocol.Probeurl}legacy?channel={protocol.ChannelName()}";
             var rows = await enablerSource.ReadEnabler(url);
             protocol.Legacydebugmsg = "Everything ok...";
             return rows;
@@ -81,7 +97,7 @@ public class QAction
     {
         try
         {
-            var url = $"{protocol.Probeurl}scte?channel={protocol.channelName()}";
+            var url = $"{protocol.Probeurl}scte?channel={protocol.ChannelName()}";
             var rows = await enablerSource.ReadEnabler(url);
             protocol.Sctedebugmsg = "Everything ok...";
             return rows;
@@ -95,7 +111,7 @@ public class QAction
 
     public List<WhatsonRow> ReadWhatsonData(SLProtocolExt protocol)
     {
-        string channelName = (string)protocol.channelName();
+        string channelName = (string)protocol.ChannelName();
         string dir = @"\\winfs01.mediaset.it\DM_Watchfolder\WON";
         try
         {
@@ -113,7 +129,7 @@ public class QAction
 
     public List<AdSalesRow> ReadAdSalesData(SLProtocolExt protocol)
     {
-        string channelName = protocol.channelName();
+        string channelName = protocol.ChannelName();
         string dir = @"\\winfs01.mediaset.it\DM_Watchfolder\Adsales";
         try
         {
@@ -135,41 +151,50 @@ public class QAction
             return null;
         return s;
     }
+
     public List<MediatorRow> GetLastPublishedMediator(SLProtocolExt protocol)
     {
         var result = new List<MediatorRow>();
         try
         {
             var count = protocol.mediator.RowCount;
-            for(var idx = 0; idx < count; idx++) 
+            for(var idx = 0; idx < count; idx++)
             {
                 var data = (object[])protocol.GetRow(Parameter.Mediator.tablePid, idx);
                 var row = new MediatorQActionRow(data);
                 result.Add(new MediatorRow
                 {
                     Id = Int32.Parse((string)row.Mediatorid),
+                    ScheduleReference = NullIfEmpty((string)row.Mediatorschedulereference),
+                    ReconcileKey = NullIfEmpty((string)row.Mediatorreconcilekey),
                     StartTime = DateTime.Parse((string)row.Mediatordate),
-                    ReconcileKey = (string)row.Mediatorreconcilekey,
                     Title = NullIfEmpty((string)row.Mediatortitle),
                     Status = NullIfEmpty((string)row.Mediatorstatus),
-                    ScheduleReference = NullIfEmpty((string)row.Mediatorschedulereference),
+                    ScteBroadcastBreakStart = NullIfEmpty((string)row.Mediatorsctebreakstart),
+                    ScteBroadcastProviderAdvStart = NullIfEmpty((string)row.Mediatorscteadvstart),
+                    ScteBroadcastProviderOverlayPlacementStart = NullIfEmpty((string)row.Mediatorsctebroadcastprovideroverlayplacementstart),
+                    ScteBroadcastProviderOverlayPlacementEnd = NullIfEmpty((string)row.Mediatorsctebroadcastprovideroverlayplacementend),
+                    EnablerLegacy = NullIfEmpty((string)row.Mediatorenablerlegacy),
+                    MaterialId = NullIfEmpty((string)row.Mediatormaterialid),
                 });
             }
-        } catch(Exception e)
-        {
-            protocol.Mediatordebugmsg = $"Failed parsing mediator table: ${e.Message}";
         }
+        catch(Exception ex)
+        {
+            protocol.Log($"QA{protocol.QActionID}|{protocol.GetTriggerParameter()}|Run|Exception thrown:{Environment.NewLine}{ex}", LogType.Error, LogLevel.NoLogging);
+        }
+
         return result;
     }
 
     public async Task<List<MediatorRow>> ReadMediatorData(SLProtocolExt protocol)
     {
+        var lastPublished = GetLastPublishedMediator(protocol);
         try
         {
-            string uri = (string)protocol.GetParameter(Parameter.urimediator);
-            string channelName = protocol.channelName();
-            int maxResults = Convert.ToInt32(protocol.GetParameter(Parameter.maxresultsmediator));
-            var lastPublished = GetLastPublishedMediator(protocol);
+            string uri = protocol.GetRequiredNonEmptyStringParameter(Parameter.urimediator);
+            string channelName = protocol.ChannelName();
+            int maxResults = protocol.GetRequiredIntParameter(Parameter.maxresultsmediator);
             var parsed = await mediatorSource.ReadMediator(uri, channelName, maxResults);
             var merged = mediatorSource.Merge(lastPublished, parsed);
             protocol.Mediatordebugmsg = $"State {lastPublished.Count}, Parsed {parsed.Count} Merged {merged.Count} lines";
@@ -179,7 +204,24 @@ public class QAction
         {
             protocol.Mediatordebugmsg = $"Failed reading Mediator data: {ex.Message}";
             protocol.Log($"QA{protocol.QActionID}|{protocol.GetTriggerParameter()}|Run|Exception thrown:{Environment.NewLine}{ex}", LogType.Error, LogLevel.NoLogging);
-            throw ex;
+            return lastPublished;
+        }
+    }
+
+    // Parental rating
+    public async Task<List<ParentalRatingRow>> ReadParentalRating(SLProtocolExt protocol)
+    {
+        try
+        {
+            var url = $"{protocol.Probeurl}parental?serviceId={protocol.ServiceId()}";
+            var rows = await parentalRatingSource.ReadParentalRating(url);
+            protocol.Parentaldebugmsg = "Everything ok...";
+            return rows;
+        }
+        catch (Exception ex)
+        {
+            protocol.Parentaldebugmsg = $"Exception {ex.Message}";
+            return new List<ParentalRatingRow>();
         }
     }
 }

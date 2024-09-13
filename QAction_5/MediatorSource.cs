@@ -16,9 +16,64 @@
 
     public class MediatorSource
     {
-        public List<MediatorRow> Merge(List<MediatorRow> state, List<MediatorRow> delta) {
+        public List<MediatorRow> Merge(List<MediatorRow> state, List<MediatorRow> delta)
+        {
+            return MergeWithDate(state, delta);
+        }
+
+        // This one won't work because ScheduleReference might be not there if an entry
+        // is created directly on mediator
+        public List<MediatorRow> MergeWithScheduleReference(List<MediatorRow> state, List<MediatorRow> delta)
+        {
+            var mergedMap = new Dictionary<string, MediatorRow>();
+            var minDate = DateTime.Today.AddDays(-1);
+            foreach (var row in state)
+            {
+                mergedMap[row.ScheduleReference] = row;
+            }
+
+            foreach (var row in delta)
+            {
+                mergedMap[row.ScheduleReference] = row;
+            }
+
+            var merged = mergedMap.Select(e => e.Value).ToList();
+            merged.RemoveAll(row => row.StartTime < minDate);
+            return merged;
+        }
+
+        public List<MediatorRow> MergeWithDate(List<MediatorRow> state, List<MediatorRow> delta)
+        {
+            if (delta.Count == 0)
+                return state;
+            var merged = new List<MediatorRow>();
+            var deltaOrderedByDate = delta.OrderBy(date => date.StartTime).ToList();
+            var firstDeltaStartTime = deltaOrderedByDate[0].StartTime;
+            var minDate = DateTime.Today.AddDays(-1);
+            foreach (var row in state)
+            {
+                if(row.StartTime < firstDeltaStartTime && row.StartTime > minDate)
+                {
+                    merged.Add(row);
+                }
+            }
+
+            foreach (var row in delta)
+            {
+                if (row.StartTime > minDate)
+                {
+                    merged.Add(row);
+                }
+            }
+
+            return merged;
+        }
+
+        // This code does not work... because new entries are created with different IDs
+        public List<MediatorRow> MergeWithId(List<MediatorRow> state, List<MediatorRow> delta)
+        {
             Dictionary<int, MediatorRow> mergedMap = new Dictionary<int, MediatorRow>();
-            var minDate = DateTime.Today.AddDays(-3);
+            var minDate = DateTime.Today.AddDays(-1);
             foreach (var row in state)
             {
                 mergedMap[row.Id] = row;
@@ -34,7 +89,8 @@
             return merged;
         }
 
-        public async Task<List<MediatorRow>> ReadMediator(string uri, string channelName, int maxResults) {
+        public async Task<List<MediatorRow>> ReadMediator(string uri, string channelName, int maxResults)
+        {
             var obj = await ReadMediatorRaw(uri, channelName, maxResults);
             return obj.Flatten();
         }
@@ -52,19 +108,19 @@
                         SessionKey = sessionKey,
                         Command = new[]
                         {
-                        new
-                        {
-                            Subsystem = "playtime",
-                            Method = "executeCQL",
-                            ParameterList = new
+                            new
                             {
-                                cql = new
+                                Subsystem = "playtime",
+                                Method = "executeCQL",
+                                ParameterList = new
                                 {
-                                    String = cqlQuery,
+                                    cql = new
+                                    {
+                                        String = cqlQuery,
+                                    },
                                 },
                             },
                         },
-                    },
                     },
                 },
             };
@@ -75,7 +131,7 @@
             return JsonConvert.DeserializeObject<Mediator.Welcome>(jsonData, Mediator.Converter.Settings);
         }
 
-        public static async Task<string> SendMessageAndWaitForResponseAsync(string uri, string message)
+        private static async Task<string> SendMessageAndWaitForResponseAsync(string uri, string message)
         {
             if (!uri.StartsWith("ws://") && !uri.StartsWith("wss://"))
             {
@@ -156,6 +212,7 @@
                 }
             }
         }
+
         private static bool IsExpectedMessage(string message)
         {
             // Implementa la logica per verificare se il messaggio ricevuto è quello desiderato.

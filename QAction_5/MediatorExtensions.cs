@@ -2,18 +2,15 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     using Mediator;
-    using Skyline.DataMiner.Net.Upload;
-    using static Utils;
+    using Skyline.DataMiner.Net.Helper;
 
     public static class MediatorExtensions
     {
         public static List<MediatorRow> Flatten(this Mediator.Welcome rootObject)
         {
             var result = new List<MediatorRow>();
+
             // Convert Generated class into Connector Row data.
             var commandList = rootObject?.PharosCs?.CommandList;
             if (commandList != null)
@@ -28,23 +25,43 @@
                         var startTime = row.StartDateTime();
                         if (startTime == null)
                             continue;
+                        var truncatedStartTime = startTime.Value.AddTicks(-(startTime.Value.Ticks % TimeSpan.TicksPerSecond));
                         result.Add(new MediatorRow
                         {
-                            StartTime = (DateTime)startTime,
+                            StartTime = (DateTime)truncatedStartTime,
                             Id = (int)row.Id.GenericList.Object[0],
                             Title = row.Title.AsString(),
                             ReconcileKey = row.FindAdSalesReconcileKey(),
                             ScheduleReference = row.GetScheduleReference(),
                             Status = row.Status.GenericList.Object[0].TransferStatus.ToString(),
-                            enablerLegacy = row.FindEnablerLegacyText(),
-                            scteBroadcastBreakStart = row.FindScteBroadcastBreakStartUpid(),
-                            scteBroadcastProviderAdvStart = row.FindScteBroadcastProviderAdvStartUpid(),
+                            EnablerLegacy = row.FindEnablerLegacyText(),
+                            ScteBroadcastBreakStart = row.FindScteBroadcastBreakStartUpid(),
+                            ScteBroadcastProviderAdvStart = row.FindScteBroadcastProviderAdvStartUpid(),
+                            ScteBroadcastProviderOverlayPlacementStart = row.FindScteBroadcastProviderOverlayPlacementStartUpid(),
+                            ScteBroadcastProviderOverlayPlacementEnd = row.FindScteBroadcastProviderOverlayPlacementEndUpid(),
+                            MaterialId = row.GetTrimMaterialId(),
+                            ParentalRatingValue = row.FindParentalRatingValue(),
                         });
                     }
                 }
             }
+
             return result;
         }
+
+        public static List<MediatorRow> FilterSpots(this List<MediatorRow> list)
+        {
+            /* TODO
+             * Non c'è un modo particolarmente semplice per filtrare gli elementi di tipo pubblicità in mediator.
+             * Questi elementi in playlist hanno sempre la reconcile key valorizzata, e come "template" hanno dei parametri tipo:
+             * - ciak-txprofile2-txProfile
+             * - spotaff-txprofile2-txProfile
+             * - spotnoaff-txprofile2-txProfile
+             * Da capire se utilizzare questi dati o se va bene la reconcile key
+             */
+            return list.FindAll(row => row.ReconcileKey != null);
+        }
+
         public static Dictionary<string, MediatorRow> ToReconcileKeyMap(this List<MediatorRow> mediatorRows)
         {
             var reconcileToRow = new Dictionary<String, MediatorRow>();
@@ -58,24 +75,53 @@
                     reconcileToRow[reconcileKey] = row;
                 }
             }
+
             return reconcileToRow;
         }
+
+        public static Dictionary<string, MediatorRow> ToScheduleReferenceKeyMap(this List<MediatorRow> mediatorRows)
+        {
+            var scheduleReferenceToRow = new Dictionary<String, MediatorRow>();
+
+            // Convert Generated class into Connector Row data.
+            foreach (var row in mediatorRows)
+            {
+                var scheduleReference = row.ScheduleReference;
+                if (scheduleReference != null)
+                {
+                    scheduleReferenceToRow[scheduleReference] = row;
+                }
+            }
+
+            return scheduleReferenceToRow;
+        }
+
         public static string FindAdSalesReconcileKey(this Mediator.Row row)
         {
             return row.FindTemplateParameterByName(TemplateParameterName.AdSalesContentReconcileKeyText)?.Value.String;
         }
 
-        public static Mediator.ObjectTemplateParameter FindScteBroadcastBreakStart(this Mediator.Row mediatorRow)
+        public static Mediator.TemplateParameter FindScteBroadcastBreakStart(this Mediator.Row mediatorRow)
         {
             return mediatorRow.FindTemplateParameterByName(TemplateParameterName.ScteBroadcastBreakStartInsertSegmentationDescriptor);
         }
 
-        public static Mediator.ObjectTemplateParameter FindScteBroadcastProviderAdvStart(this Mediator.Row mediatorRow)
+        public static Mediator.TemplateParameter FindScteBroadcastProviderAdvStart(this Mediator.Row mediatorRow)
         {
             return mediatorRow.FindTemplateParameterByName(TemplateParameterName.ScteBroadcastProviderAdvStartInsertSegmentationDescriptor);
         }
 
-        public static Mediator.ObjectTemplateParameter FindEnablerLegacy(this Mediator.Row mediatorRow)
+        public static Mediator.TemplateParameter FindScteBroadcastProviderOverlayPlacementStartCompoundList(this Mediator.Row mediatorRow)
+        {
+            return mediatorRow.FindTemplateParameterByName(TemplateParameterName.ScteBroadcastProviderOverlayPlacementStartCompoundList);
+        }
+
+        public static Mediator.TemplateParameter FindScteBroadcastProviderOverlayPlacementEndCompoundList(this Mediator.Row mediatorRow)
+        {
+            return mediatorRow.FindTemplateParameterByName(TemplateParameterName.ScteBroadcastProviderOverlayPlacementEndCompoundList);
+        }
+
+        public static Mediator.TemplateParameter FindEnablerLegacy(this Mediator.Row mediatorRow)
         {
             return mediatorRow.FindTemplateParameterByName(TemplateParameterName.EnablerLegacyCompoundList);
         }
@@ -88,6 +134,20 @@
         public static string FindScteBroadcastProviderAdvStartUpid(this Mediator.Row mediatorRow)
         {
             return mediatorRow.FindScteBroadcastProviderAdvStart()?.Value.ValueClass?.TemplateParameterListCompound.GetValueByName(TemplateParameterName.SegmentationUpid);
+        }
+
+        public static string FindScteBroadcastProviderOverlayPlacementStartUpid(this Mediator.Row mediatorRow)
+        {
+            return mediatorRow.FindScteBroadcastProviderOverlayPlacementStartCompoundList()?.Value.ValueClass?
+                .TemplateParameterListCompound.FindTemplateParameterByName(TemplateParameterName.ScteBroadcastProviderOverlayPlacementStartInsertSegmentationDescriptor)?.Value.ValueClass?
+                .TemplateParameterListCompound.GetValueByName(TemplateParameterName.SegmentationUpid);
+        }
+
+        public static string FindScteBroadcastProviderOverlayPlacementEndUpid(this Mediator.Row mediatorRow)
+        {
+            return mediatorRow.FindScteBroadcastProviderOverlayPlacementEndCompoundList()?.Value.ValueClass?
+                .TemplateParameterListCompound.FindTemplateParameterByName(TemplateParameterName.ScteBroadcastProviderOverlayPlacementEndInsertSegmentationDescriptor)?.Value.ValueClass?
+                .TemplateParameterListCompound.GetValueByName(TemplateParameterName.SegmentationUpid);
         }
 
         public static string FindEnablerLegacyText(this Mediator.Row mediatorRow)
@@ -104,15 +164,15 @@
                 {
                     if (parameter.Name == name)
                     {
-                        return parameter.Value;
+                        return parameter.Value.String + string.Empty;
                     }
-
                 }
             }
+
             return null;
         }
 
-        public static Mediator.ObjectTemplateParameter FindTemplateParameterByName(this Mediator.Row mediatorRow, string name)
+        public static Mediator.TemplateParameter FindTemplateParameterByName(this Mediator.Row mediatorRow, string name)
         {
             foreach (var entry in mediatorRow.TemplateParameterList.GenericList.Object)
             {
@@ -124,6 +184,7 @@
                     }
                 }
             }
+
             return null;
         }
 
@@ -137,6 +198,18 @@
                 return null;
             return row.ScheduleReference.GenericList.Object[0];
         }
+
+        public static string GetTrimMaterialId(this Mediator.Row row)
+        {
+            if (row.TrimMaterialId == null)
+                return null;
+            if (row.TrimMaterialId.GenericList == null)
+                return null;
+            if (row.TrimMaterialId.GenericList.Size != 1)
+                return null;
+            return row.TrimMaterialId.GenericList.Object[0];
+        }
+
         public static DateTime? StartDateTime(this Mediator.Row row)
         {
             if (row.StartDateTime == null)
@@ -145,6 +218,7 @@
                 return null;
             return DateTime.Parse(row.StartDateTime.GenericList.Object[0].Iso8601 + "Z");
         }
+
         public static string AsString(this Mediator.InTransitionName title)
         {
             if (title == null)
@@ -152,7 +226,33 @@
             if (title.GenericList == null || title.GenericList.Size != 1)
                 return null;
             return title.GenericList.Object[0];
+        }
 
+        public static Mediator.TemplateParameter FindTemplateParameterByName(this Mediator.TemplateParameterListCompound mediatorRow, string name)
+        {
+            foreach (var entry in mediatorRow.TemplateParameterList)
+            {
+                foreach (var templateParameter in entry.TemplateParameter)
+                {
+                    if (templateParameter.Name == name)
+                    {
+                        return templateParameter;
+                    }
+                }
+            }
+
+            return null;
+        }
+
+        public static string FindParentalRatingValue(this Mediator.Row mediatorRow)
+        {
+            var checkField = mediatorRow.FindTemplateParameterByName("parentalRating-graphic");
+            if (checkField?.Value.String == "PR_ENGINE")
+            {
+                return mediatorRow.FindTemplateParameterByName("parentalRating-userText1").Value.String;
+            }
+
+            return null;
         }
     }
 }

@@ -5,7 +5,7 @@
 		<Encoding>unicode</Encoding>
 	</Options>
 	<Description>AdSales DataMiner connector</Description>
-	<Version>1.0.0.1</Version>
+	<Version>1.0.0.21</Version>
 	<IntegrationID>DMS-DRV-</IntegrationID>
 	<Provider>Foosoft</Provider>
 	<Vendor>Foosoft</Vendor>
@@ -13,7 +13,7 @@
 	<DeviceOID></DeviceOID>
 	<ElementType>Connect to http</ElementType>
 	<Type relativeTimers="true">virtual</Type>
-	<Display defaultPage="General" pageOrder="General;-------;Adsales;Mediator;Won;Enabler Legacy;Enabler Scte;XPrint" wideColumnPages=""/>
+	<Display defaultPage="General" pageOrder="General;-------;Adsales;Mediator;Won;Enabler Legacy;Enabler Scte;AdSalesWonDiff;WonMediatorDiff;AlarmBox;Parental Rating;Parental Rating Check" wideColumnPages=""/>
 	<SNMP includepages="true">auto</SNMP>
 
 	<Compliancies>
@@ -63,7 +63,7 @@
 		</Param>
 		<Param id="5">
 			<Name>title_Begin_UrlConfig</Name>
-			<Description>URL Configuration</Description>
+			<Description>Configuration</Description>
 			<Type>fixed</Type>
 			<Display>
 				<RTDisplay>true</RTDisplay>
@@ -88,7 +88,7 @@
 					<Position>
 						<Page>Configuration</Page>
 						<Column>0</Column>
-						<Row>10</Row>
+						<Row>13</Row>
 					</Position>
 				</Positions>
 			</Display>
@@ -99,7 +99,7 @@
 		
 		<Param id="7" trending="false" save="true">
 			<Name>channelName</Name>
-			<Description>Channel Name (tipo KI...)</Description>
+			<Description>Channel Name</Description>
 			<Type>read</Type>
 			<Information>
 			</Information>
@@ -147,11 +147,9 @@
 				<Type>string</Type>
 			</Measurement>
 		</Param>
-		
-		
 		<Param id="9" trending="false" save="true">
-			<Name>uriMediator</Name>
-			<Description>URI Mediator</Description>
+			<Name>channelTitle</Name>
+			<Description>Channel Title</Description>
 			<Type>read</Type>
 			<Information>
 			</Information>
@@ -175,8 +173,8 @@
 			</Measurement>
 		</Param>
 		<Param id="10" trending="false" setter="true">
-			<Name>uriMediator</Name>
-			<Description>URI Mediator</Description>
+			<Name>channelTitle</Name>
+			<Description>Channel Title</Description>
 			<Type>write</Type>
 			<Information>
 			</Information>
@@ -199,9 +197,59 @@
 				<Type>string</Type>
 			</Measurement>
 		</Param>
-		<Param id="13" trending="false" save="true">
-			<Name>maxResultsMediator</Name>
-			<Description>Max Results Mediator</Description>
+		<Param id="21" trending="false" save="true">
+			<Name>muxName</Name>
+			<Description>Mux Name</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Configuration</Page>
+						<Column>0</Column>
+						<Row>3</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="22" trending="false" setter="true">
+			<Name>muxName</Name>
+			<Description>Mux Name</Description>
+			<Type>write</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Configuration</Page>
+						<Column>0</Column>
+						<Row>3</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="11" trending="false" save="true">
+			<Name>uriMediator</Name>
+			<Description>URI Mediator</Description>
 			<Type>read</Type>
 			<Information>
 			</Information>
@@ -217,6 +265,56 @@
 						<Page>Configuration</Page>
 						<Column>0</Column>
 						<Row>5</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="12" trending="false" setter="true">
+			<Name>uriMediator</Name>
+			<Description>URI Mediator</Description>
+			<Type>write</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Configuration</Page>
+						<Column>0</Column>
+						<Row>5</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="13" trending="false" save="true">
+			<Name>icon</Name>
+			<Description>Icon</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Configuration</Page>
+						<Column>0</Column>
+						<Row>4</Row>
 					</Position>
 				</Positions>
 			</Display>
@@ -225,6 +323,56 @@
 			</Measurement>
 		</Param>
 		<Param id="14" trending="false" setter="true">
+			<Name>icon</Name>
+			<Description>Icon</Description>
+			<Type>write</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Configuration</Page>
+						<Column>0</Column>
+						<Row>4</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="15" trending="false" save="true">
+			<Name>maxResultsMediator</Name>
+			<Description>Max Results Mediator</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Configuration</Page>
+						<Column>0</Column>
+						<Row>8</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="16" trending="false" setter="true">
 			<Name>maxResultsMediator</Name>
 			<Description>Max Results Mediator</Description>
 			<Type>write</Type>
@@ -239,57 +387,7 @@
 					<Position>
 						<Page>Configuration</Page>
 						<Column>0</Column>
-						<Row>5</Row>
-					</Position>
-				</Positions>
-			</Display>
-			<Measurement>
-				<Type>string</Type>
-			</Measurement>
-		</Param>
-		<Param id="15" trending="false" save="true">
-			<Name>probeUrl</Name>
-			<Description>Probe URL, such as http://teamcity-agent-rh8-vm.dvp.ravfav.priv:5031/</Description>
-			<Type>read</Type>
-			<Information>
-			</Information>
-			<Interprete>
-				<RawType>other</RawType>
-				<Type>string</Type>
-				<LengthType>next param</LengthType>
-			</Interprete>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-				<Positions>
-					<Position>
-						<Page>Configuration</Page>
-						<Column>0</Column>
-						<Row>3</Row>
-					</Position>
-				</Positions>
-			</Display>
-			<Measurement>
-				<Type>string</Type>
-			</Measurement>
-		</Param>
-		<Param id="16" trending="false" setter="true">
-			<Name>probeUrl</Name>
-			<Description>Probe URL, such as http://teamcity-agent-rh8-vm.dvp.ravfav.priv:5031/</Description>
-			<Type>write</Type>
-			<Information>
-			</Information>
-			<Interprete>
-				<RawType>other</RawType>
-				<Type>string</Type>
-				<LengthType>next param</LengthType>
-			</Interprete>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-				<Positions>
-					<Position>
-						<Page>Configuration</Page>
-						<Column>0</Column>
-						<Row>3</Row>
+						<Row>8</Row>
 					</Position>
 				</Positions>
 			</Display>
@@ -298,6 +396,56 @@
 			</Measurement>
 		</Param>
 		<Param id="17" trending="false" save="true">
+			<Name>probeUrl</Name>
+			<Description>Probe URL</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Configuration</Page>
+						<Column>0</Column>
+						<Row>6</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="18" trending="false" setter="true">
+			<Name>probeUrl</Name>
+			<Description>Probe URL</Description>
+			<Type>write</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Configuration</Page>
+						<Column>0</Column>
+						<Row>6</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="19" trending="false" save="true">
 			<Name>probeServiceId</Name>
 			<Description>Probe Service ID</Description>
 			<Type>read</Type>
@@ -314,7 +462,7 @@
 					<Position>
 						<Page>Configuration</Page>
 						<Column>0</Column>
-						<Row>4</Row>
+						<Row>7</Row>
 					</Position>
 				</Positions>
 			</Display>
@@ -322,7 +470,7 @@
 				<Type>string</Type>
 			</Measurement>
 		</Param>
-		<Param id="18" trending="false" setter="true">
+		<Param id="20" trending="false" setter="true">
 			<Name>probeServiceId</Name>
 			<Description>Probe Service ID</Description>
 			<Type>write</Type>
@@ -339,7 +487,7 @@
 					<Position>
 						<Page>Configuration</Page>
 						<Column>0</Column>
-						<Row>4</Row>
+						<Row>7</Row>
 					</Position>
 				</Positions>
 			</Display>
@@ -347,17 +495,179 @@
 				<Type>string</Type>
 			</Measurement>
 		</Param>
+		<Param id="23" trending="false" save="true">
+			<Name>channelPriority</Name>
+			<Description>Channel Priority</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Configuration</Page>
+						<Column>0</Column>
+						<Row>9</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="24" trending="false" setter="true">
+			<Name>channelPriority</Name>
+			<Description>Channel Priority</Description>
+			<Type>write</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Configuration</Page>
+						<Column>0</Column>
+						<Row>9</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		
+		
+		<Param id="25" trending="false" save="true">
+			<Name>channelServiceId</Name>
+			<Description>Channel Service ID</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Configuration</Page>
+						<Column>0</Column>
+						<Row>10</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="26" trending="false" setter="true">
+			<Name>channelServiceId</Name>
+			<Description>Channel Service ID</Description>
+			<Type>write</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Configuration</Page>
+						<Column>0</Column>
+						<Row>10</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="27" trending="false">
+			<Name>fixedDropDownExample</Name>
+			<Description>Fixed Dropdown</Description>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>next param</LengthType>
+				<Type>string</Type>
+			</Interprete>
+			<Measurement>
+				<Type>discreet</Type>
+				<Discreets>
+					<Discreet>
+						<Display>0</Display>
+						<Value>0</Value>
+					</Discreet>
+					<Discreet>
+						<Display>14</Display>
+						<Value>14</Value>
+					</Discreet>
+					<Discreet>
+						<Display>18</Display>
+						<Value>18</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		<Param id="28" trending="false">
+			<Name>fixedDropDownExample</Name>
+			<Description>Fixed Dropdown</Description>
+			<Type>write</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>next param</LengthType>
+				<Type>string</Type>
+			</Interprete>
+			<Measurement>
+				<Type>discreet</Type>
+				<Discreets>
+					<Discreet>
+						<Display>0</Display>
+						<Value>0</Value>
+					</Discreet>
+					<Discreet>
+						<Display>14</Display>
+						<Value>14</Value>
+					</Discreet>
+					<Discreet>
+						<Display>18</Display>
+						<Value>18</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		
 		<Param id="1000">
 			<Name>adSales</Name>
 			<Description>Adsales Table</Description>
 			<Type>array</Type>
 			<ArrayOptions index="0">
 				<ColumnOption idx="0" pid="1001" type="retrieved" options=""/>
-				<ColumnOption idx="1" pid="1002" type="retrieved" options=""/>
-				<ColumnOption idx="2" pid="1003" type="retrieved" options=""/>
-				<ColumnOption idx="3" pid="1004" type="retrieved" options="" />
-				<ColumnOption idx="4" pid="1005" type="retrieved" options="" />
-				<ColumnOption idx="5" pid="1006" type="retrieved" options="" />
+				<ColumnOption idx="1" pid="1011" type="retrieved" options="" />
+				<ColumnOption idx="2" pid="1002" type="retrieved" options=""/>
+				<ColumnOption idx="3" pid="1003" type="retrieved" options=""/>
+				<ColumnOption idx="4" pid="1007" type="retrieved" options="" />
+				<ColumnOption idx="5" pid="1009" type="retrieved" options="" />
+				<ColumnOption idx="6" pid="1005" type="retrieved" options="" />
+				<ColumnOption idx="7" pid="1004" type="retrieved" options="" />
+				<ColumnOption idx="8" pid="1006" type="retrieved" options="" />
+				<ColumnOption idx="9" pid="1008" type="retrieved" options="" />
+				<ColumnOption idx="10" pid="1010" type="retrieved" options="" />
 			</ArrayOptions>
 			<Information>
 				<Subtext>AdSales Table</Subtext>
@@ -368,12 +678,12 @@
 					<Position>
 						<Page>Adsales</Page>
 						<Column>0</Column>
-						<Row>4</Row>
+						<Row>1</Row>
 					</Position>
 				</Positions>
 			</Display>
 			<Measurement>
-				<Type options="tab=columns:1001|0-1002|1-1003|2-1004|3-1005|4-1006|5,width:120-120-120-240-100-100,sort:STRING-STRING|ASC-STRING-STRING-STRING-STRING,lines:25,filter:true">table</Type>
+				<Type options="tab=columns:1001|0-1002|2-1003|3-1004|7-1005|6-1006|8-1007|4-1008|9-1009|5-1010|10-1011|1,width:120-120-120-240-100-100-100-126-147-123-133,sort:STRING-STRING|ASC-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING,lines:25,filter:true">table</Type>
 			</Measurement>
 		</Param>
 		<Param id="1001" trending="false">
@@ -490,6 +800,98 @@
 				<Type>string</Type>
 			</Measurement>
 		</Param>
+		<Param id="1007" trending="false">
+			<Name>adSalesBreakPosition</Name>
+			<Description>BreakPosition</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>Break Position</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="1008" trending="false">
+			<Name>adSalesBreakScreenLayout</Name>
+			<Description>BreakScreenLayout</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>Break ScreenLayout</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="1009" trending="false">
+			<Name>adSalesProductCode</Name>
+			<Description>ProductCode (Adsales)</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="1010" trending="false">
+			<Name>adSalesDuration</Name>
+			<Description>Duration (Adsales)</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="1011" trending="false">
+			<Name>adSalesDayOffset</Name>
+			<Description>Day Offset (Adsales)</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
 		
 		<Param id="2000">
 			<Name>mediator</Name>
@@ -505,6 +907,11 @@
 				<ColumnOption idx="6" pid="2007" type="retrieved" options=";save"/>
 				<ColumnOption idx="7" pid="2008" type="retrieved" options=";save"/>
 				<ColumnOption idx="8" pid="2009" type="retrieved" options=";save"/>
+				<ColumnOption idx="9" pid="2010" type="retrieved" options=";save"/>
+				<ColumnOption idx="10" pid="2011" type="retrieved" options=";save"/>
+				<ColumnOption idx="11" pid="2012" type="retrieved" options=";save"/>
+				<ColumnOption idx="12" pid="2013" type="retrieved" options=";save"/>
+				<ColumnOption idx="13" pid="2014" type="retrieved" options="" />
 			</ArrayOptions>
 			<Information>
 				<Subtext>Mediator Table</Subtext>
@@ -515,12 +922,12 @@
 					<Position>
 						<Page>Mediator</Page>
 						<Column>0</Column>
-						<Row>4</Row>
+						<Row>1</Row>
 					</Position>
 				</Positions>
 			</Display>
 			<Measurement>
-				<Type options="tab=columns:2001|0-2002|1-2003|2-2004|3-2005|4-2006|5-2007|6-2008|7-2009|8,width:120-120-120-120-120-120-100-102-100,sort:STRING-STRING|ASC|0-STRING-STRING-STRING-STRING-STRING-STRING-STRING,lines:25,filter:true">table</Type>
+				<Type options="tab=columns:2001|0-2002|1-2003|2-2004|3-2005|4-2006|5-2007|6-2008|7-2009|8-2010|9-2011|10-2012|11-2013|12,width:120-120-120-125-120-120-100-102-100-100-100-275-269,sort:STRING-STRING|ASC|0-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING,lines:25,filter:true">table</Type>
 			</Measurement>
 		</Param>
 		<Param id="2001" trending="false">
@@ -694,6 +1101,101 @@
 				<Type>string</Type>
 			</Measurement>
 		</Param>
+		<Param id="2010" trending="false">
+			<Name>mediatorMaterialId</Name>
+			<Description>MaterialId</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>MaterialId</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="2011" trending="false">
+			<Name>mediatorDayOffset</Name>
+			<Description>DayOffset</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>DayOffset</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="2012" trending="false">
+			<Name>mediatorScteBroadcastProviderOverlayPlacementStart</Name>
+			<Description>ScteBroadcastProviderOverlayPlacementStart</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>ScteBroadcastProviderOverlayPlacementStart</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="2013" trending="false">
+			<Name>mediatorScteBroadcastProviderOverlayPlacementEnd</Name>
+			<Description>ScteBroadcastProviderOverlayPlacementEnd</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>ScteBroadcastProviderOverlayPlacementEnd</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="2014" trending="false">
+			<Name>mediatorParentalRating</Name>
+			<Description>Parental Rating Value (Mediator)</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		
 		<Param id="3000">
 			<Name>won</Name>
 			<Description>WON Table</Description>
@@ -706,9 +1208,11 @@
 				<ColumnOption idx="4" pid="3005" type="retrieved" options="" />
 				<ColumnOption idx="5" pid="3006" type="retrieved" options="" />
 				<ColumnOption idx="6" pid="3007" type="retrieved" options="" />
+				<ColumnOption idx="7" pid="3008" type="retrieved" options="" />
+				<ColumnOption idx="8" pid="3009" type="retrieved" options="" />
 			</ArrayOptions>
 			<Information>
-				<Subtext>tableInformation</Subtext>
+				<Subtext>WON Table</Subtext>
 			</Information>
 			<Display>
 				<RTDisplay>true</RTDisplay>
@@ -716,12 +1220,12 @@
 					<Position>
 						<Page>Won</Page>
 						<Column>0</Column>
-						<Row>4</Row>
+						<Row>1</Row>
 					</Position>
 				</Positions>
 			</Display>
 			<Measurement>
-				<Type options="tab=columns:3001|0-3002|1-3003|2-3004|3-3005|4-3006|5-3007|6,width:240-120-240-120-100-102-100,sort:STRING-STRING|ASC-STRING-STRING-STRING-STRING-STRING,lines:25,filter:true">table</Type>
+				<Type options="tab=columns:3001|0-3002|1-3003|2-3004|3-3005|4-3006|5-3007|6-3008|7-3009|8,width:240-120-240-120-100-102-100-100-148,sort:STRING-STRING|ASC-STRING-STRING-STRING-STRING-STRING-STRING-STRING,lines:25,filter:true">table</Type>
 			</Measurement>
 		</Param>
 		<Param id="3001" trending="false">
@@ -857,24 +1361,66 @@
 				<Type>string</Type>
 			</Measurement>
 		</Param>
+		<Param id="3008" trending="false">
+			<Name>wonTemplateName</Name>
+			<Description>Template</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>Template</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="3009" trending="false">
+			<Name>wonParentalRating</Name>
+			<Description>Parental Rating (WON)</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
 		
 		<Param id="4000">
-			<Name>mergedTable</Name>
-			<Description>Merged Table</Description>
+			<Name>taCheckTable</Name>
+			<Description>Targeted Advertising Check</Description>
 			<Type>array</Type>
 			<ArrayOptions index="0">
 				<ColumnOption idx="0" pid="4001" type="retrieved" options=""/>
-				<ColumnOption idx="1" pid="4002" type="retrieved" options=""/>
-				<ColumnOption idx="2" pid="4003" type="retrieved" options=""/>
-				<ColumnOption idx="3" pid="4004" type="retrieved" options=""/>
-				<ColumnOption idx="4" pid="4005" type="retrieved" options=""/>
-				<ColumnOption idx="5" pid="4006" type="retrieved" options=""/>
-				<ColumnOption idx="6" pid="4007" type="retrieved" options=""/>
-				<ColumnOption idx="7" pid="4008" type="retrieved" options=""/>
-				<ColumnOption idx="8" pid="4009" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="4010" type="retrieved" options="" />
+				<ColumnOption idx="2" pid="4011" type="retrieved" options="" />
+				<ColumnOption idx="3" pid="4002" type="retrieved" options=""/>
+				<ColumnOption idx="4" pid="4003" type="retrieved" options=""/>
+				<ColumnOption idx="5" pid="4004" type="retrieved" options=""/>
+				<ColumnOption idx="6" pid="4005" type="retrieved" options=""/>
+				<ColumnOption idx="7" pid="4006" type="retrieved" options=""/>
+				<ColumnOption idx="8" pid="4007" type="retrieved" options=""/>
+				<ColumnOption idx="9" pid="4008" type="retrieved" options="" />
+				<ColumnOption idx="10" pid="4009" type="retrieved" options="" />
+				<ColumnOption idx="11" pid="4012" type="retrieved" options="" />
+				<ColumnOption idx="12" pid="4013" type="retrieved" options="" />
+				<ColumnOption idx="13" pid="4014" type="retrieved" options="" />
 			</ArrayOptions>
 			<Information>
-				<Subtext>Table Which Shows Data From Other Tables</Subtext>
+				<Subtext>Targeted Advertising Check</Subtext>
 			</Information>
 			<Display>
 				<RTDisplay>true</RTDisplay>
@@ -887,12 +1433,12 @@
 				</Positions>
 			</Display>
 			<Measurement>
-				<Type options=";tab=columns:4001|0-4002|1-4003|2-4004|3-4005|4-4006|5-4007|6-4008|7-4009|8,width:100-120-100-100-100-100-160-160-120,sort:STRING-STRING|ASC|0-STRING-STRING-STRING-STRING-STRING-STRING-STRING,lines:25,filter:true">table</Type>
+				<Type options=";tab=columns:4001|0-4002|3-4003|4-4004|5-4005|6-4006|7-4007|8-4008|9-4009|10-4010|1-4012|11-4014|13-4013|12,width:108-120-95-80-100-100-50-70-50-80-108-137-154,sort:STRING-STRING|ASC|0-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING,lines:25,filter:true">table</Type>
 			</Measurement>
 		</Param>
 		
 		<Param id="4001" trending="false">
-			<Name>mergedReconcileKey</Name>
+			<Name>taCheckReconcileKey</Name>
 			<Description>ReconcileKey</Description>
 			<Type>read</Type>
 			<Information>
@@ -911,7 +1457,7 @@
 			</Measurement>
 		</Param>
 		<Param id="4002" trending="false">
-			<Name>mergedAdSalesTime</Name>
+			<Name>taCheckAdSalesTime</Name>
 			<Description>Ora Prevista</Description>
 			<Type>read</Type>
 			<Information>
@@ -930,7 +1476,7 @@
 			</Measurement>
 		</Param>
 		<Param id="4003" trending="false">
-			<Name>mergedProductCode</Name>
+			<Name>taCheckProductCode</Name>
 			<Description>ProductCode</Description>
 			<Type>read</Type>
 			<Information>
@@ -950,27 +1496,7 @@
 		</Param>
 		
 		<Param id="4004" trending="false">
-			<Name>mergedDuration</Name>
-			<Description>Duration</Description>
-			<Type>read</Type>
-			<Information>
-				<Subtext>Duration</Subtext>
-			</Information>
-			<Interprete>
-				<RawType>other</RawType>
-				<Type>string</Type>
-				<LengthType>next param</LengthType>
-			</Interprete>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-			</Display>
-			<Measurement>
-				<Type>string</Type>
-			</Measurement>
-		</Param>
-		
-		<Param id="4005" trending="false">
-			<Name>mergedHaveWon</Name>
+			<Name>taCheckHaveWon</Name>
 			<Description>HaveWon</Description>
 			<Type>read</Type>
 			<Information>
@@ -989,8 +1515,8 @@
 			</Measurement>
 		</Param>
 		
-		<Param id="4006" trending="false">
-			<Name>mergedHaveMediator</Name>
+		<Param id="4005" trending="false">
+			<Name>taCheckHaveMediator</Name>
 			<Description>HaveMediator</Description>
 			<Type>read</Type>
 			<Information>
@@ -1009,28 +1535,8 @@
 			</Measurement>
 		</Param>
 		
-		<Param id="4007" trending="false">
-			<Name>mergedWonTime</Name>
-			<Description>WonTime</Description>
-			<Type>read</Type>
-			<Information>
-				<Subtext>WonTime</Subtext>
-			</Information>
-			<Interprete>
-				<RawType>other</RawType>
-				<Type>string</Type>
-				<LengthType>next param</LengthType>
-			</Interprete>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-			</Display>
-			<Measurement>
-				<Type>string</Type>
-			</Measurement>
-		</Param>
-		
-		<Param id="4008" trending="false">
-			<Name>mergedMediatorTime</Name>
+		<Param id="4006" trending="false">
+			<Name>taCheckMediatorTime</Name>
 			<Description>MediatorTime</Description>
 			<Type>read</Type>
 			<Information>
@@ -1049,12 +1555,12 @@
 			</Measurement>
 		</Param>
 		
-		<Param id="4009" trending="false">
-			<Name>mergedType</Name>
-			<Description>AllocationType</Description>
+		<Param id="4007" trending="false">
+			<Name>taCheckType</Name>
+			<Description>Type</Description>
 			<Type>read</Type>
 			<Information>
-				<Subtext>Allocation Type</Subtext>
+				<Subtext>Type</Subtext>
 			</Information>
 			<Interprete>
 				<RawType>other</RawType>
@@ -1066,6 +1572,141 @@
 			</Display>
 			<Measurement>
 				<Type>string</Type>
+			</Measurement>
+		</Param>
+		
+		<Param id="4008" trending="false">
+			<Name>taCheckLegacyProbe</Name>
+			<Description>Legacy</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>Legacy</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		
+		<Param id="4009" trending="false">
+			<Name>taCheckScteProbe</Name>
+			<Description>Scte</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>Scte</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="4010" trending="false">
+			<Name>taCheckChannel</Name>
+			<Description>Channel</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>Scte</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="4011" trending="false">
+			<Name>taCheckMux</Name>
+			<Description>Mux</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>Scte</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="4012" trending="false">
+			<Name>taCheckResult</Name>
+			<Description>TA Check Result</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>Scte</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="4013" trending="false">
+			<Name>taCheckMessage</Name>
+			<Description>TA Check Message</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>Scte</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="4014" trending="false">
+			<Name>taCheckFutureFlag</Name>
+			<Description>TA Check Future Flag</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>FutureFLag</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>number</Type>
 			</Measurement>
 		</Param>
 		
@@ -1090,7 +1731,7 @@
 					<Position>
 						<Page>Enabler Legacy</Page>
 						<Column>0</Column>
-						<Row>3</Row>
+						<Row>1</Row>
 					</Position>
 				</Positions>
 			</Display>
@@ -1305,43 +1946,612 @@
 				<Type>string</Type>
 			</Measurement>
 		</Param>
-		<Param id="7000" trending="true">
-			<Name>XPrint</Name>
-			<Description>XPrint</Description>
+		<Param id="8000" trending="true">
+			<Name>AdSalesWonDiff</Name>
+			<Description>AdSalesWonDiff</Description>
 			<Type>array</Type>
 			<ArrayOptions index="0">
-				<ColumnOption idx="0" pid="7001" type="retrieved" options="" />
-				<ColumnOption idx="1" pid="7002" type="retrieved" options="" />
-				<ColumnOption idx="2" pid="7003" type="retrieved" options="" />
-				<ColumnOption idx="3" pid="7004" type="retrieved" options="" />
-				<ColumnOption idx="4" pid="7005" type="retrieved" options="" />
-				<ColumnOption idx="5" pid="7006" type="retrieved" options="" />
+				<ColumnOption idx="0" pid="8001" type="retrieved" options="" />
+				<ColumnOption idx="1" pid="8010" type="retrieved" options="" />
+				<ColumnOption idx="2" pid="8002" type="retrieved" options="" />
+				<ColumnOption idx="3" pid="8003" type="retrieved" options="" />
+				<ColumnOption idx="4" pid="8004" type="retrieved" options="" />
+				<ColumnOption idx="5" pid="8005" type="retrieved" options="" />
+				<ColumnOption idx="6" pid="8006" type="retrieved" options="" />
+				<ColumnOption idx="7" pid="8007" type="retrieved" options="" />
+				<ColumnOption idx="8" pid="8008" type="retrieved" options="" />
+				<ColumnOption idx="9" pid="8009" type="retrieved" options="" />
+				<ColumnOption idx="10" pid="8011" type="retrieved" options="" />
 			</ArrayOptions>
 			<Information>
 				<Subtext>
-					<![CDATA[XPrint]]>
+					AdSalesWonDiff
 				</Subtext>
 			</Information>
 			<Display>
 				<RTDisplay>true</RTDisplay>
 				<Positions>
 					<Position>
-						<Page>XPrint</Page>
+						<Page>AdSalesWonDiff</Page>
+						<Column>0</Column>
+						<Row>0</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type options="tab=columns:8001|0-8002|2-8003|3-8004|4-8005|5-8006|6-8007|7-8008|8-8009|9-8010|1-8011|10,width:125-137-160-170-160-180-160-170-160-180-100,sort:STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING,lines:20,filter:true">table</Type>
+			</Measurement>
+		</Param>
+		<Param id="8001" trending="false">
+			<Name>AdSalesWonDiffKey</Name>
+			<Description>AdSalesWonKey</Description>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="8002" trending="false">
+			<Name>AdSalesWonDiffAdSalesReconcileKey</Name>
+			<Description>AdSalesReconcileKey</Description>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="8003" trending="false">
+			<Name>AdSalesWonDiffAdSalesStartTime</Name>
+			<Description>AdSalesTime</Description>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="8004" trending="false">
+			<Name>AdSalesWonDiffAdSalesProgramCode</Name>
+			<Description>AdSalesProgramCode</Description>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="8005" trending="false">
+			<Name>AdSalesWonDiffAdSalesProgramTitle</Name>
+			<Description>AdSalesTitle</Description>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="8006" trending="false">
+			<Name>AdSalesWonDiffWonReconcileKey</Name>
+			<Description>WonReconcileKey</Description>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="8007" trending="false">
+			<Name>AdSalesWonDiffWonStartTime</Name>
+			<Description>WonTime</Description>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="8008" trending="false">
+			<Name>AdSalesWonDiffWonProgramCode</Name>
+			<Description>WonProgramCode</Description>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="8009" trending="false">
+			<Name>AdSalesWonDiffWonProgramTitle</Name>
+			<Description>WonTitle</Description>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="8010" trending="false">
+			<Name>AdSalesWonDiffDayOffset</Name>
+			<Description>DayOffset</Description>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="8011" trending="false">
+			<Name>AdSalesWonDiffResult</Name>
+			<Description>Result</Description>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		
+		<Param id="9000" trending="true">
+			<Name>WonMediatorDiff</Name>
+			<Description>WonMediatorDiff</Description>
+			<Type>array</Type>
+			<ArrayOptions index="0">
+				<ColumnOption idx="0" pid="9001" type="retrieved" options="" />
+				<ColumnOption idx="1" pid="9002" type="retrieved" options="" />
+				<ColumnOption idx="2" pid="9003" type="retrieved" options="" />
+				<ColumnOption idx="3" pid="9004" type="retrieved" options="" />
+				<ColumnOption idx="4" pid="9005" type="retrieved" options="" />
+				<ColumnOption idx="5" pid="9006" type="retrieved" options="" />
+				<ColumnOption idx="6" pid="9007" type="retrieved" options="" />
+				<ColumnOption idx="7" pid="9008" type="retrieved" options="" />
+				<ColumnOption idx="8" pid="9009" type="retrieved" options="" />
+				<ColumnOption idx="9" pid="9010" type="retrieved" options="" />
+				<ColumnOption idx="10" pid="9011" type="retrieved" options="" />
+			</ArrayOptions>
+			<Information>
+				<Subtext>
+					WonMediatorDiff
+				</Subtext>
+			</Information>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>WonMediatorDiff</Page>
+						<Column>0</Column>
+						<Row>0</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type options="tab=columns:9001|0-9002|1-9003|2-9004|3-9005|4-9006|5-9007|6-9008|7-9009|8-9010|9-9011|10,width:154-119-160-170-160-180-160-170-160-180-100,sort:STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING,lines:20,filter:true">table</Type>
+			</Measurement>
+		</Param>
+		<Param id="9001" trending="false">
+			<Name>WonMediatorDiffKey</Name>
+			<Description>WonMediatorDiffKey</Description>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="9002" trending="false">
+			<Name>WonMediatorDiffWonReconcileKey</Name>
+			<Description>WonReconcileKey</Description>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="9003" trending="false">
+			<Name>WonMediatorDiffWonStartTime</Name>
+			<Description>WonTime</Description>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="9004" trending="false">
+			<Name>WonMediatorDiffWonProgramCode</Name>
+			<Description>WonProgramCode</Description>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="9005" trending="false">
+			<Name>WonMediatorDiffWonProgramTitle</Name>
+			<Description>WonTitle</Description>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="9006" trending="false">
+			<Name>WonMediatorDiffMediatorReconcileKey</Name>
+			<Description>MediatorReconcileKey</Description>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="9007" trending="false">
+			<Name>WonMediatorDiffMediatorStartTime</Name>
+			<Description>MediatorTime</Description>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="9008" trending="false">
+			<Name>WonMediatorDiffMediatorProgramCode</Name>
+			<Description>MediatorProgramCode</Description>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="9009" trending="false">
+			<Name>WonMediatorDiffMediatorProgramTitle</Name>
+			<Description>MediatorTitle</Description>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="9010" trending="false">
+			<Name>WonMediatorDiffDayOffset</Name>
+			<Description>DayOffset</Description>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="9011" trending="false">
+			<Name>WonMediatorDiffResult</Name>
+			<Description>Result</Description>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		
+		<Param id="9501" trending="false">
+			<Name>alarmBoxDate0</Name>
+			<Description>alarmBoxDate0</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>AlarmBox</Page>
+						<Column>0</Column>
+						<Row>0</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="9502" trending="false">
+			<Name>alarmBoxAdSalesItems0</Name>
+			<Description>alarmBoxAdSalesItems0</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>AlarmBox</Page>
+						<Column>1</Column>
+						<Row>0</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="9503" trending="false">
+			<Name>alarmBoxWonItems0</Name>
+			<Description>alarmBoxWonItems0</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>AlarmBox</Page>
+						<Column>2</Column>
+						<Row>0</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="9504" trending="false">
+			<Name>alarmBoxMediatorItems0</Name>
+			<Description>alarmBoxMediatorItems0</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>AlarmBox</Page>
+						<Column>3</Column>
+						<Row>0</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="9505" trending="false">
+			<Name>alarmBoxAdSalesWonAlarm0</Name>
+			<Description>alarmBoxAdSalesWonAlarm0</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>AlarmBox</Page>
+						<Column>4</Column>
+						<Row>0</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="9506" trending="false">
+			<Name>alarmBoxWonMediatorAlarm0</Name>
+			<Description>alarmBoxWonMediatorAlarm0</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>AlarmBox</Page>
+						<Column>5</Column>
+						<Row>0</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="9507" trending="false">
+			<Name>alarmBoxDate1</Name>
+			<Description>alarmBoxDate1</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>AlarmBox</Page>
 						<Column>0</Column>
 						<Row>1</Row>
 					</Position>
 				</Positions>
 			</Display>
 			<Measurement>
-				<Type options="tab=columns:7001|0-7002|1-7003|2-7004|3-7005|4-7006|5,width:100-100-100-100-100-100,sort:STRING|ASC|0-STRING-STRING-STRING-STRING-STRING,lines:20,filter:true">table</Type>
+				<Type>string</Type>
 			</Measurement>
 		</Param>
-		<Param id="7001" trending="false">
-			<Name>xprintIndex</Name>
-			<Description>Index</Description>
+		<Param id="9508" trending="false">
+			<Name>alarmBoxAdSalesItems1</Name>
+			<Description>alarmBoxAdSalesItems1</Description>
 			<Type>read</Type>
 			<Information>
-				<Subtext>Index</Subtext>
 			</Information>
 			<Interprete>
 				<RawType>other</RawType>
@@ -1350,17 +2560,23 @@
 			</Interprete>
 			<Display>
 				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>AlarmBox</Page>
+						<Column>1</Column>
+						<Row>1</Row>
+					</Position>
+				</Positions>
 			</Display>
 			<Measurement>
 				<Type>string</Type>
 			</Measurement>
 		</Param>
-		<Param id="7002" trending="false">
-			<Name>xprintDate</Name>
-			<Description>Date</Description>
+		<Param id="9509" trending="false">
+			<Name>alarmBoxWonItems1</Name>
+			<Description>alarmBoxWonItems1</Description>
 			<Type>read</Type>
 			<Information>
-				<Subtext>Date</Subtext>
 			</Information>
 			<Interprete>
 				<RawType>other</RawType>
@@ -1369,17 +2585,23 @@
 			</Interprete>
 			<Display>
 				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>AlarmBox</Page>
+						<Column>2</Column>
+						<Row>1</Row>
+					</Position>
+				</Positions>
 			</Display>
 			<Measurement>
 				<Type>string</Type>
 			</Measurement>
 		</Param>
-		<Param id="7003" trending="false">
-			<Name>xprintAdSales</Name>
-			<Description>AdSales</Description>
+		<Param id="9510" trending="false">
+			<Name>alarmBoxMediatorItems1</Name>
+			<Description>alarmBoxMediatorItems1</Description>
 			<Type>read</Type>
 			<Information>
-				<Subtext>AdSales</Subtext>
 			</Information>
 			<Interprete>
 				<RawType>other</RawType>
@@ -1388,17 +2610,23 @@
 			</Interprete>
 			<Display>
 				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>AlarmBox</Page>
+						<Column>3</Column>
+						<Row>1</Row>
+					</Position>
+				</Positions>
 			</Display>
 			<Measurement>
 				<Type>string</Type>
 			</Measurement>
 		</Param>
-		<Param id="7004" trending="false">
-			<Name>xprintWhatson</Name>
-			<Description>Whatson</Description>
+		<Param id="9511" trending="false">
+			<Name>alarmBoxAdSalesWonAlarm1</Name>
+			<Description>alarmBoxAdSalesWonAlarm1</Description>
 			<Type>read</Type>
 			<Information>
-				<Subtext>Whatson</Subtext>
 			</Information>
 			<Interprete>
 				<RawType>other</RawType>
@@ -1407,17 +2635,23 @@
 			</Interprete>
 			<Display>
 				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>AlarmBox</Page>
+						<Column>4</Column>
+						<Row>1</Row>
+					</Position>
+				</Positions>
 			</Display>
 			<Measurement>
 				<Type>string</Type>
 			</Measurement>
 		</Param>
-		<Param id="7005" trending="false">
-			<Name>xprintMediator</Name>
-			<Description>Mediator</Description>
+		<Param id="9512" trending="false">
+			<Name>alarmBoxWonMediatorAlarm1</Name>
+			<Description>alarmBoxWonMediatorAlarm1</Description>
 			<Type>read</Type>
 			<Information>
-				<Subtext>Mediator</Subtext>
 			</Information>
 			<Interprete>
 				<RawType>other</RawType>
@@ -1426,17 +2660,23 @@
 			</Interprete>
 			<Display>
 				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>AlarmBox</Page>
+						<Column>5</Column>
+						<Row>1</Row>
+					</Position>
+				</Positions>
 			</Display>
 			<Measurement>
 				<Type>string</Type>
 			</Measurement>
 		</Param>
-		<Param id="7006" trending="false">
-			<Name>xprintErrors</Name>
-			<Description>Errors (fake)</Description>
+		<Param id="9513" trending="false">
+			<Name>alarmBoxDate2</Name>
+			<Description>alarmBoxDate2</Description>
 			<Type>read</Type>
 			<Information>
-				<Subtext>Errors</Subtext>
 			</Information>
 			<Interprete>
 				<RawType>other</RawType>
@@ -1445,6 +2685,138 @@
 			</Interprete>
 			<Display>
 				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>AlarmBox</Page>
+						<Column>0</Column>
+						<Row>2</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="9514" trending="false">
+			<Name>alarmBoxAdSalesItems2</Name>
+			<Description>alarmBoxAdSalesItems2</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>AlarmBox</Page>
+						<Column>1</Column>
+						<Row>2</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="9515" trending="false">
+			<Name>alarmBoxWonItems2</Name>
+			<Description>alarmBoxWonItems2</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>AlarmBox</Page>
+						<Column>2</Column>
+						<Row>2</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="9516" trending="false">
+			<Name>alarmBoxMediatorItems2</Name>
+			<Description>alarmBoxMediatorItems2</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>AlarmBox</Page>
+						<Column>3</Column>
+						<Row>2</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="9517" trending="false">
+			<Name>alarmBoxAdSalesWonAlarm2</Name>
+			<Description>alarmBoxAdSalesWonAlarm2</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>AlarmBox</Page>
+						<Column>4</Column>
+						<Row>2</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="9518" trending="false">
+			<Name>alarmBoxWonMediatorAlarm2</Name>
+			<Description>alarmBoxWonMediatorAlarm2</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>AlarmBox</Page>
+						<Column>5</Column>
+						<Row>2</Row>
+					</Position>
+				</Positions>
 			</Display>
 			<Measurement>
 				<Type>string</Type>
@@ -1469,7 +2841,7 @@
 					<Position>
 						<Page>Adsales</Page>
 						<Column>0</Column>
-						<Row>1</Row>
+						<Row>0</Row>
 					</Position>
 				</Positions>
 			</Display>
@@ -1494,7 +2866,7 @@
 					<Position>
 						<Page>Mediator</Page>
 						<Column>0</Column>
-						<Row>1</Row>
+						<Row>0</Row>
 					</Position>
 				</Positions>
 			</Display>
@@ -1503,7 +2875,7 @@
 			</Measurement>
 		</Param>
 		<Param id="10200" trending="false" save="true">
-			<Name>mergedIterationCounter</Name>
+			<Name>iterationCounter</Name>
 			<Description>How Many Times Tables Has Been Processed</Description>
 			<Type>read</Type>
 			<Information>
@@ -1606,7 +2978,7 @@
 					<Position>
 						<Page>Won</Page>
 						<Column>0</Column>
-						<Row>1</Row>
+						<Row>0</Row>
 					</Position>
 				</Positions>
 			</Display>
@@ -1631,9 +3003,372 @@
 					<Position>
 						<Page>Enabler Legacy</Page>
 						<Column>0</Column>
+						<Row>0</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		
+		<Param id="11000" trending="true">
+			<Name>ParentalRating</Name>
+			<Description>Parental Rating</Description>
+			<Type>array</Type>
+			<ArrayOptions index="0" >
+				<ColumnOption idx="0" pid="11001" type="retrieved" options="" />
+				<ColumnOption idx="1" pid="11002" type="retrieved" options="" />
+			</ArrayOptions>
+			<Information>
+				<Subtext>
+					<![CDATA[Parental Rating]]>
+				</Subtext>
+			</Information>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Parental Rating</Page>
+						<Column>0</Column>
 						<Row>1</Row>
 					</Position>
 				</Positions>
+			</Display>
+			<Measurement>
+				<Type options="tab=columns:11001|0-11002|1,width:100-100,sort:INT-INT,lines:20,filter:true">table</Type>
+			</Measurement>
+		</Param>
+		<Param id="11001" trending="false">
+			<Name>ParentalRatingTime</Name>
+			<Description>Time (Parental Rating)</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="11002" trending="false">
+			<Name>ParentalRatingValue</Name>
+			<Description>Value (Parental Rating)</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		
+		<Param id="11999" trending="false">
+			<Name>parentalDebugMsg</Name>
+			<Description>Debug Parental Data</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Parental Rating</Page>
+						<Column>0</Column>
+						<Row>0</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		
+		<Param id="12000" trending="true">
+			<Name>ParentalRatingCheckTable</Name>
+			<Description>Parental Rating Check Table</Description>
+			<Type>array</Type>
+			<ArrayOptions  index="0">
+				<ColumnOption idx="0" pid="12001" type="retrieved" options="" />
+				<ColumnOption idx="1" pid="12012" type="retrieved" options="" />
+				<ColumnOption idx="2" pid="12013" type="retrieved" options="" />
+				<ColumnOption idx="3" pid="12002" type="retrieved" options="" />
+				<ColumnOption idx="4" pid="12003" type="retrieved" options="" />
+				<ColumnOption idx="5" pid="12004" type="retrieved" options="" />
+				<ColumnOption idx="6" pid="12005" type="retrieved" options="" />
+				<ColumnOption idx="7" pid="12006" type="retrieved" options="" />
+				<ColumnOption idx="8" pid="12007" type="retrieved" options="" />
+				<ColumnOption idx="9" pid="12008" type="retrieved" options="" />
+				<ColumnOption idx="10" pid="12009" type="retrieved" options="" />
+				<ColumnOption idx="11" pid="12010" type="retrieved" options="" />
+				<ColumnOption idx="12" pid="12011" type="retrieved" options="" />
+			</ArrayOptions>
+			<Information>
+				<Subtext>
+					<![CDATA[Parental Rating Check Table]]>
+				</Subtext>
+			</Information>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Parental Rating Check</Page>
+						<Column>0</Column>
+						<Row>1</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type options="tab=columns:12001|0-12002|3-12003|4-12004|5-12005|6-12006|7-12007|8-12008|9-12009|10-12010|11-12011|12-12012|1-12013|2,width:100-100-100-100-169-124-137-195-106-121-100-100-100,sort:STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING,lines:20,filter:true">table</Type>
+			</Measurement>
+		</Param>
+		<Param id="12001" trending="false">
+			<Name>ParentalRatingCheckKey</Name>
+			<Description>Key (Parental Rating Check)</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="12002" trending="false">
+			<Name>ParentalRatingCheckTimestamp</Name>
+			<Description>Timestamp (Parental Rating Check)</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="12003" trending="false">
+			<Name>ParentalRatingCheckProductCode</Name>
+			<Description>Product Code (Parental Rating Check)</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="12004" trending="false">
+			<Name>ParentalRatingCheckTitle</Name>
+			<Description>Title (Parental Rating Check)</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="12005" trending="false">
+			<Name>ParentalRatingCheckWonPr</Name>
+			<Description>Won Parental Rating Value (Parental Rating Check)</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="12006" trending="false">
+			<Name>ParentalRatingCheckHasMediatorData</Name>
+			<Description>Has Mediator Data (Parental Rating Check)</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="12007" trending="false">
+			<Name>ParentalRatingCheckCheckMediatorData</Name>
+			<Description>Check Mediator Data (Parental Rating Check)</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="12008" trending="false">
+			<Name>ParentalRatingCheckMediatorParentalRating</Name>
+			<Description>Mediator Parental Rating Value (Parental Rating Check)</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="12009" trending="false">
+			<Name>ParentalRatingCheckHasProbeData</Name>
+			<Description>Has Probe Data (Parental Rating Check)</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="12010" trending="false">
+			<Name>ParentalRatingCheckOnairTimestamp</Name>
+			<Description>On Air Timestamp (Parental Rating Check)</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="12011" trending="false">
+			<Name>ParentalRatingCheckMessage</Name>
+			<Description>Message (Parental Rating Check)</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="12012" trending="false">
+			<Name>ParentalRatingCheckChannel</Name>
+			<Description>Channel (Parental Rating Check)</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="12013" trending="false">
+			<Name>ParentalRatingCheckMux</Name>
+			<Description>Mux (Parental Rating Check)</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
 			</Display>
 			<Measurement>
 				<Type>string</Type>
@@ -1699,7 +3434,7 @@
 	<Timers>
 		<Timer id="1">
 			<Name>Fast Timer (5s)</Name>
-			<Time initial="true">2000</Time>
+			<Time initial="true">5000</Time>
 			<Interval>75</Interval>
 			<Content>
 				<Group>3</Group>
@@ -1741,6 +3476,16 @@
 										</Provider>
 										<Changes>
 											<NewFeature>Initial version</NewFeature>
+										</Changes>
+									</MinorVersion>
+									<MinorVersion id="7" basedOn="1.0.0.6">
+										<Date>2024-07-19</Date>
+										<Provider>
+											<Author>Foosoft</Author>
+											<Company>Foosoft</Company>
+										</Provider>
+										<Changes>
+											<NewFeature>Mux name</NewFeature>
 										</Changes>
 									</MinorVersion>
 								</MinorVersions>

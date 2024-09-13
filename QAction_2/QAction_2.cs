@@ -16,13 +16,5 @@ public static class QAction
     /// <param name="protocol">Link with SLProtocol process.</param>
     public static void Run(SLProtocol protocol)
     {
-        try
-        {
-
-        }
-        catch (Exception ex)
-        {
-            protocol.Log($"QA{protocol.QActionID}|{protocol.GetTriggerParameter()}|Run|Exception thrown:{Environment.NewLine}{ex}", LogType.Error, LogLevel.NoLogging);
-        }
     }
 }

@@ -1,0 +1,2121 @@
+<?xml version="1.0"?>
+<Pharos xmlns:java="http://xml.apache.org/xslt/java">
+	<ImportMetaData>
+		<Note>LB Schedule, 2024-07-25 0004 06:00 - 29:59</Note>
+	</ImportMetaData>
+	<Playlist>
+		<ChannelName>LB</ChannelName>
+		<BlockList>
+			<Block>
+				<BlockName>2012308657</BlockName>
+				<PreviousBlockName>2020473566</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>538d4473-8665-453a-b5b9-8979b14a6fbd</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-07-25T00:00:00.000</StartDate>
+					<StartTimecode>11:07:20:01</StartTimecode>
+					<ScheduledDuration>00:12:30:01</ScheduledDuration>
+					<ScheduleReference>538d4473-8665-453a-b5b9-8979b14a6fbd</ScheduleReference>
+					<ScheduledTitle>CHICAGO FIRE VIII - CAMPANA DELLA CINQUANTUNO (LA) - 1/4</ScheduledTitle>
+					<Template>
+						<TemplateName>PRGMAM</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>F310092001002004</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>10:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:12:30:01</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+							<DataElement>
+								<Name>transition-transType</Name>
+								<Type>template parameter</Type>
+								<Value>Cut-Fade</Value>
+							</DataElement>
+							<DataElement>
+								<Name>transition-transSpeed</Name>
+								<Type>template parameter</Type>
+								<Value>Fast</Value>
+							</DataElement>
+							<DataElement>
+								<Name>transition-transDwell</Name>
+								<Type>template parameter</Type>
+								<Value>6</Value>
+							</DataElement>
+							<DataElement>
+								<Name>mediaSource-text</Name>
+								<Type>template parameter</Type>
+								<Value>MAM</Value>
+							</DataElement>
+							<DataElement>
+								<Name>subtitle01-closedSubtitles</Name>
+								<Type>template parameter</Type>
+								<Value>70</Value>
+							</DataElement>
+							<DataElement>
+								<Name>subtitle02-closedSubtitles</Name>
+								<Type>template parameter</Type>
+								<Value>25</Value>
+							</DataElement>
+							<DataElement>
+								<Name>productPlacement-text</Name>
+								<Type>template parameter</Type>
+								<Value>no</Value>
+							</DataElement>
+							<DataElement>
+								<Name>parentalRatingText-text</Name>
+								<Type>template parameter</Type>
+								<Value>0</Value>
+							</DataElement>
+							<DataElement>
+								<Name>parentalRating-graphic</Name>
+								<Type>template parameter</Type>
+								<Value>PR_ENGINE</Value>
+							</DataElement>
+							<DataElement>
+								<Name>parentalRating-userText1</Name>
+								<Type>template parameter</Type>
+								<Value>0</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-graphic</Name>
+								<Type>template parameter</Type>
+								<Value>OTT_RESTART</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-userText1</Name>
+								<Type>template parameter</Type>
+								<Value>20123086510</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-userText2</Name>
+								<Type>template parameter</Type>
+								<Value>F310092001002004</Value>
+							</DataElement>
+							<DataElement>
+								<Name>ottRestart-userText3</Name>
+								<Type>template parameter</Type>
+								<Value>00:00:00:00</Value>
+							</DataElement>
+							<DataElement>
+								<Name>audioAttenuation-text</Name>
+								<Type>template parameter</Type>
+								<Value>yes</Value>
+							</DataElement>
+							<DataElement>
+								<Name>productPart-text</Name>
+								<Type>template parameter</Type>
+								<Value>1</Value>
+							</DataElement>
+							<DataElement>
+								<Name>enablerSwitchIn-graphic</Name>
+								<Type>template parameter</Type>
+								<Value>ENABLER_SWITCHIN</Value>
+							</DataElement>
+							<DataElement>
+								<Name>enablerSwitchIn-userText1</Name>
+								<Type>template parameter</Type>
+								<Value>F310092001002004</Value>
+							</DataElement>
+							<DataElement>
+								<Name>gfxStartEnd-compoundList</Name>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>gfxStartEnd-offset</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-offsetType</Name>
+												<Type>template parameter</Type>
+												<Value>Start</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:12:30:01</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-transSpeedIn</Name>
+												<Type>template parameter</Type>
+												<Value>None</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-transSpeed</Name>
+												<Type>template parameter</Type>
+												<Value>None</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-stream</Name>
+												<Type>template parameter</Type>
+												<Value>DSK 3</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-userText3</Name>
+												<Type>template parameter</Type>
+												<Value>QUESTA SERA IN PRIMA SERATA</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-userText2</Name>
+												<Type>template parameter</Type>
+												<Value>POINT BREAK</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-matId</Name>
+												<Type>template parameter</Type>
+												<Value>LB_0000032_03_G
+</Value>
+											</DataElement>
+										</DataElementList>
+										<DataElementList>
+											<DataElement>
+												<Name>gfxStartEnd-startOffset</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-endOffset</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-transSpeedIn</Name>
+												<Type>template parameter</Type>
+												<Value>None</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-transSpeed</Name>
+												<Type>template parameter</Type>
+												<Value>None</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-stream</Name>
+												<Type>template parameter</Type>
+												<Value>DSK 11</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-matId</Name>
+												<Type>template parameter</Type>
+												<Value>LB_0000001_12_G</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+							<DataElement>
+								<Name>gfxOffsetDuration-compoundList</Name>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>gfxOffsetDuration-offset</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxOffsetDuration-offsetType</Name>
+												<Type>template parameter</Type>
+												<Value>Start</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxOffsetDuration-duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:20:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxOffsetDuration-transSpeedIn</Name>
+												<Type>template parameter</Type>
+												<Value>None</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxOffsetDuration-transSpeed</Name>
+												<Type>template parameter</Type>
+												<Value>None</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxOffsetDuration-stream</Name>
+												<Type>template parameter</Type>
+												<Value>DSK 9</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxOffsetDuration-matId</Name>
+												<Type>template parameter</Type>
+												<Value>LB_0000018_09_G</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+							<DataElement>
+								<Name>scteBroadcastProviderOverlayPlacementStart-compoundList</Name>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>scteBroadcastProviderOverlayPlacementStart-offset</Name>
+												<Type>template parameter</Type>
+												<Value>00:04:45:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>scteBroadcastProviderOverlayPlacementStart-offsetType</Name>
+												<Type>template parameter</Type>
+												<Value>Start</Value>
+											</DataElement>
+											<DataElement>
+												<Name>scteBroadcastProviderOverlayPlacementStart-presetName</Name>
+												<Type>template parameter</Type>
+												<Value>Broadcast-Provider-Overlay-Placement-Opp</Value>
+											</DataElement>
+											<DataElement>
+												<Name>scteBroadcastProviderOverlayPlacementStart-insertSegmentationDescriptor</Name>
+												<Type>template parameter</Type>
+												<Value>
+													<DataElementCompoundList><DataElementList><DataElement><Name>duration</Name><Type>template parameter</Type><Value>15</Value></DataElement><DataElement><Name>durationExtensionFrames</Name><Type>template parameter</Type><Value>0</Value></DataElement><DataElement><Name>segmentationEventId</Name><Type>template parameter</Type><Value>4401</Value></DataElement><DataElement><Name>segmentationUpid</Name><Type>template parameter</Type><Value>urn:uuid:P0061060966</Value></DataElement><DataElement><Name>segmentationUpidType</Name><Type>template parameter</Type><Value>15</Value></DataElement></DataElementList></DataElementCompoundList>
+												</Value>
+											</DataElement>
+											<DataElement>
+												<Name>scteBroadcastProviderOverlayPlacementStart-timeSignalRequest</Name>
+												<Type>template parameter</Type>
+												<Value>
+													<DataElementCompoundList><DataElementList><DataElement><Name>preRollTime</Name><Type>template parameter</Type><Value>15000</Value></DataElement></DataElementList></DataElementCompoundList>
+												</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+							<DataElement>
+								<Name>enablerLegacy-compoundList</Name>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>enablerLegacy-graphic</Name>
+												<Type>template parameter</Type>
+												<Value>ENABLER_LEGACY</Value>
+											</DataElement>
+											<DataElement>
+												<Name>enablerLegacy-offset</Name>
+												<Type>template parameter</Type>
+												<Value>00:05:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>enablerLegacy-offsetType</Name>
+												<Type>template parameter</Type>
+												<Value>Start</Value>
+											</DataElement>
+											<DataElement>
+												<Name>enablerLegacy-duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:15:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>enablerLegacy-userText1</Name>
+												<Type>template parameter</Type>
+												<Value>P0061060966</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+							<DataElement>
+								<Name>scteBroadcastProviderOverlayPlacementEnd-compoundList</Name>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>scteBroadcastProviderOverlayPlacementEnd-offset</Name>
+												<Type>template parameter</Type>
+												<Value>00:05:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>scteBroadcastProviderOverlayPlacementEnd-offsetType</Name>
+												<Type>template parameter</Type>
+												<Value>End</Value>
+											</DataElement>
+											<DataElement>
+												<Name>scteBroadcastProviderOverlayPlacementEnd-presetName</Name>
+												<Type>template parameter</Type>
+												<Value>Broadcast-Provider-Overlay-Placement-Opp</Value>
+											</DataElement>
+											<DataElement>
+												<Name>scteBroadcastProviderOverlayPlacementEnd-insertSegmentationDescriptor</Name>
+												<Type>template parameter</Type>
+												<Value>
+													<DataElementCompoundList><DataElementList><DataElement><Name>duration</Name><Type>template parameter</Type><Value>0</Value></DataElement><DataElement><Name>durationExtensionFrames</Name><Type>template parameter</Type><Value>0</Value></DataElement><DataElement><Name>segmentationEventId</Name><Type>template parameter</Type><Value>4401</Value></DataElement><DataElement><Name>segmentationUpid</Name><Type>template parameter</Type><Value>urn:uuid:P0061060966</Value></DataElement><DataElement><Name>segmentationUpidType</Name><Type>template parameter</Type><Value>15</Value></DataElement></DataElementList></DataElementCompoundList>
+												</Value>
+											</DataElement>
+											<DataElement>
+												<Name>scteBroadcastProviderOverlayPlacementEnd-timeSignalRequest</Name>
+												<Type>template parameter</Type>
+												<Value>
+													<DataElementCompoundList><DataElementList><DataElement><Name>preRollTime</Name><Type>template parameter</Type><Value>15000</Value></DataElement></DataElementList></DataElementCompoundList>
+												</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2020473562</BlockName>
+				<PreviousBlockName>2012308657</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>a343adce-c702-43e6-884a-8c71fb0315a4</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-07-25T00:00:00.000</StartDate>
+					<StartTimecode>11:19:50:02</StartTimecode>
+					<ScheduledDuration>00:00:26:05</ScheduledDuration>
+					<ScheduleReference>a343adce-c702-43e6-884a-8c71fb0315a4</ScheduleReference>
+					<ScheduledTitle>LB THE KILLING JAR LUN 29 LUGLIO  30" LAN</ScheduledTitle>
+					<Template>
+						<TemplateName>PROMO</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialSegment-matId</Name>
+								<Type>template parameter</Type>
+								<Value>FLAN202400224199</Value>
+							</DataElement>
+							<DataElement>
+								<Name>materialSegment-segmentGroup</Name>
+								<Type>template parameter</Type>
+								<Value>Program</Value>
+							</DataElement>
+							<DataElement>
+								<Name>materialSegment-segmentType</Name>
+								<Type>template parameter</Type>
+								<Value>Segment</Value>
+							</DataElement>
+							<DataElement>
+								<Name>materialSegment-segmentIndex</Name>
+								<Type>template parameter</Type>
+								<Value>1</Value>
+							</DataElement>
+							<DataElement>
+								<Name>transition-transType</Name>
+								<Type>template parameter</Type>
+								<Value>Fade-Cut</Value>
+							</DataElement>
+							<DataElement>
+								<Name>transition-transSpeed</Name>
+								<Type>template parameter</Type>
+								<Value>Medium</Value>
+							</DataElement>
+							<DataElement>
+								<Name>transition-transDwell</Name>
+								<Type>template parameter</Type>
+								<Value>0</Value>
+							</DataElement>
+							<DataElement>
+								<Name>mediaSource-text</Name>
+								<Type>template parameter</Type>
+								<Value>MAM</Value>
+							</DataElement>
+							<DataElement>
+								<Name>audioAttenuation-text</Name>
+								<Type>template parameter</Type>
+								<Value>no</Value>
+							</DataElement>
+							<DataElement>
+								<Name>gfxStartEnd-compoundList</Name>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>gfxStartEnd-startOffset</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-endOffset</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-transSpeedIn</Name>
+												<Type>template parameter</Type>
+												<Value>None</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-transSpeed</Name>
+												<Type>template parameter</Type>
+												<Value>None</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-stream</Name>
+												<Type>template parameter</Type>
+												<Value>DSK 11</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-matId</Name>
+												<Type>template parameter</Type>
+												<Value>LB_0000001_12_G</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2020473563</BlockName>
+				<PreviousBlockName>2020473562</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>a3bf7a9b-cac5-469e-9cea-c4c47e31b8b2</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-07-25T00:00:00.000</StartDate>
+					<StartTimecode>11:20:16:13</StartTimecode>
+					<ScheduledDuration>00:00:15:00</ScheduledDuration>
+					<ScheduleReference>a3bf7a9b-cac5-469e-9cea-c4c47e31b8b2</ScheduleReference>
+					<ScheduledTitle>GRI0124FEKFLSEM015A4</ScheduledTitle>
+					<Template>
+						<TemplateName>SPOTAFF</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialSegment-matId</Name>
+								<Type>template parameter</Type>
+								<Value>Y0696</Value>
+							</DataElement>
+							<DataElement>
+								<Name>materialSegment-segmentGroup</Name>
+								<Type>template parameter</Type>
+								<Value>Program</Value>
+							</DataElement>
+							<DataElement>
+								<Name>materialSegment-segmentType</Name>
+								<Type>template parameter</Type>
+								<Value>Segment</Value>
+							</DataElement>
+							<DataElement>
+								<Name>materialSegment-segmentIndex</Name>
+								<Type>template parameter</Type>
+								<Value>1</Value>
+							</DataElement>
+							<DataElement>
+								<Name>transition-transType</Name>
+								<Type>template parameter</Type>
+								<Value>Cut-Fade</Value>
+							</DataElement>
+							<DataElement>
+								<Name>transition-transSpeed</Name>
+								<Type>template parameter</Type>
+								<Value>Fast</Value>
+							</DataElement>
+							<DataElement>
+								<Name>transition-transDwell</Name>
+								<Type>template parameter</Type>
+								<Value>6</Value>
+							</DataElement>
+							<DataElement>
+								<Name>commercialPosition-text</Name>
+								<Type>template parameter</Type>
+								<Value>Break 13:10 - STANDARD 2 - Pos 1</Value>
+							</DataElement>
+							<DataElement>
+								<Name>adSalesContentReconcileKey-text</Name>
+								<Type>template parameter</Type>
+								<Value>0120276851</Value>
+							</DataElement>
+							<DataElement>
+								<Name>gfxStartEnd-compoundList</Name>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>gfxStartEnd-startOffset</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-endOffset</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-transSpeedIn</Name>
+												<Type>template parameter</Type>
+												<Value>None</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-transSpeed</Name>
+												<Type>template parameter</Type>
+												<Value>None</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-stream</Name>
+												<Type>template parameter</Type>
+												<Value>DSK 11</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-matId</Name>
+												<Type>template parameter</Type>
+												<Value>LB_0000001_12_G</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+							<DataElement>
+								<Name>gfxOffsetDuration-compoundList</Name>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>gfxOffsetDuration-offset</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxOffsetDuration-offsetType</Name>
+												<Type>template parameter</Type>
+												<Value>Start</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxOffsetDuration-duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:03:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxOffsetDuration-transSpeedIn</Name>
+												<Type>template parameter</Type>
+												<Value>None</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxOffsetDuration-transSpeed</Name>
+												<Type>template parameter</Type>
+												<Value>None</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxOffsetDuration-stream</Name>
+												<Type>template parameter</Type>
+												<Value>DSK 6</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxOffsetDuration-matId</Name>
+												<Type>template parameter</Type>
+												<Value>XX_0000044_06_G</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+				<PlaylistItem>
+					<ItemReference>a3bfe71d-18f6-4b08-850f-01c770978e5f</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-07-25T00:00:00.000</StartDate>
+					<StartTimecode>11:20:31:19</StartTimecode>
+					<ScheduledDuration>00:00:15:00</ScheduledDuration>
+					<ScheduleReference>a3bfe71d-18f6-4b08-850f-01c770978e5f</ScheduleReference>
+					<ScheduledTitle>FLIXBUS MLIRL CONNECTION 2024 "CIRIPIZZA"</ScheduledTitle>
+					<Template>
+						<TemplateName>SPOTAFF</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialSegment-matId</Name>
+								<Type>template parameter</Type>
+								<Value>Y4378</Value>
+							</DataElement>
+							<DataElement>
+								<Name>materialSegment-segmentGroup</Name>
+								<Type>template parameter</Type>
+								<Value>Program</Value>
+							</DataElement>
+							<DataElement>
+								<Name>materialSegment-segmentType</Name>
+								<Type>template parameter</Type>
+								<Value>Segment</Value>
+							</DataElement>
+							<DataElement>
+								<Name>materialSegment-segmentIndex</Name>
+								<Type>template parameter</Type>
+								<Value>1</Value>
+							</DataElement>
+							<DataElement>
+								<Name>transition-transType</Name>
+								<Type>template parameter</Type>
+								<Value>Cut-Fade</Value>
+							</DataElement>
+							<DataElement>
+								<Name>transition-transSpeed</Name>
+								<Type>template parameter</Type>
+								<Value>Fast</Value>
+							</DataElement>
+							<DataElement>
+								<Name>transition-transDwell</Name>
+								<Type>template parameter</Type>
+								<Value>6</Value>
+							</DataElement>
+							<DataElement>
+								<Name>commercialPosition-text</Name>
+								<Type>template parameter</Type>
+								<Value>Break 13:10 - STANDARD 2 - Pos 2</Value>
+							</DataElement>
+							<DataElement>
+								<Name>adSalesContentReconcileKey-text</Name>
+								<Type>template parameter</Type>
+								<Value>0120283281</Value>
+							</DataElement>
+							<DataElement>
+								<Name>gfxStartEnd-compoundList</Name>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>gfxStartEnd-startOffset</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-endOffset</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-transSpeedIn</Name>
+												<Type>template parameter</Type>
+												<Value>None</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-transSpeed</Name>
+												<Type>template parameter</Type>
+												<Value>None</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-stream</Name>
+												<Type>template parameter</Type>
+												<Value>DSK 11</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-matId</Name>
+												<Type>template parameter</Type>
+												<Value>LB_0000001_12_G</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+				<PlaylistItem>
+					<ItemReference>a3bfc359-7a39-42c6-828a-21bd3f25b31e</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-07-25T00:00:00.000</StartDate>
+					<StartTimecode>11:20:47:00</StartTimecode>
+					<ScheduledDuration>00:00:30:00</ScheduledDuration>
+					<ScheduleReference>a3bfc359-7a39-42c6-828a-21bd3f25b31e</ScheduleReference>
+					<ScheduledTitle>PROCEDIAMO_R101 AUTOPROMOZIONE - ASCOLTACI E GUARDACI</ScheduledTitle>
+					<Template>
+						<TemplateName>SPOTNOAFF</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialSegment-matId</Name>
+								<Type>template parameter</Type>
+								<Value>Y0429</Value>
+							</DataElement>
+							<DataElement>
+								<Name>materialSegment-segmentGroup</Name>
+								<Type>template parameter</Type>
+								<Value>Program</Value>
+							</DataElement>
+							<DataElement>
+								<Name>materialSegment-segmentType</Name>
+								<Type>template parameter</Type>
+								<Value>Segment</Value>
+							</DataElement>
+							<DataElement>
+								<Name>materialSegment-segmentIndex</Name>
+								<Type>template parameter</Type>
+								<Value>1</Value>
+							</DataElement>
+							<DataElement>
+								<Name>transition-transType</Name>
+								<Type>template parameter</Type>
+								<Value>Cut-Fade</Value>
+							</DataElement>
+							<DataElement>
+								<Name>transition-transSpeed</Name>
+								<Type>template parameter</Type>
+								<Value>Fast</Value>
+							</DataElement>
+							<DataElement>
+								<Name>transition-transDwell</Name>
+								<Type>template parameter</Type>
+								<Value>6</Value>
+							</DataElement>
+							<DataElement>
+								<Name>commercialPosition-text</Name>
+								<Type>template parameter</Type>
+								<Value>Break 13:10 - STANDARD 2 - Pos 3</Value>
+							</DataElement>
+							<DataElement>
+								<Name>adSalesContentReconcileKey-text</Name>
+								<Type>template parameter</Type>
+								<Value>0120168923</Value>
+							</DataElement>
+							<DataElement>
+								<Name>gfxStartEnd-compoundList</Name>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>gfxStartEnd-startOffset</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-endOffset</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-transSpeedIn</Name>
+												<Type>template parameter</Type>
+												<Value>None</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-transSpeed</Name>
+												<Type>template parameter</Type>
+												<Value>None</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-stream</Name>
+												<Type>template parameter</Type>
+												<Value>DSK 11</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-matId</Name>
+												<Type>template parameter</Type>
+												<Value>LB_0000001_12_G</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+							<DataElement>
+								<Name>scteBroadcastBreakStart-presetName</Name>
+								<Type>template parameter</Type>
+								<Value>Broadcast-Break</Value>
+							</DataElement>
+							<DataElement>
+								<Name>scteBroadcastBreakStart-offset</Name>
+								<Type>template parameter</Type>
+								<Value>-00:00:50:00</Value>
+							</DataElement>
+							<DataElement>
+								<Name>scteBroadcastBreakStart-insertSegmentationDescriptor</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList><DataElementList><DataElement><Name>duration</Name><Type>template parameter</Type><Value>195</Value></DataElement><DataElement><Name>durationExtensionFrames</Name><Type>template parameter</Type><Value>0</Value></DataElement><DataElement><Name>segmentationEventId</Name><Type>template parameter</Type><Value>4337</Value></DataElement><DataElement><Name>segmentationUpid</Name><Type>template parameter</Type><Value>urn:uuid:Break-B0023475155_0008</Value></DataElement><DataElement><Name>segmentationUpidType</Name><Type>template parameter</Type><Value>15</Value></DataElement></DataElementList></DataElementCompoundList>
+								</Value>
+							</DataElement>
+							<DataElement>
+								<Name>scteBroadcastBreakStart-timeSignalRequest</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList><DataElementList><DataElement><Name>preRollTime</Name><Type>template parameter</Type><Value>50000</Value></DataElement></DataElementList></DataElementCompoundList>
+								</Value>
+							</DataElement>
+							<DataElement>
+								<Name>scteBroadcastProviderAdvStart-presetName</Name>
+								<Type>template parameter</Type>
+								<Value>Broadcast-Provider-Adv</Value>
+							</DataElement>
+							<DataElement>
+								<Name>scteBroadcastProviderAdvStart-offset</Name>
+								<Type>template parameter</Type>
+								<Value>-00:00:15:00</Value>
+							</DataElement>
+							<DataElement>
+								<Name>scteBroadcastProviderAdvStart-insertSegmentationDescriptor</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList><DataElementList><DataElement><Name>duration</Name><Type>template parameter</Type><Value>30</Value></DataElement><DataElement><Name>durationExtensionFrames</Name><Type>template parameter</Type><Value>0</Value></DataElement><DataElement><Name>segmentationEventId</Name><Type>template parameter</Type><Value>4338</Value></DataElement><DataElement><Name>segmentationUpid</Name><Type>template parameter</Type><Value>urn:uuid:Break-B0023475155_0008-3-11-X0120168923</Value></DataElement><DataElement><Name>segmentationUpidType</Name><Type>template parameter</Type><Value>15</Value></DataElement></DataElementList></DataElementCompoundList>
+								</Value>
+							</DataElement>
+							<DataElement>
+								<Name>scteBroadcastProviderAdvStart-timeSignalRequest</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList><DataElementList><DataElement><Name>preRollTime</Name><Type>template parameter</Type><Value>15000</Value></DataElement></DataElementList></DataElementCompoundList>
+								</Value>
+							</DataElement>
+							<DataElement>
+								<Name>enablerLegacy-compoundList</Name>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>enablerLegacy-graphic</Name>
+												<Type>template parameter</Type>
+												<Value>ENABLER_LEGACY</Value>
+											</DataElement>
+											<DataElement>
+												<Name>enablerLegacy-offset</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>enablerLegacy-offsetType</Name>
+												<Type>template parameter</Type>
+												<Value>Start</Value>
+											</DataElement>
+											<DataElement>
+												<Name>enablerLegacy-duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:30:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>enablerLegacy-userText1</Name>
+												<Type>template parameter</Type>
+												<Value>X0120168923</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+				<PlaylistItem>
+					<ItemReference>a3bf3e37-4a89-4a05-a761-c6b3e39beab1</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-07-25T00:00:00.000</StartDate>
+					<StartTimecode>11:21:17:06</StartTimecode>
+					<ScheduledDuration>00:00:30:00</ScheduledDuration>
+					<ScheduleReference>a3bf3e37-4a89-4a05-a761-c6b3e39beab1</ScheduleReference>
+					<ScheduledTitle>HOG/KLML626/030 - MULTIBRAND - MB_ESG_24_IT_IT_30”_V2_CROCE ROSSA</ScheduledTitle>
+					<Template>
+						<TemplateName>SPOTAFF</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialSegment-matId</Name>
+								<Type>template parameter</Type>
+								<Value>Y3776</Value>
+							</DataElement>
+							<DataElement>
+								<Name>materialSegment-segmentGroup</Name>
+								<Type>template parameter</Type>
+								<Value>Program</Value>
+							</DataElement>
+							<DataElement>
+								<Name>materialSegment-segmentType</Name>
+								<Type>template parameter</Type>
+								<Value>Segment</Value>
+							</DataElement>
+							<DataElement>
+								<Name>materialSegment-segmentIndex</Name>
+								<Type>template parameter</Type>
+								<Value>1</Value>
+							</DataElement>
+							<DataElement>
+								<Name>transition-transType</Name>
+								<Type>template parameter</Type>
+								<Value>Cut-Fade</Value>
+							</DataElement>
+							<DataElement>
+								<Name>transition-transSpeed</Name>
+								<Type>template parameter</Type>
+								<Value>Fast</Value>
+							</DataElement>
+							<DataElement>
+								<Name>transition-transDwell</Name>
+								<Type>template parameter</Type>
+								<Value>6</Value>
+							</DataElement>
+							<DataElement>
+								<Name>commercialPosition-text</Name>
+								<Type>template parameter</Type>
+								<Value>Break 13:10 - STANDARD 2 - Pos 4</Value>
+							</DataElement>
+							<DataElement>
+								<Name>adSalesContentReconcileKey-text</Name>
+								<Type>template parameter</Type>
+								<Value>0120584660</Value>
+							</DataElement>
+							<DataElement>
+								<Name>gfxStartEnd-compoundList</Name>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>gfxStartEnd-startOffset</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-endOffset</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-transSpeedIn</Name>
+												<Type>template parameter</Type>
+												<Value>None</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-transSpeed</Name>
+												<Type>template parameter</Type>
+												<Value>None</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-stream</Name>
+												<Type>template parameter</Type>
+												<Value>DSK 11</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-matId</Name>
+												<Type>template parameter</Type>
+												<Value>LB_0000001_12_G</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+				<PlaylistItem>
+					<ItemReference>a3bfe940-3a4b-486a-9084-1edad5461958</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-07-25T00:00:00.000</StartDate>
+					<StartTimecode>11:21:47:12</StartTimecode>
+					<ScheduledDuration>00:00:20:00</ScheduledDuration>
+					<ScheduleReference>a3bfe940-3a4b-486a-9084-1edad5461958</ScheduleReference>
+					<ScheduledTitle>SUSTENIUM_SOGG_CANOTTO_20S_TV_120523 CANOTTO</ScheduledTitle>
+					<Template>
+						<TemplateName>SPOTAFF</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialSegment-matId</Name>
+								<Type>template parameter</Type>
+								<Value>W8015</Value>
+							</DataElement>
+							<DataElement>
+								<Name>materialSegment-segmentGroup</Name>
+								<Type>template parameter</Type>
+								<Value>Program</Value>
+							</DataElement>
+							<DataElement>
+								<Name>materialSegment-segmentType</Name>
+								<Type>template parameter</Type>
+								<Value>Segment</Value>
+							</DataElement>
+							<DataElement>
+								<Name>materialSegment-segmentIndex</Name>
+								<Type>template parameter</Type>
+								<Value>1</Value>
+							</DataElement>
+							<DataElement>
+								<Name>transition-transType</Name>
+								<Type>template parameter</Type>
+								<Value>Cut-Fade</Value>
+							</DataElement>
+							<DataElement>
+								<Name>transition-transSpeed</Name>
+								<Type>template parameter</Type>
+								<Value>Fast</Value>
+							</DataElement>
+							<DataElement>
+								<Name>transition-transDwell</Name>
+								<Type>template parameter</Type>
+								<Value>6</Value>
+							</DataElement>
+							<DataElement>
+								<Name>commercialPosition-text</Name>
+								<Type>template parameter</Type>
+								<Value>Break 13:10 - STANDARD 2 - Pos 5</Value>
+							</DataElement>
+							<DataElement>
+								<Name>adSalesContentReconcileKey-text</Name>
+								<Type>template parameter</Type>
+								<Value>0120505614</Value>
+							</DataElement>
+							<DataElement>
+								<Name>gfxStartEnd-compoundList</Name>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>gfxStartEnd-startOffset</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-endOffset</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-transSpeedIn</Name>
+												<Type>template parameter</Type>
+												<Value>None</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-transSpeed</Name>
+												<Type>template parameter</Type>
+												<Value>None</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-stream</Name>
+												<Type>template parameter</Type>
+												<Value>DSK 11</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-matId</Name>
+												<Type>template parameter</Type>
+												<Value>LB_0000001_12_G</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+				<PlaylistItem>
+					<ItemReference>a3bf8a4c-98f6-40fb-9013-af2b4248a69c</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-07-25T00:00:00.000</StartDate>
+					<StartTimecode>11:22:07:18</StartTimecode>
+					<ScheduledDuration>00:00:15:00</ScheduledDuration>
+					<ScheduleReference>a3bf8a4c-98f6-40fb-9013-af2b4248a69c</ScheduleReference>
+					<ScheduledTitle>CARTE D'OR NUOVI PACK - SPOT</ScheduledTitle>
+					<Template>
+						<TemplateName>SPOTAFF</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialSegment-matId</Name>
+								<Type>template parameter</Type>
+								<Value>Y4582</Value>
+							</DataElement>
+							<DataElement>
+								<Name>materialSegment-segmentGroup</Name>
+								<Type>template parameter</Type>
+								<Value>Program</Value>
+							</DataElement>
+							<DataElement>
+								<Name>materialSegment-segmentType</Name>
+								<Type>template parameter</Type>
+								<Value>Segment</Value>
+							</DataElement>
+							<DataElement>
+								<Name>materialSegment-segmentIndex</Name>
+								<Type>template parameter</Type>
+								<Value>1</Value>
+							</DataElement>
+							<DataElement>
+								<Name>transition-transType</Name>
+								<Type>template parameter</Type>
+								<Value>Cut-Fade</Value>
+							</DataElement>
+							<DataElement>
+								<Name>transition-transSpeed</Name>
+								<Type>template parameter</Type>
+								<Value>Fast</Value>
+							</DataElement>
+							<DataElement>
+								<Name>transition-transDwell</Name>
+								<Type>template parameter</Type>
+								<Value>6</Value>
+							</DataElement>
+							<DataElement>
+								<Name>commercialPosition-text</Name>
+								<Type>template parameter</Type>
+								<Value>Break 13:10 - STANDARD 2 - Pos 6</Value>
+							</DataElement>
+							<DataElement>
+								<Name>adSalesContentReconcileKey-text</Name>
+								<Type>template parameter</Type>
+								<Value>0120564915</Value>
+							</DataElement>
+							<DataElement>
+								<Name>gfxStartEnd-compoundList</Name>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>gfxStartEnd-startOffset</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-endOffset</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-transSpeedIn</Name>
+												<Type>template parameter</Type>
+												<Value>None</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-transSpeed</Name>
+												<Type>template parameter</Type>
+												<Value>None</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-stream</Name>
+												<Type>template parameter</Type>
+												<Value>DSK 11</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-matId</Name>
+												<Type>template parameter</Type>
+												<Value>LB_0000001_12_G</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+							<DataElement>
+								<Name>gfxOffsetDuration-compoundList</Name>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>gfxOffsetDuration-offset</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxOffsetDuration-offsetType</Name>
+												<Type>template parameter</Type>
+												<Value>Start</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxOffsetDuration-duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:03:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxOffsetDuration-transSpeedIn</Name>
+												<Type>template parameter</Type>
+												<Value>None</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxOffsetDuration-transSpeed</Name>
+												<Type>template parameter</Type>
+												<Value>None</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxOffsetDuration-stream</Name>
+												<Type>template parameter</Type>
+												<Value>DSK 6</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxOffsetDuration-matId</Name>
+												<Type>template parameter</Type>
+												<Value>XX_0000044_06_G</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+				<PlaylistItem>
+					<ItemReference>a3bfb410-db3f-4837-b9a1-38148652dccc</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-07-25T00:00:00.000</StartDate>
+					<StartTimecode>11:22:22:24</StartTimecode>
+					<ScheduledDuration>00:00:15:00</ScheduledDuration>
+					<ScheduleReference>a3bfb410-db3f-4837-b9a1-38148652dccc</ScheduleReference>
+					<ScheduledTitle>PARTI IN VACANZA / MULTA - GRI0524CARGPART015A4</ScheduledTitle>
+					<Template>
+						<TemplateName>SPOTAFF</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialSegment-matId</Name>
+								<Type>template parameter</Type>
+								<Value>Y2733</Value>
+							</DataElement>
+							<DataElement>
+								<Name>materialSegment-segmentGroup</Name>
+								<Type>template parameter</Type>
+								<Value>Program</Value>
+							</DataElement>
+							<DataElement>
+								<Name>materialSegment-segmentType</Name>
+								<Type>template parameter</Type>
+								<Value>Segment</Value>
+							</DataElement>
+							<DataElement>
+								<Name>materialSegment-segmentIndex</Name>
+								<Type>template parameter</Type>
+								<Value>1</Value>
+							</DataElement>
+							<DataElement>
+								<Name>transition-transType</Name>
+								<Type>template parameter</Type>
+								<Value>Cut-Fade</Value>
+							</DataElement>
+							<DataElement>
+								<Name>transition-transSpeed</Name>
+								<Type>template parameter</Type>
+								<Value>Fast</Value>
+							</DataElement>
+							<DataElement>
+								<Name>transition-transDwell</Name>
+								<Type>template parameter</Type>
+								<Value>6</Value>
+							</DataElement>
+							<DataElement>
+								<Name>commercialPosition-text</Name>
+								<Type>template parameter</Type>
+								<Value>Break 13:10 - STANDARD 2 - Pos 7</Value>
+							</DataElement>
+							<DataElement>
+								<Name>adSalesContentReconcileKey-text</Name>
+								<Type>template parameter</Type>
+								<Value>0120229585</Value>
+							</DataElement>
+							<DataElement>
+								<Name>gfxStartEnd-compoundList</Name>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>gfxStartEnd-startOffset</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-endOffset</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-transSpeedIn</Name>
+												<Type>template parameter</Type>
+												<Value>None</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-transSpeed</Name>
+												<Type>template parameter</Type>
+												<Value>None</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-stream</Name>
+												<Type>template parameter</Type>
+												<Value>DSK 11</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-matId</Name>
+												<Type>template parameter</Type>
+												<Value>LB_0000001_12_G</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+				<PlaylistItem>
+					<ItemReference>a3bfb4e9-1caf-4a57-94bd-e89b6213ba11</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-07-25T00:00:00.000</StartDate>
+					<StartTimecode>11:22:38:05</StartTimecode>
+					<ScheduledDuration>00:00:10:00</ScheduledDuration>
+					<ScheduleReference>a3bfb4e9-1caf-4a57-94bd-e89b6213ba11</ScheduleReference>
+					<ScheduledTitle> TVC NUX + FIGC PARTNER LOGO PROMOZIONE </ScheduledTitle>
+					<Template>
+						<TemplateName>SPOTAFF</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialSegment-matId</Name>
+								<Type>template parameter</Type>
+								<Value>Y2795</Value>
+							</DataElement>
+							<DataElement>
+								<Name>materialSegment-segmentGroup</Name>
+								<Type>template parameter</Type>
+								<Value>Program</Value>
+							</DataElement>
+							<DataElement>
+								<Name>materialSegment-segmentType</Name>
+								<Type>template parameter</Type>
+								<Value>Segment</Value>
+							</DataElement>
+							<DataElement>
+								<Name>materialSegment-segmentIndex</Name>
+								<Type>template parameter</Type>
+								<Value>1</Value>
+							</DataElement>
+							<DataElement>
+								<Name>transition-transType</Name>
+								<Type>template parameter</Type>
+								<Value>Cut-Fade</Value>
+							</DataElement>
+							<DataElement>
+								<Name>transition-transSpeed</Name>
+								<Type>template parameter</Type>
+								<Value>Fast</Value>
+							</DataElement>
+							<DataElement>
+								<Name>transition-transDwell</Name>
+								<Type>template parameter</Type>
+								<Value>6</Value>
+							</DataElement>
+							<DataElement>
+								<Name>commercialPosition-text</Name>
+								<Type>template parameter</Type>
+								<Value>Break 13:10 - STANDARD 2 - Pos 8</Value>
+							</DataElement>
+							<DataElement>
+								<Name>adSalesContentReconcileKey-text</Name>
+								<Type>template parameter</Type>
+								<Value>0120150135</Value>
+							</DataElement>
+							<DataElement>
+								<Name>gfxStartEnd-compoundList</Name>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>gfxStartEnd-startOffset</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-endOffset</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-transSpeedIn</Name>
+												<Type>template parameter</Type>
+												<Value>None</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-transSpeed</Name>
+												<Type>template parameter</Type>
+												<Value>None</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-stream</Name>
+												<Type>template parameter</Type>
+												<Value>DSK 11</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-matId</Name>
+												<Type>template parameter</Type>
+												<Value>LB_0000001_12_G</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+				<PlaylistItem>
+					<ItemReference>a3bf3b9d-2bc4-44f0-9b60-bed39b437436</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-07-25T00:00:00.000</StartDate>
+					<StartTimecode>11:22:48:11</StartTimecode>
+					<ScheduledDuration>00:00:15:00</ScheduledDuration>
+					<ScheduleReference>a3bf3b9d-2bc4-44f0-9b60-bed39b437436</ScheduleReference>
+					<ScheduledTitle>PEGASO_15S_NEODIPLOMATO-OK</ScheduledTitle>
+					<Template>
+						<TemplateName>SPOTAFF</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialSegment-matId</Name>
+								<Type>template parameter</Type>
+								<Value>Y4232</Value>
+							</DataElement>
+							<DataElement>
+								<Name>materialSegment-segmentGroup</Name>
+								<Type>template parameter</Type>
+								<Value>Program</Value>
+							</DataElement>
+							<DataElement>
+								<Name>materialSegment-segmentType</Name>
+								<Type>template parameter</Type>
+								<Value>Segment</Value>
+							</DataElement>
+							<DataElement>
+								<Name>materialSegment-segmentIndex</Name>
+								<Type>template parameter</Type>
+								<Value>1</Value>
+							</DataElement>
+							<DataElement>
+								<Name>transition-transType</Name>
+								<Type>template parameter</Type>
+								<Value>Cut-Fade</Value>
+							</DataElement>
+							<DataElement>
+								<Name>transition-transSpeed</Name>
+								<Type>template parameter</Type>
+								<Value>Fast</Value>
+							</DataElement>
+							<DataElement>
+								<Name>transition-transDwell</Name>
+								<Type>template parameter</Type>
+								<Value>6</Value>
+							</DataElement>
+							<DataElement>
+								<Name>commercialPosition-text</Name>
+								<Type>template parameter</Type>
+								<Value>Break 13:10 - STANDARD 2 - Pos 9</Value>
+							</DataElement>
+							<DataElement>
+								<Name>adSalesContentReconcileKey-text</Name>
+								<Type>template parameter</Type>
+								<Value>0120449973</Value>
+							</DataElement>
+							<DataElement>
+								<Name>gfxStartEnd-compoundList</Name>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>gfxStartEnd-startOffset</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-endOffset</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-transSpeedIn</Name>
+												<Type>template parameter</Type>
+												<Value>None</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-transSpeed</Name>
+												<Type>template parameter</Type>
+												<Value>None</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-stream</Name>
+												<Type>template parameter</Type>
+												<Value>DSK 11</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-matId</Name>
+												<Type>template parameter</Type>
+												<Value>LB_0000001_12_G</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+				<PlaylistItem>
+					<ItemReference>a3bfc96a-85ec-447e-9aec-31e60fde7977</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-07-25T00:00:00.000</StartDate>
+					<StartTimecode>11:23:03:17</StartTimecode>
+					<ScheduledDuration>00:00:15:00</ScheduledDuration>
+					<ScheduleReference>a3bfc96a-85ec-447e-9aec-31e60fde7977</ScheduleReference>
+					<ScheduledTitle>GRI0122FEKPACAK015A4</ScheduledTitle>
+					<Template>
+						<TemplateName>SPOTAFF</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialSegment-matId</Name>
+								<Type>template parameter</Type>
+								<Value>W9186</Value>
+							</DataElement>
+							<DataElement>
+								<Name>materialSegment-segmentGroup</Name>
+								<Type>template parameter</Type>
+								<Value>Program</Value>
+							</DataElement>
+							<DataElement>
+								<Name>materialSegment-segmentType</Name>
+								<Type>template parameter</Type>
+								<Value>Segment</Value>
+							</DataElement>
+							<DataElement>
+								<Name>materialSegment-segmentIndex</Name>
+								<Type>template parameter</Type>
+								<Value>1</Value>
+							</DataElement>
+							<DataElement>
+								<Name>transition-transType</Name>
+								<Type>template parameter</Type>
+								<Value>Cut-Fade</Value>
+							</DataElement>
+							<DataElement>
+								<Name>transition-transSpeed</Name>
+								<Type>template parameter</Type>
+								<Value>Fast</Value>
+							</DataElement>
+							<DataElement>
+								<Name>transition-transDwell</Name>
+								<Type>template parameter</Type>
+								<Value>6</Value>
+							</DataElement>
+							<DataElement>
+								<Name>commercialPosition-text</Name>
+								<Type>template parameter</Type>
+								<Value>Break 13:10 - STANDARD 2 - Pos 10</Value>
+							</DataElement>
+							<DataElement>
+								<Name>adSalesContentReconcileKey-text</Name>
+								<Type>template parameter</Type>
+								<Value>0120528780</Value>
+							</DataElement>
+							<DataElement>
+								<Name>gfxStartEnd-compoundList</Name>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>gfxStartEnd-startOffset</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-endOffset</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-transSpeedIn</Name>
+												<Type>template parameter</Type>
+												<Value>None</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-transSpeed</Name>
+												<Type>template parameter</Type>
+												<Value>None</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-stream</Name>
+												<Type>template parameter</Type>
+												<Value>DSK 11</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-matId</Name>
+												<Type>template parameter</Type>
+												<Value>LB_0000001_12_G</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+				<PlaylistItem>
+					<ItemReference>a3bfb596-edf1-45e8-a089-9d24c468e563</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-07-25T00:00:00.000</StartDate>
+					<StartTimecode>11:23:18:23</StartTimecode>
+					<ScheduledDuration>00:00:15:00</ScheduledDuration>
+					<ScheduleReference>a3bfb596-edf1-45e8-a089-9d24c468e563</ScheduleReference>
+					<ScheduledTitle>ACQUA SANTA CROCE SHORT AUT .MINISTERO DELLA SALUTE </ScheduledTitle>
+					<Template>
+						<TemplateName>SPOTAFF</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialSegment-matId</Name>
+								<Type>template parameter</Type>
+								<Value>X7147</Value>
+							</DataElement>
+							<DataElement>
+								<Name>materialSegment-segmentGroup</Name>
+								<Type>template parameter</Type>
+								<Value>Program</Value>
+							</DataElement>
+							<DataElement>
+								<Name>materialSegment-segmentType</Name>
+								<Type>template parameter</Type>
+								<Value>Segment</Value>
+							</DataElement>
+							<DataElement>
+								<Name>materialSegment-segmentIndex</Name>
+								<Type>template parameter</Type>
+								<Value>1</Value>
+							</DataElement>
+							<DataElement>
+								<Name>transition-transType</Name>
+								<Type>template parameter</Type>
+								<Value>Cut-Fade</Value>
+							</DataElement>
+							<DataElement>
+								<Name>transition-transSpeed</Name>
+								<Type>template parameter</Type>
+								<Value>Fast</Value>
+							</DataElement>
+							<DataElement>
+								<Name>transition-transDwell</Name>
+								<Type>template parameter</Type>
+								<Value>6</Value>
+							</DataElement>
+							<DataElement>
+								<Name>commercialPosition-text</Name>
+								<Type>template parameter</Type>
+								<Value>Break 13:10 - STANDARD 2 - Pos 11</Value>
+							</DataElement>
+							<DataElement>
+								<Name>adSalesContentReconcileKey-text</Name>
+								<Type>template parameter</Type>
+								<Value>0120246545</Value>
+							</DataElement>
+							<DataElement>
+								<Name>gfxStartEnd-compoundList</Name>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>gfxStartEnd-startOffset</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-endOffset</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-transSpeedIn</Name>
+												<Type>template parameter</Type>
+												<Value>None</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-transSpeed</Name>
+												<Type>template parameter</Type>
+												<Value>None</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-stream</Name>
+												<Type>template parameter</Type>
+												<Value>DSK 11</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-matId</Name>
+												<Type>template parameter</Type>
+												<Value>LB_0000001_12_G</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+							<DataElement>
+								<Name>gfxOffsetDuration-compoundList</Name>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>gfxOffsetDuration-offset</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxOffsetDuration-offsetType</Name>
+												<Type>template parameter</Type>
+												<Value>Start</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxOffsetDuration-duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:03:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxOffsetDuration-transSpeedIn</Name>
+												<Type>template parameter</Type>
+												<Value>None</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxOffsetDuration-transSpeed</Name>
+												<Type>template parameter</Type>
+												<Value>None</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxOffsetDuration-stream</Name>
+												<Type>template parameter</Type>
+												<Value>DSK 6</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxOffsetDuration-matId</Name>
+												<Type>template parameter</Type>
+												<Value>XX_0000044_06_G</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2020473564</BlockName>
+				<PreviousBlockName>2020473563</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>9ced3bf8-35eb-4441-8952-7a95c7ae2bee</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-07-25T00:00:00.000</StartDate>
+					<StartTimecode>11:23:34:04</StartTimecode>
+					<ScheduledDuration>00:00:19:09</ScheduledDuration>
+					<ScheduleReference>9ced3bf8-35eb-4441-8952-7a95c7ae2bee</ScheduleReference>
+					<ScheduledTitle>LB PROMO CICLO TOTAL ACTION 2024 MAG-GIU</ScheduledTitle>
+					<Template>
+						<TemplateName>PROMO</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialSegment-matId</Name>
+								<Type>template parameter</Type>
+								<Value>FMAN202400005799</Value>
+							</DataElement>
+							<DataElement>
+								<Name>materialSegment-segmentGroup</Name>
+								<Type>template parameter</Type>
+								<Value>Program</Value>
+							</DataElement>
+							<DataElement>
+								<Name>materialSegment-segmentType</Name>
+								<Type>template parameter</Type>
+								<Value>Segment</Value>
+							</DataElement>
+							<DataElement>
+								<Name>materialSegment-segmentIndex</Name>
+								<Type>template parameter</Type>
+								<Value>1</Value>
+							</DataElement>
+							<DataElement>
+								<Name>transition-transType</Name>
+								<Type>template parameter</Type>
+								<Value>Cut-Fade</Value>
+							</DataElement>
+							<DataElement>
+								<Name>transition-transSpeed</Name>
+								<Type>template parameter</Type>
+								<Value>Fast</Value>
+							</DataElement>
+							<DataElement>
+								<Name>transition-transDwell</Name>
+								<Type>template parameter</Type>
+								<Value>6</Value>
+							</DataElement>
+							<DataElement>
+								<Name>mediaSource-text</Name>
+								<Type>template parameter</Type>
+								<Value>MAM</Value>
+							</DataElement>
+							<DataElement>
+								<Name>audioAttenuation-text</Name>
+								<Type>template parameter</Type>
+								<Value>no</Value>
+							</DataElement>
+							<DataElement>
+								<Name>gfxStartEnd-compoundList</Name>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>gfxStartEnd-startOffset</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-endOffset</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-transSpeedIn</Name>
+												<Type>template parameter</Type>
+												<Value>None</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-transSpeed</Name>
+												<Type>template parameter</Type>
+												<Value>None</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-stream</Name>
+												<Type>template parameter</Type>
+												<Value>DSK 11</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-matId</Name>
+												<Type>template parameter</Type>
+												<Value>LB_0000001_12_G</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+			<Block>
+				<BlockName>2012308663</BlockName>
+				<PreviousBlockName>2020473564</PreviousBlockName>
+				<PlaylistItem>
+					<ItemReference>538d106e-abd9-403a-b147-0079ecaa2efd</ItemReference>
+					<StartMode>Variable</StartMode>
+					<StartDate>2024-07-25T00:00:00.000</StartDate>
+					<StartTimecode>11:23:53:19</StartTimecode>
+					<ScheduledDuration>00:11:48:00</ScheduledDuration>
+					<ScheduleReference>538d106e-abd9-403a-b147-0079ecaa2efd</ScheduleReference>
+					<ScheduledTitle>CHICAGO FIRE VIII - CAMPANA DELLA CINQUANTUNO (LA) - 2/4</ScheduledTitle>
+					<Template>
+						<TemplateName>PRGMAM</TemplateName>
+						<DataElementList>
+							<DataElement>
+								<Name>materialIncodeDuration-matIdIncodeDuration</Name>
+								<Type>template parameter</Type>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>matId</Name>
+												<Type>template parameter</Type>
+												<Value>F310092001002004</Value>
+											</DataElement>
+											<DataElement>
+												<Name>inCode</Name>
+												<Type>template parameter</Type>
+												<Value>10:12:30:01</Value>
+											</DataElement>
+											<DataElement>
+												<Name>duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:11:48:00</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+							<DataElement>
+								<Name>transition-transType</Name>
+								<Type>template parameter</Type>
+								<Value>Cut-Fade</Value>
+							</DataElement>
+							<DataElement>
+								<Name>transition-transSpeed</Name>
+								<Type>template parameter</Type>
+								<Value>Fast</Value>
+							</DataElement>
+							<DataElement>
+								<Name>transition-transDwell</Name>
+								<Type>template parameter</Type>
+								<Value>6</Value>
+							</DataElement>
+							<DataElement>
+								<Name>mediaSource-text</Name>
+								<Type>template parameter</Type>
+								<Value>MAM</Value>
+							</DataElement>
+							<DataElement>
+								<Name>subtitle01-closedSubtitles</Name>
+								<Type>template parameter</Type>
+								<Value>70</Value>
+							</DataElement>
+							<DataElement>
+								<Name>subtitle02-closedSubtitles</Name>
+								<Type>template parameter</Type>
+								<Value>25</Value>
+							</DataElement>
+							<DataElement>
+								<Name>productPlacement-text</Name>
+								<Type>template parameter</Type>
+								<Value>no</Value>
+							</DataElement>
+							<DataElement>
+								<Name>parentalRatingText-text</Name>
+								<Type>template parameter</Type>
+								<Value>0</Value>
+							</DataElement>
+							<DataElement>
+								<Name>audioAttenuation-text</Name>
+								<Type>template parameter</Type>
+								<Value>yes</Value>
+							</DataElement>
+							<DataElement>
+								<Name>productPart-text</Name>
+								<Type>template parameter</Type>
+								<Value>1</Value>
+							</DataElement>
+							<DataElement>
+								<Name>enablerSwitchIn-graphic</Name>
+								<Type>template parameter</Type>
+								<Value>ENABLER_SWITCHIN</Value>
+							</DataElement>
+							<DataElement>
+								<Name>enablerSwitchIn-userText1</Name>
+								<Type>template parameter</Type>
+								<Value>F310092001002004</Value>
+							</DataElement>
+							<DataElement>
+								<Name>gfxStartEnd-compoundList</Name>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>gfxStartEnd-offset</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-offsetType</Name>
+												<Type>template parameter</Type>
+												<Value>Start</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:11:48:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-transSpeedIn</Name>
+												<Type>template parameter</Type>
+												<Value>None</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-transSpeed</Name>
+												<Type>template parameter</Type>
+												<Value>None</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-stream</Name>
+												<Type>template parameter</Type>
+												<Value>DSK 3</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-userText3</Name>
+												<Type>template parameter</Type>
+												<Value>QUESTA SERA IN PRIMA SERATA</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-userText2</Name>
+												<Type>template parameter</Type>
+												<Value>POINT BREAK</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-matId</Name>
+												<Type>template parameter</Type>
+												<Value>LB_0000032_03_G
+</Value>
+											</DataElement>
+										</DataElementList>
+										<DataElementList>
+											<DataElement>
+												<Name>gfxStartEnd-startOffset</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-endOffset</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-transSpeedIn</Name>
+												<Type>template parameter</Type>
+												<Value>None</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-transSpeed</Name>
+												<Type>template parameter</Type>
+												<Value>None</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-stream</Name>
+												<Type>template parameter</Type>
+												<Value>DSK 11</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxStartEnd-matId</Name>
+												<Type>template parameter</Type>
+												<Value>LB_0000001_12_G</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+							<DataElement>
+								<Name>gfxOffsetDuration-compoundList</Name>
+								<Value>
+									<DataElementCompoundList>
+										<DataElementList>
+											<DataElement>
+												<Name>gfxOffsetDuration-offset</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:00:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxOffsetDuration-offsetType</Name>
+												<Type>template parameter</Type>
+												<Value>Start</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxOffsetDuration-duration</Name>
+												<Type>template parameter</Type>
+												<Value>00:00:20:00</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxOffsetDuration-transSpeedIn</Name>
+												<Type>template parameter</Type>
+												<Value>None</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxOffsetDuration-transSpeed</Name>
+												<Type>template parameter</Type>
+												<Value>None</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxOffsetDuration-stream</Name>
+												<Type>template parameter</Type>
+												<Value>DSK 9</Value>
+											</DataElement>
+											<DataElement>
+												<Name>gfxOffsetDuration-matId</Name>
+												<Type>template parameter</Type>
+												<Value>LB_0000018_09_G</Value>
+											</DataElement>
+										</DataElementList>
+									</DataElementCompoundList>
+								</Value>
+							</DataElement>
+						</DataElementList>
+					</Template>
+				</PlaylistItem>
+			</Block>
+		</BlockList>
+		<BookmarkList>
+		</BookmarkList>
+	</Playlist>
+</Pharos>

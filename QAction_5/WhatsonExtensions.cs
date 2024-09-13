@@ -5,11 +5,12 @@
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
+    using Skyline.DataMiner.Net.Messages.SLDataGateway;
     using static Utils;
 
     public static class WhatsonExtensions
     {
-        public static List<WhatsonRow> Flatten(this Pharos whatsonData)
+        public static List<WhatsonRow> Flatten(this Whatson.Pharos whatsonData)
         {
             List<WhatsonRow> result = new List<WhatsonRow>();
             if (whatsonData.Playlist != null && whatsonData.Playlist.BlockList != null)
@@ -30,16 +31,27 @@
                                     ItemReference = playlistItem.ItemReference,
                                     ReconcileKey = reconcileKey,
                                     Title = playlistItem.ScheduledTitle,
-                                    enablerLegacy = playlistItem.FindEnablerLegacyText(),
-                                    scteBroadcastBreakStart = playlistItem.FindScteBroadcastBreakStartUpid(),
-                                    scteBroadcastProviderAdvStart = playlistItem.FindScteBroadcastProviderAdvStartUpid(),
+                                    ProgramCode = playlistItem.FindProgramCode() ?? string.Empty,
+                                    EnablerLegacy = playlistItem.FindEnablerLegacyText(),
+                                    ScteBroadcastBreakStart = playlistItem.FindScteBroadcastBreakStartUpid(),
+                                    ScteBroadcastProviderAdvStart = playlistItem.FindScteBroadcastProviderAdvStartUpid(),
+                                    ScteBroadcastProviderOverlayPlacementStart = playlistItem.FindScteBroadcastProviderOverlayPlacementStartUpid(),
+                                    ScteBroadcastProviderOverlayPlacementEnd = playlistItem.FindScteBroadcastProviderOverlayPlacementEndUpid(),
+                                    TemplateName = playlistItem.Template.TemplateName,
+                                    ParentalRatingValue = playlistItem.FindParentalRatingValue(),
                                 });
                             }
                         }
                     }
                 }
             }
+
             return result;
+        }
+
+        public static List<WhatsonRow> FilterSpots(this List<WhatsonRow> list)
+        {
+            return list.FindAll(row => row.TemplateName == "SPOTAFF" || row.TemplateName == "SPOTNOAFF" || row.TemplateName == "CIAK");
         }
 
         public static Dictionary<String, WhatsonRow> ToReconcileKeyMap(this List<WhatsonRow> whatsonRows)
@@ -53,61 +65,93 @@
                     reconcileToRow[adSalesReconcileKey] = row;
                 }
             }
+
             return reconcileToRow;
         }
-        public static string FindAdSalesReconcileKey(this PharosPlaylistBlockPlaylistItem playlistItem)
+
+        public static string FindAdSalesReconcileKey(this Whatson.PlaylistItem playlistItem)
         {
             return playlistItem.FindDataElementByName("adSalesContentReconcileKey-text")?.Text();
         }
 
-        public static PharosPlaylistBlockPlaylistItemTemplateDataElement FindScteBroadcastBreakStart(this PharosPlaylistBlockPlaylistItem playlistItem)
+        public static string FindProgramCode(this Whatson.PlaylistItem playlistItem)
+        {
+            return playlistItem.FindDataElementByName("materialSegment-matId")?.Text();
+        }
+
+        public static Whatson.DataElement FindScteBroadcastBreakStart(this Whatson.PlaylistItem playlistItem)
         {
             return playlistItem.FindDataElementByName("scteBroadcastBreakStart-insertSegmentationDescriptor");
         }
 
-        public static string FindScteBroadcastBreakStartUpid(this PharosPlaylistBlockPlaylistItem playlistItem)
+        public static Whatson.DataElement FindScteBroadcastProviderOverlayPlacementStart(this Whatson.PlaylistItem playlistItem)
         {
-            var item = playlistItem.FindScteBroadcastBreakStart();
-            return item?.Value.DataElementCompoundList?.DataElementList.FindDataElementByName("segmentationUpid")?.Value;
+            return playlistItem.FindDataElementByName("scteBroadcastProviderOverlayPlacementStart-compoundList");
         }
 
-        public static PharosPlaylistBlockPlaylistItemTemplateDataElement FindScteBroadcastProviderAdvStart(this PharosPlaylistBlockPlaylistItem playlistItem)
+        public static Whatson.DataElement FindScteBroadcastProviderOverlayPlacementEnd(this Whatson.PlaylistItem playlistItem)
+        {
+            return playlistItem.FindDataElementByName("scteBroadcastProviderOverlayPlacementEnd-compoundList");
+        }
+
+        public static string FindScteBroadcastBreakStartUpid(this Whatson.PlaylistItem playlistItem)
+        {
+            var item = playlistItem.FindScteBroadcastBreakStart();
+            return item?.Value.DataElementCompoundList?.DataElementList.FindDataElementByName("segmentationUpid")?.Value.Text[0];
+        }
+
+        public static string FindScteBroadcastProviderOverlayPlacementStartUpid(this Whatson.PlaylistItem playlistItem)
+        {
+            var item = playlistItem.FindScteBroadcastProviderOverlayPlacementStart();
+            var item2 = item?.Value.DataElementCompoundList.DataElementList.FindDataElementByName("scteBroadcastProviderOverlayPlacementStart-insertSegmentationDescriptor");
+            return item2?.Value.DataElementCompoundList?.DataElementList.FindDataElementByName("segmentationUpid")?.Value.Text[0];
+        }
+
+        public static string FindScteBroadcastProviderOverlayPlacementEndUpid(this Whatson.PlaylistItem playlistItem)
+        {
+            var item = playlistItem.FindScteBroadcastProviderOverlayPlacementEnd();
+            var item2 = item?.Value.DataElementCompoundList.DataElementList.FindDataElementByName("scteBroadcastProviderOverlayPlacementEnd-insertSegmentationDescriptor");
+            return item2?.Value.DataElementCompoundList?.DataElementList.FindDataElementByName("segmentationUpid")?.Value.Text[0];
+        }
+
+        public static Whatson.DataElement FindScteBroadcastProviderAdvStart(this Whatson.PlaylistItem playlistItem)
         {
             return playlistItem.FindDataElementByName("scteBroadcastProviderAdvStart-insertSegmentationDescriptor");
         }
 
-        public static string FindScteBroadcastProviderAdvStartUpid(this PharosPlaylistBlockPlaylistItem playlistItem)
+        public static string FindScteBroadcastProviderAdvStartUpid(this Whatson.PlaylistItem playlistItem)
         {
             var item = playlistItem.FindScteBroadcastProviderAdvStart();
-            return item?.Value.DataElementCompoundList?.DataElementList.FindDataElementByName("segmentationUpid")?.Value;
+            return item?.Value.DataElementCompoundList?.DataElementList.FindDataElementByName("segmentationUpid")?.Value.Text[0];
         }
 
-        public static PharosPlaylistBlockPlaylistItemTemplateDataElement FindEnablerLegacy(this PharosPlaylistBlockPlaylistItem playlistItem)
+        public static Whatson.DataElement FindEnablerLegacy(this Whatson.PlaylistItem playlistItem)
         {
             return playlistItem.FindDataElementByName("enablerLegacy-compoundList");
         }
 
-        public static string FindEnablerLegacyText(this PharosPlaylistBlockPlaylistItem playlistItem)
+        public static string FindEnablerLegacyText(this Whatson.PlaylistItem playlistItem)
         {
             var item = playlistItem.FindEnablerLegacy();
-            return item?.Value.DataElementCompoundList?.DataElementList.FindDataElementByName("enablerLegacy-userText1")?.Value;
+            return item?.Value.DataElementCompoundList?.DataElementList.FindDataElementByName("enablerLegacy-userText1")?.Value.Text[0];
         }
 
-        public static string Text(this PharosPlaylistBlockPlaylistItemTemplateDataElement dataElement)
+        public static string Text(this Whatson.DataElement dataElement)
         {
             if (dataElement.Value.Text != null && dataElement.Value.Text.Length == 1)
             {
                 return dataElement.Value.Text[0];
             }
+
             return null;
         }
 
-        public static PharosPlaylistBlockPlaylistItemTemplateDataElement FindDataElementByName(this PharosPlaylistBlockPlaylistItem playlistItem, String name)
+        public static Whatson.DataElement FindDataElementByName(this Whatson.PlaylistItem playlistItem, String name)
         {
             return playlistItem.Template.DataElementList.FindDataElementByName(name);
         }
 
-        public static PharosPlaylistBlockPlaylistItemTemplateDataElementValueDataElementCompoundListDataElement FindDataElementByName(this PharosPlaylistBlockPlaylistItemTemplateDataElementValueDataElementCompoundListDataElement[] dataElementArray, String name)
+        public static Whatson.DataElement FindDataElementByName(this Whatson.DataElement[] dataElementArray, String name)
         {
             foreach (var entry in dataElementArray)
             {
@@ -116,22 +160,11 @@
                     return entry;
                 }
             }
+
             return null;
         }
 
-        public static PharosPlaylistBlockPlaylistItemTemplateDataElement FindDataElementByName(this PharosPlaylistBlockPlaylistItemTemplateDataElement[] dataElementArray, String name)
-        {
-            foreach (var entry in dataElementArray)
-            {
-                if (entry.Name == name)
-                {
-                    return entry;
-                }
-            }
-            return null;
-        }
-
-        public static DateTime? StartDateTime(this PharosPlaylistBlockPlaylistItem playlistItem)
+        public static DateTime? StartDateTime(this Whatson.PlaylistItem playlistItem)
         {
             if (playlistItem.StartDate == null || playlistItem.StartTimecode == null)
                 return null;
@@ -139,7 +172,17 @@
             string time = playlistItem.StartTimecode.Substring(0, 8);
             var dateTime = DateTime.Parse(date + "T" + time + "Z");
             return dateTime;
+        }
 
+        public static string FindParentalRatingValue(this Whatson.PlaylistItem playlistItem)
+        {
+            var checkField = playlistItem.FindDataElementByName("parentalRating-graphic");
+            if(checkField?.Value.Text.Length == 1 && checkField?.Value.Text[0] == "PR_ENGINE")
+            {
+                return playlistItem.FindDataElementByName("parentalRating-userText1")?.Value.Text[0];
+            }
+
+            return null;
         }
     }
 }

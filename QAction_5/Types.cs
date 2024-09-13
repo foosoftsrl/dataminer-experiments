@@ -1,4 +1,6 @@
-﻿namespace QAction_5
+﻿#pragma warning disable SA1401 // C# does not like public fields
+
+namespace QAction_5
 {
     using System;
     using System.Collections.Generic;
@@ -10,23 +12,32 @@
     {
         public DateTime TimeOfDay;
         public string BreakId;
+        public string BreakPosition;
         public string ReconcileKey;
         public string Title;
         public string ProductCode;
-        public string Type;
+        public string TimeAllocationType; // STANDARD, PUSH, IS...
         public string Duration;
         public string Enabler;
+        public int DayOffset;
+        public string BreakScreenLayout;
     }
 
     public class WhatsonRow
     {
         public DateTime StartTime;
+        public string ProgramCode;
         public string Title;
         public string ItemReference;
         public string ReconcileKey;
-        public string scteBroadcastBreakStart;
-        public string scteBroadcastProviderAdvStart;
-        public string enablerLegacy;
+        public string TemplateName;
+        public string ScteBroadcastBreakStart;
+        public string ScteBroadcastProviderAdvStart;
+        public string ScteBroadcastProviderOverlayPlacementStart;
+        public string ScteBroadcastProviderOverlayPlacementEnd;
+        public string EnablerLegacy;
+        public int DayOffset;
+        public string ParentalRatingValue;
     }
 
     public class MediatorRow
@@ -37,9 +48,14 @@
         public DateTime StartTime;
         public string Title;
         public string Status;
-        public string scteBroadcastBreakStart;
-        public string scteBroadcastProviderAdvStart;
-        public string enablerLegacy;
+        public string ScteBroadcastBreakStart;
+        public string ScteBroadcastProviderAdvStart;
+        public string ScteBroadcastProviderOverlayPlacementStart;
+        public string ScteBroadcastProviderOverlayPlacementEnd;
+        public string EnablerLegacy;
+        public string MaterialId;
+        public int DayOffset;
+        public string ParentalRatingValue;
     }
 
     public class EnablerRow
@@ -48,5 +64,11 @@
         public int EventCode;
         public string EventName;
         public string Payload;
+    }
+
+    public class ParentalRatingRow
+    {
+        public DateTime TimeStamp;
+        public int ParentalRating;
     }
 }
