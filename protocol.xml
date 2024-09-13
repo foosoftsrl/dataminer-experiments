@@ -1168,7 +1168,7 @@
 				</Positions>
 			</Display>
 			<Measurement>
-				<Type options="tab=columns:3001|0-3002|1-3003|2-3004|3-3005|4-3006|5-3007|6-3008|7,width:240-120-240-120-100-102-100-100,sort:STRING-STRING|ASC-STRING-STRING-STRING-STRING-STRING-STRING,lines:25,filter:true">table</Type>
+				<Type options="tab=columns:3001|0-3002|1-3003|2-3004|3-3005|4-3006|5-3007|6-3008|7-3009|8,width:240-120-240-120-100-102-100-100-148,sort:STRING-STRING|ASC-STRING-STRING-STRING-STRING-STRING-STRING-STRING,lines:25,filter:true">table</Type>
 			</Measurement>
 		</Param>
 		<Param id="3001" trending="false">
