@@ -5,7 +5,7 @@
 		<Encoding>unicode</Encoding>
 	</Options>
 	<Description>AdSales DataMiner connector</Description>
-	<Version>1.0.0.20</Version>
+	<Version>1.0.0.21</Version>
 	<IntegrationID>DMS-DRV-</IntegrationID>
 	<Provider>Foosoft</Provider>
 	<Vendor>Foosoft</Vendor>
@@ -658,13 +658,16 @@
 			<Type>array</Type>
 			<ArrayOptions index="0">
 				<ColumnOption idx="0" pid="1001" type="retrieved" options=""/>
-				<ColumnOption idx="1" pid="1002" type="retrieved" options=""/>
-				<ColumnOption idx="2" pid="1003" type="retrieved" options=""/>
-				<ColumnOption idx="3" pid="1007" type="retrieved" options="" />
-				<ColumnOption idx="4" pid="1004" type="retrieved" options="" />
-				<ColumnOption idx="5" pid="1005" type="retrieved" options="" />
-				<ColumnOption idx="6" pid="1006" type="retrieved" options="" />
-				<ColumnOption idx="7" pid="1008" type="retrieved" options="" />
+				<ColumnOption idx="1" pid="1011" type="retrieved" options="" />
+				<ColumnOption idx="2" pid="1002" type="retrieved" options=""/>
+				<ColumnOption idx="3" pid="1003" type="retrieved" options=""/>
+				<ColumnOption idx="4" pid="1007" type="retrieved" options="" />
+				<ColumnOption idx="5" pid="1009" type="retrieved" options="" />
+				<ColumnOption idx="6" pid="1005" type="retrieved" options="" />
+				<ColumnOption idx="7" pid="1004" type="retrieved" options="" />
+				<ColumnOption idx="8" pid="1006" type="retrieved" options="" />
+				<ColumnOption idx="9" pid="1008" type="retrieved" options="" />
+				<ColumnOption idx="10" pid="1010" type="retrieved" options="" />
 			</ArrayOptions>
 			<Information>
 				<Subtext>AdSales Table</Subtext>
@@ -680,7 +683,7 @@
 				</Positions>
 			</Display>
 			<Measurement>
-				<Type options="tab=columns:1001|0-1002|1-1003|2-1004|4-1005|5-1006|6-1007|3-1008|7,width:120-120-120-240-100-100-100-126,sort:STRING-STRING|ASC-STRING-STRING-STRING-STRING-STRING-STRING,lines:25,filter:true">table</Type>
+				<Type options="tab=columns:1001|0-1002|2-1003|3-1004|7-1005|6-1006|8-1007|4-1008|9-1009|5-1010|10-1011|1,width:120-120-120-240-100-100-100-126-147-123-133,sort:STRING-STRING|ASC-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING,lines:25,filter:true">table</Type>
 			</Measurement>
 		</Param>
 		<Param id="1001" trending="false">
@@ -822,6 +825,60 @@
 			<Type>read</Type>
 			<Information>
 				<Subtext>Break ScreenLayout</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="1009" trending="false">
+			<Name>adSalesProductCode</Name>
+			<Description>ProductCode (Adsales)</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="1010" trending="false">
+			<Name>adSalesDuration</Name>
+			<Description>Duration (Adsales)</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="1011" trending="false">
+			<Name>adSalesDayOffset</Name>
+			<Description>Day Offset (Adsales)</Description>
+			<Type>read</Type>
+			<Information>
 			</Information>
 			<Interprete>
 				<RawType>other</RawType>
@@ -1895,15 +1952,15 @@
 			<Type>array</Type>
 			<ArrayOptions index="0">
 				<ColumnOption idx="0" pid="8001" type="retrieved" options="" />
-				<ColumnOption idx="1" pid="8002" type="retrieved" options="" />
-				<ColumnOption idx="2" pid="8003" type="retrieved" options="" />
-				<ColumnOption idx="3" pid="8004" type="retrieved" options="" />
-				<ColumnOption idx="4" pid="8005" type="retrieved" options="" />
-				<ColumnOption idx="5" pid="8006" type="retrieved" options="" />
-				<ColumnOption idx="6" pid="8007" type="retrieved" options="" />
-				<ColumnOption idx="7" pid="8008" type="retrieved" options="" />
-				<ColumnOption idx="8" pid="8009" type="retrieved" options="" />
-				<ColumnOption idx="9" pid="8010" type="retrieved" options="" />
+				<ColumnOption idx="1" pid="8010" type="retrieved" options="" />
+				<ColumnOption idx="2" pid="8002" type="retrieved" options="" />
+				<ColumnOption idx="3" pid="8003" type="retrieved" options="" />
+				<ColumnOption idx="4" pid="8004" type="retrieved" options="" />
+				<ColumnOption idx="5" pid="8005" type="retrieved" options="" />
+				<ColumnOption idx="6" pid="8006" type="retrieved" options="" />
+				<ColumnOption idx="7" pid="8007" type="retrieved" options="" />
+				<ColumnOption idx="8" pid="8008" type="retrieved" options="" />
+				<ColumnOption idx="9" pid="8009" type="retrieved" options="" />
 				<ColumnOption idx="10" pid="8011" type="retrieved" options="" />
 			</ArrayOptions>
 			<Information>
@@ -1922,7 +1979,7 @@
 				</Positions>
 			</Display>
 			<Measurement>
-				<Type options="tab=columns:8001|0-8002|1-8003|2-8004|3-8005|4-8006|5-8007|6-8008|7-8009|8-8010|9-8011|10,width:125-137-160-170-160-180-160-170-160-180-100,sort:STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING,lines:20,filter:true">table</Type>
+				<Type options="tab=columns:8001|0-8002|2-8003|3-8004|4-8005|5-8006|6-8007|7-8008|8-8009|9-8010|1-8011|10,width:125-137-160-170-160-180-160-170-160-180-100,sort:STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING,lines:20,filter:true">table</Type>
 			</Measurement>
 		</Param>
 		<Param id="8001" trending="false">

@@ -36,6 +36,7 @@
                 var whatsonOrphanIndex = new Dictionary<string, int>();
                 var adsalesOrphanIndex = new Dictionary<string, int>();
 
+                var standardDayResult = new List<(AdSalesRow, WhatsonRow, string)>();
                 int lastAdSalesIdx = -1;
                 int lastWhatsonIdx = -1;
                 foreach (var (adSalesRow, adSalesIdx) in adSalesRows.WithIndex())
@@ -54,14 +55,14 @@
                         {
                             for (var i = lastAdSalesIdx + 1; i < adSalesIdx; i++)
                             {
-                                result.Add((adSalesRows[i], null, "warn_only_adsales"));
+                                standardDayResult.Add((adSalesRows[i], null, "warn_only_adsales"));
                             }
 
                             for (var i = lastWhatsonIdx + 1; i < whatsonIdx; i++)
                             {
                                 if(!adSalesFilterOutReconcileKey.Contains(whatsonRows[i].ReconcileKey))
                                 {
-                                    result.Add((null, whatsonRows[i], "warn_only_whatson"));
+                                    standardDayResult.Add((null, whatsonRows[i], "warn_only_whatson"));
                                 }
                             }
 
@@ -71,7 +72,7 @@
                                 resultCode = "warn_material_mismatch";
                             }
 
-                            result.Add((adSalesRows[adSalesIdx], whatsonRows[whatsonIdx], resultCode));
+                            standardDayResult.Add((adSalesRows[adSalesIdx], whatsonRows[whatsonIdx], resultCode));
                             lastAdSalesIdx = adSalesIdx;
                             lastWhatsonIdx = whatsonIdx;
                         }
@@ -80,16 +81,45 @@
 
                 for (var i = lastAdSalesIdx + 1; i < adSalesRows.Count; i++)
                 {
-                    result.Add((adSalesRows[i], null, "warn_only_adsales"));
+                    standardDayResult.Add((adSalesRows[i], null, "warn_only_adsales"));
                 }
 
                 for (var i = lastWhatsonIdx + 1; i < whatsonRows.Count; i++)
                 {
                     if (!adSalesFilterOutReconcileKey.Contains(whatsonRows[i].ReconcileKey))
                     {
-                        result.Add((null, whatsonRows[i], "warn_only_whatson"));
+                        standardDayResult.Add((null, whatsonRows[i], "warn_only_whatson"));
                     }
                 }
+
+                var billboardDayResult = new List<(AdSalesRow, WhatsonRow, string)>();
+                List<AdSalesRow> adSalesBillboard = adSalesRows.FindAll(row => row.TimeAllocationType == "IS-BILLBOARD" || row.TimeAllocationType == "CIAK" || row.BreakScreenLayout == "OVL").ToList();
+                foreach (var adSalesRow in adSalesBillboard)
+                {
+                    var reconcileKey = adSalesRow.ReconcileKey;
+                    if (reconcileKeyToWhatsonIndex.TryGetValue(reconcileKey, out var whatsonIdx))
+                    {
+                        billboardDayResult.Add((adSalesRow, whatsonRows[whatsonIdx], "ok"));
+                    }
+                    else
+                    {
+                        billboardDayResult.Add((adSalesRow, null, "warn_only_adsales"));
+                    }
+                }
+
+                var dayResult = new List<(AdSalesRow, WhatsonRow, string)>();
+                var bilboardIndex = 0;
+                foreach (var resultRow in standardDayResult)
+                {
+                    if (bilboardIndex < billboardDayResult.Count && resultRow.Item1 != null && billboardDayResult[bilboardIndex].Item1.TimeOfDay < resultRow.Item1.TimeOfDay)
+                    {
+                        dayResult.Add(billboardDayResult[bilboardIndex++]);
+                    }
+
+                    dayResult.Add(resultRow);
+                }
+
+                result.AddRange(dayResult);
             }
 
             return result;

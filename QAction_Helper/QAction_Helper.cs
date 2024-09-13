@@ -276,6 +276,11 @@ public static class Parameter
 			public const int adsalesreconcilekey_1001 = 1001;
 			/// <summary>PID: 1001 | Type: read</summary>
 			public const int adsalesreconcilekey = 1001;
+			/// <summary>PID: 1011 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int adsalesdayoffset_1011 = 1011;
+			/// <summary>PID: 1011 | Type: read</summary>
+			public const int adsalesdayoffset = 1011;
 			/// <summary>PID: 1002 | Type: read</summary>
 			[EditorBrowsable(EditorBrowsableState.Never)]
 			public const int adsalestime_1002 = 1002;
@@ -291,16 +296,21 @@ public static class Parameter
 			public const int adsalesbreakposition_1007 = 1007;
 			/// <summary>PID: 1007 | Type: read</summary>
 			public const int adsalesbreakposition = 1007;
-			/// <summary>PID: 1004 | Type: read</summary>
+			/// <summary>PID: 1009 | Type: read</summary>
 			[EditorBrowsable(EditorBrowsableState.Never)]
-			public const int adsalestitle_1004 = 1004;
-			/// <summary>PID: 1004 | Type: read</summary>
-			public const int adsalestitle = 1004;
+			public const int adsalesproductcode_1009 = 1009;
+			/// <summary>PID: 1009 | Type: read</summary>
+			public const int adsalesproductcode = 1009;
 			/// <summary>PID: 1005 | Type: read</summary>
 			[EditorBrowsable(EditorBrowsableState.Never)]
 			public const int adsalestype_1005 = 1005;
 			/// <summary>PID: 1005 | Type: read</summary>
 			public const int adsalestype = 1005;
+			/// <summary>PID: 1004 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int adsalestitle_1004 = 1004;
+			/// <summary>PID: 1004 | Type: read</summary>
+			public const int adsalestitle = 1004;
 			/// <summary>PID: 1006 | Type: read</summary>
 			[EditorBrowsable(EditorBrowsableState.Never)]
 			public const int adsalesenabler_1006 = 1006;
@@ -311,6 +321,11 @@ public static class Parameter
 			public const int adsalesbreakscreenlayout_1008 = 1008;
 			/// <summary>PID: 1008 | Type: read</summary>
 			public const int adsalesbreakscreenlayout = 1008;
+			/// <summary>PID: 1010 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int adsalesduration_1010 = 1010;
+			/// <summary>PID: 1010 | Type: read</summary>
+			public const int adsalesduration = 1010;
 			public class Write
 			{
 			}
@@ -324,39 +339,54 @@ public static class Parameter
 			public const int adsalesreconcilekey = 0;
 			/// <summary>IDX: 1 | Type: read</summary>
 			[EditorBrowsable(EditorBrowsableState.Never)]
-			public const int adsalestime_1002 = 1;
+			public const int adsalesdayoffset_1011 = 1;
 			/// <summary>IDX: 1 | Type: read</summary>
-			public const int adsalestime = 1;
+			public const int adsalesdayoffset = 1;
 			/// <summary>IDX: 2 | Type: read</summary>
 			[EditorBrowsable(EditorBrowsableState.Never)]
-			public const int adsalesbreakid_1003 = 2;
+			public const int adsalestime_1002 = 2;
 			/// <summary>IDX: 2 | Type: read</summary>
-			public const int adsalesbreakid = 2;
+			public const int adsalestime = 2;
 			/// <summary>IDX: 3 | Type: read</summary>
 			[EditorBrowsable(EditorBrowsableState.Never)]
-			public const int adsalesbreakposition_1007 = 3;
+			public const int adsalesbreakid_1003 = 3;
 			/// <summary>IDX: 3 | Type: read</summary>
-			public const int adsalesbreakposition = 3;
+			public const int adsalesbreakid = 3;
 			/// <summary>IDX: 4 | Type: read</summary>
 			[EditorBrowsable(EditorBrowsableState.Never)]
-			public const int adsalestitle_1004 = 4;
+			public const int adsalesbreakposition_1007 = 4;
 			/// <summary>IDX: 4 | Type: read</summary>
-			public const int adsalestitle = 4;
+			public const int adsalesbreakposition = 4;
 			/// <summary>IDX: 5 | Type: read</summary>
 			[EditorBrowsable(EditorBrowsableState.Never)]
-			public const int adsalestype_1005 = 5;
+			public const int adsalesproductcode_1009 = 5;
 			/// <summary>IDX: 5 | Type: read</summary>
-			public const int adsalestype = 5;
+			public const int adsalesproductcode = 5;
 			/// <summary>IDX: 6 | Type: read</summary>
 			[EditorBrowsable(EditorBrowsableState.Never)]
-			public const int adsalesenabler_1006 = 6;
+			public const int adsalestype_1005 = 6;
 			/// <summary>IDX: 6 | Type: read</summary>
-			public const int adsalesenabler = 6;
+			public const int adsalestype = 6;
 			/// <summary>IDX: 7 | Type: read</summary>
 			[EditorBrowsable(EditorBrowsableState.Never)]
-			public const int adsalesbreakscreenlayout_1008 = 7;
+			public const int adsalestitle_1004 = 7;
 			/// <summary>IDX: 7 | Type: read</summary>
-			public const int adsalesbreakscreenlayout = 7;
+			public const int adsalestitle = 7;
+			/// <summary>IDX: 8 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int adsalesenabler_1006 = 8;
+			/// <summary>IDX: 8 | Type: read</summary>
+			public const int adsalesenabler = 8;
+			/// <summary>IDX: 9 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int adsalesbreakscreenlayout_1008 = 9;
+			/// <summary>IDX: 9 | Type: read</summary>
+			public const int adsalesbreakscreenlayout = 9;
+			/// <summary>IDX: 10 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int adsalesduration_1010 = 10;
+			/// <summary>IDX: 10 | Type: read</summary>
+			public const int adsalesduration = 10;
 		}
 	}
 	public class Mediator
@@ -914,6 +944,11 @@ public static class Parameter
 			public const int adsaleswondiffkey_8001 = 8001;
 			/// <summary>PID: 8001 | Type: read</summary>
 			public const int adsaleswondiffkey = 8001;
+			/// <summary>PID: 8010 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int adsaleswondiffdayoffset_8010 = 8010;
+			/// <summary>PID: 8010 | Type: read</summary>
+			public const int adsaleswondiffdayoffset = 8010;
 			/// <summary>PID: 8002 | Type: read</summary>
 			[EditorBrowsable(EditorBrowsableState.Never)]
 			public const int adsaleswondiffadsalesreconcilekey_8002 = 8002;
@@ -954,11 +989,6 @@ public static class Parameter
 			public const int adsaleswondiffwonprogramtitle_8009 = 8009;
 			/// <summary>PID: 8009 | Type: read</summary>
 			public const int adsaleswondiffwonprogramtitle = 8009;
-			/// <summary>PID: 8010 | Type: read</summary>
-			[EditorBrowsable(EditorBrowsableState.Never)]
-			public const int adsaleswondiffdayoffset_8010 = 8010;
-			/// <summary>PID: 8010 | Type: read</summary>
-			public const int adsaleswondiffdayoffset = 8010;
 			/// <summary>PID: 8011 | Type: read</summary>
 			[EditorBrowsable(EditorBrowsableState.Never)]
 			public const int adsaleswondiffresult_8011 = 8011;
@@ -977,49 +1007,49 @@ public static class Parameter
 			public const int adsaleswondiffkey = 0;
 			/// <summary>IDX: 1 | Type: read</summary>
 			[EditorBrowsable(EditorBrowsableState.Never)]
-			public const int adsaleswondiffadsalesreconcilekey_8002 = 1;
+			public const int adsaleswondiffdayoffset_8010 = 1;
 			/// <summary>IDX: 1 | Type: read</summary>
-			public const int adsaleswondiffadsalesreconcilekey = 1;
+			public const int adsaleswondiffdayoffset = 1;
 			/// <summary>IDX: 2 | Type: read</summary>
 			[EditorBrowsable(EditorBrowsableState.Never)]
-			public const int adsaleswondiffadsalesstarttime_8003 = 2;
+			public const int adsaleswondiffadsalesreconcilekey_8002 = 2;
 			/// <summary>IDX: 2 | Type: read</summary>
-			public const int adsaleswondiffadsalesstarttime = 2;
+			public const int adsaleswondiffadsalesreconcilekey = 2;
 			/// <summary>IDX: 3 | Type: read</summary>
 			[EditorBrowsable(EditorBrowsableState.Never)]
-			public const int adsaleswondiffadsalesprogramcode_8004 = 3;
+			public const int adsaleswondiffadsalesstarttime_8003 = 3;
 			/// <summary>IDX: 3 | Type: read</summary>
-			public const int adsaleswondiffadsalesprogramcode = 3;
+			public const int adsaleswondiffadsalesstarttime = 3;
 			/// <summary>IDX: 4 | Type: read</summary>
 			[EditorBrowsable(EditorBrowsableState.Never)]
-			public const int adsaleswondiffadsalesprogramtitle_8005 = 4;
+			public const int adsaleswondiffadsalesprogramcode_8004 = 4;
 			/// <summary>IDX: 4 | Type: read</summary>
-			public const int adsaleswondiffadsalesprogramtitle = 4;
+			public const int adsaleswondiffadsalesprogramcode = 4;
 			/// <summary>IDX: 5 | Type: read</summary>
 			[EditorBrowsable(EditorBrowsableState.Never)]
-			public const int adsaleswondiffwonreconcilekey_8006 = 5;
+			public const int adsaleswondiffadsalesprogramtitle_8005 = 5;
 			/// <summary>IDX: 5 | Type: read</summary>
-			public const int adsaleswondiffwonreconcilekey = 5;
+			public const int adsaleswondiffadsalesprogramtitle = 5;
 			/// <summary>IDX: 6 | Type: read</summary>
 			[EditorBrowsable(EditorBrowsableState.Never)]
-			public const int adsaleswondiffwonstarttime_8007 = 6;
+			public const int adsaleswondiffwonreconcilekey_8006 = 6;
 			/// <summary>IDX: 6 | Type: read</summary>
-			public const int adsaleswondiffwonstarttime = 6;
+			public const int adsaleswondiffwonreconcilekey = 6;
 			/// <summary>IDX: 7 | Type: read</summary>
 			[EditorBrowsable(EditorBrowsableState.Never)]
-			public const int adsaleswondiffwonprogramcode_8008 = 7;
+			public const int adsaleswondiffwonstarttime_8007 = 7;
 			/// <summary>IDX: 7 | Type: read</summary>
-			public const int adsaleswondiffwonprogramcode = 7;
+			public const int adsaleswondiffwonstarttime = 7;
 			/// <summary>IDX: 8 | Type: read</summary>
 			[EditorBrowsable(EditorBrowsableState.Never)]
-			public const int adsaleswondiffwonprogramtitle_8009 = 8;
+			public const int adsaleswondiffwonprogramcode_8008 = 8;
 			/// <summary>IDX: 8 | Type: read</summary>
-			public const int adsaleswondiffwonprogramtitle = 8;
+			public const int adsaleswondiffwonprogramcode = 8;
 			/// <summary>IDX: 9 | Type: read</summary>
 			[EditorBrowsable(EditorBrowsableState.Never)]
-			public const int adsaleswondiffdayoffset_8010 = 9;
+			public const int adsaleswondiffwonprogramtitle_8009 = 9;
 			/// <summary>IDX: 9 | Type: read</summary>
-			public const int adsaleswondiffdayoffset = 9;
+			public const int adsaleswondiffwonprogramtitle = 9;
 			/// <summary>IDX: 10 | Type: read</summary>
 			[EditorBrowsable(EditorBrowsableState.Never)]
 			public const int adsaleswondiffresult_8011 = 10;
@@ -1453,6 +1483,12 @@ public interface SLProtocolExt : SLProtocol
 	object Adsalesbreakposition { get; set; }
 	object Adsalesbreakscreenlayout_1008 { get; set; }
 	object Adsalesbreakscreenlayout { get; set; }
+	object Adsalesproductcode_1009 { get; set; }
+	object Adsalesproductcode { get; set; }
+	object Adsalesduration_1010 { get; set; }
+	object Adsalesduration { get; set; }
+	object Adsalesdayoffset_1011 { get; set; }
+	object Adsalesdayoffset { get; set; }
 	object Mediatorid_2001 { get; set; }
 	object Mediatorid { get; set; }
 	object Mediatordate_2002 { get; set; }
@@ -1835,6 +1871,21 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public System.Object Adsalesbreakscreenlayout_1008 {get { return GetParameter(1008); }set { SetParameter(1008, value); }}
 	/// <summary>PID: 1008  | Type: read</summary>
 	public System.Object Adsalesbreakscreenlayout {get { return GetParameter(1008); }set { SetParameter(1008, value); }}
+	/// <summary>PID: 1009  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Adsalesproductcode_1009 {get { return GetParameter(1009); }set { SetParameter(1009, value); }}
+	/// <summary>PID: 1009  | Type: read</summary>
+	public System.Object Adsalesproductcode {get { return GetParameter(1009); }set { SetParameter(1009, value); }}
+	/// <summary>PID: 1010  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Adsalesduration_1010 {get { return GetParameter(1010); }set { SetParameter(1010, value); }}
+	/// <summary>PID: 1010  | Type: read</summary>
+	public System.Object Adsalesduration {get { return GetParameter(1010); }set { SetParameter(1010, value); }}
+	/// <summary>PID: 1011  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Adsalesdayoffset_1011 {get { return GetParameter(1011); }set { SetParameter(1011, value); }}
+	/// <summary>PID: 1011  | Type: read</summary>
+	public System.Object Adsalesdayoffset {get { return GetParameter(1011); }set { SetParameter(1011, value); }}
 	/// <summary>PID: 2001  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Mediatorid_2001 {get { return GetParameter(2001); }set { SetParameter(2001, value); }}
@@ -2473,43 +2524,58 @@ public class AdsalesQActionRow : QActionTableRow
 	public System.Object Adsalesreconcilekey_1001 { get { if (base.Columns.ContainsKey(0)) { return base.Columns[0]; } else { return null; } } set { if (base.Columns.ContainsKey(0)) { base.Columns[0] = value; } else { base.Columns.Add(0, value); } } }
 	/// <summary>PID: 1001 | Type: read</summary>
 	public System.Object Adsalesreconcilekey { get { if (base.Columns.ContainsKey(0)) { return base.Columns[0]; } else { return null; } } set { if (base.Columns.ContainsKey(0)) { base.Columns[0] = value; } else { base.Columns.Add(0, value); } } }
+	/// <summary>PID: 1011 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Adsalesdayoffset_1011 { get { if (base.Columns.ContainsKey(1)) { return base.Columns[1]; } else { return null; } } set { if (base.Columns.ContainsKey(1)) { base.Columns[1] = value; } else { base.Columns.Add(1, value); } } }
+	/// <summary>PID: 1011 | Type: read</summary>
+	public System.Object Adsalesdayoffset { get { if (base.Columns.ContainsKey(1)) { return base.Columns[1]; } else { return null; } } set { if (base.Columns.ContainsKey(1)) { base.Columns[1] = value; } else { base.Columns.Add(1, value); } } }
 	/// <summary>PID: 1002 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Adsalestime_1002 { get { if (base.Columns.ContainsKey(1)) { return base.Columns[1]; } else { return null; } } set { if (base.Columns.ContainsKey(1)) { base.Columns[1] = value; } else { base.Columns.Add(1, value); } } }
+	public System.Object Adsalestime_1002 { get { if (base.Columns.ContainsKey(2)) { return base.Columns[2]; } else { return null; } } set { if (base.Columns.ContainsKey(2)) { base.Columns[2] = value; } else { base.Columns.Add(2, value); } } }
 	/// <summary>PID: 1002 | Type: read</summary>
-	public System.Object Adsalestime { get { if (base.Columns.ContainsKey(1)) { return base.Columns[1]; } else { return null; } } set { if (base.Columns.ContainsKey(1)) { base.Columns[1] = value; } else { base.Columns.Add(1, value); } } }
+	public System.Object Adsalestime { get { if (base.Columns.ContainsKey(2)) { return base.Columns[2]; } else { return null; } } set { if (base.Columns.ContainsKey(2)) { base.Columns[2] = value; } else { base.Columns.Add(2, value); } } }
 	/// <summary>PID: 1003 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Adsalesbreakid_1003 { get { if (base.Columns.ContainsKey(2)) { return base.Columns[2]; } else { return null; } } set { if (base.Columns.ContainsKey(2)) { base.Columns[2] = value; } else { base.Columns.Add(2, value); } } }
+	public System.Object Adsalesbreakid_1003 { get { if (base.Columns.ContainsKey(3)) { return base.Columns[3]; } else { return null; } } set { if (base.Columns.ContainsKey(3)) { base.Columns[3] = value; } else { base.Columns.Add(3, value); } } }
 	/// <summary>PID: 1003 | Type: read</summary>
-	public System.Object Adsalesbreakid { get { if (base.Columns.ContainsKey(2)) { return base.Columns[2]; } else { return null; } } set { if (base.Columns.ContainsKey(2)) { base.Columns[2] = value; } else { base.Columns.Add(2, value); } } }
+	public System.Object Adsalesbreakid { get { if (base.Columns.ContainsKey(3)) { return base.Columns[3]; } else { return null; } } set { if (base.Columns.ContainsKey(3)) { base.Columns[3] = value; } else { base.Columns.Add(3, value); } } }
 	/// <summary>PID: 1007 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Adsalesbreakposition_1007 { get { if (base.Columns.ContainsKey(3)) { return base.Columns[3]; } else { return null; } } set { if (base.Columns.ContainsKey(3)) { base.Columns[3] = value; } else { base.Columns.Add(3, value); } } }
+	public System.Object Adsalesbreakposition_1007 { get { if (base.Columns.ContainsKey(4)) { return base.Columns[4]; } else { return null; } } set { if (base.Columns.ContainsKey(4)) { base.Columns[4] = value; } else { base.Columns.Add(4, value); } } }
 	/// <summary>PID: 1007 | Type: read</summary>
-	public System.Object Adsalesbreakposition { get { if (base.Columns.ContainsKey(3)) { return base.Columns[3]; } else { return null; } } set { if (base.Columns.ContainsKey(3)) { base.Columns[3] = value; } else { base.Columns.Add(3, value); } } }
-	/// <summary>PID: 1004 | Type: read</summary>
+	public System.Object Adsalesbreakposition { get { if (base.Columns.ContainsKey(4)) { return base.Columns[4]; } else { return null; } } set { if (base.Columns.ContainsKey(4)) { base.Columns[4] = value; } else { base.Columns.Add(4, value); } } }
+	/// <summary>PID: 1009 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Adsalestitle_1004 { get { if (base.Columns.ContainsKey(4)) { return base.Columns[4]; } else { return null; } } set { if (base.Columns.ContainsKey(4)) { base.Columns[4] = value; } else { base.Columns.Add(4, value); } } }
-	/// <summary>PID: 1004 | Type: read</summary>
-	public System.Object Adsalestitle { get { if (base.Columns.ContainsKey(4)) { return base.Columns[4]; } else { return null; } } set { if (base.Columns.ContainsKey(4)) { base.Columns[4] = value; } else { base.Columns.Add(4, value); } } }
+	public System.Object Adsalesproductcode_1009 { get { if (base.Columns.ContainsKey(5)) { return base.Columns[5]; } else { return null; } } set { if (base.Columns.ContainsKey(5)) { base.Columns[5] = value; } else { base.Columns.Add(5, value); } } }
+	/// <summary>PID: 1009 | Type: read</summary>
+	public System.Object Adsalesproductcode { get { if (base.Columns.ContainsKey(5)) { return base.Columns[5]; } else { return null; } } set { if (base.Columns.ContainsKey(5)) { base.Columns[5] = value; } else { base.Columns.Add(5, value); } } }
 	/// <summary>PID: 1005 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Adsalestype_1005 { get { if (base.Columns.ContainsKey(5)) { return base.Columns[5]; } else { return null; } } set { if (base.Columns.ContainsKey(5)) { base.Columns[5] = value; } else { base.Columns.Add(5, value); } } }
+	public System.Object Adsalestype_1005 { get { if (base.Columns.ContainsKey(6)) { return base.Columns[6]; } else { return null; } } set { if (base.Columns.ContainsKey(6)) { base.Columns[6] = value; } else { base.Columns.Add(6, value); } } }
 	/// <summary>PID: 1005 | Type: read</summary>
-	public System.Object Adsalestype { get { if (base.Columns.ContainsKey(5)) { return base.Columns[5]; } else { return null; } } set { if (base.Columns.ContainsKey(5)) { base.Columns[5] = value; } else { base.Columns.Add(5, value); } } }
+	public System.Object Adsalestype { get { if (base.Columns.ContainsKey(6)) { return base.Columns[6]; } else { return null; } } set { if (base.Columns.ContainsKey(6)) { base.Columns[6] = value; } else { base.Columns.Add(6, value); } } }
+	/// <summary>PID: 1004 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Adsalestitle_1004 { get { if (base.Columns.ContainsKey(7)) { return base.Columns[7]; } else { return null; } } set { if (base.Columns.ContainsKey(7)) { base.Columns[7] = value; } else { base.Columns.Add(7, value); } } }
+	/// <summary>PID: 1004 | Type: read</summary>
+	public System.Object Adsalestitle { get { if (base.Columns.ContainsKey(7)) { return base.Columns[7]; } else { return null; } } set { if (base.Columns.ContainsKey(7)) { base.Columns[7] = value; } else { base.Columns.Add(7, value); } } }
 	/// <summary>PID: 1006 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Adsalesenabler_1006 { get { if (base.Columns.ContainsKey(6)) { return base.Columns[6]; } else { return null; } } set { if (base.Columns.ContainsKey(6)) { base.Columns[6] = value; } else { base.Columns.Add(6, value); } } }
+	public System.Object Adsalesenabler_1006 { get { if (base.Columns.ContainsKey(8)) { return base.Columns[8]; } else { return null; } } set { if (base.Columns.ContainsKey(8)) { base.Columns[8] = value; } else { base.Columns.Add(8, value); } } }
 	/// <summary>PID: 1006 | Type: read</summary>
-	public System.Object Adsalesenabler { get { if (base.Columns.ContainsKey(6)) { return base.Columns[6]; } else { return null; } } set { if (base.Columns.ContainsKey(6)) { base.Columns[6] = value; } else { base.Columns.Add(6, value); } } }
+	public System.Object Adsalesenabler { get { if (base.Columns.ContainsKey(8)) { return base.Columns[8]; } else { return null; } } set { if (base.Columns.ContainsKey(8)) { base.Columns[8] = value; } else { base.Columns.Add(8, value); } } }
 	/// <summary>PID: 1008 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Adsalesbreakscreenlayout_1008 { get { if (base.Columns.ContainsKey(7)) { return base.Columns[7]; } else { return null; } } set { if (base.Columns.ContainsKey(7)) { base.Columns[7] = value; } else { base.Columns.Add(7, value); } } }
+	public System.Object Adsalesbreakscreenlayout_1008 { get { if (base.Columns.ContainsKey(9)) { return base.Columns[9]; } else { return null; } } set { if (base.Columns.ContainsKey(9)) { base.Columns[9] = value; } else { base.Columns.Add(9, value); } } }
 	/// <summary>PID: 1008 | Type: read</summary>
-	public System.Object Adsalesbreakscreenlayout { get { if (base.Columns.ContainsKey(7)) { return base.Columns[7]; } else { return null; } } set { if (base.Columns.ContainsKey(7)) { base.Columns[7] = value; } else { base.Columns.Add(7, value); } } }
-	public AdsalesQActionRow() : base(0, 8) { }
-	public AdsalesQActionRow(System.Object[] oRow) : base(0, 8, oRow) { }
+	public System.Object Adsalesbreakscreenlayout { get { if (base.Columns.ContainsKey(9)) { return base.Columns[9]; } else { return null; } } set { if (base.Columns.ContainsKey(9)) { base.Columns[9] = value; } else { base.Columns.Add(9, value); } } }
+	/// <summary>PID: 1010 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Adsalesduration_1010 { get { if (base.Columns.ContainsKey(10)) { return base.Columns[10]; } else { return null; } } set { if (base.Columns.ContainsKey(10)) { base.Columns[10] = value; } else { base.Columns.Add(10, value); } } }
+	/// <summary>PID: 1010 | Type: read</summary>
+	public System.Object Adsalesduration { get { if (base.Columns.ContainsKey(10)) { return base.Columns[10]; } else { return null; } } set { if (base.Columns.ContainsKey(10)) { base.Columns[10] = value; } else { base.Columns.Add(10, value); } } }
+	public AdsalesQActionRow() : base(0, 11) { }
+	public AdsalesQActionRow(System.Object[] oRow) : base(0, 11, oRow) { }
 	public static implicit operator AdsalesQActionRow(System.Object[] source) { return new AdsalesQActionRow(source); }
 	public static implicit operator System.Object[](AdsalesQActionRow source) { return source.ToObjectArray(); }
 }
@@ -2786,51 +2852,51 @@ public class AdsaleswondiffQActionRow : QActionTableRow
 	public System.Object Adsaleswondiffkey_8001 { get { if (base.Columns.ContainsKey(0)) { return base.Columns[0]; } else { return null; } } set { if (base.Columns.ContainsKey(0)) { base.Columns[0] = value; } else { base.Columns.Add(0, value); } } }
 	/// <summary>PID: 8001 | Type: read</summary>
 	public System.Object Adsaleswondiffkey { get { if (base.Columns.ContainsKey(0)) { return base.Columns[0]; } else { return null; } } set { if (base.Columns.ContainsKey(0)) { base.Columns[0] = value; } else { base.Columns.Add(0, value); } } }
-	/// <summary>PID: 8002 | Type: read</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Adsaleswondiffadsalesreconcilekey_8002 { get { if (base.Columns.ContainsKey(1)) { return base.Columns[1]; } else { return null; } } set { if (base.Columns.ContainsKey(1)) { base.Columns[1] = value; } else { base.Columns.Add(1, value); } } }
-	/// <summary>PID: 8002 | Type: read</summary>
-	public System.Object Adsaleswondiffadsalesreconcilekey { get { if (base.Columns.ContainsKey(1)) { return base.Columns[1]; } else { return null; } } set { if (base.Columns.ContainsKey(1)) { base.Columns[1] = value; } else { base.Columns.Add(1, value); } } }
-	/// <summary>PID: 8003 | Type: read</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Adsaleswondiffadsalesstarttime_8003 { get { if (base.Columns.ContainsKey(2)) { return base.Columns[2]; } else { return null; } } set { if (base.Columns.ContainsKey(2)) { base.Columns[2] = value; } else { base.Columns.Add(2, value); } } }
-	/// <summary>PID: 8003 | Type: read</summary>
-	public System.Object Adsaleswondiffadsalesstarttime { get { if (base.Columns.ContainsKey(2)) { return base.Columns[2]; } else { return null; } } set { if (base.Columns.ContainsKey(2)) { base.Columns[2] = value; } else { base.Columns.Add(2, value); } } }
-	/// <summary>PID: 8004 | Type: read</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Adsaleswondiffadsalesprogramcode_8004 { get { if (base.Columns.ContainsKey(3)) { return base.Columns[3]; } else { return null; } } set { if (base.Columns.ContainsKey(3)) { base.Columns[3] = value; } else { base.Columns.Add(3, value); } } }
-	/// <summary>PID: 8004 | Type: read</summary>
-	public System.Object Adsaleswondiffadsalesprogramcode { get { if (base.Columns.ContainsKey(3)) { return base.Columns[3]; } else { return null; } } set { if (base.Columns.ContainsKey(3)) { base.Columns[3] = value; } else { base.Columns.Add(3, value); } } }
-	/// <summary>PID: 8005 | Type: read</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Adsaleswondiffadsalesprogramtitle_8005 { get { if (base.Columns.ContainsKey(4)) { return base.Columns[4]; } else { return null; } } set { if (base.Columns.ContainsKey(4)) { base.Columns[4] = value; } else { base.Columns.Add(4, value); } } }
-	/// <summary>PID: 8005 | Type: read</summary>
-	public System.Object Adsaleswondiffadsalesprogramtitle { get { if (base.Columns.ContainsKey(4)) { return base.Columns[4]; } else { return null; } } set { if (base.Columns.ContainsKey(4)) { base.Columns[4] = value; } else { base.Columns.Add(4, value); } } }
-	/// <summary>PID: 8006 | Type: read</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Adsaleswondiffwonreconcilekey_8006 { get { if (base.Columns.ContainsKey(5)) { return base.Columns[5]; } else { return null; } } set { if (base.Columns.ContainsKey(5)) { base.Columns[5] = value; } else { base.Columns.Add(5, value); } } }
-	/// <summary>PID: 8006 | Type: read</summary>
-	public System.Object Adsaleswondiffwonreconcilekey { get { if (base.Columns.ContainsKey(5)) { return base.Columns[5]; } else { return null; } } set { if (base.Columns.ContainsKey(5)) { base.Columns[5] = value; } else { base.Columns.Add(5, value); } } }
-	/// <summary>PID: 8007 | Type: read</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Adsaleswondiffwonstarttime_8007 { get { if (base.Columns.ContainsKey(6)) { return base.Columns[6]; } else { return null; } } set { if (base.Columns.ContainsKey(6)) { base.Columns[6] = value; } else { base.Columns.Add(6, value); } } }
-	/// <summary>PID: 8007 | Type: read</summary>
-	public System.Object Adsaleswondiffwonstarttime { get { if (base.Columns.ContainsKey(6)) { return base.Columns[6]; } else { return null; } } set { if (base.Columns.ContainsKey(6)) { base.Columns[6] = value; } else { base.Columns.Add(6, value); } } }
-	/// <summary>PID: 8008 | Type: read</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Adsaleswondiffwonprogramcode_8008 { get { if (base.Columns.ContainsKey(7)) { return base.Columns[7]; } else { return null; } } set { if (base.Columns.ContainsKey(7)) { base.Columns[7] = value; } else { base.Columns.Add(7, value); } } }
-	/// <summary>PID: 8008 | Type: read</summary>
-	public System.Object Adsaleswondiffwonprogramcode { get { if (base.Columns.ContainsKey(7)) { return base.Columns[7]; } else { return null; } } set { if (base.Columns.ContainsKey(7)) { base.Columns[7] = value; } else { base.Columns.Add(7, value); } } }
-	/// <summary>PID: 8009 | Type: read</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Adsaleswondiffwonprogramtitle_8009 { get { if (base.Columns.ContainsKey(8)) { return base.Columns[8]; } else { return null; } } set { if (base.Columns.ContainsKey(8)) { base.Columns[8] = value; } else { base.Columns.Add(8, value); } } }
-	/// <summary>PID: 8009 | Type: read</summary>
-	public System.Object Adsaleswondiffwonprogramtitle { get { if (base.Columns.ContainsKey(8)) { return base.Columns[8]; } else { return null; } } set { if (base.Columns.ContainsKey(8)) { base.Columns[8] = value; } else { base.Columns.Add(8, value); } } }
 	/// <summary>PID: 8010 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Adsaleswondiffdayoffset_8010 { get { if (base.Columns.ContainsKey(9)) { return base.Columns[9]; } else { return null; } } set { if (base.Columns.ContainsKey(9)) { base.Columns[9] = value; } else { base.Columns.Add(9, value); } } }
+	public System.Object Adsaleswondiffdayoffset_8010 { get { if (base.Columns.ContainsKey(1)) { return base.Columns[1]; } else { return null; } } set { if (base.Columns.ContainsKey(1)) { base.Columns[1] = value; } else { base.Columns.Add(1, value); } } }
 	/// <summary>PID: 8010 | Type: read</summary>
-	public System.Object Adsaleswondiffdayoffset { get { if (base.Columns.ContainsKey(9)) { return base.Columns[9]; } else { return null; } } set { if (base.Columns.ContainsKey(9)) { base.Columns[9] = value; } else { base.Columns.Add(9, value); } } }
+	public System.Object Adsaleswondiffdayoffset { get { if (base.Columns.ContainsKey(1)) { return base.Columns[1]; } else { return null; } } set { if (base.Columns.ContainsKey(1)) { base.Columns[1] = value; } else { base.Columns.Add(1, value); } } }
+	/// <summary>PID: 8002 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Adsaleswondiffadsalesreconcilekey_8002 { get { if (base.Columns.ContainsKey(2)) { return base.Columns[2]; } else { return null; } } set { if (base.Columns.ContainsKey(2)) { base.Columns[2] = value; } else { base.Columns.Add(2, value); } } }
+	/// <summary>PID: 8002 | Type: read</summary>
+	public System.Object Adsaleswondiffadsalesreconcilekey { get { if (base.Columns.ContainsKey(2)) { return base.Columns[2]; } else { return null; } } set { if (base.Columns.ContainsKey(2)) { base.Columns[2] = value; } else { base.Columns.Add(2, value); } } }
+	/// <summary>PID: 8003 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Adsaleswondiffadsalesstarttime_8003 { get { if (base.Columns.ContainsKey(3)) { return base.Columns[3]; } else { return null; } } set { if (base.Columns.ContainsKey(3)) { base.Columns[3] = value; } else { base.Columns.Add(3, value); } } }
+	/// <summary>PID: 8003 | Type: read</summary>
+	public System.Object Adsaleswondiffadsalesstarttime { get { if (base.Columns.ContainsKey(3)) { return base.Columns[3]; } else { return null; } } set { if (base.Columns.ContainsKey(3)) { base.Columns[3] = value; } else { base.Columns.Add(3, value); } } }
+	/// <summary>PID: 8004 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Adsaleswondiffadsalesprogramcode_8004 { get { if (base.Columns.ContainsKey(4)) { return base.Columns[4]; } else { return null; } } set { if (base.Columns.ContainsKey(4)) { base.Columns[4] = value; } else { base.Columns.Add(4, value); } } }
+	/// <summary>PID: 8004 | Type: read</summary>
+	public System.Object Adsaleswondiffadsalesprogramcode { get { if (base.Columns.ContainsKey(4)) { return base.Columns[4]; } else { return null; } } set { if (base.Columns.ContainsKey(4)) { base.Columns[4] = value; } else { base.Columns.Add(4, value); } } }
+	/// <summary>PID: 8005 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Adsaleswondiffadsalesprogramtitle_8005 { get { if (base.Columns.ContainsKey(5)) { return base.Columns[5]; } else { return null; } } set { if (base.Columns.ContainsKey(5)) { base.Columns[5] = value; } else { base.Columns.Add(5, value); } } }
+	/// <summary>PID: 8005 | Type: read</summary>
+	public System.Object Adsaleswondiffadsalesprogramtitle { get { if (base.Columns.ContainsKey(5)) { return base.Columns[5]; } else { return null; } } set { if (base.Columns.ContainsKey(5)) { base.Columns[5] = value; } else { base.Columns.Add(5, value); } } }
+	/// <summary>PID: 8006 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Adsaleswondiffwonreconcilekey_8006 { get { if (base.Columns.ContainsKey(6)) { return base.Columns[6]; } else { return null; } } set { if (base.Columns.ContainsKey(6)) { base.Columns[6] = value; } else { base.Columns.Add(6, value); } } }
+	/// <summary>PID: 8006 | Type: read</summary>
+	public System.Object Adsaleswondiffwonreconcilekey { get { if (base.Columns.ContainsKey(6)) { return base.Columns[6]; } else { return null; } } set { if (base.Columns.ContainsKey(6)) { base.Columns[6] = value; } else { base.Columns.Add(6, value); } } }
+	/// <summary>PID: 8007 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Adsaleswondiffwonstarttime_8007 { get { if (base.Columns.ContainsKey(7)) { return base.Columns[7]; } else { return null; } } set { if (base.Columns.ContainsKey(7)) { base.Columns[7] = value; } else { base.Columns.Add(7, value); } } }
+	/// <summary>PID: 8007 | Type: read</summary>
+	public System.Object Adsaleswondiffwonstarttime { get { if (base.Columns.ContainsKey(7)) { return base.Columns[7]; } else { return null; } } set { if (base.Columns.ContainsKey(7)) { base.Columns[7] = value; } else { base.Columns.Add(7, value); } } }
+	/// <summary>PID: 8008 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Adsaleswondiffwonprogramcode_8008 { get { if (base.Columns.ContainsKey(8)) { return base.Columns[8]; } else { return null; } } set { if (base.Columns.ContainsKey(8)) { base.Columns[8] = value; } else { base.Columns.Add(8, value); } } }
+	/// <summary>PID: 8008 | Type: read</summary>
+	public System.Object Adsaleswondiffwonprogramcode { get { if (base.Columns.ContainsKey(8)) { return base.Columns[8]; } else { return null; } } set { if (base.Columns.ContainsKey(8)) { base.Columns[8] = value; } else { base.Columns.Add(8, value); } } }
+	/// <summary>PID: 8009 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Adsaleswondiffwonprogramtitle_8009 { get { if (base.Columns.ContainsKey(9)) { return base.Columns[9]; } else { return null; } } set { if (base.Columns.ContainsKey(9)) { base.Columns[9] = value; } else { base.Columns.Add(9, value); } } }
+	/// <summary>PID: 8009 | Type: read</summary>
+	public System.Object Adsaleswondiffwonprogramtitle { get { if (base.Columns.ContainsKey(9)) { return base.Columns[9]; } else { return null; } } set { if (base.Columns.ContainsKey(9)) { base.Columns[9] = value; } else { base.Columns.Add(9, value); } } }
 	/// <summary>PID: 8011 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Adsaleswondiffresult_8011 { get { if (base.Columns.ContainsKey(10)) { return base.Columns[10]; } else { return null; } } set { if (base.Columns.ContainsKey(10)) { base.Columns[10] = value; } else { base.Columns.Add(10, value); } } }

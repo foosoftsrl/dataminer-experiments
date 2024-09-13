@@ -53,7 +53,7 @@
             {
                 var from = DateTime.Today.AddDays(i);
 
-                var adSalesDayData = adSalesData.FindAll(row => row.DayOffset == i && row.TimeAllocationType != "IS-BILLBOARD" && row.TimeAllocationType != "CIAK");
+                var adSalesDayData = adSalesData.FindAll(row => row.DayOffset == i);
                 var whatsonDayData = whatsonData.FindAll(row => row.DayOffset == i);
                 var mediatorDayData = mediatorData.FindAll(row => row.DayOffset == i);
 
@@ -123,12 +123,18 @@
             var idx = 0;
             foreach (var row in rows)
             {
+                var code = row.Item1?.ProductCode ?? string.Empty;
+                if(row.Item1 != null)
+                {
+                    code += " (" + row.Item1.TimeAllocationType + ")";
+                }
+
                 tableRows.Add(new AdsaleswondiffQActionRow
                 {
                     Adsaleswondiffkey = (idx++).ToString(),
                     Adsaleswondiffadsalesreconcilekey = row.Item1?.ReconcileKey ?? string.Empty,
                     Adsaleswondiffadsalesstarttime = row.Item1?.TimeOfDay.ToString("yyyy-MM-dd HH:mm:ss") ?? string.Empty,
-                    Adsaleswondiffadsalesprogramcode = row.Item1?.ProductCode ?? string.Empty,
+                    Adsaleswondiffadsalesprogramcode = code,
                     Adsaleswondiffadsalesprogramtitle = row.Item1?.Title ?? string.Empty,
                     Adsaleswondiffwonreconcilekey = row.Item2?.ReconcileKey ?? string.Empty,
                     Adsaleswondiffwonstarttime = row.Item2?.StartTime.ToString("yyyy-MM-dd HH:mm:ss") ?? string.Empty,
@@ -225,11 +231,14 @@
                 {
                     Adsalestime = row.TimeOfDay,
                     Adsalesbreakid = row.BreakId,
+                    Adsalesbreakposition = row.BreakPosition,
                     Adsalesreconcilekey = row.ReconcileKey,
                     Adsalestitle = row.Title,
+                    Adsalesproductcode = row.ProductCode,
                     Adsalestype = row.TimeAllocationType,
+                    Adsalesduration = row.Duration,
                     Adsalesenabler = row.Enabler,
-                    Adsalesbreakposition = row.BreakPosition,
+                    Adsalesdayoffset = row.DayOffset,
                     Adsalesbreakscreenlayout = row.BreakScreenLayout,
                 }.ToObjectArray());
             }

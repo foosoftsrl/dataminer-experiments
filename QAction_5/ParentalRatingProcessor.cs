@@ -79,7 +79,6 @@
                     CheckResult = message,
                     Delta = delta,
                 });
-
             }
 
             return resultList;
