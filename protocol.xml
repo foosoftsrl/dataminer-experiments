@@ -5,7 +5,7 @@
 		<Encoding>unicode</Encoding>
 	</Options>
 	<Description>AdSales DataMiner connector</Description>
-	<Version>1.0.0.18</Version>
+	<Version>1.0.0.20</Version>
 	<IntegrationID>DMS-DRV-</IntegrationID>
 	<Provider>Foosoft</Provider>
 	<Vendor>Foosoft</Vendor>
@@ -88,7 +88,7 @@
 					<Position>
 						<Page>Configuration</Page>
 						<Column>0</Column>
-						<Row>12</Row>
+						<Row>13</Row>
 					</Position>
 				</Positions>
 			</Display>
@@ -595,6 +595,60 @@
 			</Display>
 			<Measurement>
 				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="27" trending="false">
+			<Name>fixedDropDownExample</Name>
+			<Description>Fixed Dropdown</Description>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>next param</LengthType>
+				<Type>string</Type>
+			</Interprete>
+			<Measurement>
+				<Type>discreet</Type>
+				<Discreets>
+					<Discreet>
+						<Display>0</Display>
+						<Value>0</Value>
+					</Discreet>
+					<Discreet>
+						<Display>14</Display>
+						<Value>14</Value>
+					</Discreet>
+					<Discreet>
+						<Display>18</Display>
+						<Value>18</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		<Param id="28" trending="false">
+			<Name>fixedDropDownExample</Name>
+			<Description>Fixed Dropdown</Description>
+			<Type>write</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>next param</LengthType>
+				<Type>string</Type>
+			</Interprete>
+			<Measurement>
+				<Type>discreet</Type>
+				<Discreets>
+					<Discreet>
+						<Display>0</Display>
+						<Value>0</Value>
+					</Discreet>
+					<Discreet>
+						<Display>14</Display>
+						<Value>14</Value>
+					</Discreet>
+					<Discreet>
+						<Display>18</Display>
+						<Value>18</Value>
+					</Discreet>
+				</Discreets>
 			</Measurement>
 		</Param>
 		

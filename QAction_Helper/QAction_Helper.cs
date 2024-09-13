@@ -58,6 +58,11 @@ public static class Parameter
 	public const int channelserviceid_25 = 25;
 	/// <summary>PID: 25 | Type: read</summary>
 	public const int channelserviceid = 25;
+	/// <summary>PID: 27 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public const int fixeddropdownexample_27 = 27;
+	/// <summary>PID: 27 | Type: read</summary>
+	public const int fixeddropdownexample = 27;
 	/// <summary>PID: 6100 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public const int sctedebugmsg_6100 = 6100;
@@ -245,6 +250,11 @@ public static class Parameter
 		public const int channelserviceid_26 = 26;
 		/// <summary>PID: 26 | Type: write</summary>
 		public const int channelserviceid = 26;
+		/// <summary>PID: 28 | Type: write</summary>
+		[EditorBrowsable(EditorBrowsableState.Never)]
+		public const int fixeddropdownexample_28 = 28;
+		/// <summary>PID: 28 | Type: write</summary>
+		public const int fixeddropdownexample = 28;
 		/// <summary>PID: 10202 | Type: write</summary>
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		public const int mergedprocesstable_10202 = 10202;
@@ -1356,6 +1366,8 @@ public class WriteParameters
 	public System.Object Channelpriority {get { return Protocol.GetParameter(24); }set { Protocol.SetParameter(24, value); }}
 	/// <summary>PID: 26  | Type: write</summary>
 	public System.Object Channelserviceid {get { return Protocol.GetParameter(26); }set { Protocol.SetParameter(26, value); }}
+	/// <summary>PID: 28  | Type: write | DISCREETS: 0 = 0, 14 = 14, 18 = 18</summary>
+	public System.Object Fixeddropdownexample {get { return Protocol.GetParameter(28); }set { Protocol.SetParameter(28, value); }}
 	/// <summary>PID: 10202  | Type: write | DISCREETS: Merge Tables = check</summary>
 	public System.Object Mergedprocesstable {get { return Protocol.GetParameter(10202); }set { Protocol.SetParameter(10202, value); }}
 	public SLProtocolExt Protocol;
@@ -1422,6 +1434,9 @@ public interface SLProtocolExt : SLProtocol
 	object Channelserviceid_25 { get; set; }
 	object Channelserviceid { get; set; }
 	object Channelserviceid_26 { get; set; }
+	object Fixeddropdownexample_27 { get; set; }
+	object Fixeddropdownexample { get; set; }
+	object Fixeddropdownexample_28 { get; set; }
 	object Adsalesreconcilekey_1001 { get; set; }
 	object Adsalesreconcilekey { get; set; }
 	object Adsalestime_1002 { get; set; }
@@ -1772,6 +1787,14 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	/// <summary>PID: 26  | Type: write</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Channelserviceid_26 {get { return GetParameter(26); }set { SetParameter(26, value); }}
+	/// <summary>PID: 27  | Type: read | DISCREETS: 0 = 0, 14 = 14, 18 = 18</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Fixeddropdownexample_27 {get { return GetParameter(27); }set { SetParameter(27, value); }}
+	/// <summary>PID: 27  | Type: read | DISCREETS: 0 = 0, 14 = 14, 18 = 18</summary>
+	public System.Object Fixeddropdownexample {get { return GetParameter(27); }set { SetParameter(27, value); }}
+	/// <summary>PID: 28  | Type: write | DISCREETS: 0 = 0, 14 = 14, 18 = 18</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Fixeddropdownexample_28 {get { return GetParameter(28); }set { SetParameter(28, value); }}
 	/// <summary>PID: 1001  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Adsalesreconcilekey_1001 {get { return GetParameter(1001); }set { SetParameter(1001, value); }}
