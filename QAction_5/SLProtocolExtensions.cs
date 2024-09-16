@@ -310,6 +310,10 @@
                     legacyProbe += (row.LegacyEventStart != null) ? "P" : "-";
                     legacyProbe += (row.LegacyEventStop != null) ? "S" : "-";
                 }
+                else if (row.Result != 9)
+                {
+                    legacyProbe = "---";
+                }
 
                 string scteProbe = string.Empty;
                 if (row.ScteBroadcastBreakStart != null || row.ScteBroadcastProviderAdvStart != null)
@@ -317,11 +321,28 @@
                     scteProbe += (row.ScteBroadcastBreakStart != null) ? "L" : "-";
                     scteProbe += (row.ScteBroadcastProviderAdvStart != null) ? "P" : "-";
                 }
-
-                if(row.ScteBroadcastProviderOverlayPlacementStart != null || row.ScteBroadcastProviderOverlayPlacementEnd != null)
+                else if (row.ScteBroadcastProviderOverlayPlacementStart != null || row.ScteBroadcastProviderOverlayPlacementEnd != null)
                 {
                     scteProbe += (row.ScteBroadcastProviderOverlayPlacementStart != null) ? "P" : "-";
                     scteProbe += (row.ScteBroadcastProviderOverlayPlacementEnd != null) ? "S" : "-";
+                }
+                else if (row.Result != 9)
+                {
+                    scteProbe = "--";
+                }
+
+                var type = string.Empty;
+                if (row.AdSalesData.Enabler == "P")
+                {
+                    type = "PUSH";
+                }
+                else if (row.AdSalesData.Enabler == "E")
+                {
+                    type = "Enhancement";
+                } 
+                else if (row.AdSalesData.Enabler == "X")
+                {
+                    type = "Substitution";
                 }
 
                 tableRows.Add(new TachecktableQActionRow
@@ -334,7 +355,7 @@
                     Tacheckhavewon = (row.WhatsonData != null) ? "\u2713" : string.Empty,
                     Tacheckhavemediator = (row.MediatorData != null) ? "✓" : string.Empty,
                     Tacheckmediatortime = row.MediatorData?.StartTime.ToString("yyyy-MM-dd HH:mm:ss") ?? string.Empty,
-                    Tachecktype = row.AdSalesData.Enabler,
+                    Tachecktype = type,
                     Tachecklegacyprobe = legacyProbe,
                     Tacheckscteprobe = scteProbe,
                     Tacheckresult = row.Result,
