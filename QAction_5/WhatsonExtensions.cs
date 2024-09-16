@@ -76,7 +76,19 @@
 
         public static string FindProgramCode(this Whatson.PlaylistItem playlistItem)
         {
-            return playlistItem.FindDataElementByName("materialSegment-matId")?.Text();
+            var programCode = playlistItem.FindDataElementByName("materialSegment-matId")?.Text();
+            if(programCode == null)
+            {
+                var item = playlistItem.FindDataElementByName("materialIncodeDuration-matIdIncodeDuration");
+                programCode = item?.Value.DataElementCompoundList.DataElementList.FindDataElementByName("matId")?.Value.Text[0];
+            }
+
+            if (programCode == null)
+            {
+                programCode = playlistItem.FindDataElementByName("liveMatId-text")?.Text();
+            }
+
+            return programCode;
         }
 
         public static Whatson.DataElement FindScteBroadcastBreakStart(this Whatson.PlaylistItem playlistItem)
