@@ -249,7 +249,7 @@
             var checkField = mediatorRow.FindTemplateParameterByName("parentalRating-graphic");
             if (checkField?.Value.String == "PR_ENGINE")
             {
-                return mediatorRow.FindTemplateParameterByName("parentalRating-userText1").Value.String;
+                return mediatorRow.FindTemplateParameterByName("parentalRating-userText1")?.Value.String;
             }
 
             return null;
