@@ -21,7 +21,7 @@
         {
             var date = firstDay;
             var result = new List<WhatsonRow>();
-            for (var i = -1; i < 3; i++)
+            for (var i = -1; i < 4; i++)
             {
                 string day = date.AddDays(i).ToString("yyyy-MM-dd");
                 var partialResult = ReadWhatson(channelName, dir, day);
