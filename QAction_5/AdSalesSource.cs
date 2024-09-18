@@ -16,7 +16,7 @@
         {
             var date = firstDay;
             var result = new List<AdSalesRow>();
-            for (var i = -1; i < 3; i++)
+            for (var i = -1; i < 4; i++)
             {
                 string day = date.AddDays(i).ToString("yyyyMMdd");
                 var partialResult = ReadAdSales(channelCode, dir, day);
