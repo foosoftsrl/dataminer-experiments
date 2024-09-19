@@ -96,34 +96,10 @@
             return playlistItem.FindDataElementByName("scteBroadcastBreakStart-insertSegmentationDescriptor");
         }
 
-        public static Whatson.DataElementType FindScteBroadcastProviderOverlayPlacementStart(this Whatson.PharosPlaylistBlockPlaylistItem playlistItem)
-        {
-            return playlistItem.FindDataElementByName("scteBroadcastProviderOverlayPlacementStart-compoundList");
-        }
-
-        public static Whatson.DataElementType FindScteBroadcastProviderOverlayPlacementEnd(this Whatson.PharosPlaylistBlockPlaylistItem playlistItem)
-        {
-            return playlistItem.FindDataElementByName("scteBroadcastProviderOverlayPlacementEnd-compoundList");
-        }
-
         public static string FindScteBroadcastBreakStartUpid(this Whatson.PharosPlaylistBlockPlaylistItem playlistItem)
         {
             var item = playlistItem.FindScteBroadcastBreakStart();
             return item?.Value.DataElementCompoundList[0]?.FindDataElementByName("segmentationUpid")?.Value.Text[0];
-        }
-
-        public static string FindScteBroadcastProviderOverlayPlacementStartUpid(this Whatson.PharosPlaylistBlockPlaylistItem playlistItem)
-        {
-            var item = playlistItem.FindScteBroadcastProviderOverlayPlacementStart();
-            var item2 = item?.Value.DataElementCompoundList[0].FindDataElementByName("scteBroadcastProviderOverlayPlacementStart-insertSegmentationDescriptor");
-            return item2?.Value.DataElementCompoundList[0]?.FindDataElementByName("segmentationUpid")?.Value.Text[0];
-        }
-
-        public static string FindScteBroadcastProviderOverlayPlacementEndUpid(this Whatson.PharosPlaylistBlockPlaylistItem playlistItem)
-        {
-            var item = playlistItem.FindScteBroadcastProviderOverlayPlacementEnd();
-            var item2 = item?.Value.DataElementCompoundList[0].FindDataElementByName("scteBroadcastProviderOverlayPlacementEnd-insertSegmentationDescriptor");
-            return item2?.Value.DataElementCompoundList[0]?.FindDataElementByName("segmentationUpid")?.Value.Text[0];
         }
 
         public static Whatson.DataElementType FindScteBroadcastProviderAdvStart(this Whatson.PharosPlaylistBlockPlaylistItem playlistItem)
@@ -152,11 +128,71 @@
                         {
                             if (result == null)
                             {
-                                result = parameter.Value.Text[0] + string.Empty;
+                                result = parameter.Text() + string.Empty;
                             }
                             else
                             {
-                                result += ";" + parameter.Value.Text[0] + string.Empty;
+                                result += ";" + parameter.Text() + string.Empty;
+                            }
+                        }
+                    }
+                }
+            }
+
+            return result;
+        }
+
+        /* SCTE Overlay Placement start */
+        public static string FindScteBroadcastProviderOverlayPlacementStartUpid(this Whatson.PharosPlaylistBlockPlaylistItem playlistItem)
+        {
+            string result = null;
+            var sctePlacementStartCompountList = playlistItem.FindDataElementByName("scteBroadcastProviderOverlayPlacementStart-compoundList");
+            if (sctePlacementStartCompountList?.Value.DataElementCompoundList != null)
+            {
+                foreach (var item in sctePlacementStartCompountList.Value.DataElementCompoundList)
+                {
+                    foreach (var parameter in item)
+                    {
+                        if (parameter.Name == "scteBroadcastProviderOverlayPlacementStart-insertSegmentationDescriptor")
+                        {
+                            var segmentationUpidParameter = parameter.Value.DataElementCompoundList[0]?.FindDataElementByName("segmentationUpid")?.Text();
+                            if (result == null && segmentationUpidParameter != null)
+                            {
+                                result = segmentationUpidParameter + string.Empty;
+                            }
+                            else if (segmentationUpidParameter != null)
+                            {
+                                result += ";" + segmentationUpidParameter + string.Empty;
+                            }
+                        }
+                    }
+                }
+            }
+
+            return result;
+        }
+
+        /* SCTE Overlay Placement end */
+        public static string FindScteBroadcastProviderOverlayPlacementEndUpid(this Whatson.PharosPlaylistBlockPlaylistItem playlistItem)
+        {
+            string result = null;
+            var sctePlacementStartCompountList = playlistItem.FindDataElementByName("scteBroadcastProviderOverlayPlacementEnd-compoundList");
+            if (sctePlacementStartCompountList?.Value.DataElementCompoundList != null)
+            {
+                foreach (var item in sctePlacementStartCompountList.Value.DataElementCompoundList)
+                {
+                    foreach (var parameter in item)
+                    {
+                        if (parameter.Name == "scteBroadcastProviderOverlayPlacementEnd-insertSegmentationDescriptor")
+                        {
+                            var segmentationUpidParameter = parameter.Value.DataElementCompoundList[0]?.FindDataElementByName("segmentationUpid")?.Text();
+                            if (result == null && segmentationUpidParameter != null)
+                            {
+                                result = segmentationUpidParameter + string.Empty;
+                            }
+                            else if (segmentationUpidParameter != null)
+                            {
+                                result += ";" + segmentationUpidParameter + string.Empty;
                             }
                         }
                     }
