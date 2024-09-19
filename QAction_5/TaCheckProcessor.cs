@@ -21,8 +21,8 @@
                 {
                     // PUSH events may be scheduled in any event near the request...
                     // let's look for a matching one
-                    whatsonRow = whatsonData.Find(s => s.EnablerLegacy == adSalesRow.BreakId);
-                    mediatorRow = mediatorData.Find(s => s.EnablerLegacy == adSalesRow.BreakId);
+                    whatsonRow = whatsonData.Find(s => s.EnablerLegacy?.Contains(adSalesRow.BreakId) ?? false);
+                    mediatorRow = mediatorData.Find(s => s.EnablerLegacy?.Contains(adSalesRow.BreakId) ?? false);
                 }
                 else if(adSalesRow.Enabler == "E" || adSalesRow.Enabler == "X")
                 {
