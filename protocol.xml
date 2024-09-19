@@ -5,7 +5,7 @@
 		<Encoding>unicode</Encoding>
 	</Options>
 	<Description>AdSales DataMiner connector</Description>
-	<Version>1.0.0.21</Version>
+	<Version>1.0.1.1</Version>
 	<IntegrationID>DMS-DRV-</IntegrationID>
 	<Provider>Foosoft</Provider>
 	<Vendor>Foosoft</Vendor>
@@ -1418,6 +1418,7 @@
 				<ColumnOption idx="11" pid="4012" type="retrieved" options="" />
 				<ColumnOption idx="12" pid="4013" type="retrieved" options="" />
 				<ColumnOption idx="13" pid="4014" type="retrieved" options="" />
+				<ColumnOption idx="14" pid="4015" type="retrieved" options="" />
 			</ArrayOptions>
 			<Information>
 				<Subtext>Targeted Advertising Check</Subtext>
@@ -1433,7 +1434,7 @@
 				</Positions>
 			</Display>
 			<Measurement>
-				<Type options=";tab=columns:4001|0-4002|3-4003|4-4004|5-4005|6-4006|7-4007|8-4008|9-4009|10-4010|1-4012|11-4014|13-4013|12,width:108-120-95-80-100-100-50-70-50-80-108-137-154,sort:STRING-STRING|ASC|0-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING,lines:25,filter:true">table</Type>
+				<Type options=";tab=columns:4001|0-4002|3-4003|4-4004|5-4005|6-4006|7-4007|8-4008|9-4009|10-4010|1-4012|11-4014|13-4013|12-4015|14,width:108-120-95-80-100-100-50-70-50-80-108-137-154-116,sort:STRING-STRING|ASC|0-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-INT,lines:25,filter:true">table</Type>
 			</Measurement>
 		</Param>
 		
@@ -1696,6 +1697,24 @@
 			<Type>read</Type>
 			<Information>
 				<Subtext>FutureFLag</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>number</Type>
+			</Measurement>
+		</Param>
+		<Param id="4015" trending="false">
+			<Name>taCheckShowInErrorView</Name>
+			<Description>ShowInErrorView (Targeted Advertising Check)</Description>
+			<Type>read</Type>
+			<Information>
 			</Information>
 			<Interprete>
 				<RawType>numeric text</RawType>

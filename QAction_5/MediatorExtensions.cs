@@ -111,21 +111,6 @@
             return mediatorRow.FindTemplateParameterByName(TemplateParameterName.ScteBroadcastProviderAdvStartInsertSegmentationDescriptor);
         }
 
-        public static Mediator.TemplateParameter FindScteBroadcastProviderOverlayPlacementStartCompoundList(this Mediator.Row mediatorRow)
-        {
-            return mediatorRow.FindTemplateParameterByName(TemplateParameterName.ScteBroadcastProviderOverlayPlacementStartCompoundList);
-        }
-
-        public static Mediator.TemplateParameter FindScteBroadcastProviderOverlayPlacementEndCompoundList(this Mediator.Row mediatorRow)
-        {
-            return mediatorRow.FindTemplateParameterByName(TemplateParameterName.ScteBroadcastProviderOverlayPlacementEndCompoundList);
-        }
-
-        public static Mediator.TemplateParameter FindEnablerLegacy(this Mediator.Row mediatorRow)
-        {
-            return mediatorRow.FindTemplateParameterByName(TemplateParameterName.EnablerLegacyCompoundList);
-        }
-
         public static string FindScteBroadcastBreakStartUpid(this Mediator.Row mediatorRow)
         {
             return mediatorRow.FindScteBroadcastBreakStart()?.Value.ValueClass?.TemplateParameterListCompound.GetValueByName(TemplateParameterName.SegmentationUpid);
@@ -136,25 +121,104 @@
             return mediatorRow.FindScteBroadcastProviderAdvStart()?.Value.ValueClass?.TemplateParameterListCompound.GetValueByName(TemplateParameterName.SegmentationUpid);
         }
 
+        /* SCTE Overlay Placement start */
+        public static Mediator.TemplateParameter FindScteBroadcastProviderOverlayPlacementStartCompoundList(this Mediator.Row mediatorRow)
+        {
+            return mediatorRow.FindTemplateParameterByName("scteBroadcastProviderOverlayPlacementStart-compoundList");
+        }
+
         public static string FindScteBroadcastProviderOverlayPlacementStartUpid(this Mediator.Row mediatorRow)
         {
-            return mediatorRow.FindScteBroadcastProviderOverlayPlacementStartCompoundList()?.Value.ValueClass?
-                .TemplateParameterListCompound.FindTemplateParameterByName(TemplateParameterName.ScteBroadcastProviderOverlayPlacementStartInsertSegmentationDescriptor)?.Value.ValueClass?
-                .TemplateParameterListCompound.GetValueByName(TemplateParameterName.SegmentationUpid);
+            string result = null;
+            var templateParameterList = mediatorRow.FindScteBroadcastProviderOverlayPlacementStartCompoundList()?.Value.ValueClass?.TemplateParameterListCompound?.TemplateParameterList;
+            if (templateParameterList != null)
+            {
+                foreach (var item in templateParameterList)
+                {
+                    foreach (var parameter in item.TemplateParameter)
+                    {
+                        if (parameter.Name == "scteBroadcastProviderOverlayPlacementStart-insertSegmentationDescriptor")
+                        {
+                            if (result == null)
+                            {
+                                result = parameter.Value.ValueClass?.TemplateParameterListCompound.GetValueByName(TemplateParameterName.SegmentationUpid) + string.Empty;
+                            }
+                            else
+                            {
+                                result += ";" + parameter.Value.ValueClass?.TemplateParameterListCompound.GetValueByName(TemplateParameterName.SegmentationUpid) + string.Empty;
+                            }
+                        }
+                    }
+                }
+            }
+
+            return result;
+        }
+
+        /* SCTE Overlay Placement end */
+        public static Mediator.TemplateParameter FindScteBroadcastProviderOverlayPlacementEndCompoundList(this Mediator.Row mediatorRow)
+        {
+            return mediatorRow.FindTemplateParameterByName("scteBroadcastProviderOverlayPlacementEnd-compoundList");
         }
 
         public static string FindScteBroadcastProviderOverlayPlacementEndUpid(this Mediator.Row mediatorRow)
         {
-            return mediatorRow.FindScteBroadcastProviderOverlayPlacementEndCompoundList()?.Value.ValueClass?
-                .TemplateParameterListCompound.FindTemplateParameterByName(TemplateParameterName.ScteBroadcastProviderOverlayPlacementEndInsertSegmentationDescriptor)?.Value.ValueClass?
-                .TemplateParameterListCompound.GetValueByName(TemplateParameterName.SegmentationUpid);
+            string result = null;
+            var templateParameterList = mediatorRow.FindScteBroadcastProviderOverlayPlacementEndCompoundList()?.Value.ValueClass?.TemplateParameterListCompound?.TemplateParameterList;
+            if (templateParameterList != null)
+            {
+                foreach (var item in templateParameterList)
+                {
+                    foreach (var parameter in item.TemplateParameter)
+                    {
+                        if (parameter.Name == "scteBroadcastProviderOverlayPlacementEnd-insertSegmentationDescriptor")
+                        {
+                            if (result == null)
+                            {
+                                result = parameter.Value.ValueClass?.TemplateParameterListCompound.GetValueByName(TemplateParameterName.SegmentationUpid) + string.Empty;
+                            }
+                            else
+                            {
+                                result += ";" + parameter.Value.ValueClass?.TemplateParameterListCompound.GetValueByName(TemplateParameterName.SegmentationUpid) + string.Empty;
+                            }
+                        }
+                    }
+                }
+            }
+
+            return result;
         }
 
+        /* Enabler element parsing */
         public static string FindEnablerLegacyText(this Mediator.Row mediatorRow)
         {
-            var enablerValue = mediatorRow.FindEnablerLegacy()?.Value.ValueClass;
-            return enablerValue?.TemplateParameterListCompound.GetValueByName(TemplateParameterName.EnablerLegacyUserText1);
+            string result = null;
+            var enablerLegacyCompountList = mediatorRow.FindTemplateParameterByName("enablerLegacy-compoundList");
+            if (enablerLegacyCompountList?.Value.ValueClass?.TemplateParameterListCompound != null)
+            {
+                foreach (var item in enablerLegacyCompountList?.Value.ValueClass?.TemplateParameterListCompound.TemplateParameterList)
+                {
+                    foreach (var parameter in item.TemplateParameter)
+                    {
+                        if (parameter.Name == "enablerLegacy-userText1")
+                        {
+                            if (result == null)
+                            {
+                                result = parameter.Value.String + string.Empty;
+                            }
+                            else
+                            {
+                                result += ";" + parameter.Value.String + string.Empty;
+                            }
+                        }
+                    }
+                }
+            }
+
+            return result;
         }
+
+        /* end Enabler element parsing */
 
         public static string GetValueByName(this TemplateParameterListCompound compound, string name)
         {
@@ -186,6 +250,23 @@
             }
 
             return null;
+        }
+
+        public static List<Mediator.TemplateParameter> FindTemplateParameterListByName(this Mediator.Row mediatorRow, string name)
+        {
+            var result = new List<Mediator.TemplateParameter>();
+            foreach (var entry in mediatorRow.TemplateParameterList.GenericList.Object)
+            {
+                foreach (var templateParameter in entry.TemplateParameter)
+                {
+                    if (templateParameter.Name == name)
+                    {
+                        result.Add(templateParameter);
+                    }
+                }
+            }
+
+            return result;
         }
 
         public static string GetScheduleReference(this Mediator.Row row)

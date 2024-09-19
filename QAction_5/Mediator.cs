@@ -309,15 +309,9 @@ namespace Mediator
     public static class TemplateParameterName
     {
         public static readonly string SegmentationUpid = "segmentationUpid";
-        public static readonly string EnablerLegacyUserText1 = "enablerLegacy-userText1";
         public static readonly string AdSalesContentReconcileKeyText = "adSalesContentReconcileKey-text";
         public static readonly string ScteBroadcastBreakStartInsertSegmentationDescriptor = "scteBroadcastBreakStart-insertSegmentationDescriptor";
         public static readonly string ScteBroadcastProviderAdvStartInsertSegmentationDescriptor = "scteBroadcastProviderAdvStart-insertSegmentationDescriptor";
-        public static readonly string ScteBroadcastProviderOverlayPlacementStartCompoundList = "scteBroadcastProviderOverlayPlacementStart-compoundList";
-        public static readonly string ScteBroadcastProviderOverlayPlacementStartInsertSegmentationDescriptor = "scteBroadcastProviderOverlayPlacementStart-insertSegmentationDescriptor";
-        public static readonly string ScteBroadcastProviderOverlayPlacementEndCompoundList = "scteBroadcastProviderOverlayPlacementEnd-compoundList";
-        public static readonly string ScteBroadcastProviderOverlayPlacementEndInsertSegmentationDescriptor = "scteBroadcastProviderOverlayPlacementEnd-insertSegmentationDescriptor";
-        public static readonly string EnablerLegacyCompoundList = "enablerLegacy-compoundList";
     }
 
     public partial struct ValueUnion

@@ -25,6 +25,17 @@
             return (string)channelName;
         }
 
+        public static string ChannelTitle(this SLProtocolExt protocol)
+        {
+            var channelName = protocol.GetParameter(Parameter.channeltitle);
+            if (!(channelName is string))
+            {
+                throw new Exception("Channel is not defined");
+            }
+
+            return (string)channelName;
+        }
+
         public static string MuxName(this SLProtocolExt protocol)
         {
             var channelName = protocol.GetParameter(Parameter.muxname);
@@ -303,6 +314,18 @@
             List<object[]> tableRows = new List<object[]>();
             foreach (var row in mergedRows)
             {
+                if (row.AdSalesTime < DateTime.Today && (row.MediatorData == null || row.MediatorData.StartTime < DateTime.Today))
+                {
+                    // Filter out yesterday and before
+                    continue;
+                }
+
+                if (row.AdSalesTime > DateTime.Today.AddDays(2) && (row.MediatorData == null || row.MediatorData.StartTime > DateTime.Today.AddDays(2)))
+                {
+                    // Filter out the day after tomorrow
+                    continue;
+                }
+
                 string legacyProbe = string.Empty;
                 if(row.LegacyEventLoad != null || row.LegacyEventStart != null || row.LegacyEventStop != null)
                 {
@@ -345,6 +368,10 @@
                     type = "Substitution";
                 }
 
+                var showInErrorView = (row.Result == 2
+                    && row.AdSalesTime >= DateTime.Now.AddMinutes(-120) && (row.MediatorData == null || row.MediatorData.StartTime >= DateTime.Now.AddMinutes(-120))
+                    && row.AdSalesTime <= DateTime.Now.AddMinutes(120) && (row.MediatorData == null || row.MediatorData.StartTime <= DateTime.Now.AddMinutes(120))) ? 1 : 0;
+
                 tableRows.Add(new TachecktableQActionRow
                 {
                     Tacheckreconcilekey = row.AdSalesData.ReconcileKey,
@@ -361,6 +388,7 @@
                     Tacheckresult = row.Result,
                     Tacheckmessage = row.Message,
                     Tacheckfutureflag = row.FutureFilterFlag,
+                    Tacheckshowinerrorview = showInErrorView,
                 }.ToObjectArray());
             }
 
