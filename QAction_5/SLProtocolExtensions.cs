@@ -25,6 +25,17 @@
             return (string)channelName;
         }
 
+        public static string ChannelTitle(this SLProtocolExt protocol)
+        {
+            var channelName = protocol.GetParameter(Parameter.channeltitle);
+            if (!(channelName is string))
+            {
+                throw new Exception("Channel is not defined");
+            }
+
+            return (string)channelName;
+        }
+
         public static string MuxName(this SLProtocolExt protocol)
         {
             var channelName = protocol.GetParameter(Parameter.muxname);
