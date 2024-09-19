@@ -735,6 +735,11 @@ public static class Parameter
 			public const int tacheckfutureflag_4014 = 4014;
 			/// <summary>PID: 4014 | Type: read</summary>
 			public const int tacheckfutureflag = 4014;
+			/// <summary>PID: 4015 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int tacheckshowinerrorview_4015 = 4015;
+			/// <summary>PID: 4015 | Type: read</summary>
+			public const int tacheckshowinerrorview = 4015;
 			public class Write
 			{
 			}
@@ -811,6 +816,11 @@ public static class Parameter
 			public const int tacheckfutureflag_4014 = 13;
 			/// <summary>IDX: 13 | Type: read</summary>
 			public const int tacheckfutureflag = 13;
+			/// <summary>IDX: 14 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int tacheckshowinerrorview_4015 = 14;
+			/// <summary>IDX: 14 | Type: read</summary>
+			public const int tacheckshowinerrorview = 14;
 		}
 	}
 	public class Enablerlegacy
@@ -1563,6 +1573,8 @@ public interface SLProtocolExt : SLProtocol
 	object Tacheckmessage { get; set; }
 	object Tacheckfutureflag_4014 { get; set; }
 	object Tacheckfutureflag { get; set; }
+	object Tacheckshowinerrorview_4015 { get; set; }
+	object Tacheckshowinerrorview { get; set; }
 	object Enablerlegacytime_5001 { get; set; }
 	object Enablerlegacytime { get; set; }
 	object Enablerlegacyeventcode_5002 { get; set; }
@@ -2071,6 +2083,11 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public System.Object Tacheckfutureflag_4014 {get { return GetParameter(4014); }set { SetParameter(4014, value); }}
 	/// <summary>PID: 4014  | Type: read</summary>
 	public System.Object Tacheckfutureflag {get { return GetParameter(4014); }set { SetParameter(4014, value); }}
+	/// <summary>PID: 4015  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Tacheckshowinerrorview_4015 {get { return GetParameter(4015); }set { SetParameter(4015, value); }}
+	/// <summary>PID: 4015  | Type: read</summary>
+	public System.Object Tacheckshowinerrorview {get { return GetParameter(4015); }set { SetParameter(4015, value); }}
 	/// <summary>PID: 5001  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Enablerlegacytime_5001 {get { return GetParameter(5001); }set { SetParameter(5001, value); }}
@@ -2783,8 +2800,13 @@ public class TachecktableQActionRow : QActionTableRow
 	public System.Object Tacheckfutureflag_4014 { get { if (base.Columns.ContainsKey(13)) { return base.Columns[13]; } else { return null; } } set { if (base.Columns.ContainsKey(13)) { base.Columns[13] = value; } else { base.Columns.Add(13, value); } } }
 	/// <summary>PID: 4014 | Type: read</summary>
 	public System.Object Tacheckfutureflag { get { if (base.Columns.ContainsKey(13)) { return base.Columns[13]; } else { return null; } } set { if (base.Columns.ContainsKey(13)) { base.Columns[13] = value; } else { base.Columns.Add(13, value); } } }
-	public TachecktableQActionRow() : base(0, 14) { }
-	public TachecktableQActionRow(System.Object[] oRow) : base(0, 14, oRow) { }
+	/// <summary>PID: 4015 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Tacheckshowinerrorview_4015 { get { if (base.Columns.ContainsKey(14)) { return base.Columns[14]; } else { return null; } } set { if (base.Columns.ContainsKey(14)) { base.Columns[14] = value; } else { base.Columns.Add(14, value); } } }
+	/// <summary>PID: 4015 | Type: read</summary>
+	public System.Object Tacheckshowinerrorview { get { if (base.Columns.ContainsKey(14)) { return base.Columns[14]; } else { return null; } } set { if (base.Columns.ContainsKey(14)) { base.Columns[14] = value; } else { base.Columns.Add(14, value); } } }
+	public TachecktableQActionRow() : base(0, 15) { }
+	public TachecktableQActionRow(System.Object[] oRow) : base(0, 15, oRow) { }
 	public static implicit operator TachecktableQActionRow(System.Object[] source) { return new TachecktableQActionRow(source); }
 	public static implicit operator System.Object[](TachecktableQActionRow source) { return source.ToObjectArray(); }
 }

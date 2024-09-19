@@ -356,6 +356,10 @@
                     type = "Substitution";
                 }
 
+                var showInErrorView = (row.Result == 2
+                    && row.AdSalesTime >= DateTime.Now.AddMinutes(-120) && (row.MediatorData == null || row.MediatorData.StartTime >= DateTime.Now.AddMinutes(-120))
+                    && row.AdSalesTime <= DateTime.Now.AddMinutes(120) && (row.MediatorData == null || row.MediatorData.StartTime <= DateTime.Now.AddMinutes(120))) ? 1 : 0;
+
                 tableRows.Add(new TachecktableQActionRow
                 {
                     Tacheckreconcilekey = row.AdSalesData.ReconcileKey,
@@ -372,6 +376,7 @@
                     Tacheckresult = row.Result,
                     Tacheckmessage = row.Message,
                     Tacheckfutureflag = row.FutureFilterFlag,
+                    Tacheckshowinerrorview = showInErrorView,
                 }.ToObjectArray());
             }
 
