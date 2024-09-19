@@ -354,10 +354,12 @@
                     scteProbe = "--";
                 }
 
+                var productCode = row.AdSalesData.ProductCode;
                 var type = string.Empty;
                 if (row.AdSalesData.Enabler == "P")
                 {
                     type = "PUSH";
+                    productCode = row.MediatorData?.MaterialId ?? string.Empty;
                 }
                 else if (row.AdSalesData.Enabler == "E")
                 {
@@ -375,7 +377,7 @@
                 tableRows.Add(new TachecktableQActionRow
                 {
                     Tacheckreconcilekey = row.AdSalesData.ReconcileKey,
-                    Tacheckproductcode = row.AdSalesData.ProductCode,
+                    Tacheckproductcode = productCode,
                     Tacheckchannel = row.Channel,
                     Tacheckmux = row.Mux,
                     Tacheckadsalestime = row.AdSalesTime.ToString("yyyy-MM-dd HH:mm:ss"),
