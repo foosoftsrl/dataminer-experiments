@@ -314,6 +314,18 @@
             List<object[]> tableRows = new List<object[]>();
             foreach (var row in mergedRows)
             {
+                if (row.AdSalesTime < DateTime.Today && (row.MediatorData == null || row.MediatorData.StartTime < DateTime.Today))
+                {
+                    // Filter out yesterday and before
+                    continue;
+                }
+
+                if (row.AdSalesTime > DateTime.Today.AddDays(2) && (row.MediatorData == null || row.MediatorData.StartTime > DateTime.Today.AddDays(2)))
+                {
+                    // Filter out the day after tomorrow
+                    continue;
+                }
+
                 string legacyProbe = string.Empty;
                 if(row.LegacyEventLoad != null || row.LegacyEventStart != null || row.LegacyEventStop != null)
                 {
