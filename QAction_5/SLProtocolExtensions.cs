@@ -481,5 +481,22 @@
                 throw new Exception($"Unexpected type for parameter {protocol.GetParameterDescription(parameterId)}");
             }
         }
-    }
+
+        public static void PublishParameterTable(this SLProtocolExt protocol, List<(string, string, string)> list)
+        {
+            List<object[]> tableRows = new List<object[]>();
+            int i = 0;
+            foreach (var row in list)
+            {
+                tableRows.Add(new ParameterQActionRow
+                {
+                    Parameterid = i++,
+                    Parametertype = row.Item1,
+                    Parameterlabel = row.Item2,
+                    Parametervalue = row.Item3,
+                }.ToObjectArray());
+            }
+
+            protocol.FillArray(Parameter.Parameter.tablePid, tableRows, NotifyProtocol.SaveOption.Full);
+        }
 }
