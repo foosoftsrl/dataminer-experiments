@@ -1361,64 +1361,6 @@ public static class Parameter
 			public const int parentalratingcheckmessage = 11;
 		}
 	}
-	public class Parameter
-	{
-		/// <summary>PID: 13000</summary>
-		public const int tablePid = 13000;
-		/// <summary>IDX: 0</summary>
-		public const int indexColumn = 0;
-		/// <summary>PID: 13001</summary>
-		public const int indexColumnPid = 13001;
-		public class Pid
-		{
-			/// <summary>PID: 13001 | Type: read</summary>
-			[EditorBrowsable(EditorBrowsableState.Never)]
-			public const int parameterid_13001 = 13001;
-			/// <summary>PID: 13001 | Type: read</summary>
-			public const int parameterid = 13001;
-			/// <summary>PID: 13002 | Type: read</summary>
-			[EditorBrowsable(EditorBrowsableState.Never)]
-			public const int parametertype_13002 = 13002;
-			/// <summary>PID: 13002 | Type: read</summary>
-			public const int parametertype = 13002;
-			/// <summary>PID: 13003 | Type: read</summary>
-			[EditorBrowsable(EditorBrowsableState.Never)]
-			public const int parameterlabel_13003 = 13003;
-			/// <summary>PID: 13003 | Type: read</summary>
-			public const int parameterlabel = 13003;
-			/// <summary>PID: 13004 | Type: read</summary>
-			[EditorBrowsable(EditorBrowsableState.Never)]
-			public const int parametervalue_13004 = 13004;
-			/// <summary>PID: 13004 | Type: read</summary>
-			public const int parametervalue = 13004;
-			public class Write
-			{
-			}
-		}
-		public class Idx
-		{
-			/// <summary>IDX: 0 | Type: read</summary>
-			[EditorBrowsable(EditorBrowsableState.Never)]
-			public const int parameterid_13001 = 0;
-			/// <summary>IDX: 0 | Type: read</summary>
-			public const int parameterid = 0;
-			/// <summary>IDX: 1 | Type: read</summary>
-			[EditorBrowsable(EditorBrowsableState.Never)]
-			public const int parametertype_13002 = 1;
-			/// <summary>IDX: 1 | Type: read</summary>
-			public const int parametertype = 1;
-			/// <summary>IDX: 2 | Type: read</summary>
-			[EditorBrowsable(EditorBrowsableState.Never)]
-			public const int parameterlabel_13003 = 2;
-			/// <summary>IDX: 2 | Type: read</summary>
-			public const int parameterlabel = 2;
-			/// <summary>IDX: 3 | Type: read</summary>
-			[EditorBrowsable(EditorBrowsableState.Never)]
-			public const int parametervalue_13004 = 3;
-			/// <summary>IDX: 3 | Type: read</summary>
-			public const int parametervalue = 3;
-		}
-	}
 }
 public class WriteParameters
 {
@@ -1474,8 +1416,6 @@ public interface SLProtocolExt : SLProtocol
 	ParentalratingQActionTable parentalrating { get; set; }
 	/// <summary>PID: 12000</summary>
 	ParentalratingchecktableQActionTable parentalratingchecktable { get; set; }
-	/// <summary>PID: 13000</summary>
-	ParameterQActionTable parameter { get; set; }
 	object Afterstartup_dummy { get; set; }
 	object Triggerqaction_dummy { get; set; }
 	object Pgbconfiguration_4 { get; set; }
@@ -1752,14 +1692,6 @@ public interface SLProtocolExt : SLProtocol
 	object Parentalratingcheckchannel { get; set; }
 	object Parentalratingcheckmux_12013 { get; set; }
 	object Parentalratingcheckmux { get; set; }
-	object Parameterid_13001 { get; set; }
-	object Parameterid { get; set; }
-	object Parametertype_13002 { get; set; }
-	object Parametertype { get; set; }
-	object Parameterlabel_13003 { get; set; }
-	object Parameterlabel { get; set; }
-	object Parametervalue_13004 { get; set; }
-	object Parametervalue { get; set; }
 	WriteParameters Write { get; set; }
 }
 public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
@@ -1784,8 +1716,6 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public ParentalratingQActionTable parentalrating { get; set; }
 	/// <summary>PID: 12000</summary>
 	public ParentalratingchecktableQActionTable parentalratingchecktable { get; set; }
-	/// <summary>PID: 13000</summary>
-	public ParameterQActionTable parameter { get; set; }
 	/// <summary>PID: 2  | Type: dummy</summary>
 	public System.Object Afterstartup_dummy {get { return GetParameter(2); }set { SetParameter(2, value); }}
 	/// <summary>PID: 3  | Type: dummy</summary>
@@ -2477,26 +2407,6 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public System.Object Parentalratingcheckmux_12013 {get { return GetParameter(12013); }set { SetParameter(12013, value); }}
 	/// <summary>PID: 12013  | Type: read</summary>
 	public System.Object Parentalratingcheckmux {get { return GetParameter(12013); }set { SetParameter(12013, value); }}
-	/// <summary>PID: 13001  | Type: read</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Parameterid_13001 {get { return GetParameter(13001); }set { SetParameter(13001, value); }}
-	/// <summary>PID: 13001  | Type: read</summary>
-	public System.Object Parameterid {get { return GetParameter(13001); }set { SetParameter(13001, value); }}
-	/// <summary>PID: 13002  | Type: read</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Parametertype_13002 {get { return GetParameter(13002); }set { SetParameter(13002, value); }}
-	/// <summary>PID: 13002  | Type: read</summary>
-	public System.Object Parametertype {get { return GetParameter(13002); }set { SetParameter(13002, value); }}
-	/// <summary>PID: 13003  | Type: read</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Parameterlabel_13003 {get { return GetParameter(13003); }set { SetParameter(13003, value); }}
-	/// <summary>PID: 13003  | Type: read</summary>
-	public System.Object Parameterlabel {get { return GetParameter(13003); }set { SetParameter(13003, value); }}
-	/// <summary>PID: 13004  | Type: read</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Parametervalue_13004 {get { return GetParameter(13004); }set { SetParameter(13004, value); }}
-	/// <summary>PID: 13004  | Type: read</summary>
-	public System.Object Parametervalue {get { return GetParameter(13004); }set { SetParameter(13004, value); }}
 	public WriteParameters Write { get; set; }
 	public ConcreteSLProtocolExt()
 	{
@@ -2510,7 +2420,6 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 		wonmediatordiff = new WonmediatordiffQActionTable(this, 9000, "wonmediatordiff");
 		parentalrating = new ParentalratingQActionTable(this, 11000, "parentalrating");
 		parentalratingchecktable = new ParentalratingchecktableQActionTable(this, 12000, "parentalratingchecktable");
-		parameter = new ParameterQActionTable(this, 13000, "parameter");
 		Write = new WriteParameters(this);
 	}
 }
@@ -2583,13 +2492,6 @@ public class ParentalratingchecktableQActionTable : QActionTable, IEnumerable<Pa
 	public ParentalratingchecktableQActionTable(SLProtocol protocol, int tableId, string tableName) : base(protocol, tableId, tableName) { }
 	IEnumerator IEnumerable.GetEnumerator() { return (IEnumerator) GetEnumerator(); }
 	public IEnumerator<ParentalratingchecktableQActionRow> GetEnumerator() { return new QActionTableEnumerator<ParentalratingchecktableQActionRow>(this); }
-}
-/// <summary>IDX: 0</summary>
-public class ParameterQActionTable : QActionTable, IEnumerable<ParameterQActionRow>
-{
-	public ParameterQActionTable(SLProtocol protocol, int tableId, string tableName) : base(protocol, tableId, tableName) { }
-	IEnumerator IEnumerable.GetEnumerator() { return (IEnumerator) GetEnumerator(); }
-	public IEnumerator<ParameterQActionRow> GetEnumerator() { return new QActionTableEnumerator<ParameterQActionRow>(this); }
 }
 /// <summary>IDX: 0</summary>
 public class AdsalesQActionRow : QActionTableRow
@@ -3135,33 +3037,5 @@ public class ParentalratingchecktableQActionRow : QActionTableRow
 	public ParentalratingchecktableQActionRow(System.Object[] oRow) : base(0, 12, oRow) { }
 	public static implicit operator ParentalratingchecktableQActionRow(System.Object[] source) { return new ParentalratingchecktableQActionRow(source); }
 	public static implicit operator System.Object[](ParentalratingchecktableQActionRow source) { return source.ToObjectArray(); }
-}
-/// <summary>IDX: 0</summary>
-public class ParameterQActionRow : QActionTableRow
-{
-	/// <summary>PID: 13001 | Type: read</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Parameterid_13001 { get { if (base.Columns.ContainsKey(0)) { return base.Columns[0]; } else { return null; } } set { if (base.Columns.ContainsKey(0)) { base.Columns[0] = value; } else { base.Columns.Add(0, value); } } }
-	/// <summary>PID: 13001 | Type: read</summary>
-	public System.Object Parameterid { get { if (base.Columns.ContainsKey(0)) { return base.Columns[0]; } else { return null; } } set { if (base.Columns.ContainsKey(0)) { base.Columns[0] = value; } else { base.Columns.Add(0, value); } } }
-	/// <summary>PID: 13002 | Type: read</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Parametertype_13002 { get { if (base.Columns.ContainsKey(1)) { return base.Columns[1]; } else { return null; } } set { if (base.Columns.ContainsKey(1)) { base.Columns[1] = value; } else { base.Columns.Add(1, value); } } }
-	/// <summary>PID: 13002 | Type: read</summary>
-	public System.Object Parametertype { get { if (base.Columns.ContainsKey(1)) { return base.Columns[1]; } else { return null; } } set { if (base.Columns.ContainsKey(1)) { base.Columns[1] = value; } else { base.Columns.Add(1, value); } } }
-	/// <summary>PID: 13003 | Type: read</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Parameterlabel_13003 { get { if (base.Columns.ContainsKey(2)) { return base.Columns[2]; } else { return null; } } set { if (base.Columns.ContainsKey(2)) { base.Columns[2] = value; } else { base.Columns.Add(2, value); } } }
-	/// <summary>PID: 13003 | Type: read</summary>
-	public System.Object Parameterlabel { get { if (base.Columns.ContainsKey(2)) { return base.Columns[2]; } else { return null; } } set { if (base.Columns.ContainsKey(2)) { base.Columns[2] = value; } else { base.Columns.Add(2, value); } } }
-	/// <summary>PID: 13004 | Type: read</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Parametervalue_13004 { get { if (base.Columns.ContainsKey(3)) { return base.Columns[3]; } else { return null; } } set { if (base.Columns.ContainsKey(3)) { base.Columns[3] = value; } else { base.Columns.Add(3, value); } } }
-	/// <summary>PID: 13004 | Type: read</summary>
-	public System.Object Parametervalue { get { if (base.Columns.ContainsKey(3)) { return base.Columns[3]; } else { return null; } } set { if (base.Columns.ContainsKey(3)) { base.Columns[3] = value; } else { base.Columns.Add(3, value); } } }
-	public ParameterQActionRow() : base(0, 4) { }
-	public ParameterQActionRow(System.Object[] oRow) : base(0, 4, oRow) { }
-	public static implicit operator ParameterQActionRow(System.Object[] source) { return new ParameterQActionRow(source); }
-	public static implicit operator System.Object[](ParameterQActionRow source) { return source.ToObjectArray(); }
 }
 }

@@ -135,7 +135,7 @@
             foreach (var row in rows)
             {
                 var code = row.Item1?.ProductCode ?? string.Empty;
-                if(row.Item1 != null)
+                if (row.Item1 != null)
                 {
                     code += " (" + row.Item1.TimeAllocationType + ")";
                 }
@@ -327,7 +327,7 @@
                 }
 
                 string legacyProbe = string.Empty;
-                if(row.LegacyEventLoad != null || row.LegacyEventStart != null || row.LegacyEventStop != null)
+                if (row.LegacyEventLoad != null || row.LegacyEventStart != null || row.LegacyEventStop != null)
                 {
                     legacyProbe += (row.LegacyEventLoad != null) ? "L" : "-";
                     legacyProbe += (row.LegacyEventStart != null) ? "P" : "-";
@@ -364,7 +364,7 @@
                 else if (row.AdSalesData.Enabler == "E")
                 {
                     type = "Enhancement";
-                } 
+                }
                 else if (row.AdSalesData.Enabler == "X")
                 {
                     type = "Substitution";
@@ -425,7 +425,7 @@
         public static string GetParameterDescriptionAsString(this SLProtocolExt protocol, int parameterId)
         {
             var description = protocol.GetParameterDescription(parameterId);
-            if(description is string)
+            if (description is string)
             {
                 return (string)description;
             }
@@ -438,18 +438,18 @@
         public static int GetRequiredIntParameter(this SLProtocolExt protocol, int parameterId)
         {
             var value = protocol.GetParameter(parameterId);
-            if(value is string)
+            if (value is string)
             {
                 try
                 {
                     return Convert.ToInt32(value);
                 }
-                catch(Exception)
+                catch (Exception)
                 {
                     throw new Exception($"Invalid value '{value}' for parameter {protocol.GetParameterDescription(parameterId)}, should be an int");
                 }
             }
-            else if(value == null)
+            else if (value == null)
             {
                 throw new Exception($"Missing parameter {protocol.GetParameterDescription(parameterId)}");
             }
@@ -465,7 +465,7 @@
             if (value is string)
             {
                 var valueString = (string)value;
-                if(valueString.Trim().IsNullOrEmpty())
+                if (valueString.Trim().IsNullOrEmpty())
                 {
                     throw new Exception($"Invalid value '{value}' for parameter {protocol.GetParameterDescription(parameterId)}, should be a non empty string");
                 }
@@ -481,22 +481,5 @@
                 throw new Exception($"Unexpected type for parameter {protocol.GetParameterDescription(parameterId)}");
             }
         }
-
-        public static void PublishParameterTable(this SLProtocolExt protocol, List<(string, string, string)> list)
-        {
-            List<object[]> tableRows = new List<object[]>();
-            int i = 0;
-            foreach (var row in list)
-            {
-                tableRows.Add(new ParameterQActionRow
-                {
-                    Parameterid = i++,
-                    Parametertype = row.Item1,
-                    Parameterlabel = row.Item2,
-                    Parametervalue = row.Item3,
-                }.ToObjectArray());
-            }
-
-            protocol.FillArray(Parameter.Parameter.tablePid, tableRows, NotifyProtocol.SaveOption.Full);
-        }
+    }
 }

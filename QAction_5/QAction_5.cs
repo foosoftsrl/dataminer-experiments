@@ -34,14 +34,6 @@ public class QAction
         protocol.Iterationcounter = (double)protocol.Iterationcounter + 1;
         try
         {
-            var parameters = new List<(string, string, string)>
-            {
-                ("PR_VALUE", "All", "0"),
-                ("PR_VALUE", "VM14", "14"),
-                ("PR_VALUE", "VM18", "18"),
-            };
-            protocol.PublishParameterTable(parameters);
-
             var adSalesData = ReadAdSalesData(protocol);        // Complete AdSales data
             protocol.PublishAdsalesTable(adSalesData);
 

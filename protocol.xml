@@ -5,7 +5,7 @@
 		<Encoding>unicode</Encoding>
 	</Options>
 	<Description>AdSales DataMiner connector</Description>
-	<Version>1.0.1.4</Version>
+	<Version>1.0.1.5</Version>
 	<IntegrationID>DMS-DRV-</IntegrationID>
 	<Provider>Foosoft</Provider>
 	<Vendor>Foosoft</Vendor>
@@ -3307,99 +3307,6 @@
 			<Description>Mux (Parental Rating Check)</Description>
 			<Type>read</Type>
 			<Information>
-			</Information>
-			<Interprete>
-				<RawType>other</RawType>
-				<Type>string</Type>
-				<LengthType>next param</LengthType>
-			</Interprete>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-			</Display>
-			<Measurement>
-				<Type>string</Type>
-			</Measurement>
-		</Param>
-		
-		<Param id="13000" trending="true">
-			<Name>Parameter</Name>
-			<Description>Parameter</Description>
-			<Type>array</Type>
-			<ArrayOptions index="0">
-				<ColumnOption idx="0" pid="13001" type="retrieved" options="" />
-				<ColumnOption idx="1" pid="13002" type="retrieved" options="" />
-				<ColumnOption idx="2" pid="13003" type="retrieved" options="" />
-				<ColumnOption idx="3" pid="13004" type="retrieved" options="" />
-			</ArrayOptions>
-			<Information>
-				<Subtext>
-					<![CDATA[Parameter]]>
-				</Subtext>
-			</Information>
-			<Measurement>
-				<Type options="tab=columns:13001|0-13002|1-13003|2,width:100-100-100,sort:INT-STRING-STRING,lines:20,filter:true">table</Type>
-			</Measurement>
-		</Param>
-		<Param id="13001" trending="false">
-			<Name>ParameterId</Name>
-			<Description>ID (Parameter)</Description>
-			<Type>read</Type>
-			<Information>
-			</Information>
-			<Interprete>
-				<RawType>numeric text</RawType>
-				<Type>double</Type>
-				<LengthType>next param</LengthType>
-			</Interprete>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-			</Display>
-			<Measurement>
-				<Type>number</Type>
-			</Measurement>
-		</Param>
-		<Param id="13002" trending="false">
-			<Name>ParameterType</Name>
-			<Description>Type (Parameter)</Description>
-			<Type>read</Type>
-			<Information>
-			</Information>
-			<Interprete>
-				<RawType>other</RawType>
-				<Type>string</Type>
-				<LengthType>next param</LengthType>
-			</Interprete>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-			</Display>
-			<Measurement>
-				<Type>string</Type>
-			</Measurement>
-		</Param>
-		<Param id="13003" trending="false">
-			<Name>ParameterLabel</Name>
-			<Description>Label (Parameter)</Description>
-			<Type>read</Type>
-			<Information>
-			</Information>
-			<Interprete>
-				<RawType>other</RawType>
-				<Type>string</Type>
-				<LengthType>next param</LengthType>
-			</Interprete>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-			</Display>
-			<Measurement>
-				<Type>string</Type>
-			</Measurement>
-		</Param>
-		<Param id="13004" trending="false">
-			<Name>ParameterValue</Name>
-			<Description>Value (Parameter)</Description>
-			<Type>read</Type>
-			<Information>
-				<Subtext></Subtext>
 			</Information>
 			<Interprete>
 				<RawType>other</RawType>
