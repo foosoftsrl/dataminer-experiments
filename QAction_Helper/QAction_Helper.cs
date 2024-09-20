@@ -1406,7 +1406,7 @@ public class WriteParameters
 	public System.Object Channelpriority {get { return Protocol.GetParameter(24); }set { Protocol.SetParameter(24, value); }}
 	/// <summary>PID: 26  | Type: write</summary>
 	public System.Object Channelserviceid {get { return Protocol.GetParameter(26); }set { Protocol.SetParameter(26, value); }}
-	/// <summary>PID: 28  | Type: write | DISCREETS: 0 = 0, 14 = 14, 18 = 18</summary>
+	/// <summary>PID: 28  | Type: write | DISCREETS: ALL = 0, V.M. 14 = 14, V.M. 18 = 18</summary>
 	public System.Object Fixeddropdownexample {get { return Protocol.GetParameter(28); }set { Protocol.SetParameter(28, value); }}
 	/// <summary>PID: 10202  | Type: write | DISCREETS: Merge Tables = check</summary>
 	public System.Object Mergedprocesstable {get { return Protocol.GetParameter(10202); }set { Protocol.SetParameter(10202, value); }}
@@ -1835,12 +1835,12 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	/// <summary>PID: 26  | Type: write</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Channelserviceid_26 {get { return GetParameter(26); }set { SetParameter(26, value); }}
-	/// <summary>PID: 27  | Type: read | DISCREETS: 0 = 0, 14 = 14, 18 = 18</summary>
+	/// <summary>PID: 27  | Type: read | DISCREETS: ALL = 0, V.M. 14 = 14, V.M. 18 = 18</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Fixeddropdownexample_27 {get { return GetParameter(27); }set { SetParameter(27, value); }}
-	/// <summary>PID: 27  | Type: read | DISCREETS: 0 = 0, 14 = 14, 18 = 18</summary>
+	/// <summary>PID: 27  | Type: read | DISCREETS: ALL = 0, V.M. 14 = 14, V.M. 18 = 18</summary>
 	public System.Object Fixeddropdownexample {get { return GetParameter(27); }set { SetParameter(27, value); }}
-	/// <summary>PID: 28  | Type: write | DISCREETS: 0 = 0, 14 = 14, 18 = 18</summary>
+	/// <summary>PID: 28  | Type: write | DISCREETS: ALL = 0, V.M. 14 = 14, V.M. 18 = 18</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Fixeddropdownexample_28 {get { return GetParameter(28); }set { SetParameter(28, value); }}
 	/// <summary>PID: 1001  | Type: read</summary>

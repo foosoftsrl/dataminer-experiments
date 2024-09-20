@@ -602,50 +602,56 @@
 			<Description>Fixed Dropdown</Description>
 			<Type>read</Type>
 			<Interprete>
-				<RawType>other</RawType>
+				<RawType>numeric text</RawType>
 				<LengthType>next param</LengthType>
-				<Type>string</Type>
+				<Type>double</Type>
 			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
 			<Measurement>
 				<Type>discreet</Type>
 				<Discreets>
 					<Discreet>
-						<Display>0</Display>
+						<Display>ALL</Display>
 						<Value>0</Value>
 					</Discreet>
 					<Discreet>
-						<Display>14</Display>
+						<Display>V.M. 14</Display>
 						<Value>14</Value>
 					</Discreet>
 					<Discreet>
-						<Display>18</Display>
+						<Display>V.M. 18</Display>
 						<Value>18</Value>
 					</Discreet>
 				</Discreets>
 			</Measurement>
 		</Param>
-		<Param id="28" trending="false">
+		<Param id="28" trending="false" setter="true">
 			<Name>fixedDropDownExample</Name>
 			<Description>Fixed Dropdown</Description>
 			<Type>write</Type>
 			<Interprete>
-				<RawType>other</RawType>
+				<RawType>numeric text</RawType>
 				<LengthType>next param</LengthType>
-				<Type>string</Type>
+				<Type>double</Type>
 			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
 			<Measurement>
 				<Type>discreet</Type>
 				<Discreets>
 					<Discreet>
-						<Display>0</Display>
+						<Display>ALL</Display>
 						<Value>0</Value>
 					</Discreet>
 					<Discreet>
-						<Display>14</Display>
+						<Display>V.M. 14</Display>
 						<Value>14</Value>
 					</Discreet>
 					<Discreet>
-						<Display>18</Display>
+						<Display>V.M. 18</Display>
 						<Value>18</Value>
 					</Discreet>
 				</Discreets>
