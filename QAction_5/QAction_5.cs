@@ -36,15 +36,12 @@ public class QAction
         {
             var adSalesData = ReadAdSalesData(protocol);        // Complete AdSales data
             protocol.PublishAdsalesTable(adSalesData);
-            var adSalesDataNoPush = adSalesData.FindAll(row => row.Enabler != "P");
 
             var whatsonData = ReadWhatsonData(protocol);
             protocol.PublishWhatsonTable(whatsonData);
-            var whatsonDataSpot = whatsonData.FilterSpots();
 
             var mediatorData = await ReadMediatorData(protocol);
             protocol.PublishMediatorTable(mediatorData);
-            var mediatorDataSpot = mediatorData.FilterSpots().OrderBy(row => row.StartTime).ToList();
 
             var legacy = await ReadEnablerLegacy(protocol);
             protocol.PublishEnablerLegacyTable(legacy);
@@ -54,6 +51,10 @@ public class QAction
 
             var mergedRows = TaCheckProcessor.Compute(adSalesData, whatsonData, mediatorData, scte, legacy, protocol.ChannelTitle(), protocol.MuxName());
             protocol.PublishTaCheckTable(mergedRows);
+
+            var adSalesDataNoPush = adSalesData.FindAll(row => row.Enabler != "P");
+            var whatsonDataSpot = whatsonData.FilterSpots();
+            var mediatorDataSpot = mediatorData.FilterSpots().OrderBy(row => row.StartTime).ToList();
 
             var adsalesWonDiff = XPrint.ComputeAdSalesWhatsonDiff(adSalesDataNoPush, whatsonDataSpot);
             protocol.PublishAdSalesWhatsonDiffTable(adsalesWonDiff);
@@ -66,7 +67,7 @@ public class QAction
             var parental = await ReadParentalRating(protocol);
             protocol.PublishParentalRatingTable(parental);
 
-            var parentalCheck = ParentalRatingProcessor.Compute(whatsonData, mediatorData, parental, protocol.ChannelName(), protocol.MuxName());
+            var parentalCheck = ParentalRatingProcessor.Compute(whatsonData, mediatorData, parental, protocol.ChannelTitle(), protocol.MuxName());
             protocol.PublishParentalRatingCheckTable(parentalCheck);
 
             protocol.Mergeddebugmsg = $"Everything ok!";
