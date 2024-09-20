@@ -5,7 +5,7 @@
 		<Encoding>unicode</Encoding>
 	</Options>
 	<Description>AdSales DataMiner connector</Description>
-	<Version>1.0.1.2</Version>
+	<Version>1.0.1.3</Version>
 	<IntegrationID>DMS-DRV-</IntegrationID>
 	<Provider>Foosoft</Provider>
 	<Vendor>Foosoft</Vendor>
@@ -88,7 +88,7 @@
 					<Position>
 						<Page>Configuration</Page>
 						<Column>0</Column>
-						<Row>13</Row>
+						<Row>14</Row>
 					</Position>
 				</Positions>
 			</Display>
@@ -608,6 +608,13 @@
 			</Interprete>
 			<Display>
 				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Configuration</Page>
+						<Column>0</Column>
+						<Row>11</Row>
+					</Position>
+				</Positions>
 			</Display>
 			<Measurement>
 				<Type>discreet</Type>
@@ -638,6 +645,13 @@
 			</Interprete>
 			<Display>
 				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Configuration</Page>
+						<Column>0</Column>
+						<Row>11</Row>
+					</Position>
+				</Positions>
 			</Display>
 			<Measurement>
 				<Type>discreet</Type>
