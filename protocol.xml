@@ -5,7 +5,7 @@
 		<Encoding>unicode</Encoding>
 	</Options>
 	<Description>AdSales DataMiner connector</Description>
-	<Version>1.0.1.1</Version>
+	<Version>1.0.1.2</Version>
 	<IntegrationID>DMS-DRV-</IntegrationID>
 	<Provider>Foosoft</Provider>
 	<Vendor>Foosoft</Vendor>
@@ -933,7 +933,7 @@
 				</Positions>
 			</Display>
 			<Measurement>
-				<Type options="tab=columns:2001|0-2002|1-2003|2-2004|3-2005|4-2006|5-2007|6-2008|7-2009|8-2010|9-2011|10-2012|11-2013|12,width:120-120-120-125-120-120-100-102-100-100-100-275-269,sort:STRING-STRING|ASC|0-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING,lines:25,filter:true">table</Type>
+				<Type options="tab=columns:2001|0-2002|1-2003|2-2004|3-2005|4-2006|5-2007|6-2008|7-2009|8-2010|9-2011|10-2012|11-2013|12-2014|13,width:120-120-120-125-120-120-100-102-100-100-100-275-269-204,sort:STRING-STRING|ASC|0-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING,lines:25,filter:true">table</Type>
 			</Measurement>
 		</Param>
 		<Param id="2001" trending="false">
@@ -3139,12 +3139,11 @@
 				<ColumnOption idx="4" pid="12003" type="retrieved" options="" />
 				<ColumnOption idx="5" pid="12004" type="retrieved" options="" />
 				<ColumnOption idx="6" pid="12005" type="retrieved" options="" />
-				<ColumnOption idx="7" pid="12006" type="retrieved" options="" />
-				<ColumnOption idx="8" pid="12007" type="retrieved" options="" />
-				<ColumnOption idx="9" pid="12008" type="retrieved" options="" />
-				<ColumnOption idx="10" pid="12009" type="retrieved" options="" />
-				<ColumnOption idx="11" pid="12010" type="retrieved" options="" />
-				<ColumnOption idx="12" pid="12011" type="retrieved" options="" />
+				<ColumnOption idx="7" pid="12007" type="retrieved" options="" />
+				<ColumnOption idx="8" pid="12008" type="retrieved" options="" />
+				<ColumnOption idx="9" pid="12009" type="retrieved" options="" />
+				<ColumnOption idx="10" pid="12010" type="retrieved" options="" />
+				<ColumnOption idx="11" pid="12011" type="retrieved" options="" />
 			</ArrayOptions>
 			<Information>
 				<Subtext>
@@ -3162,7 +3161,7 @@
 				</Positions>
 			</Display>
 			<Measurement>
-				<Type options="tab=columns:12001|0-12002|3-12003|4-12004|5-12005|6-12006|7-12007|8-12008|9-12009|10-12010|11-12011|12-12012|1-12013|2,width:100-100-100-100-169-124-137-195-106-121-100-100-100,sort:STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING,lines:20,filter:true">table</Type>
+				<Type options="tab=columns:12001|0-12002|3-12003|4-12004|5-12005|6-12007|7-12008|8-12009|9-12010|10-12011|11-12012|1-12013|2,width:100-115-100-100-169-137-195-106-121-100-100-100,sort:STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING,lines:20,filter:true">table</Type>
 			</Measurement>
 		</Param>
 		<Param id="12001" trending="false">
@@ -3185,7 +3184,7 @@
 		</Param>
 		<Param id="12002" trending="false">
 			<Name>ParentalRatingCheckTimestamp</Name>
-			<Description>Timestamp (Parental Rating Check)</Description>
+			<Description>WON Timestamp (Parental Rating Check)</Description>
 			<Type>read</Type>
 			<Information>
 			</Information>
@@ -3239,25 +3238,7 @@
 		</Param>
 		<Param id="12005" trending="false">
 			<Name>ParentalRatingCheckWonPr</Name>
-			<Description>Won Parental Rating Value (Parental Rating Check)</Description>
-			<Type>read</Type>
-			<Information>
-			</Information>
-			<Interprete>
-				<RawType>other</RawType>
-				<Type>string</Type>
-				<LengthType>next param</LengthType>
-			</Interprete>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-			</Display>
-			<Measurement>
-				<Type>string</Type>
-			</Measurement>
-		</Param>
-		<Param id="12006" trending="false">
-			<Name>ParentalRatingCheckHasMediatorData</Name>
-			<Description>Has Mediator Data (Parental Rating Check)</Description>
+			<Description>Won PR Value (Parental Rating Check)</Description>
 			<Type>read</Type>
 			<Information>
 			</Information>
@@ -3274,8 +3255,8 @@
 			</Measurement>
 		</Param>
 		<Param id="12007" trending="false">
-			<Name>ParentalRatingCheckCheckMediatorData</Name>
-			<Description>Check Mediator Data (Parental Rating Check)</Description>
+			<Name>ParentalRatingCheckCheckMediator</Name>
+			<Description>Check Mediator (Parental Rating Check)</Description>
 			<Type>read</Type>
 			<Information>
 			</Information>
@@ -3293,7 +3274,7 @@
 		</Param>
 		<Param id="12008" trending="false">
 			<Name>ParentalRatingCheckMediatorParentalRating</Name>
-			<Description>Mediator Parental Rating Value (Parental Rating Check)</Description>
+			<Description>Mediator PR Value (Parental Rating Check)</Description>
 			<Type>read</Type>
 			<Information>
 			</Information>
@@ -3310,8 +3291,8 @@
 			</Measurement>
 		</Param>
 		<Param id="12009" trending="false">
-			<Name>ParentalRatingCheckHasProbeData</Name>
-			<Description>Has Probe Data (Parental Rating Check)</Description>
+			<Name>ParentalRatingCheckCheckProbeData</Name>
+			<Description>Check Probe Data (Parental Rating Check)</Description>
 			<Type>read</Type>
 			<Information>
 			</Information>
