@@ -1293,6 +1293,11 @@ public static class Parameter
 			public const int parentalratingcheckmessage_12011 = 12011;
 			/// <summary>PID: 12011 | Type: read</summary>
 			public const int parentalratingcheckmessage = 12011;
+			/// <summary>PID: 12014 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int parentalratingcheckshowinerrorview_12014 = 12014;
+			/// <summary>PID: 12014 | Type: read</summary>
+			public const int parentalratingcheckshowinerrorview = 12014;
 			public class Write
 			{
 			}
@@ -1359,6 +1364,11 @@ public static class Parameter
 			public const int parentalratingcheckmessage_12011 = 11;
 			/// <summary>IDX: 11 | Type: read</summary>
 			public const int parentalratingcheckmessage = 11;
+			/// <summary>IDX: 12 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int parentalratingcheckshowinerrorview_12014 = 12;
+			/// <summary>IDX: 12 | Type: read</summary>
+			public const int parentalratingcheckshowinerrorview = 12;
 		}
 	}
 }
@@ -1692,6 +1702,8 @@ public interface SLProtocolExt : SLProtocol
 	object Parentalratingcheckchannel { get; set; }
 	object Parentalratingcheckmux_12013 { get; set; }
 	object Parentalratingcheckmux { get; set; }
+	object Parentalratingcheckshowinerrorview_12014 { get; set; }
+	object Parentalratingcheckshowinerrorview { get; set; }
 	WriteParameters Write { get; set; }
 }
 public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
@@ -2407,6 +2419,11 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public System.Object Parentalratingcheckmux_12013 {get { return GetParameter(12013); }set { SetParameter(12013, value); }}
 	/// <summary>PID: 12013  | Type: read</summary>
 	public System.Object Parentalratingcheckmux {get { return GetParameter(12013); }set { SetParameter(12013, value); }}
+	/// <summary>PID: 12014  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Parentalratingcheckshowinerrorview_12014 {get { return GetParameter(12014); }set { SetParameter(12014, value); }}
+	/// <summary>PID: 12014  | Type: read</summary>
+	public System.Object Parentalratingcheckshowinerrorview {get { return GetParameter(12014); }set { SetParameter(12014, value); }}
 	public WriteParameters Write { get; set; }
 	public ConcreteSLProtocolExt()
 	{
@@ -3033,8 +3050,13 @@ public class ParentalratingchecktableQActionRow : QActionTableRow
 	public System.Object Parentalratingcheckmessage_12011 { get { if (base.Columns.ContainsKey(11)) { return base.Columns[11]; } else { return null; } } set { if (base.Columns.ContainsKey(11)) { base.Columns[11] = value; } else { base.Columns.Add(11, value); } } }
 	/// <summary>PID: 12011 | Type: read</summary>
 	public System.Object Parentalratingcheckmessage { get { if (base.Columns.ContainsKey(11)) { return base.Columns[11]; } else { return null; } } set { if (base.Columns.ContainsKey(11)) { base.Columns[11] = value; } else { base.Columns.Add(11, value); } } }
-	public ParentalratingchecktableQActionRow() : base(0, 12) { }
-	public ParentalratingchecktableQActionRow(System.Object[] oRow) : base(0, 12, oRow) { }
+	/// <summary>PID: 12014 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Parentalratingcheckshowinerrorview_12014 { get { if (base.Columns.ContainsKey(12)) { return base.Columns[12]; } else { return null; } } set { if (base.Columns.ContainsKey(12)) { base.Columns[12] = value; } else { base.Columns.Add(12, value); } } }
+	/// <summary>PID: 12014 | Type: read</summary>
+	public System.Object Parentalratingcheckshowinerrorview { get { if (base.Columns.ContainsKey(12)) { return base.Columns[12]; } else { return null; } } set { if (base.Columns.ContainsKey(12)) { base.Columns[12] = value; } else { base.Columns.Add(12, value); } } }
+	public ParentalratingchecktableQActionRow() : base(0, 13) { }
+	public ParentalratingchecktableQActionRow(System.Object[] oRow) : base(0, 13, oRow) { }
 	public static implicit operator ParentalratingchecktableQActionRow(System.Object[] source) { return new ParentalratingchecktableQActionRow(source); }
 	public static implicit operator System.Object[](ParentalratingchecktableQActionRow source) { return source.ToObjectArray(); }
 }

@@ -5,7 +5,7 @@
 		<Encoding>unicode</Encoding>
 	</Options>
 	<Description>AdSales DataMiner connector</Description>
-	<Version>1.0.1.5</Version>
+	<Version>1.0.1.6</Version>
 	<IntegrationID>DMS-DRV-</IntegrationID>
 	<Provider>Foosoft</Provider>
 	<Vendor>Foosoft</Vendor>
@@ -3084,6 +3084,7 @@
 				<ColumnOption idx="9" pid="12009" type="retrieved" options="" />
 				<ColumnOption idx="10" pid="12010" type="retrieved" options="" />
 				<ColumnOption idx="11" pid="12011" type="retrieved" options="" />
+				<ColumnOption idx="12" pid="12014" type="retrieved" options="" />
 			</ArrayOptions>
 			<Information>
 				<Subtext>
@@ -3318,6 +3319,25 @@
 			</Display>
 			<Measurement>
 				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="12014" trending="false">
+			<Name>ParentalRatingCheckShowInErrorView</Name>
+			<Description>Show in error view (Parental Rating Check)</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext></Subtext>
+			</Information>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>number</Type>
 			</Measurement>
 		</Param>
 	</Params>

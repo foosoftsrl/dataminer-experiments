@@ -402,6 +402,20 @@
             List<object[]> tableRows = new List<object[]>();
             foreach (var row in mergedRows)
             {
+                var showInErrorView = (row.CheckResult.Contains("ko")
+                    && row.ElementTime >= DateTime.Now.AddMinutes(-120)
+                    && row.ElementTime <= DateTime.Now.AddMinutes(120)) ? 1 : 0;
+
+                string checkProbeData = string.Empty;
+                if (row.CheckProbeData == 1)
+                {
+                    checkProbeData = "\u2713";
+                }
+                else if (row.CheckProbeData == -1)
+                {
+                    checkProbeData = "\u274c";
+                }
+
                 tableRows.Add(new ParentalratingchecktableQActionRow
                 {
                     Parentalratingcheckkey = row.WhatsonData.ItemReference,
@@ -413,9 +427,10 @@
                     Parentalratingcheckwonpr = row.WhatsonData.ParentalRatingValue,
                     Parentalratingcheckcheckmediator = row.MediatorData != null && row.CheckMediatorData ? "\u2713" : "\u274c",
                     Parentalratingcheckmediatorparentalrating = row.MediatorData != null ? row.MediatorData?.ParentalRatingValue : string.Empty,
-                    Parentalratingcheckcheckprobedata = row.ParentalRatingRow != null ? "\u2713" : "\u274c",
+                    Parentalratingcheckcheckprobedata = checkProbeData,
                     Parentalratingcheckonairtimestamp = row.MuxTime?.ToString("yyyy-MM-dd HH:mm:ss") ?? string.Empty,
                     Parentalratingcheckmessage = row.CheckResult,
+                    Parentalratingcheckshowinerrorview = showInErrorView,
                 }.ToObjectArray());
             }
 

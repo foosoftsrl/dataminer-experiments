@@ -12,7 +12,7 @@ namespace QAction_5
         public MediatorRow MediatorData;
         public bool CheckMediatorData;
         public ParentalRatingRow ParentalRatingRow;
-        public bool CheckProbeData;
+        public int CheckProbeData;
         public DateTime? MuxTime;
         public long Delta;
         public string CheckResult;

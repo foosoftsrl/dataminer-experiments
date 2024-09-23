@@ -17,8 +17,18 @@
             foreach (var whatsonRow in parentalRatingWhatsonData)
             {
                 var timestamp = whatsonRow.StartTime;
-                var mediatorRow = mediatorMap.GetValueOrDefault(whatsonRow.ItemReference, null);
+                if (timestamp < DateTime.Today)
+                {
+                    // Filter out yesterday and before
+                    continue;
+                }
+                if (timestamp > DateTime.Today.AddDays(2))
+                {
+                    // Filter out the day after tomorrow
+                    continue;
+                }
 
+                var mediatorRow = mediatorMap.GetValueOrDefault(whatsonRow.ItemReference, null);
                 var message = "ok";
 
                 var checkMediatorData = true;
@@ -34,35 +44,38 @@
                 }
 
                 ParentalRatingRow parentalRatingRow = null;
-                if (mediatorRow != null)
-                {
-                    parentalRatingRow = ExtractParentalRatingFromProbe(parentalRatingEvents, timestamp, mediatorRow.ParentalRatingValue);
-                }
-                else
-                {
-                    parentalRatingRow = ExtractParentalRatingFromProbe(parentalRatingEvents, timestamp, whatsonRow.ParentalRatingValue);
-                }
-
-                var checkProbeData = true;
                 long delta = 0;
-                if (parentalRatingRow == null)
+                int checkProbeData = 0; // not checked
+                if (timestamp < DateTime.Now)
                 {
-                    message = "ko - No probe data";
-                    checkProbeData = false;
-                }
-                else if(mediatorRow != null)
-                {
-                    delta = parentalRatingRow.TimeStamp.Ticks - mediatorRow.StartTime.Ticks;
-                }
-                else
-                {
-                    delta = parentalRatingRow.TimeStamp.Ticks - whatsonRow.StartTime.Ticks;
-                }
+                    checkProbeData = 1;
+                    if (mediatorRow != null)
+                    {
+                        parentalRatingRow = ExtractParentalRatingFromProbe(parentalRatingEvents, timestamp, mediatorRow.ParentalRatingValue);
+                    }
+                    else
+                    {
+                        parentalRatingRow = ExtractParentalRatingFromProbe(parentalRatingEvents, timestamp, whatsonRow.ParentalRatingValue);
+                    }
 
-                if (delta > 30000 || delta < -30000)
-                {
-                    message = "warn - high delta";
-                    checkProbeData = false;
+                    if (parentalRatingRow == null)
+                    {
+                        message = "ko - No probe data";
+                        checkProbeData = -1;
+                    }
+                    else if (mediatorRow != null)
+                    {
+                        delta = parentalRatingRow.TimeStamp.Ticks - mediatorRow.StartTime.Ticks;
+                    }
+                    else
+                    {
+                        delta = parentalRatingRow.TimeStamp.Ticks - whatsonRow.StartTime.Ticks;
+                    }
+
+                    if (delta > 30000 || delta < -30000)
+                    {
+                        message = "warn - high delta";
+                    }
                 }
 
                 resultList.Add(new ParentalRatingCheckEntry
