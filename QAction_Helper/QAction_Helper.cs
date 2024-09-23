@@ -58,11 +58,6 @@ public static class Parameter
 	public const int channelserviceid_25 = 25;
 	/// <summary>PID: 25 | Type: read</summary>
 	public const int channelserviceid = 25;
-	/// <summary>PID: 27 | Type: read</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public const int fixeddropdownexample_27 = 27;
-	/// <summary>PID: 27 | Type: read</summary>
-	public const int fixeddropdownexample = 27;
 	/// <summary>PID: 6100 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public const int sctedebugmsg_6100 = 6100;
@@ -250,11 +245,6 @@ public static class Parameter
 		public const int channelserviceid_26 = 26;
 		/// <summary>PID: 26 | Type: write</summary>
 		public const int channelserviceid = 26;
-		/// <summary>PID: 28 | Type: write</summary>
-		[EditorBrowsable(EditorBrowsableState.Never)]
-		public const int fixeddropdownexample_28 = 28;
-		/// <summary>PID: 28 | Type: write</summary>
-		public const int fixeddropdownexample = 28;
 		/// <summary>PID: 10202 | Type: write</summary>
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		public const int mergedprocesstable_10202 = 10202;
@@ -1303,6 +1293,11 @@ public static class Parameter
 			public const int parentalratingcheckmessage_12011 = 12011;
 			/// <summary>PID: 12011 | Type: read</summary>
 			public const int parentalratingcheckmessage = 12011;
+			/// <summary>PID: 12014 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int parentalratingcheckshowinerrorview_12014 = 12014;
+			/// <summary>PID: 12014 | Type: read</summary>
+			public const int parentalratingcheckshowinerrorview = 12014;
 			public class Write
 			{
 			}
@@ -1369,6 +1364,11 @@ public static class Parameter
 			public const int parentalratingcheckmessage_12011 = 11;
 			/// <summary>IDX: 11 | Type: read</summary>
 			public const int parentalratingcheckmessage = 11;
+			/// <summary>IDX: 12 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int parentalratingcheckshowinerrorview_12014 = 12;
+			/// <summary>IDX: 12 | Type: read</summary>
+			public const int parentalratingcheckshowinerrorview = 12;
 		}
 	}
 }
@@ -1396,8 +1396,6 @@ public class WriteParameters
 	public System.Object Channelpriority {get { return Protocol.GetParameter(24); }set { Protocol.SetParameter(24, value); }}
 	/// <summary>PID: 26  | Type: write</summary>
 	public System.Object Channelserviceid {get { return Protocol.GetParameter(26); }set { Protocol.SetParameter(26, value); }}
-	/// <summary>PID: 28  | Type: write | DISCREETS: ALL = 0, V.M. 14 = 14, V.M. 18 = 18</summary>
-	public System.Object Fixeddropdownexample {get { return Protocol.GetParameter(28); }set { Protocol.SetParameter(28, value); }}
 	/// <summary>PID: 10202  | Type: write | DISCREETS: Merge Tables = check</summary>
 	public System.Object Mergedprocesstable {get { return Protocol.GetParameter(10202); }set { Protocol.SetParameter(10202, value); }}
 	public SLProtocolExt Protocol;
@@ -1464,9 +1462,6 @@ public interface SLProtocolExt : SLProtocol
 	object Channelserviceid_25 { get; set; }
 	object Channelserviceid { get; set; }
 	object Channelserviceid_26 { get; set; }
-	object Fixeddropdownexample_27 { get; set; }
-	object Fixeddropdownexample { get; set; }
-	object Fixeddropdownexample_28 { get; set; }
 	object Adsalesreconcilekey_1001 { get; set; }
 	object Adsalesreconcilekey { get; set; }
 	object Adsalestime_1002 { get; set; }
@@ -1707,6 +1702,8 @@ public interface SLProtocolExt : SLProtocol
 	object Parentalratingcheckchannel { get; set; }
 	object Parentalratingcheckmux_12013 { get; set; }
 	object Parentalratingcheckmux { get; set; }
+	object Parentalratingcheckshowinerrorview_12014 { get; set; }
+	object Parentalratingcheckshowinerrorview { get; set; }
 	WriteParameters Write { get; set; }
 }
 public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
@@ -1823,14 +1820,6 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	/// <summary>PID: 26  | Type: write</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Channelserviceid_26 {get { return GetParameter(26); }set { SetParameter(26, value); }}
-	/// <summary>PID: 27  | Type: read | DISCREETS: ALL = 0, V.M. 14 = 14, V.M. 18 = 18</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Fixeddropdownexample_27 {get { return GetParameter(27); }set { SetParameter(27, value); }}
-	/// <summary>PID: 27  | Type: read | DISCREETS: ALL = 0, V.M. 14 = 14, V.M. 18 = 18</summary>
-	public System.Object Fixeddropdownexample {get { return GetParameter(27); }set { SetParameter(27, value); }}
-	/// <summary>PID: 28  | Type: write | DISCREETS: ALL = 0, V.M. 14 = 14, V.M. 18 = 18</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Fixeddropdownexample_28 {get { return GetParameter(28); }set { SetParameter(28, value); }}
 	/// <summary>PID: 1001  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Adsalesreconcilekey_1001 {get { return GetParameter(1001); }set { SetParameter(1001, value); }}
@@ -2430,6 +2419,11 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public System.Object Parentalratingcheckmux_12013 {get { return GetParameter(12013); }set { SetParameter(12013, value); }}
 	/// <summary>PID: 12013  | Type: read</summary>
 	public System.Object Parentalratingcheckmux {get { return GetParameter(12013); }set { SetParameter(12013, value); }}
+	/// <summary>PID: 12014  | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Parentalratingcheckshowinerrorview_12014 {get { return GetParameter(12014); }set { SetParameter(12014, value); }}
+	/// <summary>PID: 12014  | Type: read</summary>
+	public System.Object Parentalratingcheckshowinerrorview {get { return GetParameter(12014); }set { SetParameter(12014, value); }}
 	public WriteParameters Write { get; set; }
 	public ConcreteSLProtocolExt()
 	{
@@ -3056,8 +3050,13 @@ public class ParentalratingchecktableQActionRow : QActionTableRow
 	public System.Object Parentalratingcheckmessage_12011 { get { if (base.Columns.ContainsKey(11)) { return base.Columns[11]; } else { return null; } } set { if (base.Columns.ContainsKey(11)) { base.Columns[11] = value; } else { base.Columns.Add(11, value); } } }
 	/// <summary>PID: 12011 | Type: read</summary>
 	public System.Object Parentalratingcheckmessage { get { if (base.Columns.ContainsKey(11)) { return base.Columns[11]; } else { return null; } } set { if (base.Columns.ContainsKey(11)) { base.Columns[11] = value; } else { base.Columns.Add(11, value); } } }
-	public ParentalratingchecktableQActionRow() : base(0, 12) { }
-	public ParentalratingchecktableQActionRow(System.Object[] oRow) : base(0, 12, oRow) { }
+	/// <summary>PID: 12014 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Parentalratingcheckshowinerrorview_12014 { get { if (base.Columns.ContainsKey(12)) { return base.Columns[12]; } else { return null; } } set { if (base.Columns.ContainsKey(12)) { base.Columns[12] = value; } else { base.Columns.Add(12, value); } } }
+	/// <summary>PID: 12014 | Type: read</summary>
+	public System.Object Parentalratingcheckshowinerrorview { get { if (base.Columns.ContainsKey(12)) { return base.Columns[12]; } else { return null; } } set { if (base.Columns.ContainsKey(12)) { base.Columns[12] = value; } else { base.Columns.Add(12, value); } } }
+	public ParentalratingchecktableQActionRow() : base(0, 13) { }
+	public ParentalratingchecktableQActionRow(System.Object[] oRow) : base(0, 13, oRow) { }
 	public static implicit operator ParentalratingchecktableQActionRow(System.Object[] source) { return new ParentalratingchecktableQActionRow(source); }
 	public static implicit operator System.Object[](ParentalratingchecktableQActionRow source) { return source.ToObjectArray(); }
 }

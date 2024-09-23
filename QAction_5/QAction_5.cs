@@ -148,7 +148,7 @@ public class QAction
 
     public string NullIfEmpty(string s)
     {
-        if (s.Length == 0)
+        if (s == null || s.Length == 0)
             return null;
         return s;
     }
@@ -177,6 +177,7 @@ public class QAction
                     ScteBroadcastProviderOverlayPlacementEnd = NullIfEmpty((string)row.Mediatorsctebroadcastprovideroverlayplacementend),
                     EnablerLegacy = NullIfEmpty((string)row.Mediatorenablerlegacy),
                     MaterialId = NullIfEmpty((string)row.Mediatormaterialid),
+                    ParentalRatingValue = NullIfEmpty((string)row.Mediatorparentalrating),
                 });
             }
         }

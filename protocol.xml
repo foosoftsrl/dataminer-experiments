@@ -5,7 +5,7 @@
 		<Encoding>unicode</Encoding>
 	</Options>
 	<Description>AdSales DataMiner connector</Description>
-	<Version>1.0.1.2</Version>
+	<Version>1.0.1.6</Version>
 	<IntegrationID>DMS-DRV-</IntegrationID>
 	<Provider>Foosoft</Provider>
 	<Vendor>Foosoft</Vendor>
@@ -88,7 +88,7 @@
 					<Position>
 						<Page>Configuration</Page>
 						<Column>0</Column>
-						<Row>13</Row>
+						<Row>14</Row>
 					</Position>
 				</Positions>
 			</Display>
@@ -595,66 +595,6 @@
 			</Display>
 			<Measurement>
 				<Type>string</Type>
-			</Measurement>
-		</Param>
-		<Param id="27" trending="false">
-			<Name>fixedDropDownExample</Name>
-			<Description>Fixed Dropdown</Description>
-			<Type>read</Type>
-			<Interprete>
-				<RawType>numeric text</RawType>
-				<LengthType>next param</LengthType>
-				<Type>double</Type>
-			</Interprete>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-			</Display>
-			<Measurement>
-				<Type>discreet</Type>
-				<Discreets>
-					<Discreet>
-						<Display>ALL</Display>
-						<Value>0</Value>
-					</Discreet>
-					<Discreet>
-						<Display>V.M. 14</Display>
-						<Value>14</Value>
-					</Discreet>
-					<Discreet>
-						<Display>V.M. 18</Display>
-						<Value>18</Value>
-					</Discreet>
-				</Discreets>
-			</Measurement>
-		</Param>
-		<Param id="28" trending="false" setter="true">
-			<Name>fixedDropDownExample</Name>
-			<Description>Fixed Dropdown</Description>
-			<Type>write</Type>
-			<Interprete>
-				<RawType>numeric text</RawType>
-				<LengthType>next param</LengthType>
-				<Type>double</Type>
-			</Interprete>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-			</Display>
-			<Measurement>
-				<Type>discreet</Type>
-				<Discreets>
-					<Discreet>
-						<Display>ALL</Display>
-						<Value>0</Value>
-					</Discreet>
-					<Discreet>
-						<Display>V.M. 14</Display>
-						<Value>14</Value>
-					</Discreet>
-					<Discreet>
-						<Display>V.M. 18</Display>
-						<Value>18</Value>
-					</Discreet>
-				</Discreets>
 			</Measurement>
 		</Param>
 		
@@ -3131,7 +3071,7 @@
 			<Name>ParentalRatingCheckTable</Name>
 			<Description>Parental Rating Check Table</Description>
 			<Type>array</Type>
-			<ArrayOptions  index="0">
+			<ArrayOptions index="0">
 				<ColumnOption idx="0" pid="12001" type="retrieved" options="" />
 				<ColumnOption idx="1" pid="12012" type="retrieved" options="" />
 				<ColumnOption idx="2" pid="12013" type="retrieved" options="" />
@@ -3144,6 +3084,7 @@
 				<ColumnOption idx="9" pid="12009" type="retrieved" options="" />
 				<ColumnOption idx="10" pid="12010" type="retrieved" options="" />
 				<ColumnOption idx="11" pid="12011" type="retrieved" options="" />
+				<ColumnOption idx="12" pid="12014" type="retrieved" options="" />
 			</ArrayOptions>
 			<Information>
 				<Subtext>
@@ -3161,7 +3102,7 @@
 				</Positions>
 			</Display>
 			<Measurement>
-				<Type options="tab=columns:12001|0-12002|3-12003|4-12004|5-12005|6-12007|7-12008|8-12009|9-12010|10-12011|11-12012|1-12013|2,width:100-115-100-100-169-137-195-106-121-100-100-100,sort:STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING,lines:20,filter:true">table</Type>
+				<Type options="tab=columns:12001|0-12002|3-12003|4-12004|5-12005|6-12007|7-12008|8-12009|9-12010|10-12011|11-12012|1-12013|2-12014|12,width:100-115-100-100-169-137-195-119-121-100-100-100-124,sort:STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-INT,lines:20,filter:true">table</Type>
 			</Measurement>
 		</Param>
 		<Param id="12001" trending="false">
@@ -3378,6 +3319,24 @@
 			</Display>
 			<Measurement>
 				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="12014" trending="false">
+			<Name>ParentalRatingCheckShowInErrorView</Name>
+			<Description>Show in error view (Parental Rating Check)</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>number</Type>
 			</Measurement>
 		</Param>
 	</Params>
