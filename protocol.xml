@@ -5,7 +5,7 @@
 		<Encoding>unicode</Encoding>
 	</Options>
 	<Description>AdSales DataMiner connector</Description>
-	<Version>1.0.1.6</Version>
+	<Version>1.0.1.7</Version>
 	<IntegrationID>DMS-DRV-</IntegrationID>
 	<Provider>Foosoft</Provider>
 	<Vendor>Foosoft</Vendor>
@@ -857,7 +857,7 @@
 				<ColumnOption idx="10" pid="2011" type="retrieved" options=";save"/>
 				<ColumnOption idx="11" pid="2012" type="retrieved" options=";save"/>
 				<ColumnOption idx="12" pid="2013" type="retrieved" options=";save"/>
-				<ColumnOption idx="13" pid="2014" type="retrieved" options="" />
+				<ColumnOption idx="13" pid="2014" type="retrieved" options=";save" />
 			</ArrayOptions>
 			<Information>
 				<Subtext>Mediator Table</Subtext>
