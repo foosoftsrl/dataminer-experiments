@@ -95,8 +95,10 @@
                 var whatsonCount = whatsonDayData.Count();
                 var mediatorCount = mediatorDayData.Count();
 
-                var adsalesWonErrorFlag = adSalesCount == whatsonCount && adsalesWonDiffDay.FindAll(item => item.Item3 != "ok").IsNullOrEmpty();
-                var wonMediatorErrorFlag = whatsonCount == mediatorCount && wonMediatorDiffDay.FindAll(item => item.Item3 != "ok").IsNullOrEmpty();
+                var adsalesWonErrorFlag = (adSalesCount != whatsonCount || adsalesWonDiffDay.FindAll(item => item.Item3.Contains("err_")).IsNotNullOrEmpty()) ? 1 :
+                    (adsalesWonDiffDay.FindAll(item => item.Item3.Contains("warn_")).IsNotNullOrEmpty() ? 2 : 0);
+                var wonMediatorErrorFlag = (whatsonCount != mediatorCount || wonMediatorDiffDay.FindAll(item => item.Item3.Contains("err_")).IsNotNullOrEmpty()) ? 1 :
+                    (wonMediatorDiffDay.FindAll(item => item.Item3.Contains("warn_")).IsNotNullOrEmpty() ? 2 : 0);
 
                 switch (i)
                 {
@@ -105,24 +107,24 @@
                         protocol.Alarmboxadsalesitems0 = adSalesCount;
                         protocol.Alarmboxwonitems0 = whatsonCount;
                         protocol.Alarmboxmediatoritems0 = mediatorCount;
-                        protocol.Alarmboxadsaleswonalarm0 = adsalesWonErrorFlag ? 0 : 1;
-                        protocol.Alarmboxwonmediatoralarm0 = wonMediatorErrorFlag ? 0 : 1;
+                        protocol.Alarmboxadsaleswonalarm0 = adsalesWonErrorFlag;
+                        protocol.Alarmboxwonmediatoralarm0 = wonMediatorErrorFlag;
                         break;
                     case 1:
                         protocol.Alarmboxdate1 = from.ToString("yyyy-MM-dd");
                         protocol.Alarmboxadsalesitems1 = adSalesCount;
                         protocol.Alarmboxwonitems1 = whatsonCount;
                         protocol.Alarmboxmediatoritems1 = mediatorCount;
-                        protocol.Alarmboxadsaleswonalarm1 = adsalesWonErrorFlag ? 0 : 1;
-                        protocol.Alarmboxwonmediatoralarm1 = wonMediatorErrorFlag ? 0 : 1;
+                        protocol.Alarmboxadsaleswonalarm1 = adsalesWonErrorFlag;
+                        protocol.Alarmboxwonmediatoralarm1 = wonMediatorErrorFlag;
                         break;
                     case 2:
                         protocol.Alarmboxdate2 = from.ToString("yyyy-MM-dd");
                         protocol.Alarmboxadsalesitems2 = adSalesCount;
                         protocol.Alarmboxwonitems2 = whatsonCount;
                         protocol.Alarmboxmediatoritems2 = mediatorCount;
-                        protocol.Alarmboxadsaleswonalarm2 = adsalesWonErrorFlag ? 0 : 1;
-                        protocol.Alarmboxwonmediatoralarm2 = wonMediatorErrorFlag ? 0 : 1;
+                        protocol.Alarmboxadsaleswonalarm2 = adsalesWonErrorFlag;
+                        protocol.Alarmboxwonmediatoralarm2 = wonMediatorErrorFlag;
                         break;
                 }
             }
