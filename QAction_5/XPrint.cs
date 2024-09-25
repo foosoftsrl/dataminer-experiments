@@ -1,5 +1,6 @@
 ﻿namespace QAction_5
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
     using Skyline.DataMiner.Net.Helper;
@@ -11,9 +12,9 @@
             /*
              * Result:
              * "ok" - ok
-             * "warn_only_adsales" - no whatson entry - red
-             * "warn_only_whatson" - no adsales entry - yellow
-             * "warn_material_mismatch" - code mismatch
+             * "err_only_adsales" - no whatson entry - red
+             * "err_only_whatson" - no adsales entry - yellow
+             * "err_material_mismatch" - code mismatch
             */
             var result = new List<(AdSalesRow, WhatsonRow, string)>();
             for (var day = -1; day < 3; day++)
@@ -55,21 +56,21 @@
                         {
                             for (var i = lastAdSalesIdx + 1; i < adSalesIdx; i++)
                             {
-                                standardDayResult.Add((adSalesRows[i], null, "warn_only_adsales"));
+                                standardDayResult.Add((adSalesRows[i], null, "err_only_adsales"));
                             }
 
                             for (var i = lastWhatsonIdx + 1; i < whatsonIdx; i++)
                             {
                                 if(!adSalesFilterOutReconcileKey.Contains(whatsonRows[i].ReconcileKey))
                                 {
-                                    standardDayResult.Add((null, whatsonRows[i], "warn_only_whatson"));
+                                    standardDayResult.Add((null, whatsonRows[i], "err_only_whatson"));
                                 }
                             }
 
                             var resultCode = "ok";
                             if(adSalesRows[adSalesIdx].ProductCode != whatsonRows[whatsonIdx].ProgramCode)
                             {
-                                resultCode = "warn_material_mismatch";
+                                resultCode = "err_material_mismatch";
                             }
 
                             standardDayResult.Add((adSalesRows[adSalesIdx], whatsonRows[whatsonIdx], resultCode));
@@ -81,14 +82,14 @@
 
                 for (var i = lastAdSalesIdx + 1; i < adSalesRows.Count; i++)
                 {
-                    standardDayResult.Add((adSalesRows[i], null, "warn_only_adsales"));
+                    standardDayResult.Add((adSalesRows[i], null, "err_only_adsales"));
                 }
 
                 for (var i = lastWhatsonIdx + 1; i < whatsonRows.Count; i++)
                 {
                     if (!adSalesFilterOutReconcileKey.Contains(whatsonRows[i].ReconcileKey))
                     {
-                        standardDayResult.Add((null, whatsonRows[i], "warn_only_whatson"));
+                        standardDayResult.Add((null, whatsonRows[i], "err_only_whatson"));
                     }
                 }
 
@@ -103,7 +104,7 @@
                     }
                     else
                     {
-                        billboardDayResult.Add((adSalesRow, null, "warn_only_adsales"));
+                        billboardDayResult.Add((adSalesRow, null, "err_only_adsales"));
                     }
                 }
 
@@ -122,6 +123,18 @@
                 result.AddRange(dayResult);
             }
 
+            // Modify result with warn_ instead of err_ for past elements
+            for (int i = 0; i < result.Count; i++)
+            {
+                (AdSalesRow, WhatsonRow, string) item = result[i];
+                var itemTimestamp = item.Item2?.StartTime ?? item.Item1.TimeOfDay;
+                var now = DateTime.Now;
+                if (item.Item3.Contains("err_") && itemTimestamp < now)
+                {
+                    item.Item3 = item.Item3.Replace("err_", "warn_");
+                }
+            }
+
             return result;
         }
 
@@ -130,9 +143,9 @@
             /*
              * Result:
              * "ok" - ok
-             * "warn_only_adsales" - no whatson entry - red
-             * "warn_only_whatson" - no adsales entry - yellow
-             * "warn_material_mismatch" - code mismatch
+             * "err_only_adsales" - no whatson entry - red
+             * "err_only_whatson" - no adsales entry - yellow
+             * "err_material_mismatch" - code mismatch
             */
             var result = new List<(WhatsonRow, MediatorRow, string)>();
 
@@ -162,18 +175,18 @@
                         for (var i = lastMediatorIdx + 1; i < mediatorIdx; i++)
                         {
                             mediatorRows[i].DayOffset = currentDayOffset;
-                            result.Add((null, mediatorRows[i], "warn_only_mediator"));
+                            result.Add((null, mediatorRows[i], "err_only_mediator"));
                         }
 
                         for (var i = lastWhatsonIdx + 1; i < whatsonIdx; i++)
                         {
-                            result.Add((whatsonRows[i], null, "warn_only_whatson"));
+                            result.Add((whatsonRows[i], null, "err_only_whatson"));
                         }
 
                         var resultCode = "ok";
                         if (mediatorRows[mediatorIdx].MaterialId != whatsonRows[whatsonIdx].ProgramCode)
                         {
-                            resultCode = "warn_material_mismatch";
+                            resultCode = "err_material_mismatch";
                         }
 
                         mediatorRows[mediatorIdx].DayOffset = currentDayOffset;
@@ -191,12 +204,12 @@
             for (var i = lastMediatorIdx + 1; i < mediatorRows.Count; i++)
             {
                 mediatorRows[i].DayOffset = currentDayOffset;
-                result.Add((null, mediatorRows[i], "warn_only_mediator"));
+                result.Add((null, mediatorRows[i], "err_only_mediator"));
             }
 
             for (var i = lastWhatsonIdx + 1; i < whatsonRows.Count; i++)
             {
-                result.Add((whatsonRows[i], null, "warn_only_whatson"));
+                result.Add((whatsonRows[i], null, "err_only_whatson"));
             }
 
             return result;
