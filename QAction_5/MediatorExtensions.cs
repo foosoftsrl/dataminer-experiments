@@ -26,6 +26,7 @@
                         if (startTime == null)
                             continue;
                         var truncatedStartTime = startTime.Value.AddTicks(-(startTime.Value.Ticks % TimeSpan.TicksPerSecond));
+                        (string, string) enablerLegacy = row.FindEnablerLegacyText();
                         result.Add(new MediatorRow
                         {
                             StartTime = (DateTime)truncatedStartTime,
@@ -34,7 +35,8 @@
                             ReconcileKey = row.FindAdSalesReconcileKey(),
                             ScheduleReference = row.GetScheduleReference(),
                             Status = row.Status.GenericList.Object[0].TransferStatus.ToString(),
-                            EnablerLegacy = row.FindEnablerLegacyText(),
+                            EnablerLegacy = enablerLegacy.Item1,
+                            EnablerLegacyOffset = enablerLegacy.Item2,
                             ScteBroadcastBreakStart = row.FindScteBroadcastBreakStartUpid(),
                             ScteBroadcastProviderAdvStart = row.FindScteBroadcastProviderAdvStartUpid(),
                             ScteBroadcastProviderOverlayPlacementStart = row.FindScteBroadcastProviderOverlayPlacementStartUpid(),
@@ -190,9 +192,9 @@
         }
 
         /* Enabler element parsing */
-        public static string FindEnablerLegacyText(this Mediator.Row mediatorRow)
+        public static (string, string) FindEnablerLegacyText(this Mediator.Row mediatorRow)
         {
-            string result = null;
+            (string, string) result = (null, null);
             var enablerLegacyCompountList = mediatorRow.FindTemplateParameterByName("enablerLegacy-compoundList");
             if (enablerLegacyCompountList?.Value.ValueClass?.TemplateParameterListCompound != null)
             {
@@ -202,13 +204,24 @@
                     {
                         if (parameter.Name == "enablerLegacy-userText1")
                         {
-                            if (result == null)
+                            if (result.Item1 == null)
                             {
-                                result = parameter.Value.String + string.Empty;
+                                result.Item1 = parameter.Value.String + string.Empty;
                             }
                             else
                             {
-                                result += ";" + parameter.Value.String + string.Empty;
+                                result.Item1 += ";" + parameter.Value.String + string.Empty;
+                            }
+                        }
+                        else if (parameter.Name == "enablerLegacy-offset")
+                        {
+                            if (result.Item2 == null)
+                            {
+                                result.Item2 = parameter.Value.String + string.Empty;
+                            }
+                            else
+                            {
+                                result.Item2 += ";" + parameter.Value.String + string.Empty;
                             }
                         }
                     }

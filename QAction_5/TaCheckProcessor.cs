@@ -59,9 +59,20 @@
                     message += "no data in mediator\n";
                 }
 
+                DateTime? onairTime = null;
                 if (result == 0)
                 {
-                    if (adSalesRow.Enabler == "P" && mediatorRow.StartTime < DateTime.Now)
+                    onairTime = mediatorRow.StartTime;
+                    if(mediatorRow.EnablerLegacyOffset != null)
+                    {
+                        int secondaryEventIndex = Array.IndexOf(mediatorRow.EnablerLegacy.Split(';'), adSalesRow.BreakId);
+                        if (secondaryEventIndex >= 0)
+                        {
+                            onairTime = onairTime?.Add(DateTime.ParseExact(mediatorRow.EnablerLegacyOffset.Split(';')[secondaryEventIndex], "HH:mm:ss:ff", null).TimeOfDay);
+                        }
+                    }
+
+                    if (adSalesRow.Enabler == "P" && onairTime < DateTime.Now)
                     {
                         if(scteBroadcastProviderOverlayPlacementStart == null)
                         {
@@ -75,7 +86,7 @@
                             message += "missing legacy start\n";
                         }
                     }
-                    else if (adSalesRow.Enabler == "E" && mediatorRow.StartTime < DateTime.Now)
+                    else if (adSalesRow.Enabler == "E" && onairTime < DateTime.Now)
                     {
                         if (scteBroadcastProviderOverlayPlacementStart == null)
                         {
@@ -89,7 +100,7 @@
                             message += "missing legacy start\n";
                         }
                     }
-                    else if (adSalesRow.Enabler == "X" && mediatorRow.StartTime < DateTime.Now)
+                    else if (adSalesRow.Enabler == "X" && onairTime < DateTime.Now)
                     {
                         if (scteBroadcastBreakStart == null)
                         {
@@ -114,17 +125,6 @@
                     }
                 }
 
-                var futureFilterFlag = 0;
-                if(mediatorRow != null && mediatorRow.StartTime > DateTime.Now.AddMinutes(-5))
-                {
-                    futureFilterFlag = 1;
-                }
-                else if(mediatorRow == null && adSalesRow.TimeOfDay > DateTime.Now.AddMinutes(-5))
-                {
-                    futureFilterFlag = 1;
-                }
-
-
                 rowList.Add(new MergedEntry
                 {
                     Channel = channel,
@@ -133,6 +133,7 @@
                     AdSalesData = adSalesRow,
                     WhatsonData = whatsonRow,
                     MediatorData = mediatorRow,
+                    OnairTime = onairTime,
                     ScteBroadcastBreakStart = scteBroadcastBreakStart,
                     ScteBroadcastProviderAdvStart = scteBroadcastProviderAdvStart,
                     ScteBroadcastProviderOverlayPlacementStart = scteBroadcastProviderOverlayPlacementStart,
@@ -142,7 +143,6 @@
                     LegacyEventStop = legacyEventStop,
                     Result = result,
                     Message = message,
-                    FutureFilterFlag = futureFilterFlag,
                 });
             }
 

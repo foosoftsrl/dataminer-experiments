@@ -53,6 +53,7 @@ namespace QAction_5
         public string ScteBroadcastProviderOverlayPlacementStart;
         public string ScteBroadcastProviderOverlayPlacementEnd;
         public string EnablerLegacy;
+        public string EnablerLegacyOffset;
         public string MaterialId;
         public int DayOffset;
         public string ParentalRatingValue;
