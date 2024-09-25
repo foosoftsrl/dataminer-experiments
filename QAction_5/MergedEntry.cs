@@ -11,6 +11,7 @@ namespace QAction_5
         public AdSalesRow AdSalesData;
         public WhatsonRow WhatsonData;
         public MediatorRow MediatorData;
+        public DateTime? OnairTime;
         public EnablerRow ScteBroadcastBreakStart;
         public EnablerRow ScteBroadcastProviderAdvStart;
         public EnablerRow ScteBroadcastProviderOverlayPlacementStart;
@@ -26,6 +27,5 @@ namespace QAction_5
          */
         public int Result;
         public string Message;
-        public int FutureFilterFlag;
     }
 }

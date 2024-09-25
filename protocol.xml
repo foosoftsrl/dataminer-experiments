@@ -5,7 +5,7 @@
 		<Encoding>unicode</Encoding>
 	</Options>
 	<Description>AdSales DataMiner connector</Description>
-	<Version>1.0.1.7</Version>
+	<Version>1.0.1.8</Version>
 	<IntegrationID>DMS-DRV-</IntegrationID>
 	<Provider>Foosoft</Provider>
 	<Vendor>Foosoft</Vendor>
@@ -858,6 +858,7 @@
 				<ColumnOption idx="11" pid="2012" type="retrieved" options=";save"/>
 				<ColumnOption idx="12" pid="2013" type="retrieved" options=";save"/>
 				<ColumnOption idx="13" pid="2014" type="retrieved" options=";save" />
+				<ColumnOption idx="14" pid="2015" type="retrieved" options=";save" />
 			</ArrayOptions>
 			<Information>
 				<Subtext>Mediator Table</Subtext>
@@ -873,7 +874,7 @@
 				</Positions>
 			</Display>
 			<Measurement>
-				<Type options="tab=columns:2001|0-2002|1-2003|2-2004|3-2005|4-2006|5-2007|6-2008|7-2009|8-2010|9-2011|10-2012|11-2013|12-2014|13,width:120-120-120-125-120-120-100-102-100-100-100-275-269-204,sort:STRING-STRING|ASC|0-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING,lines:25,filter:true">table</Type>
+				<Type options="tab=columns:2001|0-2002|1-2003|2-2004|3-2005|4-2006|5-2007|6-2008|7-2009|8-2010|9-2011|10-2012|11-2013|12-2014|13-2015|14,width:120-120-120-125-120-120-100-102-100-100-100-275-269-204-163,sort:STRING-STRING|ASC|0-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING,lines:25,filter:true">table</Type>
 			</Measurement>
 		</Param>
 		<Param id="2001" trending="false">
@@ -1141,6 +1142,24 @@
 				<Type>string</Type>
 			</Measurement>
 		</Param>
+		<Param id="2015" trending="false">
+			<Name>mediatorEnablerOffset</Name>
+			<Description>Enabler Offset (Mediator)</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
 		
 		<Param id="3000">
 			<Name>won</Name>
@@ -1363,8 +1382,7 @@
 				<ColumnOption idx="10" pid="4009" type="retrieved" options="" />
 				<ColumnOption idx="11" pid="4012" type="retrieved" options="" />
 				<ColumnOption idx="12" pid="4013" type="retrieved" options="" />
-				<ColumnOption idx="13" pid="4014" type="retrieved" options="" />
-				<ColumnOption idx="14" pid="4015" type="retrieved" options="" />
+				<ColumnOption idx="13" pid="4015" type="retrieved" options="" />
 			</ArrayOptions>
 			<Information>
 				<Subtext>Targeted Advertising Check</Subtext>
@@ -1380,7 +1398,7 @@
 				</Positions>
 			</Display>
 			<Measurement>
-				<Type options=";tab=columns:4001|0-4002|3-4003|4-4004|5-4005|6-4006|7-4007|8-4008|9-4009|10-4010|1-4012|11-4014|13-4013|12-4015|14,width:108-120-95-80-100-100-50-70-50-80-108-137-154-116,sort:STRING-STRING|ASC|0-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-INT,lines:25,filter:true">table</Type>
+				<Type options=";tab=columns:4001|0-4002|3-4003|4-4004|5-4005|6-4006|7-4007|8-4008|9-4009|10-4010|1-4012|11-4013|12-4015|13,width:108-120-95-80-100-100-50-70-50-80-108-154-116,sort:STRING-STRING|ASC|0-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-STRING-INT,lines:25,filter:true">table</Type>
 			</Measurement>
 		</Param>
 		
@@ -1635,25 +1653,6 @@
 			</Display>
 			<Measurement>
 				<Type>string</Type>
-			</Measurement>
-		</Param>
-		<Param id="4014" trending="false">
-			<Name>taCheckFutureFlag</Name>
-			<Description>TA Check Future Flag</Description>
-			<Type>read</Type>
-			<Information>
-				<Subtext>FutureFLag</Subtext>
-			</Information>
-			<Interprete>
-				<RawType>numeric text</RawType>
-				<Type>double</Type>
-				<LengthType>next param</LengthType>
-			</Interprete>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-			</Display>
-			<Measurement>
-				<Type>number</Type>
 			</Measurement>
 		</Param>
 		<Param id="4015" trending="false">

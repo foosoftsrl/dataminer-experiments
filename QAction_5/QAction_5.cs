@@ -178,6 +178,7 @@ public class QAction
                     EnablerLegacy = NullIfEmpty((string)row.Mediatorenablerlegacy),
                     MaterialId = NullIfEmpty((string)row.Mediatormaterialid),
                     ParentalRatingValue = NullIfEmpty((string)row.Mediatorparentalrating),
+                    EnablerLegacyOffset = NullIfEmpty((string)row.Mediatorenableroffset),
                 });
             }
         }

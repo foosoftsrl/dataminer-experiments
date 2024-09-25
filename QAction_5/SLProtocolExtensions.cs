@@ -304,6 +304,7 @@
                     Mediatorsctebroadcastprovideroverlayplacementstart = row.ScteBroadcastProviderOverlayPlacementStart ?? string.Empty,
                     Mediatorsctebroadcastprovideroverlayplacementend = row.ScteBroadcastProviderOverlayPlacementEnd ?? string.Empty,
                     Mediatorparentalrating = row.ParentalRatingValue ?? string.Empty,
+                    Mediatorenableroffset = row.EnablerLegacyOffset ?? string.Empty,
                 }.ToObjectArray());
             }
 
@@ -385,13 +386,12 @@
                     Tacheckadsalestime = row.AdSalesTime.ToString("yyyy-MM-dd HH:mm:ss"),
                     Tacheckhavewon = (row.WhatsonData != null) ? "\u2713" : string.Empty,
                     Tacheckhavemediator = (row.MediatorData != null) ? "✓" : string.Empty,
-                    Tacheckmediatortime = row.MediatorData?.StartTime.ToString("yyyy-MM-dd HH:mm:ss") ?? string.Empty,
+                    Tacheckmediatortime = row.OnairTime?.ToString("yyyy-MM-dd HH:mm:ss") ?? string.Empty,
                     Tachecktype = type,
                     Tachecklegacyprobe = legacyProbe,
                     Tacheckscteprobe = scteProbe,
                     Tacheckresult = row.Result,
                     Tacheckmessage = row.Message,
-                    Tacheckfutureflag = row.FutureFilterFlag,
                     Tacheckshowinerrorview = showInErrorView,
                 }.ToObjectArray());
             }
