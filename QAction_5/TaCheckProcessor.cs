@@ -119,7 +119,7 @@
                 if (result == 0)
                 {
                     message = "ok";
-                    if(mediatorRow.StartTime > DateTime.Now)
+                    if(onairTime > DateTime.Now)
                     {
                         result = 9;
                     }
