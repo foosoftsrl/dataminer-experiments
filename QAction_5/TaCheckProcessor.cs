@@ -68,7 +68,7 @@
                         int secondaryEventIndex = Array.IndexOf(mediatorRow.EnablerLegacy.Split(';'), adSalesRow.BreakId);
                         if (secondaryEventIndex >= 0)
                         {
-                            onairTime = onairTime.Add(DateTime.ParseExact(mediatorRow.EnablerLegacyOffset.Split(';')[secondaryEventIndex], "HH:mm:ss:ff", null).TimeOfDay);
+                            onairTime = onairTime?.Add(DateTime.ParseExact(mediatorRow.EnablerLegacyOffset.Split(';')[secondaryEventIndex], "HH:mm:ss:ff", null).TimeOfDay);
                         }
                     }
 
