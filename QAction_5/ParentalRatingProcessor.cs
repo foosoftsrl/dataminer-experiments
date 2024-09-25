@@ -13,20 +13,11 @@
 
             var mediatorMap = parentalRatingMediatorData.ToScheduleReferenceKeyMap();
 
+            ParentalRatingCheckEntry lastInsertedRow = null;
             List<ParentalRatingCheckEntry> resultList = new List<ParentalRatingCheckEntry>();
             foreach (var whatsonRow in parentalRatingWhatsonData)
             {
                 var timestamp = whatsonRow.StartTime;
-                if (timestamp < DateTime.Today)
-                {
-                    // Filter out yesterday and before
-                    continue;
-                }
-                if (timestamp > DateTime.Today.AddDays(2))
-                {
-                    // Filter out the day after tomorrow
-                    continue;
-                }
 
                 var mediatorRow = mediatorMap.GetValueOrDefault(whatsonRow.ItemReference, null);
                 var message = "ok";
@@ -43,42 +34,41 @@
                     checkMediatorData = false;
                 }
 
+                var scheduledParentalRatingValue = mediatorRow?.ParentalRatingValue ?? whatsonRow.ParentalRatingValue;
+                var scheduledParentalRatingStartTime = mediatorRow?.StartTime ?? whatsonRow.StartTime;
+
                 ParentalRatingRow parentalRatingRow = null;
                 long delta = 0;
                 int checkProbeData = 0; // not checked
-                if (timestamp < DateTime.Now)
+                if (timestamp <= DateTime.Now)
                 {
                     checkProbeData = 1;
-                    if (mediatorRow != null)
-                    {
-                        parentalRatingRow = ExtractParentalRatingFromProbe(parentalRatingEvents, timestamp, mediatorRow.ParentalRatingValue);
-                    }
-                    else
-                    {
-                        parentalRatingRow = ExtractParentalRatingFromProbe(parentalRatingEvents, timestamp, whatsonRow.ParentalRatingValue);
-                    }
-
+                    parentalRatingRow = ExtractParentalRatingFromProbe(parentalRatingEvents, timestamp, scheduledParentalRatingValue);
                     if (parentalRatingRow == null)
                     {
                         message = "ko - No probe data";
                         checkProbeData = -1;
                     }
-                    else if (mediatorRow != null)
+                    else
                     {
-                        delta = parentalRatingRow.TimeStamp.Ticks - mediatorRow.StartTime.Ticks;
+                        delta = parentalRatingRow.TimeStamp.Ticks - scheduledParentalRatingStartTime.Ticks;
+                    }
+
+                    if ((lastInsertedRow == null || lastInsertedRow.ParentalRatingRow == null || parentalRatingRow == null ||
+                        lastInsertedRow.ParentalRatingRow.ParentalRating != parentalRatingRow.ParentalRating) &&
+                        (delta > 30000000 || delta < -30000000))
+                    {
+                        var deltaInSeconds = delta / 1000000;
+                        message = "warn - high delta (" + deltaInSeconds + " s)";
                     }
                     else
                     {
-                        delta = parentalRatingRow.TimeStamp.Ticks - whatsonRow.StartTime.Ticks;
-                    }
-
-                    if (delta > 30000 || delta < -30000)
-                    {
-                        message = "warn - high delta";
+                        // In this case maybe there is a problem with mediator, but on the mux everything is ok
+                        message = "ok";
                     }
                 }
 
-                resultList.Add(new ParentalRatingCheckEntry
+                lastInsertedRow = new ParentalRatingCheckEntry
                 {
                     Channel = channel,
                     Mux = mux,
@@ -91,27 +81,49 @@
                     MuxTime = parentalRatingRow?.TimeStamp,
                     CheckResult = message,
                     Delta = delta,
-                });
+                };
+
+                if (timestamp < DateTime.Today)
+                {
+                    // Filter out yesterday and before
+                    continue;
+                }
+
+                if (timestamp > DateTime.Today.AddDays(2))
+                {
+                    // Filter out the day after tomorrow
+                    continue;
+                }
+
+                resultList.Add(lastInsertedRow);
             }
 
             return resultList;
         }
 
-        private static ParentalRatingRow ExtractParentalRatingFromProbe(List<ParentalRatingRow> parentalRatingEvents, DateTime timestamp, string parentalRatingValue)
+        private static ParentalRatingRow ExtractParentalRatingFromProbe(List<ParentalRatingRow> parentalRatingEvents, DateTime scheduledTimestamp, string parentalRatingValue)
         {
+            var currentPr = (parentalRatingEvents.First()?.ParentalRating ?? 0).ToString();
             for (int i = 0; i < parentalRatingEvents.Count; i++)
             {
-                if (parentalRatingEvents[i].TimeStamp >= timestamp)
+                if (parentalRatingEvents[i].TimeStamp >= scheduledTimestamp)
                 {
-                    if (parentalRatingValue == parentalRatingEvents[i].ParentalRating.ToString())
+                    if (parentalRatingValue == currentPr && i > 0)
+                    {
+                        return parentalRatingEvents[i-1];
+                    }
+                    else if (parentalRatingValue == parentalRatingEvents[i].ParentalRating.ToString())
                     {
                         return parentalRatingEvents[i];
                     }
-                    else if (i > 0 && parentalRatingValue == parentalRatingEvents[i - 1].ParentalRating.ToString())
-                    {
-                        return parentalRatingEvents[i - 1];
-                    }
                 }
+
+                currentPr = parentalRatingEvents[i].ParentalRating.ToString();
+            }
+
+            if(currentPr == parentalRatingValue)
+            {
+                return parentalRatingEvents[parentalRatingEvents.Count - 1];
             }
 
             return null;
