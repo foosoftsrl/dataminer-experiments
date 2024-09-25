@@ -58,7 +58,8 @@
                         lastInsertedRow.ParentalRatingRow.ParentalRating != parentalRatingRow.ParentalRating) &&
                         (delta > 30000000 || delta < -30000000))
                     {
-                        message = "warn - high delta (" + delta + ")";
+                        var deltaInSeconds = delta / 1000000;
+                        message = "warn - high delta (" + deltaInSeconds + " s)";
                     }
                     else
                     {
