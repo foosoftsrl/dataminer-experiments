@@ -29,29 +29,47 @@ public class QAction
     private EnablerSource enablerSource = new EnablerSource();
     private ParentalRatingSource parentalRatingSource = new ParentalRatingSource();
 
+    private List<MediatorRow> mediatorState = null;
+
     public async Task Run(SLProtocolExt protocol)
     {
-        protocol.Iterationcounter = (double)protocol.Iterationcounter + 1;
+        double iterationCounter = (double)protocol.Iterationcounter + 1;
+        protocol.Iterationcounter = iterationCounter;
+        protocol.Log($"{iterationCounter} - Starting updating channel");
         try
         {
+            protocol.Log($"{iterationCounter} - Updating AdSales");
             var adSalesData = ReadAdSalesData(protocol);        // Complete AdSales data
             protocol.PublishAdsalesTable(adSalesData);
+            protocol.Log($"{iterationCounter} - Finished updating AdSales");
 
+            protocol.Log($"{iterationCounter} - Updating WON");
             var whatsonData = ReadWhatsonData(protocol);
             protocol.PublishWhatsonTable(whatsonData);
+            protocol.Log($"{iterationCounter} - Finished updating WON");
 
+            protocol.Log($"{iterationCounter} - Updating Mediator");
             var mediatorData = await ReadMediatorData(protocol);
+            mediatorState = mediatorData;
             protocol.PublishMediatorTable(mediatorData);
+            protocol.Log($"{iterationCounter} - Finished updating Mediator");
 
+            protocol.Log($"{iterationCounter} - Updating EnablerLegacy");
             var legacy = await ReadEnablerLegacy(protocol);
             protocol.PublishEnablerLegacyTable(legacy);
+            protocol.Log($"{iterationCounter} - Finished updating EnablerLegacy");
 
+            protocol.Log($"{iterationCounter} - Updating SCTE");
             var scte = await ReadEnablerScte(protocol);
             protocol.PublishScteTable(scte);
+            protocol.Log($"{iterationCounter} - Finished updating SCTE");
 
+            protocol.Log($"{iterationCounter} - Updating TA Check");
             var mergedRows = TaCheckProcessor.Compute(adSalesData, whatsonData, mediatorData, scte, legacy, protocol.ChannelTitle(), protocol.MuxName());
             protocol.PublishTaCheckTable(mergedRows);
+            protocol.Log($"{iterationCounter} - Finished updating TA Check");
 
+            protocol.Log($"{iterationCounter} - Updating XPrint");
             var adSalesDataNoPush = adSalesData.FindAll(row => row.Enabler != "P");
             var whatsonDataSpot = whatsonData.FilterSpots();
             var mediatorDataSpot = mediatorData.FilterSpots().OrderBy(row => row.StartTime).ToList();
@@ -63,12 +81,17 @@ public class QAction
             protocol.PublishMediatorWonDiffTable(wonMediatorDiff);
 
             protocol.PublishAlarmBoxData(adSalesDataNoPush, whatsonDataSpot, mediatorDataSpot, adsalesWonDiff, wonMediatorDiff);
+            protocol.Log($"{iterationCounter} - Finished updating XPrint");
 
+            protocol.Log($"{iterationCounter} - Updating Parental Rating");
             var parental = await ReadParentalRating(protocol);
             protocol.PublishParentalRatingTable(parental);
+            protocol.Log($"{iterationCounter} - Finished updating Parental Rating");
 
+            protocol.Log($"{iterationCounter} - Updating Parental Rating Check");
             var parentalCheck = ParentalRatingProcessor.Compute(whatsonData, mediatorData, parental, protocol.ChannelTitle(), protocol.MuxName());
             protocol.PublishParentalRatingCheckTable(parentalCheck);
+            protocol.Log($"{iterationCounter} - Finished updating Parental Rating Check");
 
             protocol.Mergeddebugmsg = $"Everything ok!";
         }
@@ -76,6 +99,8 @@ public class QAction
         {
             protocol.Mergeddebugmsg = $"Exception {e.Message} ${e.StackTrace.Substring(0,200)}";
         }
+
+        protocol.Log("Finished updating channel");
     }
 
     public async Task<List<EnablerRow>> ReadEnablerLegacy(SLProtocolExt protocol)
@@ -116,7 +141,7 @@ public class QAction
         string dir = @"\\winfs01.mediaset.it\DM_Watchfolder\WON";
         try
         {
-            var rows = whatsonSource.ReadWhatson(channelName, dir);
+            var rows = whatsonSource.ReadWhatson(channelName, dir, protocol);
             protocol.Wondebugmsg = $"Read {rows.Count} columns";
             return rows;
         }
@@ -158,31 +183,38 @@ public class QAction
         var result = new List<MediatorRow>();
         try
         {
-            var count = protocol.mediator.RowCount;
-            for(var idx = 0; idx < count; idx++)
+            if (mediatorState == null)
             {
-                var data = (object[])protocol.GetRow(Parameter.Mediator.tablePid, idx);
-                var row = new MediatorQActionRow(data);
-                result.Add(new MediatorRow
+                var count = protocol.mediator.RowCount;
+                for (var idx = 0; idx < count; idx++)
                 {
-                    Id = Int32.Parse((string)row.Mediatorid),
-                    ScheduleReference = NullIfEmpty((string)row.Mediatorschedulereference),
-                    ReconcileKey = NullIfEmpty((string)row.Mediatorreconcilekey),
-                    StartTime = DateTime.Parse((string)row.Mediatordate),
-                    Title = NullIfEmpty((string)row.Mediatortitle),
-                    Status = NullIfEmpty((string)row.Mediatorstatus),
-                    ScteBroadcastBreakStart = NullIfEmpty((string)row.Mediatorsctebreakstart),
-                    ScteBroadcastProviderAdvStart = NullIfEmpty((string)row.Mediatorscteadvstart),
-                    ScteBroadcastProviderOverlayPlacementStart = NullIfEmpty((string)row.Mediatorsctebroadcastprovideroverlayplacementstart),
-                    ScteBroadcastProviderOverlayPlacementEnd = NullIfEmpty((string)row.Mediatorsctebroadcastprovideroverlayplacementend),
-                    EnablerLegacy = NullIfEmpty((string)row.Mediatorenablerlegacy),
-                    MaterialId = NullIfEmpty((string)row.Mediatormaterialid),
-                    ParentalRatingValue = NullIfEmpty((string)row.Mediatorparentalrating),
-                    EnablerLegacyOffset = NullIfEmpty((string)row.Mediatorenableroffset),
-                });
+                    var data = (object[])protocol.GetRow(Parameter.Mediator.tablePid, idx);
+                    var row = new MediatorQActionRow(data);
+                    result.Add(new MediatorRow
+                    {
+                        Id = Int32.Parse((string)row.Mediatorid),
+                        ScheduleReference = NullIfEmpty((string)row.Mediatorschedulereference),
+                        ReconcileKey = NullIfEmpty((string)row.Mediatorreconcilekey),
+                        StartTime = DateTime.Parse((string)row.Mediatordate),
+                        Title = NullIfEmpty((string)row.Mediatortitle),
+                        Status = NullIfEmpty((string)row.Mediatorstatus),
+                        ScteBroadcastBreakStart = NullIfEmpty((string)row.Mediatorsctebreakstart),
+                        ScteBroadcastProviderAdvStart = NullIfEmpty((string)row.Mediatorscteadvstart),
+                        ScteBroadcastProviderOverlayPlacementStart = NullIfEmpty((string)row.Mediatorsctebroadcastprovideroverlayplacementstart),
+                        ScteBroadcastProviderOverlayPlacementEnd = NullIfEmpty((string)row.Mediatorsctebroadcastprovideroverlayplacementend),
+                        EnablerLegacy = NullIfEmpty((string)row.Mediatorenablerlegacy),
+                        MaterialId = NullIfEmpty((string)row.Mediatormaterialid),
+                        ParentalRatingValue = NullIfEmpty((string)row.Mediatorparentalrating),
+                        EnablerLegacyOffset = NullIfEmpty((string)row.Mediatorenableroffset),
+                    });
+                }
+            }
+            else
+            {
+                result = mediatorState;
             }
         }
-        catch(Exception ex)
+        catch (Exception ex)
         {
             protocol.Log($"QA{protocol.QActionID}|{protocol.GetTriggerParameter()}|Run|Exception thrown:{Environment.NewLine}{ex}", LogType.Error, LogLevel.NoLogging);
         }
