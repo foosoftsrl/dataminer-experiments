@@ -1,7 +1,6 @@
 ﻿namespace QAction_5
 {
     using System;
-    using System.Collections;
     using System.Collections.Generic;
     using System.IO;
     using System.Linq;
@@ -89,13 +88,14 @@
             return merged;
         }
 
-        public async Task<List<MediatorRow>> ReadMediator(string uri, string channelName, int maxResults)
+        public async Task<List<MediatorRow>> ReadMediator(string uri, string channelName, int maxResults, SLProtocolExt protocol)
         {
-            var obj = await ReadMediatorRaw(uri, channelName, maxResults);
+            var obj = await ReadMediatorRaw(uri, channelName, maxResults, protocol);
+            protocol.Log($"Marshalled response");
             return obj.Flatten();
         }
 
-        public async Task<Mediator.Welcome> ReadMediatorRaw(string uri, string channelName, int maxResults)
+        public async Task<Mediator.Welcome> ReadMediatorRaw(string uri, string channelName, int maxResults, SLProtocolExt protocol)
         {
             string sessionKey = "A-VDRFtKctjLhGR3wMmoITydeAeNjhME";
             string cqlQuery = $"select parcel.templateparameterlist sequence.startdatetime sequence.id sequence.duration sequence.schedulereference parcel.title event.trimmaterialid event.infaderate event.intransitionname sequence.state status from '{channelName}' where maxresults = {maxResults} and event.stream in ('Main Video')";
@@ -125,13 +125,15 @@
                 },
             };
             string message = JsonConvert.SerializeObject(payload);
+            protocol.Log($"Created message {message}");
 
-            string jsonData = await SendMessageAndWaitForResponseAsync(uri, message);
+            string jsonData = await SendMessageAndWaitForResponseAsync(uri, message, protocol);
+            protocol.Log($"Received response {jsonData}");
 
             return JsonConvert.DeserializeObject<Mediator.Welcome>(jsonData, Mediator.Converter.Settings);
         }
 
-        private static async Task<string> SendMessageAndWaitForResponseAsync(string uri, string message)
+        private static async Task<string> SendMessageAndWaitForResponseAsync(string uri, string message, SLProtocolExt protocol)
         {
             if (!uri.StartsWith("ws://") && !uri.StartsWith("wss://"))
             {
@@ -146,13 +148,13 @@
 
                 try
                 {
-                    Console.WriteLine($"Connecting to {uri}...");
+                    protocol.Log($"Connecting to {uri}...");
                     await clientWebSocket.ConnectAsync(new Uri(uri), CancellationToken.None);
-                    Console.WriteLine("Connected!");
+                    protocol.Log("Connected!");
 
                     var bytesToSend = Encoding.UTF8.GetBytes(message);
                     await clientWebSocket.SendAsync(new ArraySegment<byte>(bytesToSend), WebSocketMessageType.Text, true, CancellationToken.None);
-                    Console.WriteLine("Message sent!");
+                    protocol.Log("Message sent!");
 
                     string receivedMessage = string.Empty;
                     bool isExpectedMessage = false;
@@ -171,7 +173,7 @@
                         while (!receiveResult.EndOfMessage);
 
                         receivedMessage = Encoding.UTF8.GetString(buffer.ToArray());
-                        Console.WriteLine($"Message received: {receivedMessage}");
+                        protocol.Log($"Message received: {receivedMessage}");
 
                         // Check if the received message is the expected one
                         if (IsExpectedMessage(receivedMessage))
@@ -181,33 +183,33 @@
                     }
 
                     await clientWebSocket.CloseOutputAsync(WebSocketCloseStatus.NormalClosure, "Closing", CancellationToken.None);
-                    Console.WriteLine("Connection closed.");
+                    protocol.Log("Connection closed.");
 
                     return receivedMessage;
                 }
                 catch (WebSocketException wse)
                 {
-                    Console.WriteLine($"WebSocket error: {wse.Message}");
+                    protocol.Log($"WebSocket error: {wse.Message}");
                     throw;
                 }
                 catch (WebException we)
                 {
-                    Console.WriteLine($"Web error: {we.Message}");
+                    protocol.Log($"Web error: {we.Message}");
                     throw;
                 }
                 catch (IOException ioe)
                 {
-                    Console.WriteLine($"IO error: {ioe.Message}");
+                    protocol.Log($"IO error: {ioe.Message}");
                     throw;
                 }
                 catch (SocketException se)
                 {
-                    Console.WriteLine($"Socket error: {se.Message}");
+                    protocol.Log($"Socket error: {se.Message}");
                     throw;
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"WebSocket error: {ex.Message}");
+                    protocol.Log($"WebSocket error: {ex.Message}");
                     throw;
                 }
             }

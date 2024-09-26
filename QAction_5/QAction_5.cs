@@ -31,7 +31,32 @@ public class QAction
 
     private List<MediatorRow> mediatorState = null;
 
+    private int counter = 0;
+
     public async Task Run(SLProtocolExt protocol)
+    {
+        try
+        {
+            if (Interlocked.Increment(ref counter) == 1)
+            {
+                protocol.Log("Acquired monitor");
+                await DoRun(protocol);
+            }
+            else
+            {
+                // The lock was not acquired. Do nothing
+                protocol.Log("Monitor is busy");
+            }
+        }
+        finally
+        {
+            // Ensure that the lock is released.
+            Interlocked.Decrement(ref counter);
+            protocol.Log("Released monitor");
+        }
+    }
+
+    public async Task DoRun(SLProtocolExt protocol)
     {
         double iterationCounter = (double)protocol.Iterationcounter + 1;
         protocol.Iterationcounter = iterationCounter;
@@ -51,7 +76,9 @@ public class QAction
             protocol.Log($"{iterationCounter} - Updating Mediator");
             var mediatorData = await ReadMediatorData(protocol);
             mediatorState = mediatorData;
+            protocol.Log($"{iterationCounter} - Saving Mediator data");
             protocol.PublishMediatorTable(mediatorData);
+            protocol.Log($"{iterationCounter} - Finished saving Mediator data");
             protocol.Log($"{iterationCounter} - Finished updating Mediator");
 
             protocol.Log($"{iterationCounter} - Updating EnablerLegacy");
@@ -100,7 +127,7 @@ public class QAction
             protocol.Mergeddebugmsg = $"Exception {e.Message} ${e.StackTrace.Substring(0,200)}";
         }
 
-        protocol.Log("Finished updating channel");
+        protocol.Log($"{iterationCounter} - Finished updating channel");
     }
 
     public async Task<List<EnablerRow>> ReadEnablerLegacy(SLProtocolExt protocol)
@@ -185,6 +212,7 @@ public class QAction
         {
             if (mediatorState == null)
             {
+                protocol.Log("Loading Mediator Table from DB");
                 var count = protocol.mediator.RowCount;
                 for (var idx = 0; idx < count; idx++)
                 {
@@ -225,13 +253,16 @@ public class QAction
     public async Task<List<MediatorRow>> ReadMediatorData(SLProtocolExt protocol)
     {
         var lastPublished = GetLastPublishedMediator(protocol);
+        protocol.Log("Retrieved Mediator state");
         try
         {
             string uri = protocol.GetRequiredNonEmptyStringParameter(Parameter.urimediator);
             string channelName = protocol.ChannelName();
             int maxResults = protocol.GetRequiredIntParameter(Parameter.maxresultsmediator);
-            var parsed = await mediatorSource.ReadMediator(uri, channelName, maxResults);
+            var parsed = await mediatorSource.ReadMediator(uri, channelName, maxResults, protocol);
+            protocol.Log("Retrieved Mediator from remote API");
             var merged = mediatorSource.Merge(lastPublished, parsed);
+            protocol.Log("Merged Mediator data");
             protocol.Mediatordebugmsg = $"State {lastPublished.Count}, Parsed {parsed.Count} Merged {merged.Count} lines";
             return merged;
         }
