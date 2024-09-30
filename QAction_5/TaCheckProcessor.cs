@@ -17,12 +17,14 @@
                 var contentReconcileKey = adSalesRow.ReconcileKey;
                 WhatsonRow whatsonRow;
                 MediatorRow mediatorRow;
+                int secondaryEventIndex = 0;
                 if (adSalesRow.Enabler == "P")
                 {
                     // PUSH events may be scheduled in any event near the request...
                     // let's look for a matching one
                     whatsonRow = whatsonData.Find(s => s.EnablerLegacy?.Contains(adSalesRow.BreakId) ?? false);
                     mediatorRow = mediatorData.Find(s => s.EnablerLegacy?.Contains(adSalesRow.BreakId) ?? false);
+                    secondaryEventIndex = GetElementIndexFromStringArray(mediatorRow?.EnablerLegacy, adSalesRow.BreakId);
                 }
                 else if(adSalesRow.Enabler == "E" || adSalesRow.Enabler == "X")
                 {
@@ -34,8 +36,6 @@
                 {
                     continue;
                 }
-
-                int secondaryEventIndex = GetElementIndexFromStringArray(mediatorRow?.EnablerLegacy, adSalesRow.BreakId);
 
                 var scteBroadcastBreakStart = scteMap.GetValueOrDefault("SUPER_LOAD:" + GetElementFromStringArray(mediatorRow?.ScteBroadcastBreakStart, secondaryEventIndex), null);
                 var scteBroadcastProviderAdvStart = scteMap.GetValueOrDefault("AD_START:" + GetElementFromStringArray(mediatorRow?.ScteBroadcastProviderAdvStart, secondaryEventIndex), null);
