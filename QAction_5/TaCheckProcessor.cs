@@ -35,14 +35,16 @@
                     continue;
                 }
 
-                var scteBroadcastBreakStart = scteMap.GetValueOrDefault("SUPER_LOAD:" + mediatorRow?.ScteBroadcastBreakStart, null);
-                var scteBroadcastProviderAdvStart = scteMap.GetValueOrDefault("AD_START:" + mediatorRow?.ScteBroadcastProviderAdvStart, null);
-                var scteBroadcastProviderOverlayPlacementStart = scteMap.GetValueOrDefault("START:" + mediatorRow?.ScteBroadcastProviderOverlayPlacementStart, null);
-                var scteBroadcastProviderOverlayPlacementEnd = scteMap.GetValueOrDefault("STOP:" + mediatorRow?.ScteBroadcastProviderOverlayPlacementEnd, null);
+                int secondaryEventIndex = GetElementIndexFromStringArray(mediatorRow?.EnablerLegacy, adSalesRow.BreakId);
 
-                var legacyEventLoad = legacyMap.GetValueOrDefault("LOAD:" + mediatorRow?.EnablerLegacy, null);
-                var legacyEventStart = legacyMap.GetValueOrDefault("START:" + mediatorRow?.EnablerLegacy, null);
-                var legacyEventStop = legacyMap.GetValueOrDefault("STOP:" + mediatorRow?.EnablerLegacy, null);
+                var scteBroadcastBreakStart = scteMap.GetValueOrDefault("SUPER_LOAD:" + GetElementFromStringArray(mediatorRow?.ScteBroadcastBreakStart, secondaryEventIndex), null);
+                var scteBroadcastProviderAdvStart = scteMap.GetValueOrDefault("AD_START:" + GetElementFromStringArray(mediatorRow?.ScteBroadcastProviderAdvStart, secondaryEventIndex), null);
+                var scteBroadcastProviderOverlayPlacementStart = scteMap.GetValueOrDefault("START:" + GetElementFromStringArray(mediatorRow?.ScteBroadcastProviderOverlayPlacementStart, secondaryEventIndex), null);
+                var scteBroadcastProviderOverlayPlacementEnd = scteMap.GetValueOrDefault("STOP:" + GetElementFromStringArray(mediatorRow?.ScteBroadcastProviderOverlayPlacementEnd, secondaryEventIndex), null);
+
+                var legacyEventLoad = legacyMap.GetValueOrDefault("LOAD:" + GetElementFromStringArray(mediatorRow?.EnablerLegacy, secondaryEventIndex), null);
+                var legacyEventStart = legacyMap.GetValueOrDefault("START:" + GetElementFromStringArray(mediatorRow?.EnablerLegacy, secondaryEventIndex), null);
+                var legacyEventStop = legacyMap.GetValueOrDefault("STOP:" + GetElementFromStringArray(mediatorRow?.EnablerLegacy, secondaryEventIndex), null);
 
                 int result = 0;
                 string message = string.Empty;
@@ -65,10 +67,9 @@
                     onairTime = mediatorRow.StartTime;
                     if(mediatorRow.EnablerLegacyOffset != null)
                     {
-                        int secondaryEventIndex = Array.IndexOf(mediatorRow.EnablerLegacy.Split(';'), adSalesRow.BreakId);
                         if (secondaryEventIndex >= 0)
                         {
-                            onairTime = onairTime?.Add(DateTime.ParseExact(mediatorRow.EnablerLegacyOffset.Split(';')[secondaryEventIndex], "HH:mm:ss:ff", null).TimeOfDay);
+                            onairTime = onairTime?.Add(DateTime.ParseExact(GetElementFromStringArray(mediatorRow.EnablerLegacyOffset, secondaryEventIndex), "HH:mm:ss:ff", null).TimeOfDay);
                         }
                     }
 
@@ -147,6 +148,27 @@
             }
 
             return rowList.ToArray();
+        }
+
+        private static int GetElementIndexFromStringArray(string arrayString, string element)
+        {
+            if (arrayString == null || element == null)
+            {
+                return -1;
+            }
+
+            return Array.IndexOf(arrayString.Split(';'), element);
+        }
+
+        private static string GetElementFromStringArray(string arrayString, int index)
+        {
+            if (arrayString == null || index == -1)
+            {
+                return null;
+            }
+
+            string[] array = arrayString.Split(';');
+            return array[index];
         }
     }
 }
