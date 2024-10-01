@@ -70,7 +70,7 @@ namespace QAction5Tests
             Assert.AreEqual("urn:uuid:0119932622", firstEnhancement.WhatsonData.ScteBroadcastProviderOverlayPlacementEnd);
 
             var firstPush = taCheckRows.First(s => s.AdSalesData.TimeAllocationType == "PUSH");
-            Assert.AreEqual(firstPush.AdSalesData.ReconcileKey, string.Empty);
+            Assert.AreEqual("P0061063068", firstPush.AdSalesData.ReconcileKey);
             Assert.AreEqual("P0061063068", firstPush.AdSalesData.BreakId);
             Assert.AreEqual("P0061063068", firstPush.WhatsonData.EnablerLegacy);
             Assert.AreEqual("urn:uuid:P0061063068", firstPush.WhatsonData.ScteBroadcastProviderOverlayPlacementStart);

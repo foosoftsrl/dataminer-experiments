@@ -29,6 +29,9 @@
     <None Update="AdSales_LB_20240718_20240719002821.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="B6_Schedule_2024-09-30_0007_0535_-_3002.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="LB_20240725_20240725002932.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

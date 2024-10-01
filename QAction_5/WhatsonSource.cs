@@ -12,19 +12,19 @@
 
     public class WhatsonSource
     {
-        public List<WhatsonRow> ReadWhatson(string channelName, string dir)
+        public List<WhatsonRow> ReadWhatson(string channelName, string dir, SLProtocolExt protocol)
         {
-            return ReadWhatson(channelName, dir, DateTime.Now);
+            return ReadWhatson(channelName, dir, DateTime.Now, protocol);
         }
 
-        public List<WhatsonRow> ReadWhatson(string channelName, string dir, DateTime firstDay)
+        public List<WhatsonRow> ReadWhatson(string channelName, string dir, DateTime firstDay, SLProtocolExt protocol)
         {
             var date = firstDay;
             var result = new List<WhatsonRow>();
             for (var i = -1; i < 4; i++)
             {
                 string day = date.AddDays(i).ToString("yyyy-MM-dd");
-                var partialResult = ReadWhatson(channelName, dir, day);
+                var partialResult = ReadWhatson(channelName, dir, day, protocol);
                 foreach (var row in partialResult)
                 {
                     row.DayOffset = i;
@@ -36,7 +36,7 @@
             return result;
         }
 
-        public List<WhatsonRow> ReadWhatson(string channelName, string dir, String date)
+        public List<WhatsonRow> ReadWhatson(string channelName, string dir, String date, SLProtocolExt protocol)
         {
             string[] files = Directory.GetFiles(dir, $"{channelName}_Schedule_{date}_*.xml");
 
@@ -50,6 +50,7 @@
                 .First();
             try
             {
+                protocol.Log("WON - Reading file " + latestFile);
                 return Utils.XmlDeserializeFromFile<Whatson.Pharos>(latestFile).Flatten();
             }
             catch(Exception ex)
