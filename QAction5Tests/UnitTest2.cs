@@ -80,5 +80,12 @@ namespace QAction5Tests
             errorEntry = merged[1];
             Assert.AreEqual("missing scte adv start\n", errorEntry.Message);
         }
+
+        [TestMethod]
+        public void TestParsingWonWithPreviousBlockNameEmpty()
+        {
+            var whatsonData = Utils.XmlDeserializeFromFile<Whatson.Pharos>("B6_Schedule_2024-09-30_0007_0535_-_3002.xml").Flatten();
+            Assert.AreEqual(778, whatsonData.Count());
+        }
     }
 }

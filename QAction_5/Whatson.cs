@@ -230,7 +230,7 @@ namespace Whatson
 
         private uint blockNameField;
 
-        private uint previousBlockNameField;
+        private string previousBlockNameField;
 
         private PharosPlaylistBlockPlaylistItem[] playlistItemField;
 
@@ -248,7 +248,7 @@ namespace Whatson
         }
 
         /// <remarks/>
-        public uint PreviousBlockName
+        public string PreviousBlockName
         {
             get
             {
